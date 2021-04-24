@@ -27,40 +27,40 @@ def cf_print(cli_ctx, *_):
 
 
 def cf_print_printer(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).print_printer
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_printers
 
 
 def cf_print_printer_task_trigger(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).print_printer_task_trigger
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_printers_task_triggers
 
 
 def cf_print_printer_share(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).print_printer_share
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_printer_shares
 
 
 def cf_print_printer_share_printer(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).print_printer_share_printer
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_printer_shares_printer
 
 
 def cf_print_report(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).print_report
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_reports
 
 
 def cf_print_service(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).print_service
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_services
 
 
 def cf_print_share(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).print_share
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_shares
 
 
 def cf_print_share_printer(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).print_share_printer
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_shares_printer
 
 
 def cf_print_task_definition(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).print_task_definition
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_task_definitions
 
 
 def cf_print_task_definition_task(cli_ctx, *_):
-    return cf_devicescloudprint_beta_cl(cli_ctx).print_task_definition_task
+    return cf_devicescloudprint_beta_cl(cli_ctx).print_task_definitions_tasks

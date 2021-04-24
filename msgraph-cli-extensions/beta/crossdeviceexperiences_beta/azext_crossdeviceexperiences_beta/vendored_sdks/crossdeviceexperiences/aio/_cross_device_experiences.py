@@ -16,21 +16,21 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import CrossDeviceExperiencesConfiguration
-from .operations import UserOperations
-from .operations import UserActivityOperations
-from .operations import UserActivityHistoryItemOperations
+from .operations import UsersOperations
+from .operations import UsersActivitiesOperations
+from .operations import UsersActivitiesHistoryItemsOperations
 from .. import models
 
 
 class CrossDeviceExperiences(object):
     """CrossDeviceExperiences.
 
-    :ivar user: UserOperations operations
-    :vartype user: cross_device_experiences.aio.operations.UserOperations
-    :ivar user_activity: UserActivityOperations operations
-    :vartype user_activity: cross_device_experiences.aio.operations.UserActivityOperations
-    :ivar user_activity_history_item: UserActivityHistoryItemOperations operations
-    :vartype user_activity_history_item: cross_device_experiences.aio.operations.UserActivityHistoryItemOperations
+    :ivar users: UsersOperations operations
+    :vartype users: cross_device_experiences.aio.operations.UsersOperations
+    :ivar users_activities: UsersActivitiesOperations operations
+    :vartype users_activities: cross_device_experiences.aio.operations.UsersActivitiesOperations
+    :ivar users_activities_history_items: UsersActivitiesHistoryItemsOperations operations
+    :vartype users_activities_history_items: cross_device_experiences.aio.operations.UsersActivitiesHistoryItemsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -67,11 +67,11 @@ class CrossDeviceExperiences(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_activity = UserActivityOperations(
+        self.users_activities = UsersActivitiesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_activity_history_item = UserActivityHistoryItemOperations(
+        self.users_activities_history_items = UsersActivitiesHistoryItemsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

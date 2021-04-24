@@ -6,16 +6,16 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._booking_business_booking_business_operations import BookingBusinessBookingBusinessOperations
-from ._booking_business_operations import BookingBusinessOperations
-from ._booking_business_appointment_operations import BookingBusinessAppointmentOperations
-from ._booking_business_calendar_view_operations import BookingBusinessCalendarViewOperations
-from ._booking_currency_booking_currency_operations import BookingCurrencyBookingCurrencyOperations
+from ._booking_businesses_booking_business_operations import BookingBusinessesBookingBusinessOperations
+from ._booking_businesses_operations import BookingBusinessesOperations
+from ._booking_businesses_appointments_operations import BookingBusinessesAppointmentsOperations
+from ._booking_businesses_calendar_view_operations import BookingBusinessesCalendarViewOperations
+from ._booking_currencies_booking_currency_operations import BookingCurrenciesBookingCurrencyOperations
 
 __all__ = [
-    'BookingBusinessBookingBusinessOperations',
-    'BookingBusinessOperations',
-    'BookingBusinessAppointmentOperations',
-    'BookingBusinessCalendarViewOperations',
-    'BookingCurrencyBookingCurrencyOperations',
+    'BookingBusinessesBookingBusinessOperations',
+    'BookingBusinessesOperations',
+    'BookingBusinessesAppointmentsOperations',
+    'BookingBusinessesCalendarViewOperations',
+    'BookingCurrenciesBookingCurrencyOperations',
 ]

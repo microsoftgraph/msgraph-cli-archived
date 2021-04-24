@@ -17,7 +17,7 @@ from azext_schemaextensions_beta.generated._client_factory import cf_schema_exte
 
 
 schemaextensions_beta_schema_extension_schema_extension = CliCommandType(
-    operations_tmpl='azext_schemaextensions_beta.vendored_sdks.schemaextensions.operations._schema_extension_schema_extension_operations#SchemaExtensionSchemaExtensionOperations.{}',
+    operations_tmpl='azext_schemaextensions_beta.vendored_sdks.schemaextensions.operations._schema_extensions_schema_extension_operations#SchemaExtensionsSchemaExtensionOperations.{}',
     client_factory=cf_schema_extension_schema_extension,
 )
 

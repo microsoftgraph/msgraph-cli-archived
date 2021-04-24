@@ -24,41 +24,41 @@ from azext_applications_v1_0.generated._client_factory import (
 
 
 applications_v1_0_application_application = CliCommandType(
-    operations_tmpl='azext_applications_v1_0.vendored_sdks.applications.operations._application_application_operations#ApplicationApplicationOperations.{}',
+    operations_tmpl='azext_applications_v1_0.vendored_sdks.applications.operations._applications_application_operations#ApplicationsApplicationOperations.{}',
     client_factory=cf_application_application,
 )
 
 
 applications_v1_0_application = CliCommandType(
-    operations_tmpl=(
-        'azext_applications_v1_0.vendored_sdks.applications.operations._application_operations#ApplicationOperations.{}'
-    ),
+    operations_tmpl='azext_applications_v1_0.vendored_sdks.applications.operations._applications_operations#ApplicationsOperations.{}',
     client_factory=cf_application,
 )
 
 
 applications_v1_0_group = CliCommandType(
     operations_tmpl=(
-        'azext_applications_v1_0.vendored_sdks.applications.operations._group_operations#GroupOperations.{}'
+        'azext_applications_v1_0.vendored_sdks.applications.operations._groups_operations#GroupsOperations.{}'
     ),
     client_factory=cf_group,
 )
 
 
 applications_v1_0_service_principal_service_principal = CliCommandType(
-    operations_tmpl='azext_applications_v1_0.vendored_sdks.applications.operations._service_principal_service_principal_operations#ServicePrincipalServicePrincipalOperations.{}',
+    operations_tmpl='azext_applications_v1_0.vendored_sdks.applications.operations._service_principals_service_principal_operations#ServicePrincipalsServicePrincipalOperations.{}',
     client_factory=cf_service_principal_service_principal,
 )
 
 
 applications_v1_0_service_principal = CliCommandType(
-    operations_tmpl='azext_applications_v1_0.vendored_sdks.applications.operations._service_principal_operations#ServicePrincipalOperations.{}',
+    operations_tmpl='azext_applications_v1_0.vendored_sdks.applications.operations._service_principals_operations#ServicePrincipalsOperations.{}',
     client_factory=cf_service_principal,
 )
 
 
 applications_v1_0_user = CliCommandType(
-    operations_tmpl='azext_applications_v1_0.vendored_sdks.applications.operations._user_operations#UserOperations.{}',
+    operations_tmpl=(
+        'azext_applications_v1_0.vendored_sdks.applications.operations._users_operations#UsersOperations.{}'
+    ),
     client_factory=cf_user,
 )
 

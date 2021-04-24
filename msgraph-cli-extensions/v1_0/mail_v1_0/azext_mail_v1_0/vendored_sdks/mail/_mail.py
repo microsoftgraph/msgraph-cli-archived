@@ -18,27 +18,27 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import MailConfiguration
-from .operations import UserOperations
-from .operations import UserInferenceClassificationOperations
-from .operations import UserMailFolderOperations
-from .operations import UserMailFolderMessageOperations
-from .operations import UserMessageOperations
+from .operations import UsersOperations
+from .operations import UsersInferenceClassificationOperations
+from .operations import UsersMailFoldersOperations
+from .operations import UsersMailFoldersMessagesOperations
+from .operations import UsersMessagesOperations
 from . import models
 
 
 class Mail(object):
     """Mail.
 
-    :ivar user: UserOperations operations
-    :vartype user: mail.operations.UserOperations
-    :ivar user_inference_classification: UserInferenceClassificationOperations operations
-    :vartype user_inference_classification: mail.operations.UserInferenceClassificationOperations
-    :ivar user_mail_folder: UserMailFolderOperations operations
-    :vartype user_mail_folder: mail.operations.UserMailFolderOperations
-    :ivar user_mail_folder_message: UserMailFolderMessageOperations operations
-    :vartype user_mail_folder_message: mail.operations.UserMailFolderMessageOperations
-    :ivar user_message: UserMessageOperations operations
-    :vartype user_message: mail.operations.UserMessageOperations
+    :ivar users: UsersOperations operations
+    :vartype users: mail.operations.UsersOperations
+    :ivar users_inference_classification: UsersInferenceClassificationOperations operations
+    :vartype users_inference_classification: mail.operations.UsersInferenceClassificationOperations
+    :ivar users_mail_folders: UsersMailFoldersOperations operations
+    :vartype users_mail_folders: mail.operations.UsersMailFoldersOperations
+    :ivar users_mail_folders_messages: UsersMailFoldersMessagesOperations operations
+    :vartype users_mail_folders_messages: mail.operations.UsersMailFoldersMessagesOperations
+    :ivar users_messages: UsersMessagesOperations operations
+    :vartype users_messages: mail.operations.UsersMessagesOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -76,15 +76,15 @@ class Mail(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_inference_classification = UserInferenceClassificationOperations(
+        self.users_inference_classification = UsersInferenceClassificationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_mail_folder = UserMailFolderOperations(
+        self.users_mail_folders = UsersMailFoldersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_mail_folder_message = UserMailFolderMessageOperations(
+        self.users_mail_folders_messages = UsersMailFoldersMessagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_message = UserMessageOperations(
+        self.users_messages = UsersMessagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

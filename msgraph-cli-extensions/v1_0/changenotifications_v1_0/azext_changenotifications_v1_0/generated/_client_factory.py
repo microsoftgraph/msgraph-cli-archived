@@ -19,4 +19,4 @@ def cf_changenotifications_v1_0_cl(cli_ctx, *_):
 
 
 def cf_subscription_subscription(cli_ctx, *_):
-    return cf_changenotifications_v1_0_cl(cli_ctx).subscription_subscription
+    return cf_changenotifications_v1_0_cl(cli_ctx).subscriptions_subscription

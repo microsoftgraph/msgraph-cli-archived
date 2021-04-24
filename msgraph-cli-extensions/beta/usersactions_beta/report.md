@@ -1234,7 +1234,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -3813,7 +3813,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -3862,7 +3862,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -3911,7 +3911,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -3961,7 +3961,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -4020,7 +4020,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -4069,7 +4069,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -4429,7 +4429,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -4477,7 +4477,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -4525,7 +4525,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -4574,7 +4574,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -4631,7 +4631,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|
@@ -4679,7 +4679,7 @@
 |**--conversation-index**|byte-array|Indicates the position of the message within the conversation.|conversation_index|conversationIndex|
 |**--flag**|object|followupFlag|flag|flag|
 |**--from**|object|recipient|from|from|
-|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.|has_attachments|hasAttachments|
+|**--has-attachments**|boolean|Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.|has_attachments|hasAttachments|
 |**--importance**|choice||importance|importance|
 |**--inference-classification**|choice||inference_classification|inferenceClassification|
 |**--internet-message-headers**|array|A collection of message headers defined by RFC5322. The set includes message headers indicating the network path taken by a message from the sender to the recipient. It can also contain custom message headers that hold app data for the message.  Returned only on applying a $select query option. Read-only.|internet_message_headers|internetMessageHeaders|

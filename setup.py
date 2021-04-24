@@ -44,7 +44,6 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = [
-    'pywin32',
     'sshtunnel',
     'portalocker~=1.6',
     'argcomplete~=1.8',

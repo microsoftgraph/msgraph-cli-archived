@@ -19,8 +19,8 @@ def cf_directoryobjects_v1_0_cl(cli_ctx, *_):
 
 
 def cf_directory_object_directory_object(cli_ctx, *_):
-    return cf_directoryobjects_v1_0_cl(cli_ctx).directory_object_directory_object
+    return cf_directoryobjects_v1_0_cl(cli_ctx).directory_objects_directory_object
 
 
 def cf_directory_object(cli_ctx, *_):
-    return cf_directoryobjects_v1_0_cl(cli_ctx).directory_object
+    return cf_directoryobjects_v1_0_cl(cli_ctx).directory_objects

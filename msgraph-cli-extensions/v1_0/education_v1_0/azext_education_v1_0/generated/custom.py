@@ -23,11 +23,13 @@ def education_education_root_update_education_root(client,
                                                    me=None,
                                                    schools=None,
                                                    users=None):
-    return client.update_education_root(id=id_,
-                                        classes=classes,
-                                        me=me,
-                                        schools=schools,
-                                        users=users)
+    body = {}
+    body['id'] = id_
+    body['classes'] = classes
+    body['me'] = me
+    body['schools'] = schools
+    body['users'] = users
+    return client.update_education_root(body=body)
 
 
 def education_education_create_class(client,
@@ -47,22 +49,25 @@ def education_education_create_class(client,
                                      application=None,
                                      device=None,
                                      user=None):
-    return client.create_class(id=id_,
-                               class_code=class_code,
-                               description=description,
-                               display_name=display_name,
-                               external_id=external_id,
-                               external_name=external_name,
-                               external_source=external_source,
-                               mail_nickname=mail_nickname,
-                               term=term,
-                               group=group,
-                               members=members,
-                               schools=schools,
-                               teachers=teachers,
-                               application=application,
-                               device=device,
-                               user=user)
+    body = {}
+    body['id'] = id_
+    body['class_code'] = class_code
+    body['description'] = description
+    body['display_name'] = display_name
+    body['external_id'] = external_id
+    body['external_name'] = external_name
+    body['external_source'] = external_source
+    body['mail_nickname'] = mail_nickname
+    body['term'] = term
+    body['group'] = group
+    body['members'] = members
+    body['schools'] = schools
+    body['teachers'] = teachers
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.create_classes(body=body)
 
 
 def education_education_create_school(client,
@@ -85,25 +90,28 @@ def education_education_create_school(client,
                                       application=None,
                                       device=None,
                                       user=None):
-    return client.create_school(id=id_,
-                                description=description,
-                                display_name=display_name,
-                                external_source=external_source,
-                                address=address,
-                                external_id=external_id,
-                                external_principal_id=external_principal_id,
-                                fax=fax,
-                                highest_grade=highest_grade,
-                                lowest_grade=lowest_grade,
-                                phone=phone,
-                                principal_email=principal_email,
-                                principal_name=principal_name,
-                                school_number=school_number,
-                                classes=classes,
-                                users=users,
-                                application=application,
-                                device=device,
-                                user=user)
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['display_name'] = display_name
+    body['external_source'] = external_source
+    body['address'] = address
+    body['external_id'] = external_id
+    body['external_principal_id'] = external_principal_id
+    body['fax'] = fax
+    body['highest_grade'] = highest_grade
+    body['lowest_grade'] = lowest_grade
+    body['phone'] = phone
+    body['principal_email'] = principal_email
+    body['principal_name'] = principal_name
+    body['school_number'] = school_number
+    body['classes'] = classes
+    body['users'] = users
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.create_schools(body=body)
 
 
 def education_education_create_user(client,
@@ -142,48 +150,51 @@ def education_education_create_user(client,
                                     application=None,
                                     device=None,
                                     microsoft_graph_identity_user=None):
-    return client.create_user(id=id_,
-                              account_enabled=account_enabled,
-                              assigned_licenses=assigned_licenses,
-                              assigned_plans=assigned_plans,
-                              business_phones=business_phones,
-                              department=department,
-                              display_name=display_name,
-                              external_source=external_source,
-                              given_name=given_name,
-                              mail=mail,
-                              mailing_address=mailing_address,
-                              mail_nickname=mail_nickname,
-                              middle_name=middle_name,
-                              mobile_phone=mobile_phone,
-                              office_location=office_location,
-                              password_policies=password_policies,
-                              password_profile=password_profile,
-                              preferred_language=preferred_language,
-                              primary_role=primary_role,
-                              provisioned_plans=provisioned_plans,
-                              refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time,
-                              residence_address=residence_address,
-                              show_in_address_list=show_in_address_list,
-                              student=student,
-                              surname=surname,
-                              teacher=teacher,
-                              usage_location=usage_location,
-                              user_principal_name=user_principal_name,
-                              user_type=user_type,
-                              classes=classes,
-                              schools=schools,
-                              user=user,
-                              application=application,
-                              device=device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['account_enabled'] = account_enabled
+    body['assigned_licenses'] = assigned_licenses
+    body['assigned_plans'] = assigned_plans
+    body['business_phones'] = business_phones
+    body['department'] = department
+    body['display_name'] = display_name
+    body['external_source'] = external_source
+    body['given_name'] = given_name
+    body['mail'] = mail
+    body['mailing_address'] = mailing_address
+    body['mail_nickname'] = mail_nickname
+    body['middle_name'] = middle_name
+    body['mobile_phone'] = mobile_phone
+    body['office_location'] = office_location
+    body['password_policies'] = password_policies
+    body['password_profile'] = password_profile
+    body['preferred_language'] = preferred_language
+    body['primary_role'] = primary_role
+    body['provisioned_plans'] = provisioned_plans
+    body['refresh_tokens_valid_from_date_time'] = refresh_tokens_valid_from_date_time
+    body['residence_address'] = residence_address
+    body['show_in_address_list'] = show_in_address_list
+    body['student'] = student
+    body['surname'] = surname
+    body['teacher'] = teacher
+    body['usage_location'] = usage_location
+    body['user_principal_name'] = user_principal_name
+    body['user_type'] = user_type
+    body['classes'] = classes
+    body['schools'] = schools
+    body['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    return client.create_users(body=body)
 
 
 def education_education_delete_class(client,
                                      education_class_id,
                                      if_match=None):
-    return client.delete_class(education_class_id=education_class_id,
-                               if_match=if_match)
+    return client.delete_classes(education_class_id=education_class_id,
+                                 if_match=if_match)
 
 
 def education_education_delete_me(client,
@@ -194,51 +205,51 @@ def education_education_delete_me(client,
 def education_education_delete_school(client,
                                       education_school_id,
                                       if_match=None):
-    return client.delete_school(education_school_id=education_school_id,
-                                if_match=if_match)
+    return client.delete_schools(education_school_id=education_school_id,
+                                 if_match=if_match)
 
 
 def education_education_delete_user(client,
                                     education_user_id,
                                     if_match=None):
-    return client.delete_user(education_user_id=education_user_id,
-                              if_match=if_match)
+    return client.delete_users(education_user_id=education_user_id,
+                               if_match=if_match)
 
 
 def education_education_list_class(client,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_class(orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_classes(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def education_education_list_school(client,
                                     orderby=None,
                                     select=None,
                                     expand=None):
-    return client.list_school(orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_schools(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def education_education_list_user(client,
                                   orderby=None,
                                   select=None,
                                   expand=None):
-    return client.list_user(orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_users(orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def education_education_show_class(client,
                                    education_class_id,
                                    select=None,
                                    expand=None):
-    return client.get_class(education_class_id=education_class_id,
-                            select=select,
-                            expand=expand)
+    return client.get_classes(education_class_id=education_class_id,
+                              select=select,
+                              expand=expand)
 
 
 def education_education_show_me(client,
@@ -252,18 +263,18 @@ def education_education_show_school(client,
                                     education_school_id,
                                     select=None,
                                     expand=None):
-    return client.get_school(education_school_id=education_school_id,
-                             select=select,
-                             expand=expand)
+    return client.get_schools(education_school_id=education_school_id,
+                              select=select,
+                              expand=expand)
 
 
 def education_education_show_user(client,
                                   education_user_id,
                                   select=None,
                                   expand=None):
-    return client.get_user(education_user_id=education_user_id,
-                           select=select,
-                           expand=expand)
+    return client.get_users(education_user_id=education_user_id,
+                            select=select,
+                            expand=expand)
 
 
 def education_education_update_class(client,
@@ -284,23 +295,26 @@ def education_education_update_class(client,
                                      application=None,
                                      device=None,
                                      user=None):
-    return client.update_class(education_class_id=education_class_id,
-                               id=id_,
-                               class_code=class_code,
-                               description=description,
-                               display_name=display_name,
-                               external_id=external_id,
-                               external_name=external_name,
-                               external_source=external_source,
-                               mail_nickname=mail_nickname,
-                               term=term,
-                               group=group,
-                               members=members,
-                               schools=schools,
-                               teachers=teachers,
-                               application=application,
-                               device=device,
-                               user=user)
+    body = {}
+    body['id'] = id_
+    body['class_code'] = class_code
+    body['description'] = description
+    body['display_name'] = display_name
+    body['external_id'] = external_id
+    body['external_name'] = external_name
+    body['external_source'] = external_source
+    body['mail_nickname'] = mail_nickname
+    body['term'] = term
+    body['group'] = group
+    body['members'] = members
+    body['schools'] = schools
+    body['teachers'] = teachers
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.update_classes(education_class_id=education_class_id,
+                                 body=body)
 
 
 def education_education_update_me(client,
@@ -339,41 +353,44 @@ def education_education_update_me(client,
                                   application=None,
                                   device=None,
                                   microsoft_graph_identity_user=None):
-    return client.update_me(id=id_,
-                            account_enabled=account_enabled,
-                            assigned_licenses=assigned_licenses,
-                            assigned_plans=assigned_plans,
-                            business_phones=business_phones,
-                            department=department,
-                            display_name=display_name,
-                            external_source=external_source,
-                            given_name=given_name,
-                            mail=mail,
-                            mailing_address=mailing_address,
-                            mail_nickname=mail_nickname,
-                            middle_name=middle_name,
-                            mobile_phone=mobile_phone,
-                            office_location=office_location,
-                            password_policies=password_policies,
-                            password_profile=password_profile,
-                            preferred_language=preferred_language,
-                            primary_role=primary_role,
-                            provisioned_plans=provisioned_plans,
-                            refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time,
-                            residence_address=residence_address,
-                            show_in_address_list=show_in_address_list,
-                            student=student,
-                            surname=surname,
-                            teacher=teacher,
-                            usage_location=usage_location,
-                            user_principal_name=user_principal_name,
-                            user_type=user_type,
-                            classes=classes,
-                            schools=schools,
-                            user=user,
-                            application=application,
-                            device=device,
-                            microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['account_enabled'] = account_enabled
+    body['assigned_licenses'] = assigned_licenses
+    body['assigned_plans'] = assigned_plans
+    body['business_phones'] = business_phones
+    body['department'] = department
+    body['display_name'] = display_name
+    body['external_source'] = external_source
+    body['given_name'] = given_name
+    body['mail'] = mail
+    body['mailing_address'] = mailing_address
+    body['mail_nickname'] = mail_nickname
+    body['middle_name'] = middle_name
+    body['mobile_phone'] = mobile_phone
+    body['office_location'] = office_location
+    body['password_policies'] = password_policies
+    body['password_profile'] = password_profile
+    body['preferred_language'] = preferred_language
+    body['primary_role'] = primary_role
+    body['provisioned_plans'] = provisioned_plans
+    body['refresh_tokens_valid_from_date_time'] = refresh_tokens_valid_from_date_time
+    body['residence_address'] = residence_address
+    body['show_in_address_list'] = show_in_address_list
+    body['student'] = student
+    body['surname'] = surname
+    body['teacher'] = teacher
+    body['usage_location'] = usage_location
+    body['user_principal_name'] = user_principal_name
+    body['user_type'] = user_type
+    body['classes'] = classes
+    body['schools'] = schools
+    body['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_me(body=body)
 
 
 def education_education_update_school(client,
@@ -397,26 +414,29 @@ def education_education_update_school(client,
                                       application=None,
                                       device=None,
                                       user=None):
-    return client.update_school(education_school_id=education_school_id,
-                                id=id_,
-                                description=description,
-                                display_name=display_name,
-                                external_source=external_source,
-                                address=address,
-                                external_id=external_id,
-                                external_principal_id=external_principal_id,
-                                fax=fax,
-                                highest_grade=highest_grade,
-                                lowest_grade=lowest_grade,
-                                phone=phone,
-                                principal_email=principal_email,
-                                principal_name=principal_name,
-                                school_number=school_number,
-                                classes=classes,
-                                users=users,
-                                application=application,
-                                device=device,
-                                user=user)
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['display_name'] = display_name
+    body['external_source'] = external_source
+    body['address'] = address
+    body['external_id'] = external_id
+    body['external_principal_id'] = external_principal_id
+    body['fax'] = fax
+    body['highest_grade'] = highest_grade
+    body['lowest_grade'] = lowest_grade
+    body['phone'] = phone
+    body['principal_email'] = principal_email
+    body['principal_name'] = principal_name
+    body['school_number'] = school_number
+    body['classes'] = classes
+    body['users'] = users
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.update_schools(education_school_id=education_school_id,
+                                 body=body)
 
 
 def education_education_update_user(client,
@@ -456,63 +476,66 @@ def education_education_update_user(client,
                                     application=None,
                                     device=None,
                                     microsoft_graph_identity_user=None):
-    return client.update_user(education_user_id=education_user_id,
-                              id=id_,
-                              account_enabled=account_enabled,
-                              assigned_licenses=assigned_licenses,
-                              assigned_plans=assigned_plans,
-                              business_phones=business_phones,
-                              department=department,
-                              display_name=display_name,
-                              external_source=external_source,
-                              given_name=given_name,
-                              mail=mail,
-                              mailing_address=mailing_address,
-                              mail_nickname=mail_nickname,
-                              middle_name=middle_name,
-                              mobile_phone=mobile_phone,
-                              office_location=office_location,
-                              password_policies=password_policies,
-                              password_profile=password_profile,
-                              preferred_language=preferred_language,
-                              primary_role=primary_role,
-                              provisioned_plans=provisioned_plans,
-                              refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time,
-                              residence_address=residence_address,
-                              show_in_address_list=show_in_address_list,
-                              student=student,
-                              surname=surname,
-                              teacher=teacher,
-                              usage_location=usage_location,
-                              user_principal_name=user_principal_name,
-                              user_type=user_type,
-                              classes=classes,
-                              schools=schools,
-                              user=user,
-                              application=application,
-                              device=device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['account_enabled'] = account_enabled
+    body['assigned_licenses'] = assigned_licenses
+    body['assigned_plans'] = assigned_plans
+    body['business_phones'] = business_phones
+    body['department'] = department
+    body['display_name'] = display_name
+    body['external_source'] = external_source
+    body['given_name'] = given_name
+    body['mail'] = mail
+    body['mailing_address'] = mailing_address
+    body['mail_nickname'] = mail_nickname
+    body['middle_name'] = middle_name
+    body['mobile_phone'] = mobile_phone
+    body['office_location'] = office_location
+    body['password_policies'] = password_policies
+    body['password_profile'] = password_profile
+    body['preferred_language'] = preferred_language
+    body['primary_role'] = primary_role
+    body['provisioned_plans'] = provisioned_plans
+    body['refresh_tokens_valid_from_date_time'] = refresh_tokens_valid_from_date_time
+    body['residence_address'] = residence_address
+    body['show_in_address_list'] = show_in_address_list
+    body['student'] = student
+    body['surname'] = surname
+    body['teacher'] = teacher
+    body['usage_location'] = usage_location
+    body['user_principal_name'] = user_principal_name
+    body['user_type'] = user_type
+    body['classes'] = classes
+    body['schools'] = schools
+    body['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    return client.update_users(education_user_id=education_user_id,
+                               body=body)
 
 
 def education_education_class_create_ref_member(client,
                                                 education_class_id,
                                                 body):
-    return client.create_ref_member(education_class_id=education_class_id,
-                                    body=body)
+    return client.create_ref_members(education_class_id=education_class_id,
+                                     body=body)
 
 
 def education_education_class_create_ref_school(client,
                                                 education_class_id,
                                                 body):
-    return client.create_ref_school(education_class_id=education_class_id,
-                                    body=body)
+    return client.create_ref_schools(education_class_id=education_class_id,
+                                     body=body)
 
 
 def education_education_class_create_ref_teacher(client,
                                                  education_class_id,
                                                  body):
-    return client.create_ref_teacher(education_class_id=education_class_id,
-                                     body=body)
+    return client.create_ref_teachers(education_class_id=education_class_id,
+                                      body=body)
 
 
 def education_education_class_delete_ref_group(client,
@@ -527,31 +550,31 @@ def education_education_class_list_member(client,
                                           orderby=None,
                                           select=None,
                                           expand=None):
-    return client.list_member(education_class_id=education_class_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_members(education_class_id=education_class_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def education_education_class_list_ref_member(client,
                                               education_class_id,
                                               orderby=None):
-    return client.list_ref_member(education_class_id=education_class_id,
-                                  orderby=orderby)
+    return client.list_ref_members(education_class_id=education_class_id,
+                                   orderby=orderby)
 
 
 def education_education_class_list_ref_school(client,
                                               education_class_id,
                                               orderby=None):
-    return client.list_ref_school(education_class_id=education_class_id,
-                                  orderby=orderby)
+    return client.list_ref_schools(education_class_id=education_class_id,
+                                   orderby=orderby)
 
 
 def education_education_class_list_ref_teacher(client,
                                                education_class_id,
                                                orderby=None):
-    return client.list_ref_teacher(education_class_id=education_class_id,
-                                   orderby=orderby)
+    return client.list_ref_teachers(education_class_id=education_class_id,
+                                    orderby=orderby)
 
 
 def education_education_class_list_school(client,
@@ -559,10 +582,10 @@ def education_education_class_list_school(client,
                                           orderby=None,
                                           select=None,
                                           expand=None):
-    return client.list_school(education_class_id=education_class_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_schools(education_class_id=education_class_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def education_education_class_list_teacher(client,
@@ -570,10 +593,10 @@ def education_education_class_list_teacher(client,
                                            orderby=None,
                                            select=None,
                                            expand=None):
-    return client.list_teacher(education_class_id=education_class_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
+    return client.list_teachers(education_class_id=education_class_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
 
 
 def education_education_class_set_ref_group(client,
@@ -599,12 +622,12 @@ def education_education_class_show_ref_group(client,
 
 def education_education_me_create_ref_class(client,
                                             body):
-    return client.create_ref_class(body=body)
+    return client.create_ref_classes(body=body)
 
 
 def education_education_me_create_ref_school(client,
                                              body):
-    return client.create_ref_school(body=body)
+    return client.create_ref_schools(body=body)
 
 
 def education_education_me_delete_ref_user(client,
@@ -616,28 +639,28 @@ def education_education_me_list_class(client,
                                       orderby=None,
                                       select=None,
                                       expand=None):
-    return client.list_class(orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_classes(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def education_education_me_list_ref_class(client,
                                           orderby=None):
-    return client.list_ref_class(orderby=orderby)
+    return client.list_ref_classes(orderby=orderby)
 
 
 def education_education_me_list_ref_school(client,
                                            orderby=None):
-    return client.list_ref_school(orderby=orderby)
+    return client.list_ref_schools(orderby=orderby)
 
 
 def education_education_me_list_school(client,
                                        orderby=None,
                                        select=None,
                                        expand=None):
-    return client.list_school(orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_schools(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def education_education_me_set_ref_user(client,
@@ -659,15 +682,15 @@ def education_education_me_show_user(client,
 def education_education_school_create_ref_class(client,
                                                 education_school_id,
                                                 body):
-    return client.create_ref_class(education_school_id=education_school_id,
-                                   body=body)
+    return client.create_ref_classes(education_school_id=education_school_id,
+                                     body=body)
 
 
 def education_education_school_create_ref_user(client,
                                                education_school_id,
                                                body):
-    return client.create_ref_user(education_school_id=education_school_id,
-                                  body=body)
+    return client.create_ref_users(education_school_id=education_school_id,
+                                   body=body)
 
 
 def education_education_school_list_class(client,
@@ -675,24 +698,24 @@ def education_education_school_list_class(client,
                                           orderby=None,
                                           select=None,
                                           expand=None):
-    return client.list_class(education_school_id=education_school_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_classes(education_school_id=education_school_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def education_education_school_list_ref_class(client,
                                               education_school_id,
                                               orderby=None):
-    return client.list_ref_class(education_school_id=education_school_id,
-                                 orderby=orderby)
+    return client.list_ref_classes(education_school_id=education_school_id,
+                                   orderby=orderby)
 
 
 def education_education_school_list_ref_user(client,
                                              education_school_id,
                                              orderby=None):
-    return client.list_ref_user(education_school_id=education_school_id,
-                                orderby=orderby)
+    return client.list_ref_users(education_school_id=education_school_id,
+                                 orderby=orderby)
 
 
 def education_education_school_list_user(client,
@@ -700,24 +723,24 @@ def education_education_school_list_user(client,
                                          orderby=None,
                                          select=None,
                                          expand=None):
-    return client.list_user(education_school_id=education_school_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_users(education_school_id=education_school_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def education_education_user_create_ref_class(client,
                                               education_user_id,
                                               body):
-    return client.create_ref_class(education_user_id=education_user_id,
-                                   body=body)
+    return client.create_ref_classes(education_user_id=education_user_id,
+                                     body=body)
 
 
 def education_education_user_create_ref_school(client,
                                                education_user_id,
                                                body):
-    return client.create_ref_school(education_user_id=education_user_id,
-                                    body=body)
+    return client.create_ref_schools(education_user_id=education_user_id,
+                                     body=body)
 
 
 def education_education_user_delete_ref_user(client,
@@ -732,24 +755,24 @@ def education_education_user_list_class(client,
                                         orderby=None,
                                         select=None,
                                         expand=None):
-    return client.list_class(education_user_id=education_user_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_classes(education_user_id=education_user_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def education_education_user_list_ref_class(client,
                                             education_user_id,
                                             orderby=None):
-    return client.list_ref_class(education_user_id=education_user_id,
-                                 orderby=orderby)
+    return client.list_ref_classes(education_user_id=education_user_id,
+                                   orderby=orderby)
 
 
 def education_education_user_list_ref_school(client,
                                              education_user_id,
                                              orderby=None):
-    return client.list_ref_school(education_user_id=education_user_id,
-                                  orderby=orderby)
+    return client.list_ref_schools(education_user_id=education_user_id,
+                                   orderby=orderby)
 
 
 def education_education_user_list_school(client,
@@ -757,10 +780,10 @@ def education_education_user_list_school(client,
                                          orderby=None,
                                          select=None,
                                          expand=None):
-    return client.list_school(education_user_id=education_user_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_schools(education_user_id=education_user_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def education_education_user_set_ref_user(client,

@@ -33,7 +33,7 @@ from azext_identitysignins_v1_0.generated._client_factory import (
 
 
 identitysignins_v1_0_data_policy_operation_data_policy_operation = CliCommandType(
-    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._data_policy_operation_data_policy_operation_operations#DataPolicyOperationDataPolicyOperationOperations.{}',
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._data_policy_operations_data_policy_operation_operations#DataPolicyOperationsDataPolicyOperationOperations.{}',
     client_factory=cf_data_policy_operation_data_policy_operation,
 )
 
@@ -53,7 +53,7 @@ identitysignins_v1_0_identity_conditional_access = CliCommandType(
 
 
 identitysignins_v1_0_identity_provider_identity_provider = CliCommandType(
-    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._identity_provider_identity_provider_operations#IdentityProviderIdentityProviderOperations.{}',
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._identity_providers_identity_provider_operations#IdentityProvidersIdentityProviderOperations.{}',
     client_factory=cf_identity_provider_identity_provider,
 )
 
@@ -71,31 +71,31 @@ identitysignins_v1_0_information_protection = CliCommandType(
 
 
 identitysignins_v1_0_information_protection_threat_assessment_request = CliCommandType(
-    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._information_protection_threat_assessment_request_operations#InformationProtectionThreatAssessmentRequestOperations.{}',
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._information_protection_threat_assessment_requests_operations#InformationProtectionThreatAssessmentRequestsOperations.{}',
     client_factory=cf_information_protection_threat_assessment_request,
 )
 
 
 identitysignins_v1_0_invitation_invitation = CliCommandType(
-    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._invitation_invitation_operations#InvitationInvitationOperations.{}',
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._invitations_invitation_operations#InvitationsInvitationOperations.{}',
     client_factory=cf_invitation_invitation,
 )
 
 
 identitysignins_v1_0_invitation = CliCommandType(
-    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._invitation_operations#InvitationOperations.{}',
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._invitations_operations#InvitationsOperations.{}',
     client_factory=cf_invitation,
 )
 
 
 identitysignins_v1_0_oauth2permission_grant_oauth2permission_grant = CliCommandType(
-    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._oauth2_permission_grant_oauth2_permission_grant_operations#Oauth2PermissionGrantOAuth2PermissionGrantOperations.{}',
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._oauth2_permission_grants_oauth2_permission_grant_operations#Oauth2PermissionGrantsOAuth2PermissionGrantOperations.{}',
     client_factory=cf_oauth2permission_grant_oauth2permission_grant,
 )
 
 
 identitysignins_v1_0_oauth2permission_grant = CliCommandType(
-    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._oauth2_permission_grant_operations#Oauth2PermissionGrantOperations.{}',
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._oauth2_permission_grants_operations#Oauth2PermissionGrantsOperations.{}',
     client_factory=cf_oauth2permission_grant,
 )
 
@@ -107,21 +107,21 @@ identitysignins_v1_0_organization = CliCommandType(
 
 
 identitysignins_v1_0_policy_policy_root = CliCommandType(
-    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policy_policy_root_operations#PolicyPolicyRootOperations.{}',
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policies_policy_root_operations#PoliciesPolicyRootOperations.{}',
     client_factory=cf_policy_policy_root,
 )
 
 
 identitysignins_v1_0_policy = CliCommandType(
     operations_tmpl=(
-        'azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policy_operations#PolicyOperations.{}'
+        'azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policies_operations#PoliciesOperations.{}'
     ),
     client_factory=cf_policy,
 )
 
 
 identitysignins_v1_0_policy_permission_grant_policy = CliCommandType(
-    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policy_permission_grant_policy_operations#PolicyPermissionGrantPolicyOperations.{}',
+    operations_tmpl='azext_identitysignins_v1_0.vendored_sdks.identitysignins.operations._policies_permission_grant_policies_operations#PoliciesPermissionGrantPoliciesOperations.{}',
     client_factory=cf_policy_permission_grant_policy,
 )
 

@@ -42,15 +42,15 @@ class SearchOperations:
 
     async def query(
         self,
-        requests: Optional[List["models.MicrosoftGraphSearchRequest"]] = None,
+        body: "models.Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List["models.MicrosoftGraphSearchResponse"]:
         """Invoke action query.
 
         Invoke action query.
 
-        :param requests:
-        :type requests: list[~search.models.MicrosoftGraphSearchRequest]
+        :param body: Action parameters.
+        :type body: ~search.models.Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of MicrosoftGraphSearchResponse, or the result of cls(response)
         :rtype: list[~search.models.MicrosoftGraphSearchResponse]
@@ -61,8 +61,6 @@ class SearchOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema(requests=requests)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

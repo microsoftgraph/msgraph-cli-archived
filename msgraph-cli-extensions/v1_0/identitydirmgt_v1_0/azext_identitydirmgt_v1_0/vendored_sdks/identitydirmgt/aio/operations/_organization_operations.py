@@ -41,7 +41,7 @@ class OrganizationOperations:
         self._deserialize = deserializer
         self._config = config
 
-    def list_extension(
+    def list_extensions(
         self,
         organization_id: str,
         orderby: Optional[List[Union[str, "models.Enum88"]]] = None,
@@ -80,7 +80,7 @@ class OrganizationOperations:
 
             if not next_link:
                 # Construct URL
-                url = self.list_extension.metadata['url']  # type: ignore
+                url = self.list_extensions.metadata['url']  # type: ignore
                 path_format_arguments = {
                     'organization-id': self._serialize.url("organization_id", organization_id, 'str'),
                 }
@@ -134,12 +134,12 @@ class OrganizationOperations:
         return AsyncItemPaged(
             get_next, extract_data
         )
-    list_extension.metadata = {'url': '/organization/{organization-id}/extensions'}  # type: ignore
+    list_extensions.metadata = {'url': '/organization/{organization-id}/extensions'}  # type: ignore
 
-    async def create_extension(
+    async def create_extensions(
         self,
         organization_id: str,
-        id: Optional[str] = None,
+        body: "models.MicrosoftGraphExtension",
         **kwargs
     ) -> "models.MicrosoftGraphExtension":
         """Create new navigation property to extensions for organization.
@@ -148,8 +148,8 @@ class OrganizationOperations:
 
         :param organization_id: key: id of organization.
         :type organization_id: str
-        :param id: Read-only.
-        :type id: str
+        :param body: New navigation property.
+        :type body: ~identity_directory_management.models.MicrosoftGraphExtension
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphExtension, or the result of cls(response)
         :rtype: ~identity_directory_management.models.MicrosoftGraphExtension
@@ -160,13 +160,11 @@ class OrganizationOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphExtension(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_extension.metadata['url']  # type: ignore
+        url = self.create_extensions.metadata['url']  # type: ignore
         path_format_arguments = {
             'organization-id': self._serialize.url("organization_id", organization_id, 'str'),
         }
@@ -198,9 +196,9 @@ class OrganizationOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_extension.metadata = {'url': '/organization/{organization-id}/extensions'}  # type: ignore
+    create_extensions.metadata = {'url': '/organization/{organization-id}/extensions'}  # type: ignore
 
-    async def get_extension(
+    async def get_extensions(
         self,
         organization_id: str,
         extension_id: str,
@@ -233,7 +231,7 @@ class OrganizationOperations:
         accept = "application/json"
 
         # Construct URL
-        url = self.get_extension.metadata['url']  # type: ignore
+        url = self.get_extensions.metadata['url']  # type: ignore
         path_format_arguments = {
             'organization-id': self._serialize.url("organization_id", organization_id, 'str'),
             'extension-id': self._serialize.url("extension_id", extension_id, 'str'),
@@ -266,13 +264,13 @@ class OrganizationOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_extension.metadata = {'url': '/organization/{organization-id}/extensions/{extension-id}'}  # type: ignore
+    get_extensions.metadata = {'url': '/organization/{organization-id}/extensions/{extension-id}'}  # type: ignore
 
-    async def update_extension(
+    async def update_extensions(
         self,
         organization_id: str,
         extension_id: str,
-        id: Optional[str] = None,
+        body: "models.MicrosoftGraphExtension",
         **kwargs
     ) -> None:
         """Update the navigation property extensions in organization.
@@ -283,8 +281,8 @@ class OrganizationOperations:
         :type organization_id: str
         :param extension_id: key: id of extension.
         :type extension_id: str
-        :param id: Read-only.
-        :type id: str
+        :param body: New navigation property values.
+        :type body: ~identity_directory_management.models.MicrosoftGraphExtension
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -295,13 +293,11 @@ class OrganizationOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphExtension(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.update_extension.metadata['url']  # type: ignore
+        url = self.update_extensions.metadata['url']  # type: ignore
         path_format_arguments = {
             'organization-id': self._serialize.url("organization_id", organization_id, 'str'),
             'extension-id': self._serialize.url("extension_id", extension_id, 'str'),
@@ -331,9 +327,9 @@ class OrganizationOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_extension.metadata = {'url': '/organization/{organization-id}/extensions/{extension-id}'}  # type: ignore
+    update_extensions.metadata = {'url': '/organization/{organization-id}/extensions/{extension-id}'}  # type: ignore
 
-    async def delete_extension(
+    async def delete_extensions(
         self,
         organization_id: str,
         extension_id: str,
@@ -363,7 +359,7 @@ class OrganizationOperations:
         accept = "application/json"
 
         # Construct URL
-        url = self.delete_extension.metadata['url']  # type: ignore
+        url = self.delete_extensions.metadata['url']  # type: ignore
         path_format_arguments = {
             'organization-id': self._serialize.url("organization_id", organization_id, 'str'),
             'extension-id': self._serialize.url("extension_id", extension_id, 'str'),
@@ -391,12 +387,12 @@ class OrganizationOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_extension.metadata = {'url': '/organization/{organization-id}/extensions/{extension-id}'}  # type: ignore
+    delete_extensions.metadata = {'url': '/organization/{organization-id}/extensions/{extension-id}'}  # type: ignore
 
-    async def check_member_group(
+    async def check_member_groups(
         self,
         organization_id: str,
-        group_ids: Optional[List[str]] = None,
+        body: "models.PathsMf08MlOrganizationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List[str]:
         """Invoke action checkMemberGroups.
@@ -405,8 +401,8 @@ class OrganizationOperations:
 
         :param organization_id: key: id of organization.
         :type organization_id: str
-        :param group_ids:
-        :type group_ids: list[str]
+        :param body: Action parameters.
+        :type body: ~identity_directory_management.models.PathsMf08MlOrganizationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -417,13 +413,11 @@ class OrganizationOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.PathsMf08MlOrganizationIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema(group_ids=group_ids)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.check_member_group.metadata['url']  # type: ignore
+        url = self.check_member_groups.metadata['url']  # type: ignore
         path_format_arguments = {
             'organization-id': self._serialize.url("organization_id", organization_id, 'str'),
         }
@@ -455,12 +449,12 @@ class OrganizationOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    check_member_group.metadata = {'url': '/organization/{organization-id}/microsoft.graph.checkMemberGroups'}  # type: ignore
+    check_member_groups.metadata = {'url': '/organization/{organization-id}/microsoft.graph.checkMemberGroups'}  # type: ignore
 
-    async def check_member_object(
+    async def check_member_objects(
         self,
         organization_id: str,
-        ids: Optional[List[str]] = None,
+        body: "models.Paths1Yxqrp7OrganizationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List[str]:
         """Invoke action checkMemberObjects.
@@ -469,8 +463,8 @@ class OrganizationOperations:
 
         :param organization_id: key: id of organization.
         :type organization_id: str
-        :param ids:
-        :type ids: list[str]
+        :param body: Action parameters.
+        :type body: ~identity_directory_management.models.Paths1Yxqrp7OrganizationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -481,13 +475,11 @@ class OrganizationOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.Paths1Yxqrp7OrganizationIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema(ids=ids)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.check_member_object.metadata['url']  # type: ignore
+        url = self.check_member_objects.metadata['url']  # type: ignore
         path_format_arguments = {
             'organization-id': self._serialize.url("organization_id", organization_id, 'str'),
         }
@@ -519,12 +511,12 @@ class OrganizationOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    check_member_object.metadata = {'url': '/organization/{organization-id}/microsoft.graph.checkMemberObjects'}  # type: ignore
+    check_member_objects.metadata = {'url': '/organization/{organization-id}/microsoft.graph.checkMemberObjects'}  # type: ignore
 
-    async def get_member_group(
+    async def get_member_groups(
         self,
         organization_id: str,
-        security_enabled_only: Optional[bool] = False,
+        body: "models.PathsPlvqruOrganizationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List[str]:
         """Invoke action getMemberGroups.
@@ -533,8 +525,8 @@ class OrganizationOperations:
 
         :param organization_id: key: id of organization.
         :type organization_id: str
-        :param security_enabled_only:
-        :type security_enabled_only: bool
+        :param body: Action parameters.
+        :type body: ~identity_directory_management.models.PathsPlvqruOrganizationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -545,13 +537,11 @@ class OrganizationOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.PathsPlvqruOrganizationIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema(security_enabled_only=security_enabled_only)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.get_member_group.metadata['url']  # type: ignore
+        url = self.get_member_groups.metadata['url']  # type: ignore
         path_format_arguments = {
             'organization-id': self._serialize.url("organization_id", organization_id, 'str'),
         }
@@ -583,12 +573,12 @@ class OrganizationOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_member_group.metadata = {'url': '/organization/{organization-id}/microsoft.graph.getMemberGroups'}  # type: ignore
+    get_member_groups.metadata = {'url': '/organization/{organization-id}/microsoft.graph.getMemberGroups'}  # type: ignore
 
-    async def get_member_object(
+    async def get_member_objects(
         self,
         organization_id: str,
-        security_enabled_only: Optional[bool] = False,
+        body: "models.Paths1Hzls82OrganizationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List[str]:
         """Invoke action getMemberObjects.
@@ -597,8 +587,8 @@ class OrganizationOperations:
 
         :param organization_id: key: id of organization.
         :type organization_id: str
-        :param security_enabled_only:
-        :type security_enabled_only: bool
+        :param body: Action parameters.
+        :type body: ~identity_directory_management.models.Paths1Hzls82OrganizationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of str, or the result of cls(response)
         :rtype: list[str]
@@ -609,13 +599,11 @@ class OrganizationOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.Paths1Hzls82OrganizationIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema(security_enabled_only=security_enabled_only)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.get_member_object.metadata['url']  # type: ignore
+        url = self.get_member_objects.metadata['url']  # type: ignore
         path_format_arguments = {
             'organization-id': self._serialize.url("organization_id", organization_id, 'str'),
         }
@@ -647,7 +635,7 @@ class OrganizationOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_member_object.metadata = {'url': '/organization/{organization-id}/microsoft.graph.getMemberObjects'}  # type: ignore
+    get_member_objects.metadata = {'url': '/organization/{organization-id}/microsoft.graph.getMemberObjects'}  # type: ignore
 
     async def restore(
         self,
@@ -757,17 +745,17 @@ class OrganizationOperations:
         return deserialized
     set_mobile_device_management_authority.metadata = {'url': '/organization/{organization-id}/microsoft.graph.setMobileDeviceManagementAuthority'}  # type: ignore
 
-    async def get_available_extension_property(
+    async def get_available_extension_properties(
         self,
-        is_synced_from_on_premises: Optional[bool] = False,
+        body: "models.Paths1E8TfraOrganizationMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List["models.MicrosoftGraphExtensionProperty"]:
         """Invoke action getAvailableExtensionProperties.
 
         Invoke action getAvailableExtensionProperties.
 
-        :param is_synced_from_on_premises:
-        :type is_synced_from_on_premises: bool
+        :param body: Action parameters.
+        :type body: ~identity_directory_management.models.Paths1E8TfraOrganizationMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of MicrosoftGraphExtensionProperty, or the result of cls(response)
         :rtype: list[~identity_directory_management.models.MicrosoftGraphExtensionProperty]
@@ -778,13 +766,11 @@ class OrganizationOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.Paths1E8TfraOrganizationMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema(is_synced_from_on_premises=is_synced_from_on_premises)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.get_available_extension_property.metadata['url']  # type: ignore
+        url = self.get_available_extension_properties.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -812,22 +798,19 @@ class OrganizationOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_available_extension_property.metadata = {'url': '/organization/microsoft.graph.getAvailableExtensionProperties'}  # type: ignore
+    get_available_extension_properties.metadata = {'url': '/organization/microsoft.graph.getAvailableExtensionProperties'}  # type: ignore
 
-    async def get_by_id(
+    async def get_by_ids(
         self,
-        ids: Optional[List[str]] = None,
-        types: Optional[List[str]] = None,
+        body: "models.Paths11G1VgqOrganizationMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> List["models.MicrosoftGraphDirectoryObject"]:
         """Invoke action getByIds.
 
         Invoke action getByIds.
 
-        :param ids:
-        :type ids: list[str]
-        :param types:
-        :type types: list[str]
+        :param body: Action parameters.
+        :type body: ~identity_directory_management.models.Paths11G1VgqOrganizationMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: list of MicrosoftGraphDirectoryObject, or the result of cls(response)
         :rtype: list[~identity_directory_management.models.MicrosoftGraphDirectoryObject]
@@ -838,13 +821,11 @@ class OrganizationOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.Paths11G1VgqOrganizationMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema(ids=ids, types=types)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.get_by_id.metadata['url']  # type: ignore
+        url = self.get_by_ids.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -872,28 +853,19 @@ class OrganizationOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_by_id.metadata = {'url': '/organization/microsoft.graph.getByIds'}  # type: ignore
+    get_by_ids.metadata = {'url': '/organization/microsoft.graph.getByIds'}  # type: ignore
 
-    async def validate_property(
+    async def validate_properties(
         self,
-        entity_type: Optional[str] = None,
-        display_name: Optional[str] = None,
-        mail_nickname: Optional[str] = None,
-        on_behalf_of_user_id: Optional[str] = None,
+        body: "models.Paths1G440InOrganizationMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema",
         **kwargs
     ) -> None:
         """Invoke action validateProperties.
 
         Invoke action validateProperties.
 
-        :param entity_type:
-        :type entity_type: str
-        :param display_name:
-        :type display_name: str
-        :param mail_nickname:
-        :type mail_nickname: str
-        :param on_behalf_of_user_id:
-        :type on_behalf_of_user_id: str
+        :param body: Action parameters.
+        :type body: ~identity_directory_management.models.Paths1G440InOrganizationMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -904,13 +876,11 @@ class OrganizationOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.Paths1G440InOrganizationMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema(entity_type=entity_type, display_name=display_name, mail_nickname=mail_nickname, on_behalf_of_user_id=on_behalf_of_user_id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.validate_property.metadata['url']  # type: ignore
+        url = self.validate_properties.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -935,4 +905,4 @@ class OrganizationOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    validate_property.metadata = {'url': '/organization/microsoft.graph.validateProperties'}  # type: ignore
+    validate_properties.metadata = {'url': '/organization/microsoft.graph.validateProperties'}  # type: ignore

@@ -99,21 +99,15 @@ class DirectoryDirectoryOperations:
 
     async def update_directory(
         self,
-        id: Optional[str] = None,
-        administrative_units: Optional[List["models.MicrosoftGraphAdministrativeUnit"]] = None,
-        deleted_items: Optional[List["models.MicrosoftGraphDirectoryObject"]] = None,
+        body: "models.MicrosoftGraphDirectory",
         **kwargs
     ) -> None:
         """Update directory.
 
         Update directory.
 
-        :param id: Read-only.
-        :type id: str
-        :param administrative_units:
-        :type administrative_units: list[~identity_directory_management.models.MicrosoftGraphAdministrativeUnit]
-        :param deleted_items: Recently deleted items. Read-only. Nullable.
-        :type deleted_items: list[~identity_directory_management.models.MicrosoftGraphDirectoryObject]
+        :param body: New property values.
+        :type body: ~identity_directory_management.models.MicrosoftGraphDirectory
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -124,8 +118,6 @@ class DirectoryDirectoryOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphDirectory(id=id, administrative_units=administrative_units, deleted_items=deleted_items)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

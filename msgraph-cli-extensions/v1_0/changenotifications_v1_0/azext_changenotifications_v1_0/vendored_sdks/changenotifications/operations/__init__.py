@@ -6,8 +6,8 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._subscription_subscription_operations import SubscriptionSubscriptionOperations
+from ._subscriptions_subscription_operations import SubscriptionsSubscriptionOperations
 
 __all__ = [
-    'SubscriptionSubscriptionOperations',
+    'SubscriptionsSubscriptionOperations',
 ]

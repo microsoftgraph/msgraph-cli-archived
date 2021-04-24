@@ -25,20 +25,22 @@ def security_security_create(client,
                              security_actions=None,
                              ti_indicators=None,
                              user_security_profiles=None):
-    return client.update_security(id=id_,
-                                  provider_status=provider_status,
-                                  alerts=alerts,
-                                  cloud_app_security_profiles=cloud_app_security_profiles,
-                                  domain_security_profiles=domain_security_profiles,
-                                  file_security_profiles=file_security_profiles,
-                                  host_security_profiles=host_security_profiles,
-                                  ip_security_profiles=ip_security_profiles,
-                                  provider_tenant_settings=provider_tenant_settings,
-                                  secure_score_control_profiles=secure_score_control_profiles,
-                                  secure_scores=secure_scores,
-                                  security_actions=security_actions,
-                                  ti_indicators=ti_indicators,
-                                  user_security_profiles=user_security_profiles)
+    body = {}
+    body['id'] = id_
+    body['provider_status'] = provider_status
+    body['alerts'] = alerts
+    body['cloud_app_security_profiles'] = cloud_app_security_profiles
+    body['domain_security_profiles'] = domain_security_profiles
+    body['file_security_profiles'] = file_security_profiles
+    body['host_security_profiles'] = host_security_profiles
+    body['ip_security_profiles'] = ip_security_profiles
+    body['provider_tenant_settings'] = provider_tenant_settings
+    body['secure_score_control_profiles'] = secure_score_control_profiles
+    body['secure_scores'] = secure_scores
+    body['security_actions'] = security_actions
+    body['ti_indicators'] = ti_indicators
+    body['user_security_profiles'] = user_security_profiles
+    return client.update_security(body=body)
 
 
 def security_security_create_action(client,
@@ -58,47 +60,35 @@ def security_security_create_action(client,
                                     status=None,
                                     user=None,
                                     vendor_information=None):
+    body = {}
+    body['id'] = id_
+    body['action_reason'] = action_reason
+    body['app_id'] = app_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['client_context'] = client_context
+    body['completed_date_time'] = completed_date_time
+    body['created_date_time'] = created_date_time
+    body['error_info'] = error_info
+    body['last_action_date_time'] = last_action_date_time
+    body['name'] = name
+    body['parameters'] = parameters
+    body['states'] = states
+    body['status'] = status
+    body['user'] = user
+    body['vendor_information'] = vendor_information
     if security_action_id is not None:
-        return client.update_security_action(security_action_id=security_action_id,
-                                             id=id_,
-                                             action_reason=action_reason,
-                                             app_id=app_id,
-                                             azure_tenant_id=azure_tenant_id,
-                                             client_context=client_context,
-                                             completed_date_time=completed_date_time,
-                                             created_date_time=created_date_time,
-                                             error_info=error_info,
-                                             last_action_date_time=last_action_date_time,
-                                             name=name,
-                                             parameters=parameters,
-                                             states=states,
-                                             status=status,
-                                             user=user,
-                                             vendor_information=vendor_information)
-    return client.create_security_action(id=id_,
-                                         action_reason=action_reason,
-                                         app_id=app_id,
-                                         azure_tenant_id=azure_tenant_id,
-                                         client_context=client_context,
-                                         completed_date_time=completed_date_time,
-                                         created_date_time=created_date_time,
-                                         error_info=error_info,
-                                         last_action_date_time=last_action_date_time,
-                                         name=name,
-                                         parameters=parameters,
-                                         states=states,
-                                         status=status,
-                                         user=user,
-                                         vendor_information=vendor_information)
+        return client.update_security_actions(security_action_id=security_action_id,
+                                              body=body)
+    return client.create_security_actions(body=body)
 
 
 def security_security_list_action(client,
                                   orderby=None,
                                   select=None,
                                   expand=None):
-    return client.list_security_action(orderby=orderby,
-                                       select=select,
-                                       expand=expand)
+    return client.list_security_actions(orderby=orderby,
+                                        select=select,
+                                        expand=expand)
 
 
 def security_security_show_security(client,
@@ -144,41 +134,43 @@ def security_security_create_alert(client,
                                    user_states=None,
                                    vendor_information=None,
                                    vulnerability_states=None):
-    return client.create_alert(id=id_,
-                               activity_group_name=activity_group_name,
-                               assigned_to=assigned_to,
-                               azure_subscription_id=azure_subscription_id,
-                               azure_tenant_id=azure_tenant_id,
-                               category=category,
-                               closed_date_time=closed_date_time,
-                               cloud_app_states=cloud_app_states,
-                               comments=comments,
-                               confidence=confidence,
-                               created_date_time=created_date_time,
-                               description=description,
-                               detection_ids=detection_ids,
-                               event_date_time=event_date_time,
-                               feedback=feedback,
-                               file_states=file_states,
-                               history_states=history_states,
-                               host_states=host_states,
-                               incident_ids=incident_ids,
-                               last_modified_date_time=last_modified_date_time,
-                               malware_states=malware_states,
-                               network_connections=network_connections,
-                               processes=processes,
-                               recommended_actions=recommended_actions,
-                               registry_key_states=registry_key_states,
-                               security_resources=security_resources,
-                               severity=severity,
-                               source_materials=source_materials,
-                               status=status,
-                               tags=tags,
-                               title=title,
-                               triggers=triggers,
-                               user_states=user_states,
-                               vendor_information=vendor_information,
-                               vulnerability_states=vulnerability_states)
+    body = {}
+    body['id'] = id_
+    body['activity_group_name'] = activity_group_name
+    body['assigned_to'] = assigned_to
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['category'] = category
+    body['closed_date_time'] = closed_date_time
+    body['cloud_app_states'] = cloud_app_states
+    body['comments'] = comments
+    body['confidence'] = confidence
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['detection_ids'] = detection_ids
+    body['event_date_time'] = event_date_time
+    body['feedback'] = feedback
+    body['file_states'] = file_states
+    body['history_states'] = history_states
+    body['host_states'] = host_states
+    body['incident_ids'] = incident_ids
+    body['last_modified_date_time'] = last_modified_date_time
+    body['malware_states'] = malware_states
+    body['network_connections'] = network_connections
+    body['processes'] = processes
+    body['recommended_actions'] = recommended_actions
+    body['registry_key_states'] = registry_key_states
+    body['security_resources'] = security_resources
+    body['severity'] = severity
+    body['source_materials'] = source_materials
+    body['status'] = status
+    body['tags'] = tags
+    body['title'] = title
+    body['triggers'] = triggers
+    body['user_states'] = user_states
+    body['vendor_information'] = vendor_information
+    body['vulnerability_states'] = vulnerability_states
+    return client.create_alerts(body=body)
 
 
 def security_security_create_cloud_app_security_profile(client,
@@ -200,24 +192,26 @@ def security_security_create_cloud_app_security_profile(client,
                                                         tags=None,
                                                         type_=None,
                                                         vendor_information=None):
-    return client.create_cloud_app_security_profile(id=id_,
-                                                    azure_subscription_id=azure_subscription_id,
-                                                    azure_tenant_id=azure_tenant_id,
-                                                    created_date_time=created_date_time,
-                                                    deployment_package_url=deployment_package_url,
-                                                    destination_service_name=destination_service_name,
-                                                    is_signed=is_signed,
-                                                    last_modified_date_time=last_modified_date_time,
-                                                    manifest=manifest,
-                                                    name=name,
-                                                    permissions_required=permissions_required,
-                                                    platform=platform,
-                                                    policy_name=policy_name,
-                                                    publisher=publisher,
-                                                    risk_score=risk_score,
-                                                    tags=tags,
-                                                    type=type_,
-                                                    vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['created_date_time'] = created_date_time
+    body['deployment_package_url'] = deployment_package_url
+    body['destination_service_name'] = destination_service_name
+    body['is_signed'] = is_signed
+    body['last_modified_date_time'] = last_modified_date_time
+    body['manifest'] = manifest
+    body['name'] = name
+    body['permissions_required'] = permissions_required
+    body['platform'] = platform
+    body['policy_name'] = policy_name
+    body['publisher'] = publisher
+    body['risk_score'] = risk_score
+    body['tags'] = tags
+    body['type'] = type_
+    body['vendor_information'] = vendor_information
+    return client.create_cloud_app_security_profiles(body=body)
 
 
 def security_security_create_domain_security_profile(client,
@@ -236,21 +230,23 @@ def security_security_create_domain_security_profile(client,
                                                      risk_score=None,
                                                      tags=None,
                                                      vendor_information=None):
-    return client.create_domain_security_profile(id=id_,
-                                                 activity_group_names=activity_group_names,
-                                                 azure_subscription_id=azure_subscription_id,
-                                                 azure_tenant_id=azure_tenant_id,
-                                                 count_hits=count_hits,
-                                                 count_in_org=count_in_org,
-                                                 domain_categories=domain_categories,
-                                                 domain_registered_date_time=domain_registered_date_time,
-                                                 first_seen_date_time=first_seen_date_time,
-                                                 last_seen_date_time=last_seen_date_time,
-                                                 name=name,
-                                                 registrant=registrant,
-                                                 risk_score=risk_score,
-                                                 tags=tags,
-                                                 vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['activity_group_names'] = activity_group_names
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['count_hits'] = count_hits
+    body['count_in_org'] = count_in_org
+    body['domain_categories'] = domain_categories
+    body['domain_registered_date_time'] = domain_registered_date_time
+    body['first_seen_date_time'] = first_seen_date_time
+    body['last_seen_date_time'] = last_seen_date_time
+    body['name'] = name
+    body['registrant'] = registrant
+    body['risk_score'] = risk_score
+    body['tags'] = tags
+    body['vendor_information'] = vendor_information
+    return client.create_domain_security_profiles(body=body)
 
 
 def security_security_create_file_security_profile(client,
@@ -271,23 +267,25 @@ def security_security_create_file_security_profile(client,
                                                    tags=None,
                                                    vendor_information=None,
                                                    vulnerability_states=None):
-    return client.create_file_security_profile(id=id_,
-                                               activity_group_names=activity_group_names,
-                                               azure_subscription_id=azure_subscription_id,
-                                               azure_tenant_id=azure_tenant_id,
-                                               certificate_thumbprint=certificate_thumbprint,
-                                               extensions=extensions,
-                                               file_type=file_type,
-                                               first_seen_date_time=first_seen_date_time,
-                                               hashes=hashes,
-                                               last_seen_date_time=last_seen_date_time,
-                                               malware_states=malware_states,
-                                               names=names,
-                                               risk_score=risk_score,
-                                               size=size,
-                                               tags=tags,
-                                               vendor_information=vendor_information,
-                                               vulnerability_states=vulnerability_states)
+    body = {}
+    body['id'] = id_
+    body['activity_group_names'] = activity_group_names
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['certificate_thumbprint'] = certificate_thumbprint
+    body['extensions'] = extensions
+    body['file_type'] = file_type
+    body['first_seen_date_time'] = first_seen_date_time
+    body['hashes'] = hashes
+    body['last_seen_date_time'] = last_seen_date_time
+    body['malware_states'] = malware_states
+    body['names'] = names
+    body['risk_score'] = risk_score
+    body['size'] = size
+    body['tags'] = tags
+    body['vendor_information'] = vendor_information
+    body['vulnerability_states'] = vulnerability_states
+    return client.create_file_security_profiles(body=body)
 
 
 def security_security_create_host_security_profile(client,
@@ -310,25 +308,27 @@ def security_security_create_host_security_profile(client,
                                                    risk_score=None,
                                                    tags=None,
                                                    vendor_information=None):
-    return client.create_host_security_profile(id=id_,
-                                               azure_subscription_id=azure_subscription_id,
-                                               azure_tenant_id=azure_tenant_id,
-                                               first_seen_date_time=first_seen_date_time,
-                                               fqdn=fqdn,
-                                               is_azure_ad_joined=is_azure_ad_joined,
-                                               is_azure_ad_registered=is_azure_ad_registered,
-                                               is_hybrid_azure_domain_joined=is_hybrid_azure_domain_joined,
-                                               last_seen_date_time=last_seen_date_time,
-                                               logon_users=logon_users,
-                                               net_bios_name=net_bios_name,
-                                               network_interfaces=network_interfaces,
-                                               os=os,
-                                               os_version=os_version,
-                                               parent_host=parent_host,
-                                               related_host_ids=related_host_ids,
-                                               risk_score=risk_score,
-                                               tags=tags,
-                                               vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['first_seen_date_time'] = first_seen_date_time
+    body['fqdn'] = fqdn
+    body['is_azure_ad_joined'] = is_azure_ad_joined
+    body['is_azure_ad_registered'] = is_azure_ad_registered
+    body['is_hybrid_azure_domain_joined'] = is_hybrid_azure_domain_joined
+    body['last_seen_date_time'] = last_seen_date_time
+    body['logon_users'] = logon_users
+    body['net_bios_name'] = net_bios_name
+    body['network_interfaces'] = network_interfaces
+    body['os'] = os
+    body['os_version'] = os_version
+    body['parent_host'] = parent_host
+    body['related_host_ids'] = related_host_ids
+    body['risk_score'] = risk_score
+    body['tags'] = tags
+    body['vendor_information'] = vendor_information
+    return client.create_host_security_profiles(body=body)
 
 
 def security_security_create_ip_security_profile(client,
@@ -346,20 +346,22 @@ def security_security_create_ip_security_profile(client,
                                                  risk_score=None,
                                                  tags=None,
                                                  vendor_information=None):
-    return client.create_ip_security_profile(id=id_,
-                                             activity_group_names=activity_group_names,
-                                             address=address,
-                                             azure_subscription_id=azure_subscription_id,
-                                             azure_tenant_id=azure_tenant_id,
-                                             count_hits=count_hits,
-                                             count_hosts=count_hosts,
-                                             first_seen_date_time=first_seen_date_time,
-                                             ip_categories=ip_categories,
-                                             ip_reference_data=ip_reference_data,
-                                             last_seen_date_time=last_seen_date_time,
-                                             risk_score=risk_score,
-                                             tags=tags,
-                                             vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['activity_group_names'] = activity_group_names
+    body['address'] = address
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['count_hits'] = count_hits
+    body['count_hosts'] = count_hosts
+    body['first_seen_date_time'] = first_seen_date_time
+    body['ip_categories'] = ip_categories
+    body['ip_reference_data'] = ip_reference_data
+    body['last_seen_date_time'] = last_seen_date_time
+    body['risk_score'] = risk_score
+    body['tags'] = tags
+    body['vendor_information'] = vendor_information
+    return client.create_ip_security_profiles(body=body)
 
 
 def security_security_create_provider_tenant_setting(client,
@@ -369,12 +371,14 @@ def security_security_create_provider_tenant_setting(client,
                                                      last_modified_date_time=None,
                                                      provider=None,
                                                      vendor=None):
-    return client.create_provider_tenant_setting(id=id_,
-                                                 azure_tenant_id=azure_tenant_id,
-                                                 enabled=enabled,
-                                                 last_modified_date_time=last_modified_date_time,
-                                                 provider=provider,
-                                                 vendor=vendor)
+    body = {}
+    body['id'] = id_
+    body['azure_tenant_id'] = azure_tenant_id
+    body['enabled'] = enabled
+    body['last_modified_date_time'] = last_modified_date_time
+    body['provider'] = provider
+    body['vendor'] = vendor
+    return client.create_provider_tenant_settings(body=body)
 
 
 def security_security_create_secure_score(client,
@@ -389,17 +393,19 @@ def security_security_create_secure_score(client,
                                           licensed_user_count=None,
                                           max_score=None,
                                           vendor_information=None):
-    return client.create_secure_score(id=id_,
-                                      active_user_count=active_user_count,
-                                      average_comparative_scores=average_comparative_scores,
-                                      azure_tenant_id=azure_tenant_id,
-                                      control_scores=control_scores,
-                                      created_date_time=created_date_time,
-                                      current_score=current_score,
-                                      enabled_services=enabled_services,
-                                      licensed_user_count=licensed_user_count,
-                                      max_score=max_score,
-                                      vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['active_user_count'] = active_user_count
+    body['average_comparative_scores'] = average_comparative_scores
+    body['azure_tenant_id'] = azure_tenant_id
+    body['control_scores'] = control_scores
+    body['created_date_time'] = created_date_time
+    body['current_score'] = current_score
+    body['enabled_services'] = enabled_services
+    body['licensed_user_count'] = licensed_user_count
+    body['max_score'] = max_score
+    body['vendor_information'] = vendor_information
+    return client.create_secure_scores(body=body)
 
 
 def security_security_create_secure_score_control_profile(client,
@@ -423,26 +429,28 @@ def security_security_create_secure_score_control_profile(client,
                                                           title=None,
                                                           user_impact=None,
                                                           vendor_information=None):
-    return client.create_secure_score_control_profile(id=id_,
-                                                      action_type=action_type,
-                                                      action_url=action_url,
-                                                      azure_tenant_id=azure_tenant_id,
-                                                      compliance_information=compliance_information,
-                                                      control_category=control_category,
-                                                      control_state_updates=control_state_updates,
-                                                      deprecated=deprecated,
-                                                      implementation_cost=implementation_cost,
-                                                      last_modified_date_time=last_modified_date_time,
-                                                      max_score=max_score,
-                                                      rank=rank,
-                                                      remediation=remediation,
-                                                      remediation_impact=remediation_impact,
-                                                      service=service,
-                                                      threats=threats,
-                                                      tier=tier,
-                                                      title=title,
-                                                      user_impact=user_impact,
-                                                      vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['action_type'] = action_type
+    body['action_url'] = action_url
+    body['azure_tenant_id'] = azure_tenant_id
+    body['compliance_information'] = compliance_information
+    body['control_category'] = control_category
+    body['control_state_updates'] = control_state_updates
+    body['deprecated'] = deprecated
+    body['implementation_cost'] = implementation_cost
+    body['last_modified_date_time'] = last_modified_date_time
+    body['max_score'] = max_score
+    body['rank'] = rank
+    body['remediation'] = remediation
+    body['remediation_impact'] = remediation_impact
+    body['service'] = service
+    body['threats'] = threats
+    body['tier'] = tier
+    body['title'] = title
+    body['user_impact'] = user_impact
+    body['vendor_information'] = vendor_information
+    return client.create_secure_score_control_profiles(body=body)
 
 
 def security_security_create_ti_indicator(client,
@@ -505,65 +513,67 @@ def security_security_create_ti_indicator(client,
                                           tlp_level=None,
                                           url=None,
                                           user_agent=None):
-    return client.create_ti_indicator(id=id_,
-                                      action=action,
-                                      activity_group_names=activity_group_names,
-                                      additional_information=additional_information,
-                                      azure_tenant_id=azure_tenant_id,
-                                      confidence=confidence,
-                                      description=description,
-                                      diamond_model=diamond_model,
-                                      domain_name=domain_name,
-                                      email_encoding=email_encoding,
-                                      email_language=email_language,
-                                      email_recipient=email_recipient,
-                                      email_sender_address=email_sender_address,
-                                      email_sender_name=email_sender_name,
-                                      email_source_domain=email_source_domain,
-                                      email_source_ip_address=email_source_ip_address,
-                                      email_subject=email_subject,
-                                      email_x_mailer=email_x_mailer,
-                                      expiration_date_time=expiration_date_time,
-                                      external_id=external_id,
-                                      file_compile_date_time=file_compile_date_time,
-                                      file_created_date_time=file_created_date_time,
-                                      file_hash_type=file_hash_type,
-                                      file_hash_value=file_hash_value,
-                                      file_mutex_name=file_mutex_name,
-                                      file_name=file_name,
-                                      file_packer=file_packer,
-                                      file_path=file_path,
-                                      file_size=file_size,
-                                      file_type=file_type,
-                                      ingested_date_time=ingested_date_time,
-                                      is_active=is_active,
-                                      kill_chain=kill_chain,
-                                      known_false_positives=known_false_positives,
-                                      last_reported_date_time=last_reported_date_time,
-                                      malware_family_names=malware_family_names,
-                                      network_cidr_block=network_cidr_block,
-                                      network_destination_asn=network_destination_asn,
-                                      network_destination_cidr_block=network_destination_cidr_block,
-                                      network_destination_i_pv4=network_destination_i_pv4,
-                                      network_destination_i_pv6=network_destination_i_pv6,
-                                      network_destination_port=network_destination_port,
-                                      network_i_pv4=network_i_pv4,
-                                      network_i_pv6=network_i_pv6,
-                                      network_port=network_port,
-                                      network_protocol=network_protocol,
-                                      network_source_asn=network_source_asn,
-                                      network_source_cidr_block=network_source_cidr_block,
-                                      network_source_i_pv4=network_source_i_pv4,
-                                      network_source_i_pv6=network_source_i_pv6,
-                                      network_source_port=network_source_port,
-                                      passive_only=passive_only,
-                                      severity=severity,
-                                      tags=tags,
-                                      target_product=target_product,
-                                      threat_type=threat_type,
-                                      tlp_level=tlp_level,
-                                      url=url,
-                                      user_agent_parameter=user_agent)
+    body = {}
+    body['id'] = id_
+    body['action'] = action
+    body['activity_group_names'] = activity_group_names
+    body['additional_information'] = additional_information
+    body['azure_tenant_id'] = azure_tenant_id
+    body['confidence'] = confidence
+    body['description'] = description
+    body['diamond_model'] = diamond_model
+    body['domain_name'] = domain_name
+    body['email_encoding'] = email_encoding
+    body['email_language'] = email_language
+    body['email_recipient'] = email_recipient
+    body['email_sender_address'] = email_sender_address
+    body['email_sender_name'] = email_sender_name
+    body['email_source_domain'] = email_source_domain
+    body['email_source_ip_address'] = email_source_ip_address
+    body['email_subject'] = email_subject
+    body['email_x_mailer'] = email_x_mailer
+    body['expiration_date_time'] = expiration_date_time
+    body['external_id'] = external_id
+    body['file_compile_date_time'] = file_compile_date_time
+    body['file_created_date_time'] = file_created_date_time
+    body['file_hash_type'] = file_hash_type
+    body['file_hash_value'] = file_hash_value
+    body['file_mutex_name'] = file_mutex_name
+    body['file_name'] = file_name
+    body['file_packer'] = file_packer
+    body['file_path'] = file_path
+    body['file_size'] = file_size
+    body['file_type'] = file_type
+    body['ingested_date_time'] = ingested_date_time
+    body['is_active'] = is_active
+    body['kill_chain'] = kill_chain
+    body['known_false_positives'] = known_false_positives
+    body['last_reported_date_time'] = last_reported_date_time
+    body['malware_family_names'] = malware_family_names
+    body['network_cidr_block'] = network_cidr_block
+    body['network_destination_asn'] = network_destination_asn
+    body['network_destination_cidr_block'] = network_destination_cidr_block
+    body['network_destination_i_pv4'] = network_destination_i_pv4
+    body['network_destination_i_pv6'] = network_destination_i_pv6
+    body['network_destination_port'] = network_destination_port
+    body['network_i_pv4'] = network_i_pv4
+    body['network_i_pv6'] = network_i_pv6
+    body['network_port'] = network_port
+    body['network_protocol'] = network_protocol
+    body['network_source_asn'] = network_source_asn
+    body['network_source_cidr_block'] = network_source_cidr_block
+    body['network_source_i_pv4'] = network_source_i_pv4
+    body['network_source_i_pv6'] = network_source_i_pv6
+    body['network_source_port'] = network_source_port
+    body['passive_only'] = passive_only
+    body['severity'] = severity
+    body['tags'] = tags
+    body['target_product'] = target_product
+    body['threat_type'] = threat_type
+    body['tlp_level'] = tlp_level
+    body['url'] = url
+    body['user_agent'] = user_agent
+    return client.create_ti_indicators(body=body)
 
 
 def security_security_create_user_security_profile(client,
@@ -578,308 +588,310 @@ def security_security_create_user_security_profile(client,
                                                    tags=None,
                                                    user_principal_name=None,
                                                    vendor_information=None):
-    return client.create_user_security_profile(id=id_,
-                                               accounts=accounts,
-                                               azure_subscription_id=azure_subscription_id,
-                                               azure_tenant_id=azure_tenant_id,
-                                               created_date_time=created_date_time,
-                                               display_name=display_name,
-                                               last_modified_date_time=last_modified_date_time,
-                                               risk_score=risk_score,
-                                               tags=tags,
-                                               user_principal_name=user_principal_name,
-                                               vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['accounts'] = accounts
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['created_date_time'] = created_date_time
+    body['display_name'] = display_name
+    body['last_modified_date_time'] = last_modified_date_time
+    body['risk_score'] = risk_score
+    body['tags'] = tags
+    body['user_principal_name'] = user_principal_name
+    body['vendor_information'] = vendor_information
+    return client.create_user_security_profiles(body=body)
 
 
 def security_security_delete_alert(client,
                                    alert_id,
                                    if_match=None):
-    return client.delete_alert(alert_id=alert_id,
-                               if_match=if_match)
+    return client.delete_alerts(alert_id=alert_id,
+                                if_match=if_match)
 
 
 def security_security_delete_cloud_app_security_profile(client,
                                                         cloud_app_security_profile_id,
                                                         if_match=None):
-    return client.delete_cloud_app_security_profile(cloud_app_security_profile_id=cloud_app_security_profile_id,
-                                                    if_match=if_match)
+    return client.delete_cloud_app_security_profiles(cloud_app_security_profile_id=cloud_app_security_profile_id,
+                                                     if_match=if_match)
 
 
 def security_security_delete_domain_security_profile(client,
                                                      domain_security_profile_id,
                                                      if_match=None):
-    return client.delete_domain_security_profile(domain_security_profile_id=domain_security_profile_id,
-                                                 if_match=if_match)
+    return client.delete_domain_security_profiles(domain_security_profile_id=domain_security_profile_id,
+                                                  if_match=if_match)
 
 
 def security_security_delete_file_security_profile(client,
                                                    file_security_profile_id,
                                                    if_match=None):
-    return client.delete_file_security_profile(file_security_profile_id=file_security_profile_id,
-                                               if_match=if_match)
+    return client.delete_file_security_profiles(file_security_profile_id=file_security_profile_id,
+                                                if_match=if_match)
 
 
 def security_security_delete_host_security_profile(client,
                                                    host_security_profile_id,
                                                    if_match=None):
-    return client.delete_host_security_profile(host_security_profile_id=host_security_profile_id,
-                                               if_match=if_match)
+    return client.delete_host_security_profiles(host_security_profile_id=host_security_profile_id,
+                                                if_match=if_match)
 
 
 def security_security_delete_ip_security_profile(client,
                                                  ip_security_profile_id,
                                                  if_match=None):
-    return client.delete_ip_security_profile(ip_security_profile_id=ip_security_profile_id,
-                                             if_match=if_match)
+    return client.delete_ip_security_profiles(ip_security_profile_id=ip_security_profile_id,
+                                              if_match=if_match)
 
 
 def security_security_delete_provider_tenant_setting(client,
                                                      provider_tenant_setting_id,
                                                      if_match=None):
-    return client.delete_provider_tenant_setting(provider_tenant_setting_id=provider_tenant_setting_id,
-                                                 if_match=if_match)
+    return client.delete_provider_tenant_settings(provider_tenant_setting_id=provider_tenant_setting_id,
+                                                  if_match=if_match)
 
 
 def security_security_delete_secure_score(client,
                                           secure_score_id,
                                           if_match=None):
-    return client.delete_secure_score(secure_score_id=secure_score_id,
-                                      if_match=if_match)
+    return client.delete_secure_scores(secure_score_id=secure_score_id,
+                                       if_match=if_match)
 
 
 def security_security_delete_secure_score_control_profile(client,
                                                           secure_score_control_profile_id,
                                                           if_match=None):
-    return client.delete_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
-                                                      if_match=if_match)
+    return client.delete_secure_score_control_profiles(secure_score_control_profile_id=secure_score_control_profile_id,
+                                                       if_match=if_match)
 
 
 def security_security_delete_security_action(client,
                                              security_action_id,
                                              if_match=None):
-    return client.delete_security_action(security_action_id=security_action_id,
-                                         if_match=if_match)
+    return client.delete_security_actions(security_action_id=security_action_id,
+                                          if_match=if_match)
 
 
 def security_security_delete_ti_indicator(client,
                                           ti_indicator_id,
                                           if_match=None):
-    return client.delete_ti_indicator(ti_indicator_id=ti_indicator_id,
-                                      if_match=if_match)
+    return client.delete_ti_indicators(ti_indicator_id=ti_indicator_id,
+                                       if_match=if_match)
 
 
 def security_security_delete_user_security_profile(client,
                                                    user_security_profile_id,
                                                    if_match=None):
-    return client.delete_user_security_profile(user_security_profile_id=user_security_profile_id,
-                                               if_match=if_match)
+    return client.delete_user_security_profiles(user_security_profile_id=user_security_profile_id,
+                                                if_match=if_match)
 
 
 def security_security_list_alert(client,
                                  orderby=None,
                                  select=None,
                                  expand=None):
-    return client.list_alert(orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_alerts(orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def security_security_list_cloud_app_security_profile(client,
                                                       orderby=None,
                                                       select=None,
                                                       expand=None):
-    return client.list_cloud_app_security_profile(orderby=orderby,
-                                                  select=select,
-                                                  expand=expand)
+    return client.list_cloud_app_security_profiles(orderby=orderby,
+                                                   select=select,
+                                                   expand=expand)
 
 
 def security_security_list_domain_security_profile(client,
                                                    orderby=None,
                                                    select=None,
                                                    expand=None):
-    return client.list_domain_security_profile(orderby=orderby,
-                                               select=select,
-                                               expand=expand)
+    return client.list_domain_security_profiles(orderby=orderby,
+                                                select=select,
+                                                expand=expand)
 
 
 def security_security_list_file_security_profile(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_file_security_profile(orderby=orderby,
-                                             select=select,
-                                             expand=expand)
+    return client.list_file_security_profiles(orderby=orderby,
+                                              select=select,
+                                              expand=expand)
 
 
 def security_security_list_host_security_profile(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_host_security_profile(orderby=orderby,
-                                             select=select,
-                                             expand=expand)
+    return client.list_host_security_profiles(orderby=orderby,
+                                              select=select,
+                                              expand=expand)
 
 
 def security_security_list_ip_security_profile(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_ip_security_profile(orderby=orderby,
-                                           select=select,
-                                           expand=expand)
+    return client.list_ip_security_profiles(orderby=orderby,
+                                            select=select,
+                                            expand=expand)
 
 
 def security_security_list_provider_tenant_setting(client,
                                                    orderby=None,
                                                    select=None,
                                                    expand=None):
-    return client.list_provider_tenant_setting(orderby=orderby,
-                                               select=select,
-                                               expand=expand)
+    return client.list_provider_tenant_settings(orderby=orderby,
+                                                select=select,
+                                                expand=expand)
 
 
 def security_security_list_secure_score(client,
                                         orderby=None,
                                         select=None,
                                         expand=None):
-    return client.list_secure_score(orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_secure_scores(orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def security_security_list_secure_score_control_profile(client,
                                                         orderby=None,
                                                         select=None,
                                                         expand=None):
-    return client.list_secure_score_control_profile(orderby=orderby,
-                                                    select=select,
-                                                    expand=expand)
+    return client.list_secure_score_control_profiles(orderby=orderby,
+                                                     select=select,
+                                                     expand=expand)
 
 
 def security_security_list_ti_indicator(client,
                                         orderby=None,
                                         select=None,
                                         expand=None):
-    return client.list_ti_indicator(orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_ti_indicators(orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def security_security_list_user_security_profile(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_user_security_profile(orderby=orderby,
-                                             select=select,
-                                             expand=expand)
+    return client.list_user_security_profiles(orderby=orderby,
+                                              select=select,
+                                              expand=expand)
 
 
 def security_security_show_alert(client,
                                  alert_id,
                                  select=None,
                                  expand=None):
-    return client.get_alert(alert_id=alert_id,
-                            select=select,
-                            expand=expand)
+    return client.get_alerts(alert_id=alert_id,
+                             select=select,
+                             expand=expand)
 
 
 def security_security_show_cloud_app_security_profile(client,
                                                       cloud_app_security_profile_id,
                                                       select=None,
                                                       expand=None):
-    return client.get_cloud_app_security_profile(cloud_app_security_profile_id=cloud_app_security_profile_id,
-                                                 select=select,
-                                                 expand=expand)
+    return client.get_cloud_app_security_profiles(cloud_app_security_profile_id=cloud_app_security_profile_id,
+                                                  select=select,
+                                                  expand=expand)
 
 
 def security_security_show_domain_security_profile(client,
                                                    domain_security_profile_id,
                                                    select=None,
                                                    expand=None):
-    return client.get_domain_security_profile(domain_security_profile_id=domain_security_profile_id,
-                                              select=select,
-                                              expand=expand)
+    return client.get_domain_security_profiles(domain_security_profile_id=domain_security_profile_id,
+                                               select=select,
+                                               expand=expand)
 
 
 def security_security_show_file_security_profile(client,
                                                  file_security_profile_id,
                                                  select=None,
                                                  expand=None):
-    return client.get_file_security_profile(file_security_profile_id=file_security_profile_id,
-                                            select=select,
-                                            expand=expand)
+    return client.get_file_security_profiles(file_security_profile_id=file_security_profile_id,
+                                             select=select,
+                                             expand=expand)
 
 
 def security_security_show_host_security_profile(client,
                                                  host_security_profile_id,
                                                  select=None,
                                                  expand=None):
-    return client.get_host_security_profile(host_security_profile_id=host_security_profile_id,
-                                            select=select,
-                                            expand=expand)
+    return client.get_host_security_profiles(host_security_profile_id=host_security_profile_id,
+                                             select=select,
+                                             expand=expand)
 
 
 def security_security_show_ip_security_profile(client,
                                                ip_security_profile_id,
                                                select=None,
                                                expand=None):
-    return client.get_ip_security_profile(ip_security_profile_id=ip_security_profile_id,
-                                          select=select,
-                                          expand=expand)
+    return client.get_ip_security_profiles(ip_security_profile_id=ip_security_profile_id,
+                                           select=select,
+                                           expand=expand)
 
 
 def security_security_show_provider_tenant_setting(client,
                                                    provider_tenant_setting_id,
                                                    select=None,
                                                    expand=None):
-    return client.get_provider_tenant_setting(provider_tenant_setting_id=provider_tenant_setting_id,
-                                              select=select,
-                                              expand=expand)
+    return client.get_provider_tenant_settings(provider_tenant_setting_id=provider_tenant_setting_id,
+                                               select=select,
+                                               expand=expand)
 
 
 def security_security_show_secure_score(client,
                                         secure_score_id,
                                         select=None,
                                         expand=None):
-    return client.get_secure_score(secure_score_id=secure_score_id,
-                                   select=select,
-                                   expand=expand)
+    return client.get_secure_scores(secure_score_id=secure_score_id,
+                                    select=select,
+                                    expand=expand)
 
 
 def security_security_show_secure_score_control_profile(client,
                                                         secure_score_control_profile_id,
                                                         select=None,
                                                         expand=None):
-    return client.get_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
-                                                   select=select,
-                                                   expand=expand)
+    return client.get_secure_score_control_profiles(secure_score_control_profile_id=secure_score_control_profile_id,
+                                                    select=select,
+                                                    expand=expand)
 
 
 def security_security_show_security_action(client,
                                            security_action_id,
                                            select=None,
                                            expand=None):
-    return client.get_security_action(security_action_id=security_action_id,
-                                      select=select,
-                                      expand=expand)
+    return client.get_security_actions(security_action_id=security_action_id,
+                                       select=select,
+                                       expand=expand)
 
 
 def security_security_show_ti_indicator(client,
                                         ti_indicator_id,
                                         select=None,
                                         expand=None):
-    return client.get_ti_indicator(ti_indicator_id=ti_indicator_id,
-                                   select=select,
-                                   expand=expand)
+    return client.get_ti_indicators(ti_indicator_id=ti_indicator_id,
+                                    select=select,
+                                    expand=expand)
 
 
 def security_security_show_user_security_profile(client,
                                                  user_security_profile_id,
                                                  select=None,
                                                  expand=None):
-    return client.get_user_security_profile(user_security_profile_id=user_security_profile_id,
-                                            select=select,
-                                            expand=expand)
+    return client.get_user_security_profiles(user_security_profile_id=user_security_profile_id,
+                                             select=select,
+                                             expand=expand)
 
 
 def security_security_update_alert(client,
@@ -919,42 +931,44 @@ def security_security_update_alert(client,
                                    user_states=None,
                                    vendor_information=None,
                                    vulnerability_states=None):
-    return client.update_alert(alert_id=alert_id,
-                               id=id_,
-                               activity_group_name=activity_group_name,
-                               assigned_to=assigned_to,
-                               azure_subscription_id=azure_subscription_id,
-                               azure_tenant_id=azure_tenant_id,
-                               category=category,
-                               closed_date_time=closed_date_time,
-                               cloud_app_states=cloud_app_states,
-                               comments=comments,
-                               confidence=confidence,
-                               created_date_time=created_date_time,
-                               description=description,
-                               detection_ids=detection_ids,
-                               event_date_time=event_date_time,
-                               feedback=feedback,
-                               file_states=file_states,
-                               history_states=history_states,
-                               host_states=host_states,
-                               incident_ids=incident_ids,
-                               last_modified_date_time=last_modified_date_time,
-                               malware_states=malware_states,
-                               network_connections=network_connections,
-                               processes=processes,
-                               recommended_actions=recommended_actions,
-                               registry_key_states=registry_key_states,
-                               security_resources=security_resources,
-                               severity=severity,
-                               source_materials=source_materials,
-                               status=status,
-                               tags=tags,
-                               title=title,
-                               triggers=triggers,
-                               user_states=user_states,
-                               vendor_information=vendor_information,
-                               vulnerability_states=vulnerability_states)
+    body = {}
+    body['id'] = id_
+    body['activity_group_name'] = activity_group_name
+    body['assigned_to'] = assigned_to
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['category'] = category
+    body['closed_date_time'] = closed_date_time
+    body['cloud_app_states'] = cloud_app_states
+    body['comments'] = comments
+    body['confidence'] = confidence
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['detection_ids'] = detection_ids
+    body['event_date_time'] = event_date_time
+    body['feedback'] = feedback
+    body['file_states'] = file_states
+    body['history_states'] = history_states
+    body['host_states'] = host_states
+    body['incident_ids'] = incident_ids
+    body['last_modified_date_time'] = last_modified_date_time
+    body['malware_states'] = malware_states
+    body['network_connections'] = network_connections
+    body['processes'] = processes
+    body['recommended_actions'] = recommended_actions
+    body['registry_key_states'] = registry_key_states
+    body['security_resources'] = security_resources
+    body['severity'] = severity
+    body['source_materials'] = source_materials
+    body['status'] = status
+    body['tags'] = tags
+    body['title'] = title
+    body['triggers'] = triggers
+    body['user_states'] = user_states
+    body['vendor_information'] = vendor_information
+    body['vulnerability_states'] = vulnerability_states
+    return client.update_alerts(alert_id=alert_id,
+                                body=body)
 
 
 def security_security_update_cloud_app_security_profile(client,
@@ -977,25 +991,27 @@ def security_security_update_cloud_app_security_profile(client,
                                                         tags=None,
                                                         type_=None,
                                                         vendor_information=None):
-    return client.update_cloud_app_security_profile(cloud_app_security_profile_id=cloud_app_security_profile_id,
-                                                    id=id_,
-                                                    azure_subscription_id=azure_subscription_id,
-                                                    azure_tenant_id=azure_tenant_id,
-                                                    created_date_time=created_date_time,
-                                                    deployment_package_url=deployment_package_url,
-                                                    destination_service_name=destination_service_name,
-                                                    is_signed=is_signed,
-                                                    last_modified_date_time=last_modified_date_time,
-                                                    manifest=manifest,
-                                                    name=name,
-                                                    permissions_required=permissions_required,
-                                                    platform=platform,
-                                                    policy_name=policy_name,
-                                                    publisher=publisher,
-                                                    risk_score=risk_score,
-                                                    tags=tags,
-                                                    type=type_,
-                                                    vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['created_date_time'] = created_date_time
+    body['deployment_package_url'] = deployment_package_url
+    body['destination_service_name'] = destination_service_name
+    body['is_signed'] = is_signed
+    body['last_modified_date_time'] = last_modified_date_time
+    body['manifest'] = manifest
+    body['name'] = name
+    body['permissions_required'] = permissions_required
+    body['platform'] = platform
+    body['policy_name'] = policy_name
+    body['publisher'] = publisher
+    body['risk_score'] = risk_score
+    body['tags'] = tags
+    body['type'] = type_
+    body['vendor_information'] = vendor_information
+    return client.update_cloud_app_security_profiles(cloud_app_security_profile_id=cloud_app_security_profile_id,
+                                                     body=body)
 
 
 def security_security_update_domain_security_profile(client,
@@ -1015,22 +1031,24 @@ def security_security_update_domain_security_profile(client,
                                                      risk_score=None,
                                                      tags=None,
                                                      vendor_information=None):
-    return client.update_domain_security_profile(domain_security_profile_id=domain_security_profile_id,
-                                                 id=id_,
-                                                 activity_group_names=activity_group_names,
-                                                 azure_subscription_id=azure_subscription_id,
-                                                 azure_tenant_id=azure_tenant_id,
-                                                 count_hits=count_hits,
-                                                 count_in_org=count_in_org,
-                                                 domain_categories=domain_categories,
-                                                 domain_registered_date_time=domain_registered_date_time,
-                                                 first_seen_date_time=first_seen_date_time,
-                                                 last_seen_date_time=last_seen_date_time,
-                                                 name=name,
-                                                 registrant=registrant,
-                                                 risk_score=risk_score,
-                                                 tags=tags,
-                                                 vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['activity_group_names'] = activity_group_names
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['count_hits'] = count_hits
+    body['count_in_org'] = count_in_org
+    body['domain_categories'] = domain_categories
+    body['domain_registered_date_time'] = domain_registered_date_time
+    body['first_seen_date_time'] = first_seen_date_time
+    body['last_seen_date_time'] = last_seen_date_time
+    body['name'] = name
+    body['registrant'] = registrant
+    body['risk_score'] = risk_score
+    body['tags'] = tags
+    body['vendor_information'] = vendor_information
+    return client.update_domain_security_profiles(domain_security_profile_id=domain_security_profile_id,
+                                                  body=body)
 
 
 def security_security_update_file_security_profile(client,
@@ -1052,24 +1070,26 @@ def security_security_update_file_security_profile(client,
                                                    tags=None,
                                                    vendor_information=None,
                                                    vulnerability_states=None):
-    return client.update_file_security_profile(file_security_profile_id=file_security_profile_id,
-                                               id=id_,
-                                               activity_group_names=activity_group_names,
-                                               azure_subscription_id=azure_subscription_id,
-                                               azure_tenant_id=azure_tenant_id,
-                                               certificate_thumbprint=certificate_thumbprint,
-                                               extensions=extensions,
-                                               file_type=file_type,
-                                               first_seen_date_time=first_seen_date_time,
-                                               hashes=hashes,
-                                               last_seen_date_time=last_seen_date_time,
-                                               malware_states=malware_states,
-                                               names=names,
-                                               risk_score=risk_score,
-                                               size=size,
-                                               tags=tags,
-                                               vendor_information=vendor_information,
-                                               vulnerability_states=vulnerability_states)
+    body = {}
+    body['id'] = id_
+    body['activity_group_names'] = activity_group_names
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['certificate_thumbprint'] = certificate_thumbprint
+    body['extensions'] = extensions
+    body['file_type'] = file_type
+    body['first_seen_date_time'] = first_seen_date_time
+    body['hashes'] = hashes
+    body['last_seen_date_time'] = last_seen_date_time
+    body['malware_states'] = malware_states
+    body['names'] = names
+    body['risk_score'] = risk_score
+    body['size'] = size
+    body['tags'] = tags
+    body['vendor_information'] = vendor_information
+    body['vulnerability_states'] = vulnerability_states
+    return client.update_file_security_profiles(file_security_profile_id=file_security_profile_id,
+                                                body=body)
 
 
 def security_security_update_host_security_profile(client,
@@ -1093,26 +1113,28 @@ def security_security_update_host_security_profile(client,
                                                    risk_score=None,
                                                    tags=None,
                                                    vendor_information=None):
-    return client.update_host_security_profile(host_security_profile_id=host_security_profile_id,
-                                               id=id_,
-                                               azure_subscription_id=azure_subscription_id,
-                                               azure_tenant_id=azure_tenant_id,
-                                               first_seen_date_time=first_seen_date_time,
-                                               fqdn=fqdn,
-                                               is_azure_ad_joined=is_azure_ad_joined,
-                                               is_azure_ad_registered=is_azure_ad_registered,
-                                               is_hybrid_azure_domain_joined=is_hybrid_azure_domain_joined,
-                                               last_seen_date_time=last_seen_date_time,
-                                               logon_users=logon_users,
-                                               net_bios_name=net_bios_name,
-                                               network_interfaces=network_interfaces,
-                                               os=os,
-                                               os_version=os_version,
-                                               parent_host=parent_host,
-                                               related_host_ids=related_host_ids,
-                                               risk_score=risk_score,
-                                               tags=tags,
-                                               vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['first_seen_date_time'] = first_seen_date_time
+    body['fqdn'] = fqdn
+    body['is_azure_ad_joined'] = is_azure_ad_joined
+    body['is_azure_ad_registered'] = is_azure_ad_registered
+    body['is_hybrid_azure_domain_joined'] = is_hybrid_azure_domain_joined
+    body['last_seen_date_time'] = last_seen_date_time
+    body['logon_users'] = logon_users
+    body['net_bios_name'] = net_bios_name
+    body['network_interfaces'] = network_interfaces
+    body['os'] = os
+    body['os_version'] = os_version
+    body['parent_host'] = parent_host
+    body['related_host_ids'] = related_host_ids
+    body['risk_score'] = risk_score
+    body['tags'] = tags
+    body['vendor_information'] = vendor_information
+    return client.update_host_security_profiles(host_security_profile_id=host_security_profile_id,
+                                                body=body)
 
 
 def security_security_update_ip_security_profile(client,
@@ -1131,21 +1153,23 @@ def security_security_update_ip_security_profile(client,
                                                  risk_score=None,
                                                  tags=None,
                                                  vendor_information=None):
-    return client.update_ip_security_profile(ip_security_profile_id=ip_security_profile_id,
-                                             id=id_,
-                                             activity_group_names=activity_group_names,
-                                             address=address,
-                                             azure_subscription_id=azure_subscription_id,
-                                             azure_tenant_id=azure_tenant_id,
-                                             count_hits=count_hits,
-                                             count_hosts=count_hosts,
-                                             first_seen_date_time=first_seen_date_time,
-                                             ip_categories=ip_categories,
-                                             ip_reference_data=ip_reference_data,
-                                             last_seen_date_time=last_seen_date_time,
-                                             risk_score=risk_score,
-                                             tags=tags,
-                                             vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['activity_group_names'] = activity_group_names
+    body['address'] = address
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['count_hits'] = count_hits
+    body['count_hosts'] = count_hosts
+    body['first_seen_date_time'] = first_seen_date_time
+    body['ip_categories'] = ip_categories
+    body['ip_reference_data'] = ip_reference_data
+    body['last_seen_date_time'] = last_seen_date_time
+    body['risk_score'] = risk_score
+    body['tags'] = tags
+    body['vendor_information'] = vendor_information
+    return client.update_ip_security_profiles(ip_security_profile_id=ip_security_profile_id,
+                                              body=body)
 
 
 def security_security_update_provider_tenant_setting(client,
@@ -1156,13 +1180,15 @@ def security_security_update_provider_tenant_setting(client,
                                                      last_modified_date_time=None,
                                                      provider=None,
                                                      vendor=None):
-    return client.update_provider_tenant_setting(provider_tenant_setting_id=provider_tenant_setting_id,
-                                                 id=id_,
-                                                 azure_tenant_id=azure_tenant_id,
-                                                 enabled=enabled,
-                                                 last_modified_date_time=last_modified_date_time,
-                                                 provider=provider,
-                                                 vendor=vendor)
+    body = {}
+    body['id'] = id_
+    body['azure_tenant_id'] = azure_tenant_id
+    body['enabled'] = enabled
+    body['last_modified_date_time'] = last_modified_date_time
+    body['provider'] = provider
+    body['vendor'] = vendor
+    return client.update_provider_tenant_settings(provider_tenant_setting_id=provider_tenant_setting_id,
+                                                  body=body)
 
 
 def security_security_update_secure_score(client,
@@ -1178,18 +1204,20 @@ def security_security_update_secure_score(client,
                                           licensed_user_count=None,
                                           max_score=None,
                                           vendor_information=None):
-    return client.update_secure_score(secure_score_id=secure_score_id,
-                                      id=id_,
-                                      active_user_count=active_user_count,
-                                      average_comparative_scores=average_comparative_scores,
-                                      azure_tenant_id=azure_tenant_id,
-                                      control_scores=control_scores,
-                                      created_date_time=created_date_time,
-                                      current_score=current_score,
-                                      enabled_services=enabled_services,
-                                      licensed_user_count=licensed_user_count,
-                                      max_score=max_score,
-                                      vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['active_user_count'] = active_user_count
+    body['average_comparative_scores'] = average_comparative_scores
+    body['azure_tenant_id'] = azure_tenant_id
+    body['control_scores'] = control_scores
+    body['created_date_time'] = created_date_time
+    body['current_score'] = current_score
+    body['enabled_services'] = enabled_services
+    body['licensed_user_count'] = licensed_user_count
+    body['max_score'] = max_score
+    body['vendor_information'] = vendor_information
+    return client.update_secure_scores(secure_score_id=secure_score_id,
+                                       body=body)
 
 
 def security_security_update_secure_score_control_profile(client,
@@ -1214,27 +1242,29 @@ def security_security_update_secure_score_control_profile(client,
                                                           title=None,
                                                           user_impact=None,
                                                           vendor_information=None):
-    return client.update_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
-                                                      id=id_,
-                                                      action_type=action_type,
-                                                      action_url=action_url,
-                                                      azure_tenant_id=azure_tenant_id,
-                                                      compliance_information=compliance_information,
-                                                      control_category=control_category,
-                                                      control_state_updates=control_state_updates,
-                                                      deprecated=deprecated,
-                                                      implementation_cost=implementation_cost,
-                                                      last_modified_date_time=last_modified_date_time,
-                                                      max_score=max_score,
-                                                      rank=rank,
-                                                      remediation=remediation,
-                                                      remediation_impact=remediation_impact,
-                                                      service=service,
-                                                      threats=threats,
-                                                      tier=tier,
-                                                      title=title,
-                                                      user_impact=user_impact,
-                                                      vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['action_type'] = action_type
+    body['action_url'] = action_url
+    body['azure_tenant_id'] = azure_tenant_id
+    body['compliance_information'] = compliance_information
+    body['control_category'] = control_category
+    body['control_state_updates'] = control_state_updates
+    body['deprecated'] = deprecated
+    body['implementation_cost'] = implementation_cost
+    body['last_modified_date_time'] = last_modified_date_time
+    body['max_score'] = max_score
+    body['rank'] = rank
+    body['remediation'] = remediation
+    body['remediation_impact'] = remediation_impact
+    body['service'] = service
+    body['threats'] = threats
+    body['tier'] = tier
+    body['title'] = title
+    body['user_impact'] = user_impact
+    body['vendor_information'] = vendor_information
+    return client.update_secure_score_control_profiles(secure_score_control_profile_id=secure_score_control_profile_id,
+                                                       body=body)
 
 
 def security_security_update_ti_indicator(client,
@@ -1298,66 +1328,68 @@ def security_security_update_ti_indicator(client,
                                           tlp_level=None,
                                           url=None,
                                           user_agent=None):
-    return client.update_ti_indicator(ti_indicator_id=ti_indicator_id,
-                                      id=id_,
-                                      action=action,
-                                      activity_group_names=activity_group_names,
-                                      additional_information=additional_information,
-                                      azure_tenant_id=azure_tenant_id,
-                                      confidence=confidence,
-                                      description=description,
-                                      diamond_model=diamond_model,
-                                      domain_name=domain_name,
-                                      email_encoding=email_encoding,
-                                      email_language=email_language,
-                                      email_recipient=email_recipient,
-                                      email_sender_address=email_sender_address,
-                                      email_sender_name=email_sender_name,
-                                      email_source_domain=email_source_domain,
-                                      email_source_ip_address=email_source_ip_address,
-                                      email_subject=email_subject,
-                                      email_x_mailer=email_x_mailer,
-                                      expiration_date_time=expiration_date_time,
-                                      external_id=external_id,
-                                      file_compile_date_time=file_compile_date_time,
-                                      file_created_date_time=file_created_date_time,
-                                      file_hash_type=file_hash_type,
-                                      file_hash_value=file_hash_value,
-                                      file_mutex_name=file_mutex_name,
-                                      file_name=file_name,
-                                      file_packer=file_packer,
-                                      file_path=file_path,
-                                      file_size=file_size,
-                                      file_type=file_type,
-                                      ingested_date_time=ingested_date_time,
-                                      is_active=is_active,
-                                      kill_chain=kill_chain,
-                                      known_false_positives=known_false_positives,
-                                      last_reported_date_time=last_reported_date_time,
-                                      malware_family_names=malware_family_names,
-                                      network_cidr_block=network_cidr_block,
-                                      network_destination_asn=network_destination_asn,
-                                      network_destination_cidr_block=network_destination_cidr_block,
-                                      network_destination_i_pv4=network_destination_i_pv4,
-                                      network_destination_i_pv6=network_destination_i_pv6,
-                                      network_destination_port=network_destination_port,
-                                      network_i_pv4=network_i_pv4,
-                                      network_i_pv6=network_i_pv6,
-                                      network_port=network_port,
-                                      network_protocol=network_protocol,
-                                      network_source_asn=network_source_asn,
-                                      network_source_cidr_block=network_source_cidr_block,
-                                      network_source_i_pv4=network_source_i_pv4,
-                                      network_source_i_pv6=network_source_i_pv6,
-                                      network_source_port=network_source_port,
-                                      passive_only=passive_only,
-                                      severity=severity,
-                                      tags=tags,
-                                      target_product=target_product,
-                                      threat_type=threat_type,
-                                      tlp_level=tlp_level,
-                                      url=url,
-                                      user_agent_parameter=user_agent)
+    body = {}
+    body['id'] = id_
+    body['action'] = action
+    body['activity_group_names'] = activity_group_names
+    body['additional_information'] = additional_information
+    body['azure_tenant_id'] = azure_tenant_id
+    body['confidence'] = confidence
+    body['description'] = description
+    body['diamond_model'] = diamond_model
+    body['domain_name'] = domain_name
+    body['email_encoding'] = email_encoding
+    body['email_language'] = email_language
+    body['email_recipient'] = email_recipient
+    body['email_sender_address'] = email_sender_address
+    body['email_sender_name'] = email_sender_name
+    body['email_source_domain'] = email_source_domain
+    body['email_source_ip_address'] = email_source_ip_address
+    body['email_subject'] = email_subject
+    body['email_x_mailer'] = email_x_mailer
+    body['expiration_date_time'] = expiration_date_time
+    body['external_id'] = external_id
+    body['file_compile_date_time'] = file_compile_date_time
+    body['file_created_date_time'] = file_created_date_time
+    body['file_hash_type'] = file_hash_type
+    body['file_hash_value'] = file_hash_value
+    body['file_mutex_name'] = file_mutex_name
+    body['file_name'] = file_name
+    body['file_packer'] = file_packer
+    body['file_path'] = file_path
+    body['file_size'] = file_size
+    body['file_type'] = file_type
+    body['ingested_date_time'] = ingested_date_time
+    body['is_active'] = is_active
+    body['kill_chain'] = kill_chain
+    body['known_false_positives'] = known_false_positives
+    body['last_reported_date_time'] = last_reported_date_time
+    body['malware_family_names'] = malware_family_names
+    body['network_cidr_block'] = network_cidr_block
+    body['network_destination_asn'] = network_destination_asn
+    body['network_destination_cidr_block'] = network_destination_cidr_block
+    body['network_destination_i_pv4'] = network_destination_i_pv4
+    body['network_destination_i_pv6'] = network_destination_i_pv6
+    body['network_destination_port'] = network_destination_port
+    body['network_i_pv4'] = network_i_pv4
+    body['network_i_pv6'] = network_i_pv6
+    body['network_port'] = network_port
+    body['network_protocol'] = network_protocol
+    body['network_source_asn'] = network_source_asn
+    body['network_source_cidr_block'] = network_source_cidr_block
+    body['network_source_i_pv4'] = network_source_i_pv4
+    body['network_source_i_pv6'] = network_source_i_pv6
+    body['network_source_port'] = network_source_port
+    body['passive_only'] = passive_only
+    body['severity'] = severity
+    body['tags'] = tags
+    body['target_product'] = target_product
+    body['threat_type'] = threat_type
+    body['tlp_level'] = tlp_level
+    body['url'] = url
+    body['user_agent'] = user_agent
+    return client.update_ti_indicators(ti_indicator_id=ti_indicator_id,
+                                       body=body)
 
 
 def security_security_update_user_security_profile(client,
@@ -1373,23 +1405,27 @@ def security_security_update_user_security_profile(client,
                                                    tags=None,
                                                    user_principal_name=None,
                                                    vendor_information=None):
-    return client.update_user_security_profile(user_security_profile_id=user_security_profile_id,
-                                               id=id_,
-                                               accounts=accounts,
-                                               azure_subscription_id=azure_subscription_id,
-                                               azure_tenant_id=azure_tenant_id,
-                                               created_date_time=created_date_time,
-                                               display_name=display_name,
-                                               last_modified_date_time=last_modified_date_time,
-                                               risk_score=risk_score,
-                                               tags=tags,
-                                               user_principal_name=user_principal_name,
-                                               vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['accounts'] = accounts
+    body['azure_subscription_id'] = azure_subscription_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['created_date_time'] = created_date_time
+    body['display_name'] = display_name
+    body['last_modified_date_time'] = last_modified_date_time
+    body['risk_score'] = risk_score
+    body['tags'] = tags
+    body['user_principal_name'] = user_principal_name
+    body['vendor_information'] = vendor_information
+    return client.update_user_security_profiles(user_security_profile_id=user_security_profile_id,
+                                                body=body)
 
 
 def security_security_alert_update_alert(client,
                                          value=None):
-    return client.update_alert(value=value)
+    body = {}
+    body['value'] = value
+    return client.update_alerts(body=body)
 
 
 def security_security_action_cancel_security_action(client,
@@ -1399,19 +1435,27 @@ def security_security_action_cancel_security_action(client,
 
 def security_security_ti_indicator_delete_ti_indicator(client,
                                                        value=None):
-    return client.delete_ti_indicator(value=value)
+    body = {}
+    body['value'] = value
+    return client.delete_ti_indicators(body=body)
 
 
 def security_security_ti_indicator_delete_ti_indicator_by_external_id(client,
                                                                       value=None):
-    return client.delete_ti_indicator_by_external_id(value=value)
+    body = {}
+    body['value'] = value
+    return client.delete_ti_indicators_by_external_id(body=body)
 
 
 def security_security_ti_indicator_submit_ti_indicator(client,
                                                        value=None):
-    return client.submit_ti_indicator(value=value)
+    body = {}
+    body['value'] = value
+    return client.submit_ti_indicators(body=body)
 
 
 def security_security_ti_indicator_update_ti_indicator(client,
                                                        value=None):
-    return client.update_ti_indicator(value=value)
+    body = {}
+    body['value'] = value
+    return client.update_ti_indicators(body=body)

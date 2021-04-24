@@ -104,12 +104,7 @@ class EducationEducationRootOperations(object):
 
     def update_education_root(
         self,
-        id=None,  # type: Optional[str]
-        synchronization_profiles=None,  # type: Optional[List["models.MicrosoftGraphEducationSynchronizationProfile"]]
-        classes=None,  # type: Optional[List["models.MicrosoftGraphEducationClass"]]
-        me=None,  # type: Optional["models.MicrosoftGraphEducationUser"]
-        schools=None,  # type: Optional[List["models.MicrosoftGraphEducationSchool"]]
-        users=None,  # type: Optional[List["models.MicrosoftGraphEducationUser"]]
+        body,  # type: "models.MicrosoftGraphEducationRoot"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -117,18 +112,8 @@ class EducationEducationRootOperations(object):
 
         Update education.
 
-        :param id: Read-only.
-        :type id: str
-        :param synchronization_profiles:
-        :type synchronization_profiles: list[~education.models.MicrosoftGraphEducationSynchronizationProfile]
-        :param classes: Read-only. Nullable.
-        :type classes: list[~education.models.MicrosoftGraphEducationClass]
-        :param me: educationUser.
-        :type me: ~education.models.MicrosoftGraphEducationUser
-        :param schools: Read-only. Nullable.
-        :type schools: list[~education.models.MicrosoftGraphEducationSchool]
-        :param users: Read-only. Nullable.
-        :type users: list[~education.models.MicrosoftGraphEducationUser]
+        :param body: New property values.
+        :type body: ~education.models.MicrosoftGraphEducationRoot
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -139,8 +124,6 @@ class EducationEducationRootOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphEducationRoot(id=id, synchronization_profiles=synchronization_profiles, classes=classes, me=me, schools=schools, users=users)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

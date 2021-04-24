@@ -45,7 +45,7 @@ class EducationMeOperations(object):
         self._deserialize = deserializer
         self._config = config
 
-    def list_class(
+    def list_classes(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum85"]]]
         select=None,  # type: Optional[List[Union[str, "models.Enum86"]]]
@@ -82,7 +82,7 @@ class EducationMeOperations(object):
 
             if not next_link:
                 # Construct URL
-                url = self.list_class.metadata['url']  # type: ignore
+                url = self.list_classes.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -132,9 +132,9 @@ class EducationMeOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_class.metadata = {'url': '/education/me/classes'}  # type: ignore
+    list_classes.metadata = {'url': '/education/me/classes'}  # type: ignore
 
-    def list_ref_class(
+    def list_ref_classes(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum88"]]]
         **kwargs  # type: Any
@@ -165,7 +165,7 @@ class EducationMeOperations(object):
 
             if not next_link:
                 # Construct URL
-                url = self.list_ref_class.metadata['url']  # type: ignore
+                url = self.list_ref_classes.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -211,9 +211,9 @@ class EducationMeOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_ref_class.metadata = {'url': '/education/me/classes/$ref'}  # type: ignore
+    list_ref_classes.metadata = {'url': '/education/me/classes/$ref'}  # type: ignore
 
-    def create_ref_class(
+    def create_ref_classes(
         self,
         body,  # type: Dict[str, object]
         **kwargs  # type: Any
@@ -239,7 +239,7 @@ class EducationMeOperations(object):
         accept = "application/json"
 
         # Construct URL
-        url = self.create_ref_class.metadata['url']  # type: ignore
+        url = self.create_ref_classes.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -267,9 +267,9 @@ class EducationMeOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_ref_class.metadata = {'url': '/education/me/classes/$ref'}  # type: ignore
+    create_ref_classes.metadata = {'url': '/education/me/classes/$ref'}  # type: ignore
 
-    def list_school(
+    def list_schools(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum89"]]]
         select=None,  # type: Optional[List[Union[str, "models.Enum90"]]]
@@ -306,7 +306,7 @@ class EducationMeOperations(object):
 
             if not next_link:
                 # Construct URL
-                url = self.list_school.metadata['url']  # type: ignore
+                url = self.list_schools.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -356,9 +356,9 @@ class EducationMeOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_school.metadata = {'url': '/education/me/schools'}  # type: ignore
+    list_schools.metadata = {'url': '/education/me/schools'}  # type: ignore
 
-    def list_ref_school(
+    def list_ref_schools(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum92"]]]
         **kwargs  # type: Any
@@ -389,7 +389,7 @@ class EducationMeOperations(object):
 
             if not next_link:
                 # Construct URL
-                url = self.list_ref_school.metadata['url']  # type: ignore
+                url = self.list_ref_schools.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -435,9 +435,9 @@ class EducationMeOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_ref_school.metadata = {'url': '/education/me/schools/$ref'}  # type: ignore
+    list_ref_schools.metadata = {'url': '/education/me/schools/$ref'}  # type: ignore
 
-    def create_ref_school(
+    def create_ref_schools(
         self,
         body,  # type: Dict[str, object]
         **kwargs  # type: Any
@@ -463,7 +463,7 @@ class EducationMeOperations(object):
         accept = "application/json"
 
         # Construct URL
-        url = self.create_ref_school.metadata['url']  # type: ignore
+        url = self.create_ref_schools.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -491,7 +491,7 @@ class EducationMeOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_ref_school.metadata = {'url': '/education/me/schools/$ref'}  # type: ignore
+    create_ref_schools.metadata = {'url': '/education/me/schools/$ref'}  # type: ignore
 
     def get_user(
         self,

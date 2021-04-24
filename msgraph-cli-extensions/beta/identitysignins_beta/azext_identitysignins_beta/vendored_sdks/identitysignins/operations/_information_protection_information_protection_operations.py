@@ -104,13 +104,7 @@ class InformationProtectionInformationProtectionOperations(object):
 
     def update_information_protection(
         self,
-        id=None,  # type: Optional[str]
-        data_loss_prevention_policies=None,  # type: Optional[List["models.MicrosoftGraphDataLossPreventionPolicy"]]
-        sensitivity_labels=None,  # type: Optional[List["models.MicrosoftGraphSensitivityLabel"]]
-        sensitivity_policy_settings=None,  # type: Optional["models.MicrosoftGraphSensitivityPolicySettings"]
-        threat_assessment_requests=None,  # type: Optional[List["models.MicrosoftGraphThreatAssessmentRequest"]]
-        microsoft_graph_entity_id=None,  # type: Optional[str]
-        labels=None,  # type: Optional[List["models.MicrosoftGraphInformationProtectionLabel"]]
+        body,  # type: "models.MicrosoftGraphInformationProtection"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -118,20 +112,8 @@ class InformationProtectionInformationProtectionOperations(object):
 
         Update informationProtection.
 
-        :param id: Read-only.
-        :type id: str
-        :param data_loss_prevention_policies:
-        :type data_loss_prevention_policies: list[~identity_sign_ins.models.MicrosoftGraphDataLossPreventionPolicy]
-        :param sensitivity_labels:
-        :type sensitivity_labels: list[~identity_sign_ins.models.MicrosoftGraphSensitivityLabel]
-        :param sensitivity_policy_settings: sensitivityPolicySettings.
-        :type sensitivity_policy_settings: ~identity_sign_ins.models.MicrosoftGraphSensitivityPolicySettings
-        :param threat_assessment_requests:
-        :type threat_assessment_requests: list[~identity_sign_ins.models.MicrosoftGraphThreatAssessmentRequest]
-        :param microsoft_graph_entity_id: Read-only.
-        :type microsoft_graph_entity_id: str
-        :param labels:
-        :type labels: list[~identity_sign_ins.models.MicrosoftGraphInformationProtectionLabel]
+        :param body: New property values.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphInformationProtection
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -142,8 +124,6 @@ class InformationProtectionInformationProtectionOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphInformationProtection(id=id, data_loss_prevention_policies=data_loss_prevention_policies, sensitivity_labels=sensitivity_labels, sensitivity_policy_settings=sensitivity_policy_settings, threat_assessment_requests=threat_assessment_requests, id_policy_id=microsoft_graph_entity_id, labels=labels)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

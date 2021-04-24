@@ -4468,6 +4468,8 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     :type is_organizer: bool
     :param is_reminder_on: Set to true if an alert is set to remind the user of the event.
     :type is_reminder_on: bool
+    :param location: location.
+    :type location: ~calendar.models.MicrosoftGraphLocation
     :param locations: The locations where the event is held or attended from. The location and
      locations properties always correspond with each other. If you update the location property,
      any prior locations in the locations collection would be removed and replaced by the new
@@ -4475,12 +4477,16 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     :type locations: list[~calendar.models.MicrosoftGraphLocation]
     :param occurrence_id:
     :type occurrence_id: str
+    :param online_meeting: onlineMeetingInfo.
+    :type online_meeting: ~calendar.models.MicrosoftGraphOnlineMeetingInfo
     :param online_meeting_provider:  Possible values include: "unknown", "skypeForBusiness",
      "skypeForConsumer", "teamsForBusiness".
     :type online_meeting_provider: str or ~calendar.models.MicrosoftGraphOnlineMeetingProviderType
     :param online_meeting_url: A URL for an online meeting. The property is set only when an
      organizer specifies an event as an online meeting such as a Skype meeting. Read-only.
     :type online_meeting_url: str
+    :param organizer: recipient.
+    :type organizer: ~calendar.models.MicrosoftGraphRecipient
     :param original_end_time_zone: The end time zone that was set when the event was created. A
      value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
      Outlook.
@@ -4493,6 +4499,8 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
      value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop
      Outlook.
     :type original_start_time_zone: str
+    :param recurrence: patternedRecurrence.
+    :type recurrence: ~calendar.models.MicrosoftGraphPatternedRecurrence
     :param reminder_minutes_before_start: The number of minutes before the event start time that
      the reminder alert occurs.
     :type reminder_minutes_before_start: int
@@ -4549,44 +4557,6 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
      defined for the event. Read-only. Nullable.
     :type single_value_extended_properties:
      list[~calendar.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
-    :param pattern: recurrencePattern.
-    :type pattern: ~calendar.models.MicrosoftGraphRecurrencePattern
-    :param range: recurrenceRange.
-    :type range: ~calendar.models.MicrosoftGraphRecurrenceRange
-    :param email_address: emailAddress.
-    :type email_address: ~calendar.models.MicrosoftGraphEmailAddress
-    :param conference_id: The ID of the conference.
-    :type conference_id: str
-    :param join_url: The external link that launches the online meeting. This is a URL that clients
-     will launch into a browser and will redirect the user to join the meeting.
-    :type join_url: str
-    :param phones: All of the phone numbers associated with this conference.
-    :type phones: list[~calendar.models.MicrosoftGraphPhone]
-    :param quick_dial: The pre-formatted quickdial for this call.
-    :type quick_dial: str
-    :param toll_free_numbers: The toll free numbers that can be used to join the conference.
-    :type toll_free_numbers: list[str]
-    :param toll_number: The toll number that can be used to join the conference.
-    :type toll_number: str
-    :param address: physicalAddress.
-    :type address: ~calendar.models.MicrosoftGraphPhysicalAddress
-    :param coordinates: outlookGeoCoordinates.
-    :type coordinates: ~calendar.models.MicrosoftGraphOutlookGeoCoordinates
-    :param display_name: The name associated with the location.
-    :type display_name: str
-    :param location_email_address: Optional email address of the location.
-    :type location_email_address: str
-    :param location_type:  Possible values include: "default", "conferenceRoom", "homeAddress",
-     "businessAddress", "geoCoordinates", "streetAddress", "hotel", "restaurant", "localBusiness",
-     "postalAddress".
-    :type location_type: str or ~calendar.models.MicrosoftGraphLocationType
-    :param location_uri: Optional URI representing the location.
-    :type location_uri: str
-    :param unique_id: For internal use only.
-    :type unique_id: str
-    :param unique_id_type:  Possible values include: "unknown", "locationStore", "directory",
-     "private", "bing".
-    :type unique_id_type: str or ~calendar.models.MicrosoftGraphLocationUniqueIdType
     """
 
     _validation = {
@@ -4615,13 +4585,17 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         'is_online_meeting': {'key': 'isOnlineMeeting', 'type': 'bool'},
         'is_organizer': {'key': 'isOrganizer', 'type': 'bool'},
         'is_reminder_on': {'key': 'isReminderOn', 'type': 'bool'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphLocation'},
         'locations': {'key': 'locations', 'type': '[MicrosoftGraphLocation]'},
         'occurrence_id': {'key': 'occurrenceId', 'type': 'str'},
+        'online_meeting': {'key': 'onlineMeeting', 'type': 'MicrosoftGraphOnlineMeetingInfo'},
         'online_meeting_provider': {'key': 'onlineMeetingProvider', 'type': 'str'},
         'online_meeting_url': {'key': 'onlineMeetingUrl', 'type': 'str'},
+        'organizer': {'key': 'organizer', 'type': 'MicrosoftGraphRecipient'},
         'original_end_time_zone': {'key': 'originalEndTimeZone', 'type': 'str'},
         'original_start': {'key': 'originalStart', 'type': 'iso-8601'},
         'original_start_time_zone': {'key': 'originalStartTimeZone', 'type': 'str'},
+        'recurrence': {'key': 'recurrence', 'type': 'MicrosoftGraphPatternedRecurrence'},
         'reminder_minutes_before_start': {'key': 'reminderMinutesBeforeStart', 'type': 'int'},
         'response_requested': {'key': 'responseRequested', 'type': 'bool'},
         'response_status': {'key': 'responseStatus', 'type': 'MicrosoftGraphResponseStatus'},
@@ -4641,23 +4615,6 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         'instances': {'key': 'instances', 'type': '[MicrosoftGraphEvent]'},
         'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
-        'pattern': {'key': 'recurrence.pattern', 'type': 'MicrosoftGraphRecurrencePattern'},
-        'range': {'key': 'recurrence.range', 'type': 'MicrosoftGraphRecurrenceRange'},
-        'email_address': {'key': 'organizer.emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
-        'conference_id': {'key': 'onlineMeeting.conferenceId', 'type': 'str'},
-        'join_url': {'key': 'onlineMeeting.joinUrl', 'type': 'str'},
-        'phones': {'key': 'onlineMeeting.phones', 'type': '[MicrosoftGraphPhone]'},
-        'quick_dial': {'key': 'onlineMeeting.quickDial', 'type': 'str'},
-        'toll_free_numbers': {'key': 'onlineMeeting.tollFreeNumbers', 'type': '[str]'},
-        'toll_number': {'key': 'onlineMeeting.tollNumber', 'type': 'str'},
-        'address': {'key': 'location.address', 'type': 'MicrosoftGraphPhysicalAddress'},
-        'coordinates': {'key': 'location.coordinates', 'type': 'MicrosoftGraphOutlookGeoCoordinates'},
-        'display_name': {'key': 'location.displayName', 'type': 'str'},
-        'location_email_address': {'key': 'location.locationEmailAddress', 'type': 'str'},
-        'location_type': {'key': 'location.locationType', 'type': 'str'},
-        'location_uri': {'key': 'location.locationUri', 'type': 'str'},
-        'unique_id': {'key': 'location.uniqueId', 'type': 'str'},
-        'unique_id_type': {'key': 'location.uniqueIdType', 'type': 'str'},
     }
 
     def __init__(
@@ -4684,13 +4641,17 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         is_online_meeting: Optional[bool] = None,
         is_organizer: Optional[bool] = None,
         is_reminder_on: Optional[bool] = None,
+        location: Optional["MicrosoftGraphLocation"] = None,
         locations: Optional[List["MicrosoftGraphLocation"]] = None,
         occurrence_id: Optional[str] = None,
+        online_meeting: Optional["MicrosoftGraphOnlineMeetingInfo"] = None,
         online_meeting_provider: Optional[Union[str, "MicrosoftGraphOnlineMeetingProviderType"]] = None,
         online_meeting_url: Optional[str] = None,
+        organizer: Optional["MicrosoftGraphRecipient"] = None,
         original_end_time_zone: Optional[str] = None,
         original_start: Optional[datetime.datetime] = None,
         original_start_time_zone: Optional[str] = None,
+        recurrence: Optional["MicrosoftGraphPatternedRecurrence"] = None,
         reminder_minutes_before_start: Optional[int] = None,
         response_requested: Optional[bool] = None,
         response_status: Optional["MicrosoftGraphResponseStatus"] = None,
@@ -4710,23 +4671,6 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         instances: Optional[List["MicrosoftGraphEvent"]] = None,
         multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
-        pattern: Optional["MicrosoftGraphRecurrencePattern"] = None,
-        range: Optional["MicrosoftGraphRecurrenceRange"] = None,
-        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
-        conference_id: Optional[str] = None,
-        join_url: Optional[str] = None,
-        phones: Optional[List["MicrosoftGraphPhone"]] = None,
-        quick_dial: Optional[str] = None,
-        toll_free_numbers: Optional[List[str]] = None,
-        toll_number: Optional[str] = None,
-        address: Optional["MicrosoftGraphPhysicalAddress"] = None,
-        coordinates: Optional["MicrosoftGraphOutlookGeoCoordinates"] = None,
-        display_name: Optional[str] = None,
-        location_email_address: Optional[str] = None,
-        location_type: Optional[Union[str, "MicrosoftGraphLocationType"]] = None,
-        location_uri: Optional[str] = None,
-        unique_id: Optional[str] = None,
-        unique_id_type: Optional[Union[str, "MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
     ):
         super(MicrosoftGraphEvent, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
@@ -4746,13 +4690,17 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         self.is_online_meeting = is_online_meeting
         self.is_organizer = is_organizer
         self.is_reminder_on = is_reminder_on
+        self.location = location
         self.locations = locations
         self.occurrence_id = occurrence_id
+        self.online_meeting = online_meeting
         self.online_meeting_provider = online_meeting_provider
         self.online_meeting_url = online_meeting_url
+        self.organizer = organizer
         self.original_end_time_zone = original_end_time_zone
         self.original_start = original_start
         self.original_start_time_zone = original_start_time_zone
+        self.recurrence = recurrence
         self.reminder_minutes_before_start = reminder_minutes_before_start
         self.response_requested = response_requested
         self.response_status = response_status
@@ -4772,23 +4720,6 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         self.instances = instances
         self.multi_value_extended_properties = multi_value_extended_properties
         self.single_value_extended_properties = single_value_extended_properties
-        self.pattern = pattern
-        self.range = range
-        self.email_address = email_address
-        self.conference_id = conference_id
-        self.join_url = join_url
-        self.phones = phones
-        self.quick_dial = quick_dial
-        self.toll_free_numbers = toll_free_numbers
-        self.toll_number = toll_number
-        self.address = address
-        self.coordinates = coordinates
-        self.display_name = display_name
-        self.location_email_address = location_email_address
-        self.location_type = location_type
-        self.location_uri = location_uri
-        self.unique_id = unique_id
-        self.unique_id_type = unique_id_type
 
 
 class MicrosoftGraphExtension(MicrosoftGraphEntity):

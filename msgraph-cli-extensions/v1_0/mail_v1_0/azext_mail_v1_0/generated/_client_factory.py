@@ -19,20 +19,20 @@ def cf_mail_v1_0_cl(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_mail_v1_0_cl(cli_ctx).user
+    return cf_mail_v1_0_cl(cli_ctx).users
 
 
 def cf_user_inference_classification(cli_ctx, *_):
-    return cf_mail_v1_0_cl(cli_ctx).user_inference_classification
+    return cf_mail_v1_0_cl(cli_ctx).users_inference_classification
 
 
 def cf_user_mail_folder(cli_ctx, *_):
-    return cf_mail_v1_0_cl(cli_ctx).user_mail_folder
+    return cf_mail_v1_0_cl(cli_ctx).users_mail_folders
 
 
 def cf_user_mail_folder_message(cli_ctx, *_):
-    return cf_mail_v1_0_cl(cli_ctx).user_mail_folder_message
+    return cf_mail_v1_0_cl(cli_ctx).users_mail_folders_messages
 
 
 def cf_user_message(cli_ctx, *_):
-    return cf_mail_v1_0_cl(cli_ctx).user_message
+    return cf_mail_v1_0_cl(cli_ctx).users_messages

@@ -218,17 +218,17 @@ class AddAnniversaries(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -280,17 +280,17 @@ class AddAwards(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -351,17 +351,17 @@ class AddCertifications(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -409,17 +409,17 @@ class AddEmails(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -470,17 +470,17 @@ class AddInterests(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -533,17 +533,17 @@ class AddLanguages(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -598,17 +598,17 @@ class AddPatents(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -655,17 +655,17 @@ class AddPeopleUserUpdateProfilePhones(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -718,17 +718,17 @@ class AddPublications(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -779,17 +779,17 @@ class AddSkills(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -838,17 +838,17 @@ class AddPeopleUserUpdateProfileWebsites(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:

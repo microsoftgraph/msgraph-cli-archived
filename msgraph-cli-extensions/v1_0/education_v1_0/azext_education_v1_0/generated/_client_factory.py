@@ -27,7 +27,7 @@ def cf_education(cli_ctx, *_):
 
 
 def cf_education_class(cli_ctx, *_):
-    return cf_education_v1_0_cl(cli_ctx).education_class
+    return cf_education_v1_0_cl(cli_ctx).education_classes
 
 
 def cf_education_me(cli_ctx, *_):
@@ -35,8 +35,8 @@ def cf_education_me(cli_ctx, *_):
 
 
 def cf_education_school(cli_ctx, *_):
-    return cf_education_v1_0_cl(cli_ctx).education_school
+    return cf_education_v1_0_cl(cli_ctx).education_schools
 
 
 def cf_education_user(cli_ctx, *_):
-    return cf_education_v1_0_cl(cli_ctx).education_user
+    return cf_education_v1_0_cl(cli_ctx).education_users

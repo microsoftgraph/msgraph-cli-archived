@@ -27,12 +27,12 @@ def cf_security(cli_ctx, *_):
 
 
 def cf_security_alert(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).security_alert
+    return cf_security_beta_cl(cli_ctx).security_alerts
 
 
 def cf_security_security_action(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).security_security_action
+    return cf_security_beta_cl(cli_ctx).security_security_actions
 
 
 def cf_security_tiindicator(cli_ctx, *_):
-    return cf_security_beta_cl(cli_ctx).security_ti_indicator
+    return cf_security_beta_cl(cli_ctx).security_ti_indicators

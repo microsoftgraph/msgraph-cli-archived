@@ -99,54 +99,15 @@ class SecuritySecurityOperations:
 
     async def update_security(
         self,
-        id: Optional[str] = None,
-        provider_status: Optional[List["models.MicrosoftGraphSecurityProviderStatus"]] = None,
-        alerts: Optional[List["models.MicrosoftGraphAlert"]] = None,
-        cloud_app_security_profiles: Optional[List["models.MicrosoftGraphCloudAppSecurityProfile"]] = None,
-        domain_security_profiles: Optional[List["models.MicrosoftGraphDomainSecurityProfile"]] = None,
-        file_security_profiles: Optional[List["models.MicrosoftGraphFileSecurityProfile"]] = None,
-        host_security_profiles: Optional[List["models.MicrosoftGraphHostSecurityProfile"]] = None,
-        ip_security_profiles: Optional[List["models.MicrosoftGraphIpSecurityProfile"]] = None,
-        provider_tenant_settings: Optional[List["models.MicrosoftGraphProviderTenantSetting"]] = None,
-        secure_score_control_profiles: Optional[List["models.MicrosoftGraphSecureScoreControlProfile"]] = None,
-        secure_scores: Optional[List["models.MicrosoftGraphSecureScore"]] = None,
-        security_actions: Optional[List["models.MicrosoftGraphSecurityAction"]] = None,
-        ti_indicators: Optional[List["models.MicrosoftGraphTIIndicator"]] = None,
-        user_security_profiles: Optional[List["models.MicrosoftGraphUserSecurityProfile"]] = None,
+        body: "models.MicrosoftGraphSecurity",
         **kwargs
     ) -> None:
         """Update Security.
 
         Update Security.
 
-        :param id: Read-only.
-        :type id: str
-        :param provider_status:
-        :type provider_status: list[~security.models.MicrosoftGraphSecurityProviderStatus]
-        :param alerts: Read-only. Nullable.
-        :type alerts: list[~security.models.MicrosoftGraphAlert]
-        :param cloud_app_security_profiles:
-        :type cloud_app_security_profiles: list[~security.models.MicrosoftGraphCloudAppSecurityProfile]
-        :param domain_security_profiles:
-        :type domain_security_profiles: list[~security.models.MicrosoftGraphDomainSecurityProfile]
-        :param file_security_profiles:
-        :type file_security_profiles: list[~security.models.MicrosoftGraphFileSecurityProfile]
-        :param host_security_profiles:
-        :type host_security_profiles: list[~security.models.MicrosoftGraphHostSecurityProfile]
-        :param ip_security_profiles:
-        :type ip_security_profiles: list[~security.models.MicrosoftGraphIpSecurityProfile]
-        :param provider_tenant_settings:
-        :type provider_tenant_settings: list[~security.models.MicrosoftGraphProviderTenantSetting]
-        :param secure_score_control_profiles:
-        :type secure_score_control_profiles: list[~security.models.MicrosoftGraphSecureScoreControlProfile]
-        :param secure_scores:
-        :type secure_scores: list[~security.models.MicrosoftGraphSecureScore]
-        :param security_actions:
-        :type security_actions: list[~security.models.MicrosoftGraphSecurityAction]
-        :param ti_indicators:
-        :type ti_indicators: list[~security.models.MicrosoftGraphTIIndicator]
-        :param user_security_profiles:
-        :type user_security_profiles: list[~security.models.MicrosoftGraphUserSecurityProfile]
+        :param body: New property values.
+        :type body: ~security.models.MicrosoftGraphSecurity
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -157,8 +118,6 @@ class SecuritySecurityOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphSecurity(id=id, provider_status=provider_status, alerts=alerts, cloud_app_security_profiles=cloud_app_security_profiles, domain_security_profiles=domain_security_profiles, file_security_profiles=file_security_profiles, host_security_profiles=host_security_profiles, ip_security_profiles=ip_security_profiles, provider_tenant_settings=provider_tenant_settings, secure_score_control_profiles=secure_score_control_profiles, secure_scores=secure_scores, security_actions=security_actions, ti_indicators=ti_indicators, user_security_profiles=user_security_profiles)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

@@ -23,35 +23,33 @@ from azext_people_v1_0.generated._client_factory import (
 
 
 people_v1_0_user = CliCommandType(
-    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
 people_v1_0_user_insight = CliCommandType(
     operations_tmpl=(
-        'azext_people_v1_0.vendored_sdks.people.operations._user_insight_operations#UserInsightOperations.{}'
+        'azext_people_v1_0.vendored_sdks.people.operations._users_insights_operations#UsersInsightsOperations.{}'
     ),
     client_factory=cf_user_insight,
 )
 
 
 people_v1_0_user_insight_shared = CliCommandType(
-    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._user_insight_shared_operations#UserInsightSharedOperations.{}',
+    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_shared_operations#UsersInsightsSharedOperations.{}',
     client_factory=cf_user_insight_shared,
 )
 
 
 people_v1_0_user_insight_trending = CliCommandType(
-    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._user_insight_trending_operations#UserInsightTrendingOperations.{}',
+    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_trending_operations#UsersInsightsTrendingOperations.{}',
     client_factory=cf_user_insight_trending,
 )
 
 
 people_v1_0_user_insight_used = CliCommandType(
-    operations_tmpl=(
-        'azext_people_v1_0.vendored_sdks.people.operations._user_insight_used_operations#UserInsightUsedOperations.{}'
-    ),
+    operations_tmpl='azext_people_v1_0.vendored_sdks.people.operations._users_insights_used_operations#UsersInsightsUsedOperations.{}',
     client_factory=cf_user_insight_used,
 )
 

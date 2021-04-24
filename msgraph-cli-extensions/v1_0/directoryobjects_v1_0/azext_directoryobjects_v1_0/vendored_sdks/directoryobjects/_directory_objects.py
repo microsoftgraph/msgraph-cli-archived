@@ -18,18 +18,18 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import DirectoryObjectsConfiguration
-from .operations import DirectoryObjectDirectoryObjectOperations
-from .operations import DirectoryObjectOperations
+from .operations import DirectoryObjectsDirectoryObjectOperations
+from .operations import DirectoryObjectsOperations
 from . import models
 
 
 class DirectoryObjects(object):
     """DirectoryObjects.
 
-    :ivar directory_object_directory_object: DirectoryObjectDirectoryObjectOperations operations
-    :vartype directory_object_directory_object: directory_objects.operations.DirectoryObjectDirectoryObjectOperations
-    :ivar directory_object: DirectoryObjectOperations operations
-    :vartype directory_object: directory_objects.operations.DirectoryObjectOperations
+    :ivar directory_objects_directory_object: DirectoryObjectsDirectoryObjectOperations operations
+    :vartype directory_objects_directory_object: directory_objects.operations.DirectoryObjectsDirectoryObjectOperations
+    :ivar directory_objects: DirectoryObjectsOperations operations
+    :vartype directory_objects: directory_objects.operations.DirectoryObjectsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -67,9 +67,9 @@ class DirectoryObjects(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.directory_object_directory_object = DirectoryObjectDirectoryObjectOperations(
+        self.directory_objects_directory_object = DirectoryObjectsDirectoryObjectOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.directory_object = DirectoryObjectOperations(
+        self.directory_objects = DirectoryObjectsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

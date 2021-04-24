@@ -16,105 +16,105 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import TeamsConfiguration
-from .operations import AppCatalogOperations
-from .operations import AppCatalogTeamAppOperations
-from .operations import ChatChatOperations
-from .operations import ChatOperations
-from .operations import ChatInstalledAppOperations
-from .operations import ChatMemberOperations
-from .operations import ChatMessageOperations
-from .operations import ChatMessageReplyOperations
-from .operations import ChatTabOperations
-from .operations import GroupOperations
-from .operations import TeamTeamOperations
-from .operations import TeamOperations
-from .operations import TeamChannelOperations
-from .operations import TeamChannelMemberOperations
-from .operations import TeamChannelMessageOperations
-from .operations import TeamChannelMessageReplyOperations
-from .operations import TeamChannelTabOperations
-from .operations import TeamInstalledAppOperations
-from .operations import TeamMemberOperations
-from .operations import TeamPrimaryChannelOperations
-from .operations import TeamPrimaryChannelMemberOperations
-from .operations import TeamPrimaryChannelMessageOperations
-from .operations import TeamPrimaryChannelMessageReplyOperations
-from .operations import TeamPrimaryChannelTabOperations
-from .operations import TeamScheduleOperations
-from .operations import TeamScheduleTimeCardOperations
+from .operations import AppCatalogsOperations
+from .operations import AppCatalogsTeamsAppsOperations
+from .operations import ChatsChatOperations
+from .operations import ChatsOperations
+from .operations import ChatsInstalledAppsOperations
+from .operations import ChatsMembersOperations
+from .operations import ChatsMessagesOperations
+from .operations import ChatsMessagesRepliesOperations
+from .operations import ChatsTabsOperations
+from .operations import GroupsOperations
+from .operations import TeamsTeamOperations
+from .operations import TeamsOperations
+from .operations import TeamsChannelsOperations
+from .operations import TeamsChannelsMembersOperations
+from .operations import TeamsChannelsMessagesOperations
+from .operations import TeamsChannelsMessagesRepliesOperations
+from .operations import TeamsChannelsTabsOperations
+from .operations import TeamsInstalledAppsOperations
+from .operations import TeamsMembersOperations
+from .operations import TeamsPrimaryChannelOperations
+from .operations import TeamsPrimaryChannelMembersOperations
+from .operations import TeamsPrimaryChannelMessagesOperations
+from .operations import TeamsPrimaryChannelMessagesRepliesOperations
+from .operations import TeamsPrimaryChannelTabsOperations
+from .operations import TeamsScheduleOperations
+from .operations import TeamsScheduleTimeCardsOperations
 from .operations import TeamworkTeamworkOperations
 from .operations import TeamworkOperations
-from .operations import UserOperations
-from .operations import UserTeamworkOperations
-from .operations import UserTeamworkInstalledAppOperations
+from .operations import UsersOperations
+from .operations import UsersTeamworkOperations
+from .operations import UsersTeamworkInstalledAppsOperations
 from .. import models
 
 
 class Teams(object):
     """Teams.
 
-    :ivar app_catalog: AppCatalogOperations operations
-    :vartype app_catalog: teams.aio.operations.AppCatalogOperations
-    :ivar app_catalog_team_app: AppCatalogTeamAppOperations operations
-    :vartype app_catalog_team_app: teams.aio.operations.AppCatalogTeamAppOperations
-    :ivar chat_chat: ChatChatOperations operations
-    :vartype chat_chat: teams.aio.operations.ChatChatOperations
-    :ivar chat: ChatOperations operations
-    :vartype chat: teams.aio.operations.ChatOperations
-    :ivar chat_installed_app: ChatInstalledAppOperations operations
-    :vartype chat_installed_app: teams.aio.operations.ChatInstalledAppOperations
-    :ivar chat_member: ChatMemberOperations operations
-    :vartype chat_member: teams.aio.operations.ChatMemberOperations
-    :ivar chat_message: ChatMessageOperations operations
-    :vartype chat_message: teams.aio.operations.ChatMessageOperations
-    :ivar chat_message_reply: ChatMessageReplyOperations operations
-    :vartype chat_message_reply: teams.aio.operations.ChatMessageReplyOperations
-    :ivar chat_tab: ChatTabOperations operations
-    :vartype chat_tab: teams.aio.operations.ChatTabOperations
-    :ivar group: GroupOperations operations
-    :vartype group: teams.aio.operations.GroupOperations
-    :ivar team_team: TeamTeamOperations operations
-    :vartype team_team: teams.aio.operations.TeamTeamOperations
-    :ivar team: TeamOperations operations
-    :vartype team: teams.aio.operations.TeamOperations
-    :ivar team_channel: TeamChannelOperations operations
-    :vartype team_channel: teams.aio.operations.TeamChannelOperations
-    :ivar team_channel_member: TeamChannelMemberOperations operations
-    :vartype team_channel_member: teams.aio.operations.TeamChannelMemberOperations
-    :ivar team_channel_message: TeamChannelMessageOperations operations
-    :vartype team_channel_message: teams.aio.operations.TeamChannelMessageOperations
-    :ivar team_channel_message_reply: TeamChannelMessageReplyOperations operations
-    :vartype team_channel_message_reply: teams.aio.operations.TeamChannelMessageReplyOperations
-    :ivar team_channel_tab: TeamChannelTabOperations operations
-    :vartype team_channel_tab: teams.aio.operations.TeamChannelTabOperations
-    :ivar team_installed_app: TeamInstalledAppOperations operations
-    :vartype team_installed_app: teams.aio.operations.TeamInstalledAppOperations
-    :ivar team_member: TeamMemberOperations operations
-    :vartype team_member: teams.aio.operations.TeamMemberOperations
-    :ivar team_primary_channel: TeamPrimaryChannelOperations operations
-    :vartype team_primary_channel: teams.aio.operations.TeamPrimaryChannelOperations
-    :ivar team_primary_channel_member: TeamPrimaryChannelMemberOperations operations
-    :vartype team_primary_channel_member: teams.aio.operations.TeamPrimaryChannelMemberOperations
-    :ivar team_primary_channel_message: TeamPrimaryChannelMessageOperations operations
-    :vartype team_primary_channel_message: teams.aio.operations.TeamPrimaryChannelMessageOperations
-    :ivar team_primary_channel_message_reply: TeamPrimaryChannelMessageReplyOperations operations
-    :vartype team_primary_channel_message_reply: teams.aio.operations.TeamPrimaryChannelMessageReplyOperations
-    :ivar team_primary_channel_tab: TeamPrimaryChannelTabOperations operations
-    :vartype team_primary_channel_tab: teams.aio.operations.TeamPrimaryChannelTabOperations
-    :ivar team_schedule: TeamScheduleOperations operations
-    :vartype team_schedule: teams.aio.operations.TeamScheduleOperations
-    :ivar team_schedule_time_card: TeamScheduleTimeCardOperations operations
-    :vartype team_schedule_time_card: teams.aio.operations.TeamScheduleTimeCardOperations
+    :ivar app_catalogs: AppCatalogsOperations operations
+    :vartype app_catalogs: teams.aio.operations.AppCatalogsOperations
+    :ivar app_catalogs_teams_apps: AppCatalogsTeamsAppsOperations operations
+    :vartype app_catalogs_teams_apps: teams.aio.operations.AppCatalogsTeamsAppsOperations
+    :ivar chats_chat: ChatsChatOperations operations
+    :vartype chats_chat: teams.aio.operations.ChatsChatOperations
+    :ivar chats: ChatsOperations operations
+    :vartype chats: teams.aio.operations.ChatsOperations
+    :ivar chats_installed_apps: ChatsInstalledAppsOperations operations
+    :vartype chats_installed_apps: teams.aio.operations.ChatsInstalledAppsOperations
+    :ivar chats_members: ChatsMembersOperations operations
+    :vartype chats_members: teams.aio.operations.ChatsMembersOperations
+    :ivar chats_messages: ChatsMessagesOperations operations
+    :vartype chats_messages: teams.aio.operations.ChatsMessagesOperations
+    :ivar chats_messages_replies: ChatsMessagesRepliesOperations operations
+    :vartype chats_messages_replies: teams.aio.operations.ChatsMessagesRepliesOperations
+    :ivar chats_tabs: ChatsTabsOperations operations
+    :vartype chats_tabs: teams.aio.operations.ChatsTabsOperations
+    :ivar groups: GroupsOperations operations
+    :vartype groups: teams.aio.operations.GroupsOperations
+    :ivar teams_team: TeamsTeamOperations operations
+    :vartype teams_team: teams.aio.operations.TeamsTeamOperations
+    :ivar teams: TeamsOperations operations
+    :vartype teams: teams.aio.operations.TeamsOperations
+    :ivar teams_channels: TeamsChannelsOperations operations
+    :vartype teams_channels: teams.aio.operations.TeamsChannelsOperations
+    :ivar teams_channels_members: TeamsChannelsMembersOperations operations
+    :vartype teams_channels_members: teams.aio.operations.TeamsChannelsMembersOperations
+    :ivar teams_channels_messages: TeamsChannelsMessagesOperations operations
+    :vartype teams_channels_messages: teams.aio.operations.TeamsChannelsMessagesOperations
+    :ivar teams_channels_messages_replies: TeamsChannelsMessagesRepliesOperations operations
+    :vartype teams_channels_messages_replies: teams.aio.operations.TeamsChannelsMessagesRepliesOperations
+    :ivar teams_channels_tabs: TeamsChannelsTabsOperations operations
+    :vartype teams_channels_tabs: teams.aio.operations.TeamsChannelsTabsOperations
+    :ivar teams_installed_apps: TeamsInstalledAppsOperations operations
+    :vartype teams_installed_apps: teams.aio.operations.TeamsInstalledAppsOperations
+    :ivar teams_members: TeamsMembersOperations operations
+    :vartype teams_members: teams.aio.operations.TeamsMembersOperations
+    :ivar teams_primary_channel: TeamsPrimaryChannelOperations operations
+    :vartype teams_primary_channel: teams.aio.operations.TeamsPrimaryChannelOperations
+    :ivar teams_primary_channel_members: TeamsPrimaryChannelMembersOperations operations
+    :vartype teams_primary_channel_members: teams.aio.operations.TeamsPrimaryChannelMembersOperations
+    :ivar teams_primary_channel_messages: TeamsPrimaryChannelMessagesOperations operations
+    :vartype teams_primary_channel_messages: teams.aio.operations.TeamsPrimaryChannelMessagesOperations
+    :ivar teams_primary_channel_messages_replies: TeamsPrimaryChannelMessagesRepliesOperations operations
+    :vartype teams_primary_channel_messages_replies: teams.aio.operations.TeamsPrimaryChannelMessagesRepliesOperations
+    :ivar teams_primary_channel_tabs: TeamsPrimaryChannelTabsOperations operations
+    :vartype teams_primary_channel_tabs: teams.aio.operations.TeamsPrimaryChannelTabsOperations
+    :ivar teams_schedule: TeamsScheduleOperations operations
+    :vartype teams_schedule: teams.aio.operations.TeamsScheduleOperations
+    :ivar teams_schedule_time_cards: TeamsScheduleTimeCardsOperations operations
+    :vartype teams_schedule_time_cards: teams.aio.operations.TeamsScheduleTimeCardsOperations
     :ivar teamwork_teamwork: TeamworkTeamworkOperations operations
     :vartype teamwork_teamwork: teams.aio.operations.TeamworkTeamworkOperations
     :ivar teamwork: TeamworkOperations operations
     :vartype teamwork: teams.aio.operations.TeamworkOperations
-    :ivar user: UserOperations operations
-    :vartype user: teams.aio.operations.UserOperations
-    :ivar user_teamwork: UserTeamworkOperations operations
-    :vartype user_teamwork: teams.aio.operations.UserTeamworkOperations
-    :ivar user_teamwork_installed_app: UserTeamworkInstalledAppOperations operations
-    :vartype user_teamwork_installed_app: teams.aio.operations.UserTeamworkInstalledAppOperations
+    :ivar users: UsersOperations operations
+    :vartype users: teams.aio.operations.UsersOperations
+    :ivar users_teamwork: UsersTeamworkOperations operations
+    :vartype users_teamwork: teams.aio.operations.UsersTeamworkOperations
+    :ivar users_teamwork_installed_apps: UsersTeamworkInstalledAppsOperations operations
+    :vartype users_teamwork_installed_apps: teams.aio.operations.UsersTeamworkInstalledAppsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -151,67 +151,67 @@ class Teams(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.app_catalog = AppCatalogOperations(
+        self.app_catalogs = AppCatalogsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.app_catalog_team_app = AppCatalogTeamAppOperations(
+        self.app_catalogs_teams_apps = AppCatalogsTeamsAppsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.chat_chat = ChatChatOperations(
+        self.chats_chat = ChatsChatOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.chat = ChatOperations(
+        self.chats = ChatsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.chat_installed_app = ChatInstalledAppOperations(
+        self.chats_installed_apps = ChatsInstalledAppsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.chat_member = ChatMemberOperations(
+        self.chats_members = ChatsMembersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.chat_message = ChatMessageOperations(
+        self.chats_messages = ChatsMessagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.chat_message_reply = ChatMessageReplyOperations(
+        self.chats_messages_replies = ChatsMessagesRepliesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.chat_tab = ChatTabOperations(
+        self.chats_tabs = ChatsTabsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group = GroupOperations(
+        self.groups = GroupsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_team = TeamTeamOperations(
+        self.teams_team = TeamsTeamOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team = TeamOperations(
+        self.teams = TeamsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_channel = TeamChannelOperations(
+        self.teams_channels = TeamsChannelsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_channel_member = TeamChannelMemberOperations(
+        self.teams_channels_members = TeamsChannelsMembersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_channel_message = TeamChannelMessageOperations(
+        self.teams_channels_messages = TeamsChannelsMessagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_channel_message_reply = TeamChannelMessageReplyOperations(
+        self.teams_channels_messages_replies = TeamsChannelsMessagesRepliesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_channel_tab = TeamChannelTabOperations(
+        self.teams_channels_tabs = TeamsChannelsTabsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_installed_app = TeamInstalledAppOperations(
+        self.teams_installed_apps = TeamsInstalledAppsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_member = TeamMemberOperations(
+        self.teams_members = TeamsMembersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_primary_channel = TeamPrimaryChannelOperations(
+        self.teams_primary_channel = TeamsPrimaryChannelOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_primary_channel_member = TeamPrimaryChannelMemberOperations(
+        self.teams_primary_channel_members = TeamsPrimaryChannelMembersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_primary_channel_message = TeamPrimaryChannelMessageOperations(
+        self.teams_primary_channel_messages = TeamsPrimaryChannelMessagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_primary_channel_message_reply = TeamPrimaryChannelMessageReplyOperations(
+        self.teams_primary_channel_messages_replies = TeamsPrimaryChannelMessagesRepliesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_primary_channel_tab = TeamPrimaryChannelTabOperations(
+        self.teams_primary_channel_tabs = TeamsPrimaryChannelTabsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_schedule = TeamScheduleOperations(
+        self.teams_schedule = TeamsScheduleOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.team_schedule_time_card = TeamScheduleTimeCardOperations(
+        self.teams_schedule_time_cards = TeamsScheduleTimeCardsOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.teamwork_teamwork = TeamworkTeamworkOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.teamwork = TeamworkOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_teamwork = UserTeamworkOperations(
+        self.users_teamwork = UsersTeamworkOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_teamwork_installed_app = UserTeamworkInstalledAppOperations(
+        self.users_teamwork_installed_apps = UsersTeamworkInstalledAppsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

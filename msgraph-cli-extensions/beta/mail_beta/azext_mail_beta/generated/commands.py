@@ -23,33 +23,35 @@ from azext_mail_beta.generated._client_factory import (
 
 
 mail_beta_user = CliCommandType(
-    operations_tmpl='azext_mail_beta.vendored_sdks.mail.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_mail_beta.vendored_sdks.mail.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
 mail_beta_user_inference_classification = CliCommandType(
-    operations_tmpl='azext_mail_beta.vendored_sdks.mail.operations._user_inference_classification_operations#UserInferenceClassificationOperations.{}',
+    operations_tmpl='azext_mail_beta.vendored_sdks.mail.operations._users_inference_classification_operations#UsersInferenceClassificationOperations.{}',
     client_factory=cf_user_inference_classification,
 )
 
 
 mail_beta_user_mail_folder = CliCommandType(
     operations_tmpl=(
-        'azext_mail_beta.vendored_sdks.mail.operations._user_mail_folder_operations#UserMailFolderOperations.{}'
+        'azext_mail_beta.vendored_sdks.mail.operations._users_mail_folders_operations#UsersMailFoldersOperations.{}'
     ),
     client_factory=cf_user_mail_folder,
 )
 
 
 mail_beta_user_mail_folder_message = CliCommandType(
-    operations_tmpl='azext_mail_beta.vendored_sdks.mail.operations._user_mail_folder_message_operations#UserMailFolderMessageOperations.{}',
+    operations_tmpl='azext_mail_beta.vendored_sdks.mail.operations._users_mail_folders_messages_operations#UsersMailFoldersMessagesOperations.{}',
     client_factory=cf_user_mail_folder_message,
 )
 
 
 mail_beta_user_message = CliCommandType(
-    operations_tmpl='azext_mail_beta.vendored_sdks.mail.operations._user_message_operations#UserMessageOperations.{}',
+    operations_tmpl=(
+        'azext_mail_beta.vendored_sdks.mail.operations._users_messages_operations#UsersMessagesOperations.{}'
+    ),
     client_factory=cf_user_message,
 )
 

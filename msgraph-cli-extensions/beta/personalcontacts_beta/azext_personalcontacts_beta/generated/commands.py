@@ -23,26 +23,26 @@ from azext_personalcontacts_beta.generated._client_factory import (
 
 personalcontacts_beta_user = CliCommandType(
     operations_tmpl=(
-        'azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._user_operations#UserOperations.{}'
+        'azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._users_operations#UsersOperations.{}'
     ),
     client_factory=cf_user,
 )
 
 
 personalcontacts_beta_user_contact_folder = CliCommandType(
-    operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._user_contact_folder_operations#UserContactFolderOperations.{}',
+    operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._users_contact_folders_operations#UsersContactFoldersOperations.{}',
     client_factory=cf_user_contact_folder,
 )
 
 
 personalcontacts_beta_user_contact_folder_contact = CliCommandType(
-    operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._user_contact_folder_contact_operations#UserContactFolderContactOperations.{}',
+    operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._users_contact_folders_contacts_operations#UsersContactFoldersContactsOperations.{}',
     client_factory=cf_user_contact_folder_contact,
 )
 
 
 personalcontacts_beta_user_contact = CliCommandType(
-    operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._user_contact_operations#UserContactOperations.{}',
+    operations_tmpl='azext_personalcontacts_beta.vendored_sdks.personalcontacts.operations._users_contacts_operations#UsersContactsOperations.{}',
     client_factory=cf_user_contact,
 )
 

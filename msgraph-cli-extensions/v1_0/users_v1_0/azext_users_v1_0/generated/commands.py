@@ -17,25 +17,29 @@ from azext_users_v1_0.generated._client_factory import cf_user_user, cf_user, cf
 
 
 users_v1_0_user_user = CliCommandType(
-    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._user_user_operations#UserUserOperations.{}',
+    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._users_user_operations#UsersUserOperations.{}',
     client_factory=cf_user_user,
 )
 
 
 users_v1_0_user = CliCommandType(
-    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
 users_v1_0_user_outlook = CliCommandType(
-    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._user_outlook_operations#UserOutlookOperations.{}',
+    operations_tmpl=(
+        'azext_users_v1_0.vendored_sdks.users.operations._users_outlook_operations#UsersOutlookOperations.{}'
+    ),
     client_factory=cf_user_outlook,
 )
 
 
 users_v1_0_user_setting = CliCommandType(
-    operations_tmpl='azext_users_v1_0.vendored_sdks.users.operations._user_setting_operations#UserSettingOperations.{}',
+    operations_tmpl=(
+        'azext_users_v1_0.vendored_sdks.users.operations._users_settings_operations#UsersSettingsOperations.{}'
+    ),
     client_factory=cf_user_setting,
 )
 

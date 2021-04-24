@@ -104,8 +104,7 @@ class ComplianceComplianceOperations(object):
 
     def update_compliance(
         self,
-        id=None,  # type: Optional[str]
-        cases=None,  # type: Optional[List["models.MicrosoftGraphEdiscoveryCase"]]
+        body,  # type: "models.MicrosoftGraphCompliance"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -113,10 +112,8 @@ class ComplianceComplianceOperations(object):
 
         Update compliance.
 
-        :param id: Read-only.
-        :type id: str
-        :param cases:
-        :type cases: list[~compliance.models.MicrosoftGraphEdiscoveryCase]
+        :param body: New property values.
+        :type body: ~compliance.models.MicrosoftGraphCompliance
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -127,8 +124,6 @@ class ComplianceComplianceOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphCompliance(id=id, cases=cases)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

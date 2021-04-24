@@ -104,15 +104,7 @@ class PrintPrintOperations(object):
 
     def update_print(
         self,
-        connectors=None,  # type: Optional[List["models.MicrosoftGraphPrintConnector"]]
-        operations=None,  # type: Optional[List["models.MicrosoftGraphPrintOperation"]]
-        printers=None,  # type: Optional[List["models.MicrosoftGraphPrinter"]]
-        printer_shares=None,  # type: Optional[List["models.MicrosoftGraphPrinterShare"]]
-        reports=None,  # type: Optional[List["models.MicrosoftGraphReportRoot"]]
-        services=None,  # type: Optional[List["models.MicrosoftGraphPrintService"]]
-        shares=None,  # type: Optional[List["models.MicrosoftGraphPrinterShare"]]
-        task_definitions=None,  # type: Optional[List["models.MicrosoftGraphPrintTaskDefinition"]]
-        document_conversion_enabled=None,  # type: Optional[bool]
+        body,  # type: "models.MicrosoftGraphPrint"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -120,24 +112,8 @@ class PrintPrintOperations(object):
 
         Update print.
 
-        :param connectors:
-        :type connectors: list[~devices_cloud_print.models.MicrosoftGraphPrintConnector]
-        :param operations:
-        :type operations: list[~devices_cloud_print.models.MicrosoftGraphPrintOperation]
-        :param printers:
-        :type printers: list[~devices_cloud_print.models.MicrosoftGraphPrinter]
-        :param printer_shares:
-        :type printer_shares: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
-        :param reports:
-        :type reports: list[~devices_cloud_print.models.MicrosoftGraphReportRoot]
-        :param services:
-        :type services: list[~devices_cloud_print.models.MicrosoftGraphPrintService]
-        :param shares:
-        :type shares: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
-        :param task_definitions:
-        :type task_definitions: list[~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition]
-        :param document_conversion_enabled:
-        :type document_conversion_enabled: bool
+        :param body: New property values.
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrint
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -148,8 +124,6 @@ class PrintPrintOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphPrint(connectors=connectors, operations=operations, printers=printers, printer_shares=printer_shares, reports=reports, services=services, shares=shares, task_definitions=task_definitions, document_conversion_enabled=document_conversion_enabled)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

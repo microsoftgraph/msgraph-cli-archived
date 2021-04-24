@@ -104,9 +104,7 @@ class DirectoryDirectoryOperations(object):
 
     def update_directory(
         self,
-        id=None,  # type: Optional[str]
-        administrative_units=None,  # type: Optional[List["models.MicrosoftGraphAdministrativeUnit"]]
-        deleted_items=None,  # type: Optional[List["models.MicrosoftGraphDirectoryObject"]]
+        body,  # type: "models.MicrosoftGraphDirectory"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -114,12 +112,8 @@ class DirectoryDirectoryOperations(object):
 
         Update directory.
 
-        :param id: Read-only.
-        :type id: str
-        :param administrative_units:
-        :type administrative_units: list[~identity_directory_management.models.MicrosoftGraphAdministrativeUnit]
-        :param deleted_items: Recently deleted items. Read-only. Nullable.
-        :type deleted_items: list[~identity_directory_management.models.MicrosoftGraphDirectoryObject]
+        :param body: New property values.
+        :type body: ~identity_directory_management.models.MicrosoftGraphDirectory
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -130,8 +124,6 @@ class DirectoryDirectoryOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphDirectory(id=id, administrative_units=administrative_units, deleted_items=deleted_items)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

@@ -42,157 +42,157 @@ from azext_calendar_beta.generated._client_factory import (
 
 
 calendar_beta_group = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_operations#GroupOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._groups_operations#GroupsOperations.{}',
     client_factory=cf_group,
 )
 
 
 calendar_beta_group_calendar = CliCommandType(
     operations_tmpl=(
-        'azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_operations#GroupCalendarOperations.{}'
+        'azext_calendar_beta.vendored_sdks.calendar.operations._groups_calendar_operations#GroupsCalendarOperations.{}'
     ),
     client_factory=cf_group_calendar,
 )
 
 
 calendar_beta_group_calendar_calendar_view = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_calendar_view_operations#GroupCalendarCalendarViewOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._groups_calendar_calendar_view_operations#GroupsCalendarCalendarViewOperations.{}',
     client_factory=cf_group_calendar_calendar_view,
 )
 
 
 calendar_beta_group_calendar_event = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_event_operations#GroupCalendarEventOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._groups_calendar_events_operations#GroupsCalendarEventsOperations.{}',
     client_factory=cf_group_calendar_event,
 )
 
 
 calendar_beta_group_calendar_view = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_view_operations#GroupCalendarViewOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._groups_calendar_view_operations#GroupsCalendarViewOperations.{}',
     client_factory=cf_group_calendar_view,
 )
 
 
 calendar_beta_group_calendar_view_calendar = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_view_calendar_operations#GroupCalendarViewCalendarOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._groups_calendar_view_calendar_operations#GroupsCalendarViewCalendarOperations.{}',
     client_factory=cf_group_calendar_view_calendar,
 )
 
 
 calendar_beta_group_event = CliCommandType(
     operations_tmpl=(
-        'azext_calendar_beta.vendored_sdks.calendar.operations._group_event_operations#GroupEventOperations.{}'
+        'azext_calendar_beta.vendored_sdks.calendar.operations._groups_events_operations#GroupsEventsOperations.{}'
     ),
     client_factory=cf_group_event,
 )
 
 
 calendar_beta_group_event_calendar = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_event_calendar_operations#GroupEventCalendarOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._groups_events_calendar_operations#GroupsEventsCalendarOperations.{}',
     client_factory=cf_group_event_calendar,
 )
 
 
 calendar_beta_place_place = CliCommandType(
     operations_tmpl=(
-        'azext_calendar_beta.vendored_sdks.calendar.operations._place_place_operations#PlacePlaceOperations.{}'
+        'azext_calendar_beta.vendored_sdks.calendar.operations._places_place_operations#PlacesPlaceOperations.{}'
     ),
     client_factory=cf_place_place,
 )
 
 
 calendar_beta_user = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
 calendar_beta_user_calendar = CliCommandType(
     operations_tmpl=(
-        'azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_operations#UserCalendarOperations.{}'
+        'azext_calendar_beta.vendored_sdks.calendar.operations._users_calendar_operations#UsersCalendarOperations.{}'
     ),
     client_factory=cf_user_calendar,
 )
 
 
 calendar_beta_user_calendar_calendar_view = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_calendar_calendar_view_operations#UsersCalendarCalendarViewOperations.{}',
     client_factory=cf_user_calendar_calendar_view,
 )
 
 
 calendar_beta_user_calendar_event = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_calendar_events_operations#UsersCalendarEventsOperations.{}',
     client_factory=cf_user_calendar_event,
 )
 
 
 calendar_beta_user_calendar_group = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_operations#UserCalendarGroupOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_calendar_groups_operations#UsersCalendarGroupsOperations.{}',
     client_factory=cf_user_calendar_group,
 )
 
 
 calendar_beta_user_calendar_group_calendar = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_calendar_operations#UserCalendarGroupCalendarOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_calendar_groups_calendars_operations#UsersCalendarGroupsCalendarsOperations.{}',
     client_factory=cf_user_calendar_group_calendar,
 )
 
 
 calendar_beta_user_calendar_group_calendar_calendar_view = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_calendar_calendar_view_operations#UserCalendarGroupCalendarCalendarViewOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_calendar_groups_calendars_calendar_view_operations#UsersCalendarGroupsCalendarsCalendarViewOperations.{}',
     client_factory=cf_user_calendar_group_calendar_calendar_view,
 )
 
 
 calendar_beta_user_calendar_group_calendar_event = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_calendar_event_operations#UserCalendarGroupCalendarEventOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_calendar_groups_calendars_events_operations#UsersCalendarGroupsCalendarsEventsOperations.{}',
     client_factory=cf_user_calendar_group_calendar_event,
 )
 
 
 calendar_beta_user_calendar = CliCommandType(
     operations_tmpl=(
-        'azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_operations#UserCalendarOperations.{}'
+        'azext_calendar_beta.vendored_sdks.calendar.operations._users_calendars_operations#UsersCalendarsOperations.{}'
     ),
     client_factory=cf_user_calendar,
 )
 
 
 calendar_beta_user_calendar_calendar_view = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_calendars_calendar_view_operations#UsersCalendarsCalendarViewOperations.{}',
     client_factory=cf_user_calendar_calendar_view,
 )
 
 
 calendar_beta_user_calendar_event = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_calendars_events_operations#UsersCalendarsEventsOperations.{}',
     client_factory=cf_user_calendar_event,
 )
 
 
 calendar_beta_user_calendar_view = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_view_operations#UserCalendarViewOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_calendar_view_operations#UsersCalendarViewOperations.{}',
     client_factory=cf_user_calendar_view,
 )
 
 
 calendar_beta_user_calendar_view_calendar = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_view_calendar_operations#UserCalendarViewCalendarOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_calendar_view_calendar_operations#UsersCalendarViewCalendarOperations.{}',
     client_factory=cf_user_calendar_view_calendar,
 )
 
 
 calendar_beta_user_event = CliCommandType(
     operations_tmpl=(
-        'azext_calendar_beta.vendored_sdks.calendar.operations._user_event_operations#UserEventOperations.{}'
+        'azext_calendar_beta.vendored_sdks.calendar.operations._users_events_operations#UsersEventsOperations.{}'
     ),
     client_factory=cf_user_event,
 )
 
 
 calendar_beta_user_event_calendar = CliCommandType(
-    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_event_calendar_operations#UserEventCalendarOperations.{}',
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._users_events_calendar_operations#UsersEventsCalendarOperations.{}',
     client_factory=cf_user_event_calendar,
 )
 

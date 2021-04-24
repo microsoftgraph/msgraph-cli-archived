@@ -19,4 +19,4 @@ def cf_schemaextensions_beta_cl(cli_ctx, *_):
 
 
 def cf_schema_extension_schema_extension(cli_ctx, *_):
-    return cf_schemaextensions_beta_cl(cli_ctx).schema_extension_schema_extension
+    return cf_schemaextensions_beta_cl(cli_ctx).schema_extensions_schema_extension

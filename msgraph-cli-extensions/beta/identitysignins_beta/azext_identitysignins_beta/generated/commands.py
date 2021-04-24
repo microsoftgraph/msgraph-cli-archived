@@ -47,7 +47,7 @@ from azext_identitysignins_beta.generated._client_factory import (
 
 
 identitysignins_beta_data_policy_operation_data_policy_operation = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._data_policy_operation_data_policy_operation_operations#DataPolicyOperationDataPolicyOperationOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._data_policy_operations_data_policy_operation_operations#DataPolicyOperationsDataPolicyOperationOperations.{}',
     client_factory=cf_data_policy_operation_data_policy_operation,
 )
 
@@ -67,13 +67,13 @@ identitysignins_beta_identity_conditional_access = CliCommandType(
 
 
 identitysignins_beta_identity_provider_identity_provider = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._identity_provider_identity_provider_operations#IdentityProviderIdentityProviderOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._identity_providers_identity_provider_operations#IdentityProvidersIdentityProviderOperations.{}',
     client_factory=cf_identity_provider_identity_provider,
 )
 
 
 identitysignins_beta_identity_provider = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._identity_provider_operations#IdentityProviderOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._identity_providers_operations#IdentityProvidersOperations.{}',
     client_factory=cf_identity_provider,
 )
 
@@ -91,7 +91,7 @@ identitysignins_beta_information_protection = CliCommandType(
 
 
 identitysignins_beta_information_protection_data_loss_prevention_policy = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._information_protection_data_loss_prevention_policy_operations#InformationProtectionDataLossPreventionPolicyOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._information_protection_data_loss_prevention_policies_operations#InformationProtectionDataLossPreventionPoliciesOperations.{}',
     client_factory=cf_information_protection_data_loss_prevention_policy,
 )
 
@@ -103,49 +103,49 @@ identitysignins_beta_information_protection_policy = CliCommandType(
 
 
 identitysignins_beta_information_protection_policy_label = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._information_protection_policy_label_operations#InformationProtectionPolicyLabelOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._information_protection_policy_labels_operations#InformationProtectionPolicyLabelsOperations.{}',
     client_factory=cf_information_protection_policy_label,
 )
 
 
 identitysignins_beta_information_protection_sensitivity_label = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._information_protection_sensitivity_label_operations#InformationProtectionSensitivityLabelOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._information_protection_sensitivity_labels_operations#InformationProtectionSensitivityLabelsOperations.{}',
     client_factory=cf_information_protection_sensitivity_label,
 )
 
 
 identitysignins_beta_information_protection_sensitivity_label_sublabel = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._information_protection_sensitivity_label_sublabel_operations#InformationProtectionSensitivityLabelSublabelOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._information_protection_sensitivity_labels_sublabels_operations#InformationProtectionSensitivityLabelsSublabelsOperations.{}',
     client_factory=cf_information_protection_sensitivity_label_sublabel,
 )
 
 
 identitysignins_beta_information_protection_threat_assessment_request = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._information_protection_threat_assessment_request_operations#InformationProtectionThreatAssessmentRequestOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._information_protection_threat_assessment_requests_operations#InformationProtectionThreatAssessmentRequestsOperations.{}',
     client_factory=cf_information_protection_threat_assessment_request,
 )
 
 
 identitysignins_beta_invitation_invitation = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._invitation_invitation_operations#InvitationInvitationOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._invitations_invitation_operations#InvitationsInvitationOperations.{}',
     client_factory=cf_invitation_invitation,
 )
 
 
 identitysignins_beta_invitation = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._invitation_operations#InvitationOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._invitations_operations#InvitationsOperations.{}',
     client_factory=cf_invitation,
 )
 
 
 identitysignins_beta_oauth2permission_grant_oauth2permission_grant = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._oauth2_permission_grant_oauth2_permission_grant_operations#Oauth2PermissionGrantOAuth2PermissionGrantOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._oauth2_permission_grants_oauth2_permission_grant_operations#Oauth2PermissionGrantsOAuth2PermissionGrantOperations.{}',
     client_factory=cf_oauth2permission_grant_oauth2permission_grant,
 )
 
 
 identitysignins_beta_oauth2permission_grant = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._oauth2_permission_grant_operations#Oauth2PermissionGrantOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._oauth2_permission_grants_operations#Oauth2PermissionGrantsOperations.{}',
     client_factory=cf_oauth2permission_grant,
 )
 
@@ -157,39 +157,39 @@ identitysignins_beta_organization = CliCommandType(
 
 
 identitysignins_beta_policy_policy_root = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._policy_policy_root_operations#PolicyPolicyRootOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._policies_policy_root_operations#PoliciesPolicyRootOperations.{}',
     client_factory=cf_policy_policy_root,
 )
 
 
 identitysignins_beta_policy = CliCommandType(
     operations_tmpl=(
-        'azext_identitysignins_beta.vendored_sdks.identitysignins.operations._policy_operations#PolicyOperations.{}'
+        'azext_identitysignins_beta.vendored_sdks.identitysignins.operations._policies_operations#PoliciesOperations.{}'
     ),
     client_factory=cf_policy,
 )
 
 
 identitysignins_beta_policy_permission_grant_policy = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._policy_permission_grant_policy_operations#PolicyPermissionGrantPolicyOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._policies_permission_grant_policies_operations#PoliciesPermissionGrantPoliciesOperations.{}',
     client_factory=cf_policy_permission_grant_policy,
 )
 
 
 identitysignins_beta_risk_detection_risk_detection = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._risk_detection_risk_detection_operations#RiskDetectionRiskDetectionOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._risk_detections_risk_detection_operations#RiskDetectionsRiskDetectionOperations.{}',
     client_factory=cf_risk_detection_risk_detection,
 )
 
 
 identitysignins_beta_risky_user_risky_user = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._risky_user_risky_user_operations#RiskyUserRiskyUserOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._risky_users_risky_user_operations#RiskyUsersRiskyUserOperations.{}',
     client_factory=cf_risky_user_risky_user,
 )
 
 
 identitysignins_beta_risky_user = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._risky_user_operations#RiskyUserOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._risky_users_operations#RiskyUsersOperations.{}',
     client_factory=cf_risky_user,
 )
 
@@ -207,21 +207,21 @@ identitysignins_beta_trust_framework = CliCommandType(
 
 
 identitysignins_beta_trust_framework_key_set = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._trust_framework_key_set_operations#TrustFrameworkKeySetOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._trust_framework_key_sets_operations#TrustFrameworkKeySetsOperations.{}',
     client_factory=cf_trust_framework_key_set,
 )
 
 
 identitysignins_beta_user = CliCommandType(
     operations_tmpl=(
-        'azext_identitysignins_beta.vendored_sdks.identitysignins.operations._user_operations#UserOperations.{}'
+        'azext_identitysignins_beta.vendored_sdks.identitysignins.operations._users_operations#UsersOperations.{}'
     ),
     client_factory=cf_user,
 )
 
 
 identitysignins_beta_user_authentication = CliCommandType(
-    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._user_authentication_operations#UserAuthenticationOperations.{}',
+    operations_tmpl='azext_identitysignins_beta.vendored_sdks.identitysignins.operations._users_authentication_operations#UsersAuthenticationOperations.{}',
     client_factory=cf_user_authentication,
 )
 

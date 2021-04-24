@@ -23,31 +23,31 @@ from azext_bookings_beta.generated._client_factory import (
 
 
 bookings_beta_booking_business_booking_business = CliCommandType(
-    operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_business_booking_business_operations#BookingBusinessBookingBusinessOperations.{}',
+    operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_booking_business_operations#BookingBusinessesBookingBusinessOperations.{}',
     client_factory=cf_booking_business_booking_business,
 )
 
 
 bookings_beta_booking_business = CliCommandType(
-    operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_business_operations#BookingBusinessOperations.{}',
+    operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_operations#BookingBusinessesOperations.{}',
     client_factory=cf_booking_business,
 )
 
 
 bookings_beta_booking_business_appointment = CliCommandType(
-    operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_business_appointment_operations#BookingBusinessAppointmentOperations.{}',
+    operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_appointments_operations#BookingBusinessesAppointmentsOperations.{}',
     client_factory=cf_booking_business_appointment,
 )
 
 
 bookings_beta_booking_business_calendar_view = CliCommandType(
-    operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_business_calendar_view_operations#BookingBusinessCalendarViewOperations.{}',
+    operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_businesses_calendar_view_operations#BookingBusinessesCalendarViewOperations.{}',
     client_factory=cf_booking_business_calendar_view,
 )
 
 
 bookings_beta_booking_currency_booking_currency = CliCommandType(
-    operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_currency_booking_currency_operations#BookingCurrencyBookingCurrencyOperations.{}',
+    operations_tmpl='azext_bookings_beta.vendored_sdks.bookings.operations._booking_currencies_booking_currency_operations#BookingCurrenciesBookingCurrencyOperations.{}',
     client_factory=cf_booking_currency_booking_currency,
 )
 

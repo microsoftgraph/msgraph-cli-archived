@@ -6707,6 +6707,8 @@ class MicrosoftGraphEducationAssignment(MicrosoftGraphEntity):
     :type class_id: str
     :param close_date_time:
     :type close_date_time: ~datetime.datetime
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param display_name:
@@ -6717,6 +6719,8 @@ class MicrosoftGraphEducationAssignment(MicrosoftGraphEntity):
     :type grading: dict[str, object]
     :param instructions: educationItemBody.
     :type instructions: ~education.models.MicrosoftGraphEducationItemBody
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param status:  Possible values include: "draft", "published", "assigned",
@@ -6726,48 +6730,10 @@ class MicrosoftGraphEducationAssignment(MicrosoftGraphEntity):
     :type categories: list[~education.models.MicrosoftGraphEducationCategory]
     :param resources:
     :type resources: list[~education.models.MicrosoftGraphEducationAssignmentResource]
+    :param rubric: educationRubric.
+    :type rubric: ~education.models.MicrosoftGraphEducationRubric
     :param submissions:
     :type submissions: list[~education.models.MicrosoftGraphEducationSubmission]
-    :param id_rubric_id: Read-only.
-    :type id_rubric_id: str
-    :param created_date_time_rubric_created_date_time:
-    :type created_date_time_rubric_created_date_time: ~datetime.datetime
-    :param description: educationItemBody.
-    :type description: ~education.models.MicrosoftGraphEducationItemBody
-    :param display_name_rubric_display_name:
-    :type display_name_rubric_display_name: str
-    :param grading_rubric_grading: educationAssignmentGradeType.
-    :type grading_rubric_grading: dict[str, object]
-    :param last_modified_date_time_rubric_last_modified_date_time:
-    :type last_modified_date_time_rubric_last_modified_date_time: ~datetime.datetime
-    :param levels:
-    :type levels: list[~education.models.MicrosoftGraphRubricLevel]
-    :param qualities:
-    :type qualities: list[~education.models.MicrosoftGraphRubricQuality]
-    :param application_rubric_last_modified_by_application: identity.
-    :type application_rubric_last_modified_by_application: ~education.models.MicrosoftGraphIdentity
-    :param device_rubric_last_modified_by_device: identity.
-    :type device_rubric_last_modified_by_device: ~education.models.MicrosoftGraphIdentity
-    :param user_rubric_last_modified_by_user: identity.
-    :type user_rubric_last_modified_by_user: ~education.models.MicrosoftGraphIdentity
-    :param application_rubric_created_by_application: identity.
-    :type application_rubric_created_by_application: ~education.models.MicrosoftGraphIdentity
-    :param device_rubric_created_by_device: identity.
-    :type device_rubric_created_by_device: ~education.models.MicrosoftGraphIdentity
-    :param user_rubric_created_by_user: identity.
-    :type user_rubric_created_by_user: ~education.models.MicrosoftGraphIdentity
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~education.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~education.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~education.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~education.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~education.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -6780,36 +6746,19 @@ class MicrosoftGraphEducationAssignment(MicrosoftGraphEntity):
         'assign_to': {'key': 'assignTo', 'type': '{object}'},
         'class_id': {'key': 'classId', 'type': 'str'},
         'close_date_time': {'key': 'closeDateTime', 'type': 'iso-8601'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'due_date_time': {'key': 'dueDateTime', 'type': 'iso-8601'},
         'grading': {'key': 'grading', 'type': '{object}'},
         'instructions': {'key': 'instructions', 'type': 'MicrosoftGraphEducationItemBody'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[MicrosoftGraphEducationCategory]'},
         'resources': {'key': 'resources', 'type': '[MicrosoftGraphEducationAssignmentResource]'},
+        'rubric': {'key': 'rubric', 'type': 'MicrosoftGraphEducationRubric'},
         'submissions': {'key': 'submissions', 'type': '[MicrosoftGraphEducationSubmission]'},
-        'id_rubric_id': {'key': 'rubric.id', 'type': 'str'},
-        'created_date_time_rubric_created_date_time': {'key': 'rubric.createdDateTime', 'type': 'iso-8601'},
-        'description': {'key': 'rubric.description', 'type': 'MicrosoftGraphEducationItemBody'},
-        'display_name_rubric_display_name': {'key': 'rubric.displayName', 'type': 'str'},
-        'grading_rubric_grading': {'key': 'rubric.grading', 'type': '{object}'},
-        'last_modified_date_time_rubric_last_modified_date_time': {'key': 'rubric.lastModifiedDateTime', 'type': 'iso-8601'},
-        'levels': {'key': 'rubric.levels', 'type': '[MicrosoftGraphRubricLevel]'},
-        'qualities': {'key': 'rubric.qualities', 'type': '[MicrosoftGraphRubricQuality]'},
-        'application_rubric_last_modified_by_application': {'key': 'rubric.lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_rubric_last_modified_by_device': {'key': 'rubric.lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_rubric_last_modified_by_user': {'key': 'rubric.lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_rubric_created_by_application': {'key': 'rubric.createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_rubric_created_by_device': {'key': 'rubric.createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_rubric_created_by_user': {'key': 'rubric.createdBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -6825,36 +6774,19 @@ class MicrosoftGraphEducationAssignment(MicrosoftGraphEntity):
         self.assign_to = kwargs.get('assign_to', None)
         self.class_id = kwargs.get('class_id', None)
         self.close_date_time = kwargs.get('close_date_time', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.display_name = kwargs.get('display_name', None)
         self.due_date_time = kwargs.get('due_date_time', None)
         self.grading = kwargs.get('grading', None)
         self.instructions = kwargs.get('instructions', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.status = kwargs.get('status', None)
         self.categories = kwargs.get('categories', None)
         self.resources = kwargs.get('resources', None)
+        self.rubric = kwargs.get('rubric', None)
         self.submissions = kwargs.get('submissions', None)
-        self.id_rubric_id = kwargs.get('id_rubric_id', None)
-        self.created_date_time_rubric_created_date_time = kwargs.get('created_date_time_rubric_created_date_time', None)
-        self.description = kwargs.get('description', None)
-        self.display_name_rubric_display_name = kwargs.get('display_name_rubric_display_name', None)
-        self.grading_rubric_grading = kwargs.get('grading_rubric_grading', None)
-        self.last_modified_date_time_rubric_last_modified_date_time = kwargs.get('last_modified_date_time_rubric_last_modified_date_time', None)
-        self.levels = kwargs.get('levels', None)
-        self.qualities = kwargs.get('qualities', None)
-        self.application_rubric_last_modified_by_application = kwargs.get('application_rubric_last_modified_by_application', None)
-        self.device_rubric_last_modified_by_device = kwargs.get('device_rubric_last_modified_by_device', None)
-        self.user_rubric_last_modified_by_user = kwargs.get('user_rubric_last_modified_by_user', None)
-        self.application_rubric_created_by_application = kwargs.get('application_rubric_created_by_application', None)
-        self.device_rubric_created_by_device = kwargs.get('device_rubric_created_by_device', None)
-        self.user_rubric_created_by_user = kwargs.get('user_rubric_created_by_user', None)
-        self.application_last_modified_by_application = kwargs.get('application_last_modified_by_application', None)
-        self.device_last_modified_by_device = kwargs.get('device_last_modified_by_device', None)
-        self.user_last_modified_by_user = kwargs.get('user_last_modified_by_user', None)
-        self.application_created_by_application = kwargs.get('application_created_by_application', None)
-        self.device_created_by_device = kwargs.get('device_created_by_device', None)
-        self.user_created_by_user = kwargs.get('user_created_by_user', None)
 
 
 class MicrosoftGraphEducationAssignmentResource(MicrosoftGraphEntity):
@@ -6867,27 +6799,15 @@ class MicrosoftGraphEducationAssignmentResource(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param distribute_for_student_work:
     :type distribute_for_student_work: bool
-    :param created_by: identitySet.
-    :type created_by: ~education.models.MicrosoftGraphIdentitySet
-    :param created_date_time:
-    :type created_date_time: ~datetime.datetime
-    :param display_name:
-    :type display_name: str
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
-    :param last_modified_date_time:
-    :type last_modified_date_time: ~datetime.datetime
+    :param resource: educationResource.
+    :type resource: ~education.models.MicrosoftGraphEducationResource
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'distribute_for_student_work': {'key': 'distributeForStudentWork', 'type': 'bool'},
-        'created_by': {'key': 'resource.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'created_date_time': {'key': 'resource.createdDateTime', 'type': 'iso-8601'},
-        'display_name': {'key': 'resource.displayName', 'type': 'str'},
-        'last_modified_by': {'key': 'resource.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'last_modified_date_time': {'key': 'resource.lastModifiedDateTime', 'type': 'iso-8601'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEducationResource'},
     }
 
     def __init__(
@@ -6897,11 +6817,7 @@ class MicrosoftGraphEducationAssignmentResource(MicrosoftGraphEntity):
         super(MicrosoftGraphEducationAssignmentResource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.distribute_for_student_work = kwargs.get('distribute_for_student_work', None)
-        self.created_by = kwargs.get('created_by', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.last_modified_by = kwargs.get('last_modified_by', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
+        self.resource = kwargs.get('resource', None)
 
 
 class MicrosoftGraphEducationCategory(MicrosoftGraphEntity):
@@ -6943,6 +6859,8 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
     :type class_code: str
     :param course: educationCourse.
     :type course: ~education.models.MicrosoftGraphEducationCourse
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param description: Description of the class.
     :type description: str
     :param display_name: Name of the class.
@@ -6974,12 +6892,6 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
     :type schools: list[~education.models.MicrosoftGraphEducationSchool]
     :param teachers: All teachers in the class. Nullable.
     :type teachers: list[~education.models.MicrosoftGraphEducationUser]
-    :param application: identity.
-    :type application: ~education.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~education.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -6987,6 +6899,7 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'class_code': {'key': 'classCode', 'type': 'str'},
         'course': {'key': 'course', 'type': 'MicrosoftGraphEducationCourse'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'external_id': {'key': 'externalId', 'type': 'str'},
@@ -7002,9 +6915,6 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         'members': {'key': 'members', 'type': '[MicrosoftGraphEducationUser]'},
         'schools': {'key': 'schools', 'type': '[MicrosoftGraphEducationSchool]'},
         'teachers': {'key': 'teachers', 'type': '[MicrosoftGraphEducationUser]'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -7015,6 +6925,7 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.class_code = kwargs.get('class_code', None)
         self.course = kwargs.get('course', None)
+        self.created_by = kwargs.get('created_by', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.external_id = kwargs.get('external_id', None)
@@ -7030,9 +6941,6 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         self.members = kwargs.get('members', None)
         self.schools = kwargs.get('schools', None)
         self.teachers = kwargs.get('teachers', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphEducationCourse(msrest.serialization.Model):
@@ -7206,23 +7114,17 @@ class MicrosoftGraphEducationOutcome(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~education.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~education.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -7231,10 +7133,8 @@ class MicrosoftGraphEducationOutcome(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphEducationOutcome, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphEducationResource(msrest.serialization.Model):
@@ -7329,6 +7229,8 @@ class MicrosoftGraphEducationRubric(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param description: educationItemBody.
@@ -7337,42 +7239,28 @@ class MicrosoftGraphEducationRubric(MicrosoftGraphEntity):
     :type display_name: str
     :param grading: educationAssignmentGradeType.
     :type grading: dict[str, object]
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param levels:
     :type levels: list[~education.models.MicrosoftGraphRubricLevel]
     :param qualities:
     :type qualities: list[~education.models.MicrosoftGraphRubricQuality]
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~education.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~education.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~education.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~education.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~education.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'MicrosoftGraphEducationItemBody'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'grading': {'key': 'grading', 'type': '{object}'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'levels': {'key': 'levels', 'type': '[MicrosoftGraphRubricLevel]'},
         'qualities': {'key': 'qualities', 'type': '[MicrosoftGraphRubricQuality]'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -7381,19 +7269,15 @@ class MicrosoftGraphEducationRubric(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphEducationRubric, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.grading = kwargs.get('grading', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.levels = kwargs.get('levels', None)
         self.qualities = kwargs.get('qualities', None)
-        self.application_last_modified_by_application = kwargs.get('application_last_modified_by_application', None)
-        self.device_last_modified_by_device = kwargs.get('device_last_modified_by_device', None)
-        self.user_last_modified_by_user = kwargs.get('user_last_modified_by_user', None)
-        self.application_created_by_application = kwargs.get('application_created_by_application', None)
-        self.device_created_by_device = kwargs.get('device_created_by_device', None)
-        self.user_created_by_user = kwargs.get('user_created_by_user', None)
 
 
 class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
@@ -7414,6 +7298,8 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
     :type address: ~education.models.MicrosoftGraphPhysicalAddress
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param external_id: ID of school in syncing system.
     :type external_id: str
     :param external_principal_id: ID of principal in syncing system.
@@ -7432,39 +7318,13 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
     :type principal_name: str
     :param school_number: School Number.
     :type school_number: str
+    :param administrative_unit: Represents an Azure Active Directory object. The directoryObject
+     type is the base type for many other directory entity types.
+    :type administrative_unit: ~education.models.MicrosoftGraphAdministrativeUnit
     :param classes: Classes taught at the school. Nullable.
     :type classes: list[~education.models.MicrosoftGraphEducationClass]
     :param users: Users in the school. Nullable.
     :type users: list[~education.models.MicrosoftGraphEducationUser]
-    :param id_administrative_unit_id: Read-only.
-    :type id_administrative_unit_id: str
-    :param deleted_date_time:
-    :type deleted_date_time: ~datetime.datetime
-    :param description_administrative_unit_description: An optional description for the
-     administrative unit.
-    :type description_administrative_unit_description: str
-    :param display_name_administrative_unit_display_name: Display name for the administrative unit.
-    :type display_name_administrative_unit_display_name: str
-    :param visibility: Controls whether the administrative unit and its members are hidden or
-     public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When
-     set to HiddenMembership, only members of the administrative unit can list other members of the
-     adminstrative unit.
-    :type visibility: str
-    :param members: Users and groups that are members of this Adminsitrative Unit. HTTP Methods:
-     GET (list members), POST (add members), DELETE (remove members).
-    :type members: list[~education.models.MicrosoftGraphDirectoryObject]
-    :param scoped_role_members: Scoped-role members of this Administrative Unit.  HTTP Methods: GET
-     (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove
-     scopedRoleMembership).
-    :type scoped_role_members: list[~education.models.MicrosoftGraphScopedRoleMembership]
-    :param extensions:
-    :type extensions: list[~education.models.MicrosoftGraphExtension]
-    :param application: identity.
-    :type application: ~education.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~education.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -7475,6 +7335,7 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         'external_source_detail': {'key': 'externalSourceDetail', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'external_id': {'key': 'externalId', 'type': 'str'},
         'external_principal_id': {'key': 'externalPrincipalId', 'type': 'str'},
         'fax': {'key': 'fax', 'type': 'str'},
@@ -7484,19 +7345,9 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         'principal_email': {'key': 'principalEmail', 'type': 'str'},
         'principal_name': {'key': 'principalName', 'type': 'str'},
         'school_number': {'key': 'schoolNumber', 'type': 'str'},
+        'administrative_unit': {'key': 'administrativeUnit', 'type': 'MicrosoftGraphAdministrativeUnit'},
         'classes': {'key': 'classes', 'type': '[MicrosoftGraphEducationClass]'},
         'users': {'key': 'users', 'type': '[MicrosoftGraphEducationUser]'},
-        'id_administrative_unit_id': {'key': 'administrativeUnit.id', 'type': 'str'},
-        'deleted_date_time': {'key': 'administrativeUnit.deletedDateTime', 'type': 'iso-8601'},
-        'description_administrative_unit_description': {'key': 'administrativeUnit.description', 'type': 'str'},
-        'display_name_administrative_unit_display_name': {'key': 'administrativeUnit.displayName', 'type': 'str'},
-        'visibility': {'key': 'administrativeUnit.visibility', 'type': 'str'},
-        'members': {'key': 'administrativeUnit.members', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'scoped_role_members': {'key': 'administrativeUnit.scopedRoleMembers', 'type': '[MicrosoftGraphScopedRoleMembership]'},
-        'extensions': {'key': 'administrativeUnit.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -7506,6 +7357,7 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         super(MicrosoftGraphEducationSchool, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
+        self.created_by = kwargs.get('created_by', None)
         self.external_id = kwargs.get('external_id', None)
         self.external_principal_id = kwargs.get('external_principal_id', None)
         self.fax = kwargs.get('fax', None)
@@ -7515,19 +7367,9 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         self.principal_email = kwargs.get('principal_email', None)
         self.principal_name = kwargs.get('principal_name', None)
         self.school_number = kwargs.get('school_number', None)
+        self.administrative_unit = kwargs.get('administrative_unit', None)
         self.classes = kwargs.get('classes', None)
         self.users = kwargs.get('users', None)
-        self.id_administrative_unit_id = kwargs.get('id_administrative_unit_id', None)
-        self.deleted_date_time = kwargs.get('deleted_date_time', None)
-        self.description_administrative_unit_description = kwargs.get('description_administrative_unit_description', None)
-        self.display_name_administrative_unit_display_name = kwargs.get('display_name_administrative_unit_display_name', None)
-        self.visibility = kwargs.get('visibility', None)
-        self.members = kwargs.get('members', None)
-        self.scoped_role_members = kwargs.get('scoped_role_members', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphEducationStudent(msrest.serialization.Model):
@@ -7584,17 +7426,25 @@ class MicrosoftGraphEducationSubmission(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param recipient: educationSubmissionRecipient.
     :type recipient: dict[str, object]
+    :param released_by: identitySet.
+    :type released_by: ~education.models.MicrosoftGraphIdentitySet
     :param released_date_time:
     :type released_date_time: ~datetime.datetime
     :param resources_folder_url:
     :type resources_folder_url: str
+    :param returned_by: identitySet.
+    :type returned_by: ~education.models.MicrosoftGraphIdentitySet
     :param returned_date_time:
     :type returned_date_time: ~datetime.datetime
     :param status:  Possible values include: "working", "submitted", "released", "returned",
      "unknownFutureValue".
     :type status: str or ~education.models.MicrosoftGraphEducationSubmissionStatus
+    :param submitted_by: identitySet.
+    :type submitted_by: ~education.models.MicrosoftGraphIdentitySet
     :param submitted_date_time:
     :type submitted_date_time: ~datetime.datetime
+    :param unsubmitted_by: identitySet.
+    :type unsubmitted_by: ~education.models.MicrosoftGraphIdentitySet
     :param unsubmitted_date_time:
     :type unsubmitted_date_time: ~datetime.datetime
     :param outcomes:
@@ -7603,57 +7453,25 @@ class MicrosoftGraphEducationSubmission(MicrosoftGraphEntity):
     :type resources: list[~education.models.MicrosoftGraphEducationSubmissionResource]
     :param submitted_resources:
     :type submitted_resources: list[~education.models.MicrosoftGraphEducationSubmissionResource]
-    :param application_unsubmitted_by_application: identity.
-    :type application_unsubmitted_by_application: ~education.models.MicrosoftGraphIdentity
-    :param device_unsubmitted_by_device: identity.
-    :type device_unsubmitted_by_device: ~education.models.MicrosoftGraphIdentity
-    :param user_unsubmitted_by_user: identity.
-    :type user_unsubmitted_by_user: ~education.models.MicrosoftGraphIdentity
-    :param application_submitted_by_application: identity.
-    :type application_submitted_by_application: ~education.models.MicrosoftGraphIdentity
-    :param device_submitted_by_device: identity.
-    :type device_submitted_by_device: ~education.models.MicrosoftGraphIdentity
-    :param user_submitted_by_user: identity.
-    :type user_submitted_by_user: ~education.models.MicrosoftGraphIdentity
-    :param application_returned_by_application: identity.
-    :type application_returned_by_application: ~education.models.MicrosoftGraphIdentity
-    :param device_returned_by_device: identity.
-    :type device_returned_by_device: ~education.models.MicrosoftGraphIdentity
-    :param user_returned_by_user: identity.
-    :type user_returned_by_user: ~education.models.MicrosoftGraphIdentity
-    :param application_released_by_application: identity.
-    :type application_released_by_application: ~education.models.MicrosoftGraphIdentity
-    :param device_released_by_device: identity.
-    :type device_released_by_device: ~education.models.MicrosoftGraphIdentity
-    :param user_released_by_user: identity.
-    :type user_released_by_user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'recipient': {'key': 'recipient', 'type': '{object}'},
+        'released_by': {'key': 'releasedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'released_date_time': {'key': 'releasedDateTime', 'type': 'iso-8601'},
         'resources_folder_url': {'key': 'resourcesFolderUrl', 'type': 'str'},
+        'returned_by': {'key': 'returnedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'returned_date_time': {'key': 'returnedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
+        'submitted_by': {'key': 'submittedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'submitted_date_time': {'key': 'submittedDateTime', 'type': 'iso-8601'},
+        'unsubmitted_by': {'key': 'unsubmittedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'unsubmitted_date_time': {'key': 'unsubmittedDateTime', 'type': 'iso-8601'},
         'outcomes': {'key': 'outcomes', 'type': '[MicrosoftGraphEducationOutcome]'},
         'resources': {'key': 'resources', 'type': '[MicrosoftGraphEducationSubmissionResource]'},
         'submitted_resources': {'key': 'submittedResources', 'type': '[MicrosoftGraphEducationSubmissionResource]'},
-        'application_unsubmitted_by_application': {'key': 'unsubmittedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_unsubmitted_by_device': {'key': 'unsubmittedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_unsubmitted_by_user': {'key': 'unsubmittedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_submitted_by_application': {'key': 'submittedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_submitted_by_device': {'key': 'submittedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_submitted_by_user': {'key': 'submittedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_returned_by_application': {'key': 'returnedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_returned_by_device': {'key': 'returnedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_returned_by_user': {'key': 'returnedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_released_by_application': {'key': 'releasedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_released_by_device': {'key': 'releasedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_released_by_user': {'key': 'releasedBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -7663,27 +7481,19 @@ class MicrosoftGraphEducationSubmission(MicrosoftGraphEntity):
         super(MicrosoftGraphEducationSubmission, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.recipient = kwargs.get('recipient', None)
+        self.released_by = kwargs.get('released_by', None)
         self.released_date_time = kwargs.get('released_date_time', None)
         self.resources_folder_url = kwargs.get('resources_folder_url', None)
+        self.returned_by = kwargs.get('returned_by', None)
         self.returned_date_time = kwargs.get('returned_date_time', None)
         self.status = kwargs.get('status', None)
+        self.submitted_by = kwargs.get('submitted_by', None)
         self.submitted_date_time = kwargs.get('submitted_date_time', None)
+        self.unsubmitted_by = kwargs.get('unsubmitted_by', None)
         self.unsubmitted_date_time = kwargs.get('unsubmitted_date_time', None)
         self.outcomes = kwargs.get('outcomes', None)
         self.resources = kwargs.get('resources', None)
         self.submitted_resources = kwargs.get('submitted_resources', None)
-        self.application_unsubmitted_by_application = kwargs.get('application_unsubmitted_by_application', None)
-        self.device_unsubmitted_by_device = kwargs.get('device_unsubmitted_by_device', None)
-        self.user_unsubmitted_by_user = kwargs.get('user_unsubmitted_by_user', None)
-        self.application_submitted_by_application = kwargs.get('application_submitted_by_application', None)
-        self.device_submitted_by_device = kwargs.get('device_submitted_by_device', None)
-        self.user_submitted_by_user = kwargs.get('user_submitted_by_user', None)
-        self.application_returned_by_application = kwargs.get('application_returned_by_application', None)
-        self.device_returned_by_device = kwargs.get('device_returned_by_device', None)
-        self.user_returned_by_user = kwargs.get('user_returned_by_user', None)
-        self.application_released_by_application = kwargs.get('application_released_by_application', None)
-        self.device_released_by_device = kwargs.get('device_released_by_device', None)
-        self.user_released_by_user = kwargs.get('user_released_by_user', None)
 
 
 class MicrosoftGraphEducationSubmissionResource(MicrosoftGraphEntity):
@@ -7696,27 +7506,15 @@ class MicrosoftGraphEducationSubmissionResource(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param assignment_resource_url:
     :type assignment_resource_url: str
-    :param created_by: identitySet.
-    :type created_by: ~education.models.MicrosoftGraphIdentitySet
-    :param created_date_time:
-    :type created_date_time: ~datetime.datetime
-    :param display_name:
-    :type display_name: str
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
-    :param last_modified_date_time:
-    :type last_modified_date_time: ~datetime.datetime
+    :param resource: educationResource.
+    :type resource: ~education.models.MicrosoftGraphEducationResource
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'assignment_resource_url': {'key': 'assignmentResourceUrl', 'type': 'str'},
-        'created_by': {'key': 'resource.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'created_date_time': {'key': 'resource.createdDateTime', 'type': 'iso-8601'},
-        'display_name': {'key': 'resource.displayName', 'type': 'str'},
-        'last_modified_by': {'key': 'resource.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'last_modified_date_time': {'key': 'resource.lastModifiedDateTime', 'type': 'iso-8601'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEducationResource'},
     }
 
     def __init__(
@@ -7726,11 +7524,7 @@ class MicrosoftGraphEducationSubmissionResource(MicrosoftGraphEntity):
         super(MicrosoftGraphEducationSubmissionResource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assignment_resource_url = kwargs.get('assignment_resource_url', None)
-        self.created_by = kwargs.get('created_by', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.last_modified_by = kwargs.get('last_modified_by', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
+        self.resource = kwargs.get('resource', None)
 
 
 class MicrosoftGraphEducationSynchronizationError(MicrosoftGraphEntity):
@@ -7987,6 +7781,8 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :param business_phones: The telephone numbers for the user. Note: Although this is a string
      collection, only one number can be set for this property.
     :type business_phones: list[str]
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param department: The name for the department in which the user works. Supports $filter.
     :type department: str
     :param display_name: The name displayed in the address book for the user. This is usually the
@@ -8013,6 +7809,8 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :type mobile_phone: str
     :param office_location:
     :type office_location: str
+    :param on_premises_info: educationOnPremisesInfo.
+    :type on_premises_info: ~education.models.MicrosoftGraphEducationOnPremisesInfo
     :param password_policies: Specifies password policies for the user. This value is an
      enumeration with one possible value being 'DisableStrongPassword', which allows weaker
      passwords than the default policy to be specified. 'DisablePasswordExpiration' can also be
@@ -8067,14 +7865,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :type taught_classes: list[~education.models.MicrosoftGraphEducationClass]
     :param user: Represents an Azure Active Directory user object.
     :type user: ~education.models.MicrosoftGraphUser
-    :param immutable_id:
-    :type immutable_id: str
-    :param application: identity.
-    :type application: ~education.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~education.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -8085,6 +7875,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'assigned_licenses': {'key': 'assignedLicenses', 'type': '[MicrosoftGraphAssignedLicense]'},
         'assigned_plans': {'key': 'assignedPlans', 'type': '[MicrosoftGraphAssignedPlan]'},
         'business_phones': {'key': 'businessPhones', 'type': '[str]'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'department': {'key': 'department', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'external_source': {'key': 'externalSource', 'type': 'str'},
@@ -8096,6 +7887,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'middle_name': {'key': 'middleName', 'type': 'str'},
         'mobile_phone': {'key': 'mobilePhone', 'type': 'str'},
         'office_location': {'key': 'officeLocation', 'type': 'str'},
+        'on_premises_info': {'key': 'onPremisesInfo', 'type': 'MicrosoftGraphEducationOnPremisesInfo'},
         'password_policies': {'key': 'passwordPolicies', 'type': 'str'},
         'password_profile': {'key': 'passwordProfile', 'type': 'MicrosoftGraphPasswordProfile'},
         'preferred_language': {'key': 'preferredLanguage', 'type': 'str'},
@@ -8116,10 +7908,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'schools': {'key': 'schools', 'type': '[MicrosoftGraphEducationSchool]'},
         'taught_classes': {'key': 'taughtClasses', 'type': '[MicrosoftGraphEducationClass]'},
         'user': {'key': 'user', 'type': 'MicrosoftGraphUser'},
-        'immutable_id': {'key': 'onPremisesInfo.immutableId', 'type': 'str'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -8133,6 +7921,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.assigned_licenses = kwargs.get('assigned_licenses', None)
         self.assigned_plans = kwargs.get('assigned_plans', None)
         self.business_phones = kwargs.get('business_phones', None)
+        self.created_by = kwargs.get('created_by', None)
         self.department = kwargs.get('department', None)
         self.display_name = kwargs.get('display_name', None)
         self.external_source = kwargs.get('external_source', None)
@@ -8144,6 +7933,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.middle_name = kwargs.get('middle_name', None)
         self.mobile_phone = kwargs.get('mobile_phone', None)
         self.office_location = kwargs.get('office_location', None)
+        self.on_premises_info = kwargs.get('on_premises_info', None)
         self.password_policies = kwargs.get('password_policies', None)
         self.password_profile = kwargs.get('password_profile', None)
         self.preferred_language = kwargs.get('preferred_language', None)
@@ -8164,10 +7954,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.schools = kwargs.get('schools', None)
         self.taught_classes = kwargs.get('taught_classes', None)
         self.user = kwargs.get('user', None)
-        self.immutable_id = kwargs.get('immutable_id', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user_created_by_user = kwargs.get('user_created_by_user', None)
 
 
 class MicrosoftGraphEmailAddress(msrest.serialization.Model):

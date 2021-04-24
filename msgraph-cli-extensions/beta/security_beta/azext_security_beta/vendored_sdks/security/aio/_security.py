@@ -18,9 +18,9 @@ if TYPE_CHECKING:
 from ._configuration import SecurityConfiguration
 from .operations import SecuritySecurityOperations
 from .operations import SecurityOperations
-from .operations import SecurityAlertOperations
-from .operations import SecuritySecurityActionOperations
-from .operations import SecurityTIIndicatorOperations
+from .operations import SecurityAlertsOperations
+from .operations import SecuritySecurityActionsOperations
+from .operations import SecurityTiIndicatorsOperations
 from .. import models
 
 
@@ -31,12 +31,12 @@ class Security(object):
     :vartype security_security: security.aio.operations.SecuritySecurityOperations
     :ivar security: SecurityOperations operations
     :vartype security: security.aio.operations.SecurityOperations
-    :ivar security_alert: SecurityAlertOperations operations
-    :vartype security_alert: security.aio.operations.SecurityAlertOperations
-    :ivar security_security_action: SecuritySecurityActionOperations operations
-    :vartype security_security_action: security.aio.operations.SecuritySecurityActionOperations
-    :ivar security_ti_indicator: SecurityTIIndicatorOperations operations
-    :vartype security_ti_indicator: security.aio.operations.SecurityTIIndicatorOperations
+    :ivar security_alerts: SecurityAlertsOperations operations
+    :vartype security_alerts: security.aio.operations.SecurityAlertsOperations
+    :ivar security_security_actions: SecuritySecurityActionsOperations operations
+    :vartype security_security_actions: security.aio.operations.SecuritySecurityActionsOperations
+    :ivar security_ti_indicators: SecurityTiIndicatorsOperations operations
+    :vartype security_ti_indicators: security.aio.operations.SecurityTiIndicatorsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -77,11 +77,11 @@ class Security(object):
             self._client, self._config, self._serialize, self._deserialize)
         self.security = SecurityOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security_alert = SecurityAlertOperations(
+        self.security_alerts = SecurityAlertsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security_security_action = SecuritySecurityActionOperations(
+        self.security_security_actions = SecuritySecurityActionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security_ti_indicator = SecurityTIIndicatorOperations(
+        self.security_ti_indicators = SecurityTiIndicatorsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

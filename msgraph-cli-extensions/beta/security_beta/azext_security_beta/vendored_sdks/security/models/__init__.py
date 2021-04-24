@@ -17,7 +17,7 @@ try:
     from ._models_py3 import CollectionOfSecureScore
     from ._models_py3 import CollectionOfSecureScoreControlProfile
     from ._models_py3 import CollectionOfSecurityAction
-    from ._models_py3 import CollectionOfTIIndicator
+    from ._models_py3 import CollectionOfTiIndicator
     from ._models_py3 import CollectionOfUserSecurityProfile
     from ._models_py3 import MicrosoftGraphAlert
     from ._models_py3 import MicrosoftGraphAlertHistoryState
@@ -58,7 +58,7 @@ try:
     from ._models_py3 import MicrosoftGraphSecurityProviderStatus
     from ._models_py3 import MicrosoftGraphSecurityResource
     from ._models_py3 import MicrosoftGraphSecurityVendorInformation
-    from ._models_py3 import MicrosoftGraphTIIndicator
+    from ._models_py3 import MicrosoftGraphTiIndicator
     from ._models_py3 import MicrosoftGraphUserAccount
     from ._models_py3 import MicrosoftGraphUserSecurityProfile
     from ._models_py3 import MicrosoftGraphUserSecurityState
@@ -82,7 +82,7 @@ except (SyntaxError, ImportError):
     from ._models import CollectionOfSecureScore  # type: ignore
     from ._models import CollectionOfSecureScoreControlProfile  # type: ignore
     from ._models import CollectionOfSecurityAction  # type: ignore
-    from ._models import CollectionOfTIIndicator  # type: ignore
+    from ._models import CollectionOfTiIndicator  # type: ignore
     from ._models import CollectionOfUserSecurityProfile  # type: ignore
     from ._models import MicrosoftGraphAlert  # type: ignore
     from ._models import MicrosoftGraphAlertHistoryState  # type: ignore
@@ -123,7 +123,7 @@ except (SyntaxError, ImportError):
     from ._models import MicrosoftGraphSecurityProviderStatus  # type: ignore
     from ._models import MicrosoftGraphSecurityResource  # type: ignore
     from ._models import MicrosoftGraphSecurityVendorInformation  # type: ignore
-    from ._models import MicrosoftGraphTIIndicator  # type: ignore
+    from ._models import MicrosoftGraphTiIndicator  # type: ignore
     from ._models import MicrosoftGraphUserAccount  # type: ignore
     from ._models import MicrosoftGraphUserSecurityProfile  # type: ignore
     from ._models import MicrosoftGraphUserSecurityState  # type: ignore
@@ -194,7 +194,7 @@ from ._security_enums import (
     MicrosoftGraphRegistryValueType,
     MicrosoftGraphSecurityNetworkProtocol,
     MicrosoftGraphSecurityResourceType,
-    MicrosoftGraphTIAction,
+    MicrosoftGraphTiAction,
     MicrosoftGraphTlpLevel,
     MicrosoftGraphUserAccountSecurityType,
 )
@@ -210,7 +210,7 @@ __all__ = [
     'CollectionOfSecureScore',
     'CollectionOfSecureScoreControlProfile',
     'CollectionOfSecurityAction',
-    'CollectionOfTIIndicator',
+    'CollectionOfTiIndicator',
     'CollectionOfUserSecurityProfile',
     'MicrosoftGraphAlert',
     'MicrosoftGraphAlertHistoryState',
@@ -251,7 +251,7 @@ __all__ = [
     'MicrosoftGraphSecurityProviderStatus',
     'MicrosoftGraphSecurityResource',
     'MicrosoftGraphSecurityVendorInformation',
-    'MicrosoftGraphTIIndicator',
+    'MicrosoftGraphTiIndicator',
     'MicrosoftGraphUserAccount',
     'MicrosoftGraphUserSecurityProfile',
     'MicrosoftGraphUserSecurityState',
@@ -320,7 +320,7 @@ __all__ = [
     'MicrosoftGraphRegistryValueType',
     'MicrosoftGraphSecurityNetworkProtocol',
     'MicrosoftGraphSecurityResourceType',
-    'MicrosoftGraphTIAction',
+    'MicrosoftGraphTiAction',
     'MicrosoftGraphTlpLevel',
     'MicrosoftGraphUserAccountSecurityType',
 ]

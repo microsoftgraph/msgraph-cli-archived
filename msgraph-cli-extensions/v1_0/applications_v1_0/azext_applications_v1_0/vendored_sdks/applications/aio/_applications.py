@@ -16,30 +16,30 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import ApplicationsConfiguration
-from .operations import ApplicationApplicationOperations
-from .operations import ApplicationOperations
-from .operations import GroupOperations
-from .operations import ServicePrincipalServicePrincipalOperations
-from .operations import ServicePrincipalOperations
-from .operations import UserOperations
+from .operations import ApplicationsApplicationOperations
+from .operations import ApplicationsOperations
+from .operations import GroupsOperations
+from .operations import ServicePrincipalsServicePrincipalOperations
+from .operations import ServicePrincipalsOperations
+from .operations import UsersOperations
 from .. import models
 
 
 class Applications(object):
     """Applications.
 
-    :ivar application_application: ApplicationApplicationOperations operations
-    :vartype application_application: applications.aio.operations.ApplicationApplicationOperations
-    :ivar application: ApplicationOperations operations
-    :vartype application: applications.aio.operations.ApplicationOperations
-    :ivar group: GroupOperations operations
-    :vartype group: applications.aio.operations.GroupOperations
-    :ivar service_principal_service_principal: ServicePrincipalServicePrincipalOperations operations
-    :vartype service_principal_service_principal: applications.aio.operations.ServicePrincipalServicePrincipalOperations
-    :ivar service_principal: ServicePrincipalOperations operations
-    :vartype service_principal: applications.aio.operations.ServicePrincipalOperations
-    :ivar user: UserOperations operations
-    :vartype user: applications.aio.operations.UserOperations
+    :ivar applications_application: ApplicationsApplicationOperations operations
+    :vartype applications_application: applications.aio.operations.ApplicationsApplicationOperations
+    :ivar applications: ApplicationsOperations operations
+    :vartype applications: applications.aio.operations.ApplicationsOperations
+    :ivar groups: GroupsOperations operations
+    :vartype groups: applications.aio.operations.GroupsOperations
+    :ivar service_principals_service_principal: ServicePrincipalsServicePrincipalOperations operations
+    :vartype service_principals_service_principal: applications.aio.operations.ServicePrincipalsServicePrincipalOperations
+    :ivar service_principals: ServicePrincipalsOperations operations
+    :vartype service_principals: applications.aio.operations.ServicePrincipalsOperations
+    :ivar users: UsersOperations operations
+    :vartype users: applications.aio.operations.UsersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -76,17 +76,17 @@ class Applications(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.application_application = ApplicationApplicationOperations(
+        self.applications_application = ApplicationsApplicationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.application = ApplicationOperations(
+        self.applications = ApplicationsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group = GroupOperations(
+        self.groups = GroupsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.service_principal_service_principal = ServicePrincipalServicePrincipalOperations(
+        self.service_principals_service_principal = ServicePrincipalsServicePrincipalOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.service_principal = ServicePrincipalOperations(
+        self.service_principals = ServicePrincipalsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

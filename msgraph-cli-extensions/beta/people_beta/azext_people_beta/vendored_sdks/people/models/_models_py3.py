@@ -828,42 +828,30 @@ class MicrosoftGraphItemFacet(MicrosoftGraphEntity):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -872,31 +860,23 @@ class MicrosoftGraphItemFacet(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphItemFacet, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.allowed_audiences = allowed_audiences
+        self.created_by = created_by
         self.created_date_time = created_date_time
         self.inference = inference
+        self.last_modified_by = last_modified_by
         self.last_modified_date_time = last_modified_date_time
         self.source = source
-        self.application_last_modified_by_application = application_last_modified_by_application
-        self.device_last_modified_by_device = device_last_modified_by_device
-        self.user_last_modified_by_user = user_last_modified_by_user
-        self.application_created_by_application = application_created_by_application
-        self.device_created_by_device = device_created_by_device
-        self.user_created_by_user = user_created_by_user
 
 
 class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
@@ -907,26 +887,18 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -934,42 +906,29 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     :type completion_month_year: ~datetime.date
     :param end_month_year:
     :type end_month_year: ~datetime.date
+    :param institution: institutionData.
+    :type institution: ~people.models.MicrosoftGraphInstitutionData
     :param program: educationalActivityDetail.
     :type program: ~people.models.MicrosoftGraphEducationalActivityDetail
     :param start_month_year:
     :type start_month_year: ~datetime.date
-    :param description:
-    :type description: str
-    :param display_name:
-    :type display_name: str
-    :param location: physicalAddress.
-    :type location: ~people.models.MicrosoftGraphPhysicalAddress
-    :param web_url:
-    :type web_url: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'completion_month_year': {'key': 'completionMonthYear', 'type': 'date'},
         'end_month_year': {'key': 'endMonthYear', 'type': 'date'},
+        'institution': {'key': 'institution', 'type': 'MicrosoftGraphInstitutionData'},
         'program': {'key': 'program', 'type': 'MicrosoftGraphEducationalActivityDetail'},
         'start_month_year': {'key': 'startMonthYear', 'type': 'date'},
-        'description': {'key': 'institution.description', 'type': 'str'},
-        'display_name': {'key': 'institution.displayName', 'type': 'str'},
-        'location': {'key': 'institution.location', 'type': 'MicrosoftGraphPhysicalAddress'},
-        'web_url': {'key': 'institution.webUrl', 'type': 'str'},
     }
 
     def __init__(
@@ -977,37 +936,27 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         completion_month_year: Optional[datetime.date] = None,
         end_month_year: Optional[datetime.date] = None,
+        institution: Optional["MicrosoftGraphInstitutionData"] = None,
         program: Optional["MicrosoftGraphEducationalActivityDetail"] = None,
         start_month_year: Optional[datetime.date] = None,
-        description: Optional[str] = None,
-        display_name: Optional[str] = None,
-        location: Optional["MicrosoftGraphPhysicalAddress"] = None,
-        web_url: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphEducationalActivity, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphEducationalActivity, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.completion_month_year = completion_month_year
         self.end_month_year = end_month_year
+        self.institution = institution
         self.program = program
         self.start_month_year = start_month_year
-        self.description = description
-        self.display_name = display_name
-        self.location = location
-        self.web_url = web_url
 
 
 class MicrosoftGraphEducationalActivityDetail(msrest.serialization.Model):
@@ -1269,26 +1218,18 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1303,16 +1244,12 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'detail': {'key': 'detail', 'type': 'MicrosoftGraphPhysicalAddress'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1324,23 +1261,19 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         detail: Optional["MicrosoftGraphPhysicalAddress"] = None,
         display_name: Optional[str] = None,
         geo_coordinates: Optional["MicrosoftGraphGeoCoordinates"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphItemAddress, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphItemAddress, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.detail = detail
         self.display_name = display_name
@@ -1387,26 +1320,18 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1421,16 +1346,12 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'address': {'key': 'address', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1442,23 +1363,19 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         address: Optional[str] = None,
         display_name: Optional[str] = None,
         type: Optional[Union[str, "MicrosoftGraphEmailType"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphItemEmail, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphItemEmail, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.address = address
         self.display_name = display_name
@@ -1473,26 +1390,18 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1515,16 +1424,12 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1540,16 +1445,12 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
@@ -1560,7 +1461,7 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphItemPatent, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphItemPatent, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.display_name = display_name
@@ -1579,26 +1480,18 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1614,16 +1507,12 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'number': {'key': 'number', 'type': 'str'},
@@ -1635,23 +1524,19 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
         number: Optional[str] = None,
         type: Optional[Union[str, "MicrosoftGraphPhoneType"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphItemPhone, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphItemPhone, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.number = number
@@ -1666,26 +1551,18 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1706,16 +1583,12 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1730,16 +1603,12 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
@@ -1749,7 +1618,7 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphItemPublication, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphItemPublication, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.display_name = display_name
@@ -1767,26 +1636,18 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1811,16 +1672,12 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'proficiency': {'key': 'proficiency', 'type': 'str'},
@@ -1835,16 +1692,12 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
         proficiency: Optional[Union[str, "MicrosoftGraphLanguageProficiencyLevel"]] = None,
@@ -1854,7 +1707,7 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
         written: Optional[Union[str, "MicrosoftGraphLanguageProficiencyLevel"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphLanguageProficiency, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphLanguageProficiency, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.proficiency = proficiency
@@ -2149,26 +2002,18 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2181,16 +2026,12 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'date': {'key': 'date', 'type': 'date'},
         'type': {'key': 'type', 'type': 'str'},
@@ -2201,22 +2042,18 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         date: Optional[datetime.date] = None,
         type: Optional[Union[str, "MicrosoftGraphAnniversaryType"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPersonAnniversary, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphPersonAnniversary, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.date = date
         self.type = type
@@ -2230,26 +2067,18 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2262,16 +2091,12 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'detail': {'key': 'detail', 'type': 'MicrosoftGraphItemBody'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -2282,22 +2107,18 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         detail: Optional["MicrosoftGraphItemBody"] = None,
         display_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPersonAnnotation, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphPersonAnnotation, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.detail = detail
         self.display_name = display_name
@@ -2311,26 +2132,18 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2351,16 +2164,12 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -2375,16 +2184,12 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
@@ -2394,7 +2199,7 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPersonAward, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphPersonAward, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.display_name = display_name
@@ -2412,26 +2217,18 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2460,16 +2257,12 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'certification_id': {'key': 'certificationId', 'type': 'str'},
         'description': {'key': 'description', 'type': 'str'},
@@ -2488,16 +2281,12 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         certification_id: Optional[str] = None,
         description: Optional[str] = None,
@@ -2511,7 +2300,7 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPersonCertification, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphPersonCertification, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.certification_id = certification_id
         self.description = description
@@ -2587,26 +2376,18 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2625,16 +2406,12 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'collaboration_tags': {'key': 'collaborationTags', 'type': '[str]'},
@@ -2648,16 +2425,12 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         categories: Optional[List[str]] = None,
         collaboration_tags: Optional[List[str]] = None,
@@ -2666,7 +2439,7 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPersonInterest, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphPersonInterest, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.categories = categories
         self.collaboration_tags = collaboration_tags
@@ -2683,26 +2456,18 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2733,16 +2498,12 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'first': {'key': 'first', 'type': 'str'},
@@ -2762,16 +2523,12 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
         first: Optional[str] = None,
@@ -2786,7 +2543,7 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
         title: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPersonName, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphPersonName, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.first = first
@@ -2809,26 +2566,18 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2845,16 +2594,12 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'description': {'key': 'description', 'type': 'str'},
@@ -2867,16 +2612,12 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         categories: Optional[List[str]] = None,
         description: Optional[str] = None,
@@ -2884,7 +2625,7 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPersonWebsite, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphPersonWebsite, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.categories = categories
         self.description = description
@@ -3169,99 +2910,54 @@ class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param categories:
     :type categories: list[str]
+    :param client: companyDetail.
+    :type client: ~people.models.MicrosoftGraphCompanyDetail
     :param collaboration_tags:
     :type collaboration_tags: list[str]
     :param colleagues:
     :type colleagues: list[~people.models.MicrosoftGraphRelatedPerson]
+    :param detail: positionDetail.
+    :type detail: ~people.models.MicrosoftGraphPositionDetail
     :param display_name:
     :type display_name: str
     :param sponsors:
     :type sponsors: list[~people.models.MicrosoftGraphRelatedPerson]
-    :param company: companyDetail.
-    :type company: ~people.models.MicrosoftGraphCompanyDetail
-    :param description:
-    :type description: str
-    :param end_month_year:
-    :type end_month_year: ~datetime.date
-    :param job_title:
-    :type job_title: str
-    :param role:
-    :type role: str
-    :param start_month_year:
-    :type start_month_year: ~datetime.date
-    :param summary:
-    :type summary: str
-    :param address: physicalAddress.
-    :type address: ~people.models.MicrosoftGraphPhysicalAddress
-    :param department:
-    :type department: str
-    :param display_name_client_display_name:
-    :type display_name_client_display_name: str
-    :param office_location:
-    :type office_location: str
-    :param pronunciation:
-    :type pronunciation: str
-    :param web_url:
-    :type web_url: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
+        'client': {'key': 'client', 'type': 'MicrosoftGraphCompanyDetail'},
         'collaboration_tags': {'key': 'collaborationTags', 'type': '[str]'},
         'colleagues': {'key': 'colleagues', 'type': '[MicrosoftGraphRelatedPerson]'},
+        'detail': {'key': 'detail', 'type': 'MicrosoftGraphPositionDetail'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'sponsors': {'key': 'sponsors', 'type': '[MicrosoftGraphRelatedPerson]'},
-        'company': {'key': 'detail.company', 'type': 'MicrosoftGraphCompanyDetail'},
-        'description': {'key': 'detail.description', 'type': 'str'},
-        'end_month_year': {'key': 'detail.endMonthYear', 'type': 'date'},
-        'job_title': {'key': 'detail.jobTitle', 'type': 'str'},
-        'role': {'key': 'detail.role', 'type': 'str'},
-        'start_month_year': {'key': 'detail.startMonthYear', 'type': 'date'},
-        'summary': {'key': 'detail.summary', 'type': 'str'},
-        'address': {'key': 'client.address', 'type': 'MicrosoftGraphPhysicalAddress'},
-        'department': {'key': 'client.department', 'type': 'str'},
-        'display_name_client_display_name': {'key': 'client.displayName', 'type': 'str'},
-        'office_location': {'key': 'client.officeLocation', 'type': 'str'},
-        'pronunciation': {'key': 'client.pronunciation', 'type': 'str'},
-        'web_url': {'key': 'client.webUrl', 'type': 'str'},
     }
 
     def __init__(
@@ -3269,57 +2965,31 @@ class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         categories: Optional[List[str]] = None,
+        client: Optional["MicrosoftGraphCompanyDetail"] = None,
         collaboration_tags: Optional[List[str]] = None,
         colleagues: Optional[List["MicrosoftGraphRelatedPerson"]] = None,
+        detail: Optional["MicrosoftGraphPositionDetail"] = None,
         display_name: Optional[str] = None,
         sponsors: Optional[List["MicrosoftGraphRelatedPerson"]] = None,
-        company: Optional["MicrosoftGraphCompanyDetail"] = None,
-        description: Optional[str] = None,
-        end_month_year: Optional[datetime.date] = None,
-        job_title: Optional[str] = None,
-        role: Optional[str] = None,
-        start_month_year: Optional[datetime.date] = None,
-        summary: Optional[str] = None,
-        address: Optional["MicrosoftGraphPhysicalAddress"] = None,
-        department: Optional[str] = None,
-        display_name_client_display_name: Optional[str] = None,
-        office_location: Optional[str] = None,
-        pronunciation: Optional[str] = None,
-        web_url: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphProjectParticipation, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphProjectParticipation, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.categories = categories
+        self.client = client
         self.collaboration_tags = collaboration_tags
         self.colleagues = colleagues
+        self.detail = detail
         self.display_name = display_name
         self.sponsors = sponsors
-        self.company = company
-        self.description = description
-        self.end_month_year = end_month_year
-        self.job_title = job_title
-        self.role = role
-        self.start_month_year = start_month_year
-        self.summary = summary
-        self.address = address
-        self.department = department
-        self.display_name_client_display_name = display_name_client_display_name
-        self.office_location = office_location
-        self.pronunciation = pronunciation
-        self.web_url = web_url
 
 
 class MicrosoftGraphRankedEmailAddress(msrest.serialization.Model):
@@ -3470,26 +3140,18 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -3509,16 +3171,12 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'collaboration_tags': {'key': 'collaborationTags', 'type': '[str]'},
@@ -3532,16 +3190,12 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         categories: Optional[List[str]] = None,
         collaboration_tags: Optional[List[str]] = None,
@@ -3550,7 +3204,7 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphSkillProficiency, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphSkillProficiency, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.categories = categories
         self.collaboration_tags = collaboration_tags
@@ -3567,26 +3221,18 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -3603,16 +3249,12 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'age_group': {'key': 'ageGroup', 'type': 'str'},
         'country_code': {'key': 'countryCode', 'type': 'str'},
@@ -3625,16 +3267,12 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         age_group: Optional[str] = None,
         country_code: Optional[str] = None,
@@ -3642,7 +3280,7 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphUserAccountInformation, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphUserAccountInformation, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.age_group = age_group
         self.country_code = country_code
@@ -3694,26 +3332,18 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -3732,16 +3362,12 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'service': {'key': 'service', 'type': 'MicrosoftGraphServiceInformation'},
@@ -3755,16 +3381,12 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
         service: Optional["MicrosoftGraphServiceInformation"] = None,
@@ -3773,7 +3395,7 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
         web_url: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphWebAccount, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphWebAccount, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.service = service
@@ -3827,26 +3449,18 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -3854,51 +3468,29 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     :type categories: list[str]
     :param colleagues:
     :type colleagues: list[~people.models.MicrosoftGraphRelatedPerson]
+    :param detail: positionDetail.
+    :type detail: ~people.models.MicrosoftGraphPositionDetail
     :param is_current:
     :type is_current: bool
     :param manager: relatedPerson.
     :type manager: ~people.models.MicrosoftGraphRelatedPerson
-    :param company: companyDetail.
-    :type company: ~people.models.MicrosoftGraphCompanyDetail
-    :param description:
-    :type description: str
-    :param end_month_year:
-    :type end_month_year: ~datetime.date
-    :param job_title:
-    :type job_title: str
-    :param role:
-    :type role: str
-    :param start_month_year:
-    :type start_month_year: ~datetime.date
-    :param summary:
-    :type summary: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'colleagues': {'key': 'colleagues', 'type': '[MicrosoftGraphRelatedPerson]'},
+        'detail': {'key': 'detail', 'type': 'MicrosoftGraphPositionDetail'},
         'is_current': {'key': 'isCurrent', 'type': 'bool'},
         'manager': {'key': 'manager', 'type': 'MicrosoftGraphRelatedPerson'},
-        'company': {'key': 'detail.company', 'type': 'MicrosoftGraphCompanyDetail'},
-        'description': {'key': 'detail.description', 'type': 'str'},
-        'end_month_year': {'key': 'detail.endMonthYear', 'type': 'date'},
-        'job_title': {'key': 'detail.jobTitle', 'type': 'str'},
-        'role': {'key': 'detail.role', 'type': 'str'},
-        'start_month_year': {'key': 'detail.startMonthYear', 'type': 'date'},
-        'summary': {'key': 'detail.summary', 'type': 'str'},
     }
 
     def __init__(
@@ -3906,43 +3498,27 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
         *,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         inference: Optional["MicrosoftGraphInferenceData"] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         source: Optional["MicrosoftGraphPersonDataSources"] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         categories: Optional[List[str]] = None,
         colleagues: Optional[List["MicrosoftGraphRelatedPerson"]] = None,
+        detail: Optional["MicrosoftGraphPositionDetail"] = None,
         is_current: Optional[bool] = None,
         manager: Optional["MicrosoftGraphRelatedPerson"] = None,
-        company: Optional["MicrosoftGraphCompanyDetail"] = None,
-        description: Optional[str] = None,
-        end_month_year: Optional[datetime.date] = None,
-        job_title: Optional[str] = None,
-        role: Optional[str] = None,
-        start_month_year: Optional[datetime.date] = None,
-        summary: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphWorkPosition, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphWorkPosition, self).__init__(id=id, allowed_audiences=allowed_audiences, created_by=created_by, created_date_time=created_date_time, inference=inference, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, source=source, **kwargs)
         self.additional_properties = additional_properties
         self.categories = categories
         self.colleagues = colleagues
+        self.detail = detail
         self.is_current = is_current
         self.manager = manager
-        self.company = company
-        self.description = description
-        self.end_month_year = end_month_year
-        self.job_title = job_title
-        self.role = role
-        self.start_month_year = start_month_year
-        self.summary = summary
 
 
 class MicrosoftGraphYomiPersonName(msrest.serialization.Model):

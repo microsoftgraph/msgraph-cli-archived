@@ -19,16 +19,16 @@ def cf_personalcontacts_v1_0_cl(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_personalcontacts_v1_0_cl(cli_ctx).user
+    return cf_personalcontacts_v1_0_cl(cli_ctx).users
 
 
 def cf_user_contact_folder(cli_ctx, *_):
-    return cf_personalcontacts_v1_0_cl(cli_ctx).user_contact_folder
+    return cf_personalcontacts_v1_0_cl(cli_ctx).users_contact_folders
 
 
 def cf_user_contact_folder_contact(cli_ctx, *_):
-    return cf_personalcontacts_v1_0_cl(cli_ctx).user_contact_folder_contact
+    return cf_personalcontacts_v1_0_cl(cli_ctx).users_contact_folders_contacts
 
 
 def cf_user_contact(cli_ctx, *_):
-    return cf_personalcontacts_v1_0_cl(cli_ctx).user_contact
+    return cf_personalcontacts_v1_0_cl(cli_ctx).users_contacts

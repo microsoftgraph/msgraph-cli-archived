@@ -6163,8 +6163,8 @@ helps['sites site-onenote-notebook-section-group-section-page onenote-patch-cont
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
@@ -6245,8 +6245,8 @@ helps['sites site-onenote-notebook-section-page onenote-patch-content'] = """
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
@@ -6337,8 +6337,8 @@ helps['sites site-onenote-page onenote-patch-content'] = """
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
@@ -6404,8 +6404,8 @@ helps['sites site-onenote-page-parent-notebook-section-group-section-page onenot
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
@@ -6461,8 +6461,8 @@ helps['sites site-onenote-page-parent-notebook-section-page onenote-patch-conten
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
@@ -6544,8 +6544,8 @@ helps['sites site-onenote-page-parent-section-page onenote-patch-content'] = """
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
@@ -6693,8 +6693,8 @@ helps['sites site-onenote-section-group-parent-notebook-section-page onenote-pat
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
@@ -6775,8 +6775,8 @@ helps['sites site-onenote-section-group-section-page onenote-patch-content'] = "
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
@@ -6887,8 +6887,8 @@ helps['sites site-onenote-section-page onenote-patch-content'] = """
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """

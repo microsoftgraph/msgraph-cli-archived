@@ -26,51 +26,49 @@ from azext_cloudcommunications_beta.generated._client_factory import (
 
 
 cloudcommunications_beta_communication_cloud_communication = CliCommandType(
-    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_cloud_communication_operations#CommunicationCloudCommunicationOperations.{}',
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_cloud_communications_operations#CommunicationsCloudCommunicationsOperations.{}',
     client_factory=cf_communication_cloud_communication,
 )
 
 
 cloudcommunications_beta_communication = CliCommandType(
-    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_operations#CommunicationOperations.{}',
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_operations#CommunicationsOperations.{}',
     client_factory=cf_communication,
 )
 
 
 cloudcommunications_beta_communication_call_record = CliCommandType(
-    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_call_record_operations#CommunicationCallRecordOperations.{}',
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_call_records_operations#CommunicationsCallRecordsOperations.{}',
     client_factory=cf_communication_call_record,
 )
 
 
 cloudcommunications_beta_communication_call_record_session = CliCommandType(
-    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_call_record_session_operations#CommunicationCallRecordSessionOperations.{}',
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_call_records_sessions_operations#CommunicationsCallRecordsSessionsOperations.{}',
     client_factory=cf_communication_call_record_session,
 )
 
 
 cloudcommunications_beta_communication_call = CliCommandType(
-    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_call_operations#CommunicationCallOperations.{}',
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_calls_operations#CommunicationsCallsOperations.{}',
     client_factory=cf_communication_call,
 )
 
 
 cloudcommunications_beta_communication_call_participant = CliCommandType(
-    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_call_participant_operations#CommunicationCallParticipantOperations.{}',
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_calls_participants_operations#CommunicationsCallsParticipantsOperations.{}',
     client_factory=cf_communication_call_participant,
 )
 
 
 cloudcommunications_beta_communication_online_meeting = CliCommandType(
-    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_online_meeting_operations#CommunicationOnlineMeetingOperations.{}',
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_online_meetings_operations#CommunicationsOnlineMeetingsOperations.{}',
     client_factory=cf_communication_online_meeting,
 )
 
 
 cloudcommunications_beta_user = CliCommandType(
-    operations_tmpl=(
-        'azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._user_operations#UserOperations.{}'
-    ),
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 

@@ -19,7 +19,9 @@ def search_external_external_show_external(client,
 
 def search_external_external_update_external(client,
                                              connections=None):
-    return client.update_external(connections=connections)
+    body = {}
+    body['connections'] = connections
+    return client.update_external(body=body)
 
 
 def search_external_create_connection(client,
@@ -34,42 +36,45 @@ def search_external_create_connection(client,
                                       microsoft_graph_entity_id=None,
                                       base_type=None,
                                       properties=None):
-    return client.create_connection(id=id_,
-                                    configuration=configuration,
-                                    description=description,
-                                    name=name,
-                                    state=state,
-                                    groups=groups,
-                                    items=items,
-                                    operations=operations,
-                                    microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                    base_type=base_type,
-                                    properties=properties)
+    body = {}
+    body['id'] = id_
+    body['configuration'] = configuration
+    body['description'] = description
+    body['name'] = name
+    body['state'] = state
+    body['groups'] = groups
+    body['items'] = items
+    body['operations'] = operations
+    body['schema'] = {}
+    body['schema']['id'] = microsoft_graph_entity_id
+    body['schema']['base_type'] = base_type
+    body['schema']['properties'] = properties
+    return client.create_connections(body=body)
 
 
 def search_external_delete_connection(client,
                                       external_connection_id,
                                       if_match=None):
-    return client.delete_connection(external_connection_id=external_connection_id,
-                                    if_match=if_match)
+    return client.delete_connections(external_connection_id=external_connection_id,
+                                     if_match=if_match)
 
 
 def search_external_list_connection(client,
                                     orderby=None,
                                     select=None,
                                     expand=None):
-    return client.list_connection(orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_connections(orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def search_external_show_connection(client,
                                     external_connection_id,
                                     select=None,
                                     expand=None):
-    return client.get_connection(external_connection_id=external_connection_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_connections(external_connection_id=external_connection_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def search_external_update_connection(client,
@@ -85,18 +90,21 @@ def search_external_update_connection(client,
                                       microsoft_graph_entity_id=None,
                                       base_type=None,
                                       properties=None):
-    return client.update_connection(external_connection_id=external_connection_id,
-                                    id=id_,
-                                    configuration=configuration,
-                                    description=description,
-                                    name=name,
-                                    state=state,
-                                    groups=groups,
-                                    items=items,
-                                    operations=operations,
-                                    microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                    base_type=base_type,
-                                    properties=properties)
+    body = {}
+    body['id'] = id_
+    body['configuration'] = configuration
+    body['description'] = description
+    body['name'] = name
+    body['state'] = state
+    body['groups'] = groups
+    body['items'] = items
+    body['operations'] = operations
+    body['schema'] = {}
+    body['schema']['id'] = microsoft_graph_entity_id
+    body['schema']['base_type'] = base_type
+    body['schema']['properties'] = properties
+    return client.update_connections(external_connection_id=external_connection_id,
+                                     body=body)
 
 
 def search_search_entity_show_search_entity(client,
@@ -108,9 +116,13 @@ def search_search_entity_show_search_entity(client,
 
 def search_search_entity_update_search_entity(client,
                                               id_=None):
-    return client.update_search_entity(id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_search_entity(body=body)
 
 
 def search_search_query(client,
                         requests=None):
-    return client.query(requests=requests)
+    body = {}
+    body['requests'] = requests
+    return client.query(body=body)

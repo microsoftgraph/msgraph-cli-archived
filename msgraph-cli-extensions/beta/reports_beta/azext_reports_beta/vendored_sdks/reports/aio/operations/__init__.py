@@ -6,14 +6,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._audit_log_audit_log_root_operations import AuditLogAuditLogRootOperations
-from ._audit_log_operations import AuditLogOperations
-from ._report_report_root_operations import ReportReportRootOperations
-from ._report_operations import ReportOperations
+from ._audit_logs_audit_log_root_operations import AuditLogsAuditLogRootOperations
+from ._audit_logs_operations import AuditLogsOperations
+from ._reports_report_root_operations import ReportsReportRootOperations
+from ._reports_operations import ReportsOperations
 
 __all__ = [
-    'AuditLogAuditLogRootOperations',
-    'AuditLogOperations',
-    'ReportReportRootOperations',
-    'ReportOperations',
+    'AuditLogsAuditLogRootOperations',
+    'AuditLogsOperations',
+    'ReportsReportRootOperations',
+    'ReportsOperations',
 ]

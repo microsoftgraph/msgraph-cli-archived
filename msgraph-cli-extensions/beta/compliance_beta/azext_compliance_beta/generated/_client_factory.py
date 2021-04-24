@@ -31,20 +31,20 @@ def cf_compliance_ediscovery(cli_ctx, *_):
 
 
 def cf_compliance_ediscovery_case(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_case
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases
 
 
 def cf_compliance_ediscovery_case_custodian(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_case_custodian
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_custodians
 
 
 def cf_compliance_ediscovery_case_custodian_site_source(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_case_custodian_site_source
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_custodians_site_sources
 
 
 def cf_compliance_ediscovery_case_custodian_unified_group_source(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_case_custodian_unified_group_source
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_custodians_unified_group_sources
 
 
 def cf_compliance_ediscovery_case_review_set(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_case_review_set
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_review_sets

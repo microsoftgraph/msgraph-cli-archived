@@ -19,260 +19,260 @@ def cf_usersfunctions_beta_cl(cli_ctx, *_):
 
 
 def cf_user_activity(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_activity
+    return cf_usersfunctions_beta_cl(cli_ctx).users_activities
 
 
 def cf_user_calendar_calendar_view_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_calendar_view_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_calendar_view_calendar
 
 
 def cf_user_calendar_calendar_view_exception_occurrence(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_calendar_view_exception_occurrence
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_calendar_view_exception_occurrences
 
 
 def cf_user_calendar_calendar_view_instance(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_calendar_view_instance
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_calendar_view_instances
 
 
 def cf_user_calendar_calendar_view(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_calendar_view
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_calendar_view
 
 
 def cf_user_calendar_event_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_event_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_events_calendar
 
 
 def cf_user_calendar_event_exception_occurrence(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_event_exception_occurrence
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_events_exception_occurrences
 
 
 def cf_user_calendar_event_instance(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_event_instance
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_events_instances
 
 
 def cf_user_calendar_event(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_event
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_events
 
 
 def cf_user_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar
 
 
 def cf_user_calendar_group_calendar_calendar_view_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_group_calendar_calendar_view_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_groups_calendars_calendar_view_calendar
 
 
 def cf_user_calendar_group_calendar_calendar_view_exception_occurrence(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_group_calendar_calendar_view_exception_occurrence
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_groups_calendars_calendar_view_exception_occurrences
 
 
 def cf_user_calendar_group_calendar_calendar_view_instance(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_group_calendar_calendar_view_instance
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_groups_calendars_calendar_view_instances
 
 
 def cf_user_calendar_group_calendar_calendar_view(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_group_calendar_calendar_view
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_groups_calendars_calendar_view
 
 
 def cf_user_calendar_group_calendar_event_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_group_calendar_event_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_groups_calendars_events_calendar
 
 
 def cf_user_calendar_group_calendar_event_exception_occurrence(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_group_calendar_event_exception_occurrence
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_groups_calendars_events_exception_occurrences
 
 
 def cf_user_calendar_group_calendar_event_instance(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_group_calendar_event_instance
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_groups_calendars_events_instances
 
 
 def cf_user_calendar_group_calendar_event(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_group_calendar_event
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_groups_calendars_events
 
 
 def cf_user_calendar_group_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_group_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_groups_calendars
 
 
 def cf_user_calendar_calendar_view_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_calendar_view_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendars_calendar_view_calendar
 
 
 def cf_user_calendar_calendar_view_exception_occurrence(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_calendar_view_exception_occurrence
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendars_calendar_view_exception_occurrences
 
 
 def cf_user_calendar_calendar_view_instance(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_calendar_view_instance
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendars_calendar_view_instances
 
 
 def cf_user_calendar_calendar_view(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_calendar_view
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendars_calendar_view
 
 
 def cf_user_calendar_event_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_event_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendars_events_calendar
 
 
 def cf_user_calendar_event_exception_occurrence(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_event_exception_occurrence
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendars_events_exception_occurrences
 
 
 def cf_user_calendar_event_instance(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_event_instance
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendars_events_instances
 
 
 def cf_user_calendar_event(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_event
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendars_events
 
 
 def cf_user_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendars
 
 
 def cf_user_calendar_view_calendar_calendar_view(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_view_calendar_calendar_view
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_view_calendar_calendar_view
 
 
 def cf_user_calendar_view_calendar_event(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_view_calendar_event
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_view_calendar_events
 
 
 def cf_user_calendar_view_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_view_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_view_calendar
 
 
 def cf_user_calendar_view_exception_occurrence(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_view_exception_occurrence
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_view_exception_occurrences
 
 
 def cf_user_calendar_view_instance(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_view_instance
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_view_instances
 
 
 def cf_user_calendar_view(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_calendar_view
+    return cf_usersfunctions_beta_cl(cli_ctx).users_calendar_view
 
 
 def cf_user_contact_folder_child_folder(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_contact_folder_child_folder
+    return cf_usersfunctions_beta_cl(cli_ctx).users_contact_folders_child_folders
 
 
 def cf_user_contact_folder_contact(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_contact_folder_contact
+    return cf_usersfunctions_beta_cl(cli_ctx).users_contact_folders_contacts
 
 
 def cf_user_contact_folder(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_contact_folder
+    return cf_usersfunctions_beta_cl(cli_ctx).users_contact_folders
 
 
 def cf_user_contact(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_contact
+    return cf_usersfunctions_beta_cl(cli_ctx).users_contacts
 
 
 def cf_user_event_calendar_calendar_view(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_event_calendar_calendar_view
+    return cf_usersfunctions_beta_cl(cli_ctx).users_events_calendar_calendar_view
 
 
 def cf_user_event_calendar_event(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_event_calendar_event
+    return cf_usersfunctions_beta_cl(cli_ctx).users_events_calendar_events
 
 
 def cf_user_event_calendar(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_event_calendar
+    return cf_usersfunctions_beta_cl(cli_ctx).users_events_calendar
 
 
 def cf_user_event_exception_occurrence(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_event_exception_occurrence
+    return cf_usersfunctions_beta_cl(cli_ctx).users_events_exception_occurrences
 
 
 def cf_user_event_instance(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_event_instance
+    return cf_usersfunctions_beta_cl(cli_ctx).users_events_instances
 
 
 def cf_user_event(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_event
+    return cf_usersfunctions_beta_cl(cli_ctx).users_events
 
 
 def cf_user_mail_folder_child_folder(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_mail_folder_child_folder
+    return cf_usersfunctions_beta_cl(cli_ctx).users_mail_folders_child_folders
 
 
 def cf_user_mail_folder_message(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_mail_folder_message
+    return cf_usersfunctions_beta_cl(cli_ctx).users_mail_folders_messages
 
 
 def cf_user_mail_folder(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_mail_folder
+    return cf_usersfunctions_beta_cl(cli_ctx).users_mail_folders
 
 
 def cf_user_managed_app_registration(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_managed_app_registration
+    return cf_usersfunctions_beta_cl(cli_ctx).users_managed_app_registrations
 
 
 def cf_user_managed_device(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_managed_device
+    return cf_usersfunctions_beta_cl(cli_ctx).users_managed_devices
 
 
 def cf_user_message(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_message
+    return cf_usersfunctions_beta_cl(cli_ctx).users_messages
 
 
 def cf_user(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user
+    return cf_usersfunctions_beta_cl(cli_ctx).users
 
 
 def cf_user_onenote_notebook_section_group_section_page(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_onenote_notebook_section_group_section_page
+    return cf_usersfunctions_beta_cl(cli_ctx).users_onenote_notebooks_section_groups_sections_pages
 
 
 def cf_user_onenote_notebook_section_page(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_onenote_notebook_section_page
+    return cf_usersfunctions_beta_cl(cli_ctx).users_onenote_notebooks_sections_pages
 
 
 def cf_user_onenote_notebook(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_onenote_notebook
+    return cf_usersfunctions_beta_cl(cli_ctx).users_onenote_notebooks
 
 
 def cf_user_onenote_page(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_onenote_page
+    return cf_usersfunctions_beta_cl(cli_ctx).users_onenote_pages
 
 
 def cf_user_onenote_page_parent_notebook_section_group_section_page(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_onenote_page_parent_notebook_section_group_section_page
+    return cf_usersfunctions_beta_cl(cli_ctx).users_onenote_pages_parent_notebook_section_groups_sections_pages
 
 
 def cf_user_onenote_page_parent_notebook_section_page(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_onenote_page_parent_notebook_section_page
+    return cf_usersfunctions_beta_cl(cli_ctx).users_onenote_pages_parent_notebook_sections_pages
 
 
 def cf_user_onenote_page_parent_section_page(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_onenote_page_parent_section_page
+    return cf_usersfunctions_beta_cl(cli_ctx).users_onenote_pages_parent_section_pages
 
 
 def cf_user_onenote_section_group_parent_notebook_section_page(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_onenote_section_group_parent_notebook_section_page
+    return cf_usersfunctions_beta_cl(cli_ctx).users_onenote_section_groups_parent_notebook_sections_pages
 
 
 def cf_user_onenote_section_group_section_page(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_onenote_section_group_section_page
+    return cf_usersfunctions_beta_cl(cli_ctx).users_onenote_section_groups_sections_pages
 
 
 def cf_user_onenote_section_page(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_onenote_section_page
+    return cf_usersfunctions_beta_cl(cli_ctx).users_onenote_sections_pages
 
 
 def cf_user_outlook(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_outlook
+    return cf_usersfunctions_beta_cl(cli_ctx).users_outlook
 
 
 def cf_user_planner_all(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_planner_all
+    return cf_usersfunctions_beta_cl(cli_ctx).users_planner_all
 
 
 def cf_user_todo_list_task(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_todo_list_task
+    return cf_usersfunctions_beta_cl(cli_ctx).users_todo_lists_tasks
 
 
 def cf_user_todo_list(cli_ctx, *_):
-    return cf_usersfunctions_beta_cl(cli_ctx).user_todo_list
+    return cf_usersfunctions_beta_cl(cli_ctx).users_todo_lists

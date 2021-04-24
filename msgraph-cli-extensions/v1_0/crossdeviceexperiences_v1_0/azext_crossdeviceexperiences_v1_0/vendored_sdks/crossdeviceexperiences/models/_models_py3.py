@@ -284,22 +284,11 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
      activity was located at activity creation time; values supplied as Olson IDs in order to
      support cross-platform representation.
     :type user_timezone: str
+    :param visual_elements: visualInfo.
+    :type visual_elements: ~cross_device_experiences.models.MicrosoftGraphVisualInfo
     :param history_items: Optional. NavigationProperty/Containment; navigation property to the
      activity's historyItems.
     :type history_items: list[~cross_device_experiences.models.MicrosoftGraphActivityHistoryItem]
-    :param attribution: imageInfo.
-    :type attribution: ~cross_device_experiences.models.MicrosoftGraphImageInfo
-    :param background_color: Optional. Background color used to render the activity in the UI -
-     brand color for the application source of the activity. Must be a valid hex color.
-    :type background_color: str
-    :param content: Json.
-    :type content: dict[str, object]
-    :param description: Optional. Longer text description of the user's unique activity (example:
-     document name, first sentence, and/or metadata).
-    :type description: str
-    :param display_text: Required. Short text description of the user's unique activity (for
-     example, document name in cases where an activity refers to document creation).
-    :type display_text: str
     """
 
     _attribute_map = {
@@ -317,12 +306,8 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'user_timezone': {'key': 'userTimezone', 'type': 'str'},
+        'visual_elements': {'key': 'visualElements', 'type': 'MicrosoftGraphVisualInfo'},
         'history_items': {'key': 'historyItems', 'type': '[MicrosoftGraphActivityHistoryItem]'},
-        'attribution': {'key': 'visualElements.attribution', 'type': 'MicrosoftGraphImageInfo'},
-        'background_color': {'key': 'visualElements.backgroundColor', 'type': 'str'},
-        'content': {'key': 'visualElements.content', 'type': '{object}'},
-        'description': {'key': 'visualElements.description', 'type': 'str'},
-        'display_text': {'key': 'visualElements.displayText', 'type': 'str'},
     }
 
     def __init__(
@@ -342,12 +327,8 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         status: Optional[Union[str, "MicrosoftGraphStatus"]] = None,
         user_timezone: Optional[str] = None,
+        visual_elements: Optional["MicrosoftGraphVisualInfo"] = None,
         history_items: Optional[List["MicrosoftGraphActivityHistoryItem"]] = None,
-        attribution: Optional["MicrosoftGraphImageInfo"] = None,
-        background_color: Optional[str] = None,
-        content: Optional[Dict[str, object]] = None,
-        description: Optional[str] = None,
-        display_text: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphUserActivity, self).__init__(id=id, **kwargs)
@@ -364,12 +345,8 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
         self.last_modified_date_time = last_modified_date_time
         self.status = status
         self.user_timezone = user_timezone
+        self.visual_elements = visual_elements
         self.history_items = history_items
-        self.attribution = attribution
-        self.background_color = background_color
-        self.content = content
-        self.description = description
-        self.display_text = display_text
 
 
 class MicrosoftGraphVisualInfo(msrest.serialization.Model):

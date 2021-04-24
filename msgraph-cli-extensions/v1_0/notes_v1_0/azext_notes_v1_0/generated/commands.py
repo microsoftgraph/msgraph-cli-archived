@@ -126,657 +126,659 @@ from azext_notes_v1_0.generated._client_factory import (
 
 
 notes_v1_0_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_operations#GroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_operations#GroupsOperations.{}',
     client_factory=cf_group,
 )
 
 
 notes_v1_0_group_onenote = CliCommandType(
     operations_tmpl=(
-        'azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_operations#GroupOnenoteOperations.{}'
+        'azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_operations#GroupsOnenoteOperations.{}'
     ),
     client_factory=cf_group_onenote,
 )
 
 
 notes_v1_0_group_onenote_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_operations#GroupOnenoteNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_notebooks_operations#GroupsOnenoteNotebooksOperations.{}',
     client_factory=cf_group_onenote_notebook,
 )
 
 
 notes_v1_0_group_onenote_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_operations#GroupOnenoteNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_notebooks_section_groups_operations#GroupsOnenoteNotebooksSectionGroupsOperations.{}',
     client_factory=cf_group_onenote_notebook_section_group,
 )
 
 
 notes_v1_0_group_onenote_notebook_section_group_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_section_operations#GroupOnenoteNotebookSectionGroupSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_notebooks_section_groups_sections_operations#GroupsOnenoteNotebooksSectionGroupsSectionsOperations.{}',
     client_factory=cf_group_onenote_notebook_section_group_section,
 )
 
 
 notes_v1_0_group_onenote_notebook_section_group_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_section_page_operations#GroupOnenoteNotebookSectionGroupSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_notebooks_section_groups_sections_pages_operations#GroupsOnenoteNotebooksSectionGroupsSectionsPagesOperations.{}',
     client_factory=cf_group_onenote_notebook_section_group_section_page,
 )
 
 
 notes_v1_0_group_onenote_notebook_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_operations#GroupOnenoteNotebookSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_notebooks_sections_operations#GroupsOnenoteNotebooksSectionsOperations.{}',
     client_factory=cf_group_onenote_notebook_section,
 )
 
 
 notes_v1_0_group_onenote_notebook_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_page_operations#GroupOnenoteNotebookSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_notebooks_sections_pages_operations#GroupsOnenoteNotebooksSectionsPagesOperations.{}',
     client_factory=cf_group_onenote_notebook_section_page,
 )
 
 
 notes_v1_0_group_onenote_notebook_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_parent_section_group_operations#GroupOnenoteNotebookSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_notebooks_sections_parent_section_group_operations#GroupsOnenoteNotebooksSectionsParentSectionGroupOperations.{}',
     client_factory=cf_group_onenote_notebook_section_parent_section_group,
 )
 
 
 notes_v1_0_group_onenote_page = CliCommandType(
-    operations_tmpl=(
-        'azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_operations#GroupOnenotePageOperations.{}'
-    ),
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_operations#GroupsOnenotePagesOperations.{}',
     client_factory=cf_group_onenote_page,
 )
 
 
 notes_v1_0_group_onenote_page_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_operations#GroupOnenotePageParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_parent_notebook_operations#GroupsOnenotePagesParentNotebookOperations.{}',
     client_factory=cf_group_onenote_page_parent_notebook,
 )
 
 
 notes_v1_0_group_onenote_page_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_group_operations#GroupOnenotePageParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_parent_notebook_section_groups_operations#GroupsOnenotePagesParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_group_onenote_page_parent_notebook_section_group,
 )
 
 
 notes_v1_0_group_onenote_page_parent_notebook_section_group_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_group_section_operations#GroupOnenotePageParentNotebookSectionGroupSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_parent_notebook_section_groups_sections_operations#GroupsOnenotePagesParentNotebookSectionGroupsSectionsOperations.{}',
     client_factory=cf_group_onenote_page_parent_notebook_section_group_section,
 )
 
 
 notes_v1_0_group_onenote_page_parent_notebook_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_operations#GroupOnenotePageParentNotebookSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_parent_notebook_sections_operations#GroupsOnenotePagesParentNotebookSectionsOperations.{}',
     client_factory=cf_group_onenote_page_parent_notebook_section,
 )
 
 
 notes_v1_0_group_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_parent_section_group_operations#GroupOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_parent_notebook_sections_parent_section_group_operations#GroupsOnenotePagesParentNotebookSectionsParentSectionGroupOperations.{}',
     client_factory=cf_group_onenote_page_parent_notebook_section_parent_section_group,
 )
 
 
 notes_v1_0_group_onenote_page_parent_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_operations#GroupOnenotePageParentSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_parent_section_operations#GroupsOnenotePagesParentSectionOperations.{}',
     client_factory=cf_group_onenote_page_parent_section,
 )
 
 
 notes_v1_0_group_onenote_page_parent_section_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_notebook_operations#GroupOnenotePageParentSectionParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_parent_section_parent_notebook_operations#GroupsOnenotePagesParentSectionParentNotebookOperations.{}',
     client_factory=cf_group_onenote_page_parent_section_parent_notebook,
 )
 
 
 notes_v1_0_group_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_notebook_section_group_operations#GroupOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_parent_section_parent_notebook_section_groups_operations#GroupsOnenotePagesParentSectionParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_group_onenote_page_parent_section_parent_notebook_section_group,
 )
 
 
 notes_v1_0_group_onenote_page_parent_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_section_group_operations#GroupOnenotePageParentSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_parent_section_parent_section_group_operations#GroupsOnenotePagesParentSectionParentSectionGroupOperations.{}',
     client_factory=cf_group_onenote_page_parent_section_parent_section_group,
 )
 
 
 notes_v1_0_group_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_section_group_parent_notebook_operations#GroupOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_pages_parent_section_parent_section_group_parent_notebook_operations#GroupsOnenotePagesParentSectionParentSectionGroupParentNotebookOperations.{}',
     client_factory=cf_group_onenote_page_parent_section_parent_section_group_parent_notebook,
 )
 
 
 notes_v1_0_group_onenote_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_operations#GroupOnenoteSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_section_groups_operations#GroupsOnenoteSectionGroupsOperations.{}',
     client_factory=cf_group_onenote_section_group,
 )
 
 
 notes_v1_0_group_onenote_section_group_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_operations#GroupOnenoteSectionGroupParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_section_groups_parent_notebook_operations#GroupsOnenoteSectionGroupsParentNotebookOperations.{}',
     client_factory=cf_group_onenote_section_group_parent_notebook,
 )
 
 
 notes_v1_0_group_onenote_section_group_parent_notebook_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_section_operations#GroupOnenoteSectionGroupParentNotebookSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_section_groups_parent_notebook_sections_operations#GroupsOnenoteSectionGroupsParentNotebookSectionsOperations.{}',
     client_factory=cf_group_onenote_section_group_parent_notebook_section,
 )
 
 
 notes_v1_0_group_onenote_section_group_parent_notebook_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_section_page_operations#GroupOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_section_groups_parent_notebook_sections_pages_operations#GroupsOnenoteSectionGroupsParentNotebookSectionsPagesOperations.{}',
     client_factory=cf_group_onenote_section_group_parent_notebook_section_page,
 )
 
 
 notes_v1_0_group_onenote_section_group_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_operations#GroupOnenoteSectionGroupSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_section_groups_sections_operations#GroupsOnenoteSectionGroupsSectionsOperations.{}',
     client_factory=cf_group_onenote_section_group_section,
 )
 
 
 notes_v1_0_group_onenote_section_group_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_page_operations#GroupOnenoteSectionGroupSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_section_groups_sections_pages_operations#GroupsOnenoteSectionGroupsSectionsPagesOperations.{}',
     client_factory=cf_group_onenote_section_group_section_page,
 )
 
 
 notes_v1_0_group_onenote_section_group_section_page_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_page_parent_notebook_operations#GroupOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_section_groups_sections_pages_parent_notebook_operations#GroupsOnenoteSectionGroupsSectionsPagesParentNotebookOperations.{}',
     client_factory=cf_group_onenote_section_group_section_page_parent_notebook,
 )
 
 
 notes_v1_0_group_onenote_section_group_section_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_parent_notebook_operations#GroupOnenoteSectionGroupSectionParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_section_groups_sections_parent_notebook_operations#GroupsOnenoteSectionGroupsSectionsParentNotebookOperations.{}',
     client_factory=cf_group_onenote_section_group_section_parent_notebook,
 )
 
 
 notes_v1_0_group_onenote_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_operations#GroupOnenoteSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_sections_operations#GroupsOnenoteSectionsOperations.{}',
     client_factory=cf_group_onenote_section,
 )
 
 
 notes_v1_0_group_onenote_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_operations#GroupOnenoteSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_sections_pages_operations#GroupsOnenoteSectionsPagesOperations.{}',
     client_factory=cf_group_onenote_section_page,
 )
 
 
 notes_v1_0_group_onenote_section_page_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_parent_notebook_operations#GroupOnenoteSectionPageParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_sections_pages_parent_notebook_operations#GroupsOnenoteSectionsPagesParentNotebookOperations.{}',
     client_factory=cf_group_onenote_section_page_parent_notebook,
 )
 
 
 notes_v1_0_group_onenote_section_page_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_parent_notebook_section_group_operations#GroupOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_sections_pages_parent_notebook_section_groups_operations#GroupsOnenoteSectionsPagesParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_group_onenote_section_page_parent_notebook_section_group,
 )
 
 
 notes_v1_0_group_onenote_section_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_notebook_operations#GroupOnenoteSectionParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_sections_parent_notebook_operations#GroupsOnenoteSectionsParentNotebookOperations.{}',
     client_factory=cf_group_onenote_section_parent_notebook,
 )
 
 
 notes_v1_0_group_onenote_section_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_notebook_section_group_operations#GroupOnenoteSectionParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_sections_parent_notebook_section_groups_operations#GroupsOnenoteSectionsParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_group_onenote_section_parent_notebook_section_group,
 )
 
 
 notes_v1_0_group_onenote_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_section_group_operations#GroupOnenoteSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_sections_parent_section_group_operations#GroupsOnenoteSectionsParentSectionGroupOperations.{}',
     client_factory=cf_group_onenote_section_parent_section_group,
 )
 
 
 notes_v1_0_group_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_section_group_parent_notebook_operations#GroupOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._groups_onenote_sections_parent_section_group_parent_notebook_operations#GroupsOnenoteSectionsParentSectionGroupParentNotebookOperations.{}',
     client_factory=cf_group_onenote_section_parent_section_group_parent_notebook,
 )
 
 
 notes_v1_0_site = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_operations#SiteOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_operations#SitesOperations.{}',
     client_factory=cf_site,
 )
 
 
 notes_v1_0_site_onenote = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_operations#SiteOnenoteOperations.{}',
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_operations#SitesOnenoteOperations.{}'
+    ),
     client_factory=cf_site_onenote,
 )
 
 
 notes_v1_0_site_onenote_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_operations#SiteOnenoteNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_notebooks_operations#SitesOnenoteNotebooksOperations.{}',
     client_factory=cf_site_onenote_notebook,
 )
 
 
 notes_v1_0_site_onenote_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_operations#SiteOnenoteNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_notebooks_section_groups_operations#SitesOnenoteNotebooksSectionGroupsOperations.{}',
     client_factory=cf_site_onenote_notebook_section_group,
 )
 
 
 notes_v1_0_site_onenote_notebook_section_group_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_section_operations#SiteOnenoteNotebookSectionGroupSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_notebooks_section_groups_sections_operations#SitesOnenoteNotebooksSectionGroupsSectionsOperations.{}',
     client_factory=cf_site_onenote_notebook_section_group_section,
 )
 
 
 notes_v1_0_site_onenote_notebook_section_group_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_section_page_operations#SiteOnenoteNotebookSectionGroupSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_notebooks_section_groups_sections_pages_operations#SitesOnenoteNotebooksSectionGroupsSectionsPagesOperations.{}',
     client_factory=cf_site_onenote_notebook_section_group_section_page,
 )
 
 
 notes_v1_0_site_onenote_notebook_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_operations#SiteOnenoteNotebookSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_notebooks_sections_operations#SitesOnenoteNotebooksSectionsOperations.{}',
     client_factory=cf_site_onenote_notebook_section,
 )
 
 
 notes_v1_0_site_onenote_notebook_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_page_operations#SiteOnenoteNotebookSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_notebooks_sections_pages_operations#SitesOnenoteNotebooksSectionsPagesOperations.{}',
     client_factory=cf_site_onenote_notebook_section_page,
 )
 
 
 notes_v1_0_site_onenote_notebook_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_parent_section_group_operations#SiteOnenoteNotebookSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_notebooks_sections_parent_section_group_operations#SitesOnenoteNotebooksSectionsParentSectionGroupOperations.{}',
     client_factory=cf_site_onenote_notebook_section_parent_section_group,
 )
 
 
 notes_v1_0_site_onenote_page = CliCommandType(
     operations_tmpl=(
-        'azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_operations#SiteOnenotePageOperations.{}'
+        'azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_operations#SitesOnenotePagesOperations.{}'
     ),
     client_factory=cf_site_onenote_page,
 )
 
 
 notes_v1_0_site_onenote_page_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_operations#SiteOnenotePageParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_parent_notebook_operations#SitesOnenotePagesParentNotebookOperations.{}',
     client_factory=cf_site_onenote_page_parent_notebook,
 )
 
 
 notes_v1_0_site_onenote_page_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_group_operations#SiteOnenotePageParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_parent_notebook_section_groups_operations#SitesOnenotePagesParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_site_onenote_page_parent_notebook_section_group,
 )
 
 
 notes_v1_0_site_onenote_page_parent_notebook_section_group_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_group_section_operations#SiteOnenotePageParentNotebookSectionGroupSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_parent_notebook_section_groups_sections_operations#SitesOnenotePagesParentNotebookSectionGroupsSectionsOperations.{}',
     client_factory=cf_site_onenote_page_parent_notebook_section_group_section,
 )
 
 
 notes_v1_0_site_onenote_page_parent_notebook_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_operations#SiteOnenotePageParentNotebookSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_parent_notebook_sections_operations#SitesOnenotePagesParentNotebookSectionsOperations.{}',
     client_factory=cf_site_onenote_page_parent_notebook_section,
 )
 
 
 notes_v1_0_site_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_parent_section_group_operations#SiteOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_parent_notebook_sections_parent_section_group_operations#SitesOnenotePagesParentNotebookSectionsParentSectionGroupOperations.{}',
     client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group,
 )
 
 
 notes_v1_0_site_onenote_page_parent_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_operations#SiteOnenotePageParentSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_parent_section_operations#SitesOnenotePagesParentSectionOperations.{}',
     client_factory=cf_site_onenote_page_parent_section,
 )
 
 
 notes_v1_0_site_onenote_page_parent_section_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_notebook_operations#SiteOnenotePageParentSectionParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_parent_section_parent_notebook_operations#SitesOnenotePagesParentSectionParentNotebookOperations.{}',
     client_factory=cf_site_onenote_page_parent_section_parent_notebook,
 )
 
 
 notes_v1_0_site_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_notebook_section_group_operations#SiteOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_parent_section_parent_notebook_section_groups_operations#SitesOnenotePagesParentSectionParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group,
 )
 
 
 notes_v1_0_site_onenote_page_parent_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_section_group_operations#SiteOnenotePageParentSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_parent_section_parent_section_group_operations#SitesOnenotePagesParentSectionParentSectionGroupOperations.{}',
     client_factory=cf_site_onenote_page_parent_section_parent_section_group,
 )
 
 
 notes_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_section_group_parent_notebook_operations#SiteOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_pages_parent_section_parent_section_group_parent_notebook_operations#SitesOnenotePagesParentSectionParentSectionGroupParentNotebookOperations.{}',
     client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
 )
 
 
 notes_v1_0_site_onenote_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_operations#SiteOnenoteSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_section_groups_operations#SitesOnenoteSectionGroupsOperations.{}',
     client_factory=cf_site_onenote_section_group,
 )
 
 
 notes_v1_0_site_onenote_section_group_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_section_groups_parent_notebook_operations#SitesOnenoteSectionGroupsParentNotebookOperations.{}',
     client_factory=cf_site_onenote_section_group_parent_notebook,
 )
 
 
 notes_v1_0_site_onenote_section_group_parent_notebook_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_section_operations#SiteOnenoteSectionGroupParentNotebookSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_section_groups_parent_notebook_sections_operations#SitesOnenoteSectionGroupsParentNotebookSectionsOperations.{}',
     client_factory=cf_site_onenote_section_group_parent_notebook_section,
 )
 
 
 notes_v1_0_site_onenote_section_group_parent_notebook_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_section_page_operations#SiteOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_section_groups_parent_notebook_sections_pages_operations#SitesOnenoteSectionGroupsParentNotebookSectionsPagesOperations.{}',
     client_factory=cf_site_onenote_section_group_parent_notebook_section_page,
 )
 
 
 notes_v1_0_site_onenote_section_group_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_operations#SiteOnenoteSectionGroupSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_section_groups_sections_operations#SitesOnenoteSectionGroupsSectionsOperations.{}',
     client_factory=cf_site_onenote_section_group_section,
 )
 
 
 notes_v1_0_site_onenote_section_group_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_page_operations#SiteOnenoteSectionGroupSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_section_groups_sections_pages_operations#SitesOnenoteSectionGroupsSectionsPagesOperations.{}',
     client_factory=cf_site_onenote_section_group_section_page,
 )
 
 
 notes_v1_0_site_onenote_section_group_section_page_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_page_parent_notebook_operations#SiteOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_section_groups_sections_pages_parent_notebook_operations#SitesOnenoteSectionGroupsSectionsPagesParentNotebookOperations.{}',
     client_factory=cf_site_onenote_section_group_section_page_parent_notebook,
 )
 
 
 notes_v1_0_site_onenote_section_group_section_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_parent_notebook_operations#SiteOnenoteSectionGroupSectionParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_section_groups_sections_parent_notebook_operations#SitesOnenoteSectionGroupsSectionsParentNotebookOperations.{}',
     client_factory=cf_site_onenote_section_group_section_parent_notebook,
 )
 
 
 notes_v1_0_site_onenote_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_operations#SiteOnenoteSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_sections_operations#SitesOnenoteSectionsOperations.{}',
     client_factory=cf_site_onenote_section,
 )
 
 
 notes_v1_0_site_onenote_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_operations#SiteOnenoteSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_sections_pages_operations#SitesOnenoteSectionsPagesOperations.{}',
     client_factory=cf_site_onenote_section_page,
 )
 
 
 notes_v1_0_site_onenote_section_page_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_parent_notebook_operations#SiteOnenoteSectionPageParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_sections_pages_parent_notebook_operations#SitesOnenoteSectionsPagesParentNotebookOperations.{}',
     client_factory=cf_site_onenote_section_page_parent_notebook,
 )
 
 
 notes_v1_0_site_onenote_section_page_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_parent_notebook_section_group_operations#SiteOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_sections_pages_parent_notebook_section_groups_operations#SitesOnenoteSectionsPagesParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_site_onenote_section_page_parent_notebook_section_group,
 )
 
 
 notes_v1_0_site_onenote_section_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_notebook_operations#SiteOnenoteSectionParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_sections_parent_notebook_operations#SitesOnenoteSectionsParentNotebookOperations.{}',
     client_factory=cf_site_onenote_section_parent_notebook,
 )
 
 
 notes_v1_0_site_onenote_section_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_notebook_section_group_operations#SiteOnenoteSectionParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_sections_parent_notebook_section_groups_operations#SitesOnenoteSectionsParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_site_onenote_section_parent_notebook_section_group,
 )
 
 
 notes_v1_0_site_onenote_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_section_group_operations#SiteOnenoteSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_sections_parent_section_group_operations#SitesOnenoteSectionsParentSectionGroupOperations.{}',
     client_factory=cf_site_onenote_section_parent_section_group,
 )
 
 
 notes_v1_0_site_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_section_group_parent_notebook_operations#SiteOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._sites_onenote_sections_parent_section_group_parent_notebook_operations#SitesOnenoteSectionsParentSectionGroupParentNotebookOperations.{}',
     client_factory=cf_site_onenote_section_parent_section_group_parent_notebook,
 )
 
 
 notes_v1_0_user = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
 notes_v1_0_user_onenote = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_operations#UserOnenoteOperations.{}',
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_operations#UsersOnenoteOperations.{}'
+    ),
     client_factory=cf_user_onenote,
 )
 
 
 notes_v1_0_user_onenote_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_operations#UserOnenoteNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_notebooks_operations#UsersOnenoteNotebooksOperations.{}',
     client_factory=cf_user_onenote_notebook,
 )
 
 
 notes_v1_0_user_onenote_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_operations#UserOnenoteNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_notebooks_section_groups_operations#UsersOnenoteNotebooksSectionGroupsOperations.{}',
     client_factory=cf_user_onenote_notebook_section_group,
 )
 
 
 notes_v1_0_user_onenote_notebook_section_group_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_section_operations#UserOnenoteNotebookSectionGroupSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_notebooks_section_groups_sections_operations#UsersOnenoteNotebooksSectionGroupsSectionsOperations.{}',
     client_factory=cf_user_onenote_notebook_section_group_section,
 )
 
 
 notes_v1_0_user_onenote_notebook_section_group_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_section_page_operations#UserOnenoteNotebookSectionGroupSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_notebooks_section_groups_sections_pages_operations#UsersOnenoteNotebooksSectionGroupsSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_notebook_section_group_section_page,
 )
 
 
 notes_v1_0_user_onenote_notebook_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_operations#UserOnenoteNotebookSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_notebooks_sections_operations#UsersOnenoteNotebooksSectionsOperations.{}',
     client_factory=cf_user_onenote_notebook_section,
 )
 
 
 notes_v1_0_user_onenote_notebook_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_page_operations#UserOnenoteNotebookSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_notebooks_sections_pages_operations#UsersOnenoteNotebooksSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_notebook_section_page,
 )
 
 
 notes_v1_0_user_onenote_notebook_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_parent_section_group_operations#UserOnenoteNotebookSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_notebooks_sections_parent_section_group_operations#UsersOnenoteNotebooksSectionsParentSectionGroupOperations.{}',
     client_factory=cf_user_onenote_notebook_section_parent_section_group,
 )
 
 
 notes_v1_0_user_onenote_page = CliCommandType(
     operations_tmpl=(
-        'azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_operations#UserOnenotePageOperations.{}'
+        'azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_operations#UsersOnenotePagesOperations.{}'
     ),
     client_factory=cf_user_onenote_page,
 )
 
 
 notes_v1_0_user_onenote_page_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_operations#UserOnenotePageParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_parent_notebook_operations#UsersOnenotePagesParentNotebookOperations.{}',
     client_factory=cf_user_onenote_page_parent_notebook,
 )
 
 
 notes_v1_0_user_onenote_page_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_group_operations#UserOnenotePageParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_parent_notebook_section_groups_operations#UsersOnenotePagesParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_user_onenote_page_parent_notebook_section_group,
 )
 
 
 notes_v1_0_user_onenote_page_parent_notebook_section_group_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_group_section_operations#UserOnenotePageParentNotebookSectionGroupSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_parent_notebook_section_groups_sections_operations#UsersOnenotePagesParentNotebookSectionGroupsSectionsOperations.{}',
     client_factory=cf_user_onenote_page_parent_notebook_section_group_section,
 )
 
 
 notes_v1_0_user_onenote_page_parent_notebook_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_operations#UserOnenotePageParentNotebookSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_parent_notebook_sections_operations#UsersOnenotePagesParentNotebookSectionsOperations.{}',
     client_factory=cf_user_onenote_page_parent_notebook_section,
 )
 
 
 notes_v1_0_user_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_parent_section_group_operations#UserOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_parent_notebook_sections_parent_section_group_operations#UsersOnenotePagesParentNotebookSectionsParentSectionGroupOperations.{}',
     client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group,
 )
 
 
 notes_v1_0_user_onenote_page_parent_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_operations#UserOnenotePageParentSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_parent_section_operations#UsersOnenotePagesParentSectionOperations.{}',
     client_factory=cf_user_onenote_page_parent_section,
 )
 
 
 notes_v1_0_user_onenote_page_parent_section_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_notebook_operations#UserOnenotePageParentSectionParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_parent_section_parent_notebook_operations#UsersOnenotePagesParentSectionParentNotebookOperations.{}',
     client_factory=cf_user_onenote_page_parent_section_parent_notebook,
 )
 
 
 notes_v1_0_user_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_notebook_section_group_operations#UserOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_parent_section_parent_notebook_section_groups_operations#UsersOnenotePagesParentSectionParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group,
 )
 
 
 notes_v1_0_user_onenote_page_parent_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_section_group_operations#UserOnenotePageParentSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_parent_section_parent_section_group_operations#UsersOnenotePagesParentSectionParentSectionGroupOperations.{}',
     client_factory=cf_user_onenote_page_parent_section_parent_section_group,
 )
 
 
 notes_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_section_group_parent_notebook_operations#UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_pages_parent_section_parent_section_group_parent_notebook_operations#UsersOnenotePagesParentSectionParentSectionGroupParentNotebookOperations.{}',
     client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
 )
 
 
 notes_v1_0_user_onenote_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_operations#UserOnenoteSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_section_groups_operations#UsersOnenoteSectionGroupsOperations.{}',
     client_factory=cf_user_onenote_section_group,
 )
 
 
 notes_v1_0_user_onenote_section_group_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_section_groups_parent_notebook_operations#UsersOnenoteSectionGroupsParentNotebookOperations.{}',
     client_factory=cf_user_onenote_section_group_parent_notebook,
 )
 
 
 notes_v1_0_user_onenote_section_group_parent_notebook_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_section_operations#UserOnenoteSectionGroupParentNotebookSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_section_groups_parent_notebook_sections_operations#UsersOnenoteSectionGroupsParentNotebookSectionsOperations.{}',
     client_factory=cf_user_onenote_section_group_parent_notebook_section,
 )
 
 
 notes_v1_0_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_section_page_operations#UserOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_section_groups_parent_notebook_sections_pages_operations#UsersOnenoteSectionGroupsParentNotebookSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
 )
 
 
 notes_v1_0_user_onenote_section_group_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_operations#UserOnenoteSectionGroupSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_section_groups_sections_operations#UsersOnenoteSectionGroupsSectionsOperations.{}',
     client_factory=cf_user_onenote_section_group_section,
 )
 
 
 notes_v1_0_user_onenote_section_group_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_page_operations#UserOnenoteSectionGroupSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_section_groups_sections_pages_operations#UsersOnenoteSectionGroupsSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_section_group_section_page,
 )
 
 
 notes_v1_0_user_onenote_section_group_section_page_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_page_parent_notebook_operations#UserOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_section_groups_sections_pages_parent_notebook_operations#UsersOnenoteSectionGroupsSectionsPagesParentNotebookOperations.{}',
     client_factory=cf_user_onenote_section_group_section_page_parent_notebook,
 )
 
 
 notes_v1_0_user_onenote_section_group_section_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_parent_notebook_operations#UserOnenoteSectionGroupSectionParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_section_groups_sections_parent_notebook_operations#UsersOnenoteSectionGroupsSectionsParentNotebookOperations.{}',
     client_factory=cf_user_onenote_section_group_section_parent_notebook,
 )
 
 
 notes_v1_0_user_onenote_section = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_operations#UserOnenoteSectionOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_sections_operations#UsersOnenoteSectionsOperations.{}',
     client_factory=cf_user_onenote_section,
 )
 
 
 notes_v1_0_user_onenote_section_page = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_operations#UserOnenoteSectionPageOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_sections_pages_operations#UsersOnenoteSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_section_page,
 )
 
 
 notes_v1_0_user_onenote_section_page_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_parent_notebook_operations#UserOnenoteSectionPageParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_sections_pages_parent_notebook_operations#UsersOnenoteSectionsPagesParentNotebookOperations.{}',
     client_factory=cf_user_onenote_section_page_parent_notebook,
 )
 
 
 notes_v1_0_user_onenote_section_page_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_parent_notebook_section_group_operations#UserOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_sections_pages_parent_notebook_section_groups_operations#UsersOnenoteSectionsPagesParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_user_onenote_section_page_parent_notebook_section_group,
 )
 
 
 notes_v1_0_user_onenote_section_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_notebook_operations#UserOnenoteSectionParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_sections_parent_notebook_operations#UsersOnenoteSectionsParentNotebookOperations.{}',
     client_factory=cf_user_onenote_section_parent_notebook,
 )
 
 
 notes_v1_0_user_onenote_section_parent_notebook_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_notebook_section_group_operations#UserOnenoteSectionParentNotebookSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_sections_parent_notebook_section_groups_operations#UsersOnenoteSectionsParentNotebookSectionGroupsOperations.{}',
     client_factory=cf_user_onenote_section_parent_notebook_section_group,
 )
 
 
 notes_v1_0_user_onenote_section_parent_section_group = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_section_group_operations#UserOnenoteSectionParentSectionGroupOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_sections_parent_section_group_operations#UsersOnenoteSectionsParentSectionGroupOperations.{}',
     client_factory=cf_user_onenote_section_parent_section_group,
 )
 
 
 notes_v1_0_user_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_section_group_parent_notebook_operations#UserOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._users_onenote_sections_parent_section_group_parent_notebook_operations#UsersOnenoteSectionsParentSectionGroupParentNotebookOperations.{}',
     client_factory=cf_user_onenote_section_parent_section_group_parent_notebook,
 )
 

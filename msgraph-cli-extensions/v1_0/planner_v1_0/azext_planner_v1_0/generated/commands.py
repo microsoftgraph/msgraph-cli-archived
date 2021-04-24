@@ -40,39 +40,39 @@ from azext_planner_v1_0.generated._client_factory import (
 
 
 planner_v1_0_group = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_operations#GroupOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._groups_operations#GroupsOperations.{}',
     client_factory=cf_group,
 )
 
 
 planner_v1_0_group_planner = CliCommandType(
     operations_tmpl=(
-        'azext_planner_v1_0.vendored_sdks.planner.operations._group_planner_operations#GroupPlannerOperations.{}'
+        'azext_planner_v1_0.vendored_sdks.planner.operations._groups_planner_operations#GroupsPlannerOperations.{}'
     ),
     client_factory=cf_group_planner,
 )
 
 
 planner_v1_0_group_planner_plan = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_planner_plan_operations#GroupPlannerPlanOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._groups_planner_plans_operations#GroupsPlannerPlansOperations.{}',
     client_factory=cf_group_planner_plan,
 )
 
 
 planner_v1_0_group_planner_plan_bucket = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_planner_plan_bucket_operations#GroupPlannerPlanBucketOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._groups_planner_plans_buckets_operations#GroupsPlannerPlansBucketsOperations.{}',
     client_factory=cf_group_planner_plan_bucket,
 )
 
 
 planner_v1_0_group_planner_plan_bucket_task = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_planner_plan_bucket_task_operations#GroupPlannerPlanBucketTaskOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._groups_planner_plans_buckets_tasks_operations#GroupsPlannerPlansBucketsTasksOperations.{}',
     client_factory=cf_group_planner_plan_bucket_task,
 )
 
 
 planner_v1_0_group_planner_plan_task = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_planner_plan_task_operations#GroupPlannerPlanTaskOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._groups_planner_plans_tasks_operations#GroupsPlannerPlansTasksOperations.{}',
     client_factory=cf_group_planner_plan_task,
 )
 
@@ -93,98 +93,92 @@ planner_v1_0_planner = CliCommandType(
 
 planner_v1_0_planner_bucket = CliCommandType(
     operations_tmpl=(
-        'azext_planner_v1_0.vendored_sdks.planner.operations._planner_bucket_operations#PlannerBucketOperations.{}'
+        'azext_planner_v1_0.vendored_sdks.planner.operations._planner_buckets_operations#PlannerBucketsOperations.{}'
     ),
     client_factory=cf_planner_bucket,
 )
 
 
 planner_v1_0_planner_bucket_task = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_bucket_task_operations#PlannerBucketTaskOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_buckets_tasks_operations#PlannerBucketsTasksOperations.{}',
     client_factory=cf_planner_bucket_task,
 )
 
 
 planner_v1_0_planner_plan = CliCommandType(
     operations_tmpl=(
-        'azext_planner_v1_0.vendored_sdks.planner.operations._planner_plan_operations#PlannerPlanOperations.{}'
+        'azext_planner_v1_0.vendored_sdks.planner.operations._planner_plans_operations#PlannerPlansOperations.{}'
     ),
     client_factory=cf_planner_plan,
 )
 
 
 planner_v1_0_planner_plan_bucket = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_plan_bucket_operations#PlannerPlanBucketOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_plans_buckets_operations#PlannerPlansBucketsOperations.{}',
     client_factory=cf_planner_plan_bucket,
 )
 
 
 planner_v1_0_planner_plan_bucket_task = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_plan_bucket_task_operations#PlannerPlanBucketTaskOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_plans_buckets_tasks_operations#PlannerPlansBucketsTasksOperations.{}',
     client_factory=cf_planner_plan_bucket_task,
 )
 
 
 planner_v1_0_planner_plan_task = CliCommandType(
-    operations_tmpl=(
-        'azext_planner_v1_0.vendored_sdks.planner.operations._planner_plan_task_operations#PlannerPlanTaskOperations.{}'
-    ),
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_plans_tasks_operations#PlannerPlansTasksOperations.{}',
     client_factory=cf_planner_plan_task,
 )
 
 
 planner_v1_0_planner_task = CliCommandType(
     operations_tmpl=(
-        'azext_planner_v1_0.vendored_sdks.planner.operations._planner_task_operations#PlannerTaskOperations.{}'
+        'azext_planner_v1_0.vendored_sdks.planner.operations._planner_tasks_operations#PlannerTasksOperations.{}'
     ),
     client_factory=cf_planner_task,
 )
 
 
 planner_v1_0_user = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
 planner_v1_0_user_planner = CliCommandType(
     operations_tmpl=(
-        'azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_operations#UserPlannerOperations.{}'
+        'azext_planner_v1_0.vendored_sdks.planner.operations._users_planner_operations#UsersPlannerOperations.{}'
     ),
     client_factory=cf_user_planner,
 )
 
 
 planner_v1_0_user_planner_plan = CliCommandType(
-    operations_tmpl=(
-        'azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_plan_operations#UserPlannerPlanOperations.{}'
-    ),
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._users_planner_plans_operations#UsersPlannerPlansOperations.{}',
     client_factory=cf_user_planner_plan,
 )
 
 
 planner_v1_0_user_planner_plan_bucket = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_plan_bucket_operations#UserPlannerPlanBucketOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._users_planner_plans_buckets_operations#UsersPlannerPlansBucketsOperations.{}',
     client_factory=cf_user_planner_plan_bucket,
 )
 
 
 planner_v1_0_user_planner_plan_bucket_task = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_plan_bucket_task_operations#UserPlannerPlanBucketTaskOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._users_planner_plans_buckets_tasks_operations#UsersPlannerPlansBucketsTasksOperations.{}',
     client_factory=cf_user_planner_plan_bucket_task,
 )
 
 
 planner_v1_0_user_planner_plan_task = CliCommandType(
-    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_plan_task_operations#UserPlannerPlanTaskOperations.{}',
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._users_planner_plans_tasks_operations#UsersPlannerPlansTasksOperations.{}',
     client_factory=cf_user_planner_plan_task,
 )
 
 
 planner_v1_0_user_planner_task = CliCommandType(
-    operations_tmpl=(
-        'azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_task_operations#UserPlannerTaskOperations.{}'
-    ),
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._users_planner_tasks_operations#UsersPlannerTasksOperations.{}',
     client_factory=cf_user_planner_task,
 )
 

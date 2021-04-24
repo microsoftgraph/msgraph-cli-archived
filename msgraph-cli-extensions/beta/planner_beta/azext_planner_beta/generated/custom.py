@@ -30,9 +30,11 @@ def planner_group_update_planner(client,
                                  group_id,
                                  id_=None,
                                  plans=None):
+    body = {}
+    body['id'] = id_
+    body['plans'] = plans
     return client.update_planner(group_id=group_id,
-                                 id=id_,
-                                 plans=plans)
+                                 body=body)
 
 
 def planner_group_planner_create_plan(client,
@@ -51,30 +53,34 @@ def planner_group_planner_create_plan(client,
                                       application=None,
                                       device=None,
                                       user=None):
-    return client.create_plan(group_id=group_id,
-                              id=id_,
-                              contexts=contexts,
-                              created_date_time=created_date_time,
-                              owner=owner,
-                              title=title,
-                              buckets=buckets,
-                              tasks=tasks,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              category_descriptions=category_descriptions,
-                              context_details=context_details,
-                              shared_with=shared_with,
-                              application=application,
-                              device=device,
-                              user=user)
+    body = {}
+    body['id'] = id_
+    body['contexts'] = contexts
+    body['created_date_time'] = created_date_time
+    body['owner'] = owner
+    body['title'] = title
+    body['buckets'] = buckets
+    body['tasks'] = tasks
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['category_descriptions'] = category_descriptions
+    body['details']['context_details'] = context_details
+    body['details']['shared_with'] = shared_with
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.create_plans(group_id=group_id,
+                               body=body)
 
 
 def planner_group_planner_delete_plan(client,
                                       group_id,
                                       planner_plan_id,
                                       if_match=None):
-    return client.delete_plan(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              if_match=if_match)
+    return client.delete_plans(group_id=group_id,
+                               planner_plan_id=planner_plan_id,
+                               if_match=if_match)
 
 
 def planner_group_planner_list_plan(client,
@@ -82,10 +88,10 @@ def planner_group_planner_list_plan(client,
                                     orderby=None,
                                     select=None,
                                     expand=None):
-    return client.list_plan(group_id=group_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_plans(group_id=group_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_group_planner_show_plan(client,
@@ -93,10 +99,10 @@ def planner_group_planner_show_plan(client,
                                     planner_plan_id,
                                     select=None,
                                     expand=None):
-    return client.get_plan(group_id=group_id,
-                           planner_plan_id=planner_plan_id,
-                           select=select,
-                           expand=expand)
+    return client.get_plans(group_id=group_id,
+                            planner_plan_id=planner_plan_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_group_planner_update_plan(client,
@@ -116,22 +122,26 @@ def planner_group_planner_update_plan(client,
                                       application=None,
                                       device=None,
                                       user=None):
-    return client.update_plan(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              id=id_,
-                              contexts=contexts,
-                              created_date_time=created_date_time,
-                              owner=owner,
-                              title=title,
-                              buckets=buckets,
-                              tasks=tasks,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              category_descriptions=category_descriptions,
-                              context_details=context_details,
-                              shared_with=shared_with,
-                              application=application,
-                              device=device,
-                              user=user)
+    body = {}
+    body['id'] = id_
+    body['contexts'] = contexts
+    body['created_date_time'] = created_date_time
+    body['owner'] = owner
+    body['title'] = title
+    body['buckets'] = buckets
+    body['tasks'] = tasks
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['category_descriptions'] = category_descriptions
+    body['details']['context_details'] = context_details
+    body['details']['shared_with'] = shared_with
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.update_plans(group_id=group_id,
+                               planner_plan_id=planner_plan_id,
+                               body=body)
 
 
 def planner_group_planner_plan_create_bucket(client,
@@ -142,13 +152,15 @@ def planner_group_planner_plan_create_bucket(client,
                                              order_hint=None,
                                              plan_id=None,
                                              tasks=None):
-    return client.create_bucket(group_id=group_id,
-                                planner_plan_id=planner_plan_id,
-                                id=id_,
-                                name=name,
-                                order_hint=order_hint,
-                                plan_id=plan_id,
-                                tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    body['order_hint'] = order_hint
+    body['plan_id'] = plan_id
+    body['tasks'] = tasks
+    return client.create_buckets(group_id=group_id,
+                                 planner_plan_id=planner_plan_id,
+                                 body=body)
 
 
 def planner_group_planner_plan_create_task(client,
@@ -190,44 +202,50 @@ def planner_group_planner_plan_create_task(client,
                                            microsoft_graph_identity_application=None,
                                            microsoft_graph_identity_device=None,
                                            microsoft_graph_identity_user=None):
-    return client.create_task(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.create_tasks(group_id=group_id,
+                               planner_plan_id=planner_plan_id,
+                               body=body)
 
 
 def planner_group_planner_plan_delete_bucket(client,
@@ -235,19 +253,19 @@ def planner_group_planner_plan_delete_bucket(client,
                                              planner_plan_id,
                                              planner_bucket_id,
                                              if_match=None):
-    return client.delete_bucket(group_id=group_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                if_match=if_match)
+    return client.delete_buckets(group_id=group_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 if_match=if_match)
 
 
 def planner_group_planner_plan_delete_detail(client,
                                              group_id,
                                              planner_plan_id,
                                              if_match=None):
-    return client.delete_detail(group_id=group_id,
-                                planner_plan_id=planner_plan_id,
-                                if_match=if_match)
+    return client.delete_details(group_id=group_id,
+                                 planner_plan_id=planner_plan_id,
+                                 if_match=if_match)
 
 
 def planner_group_planner_plan_delete_task(client,
@@ -255,10 +273,10 @@ def planner_group_planner_plan_delete_task(client,
                                            planner_plan_id,
                                            planner_task_id,
                                            if_match=None):
-    return client.delete_task(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
+    return client.delete_tasks(group_id=group_id,
+                               planner_plan_id=planner_plan_id,
+                               planner_task_id=planner_task_id,
+                               if_match=if_match)
 
 
 def planner_group_planner_plan_list_bucket(client,
@@ -267,11 +285,11 @@ def planner_group_planner_plan_list_bucket(client,
                                            orderby=None,
                                            select=None,
                                            expand=None):
-    return client.list_bucket(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_buckets(group_id=group_id,
+                               planner_plan_id=planner_plan_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def planner_group_planner_plan_list_task(client,
@@ -280,11 +298,11 @@ def planner_group_planner_plan_list_task(client,
                                          orderby=None,
                                          select=None,
                                          expand=None):
-    return client.list_task(group_id=group_id,
-                            planner_plan_id=planner_plan_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_tasks(group_id=group_id,
+                             planner_plan_id=planner_plan_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_group_planner_plan_show_bucket(client,
@@ -293,11 +311,11 @@ def planner_group_planner_plan_show_bucket(client,
                                            planner_bucket_id,
                                            select=None,
                                            expand=None):
-    return client.get_bucket(group_id=group_id,
-                             planner_plan_id=planner_plan_id,
-                             planner_bucket_id=planner_bucket_id,
-                             select=select,
-                             expand=expand)
+    return client.get_buckets(group_id=group_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_bucket_id=planner_bucket_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_group_planner_plan_show_detail(client,
@@ -305,10 +323,10 @@ def planner_group_planner_plan_show_detail(client,
                                            planner_plan_id,
                                            select=None,
                                            expand=None):
-    return client.get_detail(group_id=group_id,
-                             planner_plan_id=planner_plan_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(group_id=group_id,
+                              planner_plan_id=planner_plan_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_group_planner_plan_show_task(client,
@@ -317,11 +335,11 @@ def planner_group_planner_plan_show_task(client,
                                          planner_task_id,
                                          select=None,
                                          expand=None):
-    return client.get_task(group_id=group_id,
-                           planner_plan_id=planner_plan_id,
-                           planner_task_id=planner_task_id,
-                           select=select,
-                           expand=expand)
+    return client.get_tasks(group_id=group_id,
+                            planner_plan_id=planner_plan_id,
+                            planner_task_id=planner_task_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_group_planner_plan_update_bucket(client,
@@ -333,14 +351,16 @@ def planner_group_planner_plan_update_bucket(client,
                                              order_hint=None,
                                              plan_id=None,
                                              tasks=None):
-    return client.update_bucket(group_id=group_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                id=id_,
-                                name=name,
-                                order_hint=order_hint,
-                                plan_id=plan_id,
-                                tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    body['order_hint'] = order_hint
+    body['plan_id'] = plan_id
+    body['tasks'] = tasks
+    return client.update_buckets(group_id=group_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 body=body)
 
 
 def planner_group_planner_plan_update_detail(client,
@@ -350,12 +370,14 @@ def planner_group_planner_plan_update_detail(client,
                                              category_descriptions=None,
                                              context_details=None,
                                              shared_with=None):
-    return client.update_detail(group_id=group_id,
-                                planner_plan_id=planner_plan_id,
-                                id=id_,
-                                category_descriptions=category_descriptions,
-                                context_details=context_details,
-                                shared_with=shared_with)
+    body = {}
+    body['id'] = id_
+    body['category_descriptions'] = category_descriptions
+    body['context_details'] = context_details
+    body['shared_with'] = shared_with
+    return client.update_details(group_id=group_id,
+                                 planner_plan_id=planner_plan_id,
+                                 body=body)
 
 
 def planner_group_planner_plan_update_task(client,
@@ -398,45 +420,51 @@ def planner_group_planner_plan_update_task(client,
                                            microsoft_graph_identity_application=None,
                                            microsoft_graph_identity_device=None,
                                            microsoft_graph_identity_user=None):
-    return client.update_task(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_task_id=planner_task_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.update_tasks(group_id=group_id,
+                               planner_plan_id=planner_plan_id,
+                               planner_task_id=planner_task_id,
+                               body=body)
 
 
 def planner_group_planner_plan_bucket_create_task(client,
@@ -479,45 +507,51 @@ def planner_group_planner_plan_bucket_create_task(client,
                                                   microsoft_graph_identity_application=None,
                                                   microsoft_graph_identity_device=None,
                                                   microsoft_graph_identity_user=None):
-    return client.create_task(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.create_tasks(group_id=group_id,
+                               planner_plan_id=planner_plan_id,
+                               planner_bucket_id=planner_bucket_id,
+                               body=body)
 
 
 def planner_group_planner_plan_bucket_delete_task(client,
@@ -526,11 +560,11 @@ def planner_group_planner_plan_bucket_delete_task(client,
                                                   planner_bucket_id,
                                                   planner_task_id,
                                                   if_match=None):
-    return client.delete_task(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
+    return client.delete_tasks(group_id=group_id,
+                               planner_plan_id=planner_plan_id,
+                               planner_bucket_id=planner_bucket_id,
+                               planner_task_id=planner_task_id,
+                               if_match=if_match)
 
 
 def planner_group_planner_plan_bucket_list_task(client,
@@ -540,12 +574,12 @@ def planner_group_planner_plan_bucket_list_task(client,
                                                 orderby=None,
                                                 select=None,
                                                 expand=None):
-    return client.list_task(group_id=group_id,
-                            planner_plan_id=planner_plan_id,
-                            planner_bucket_id=planner_bucket_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_tasks(group_id=group_id,
+                             planner_plan_id=planner_plan_id,
+                             planner_bucket_id=planner_bucket_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_group_planner_plan_bucket_show_task(client,
@@ -555,12 +589,12 @@ def planner_group_planner_plan_bucket_show_task(client,
                                                 planner_task_id,
                                                 select=None,
                                                 expand=None):
-    return client.get_task(group_id=group_id,
-                           planner_plan_id=planner_plan_id,
-                           planner_bucket_id=planner_bucket_id,
-                           planner_task_id=planner_task_id,
-                           select=select,
-                           expand=expand)
+    return client.get_tasks(group_id=group_id,
+                            planner_plan_id=planner_plan_id,
+                            planner_bucket_id=planner_bucket_id,
+                            planner_task_id=planner_task_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_group_planner_plan_bucket_update_task(client,
@@ -604,46 +638,52 @@ def planner_group_planner_plan_bucket_update_task(client,
                                                   microsoft_graph_identity_application=None,
                                                   microsoft_graph_identity_device=None,
                                                   microsoft_graph_identity_user=None):
-    return client.update_task(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.update_tasks(group_id=group_id,
+                               planner_plan_id=planner_plan_id,
+                               planner_bucket_id=planner_bucket_id,
+                               planner_task_id=planner_task_id,
+                               body=body)
 
 
 def planner_group_planner_plan_bucket_task_delete_assigned_to_task_board_format(client,
@@ -678,11 +718,11 @@ def planner_group_planner_plan_bucket_task_delete_detail(client,
                                                          planner_bucket_id,
                                                          planner_task_id,
                                                          if_match=None):
-    return client.delete_detail(group_id=group_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                planner_task_id=planner_task_id,
-                                if_match=if_match)
+    return client.delete_details(group_id=group_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 planner_task_id=planner_task_id,
+                                 if_match=if_match)
 
 
 def planner_group_planner_plan_bucket_task_delete_progress_task_board_format(client,
@@ -735,12 +775,12 @@ def planner_group_planner_plan_bucket_task_show_detail(client,
                                                        planner_task_id,
                                                        select=None,
                                                        expand=None):
-    return client.get_detail(group_id=group_id,
-                             planner_plan_id=planner_plan_id,
-                             planner_bucket_id=planner_bucket_id,
-                             planner_task_id=planner_task_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(group_id=group_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_bucket_id=planner_bucket_id,
+                              planner_task_id=planner_task_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_group_planner_plan_bucket_task_show_progress_task_board_format(client,
@@ -766,13 +806,15 @@ def planner_group_planner_plan_bucket_task_update_assigned_to_task_board_format(
                                                                                 id_=None,
                                                                                 order_hints_by_assignee=None,
                                                                                 unassigned_order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hints_by_assignee'] = order_hints_by_assignee
+    body['unassigned_order_hint'] = unassigned_order_hint
     return client.update_assigned_to_task_board_format(group_id=group_id,
                                                        planner_plan_id=planner_plan_id,
                                                        planner_bucket_id=planner_bucket_id,
                                                        planner_task_id=planner_task_id,
-                                                       id=id_,
-                                                       order_hints_by_assignee=order_hints_by_assignee,
-                                                       unassigned_order_hint=unassigned_order_hint)
+                                                       body=body)
 
 
 def planner_group_planner_plan_bucket_task_update_bucket_task_board_format(client,
@@ -782,12 +824,14 @@ def planner_group_planner_plan_bucket_task_update_bucket_task_board_format(clien
                                                                            planner_task_id,
                                                                            id_=None,
                                                                            order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_bucket_task_board_format(group_id=group_id,
                                                   planner_plan_id=planner_plan_id,
                                                   planner_bucket_id=planner_bucket_id,
                                                   planner_task_id=planner_task_id,
-                                                  id=id_,
-                                                  order_hint=order_hint)
+                                                  body=body)
 
 
 def planner_group_planner_plan_bucket_task_update_detail(client,
@@ -800,15 +844,17 @@ def planner_group_planner_plan_bucket_task_update_detail(client,
                                                          description=None,
                                                          preview_type=None,
                                                          references=None):
-    return client.update_detail(group_id=group_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                planner_task_id=planner_task_id,
-                                id=id_,
-                                checklist=checklist,
-                                description=description,
-                                preview_type=preview_type,
-                                references=references)
+    body = {}
+    body['id'] = id_
+    body['checklist'] = checklist
+    body['description'] = description
+    body['preview_type'] = preview_type
+    body['references'] = references
+    return client.update_details(group_id=group_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 planner_task_id=planner_task_id,
+                                 body=body)
 
 
 def planner_group_planner_plan_bucket_task_update_progress_task_board_format(client,
@@ -818,12 +864,14 @@ def planner_group_planner_plan_bucket_task_update_progress_task_board_format(cli
                                                                              planner_task_id,
                                                                              id_=None,
                                                                              order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_progress_task_board_format(group_id=group_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
-                                                    id=id_,
-                                                    order_hint=order_hint)
+                                                    body=body)
 
 
 def planner_group_planner_plan_task_delete_assigned_to_task_board_format(client,
@@ -853,10 +901,10 @@ def planner_group_planner_plan_task_delete_detail(client,
                                                   planner_plan_id,
                                                   planner_task_id,
                                                   if_match=None):
-    return client.delete_detail(group_id=group_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_task_id=planner_task_id,
-                                if_match=if_match)
+    return client.delete_details(group_id=group_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_task_id=planner_task_id,
+                                 if_match=if_match)
 
 
 def planner_group_planner_plan_task_delete_progress_task_board_format(client,
@@ -902,11 +950,11 @@ def planner_group_planner_plan_task_show_detail(client,
                                                 planner_task_id,
                                                 select=None,
                                                 expand=None):
-    return client.get_detail(group_id=group_id,
-                             planner_plan_id=planner_plan_id,
-                             planner_task_id=planner_task_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(group_id=group_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_task_id=planner_task_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_group_planner_plan_task_show_progress_task_board_format(client,
@@ -929,12 +977,14 @@ def planner_group_planner_plan_task_update_assigned_to_task_board_format(client,
                                                                          id_=None,
                                                                          order_hints_by_assignee=None,
                                                                          unassigned_order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hints_by_assignee'] = order_hints_by_assignee
+    body['unassigned_order_hint'] = unassigned_order_hint
     return client.update_assigned_to_task_board_format(group_id=group_id,
                                                        planner_plan_id=planner_plan_id,
                                                        planner_task_id=planner_task_id,
-                                                       id=id_,
-                                                       order_hints_by_assignee=order_hints_by_assignee,
-                                                       unassigned_order_hint=unassigned_order_hint)
+                                                       body=body)
 
 
 def planner_group_planner_plan_task_update_bucket_task_board_format(client,
@@ -943,11 +993,13 @@ def planner_group_planner_plan_task_update_bucket_task_board_format(client,
                                                                     planner_task_id,
                                                                     id_=None,
                                                                     order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_bucket_task_board_format(group_id=group_id,
                                                   planner_plan_id=planner_plan_id,
                                                   planner_task_id=planner_task_id,
-                                                  id=id_,
-                                                  order_hint=order_hint)
+                                                  body=body)
 
 
 def planner_group_planner_plan_task_update_detail(client,
@@ -959,14 +1011,16 @@ def planner_group_planner_plan_task_update_detail(client,
                                                   description=None,
                                                   preview_type=None,
                                                   references=None):
-    return client.update_detail(group_id=group_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_task_id=planner_task_id,
-                                id=id_,
-                                checklist=checklist,
-                                description=description,
-                                preview_type=preview_type,
-                                references=references)
+    body = {}
+    body['id'] = id_
+    body['checklist'] = checklist
+    body['description'] = description
+    body['preview_type'] = preview_type
+    body['references'] = references
+    return client.update_details(group_id=group_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_task_id=planner_task_id,
+                                 body=body)
 
 
 def planner_group_planner_plan_task_update_progress_task_board_format(client,
@@ -975,11 +1029,13 @@ def planner_group_planner_plan_task_update_progress_task_board_format(client,
                                                                       planner_task_id,
                                                                       id_=None,
                                                                       order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_progress_task_board_format(group_id=group_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
-                                                    id=id_,
-                                                    order_hint=order_hint)
+                                                    body=body)
 
 
 def planner_planner_create(client,
@@ -987,10 +1043,12 @@ def planner_planner_create(client,
                            buckets=None,
                            plans=None,
                            tasks=None):
-    return client.update_planner(id=id_,
-                                 buckets=buckets,
-                                 plans=plans,
-                                 tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['buckets'] = buckets
+    body['plans'] = plans
+    body['tasks'] = tasks
+    return client.update_planner(body=body)
 
 
 def planner_planner_show_planner(client,
@@ -1006,11 +1064,13 @@ def planner_planner_create_bucket(client,
                                   order_hint=None,
                                   plan_id=None,
                                   tasks=None):
-    return client.create_bucket(id=id_,
-                                name=name,
-                                order_hint=order_hint,
-                                plan_id=plan_id,
-                                tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    body['order_hint'] = order_hint
+    body['plan_id'] = plan_id
+    body['tasks'] = tasks
+    return client.create_buckets(body=body)
 
 
 def planner_planner_create_plan(client,
@@ -1028,20 +1088,24 @@ def planner_planner_create_plan(client,
                                 application=None,
                                 device=None,
                                 user=None):
-    return client.create_plan(id=id_,
-                              contexts=contexts,
-                              created_date_time=created_date_time,
-                              owner=owner,
-                              title=title,
-                              buckets=buckets,
-                              tasks=tasks,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              category_descriptions=category_descriptions,
-                              context_details=context_details,
-                              shared_with=shared_with,
-                              application=application,
-                              device=device,
-                              user=user)
+    body = {}
+    body['id'] = id_
+    body['contexts'] = contexts
+    body['created_date_time'] = created_date_time
+    body['owner'] = owner
+    body['title'] = title
+    body['buckets'] = buckets
+    body['tasks'] = tasks
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['category_descriptions'] = category_descriptions
+    body['details']['context_details'] = context_details
+    body['details']['shared_with'] = shared_with
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.create_plans(body=body)
 
 
 def planner_planner_create_task(client,
@@ -1081,117 +1145,123 @@ def planner_planner_create_task(client,
                                 microsoft_graph_identity_application=None,
                                 microsoft_graph_identity_device=None,
                                 microsoft_graph_identity_user=None):
-    return client.create_task(id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.create_tasks(body=body)
 
 
 def planner_planner_delete_bucket(client,
                                   planner_bucket_id,
                                   if_match=None):
-    return client.delete_bucket(planner_bucket_id=planner_bucket_id,
-                                if_match=if_match)
+    return client.delete_buckets(planner_bucket_id=planner_bucket_id,
+                                 if_match=if_match)
 
 
 def planner_planner_delete_plan(client,
                                 planner_plan_id,
                                 if_match=None):
-    return client.delete_plan(planner_plan_id=planner_plan_id,
-                              if_match=if_match)
+    return client.delete_plans(planner_plan_id=planner_plan_id,
+                               if_match=if_match)
 
 
 def planner_planner_delete_task(client,
                                 planner_task_id,
                                 if_match=None):
-    return client.delete_task(planner_task_id=planner_task_id,
-                              if_match=if_match)
+    return client.delete_tasks(planner_task_id=planner_task_id,
+                               if_match=if_match)
 
 
 def planner_planner_list_bucket(client,
                                 orderby=None,
                                 select=None,
                                 expand=None):
-    return client.list_bucket(orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_buckets(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def planner_planner_list_plan(client,
                               orderby=None,
                               select=None,
                               expand=None):
-    return client.list_plan(orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_plans(orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_planner_list_task(client,
                               orderby=None,
                               select=None,
                               expand=None):
-    return client.list_task(orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_tasks(orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_planner_show_bucket(client,
                                 planner_bucket_id,
                                 select=None,
                                 expand=None):
-    return client.get_bucket(planner_bucket_id=planner_bucket_id,
-                             select=select,
-                             expand=expand)
+    return client.get_buckets(planner_bucket_id=planner_bucket_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_planner_show_plan(client,
                               planner_plan_id,
                               select=None,
                               expand=None):
-    return client.get_plan(planner_plan_id=planner_plan_id,
-                           select=select,
-                           expand=expand)
+    return client.get_plans(planner_plan_id=planner_plan_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_planner_show_task(client,
                               planner_task_id,
                               select=None,
                               expand=None):
-    return client.get_task(planner_task_id=planner_task_id,
-                           select=select,
-                           expand=expand)
+    return client.get_tasks(planner_task_id=planner_task_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_planner_update_bucket(client,
@@ -1201,12 +1271,14 @@ def planner_planner_update_bucket(client,
                                   order_hint=None,
                                   plan_id=None,
                                   tasks=None):
-    return client.update_bucket(planner_bucket_id=planner_bucket_id,
-                                id=id_,
-                                name=name,
-                                order_hint=order_hint,
-                                plan_id=plan_id,
-                                tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    body['order_hint'] = order_hint
+    body['plan_id'] = plan_id
+    body['tasks'] = tasks
+    return client.update_buckets(planner_bucket_id=planner_bucket_id,
+                                 body=body)
 
 
 def planner_planner_update_plan(client,
@@ -1225,21 +1297,25 @@ def planner_planner_update_plan(client,
                                 application=None,
                                 device=None,
                                 user=None):
-    return client.update_plan(planner_plan_id=planner_plan_id,
-                              id=id_,
-                              contexts=contexts,
-                              created_date_time=created_date_time,
-                              owner=owner,
-                              title=title,
-                              buckets=buckets,
-                              tasks=tasks,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              category_descriptions=category_descriptions,
-                              context_details=context_details,
-                              shared_with=shared_with,
-                              application=application,
-                              device=device,
-                              user=user)
+    body = {}
+    body['id'] = id_
+    body['contexts'] = contexts
+    body['created_date_time'] = created_date_time
+    body['owner'] = owner
+    body['title'] = title
+    body['buckets'] = buckets
+    body['tasks'] = tasks
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['category_descriptions'] = category_descriptions
+    body['details']['context_details'] = context_details
+    body['details']['shared_with'] = shared_with
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.update_plans(planner_plan_id=planner_plan_id,
+                               body=body)
 
 
 def planner_planner_update_task(client,
@@ -1280,43 +1356,49 @@ def planner_planner_update_task(client,
                                 microsoft_graph_identity_application=None,
                                 microsoft_graph_identity_device=None,
                                 microsoft_graph_identity_user=None):
-    return client.update_task(planner_task_id=planner_task_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.update_tasks(planner_task_id=planner_task_id,
+                               body=body)
 
 
 def planner_planner_bucket_create_task(client,
@@ -1357,52 +1439,58 @@ def planner_planner_bucket_create_task(client,
                                        microsoft_graph_identity_application=None,
                                        microsoft_graph_identity_device=None,
                                        microsoft_graph_identity_user=None):
-    return client.create_task(planner_bucket_id=planner_bucket_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.create_tasks(planner_bucket_id=planner_bucket_id,
+                               body=body)
 
 
 def planner_planner_bucket_delete_task(client,
                                        planner_bucket_id,
                                        planner_task_id,
                                        if_match=None):
-    return client.delete_task(planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
+    return client.delete_tasks(planner_bucket_id=planner_bucket_id,
+                               planner_task_id=planner_task_id,
+                               if_match=if_match)
 
 
 def planner_planner_bucket_list_task(client,
@@ -1410,10 +1498,10 @@ def planner_planner_bucket_list_task(client,
                                      orderby=None,
                                      select=None,
                                      expand=None):
-    return client.list_task(planner_bucket_id=planner_bucket_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_tasks(planner_bucket_id=planner_bucket_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_planner_bucket_show_task(client,
@@ -1421,10 +1509,10 @@ def planner_planner_bucket_show_task(client,
                                      planner_task_id,
                                      select=None,
                                      expand=None):
-    return client.get_task(planner_bucket_id=planner_bucket_id,
-                           planner_task_id=planner_task_id,
-                           select=select,
-                           expand=expand)
+    return client.get_tasks(planner_bucket_id=planner_bucket_id,
+                            planner_task_id=planner_task_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_planner_bucket_update_task(client,
@@ -1466,44 +1554,50 @@ def planner_planner_bucket_update_task(client,
                                        microsoft_graph_identity_application=None,
                                        microsoft_graph_identity_device=None,
                                        microsoft_graph_identity_user=None):
-    return client.update_task(planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.update_tasks(planner_bucket_id=planner_bucket_id,
+                               planner_task_id=planner_task_id,
+                               body=body)
 
 
 def planner_planner_bucket_task_delete_assigned_to_task_board_format(client,
@@ -1528,9 +1622,9 @@ def planner_planner_bucket_task_delete_detail(client,
                                               planner_bucket_id,
                                               planner_task_id,
                                               if_match=None):
-    return client.delete_detail(planner_bucket_id=planner_bucket_id,
-                                planner_task_id=planner_task_id,
-                                if_match=if_match)
+    return client.delete_details(planner_bucket_id=planner_bucket_id,
+                                 planner_task_id=planner_task_id,
+                                 if_match=if_match)
 
 
 def planner_planner_bucket_task_delete_progress_task_board_format(client,
@@ -1569,10 +1663,10 @@ def planner_planner_bucket_task_show_detail(client,
                                             planner_task_id,
                                             select=None,
                                             expand=None):
-    return client.get_detail(planner_bucket_id=planner_bucket_id,
-                             planner_task_id=planner_task_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(planner_bucket_id=planner_bucket_id,
+                              planner_task_id=planner_task_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_planner_bucket_task_show_progress_task_board_format(client,
@@ -1592,11 +1686,13 @@ def planner_planner_bucket_task_update_assigned_to_task_board_format(client,
                                                                      id_=None,
                                                                      order_hints_by_assignee=None,
                                                                      unassigned_order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hints_by_assignee'] = order_hints_by_assignee
+    body['unassigned_order_hint'] = unassigned_order_hint
     return client.update_assigned_to_task_board_format(planner_bucket_id=planner_bucket_id,
                                                        planner_task_id=planner_task_id,
-                                                       id=id_,
-                                                       order_hints_by_assignee=order_hints_by_assignee,
-                                                       unassigned_order_hint=unassigned_order_hint)
+                                                       body=body)
 
 
 def planner_planner_bucket_task_update_bucket_task_board_format(client,
@@ -1604,10 +1700,12 @@ def planner_planner_bucket_task_update_bucket_task_board_format(client,
                                                                 planner_task_id,
                                                                 id_=None,
                                                                 order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_bucket_task_board_format(planner_bucket_id=planner_bucket_id,
                                                   planner_task_id=planner_task_id,
-                                                  id=id_,
-                                                  order_hint=order_hint)
+                                                  body=body)
 
 
 def planner_planner_bucket_task_update_detail(client,
@@ -1618,13 +1716,15 @@ def planner_planner_bucket_task_update_detail(client,
                                               description=None,
                                               preview_type=None,
                                               references=None):
-    return client.update_detail(planner_bucket_id=planner_bucket_id,
-                                planner_task_id=planner_task_id,
-                                id=id_,
-                                checklist=checklist,
-                                description=description,
-                                preview_type=preview_type,
-                                references=references)
+    body = {}
+    body['id'] = id_
+    body['checklist'] = checklist
+    body['description'] = description
+    body['preview_type'] = preview_type
+    body['references'] = references
+    return client.update_details(planner_bucket_id=planner_bucket_id,
+                                 planner_task_id=planner_task_id,
+                                 body=body)
 
 
 def planner_planner_bucket_task_update_progress_task_board_format(client,
@@ -1632,10 +1732,12 @@ def planner_planner_bucket_task_update_progress_task_board_format(client,
                                                                   planner_task_id,
                                                                   id_=None,
                                                                   order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_progress_task_board_format(planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
-                                                    id=id_,
-                                                    order_hint=order_hint)
+                                                    body=body)
 
 
 def planner_planner_plan_create_bucket(client,
@@ -1645,12 +1747,14 @@ def planner_planner_plan_create_bucket(client,
                                        order_hint=None,
                                        plan_id=None,
                                        tasks=None):
-    return client.create_bucket(planner_plan_id=planner_plan_id,
-                                id=id_,
-                                name=name,
-                                order_hint=order_hint,
-                                plan_id=plan_id,
-                                tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    body['order_hint'] = order_hint
+    body['plan_id'] = plan_id
+    body['tasks'] = tasks
+    return client.create_buckets(planner_plan_id=planner_plan_id,
+                                 body=body)
 
 
 def planner_planner_plan_create_task(client,
@@ -1691,68 +1795,74 @@ def planner_planner_plan_create_task(client,
                                      microsoft_graph_identity_application=None,
                                      microsoft_graph_identity_device=None,
                                      microsoft_graph_identity_user=None):
-    return client.create_task(planner_plan_id=planner_plan_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.create_tasks(planner_plan_id=planner_plan_id,
+                               body=body)
 
 
 def planner_planner_plan_delete_bucket(client,
                                        planner_plan_id,
                                        planner_bucket_id,
                                        if_match=None):
-    return client.delete_bucket(planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                if_match=if_match)
+    return client.delete_buckets(planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 if_match=if_match)
 
 
 def planner_planner_plan_delete_detail(client,
                                        planner_plan_id,
                                        if_match=None):
-    return client.delete_detail(planner_plan_id=planner_plan_id,
-                                if_match=if_match)
+    return client.delete_details(planner_plan_id=planner_plan_id,
+                                 if_match=if_match)
 
 
 def planner_planner_plan_delete_task(client,
                                      planner_plan_id,
                                      planner_task_id,
                                      if_match=None):
-    return client.delete_task(planner_plan_id=planner_plan_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
+    return client.delete_tasks(planner_plan_id=planner_plan_id,
+                               planner_task_id=planner_task_id,
+                               if_match=if_match)
 
 
 def planner_planner_plan_list_bucket(client,
@@ -1760,10 +1870,10 @@ def planner_planner_plan_list_bucket(client,
                                      orderby=None,
                                      select=None,
                                      expand=None):
-    return client.list_bucket(planner_plan_id=planner_plan_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_buckets(planner_plan_id=planner_plan_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def planner_planner_plan_list_task(client,
@@ -1771,10 +1881,10 @@ def planner_planner_plan_list_task(client,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_task(planner_plan_id=planner_plan_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_tasks(planner_plan_id=planner_plan_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_planner_plan_show_bucket(client,
@@ -1782,19 +1892,19 @@ def planner_planner_plan_show_bucket(client,
                                      planner_bucket_id,
                                      select=None,
                                      expand=None):
-    return client.get_bucket(planner_plan_id=planner_plan_id,
-                             planner_bucket_id=planner_bucket_id,
-                             select=select,
-                             expand=expand)
+    return client.get_buckets(planner_plan_id=planner_plan_id,
+                              planner_bucket_id=planner_bucket_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_planner_plan_show_detail(client,
                                      planner_plan_id,
                                      select=None,
                                      expand=None):
-    return client.get_detail(planner_plan_id=planner_plan_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(planner_plan_id=planner_plan_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_planner_plan_show_task(client,
@@ -1802,10 +1912,10 @@ def planner_planner_plan_show_task(client,
                                    planner_task_id,
                                    select=None,
                                    expand=None):
-    return client.get_task(planner_plan_id=planner_plan_id,
-                           planner_task_id=planner_task_id,
-                           select=select,
-                           expand=expand)
+    return client.get_tasks(planner_plan_id=planner_plan_id,
+                            planner_task_id=planner_task_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_planner_plan_update_bucket(client,
@@ -1816,13 +1926,15 @@ def planner_planner_plan_update_bucket(client,
                                        order_hint=None,
                                        plan_id=None,
                                        tasks=None):
-    return client.update_bucket(planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                id=id_,
-                                name=name,
-                                order_hint=order_hint,
-                                plan_id=plan_id,
-                                tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    body['order_hint'] = order_hint
+    body['plan_id'] = plan_id
+    body['tasks'] = tasks
+    return client.update_buckets(planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 body=body)
 
 
 def planner_planner_plan_update_detail(client,
@@ -1831,11 +1943,13 @@ def planner_planner_plan_update_detail(client,
                                        category_descriptions=None,
                                        context_details=None,
                                        shared_with=None):
-    return client.update_detail(planner_plan_id=planner_plan_id,
-                                id=id_,
-                                category_descriptions=category_descriptions,
-                                context_details=context_details,
-                                shared_with=shared_with)
+    body = {}
+    body['id'] = id_
+    body['category_descriptions'] = category_descriptions
+    body['context_details'] = context_details
+    body['shared_with'] = shared_with
+    return client.update_details(planner_plan_id=planner_plan_id,
+                                 body=body)
 
 
 def planner_planner_plan_update_task(client,
@@ -1877,44 +1991,50 @@ def planner_planner_plan_update_task(client,
                                      microsoft_graph_identity_application=None,
                                      microsoft_graph_identity_device=None,
                                      microsoft_graph_identity_user=None):
-    return client.update_task(planner_plan_id=planner_plan_id,
-                              planner_task_id=planner_task_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.update_tasks(planner_plan_id=planner_plan_id,
+                               planner_task_id=planner_task_id,
+                               body=body)
 
 
 def planner_planner_plan_bucket_create_task(client,
@@ -1956,44 +2076,50 @@ def planner_planner_plan_bucket_create_task(client,
                                             microsoft_graph_identity_application=None,
                                             microsoft_graph_identity_device=None,
                                             microsoft_graph_identity_user=None):
-    return client.create_task(planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.create_tasks(planner_plan_id=planner_plan_id,
+                               planner_bucket_id=planner_bucket_id,
+                               body=body)
 
 
 def planner_planner_plan_bucket_delete_task(client,
@@ -2001,10 +2127,10 @@ def planner_planner_plan_bucket_delete_task(client,
                                             planner_bucket_id,
                                             planner_task_id,
                                             if_match=None):
-    return client.delete_task(planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
+    return client.delete_tasks(planner_plan_id=planner_plan_id,
+                               planner_bucket_id=planner_bucket_id,
+                               planner_task_id=planner_task_id,
+                               if_match=if_match)
 
 
 def planner_planner_plan_bucket_list_task(client,
@@ -2013,11 +2139,11 @@ def planner_planner_plan_bucket_list_task(client,
                                           orderby=None,
                                           select=None,
                                           expand=None):
-    return client.list_task(planner_plan_id=planner_plan_id,
-                            planner_bucket_id=planner_bucket_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_tasks(planner_plan_id=planner_plan_id,
+                             planner_bucket_id=planner_bucket_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_planner_plan_bucket_show_task(client,
@@ -2026,11 +2152,11 @@ def planner_planner_plan_bucket_show_task(client,
                                           planner_task_id,
                                           select=None,
                                           expand=None):
-    return client.get_task(planner_plan_id=planner_plan_id,
-                           planner_bucket_id=planner_bucket_id,
-                           planner_task_id=planner_task_id,
-                           select=select,
-                           expand=expand)
+    return client.get_tasks(planner_plan_id=planner_plan_id,
+                            planner_bucket_id=planner_bucket_id,
+                            planner_task_id=planner_task_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_planner_plan_bucket_update_task(client,
@@ -2073,45 +2199,51 @@ def planner_planner_plan_bucket_update_task(client,
                                             microsoft_graph_identity_application=None,
                                             microsoft_graph_identity_device=None,
                                             microsoft_graph_identity_user=None):
-    return client.update_task(planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.update_tasks(planner_plan_id=planner_plan_id,
+                               planner_bucket_id=planner_bucket_id,
+                               planner_task_id=planner_task_id,
+                               body=body)
 
 
 def planner_planner_plan_bucket_task_delete_assigned_to_task_board_format(client,
@@ -2141,10 +2273,10 @@ def planner_planner_plan_bucket_task_delete_detail(client,
                                                    planner_bucket_id,
                                                    planner_task_id,
                                                    if_match=None):
-    return client.delete_detail(planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                planner_task_id=planner_task_id,
-                                if_match=if_match)
+    return client.delete_details(planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 planner_task_id=planner_task_id,
+                                 if_match=if_match)
 
 
 def planner_planner_plan_bucket_task_delete_progress_task_board_format(client,
@@ -2190,11 +2322,11 @@ def planner_planner_plan_bucket_task_show_detail(client,
                                                  planner_task_id,
                                                  select=None,
                                                  expand=None):
-    return client.get_detail(planner_plan_id=planner_plan_id,
-                             planner_bucket_id=planner_bucket_id,
-                             planner_task_id=planner_task_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(planner_plan_id=planner_plan_id,
+                              planner_bucket_id=planner_bucket_id,
+                              planner_task_id=planner_task_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_planner_plan_bucket_task_show_progress_task_board_format(client,
@@ -2217,12 +2349,14 @@ def planner_planner_plan_bucket_task_update_assigned_to_task_board_format(client
                                                                           id_=None,
                                                                           order_hints_by_assignee=None,
                                                                           unassigned_order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hints_by_assignee'] = order_hints_by_assignee
+    body['unassigned_order_hint'] = unassigned_order_hint
     return client.update_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
                                                        planner_bucket_id=planner_bucket_id,
                                                        planner_task_id=planner_task_id,
-                                                       id=id_,
-                                                       order_hints_by_assignee=order_hints_by_assignee,
-                                                       unassigned_order_hint=unassigned_order_hint)
+                                                       body=body)
 
 
 def planner_planner_plan_bucket_task_update_bucket_task_board_format(client,
@@ -2231,11 +2365,13 @@ def planner_planner_plan_bucket_task_update_bucket_task_board_format(client,
                                                                      planner_task_id,
                                                                      id_=None,
                                                                      order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_bucket_task_board_format(planner_plan_id=planner_plan_id,
                                                   planner_bucket_id=planner_bucket_id,
                                                   planner_task_id=planner_task_id,
-                                                  id=id_,
-                                                  order_hint=order_hint)
+                                                  body=body)
 
 
 def planner_planner_plan_bucket_task_update_detail(client,
@@ -2247,14 +2383,16 @@ def planner_planner_plan_bucket_task_update_detail(client,
                                                    description=None,
                                                    preview_type=None,
                                                    references=None):
-    return client.update_detail(planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                planner_task_id=planner_task_id,
-                                id=id_,
-                                checklist=checklist,
-                                description=description,
-                                preview_type=preview_type,
-                                references=references)
+    body = {}
+    body['id'] = id_
+    body['checklist'] = checklist
+    body['description'] = description
+    body['preview_type'] = preview_type
+    body['references'] = references
+    return client.update_details(planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 planner_task_id=planner_task_id,
+                                 body=body)
 
 
 def planner_planner_plan_bucket_task_update_progress_task_board_format(client,
@@ -2263,11 +2401,13 @@ def planner_planner_plan_bucket_task_update_progress_task_board_format(client,
                                                                        planner_task_id,
                                                                        id_=None,
                                                                        order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_progress_task_board_format(planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
-                                                    id=id_,
-                                                    order_hint=order_hint)
+                                                    body=body)
 
 
 def planner_planner_plan_task_delete_assigned_to_task_board_format(client,
@@ -2292,9 +2432,9 @@ def planner_planner_plan_task_delete_detail(client,
                                             planner_plan_id,
                                             planner_task_id,
                                             if_match=None):
-    return client.delete_detail(planner_plan_id=planner_plan_id,
-                                planner_task_id=planner_task_id,
-                                if_match=if_match)
+    return client.delete_details(planner_plan_id=planner_plan_id,
+                                 planner_task_id=planner_task_id,
+                                 if_match=if_match)
 
 
 def planner_planner_plan_task_delete_progress_task_board_format(client,
@@ -2333,10 +2473,10 @@ def planner_planner_plan_task_show_detail(client,
                                           planner_task_id,
                                           select=None,
                                           expand=None):
-    return client.get_detail(planner_plan_id=planner_plan_id,
-                             planner_task_id=planner_task_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(planner_plan_id=planner_plan_id,
+                              planner_task_id=planner_task_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_planner_plan_task_show_progress_task_board_format(client,
@@ -2356,11 +2496,13 @@ def planner_planner_plan_task_update_assigned_to_task_board_format(client,
                                                                    id_=None,
                                                                    order_hints_by_assignee=None,
                                                                    unassigned_order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hints_by_assignee'] = order_hints_by_assignee
+    body['unassigned_order_hint'] = unassigned_order_hint
     return client.update_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
                                                        planner_task_id=planner_task_id,
-                                                       id=id_,
-                                                       order_hints_by_assignee=order_hints_by_assignee,
-                                                       unassigned_order_hint=unassigned_order_hint)
+                                                       body=body)
 
 
 def planner_planner_plan_task_update_bucket_task_board_format(client,
@@ -2368,10 +2510,12 @@ def planner_planner_plan_task_update_bucket_task_board_format(client,
                                                               planner_task_id,
                                                               id_=None,
                                                               order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_bucket_task_board_format(planner_plan_id=planner_plan_id,
                                                   planner_task_id=planner_task_id,
-                                                  id=id_,
-                                                  order_hint=order_hint)
+                                                  body=body)
 
 
 def planner_planner_plan_task_update_detail(client,
@@ -2382,13 +2526,15 @@ def planner_planner_plan_task_update_detail(client,
                                             description=None,
                                             preview_type=None,
                                             references=None):
-    return client.update_detail(planner_plan_id=planner_plan_id,
-                                planner_task_id=planner_task_id,
-                                id=id_,
-                                checklist=checklist,
-                                description=description,
-                                preview_type=preview_type,
-                                references=references)
+    body = {}
+    body['id'] = id_
+    body['checklist'] = checklist
+    body['description'] = description
+    body['preview_type'] = preview_type
+    body['references'] = references
+    return client.update_details(planner_plan_id=planner_plan_id,
+                                 planner_task_id=planner_task_id,
+                                 body=body)
 
 
 def planner_planner_plan_task_update_progress_task_board_format(client,
@@ -2396,10 +2542,12 @@ def planner_planner_plan_task_update_progress_task_board_format(client,
                                                                 planner_task_id,
                                                                 id_=None,
                                                                 order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_progress_task_board_format(planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
-                                                    id=id_,
-                                                    order_hint=order_hint)
+                                                    body=body)
 
 
 def planner_planner_task_delete_assigned_to_task_board_format(client,
@@ -2419,8 +2567,8 @@ def planner_planner_task_delete_bucket_task_board_format(client,
 def planner_planner_task_delete_detail(client,
                                        planner_task_id,
                                        if_match=None):
-    return client.delete_detail(planner_task_id=planner_task_id,
-                                if_match=if_match)
+    return client.delete_details(planner_task_id=planner_task_id,
+                                 if_match=if_match)
 
 
 def planner_planner_task_delete_progress_task_board_format(client,
@@ -2452,9 +2600,9 @@ def planner_planner_task_show_detail(client,
                                      planner_task_id,
                                      select=None,
                                      expand=None):
-    return client.get_detail(planner_task_id=planner_task_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(planner_task_id=planner_task_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_planner_task_show_progress_task_board_format(client,
@@ -2471,19 +2619,23 @@ def planner_planner_task_update_assigned_to_task_board_format(client,
                                                               id_=None,
                                                               order_hints_by_assignee=None,
                                                               unassigned_order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hints_by_assignee'] = order_hints_by_assignee
+    body['unassigned_order_hint'] = unassigned_order_hint
     return client.update_assigned_to_task_board_format(planner_task_id=planner_task_id,
-                                                       id=id_,
-                                                       order_hints_by_assignee=order_hints_by_assignee,
-                                                       unassigned_order_hint=unassigned_order_hint)
+                                                       body=body)
 
 
 def planner_planner_task_update_bucket_task_board_format(client,
                                                          planner_task_id,
                                                          id_=None,
                                                          order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_bucket_task_board_format(planner_task_id=planner_task_id,
-                                                  id=id_,
-                                                  order_hint=order_hint)
+                                                  body=body)
 
 
 def planner_planner_task_update_detail(client,
@@ -2493,21 +2645,25 @@ def planner_planner_task_update_detail(client,
                                        description=None,
                                        preview_type=None,
                                        references=None):
-    return client.update_detail(planner_task_id=planner_task_id,
-                                id=id_,
-                                checklist=checklist,
-                                description=description,
-                                preview_type=preview_type,
-                                references=references)
+    body = {}
+    body['id'] = id_
+    body['checklist'] = checklist
+    body['description'] = description
+    body['preview_type'] = preview_type
+    body['references'] = references
+    return client.update_details(planner_task_id=planner_task_id,
+                                 body=body)
 
 
 def planner_planner_task_update_progress_task_board_format(client,
                                                            planner_task_id,
                                                            id_=None,
                                                            order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_progress_task_board_format(planner_task_id=planner_task_id,
-                                                    id=id_,
-                                                    order_hint=order_hint)
+                                                    body=body)
 
 
 def planner_user_delete_planner(client,
@@ -2536,22 +2692,26 @@ def planner_user_update_planner(client,
                                 plans=None,
                                 recent_plans=None,
                                 tasks=None):
+    body = {}
+    body['id'] = id_
+    body['favorite_plan_references'] = favorite_plan_references
+    body['recent_plan_references'] = recent_plan_references
+    body['all'] = all_
+    body['favorite_plans'] = favorite_plans
+    body['plans'] = plans
+    body['recent_plans'] = recent_plans
+    body['tasks'] = tasks
     return client.update_planner(user_id=user_id,
-                                 id=id_,
-                                 favorite_plan_references=favorite_plan_references,
-                                 recent_plan_references=recent_plan_references,
-                                 all=all_,
-                                 favorite_plans=favorite_plans,
-                                 plans=plans,
-                                 recent_plans=recent_plans,
-                                 tasks=tasks)
+                                 body=body)
 
 
 def planner_user_planner_create_all(client,
                                     user_id,
                                     id_=None):
+    body = {}
+    body['id'] = id_
     return client.create_all(user_id=user_id,
-                             id=id_)
+                             body=body)
 
 
 def planner_user_planner_create_plan(client,
@@ -2570,35 +2730,39 @@ def planner_user_planner_create_plan(client,
                                      application=None,
                                      device=None,
                                      user=None):
-    return client.create_plan(user_id=user_id,
-                              id=id_,
-                              contexts=contexts,
-                              created_date_time=created_date_time,
-                              owner=owner,
-                              title=title,
-                              buckets=buckets,
-                              tasks=tasks,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              category_descriptions=category_descriptions,
-                              context_details=context_details,
-                              shared_with=shared_with,
-                              application=application,
-                              device=device,
-                              user=user)
+    body = {}
+    body['id'] = id_
+    body['contexts'] = contexts
+    body['created_date_time'] = created_date_time
+    body['owner'] = owner
+    body['title'] = title
+    body['buckets'] = buckets
+    body['tasks'] = tasks
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['category_descriptions'] = category_descriptions
+    body['details']['context_details'] = context_details
+    body['details']['shared_with'] = shared_with
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.create_plans(user_id=user_id,
+                               body=body)
 
 
 def planner_user_planner_create_ref_favorite_plan(client,
                                                   user_id,
                                                   body):
-    return client.create_ref_favorite_plan(user_id=user_id,
-                                           body=body)
+    return client.create_ref_favorite_plans(user_id=user_id,
+                                            body=body)
 
 
 def planner_user_planner_create_ref_recent_plan(client,
                                                 user_id,
                                                 body):
-    return client.create_ref_recent_plan(user_id=user_id,
-                                         body=body)
+    return client.create_ref_recent_plans(user_id=user_id,
+                                          body=body)
 
 
 def planner_user_planner_create_task(client,
@@ -2639,43 +2803,49 @@ def planner_user_planner_create_task(client,
                                      microsoft_graph_identity_application=None,
                                      microsoft_graph_identity_device=None,
                                      microsoft_graph_identity_user=None):
-    return client.create_task(user_id=user_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.create_tasks(user_id=user_id,
+                               body=body)
 
 
 def planner_user_planner_delete_all(client,
@@ -2691,18 +2861,18 @@ def planner_user_planner_delete_plan(client,
                                      user_id,
                                      planner_plan_id,
                                      if_match=None):
-    return client.delete_plan(user_id=user_id,
-                              planner_plan_id=planner_plan_id,
-                              if_match=if_match)
+    return client.delete_plans(user_id=user_id,
+                               planner_plan_id=planner_plan_id,
+                               if_match=if_match)
 
 
 def planner_user_planner_delete_task(client,
                                      user_id,
                                      planner_task_id,
                                      if_match=None):
-    return client.delete_task(user_id=user_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
+    return client.delete_tasks(user_id=user_id,
+                               planner_task_id=planner_task_id,
+                               if_match=if_match)
 
 
 def planner_user_planner_list_all(client,
@@ -2721,10 +2891,10 @@ def planner_user_planner_list_favorite_plan(client,
                                             orderby=None,
                                             select=None,
                                             expand=None):
-    return client.list_favorite_plan(user_id=user_id,
-                                     orderby=orderby,
-                                     select=select,
-                                     expand=expand)
+    return client.list_favorite_plans(user_id=user_id,
+                                      orderby=orderby,
+                                      select=select,
+                                      expand=expand)
 
 
 def planner_user_planner_list_plan(client,
@@ -2732,10 +2902,10 @@ def planner_user_planner_list_plan(client,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_plan(user_id=user_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_plans(user_id=user_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_user_planner_list_recent_plan(client,
@@ -2743,24 +2913,24 @@ def planner_user_planner_list_recent_plan(client,
                                           orderby=None,
                                           select=None,
                                           expand=None):
-    return client.list_recent_plan(user_id=user_id,
-                                   orderby=orderby,
-                                   select=select,
-                                   expand=expand)
+    return client.list_recent_plans(user_id=user_id,
+                                    orderby=orderby,
+                                    select=select,
+                                    expand=expand)
 
 
 def planner_user_planner_list_ref_favorite_plan(client,
                                                 user_id,
                                                 orderby=None):
-    return client.list_ref_favorite_plan(user_id=user_id,
-                                         orderby=orderby)
+    return client.list_ref_favorite_plans(user_id=user_id,
+                                          orderby=orderby)
 
 
 def planner_user_planner_list_ref_recent_plan(client,
                                               user_id,
                                               orderby=None):
-    return client.list_ref_recent_plan(user_id=user_id,
-                                       orderby=orderby)
+    return client.list_ref_recent_plans(user_id=user_id,
+                                        orderby=orderby)
 
 
 def planner_user_planner_list_task(client,
@@ -2768,10 +2938,10 @@ def planner_user_planner_list_task(client,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_task(user_id=user_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_tasks(user_id=user_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_user_planner_show_all(client,
@@ -2790,10 +2960,10 @@ def planner_user_planner_show_plan(client,
                                    planner_plan_id,
                                    select=None,
                                    expand=None):
-    return client.get_plan(user_id=user_id,
-                           planner_plan_id=planner_plan_id,
-                           select=select,
-                           expand=expand)
+    return client.get_plans(user_id=user_id,
+                            planner_plan_id=planner_plan_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_user_planner_show_task(client,
@@ -2801,19 +2971,21 @@ def planner_user_planner_show_task(client,
                                    planner_task_id,
                                    select=None,
                                    expand=None):
-    return client.get_task(user_id=user_id,
-                           planner_task_id=planner_task_id,
-                           select=select,
-                           expand=expand)
+    return client.get_tasks(user_id=user_id,
+                            planner_task_id=planner_task_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_user_planner_update_all(client,
                                     user_id,
                                     planner_delta_id,
                                     id_=None):
+    body = {}
+    body['id'] = id_
     return client.update_all(user_id=user_id,
                              planner_delta_id=planner_delta_id,
-                             id=id_)
+                             body=body)
 
 
 def planner_user_planner_update_plan(client,
@@ -2833,22 +3005,26 @@ def planner_user_planner_update_plan(client,
                                      application=None,
                                      device=None,
                                      user=None):
-    return client.update_plan(user_id=user_id,
-                              planner_plan_id=planner_plan_id,
-                              id=id_,
-                              contexts=contexts,
-                              created_date_time=created_date_time,
-                              owner=owner,
-                              title=title,
-                              buckets=buckets,
-                              tasks=tasks,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              category_descriptions=category_descriptions,
-                              context_details=context_details,
-                              shared_with=shared_with,
-                              application=application,
-                              device=device,
-                              user=user)
+    body = {}
+    body['id'] = id_
+    body['contexts'] = contexts
+    body['created_date_time'] = created_date_time
+    body['owner'] = owner
+    body['title'] = title
+    body['buckets'] = buckets
+    body['tasks'] = tasks
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['category_descriptions'] = category_descriptions
+    body['details']['context_details'] = context_details
+    body['details']['shared_with'] = shared_with
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    return client.update_plans(user_id=user_id,
+                               planner_plan_id=planner_plan_id,
+                               body=body)
 
 
 def planner_user_planner_update_task(client,
@@ -2890,44 +3066,50 @@ def planner_user_planner_update_task(client,
                                      microsoft_graph_identity_application=None,
                                      microsoft_graph_identity_device=None,
                                      microsoft_graph_identity_user=None):
-    return client.update_task(user_id=user_id,
-                              planner_task_id=planner_task_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.update_tasks(user_id=user_id,
+                               planner_task_id=planner_task_id,
+                               body=body)
 
 
 def planner_user_planner_plan_create_bucket(client,
@@ -2938,13 +3120,15 @@ def planner_user_planner_plan_create_bucket(client,
                                             order_hint=None,
                                             plan_id=None,
                                             tasks=None):
-    return client.create_bucket(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                id=id_,
-                                name=name,
-                                order_hint=order_hint,
-                                plan_id=plan_id,
-                                tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    body['order_hint'] = order_hint
+    body['plan_id'] = plan_id
+    body['tasks'] = tasks
+    return client.create_buckets(user_id=user_id,
+                                 planner_plan_id=planner_plan_id,
+                                 body=body)
 
 
 def planner_user_planner_plan_create_task(client,
@@ -2986,44 +3170,50 @@ def planner_user_planner_plan_create_task(client,
                                           microsoft_graph_identity_application=None,
                                           microsoft_graph_identity_device=None,
                                           microsoft_graph_identity_user=None):
-    return client.create_task(user_id=user_id,
-                              planner_plan_id=planner_plan_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.create_tasks(user_id=user_id,
+                               planner_plan_id=planner_plan_id,
+                               body=body)
 
 
 def planner_user_planner_plan_delete_bucket(client,
@@ -3031,19 +3221,19 @@ def planner_user_planner_plan_delete_bucket(client,
                                             planner_plan_id,
                                             planner_bucket_id,
                                             if_match=None):
-    return client.delete_bucket(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                if_match=if_match)
+    return client.delete_buckets(user_id=user_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 if_match=if_match)
 
 
 def planner_user_planner_plan_delete_detail(client,
                                             user_id,
                                             planner_plan_id,
                                             if_match=None):
-    return client.delete_detail(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                if_match=if_match)
+    return client.delete_details(user_id=user_id,
+                                 planner_plan_id=planner_plan_id,
+                                 if_match=if_match)
 
 
 def planner_user_planner_plan_delete_task(client,
@@ -3051,10 +3241,10 @@ def planner_user_planner_plan_delete_task(client,
                                           planner_plan_id,
                                           planner_task_id,
                                           if_match=None):
-    return client.delete_task(user_id=user_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
+    return client.delete_tasks(user_id=user_id,
+                               planner_plan_id=planner_plan_id,
+                               planner_task_id=planner_task_id,
+                               if_match=if_match)
 
 
 def planner_user_planner_plan_list_bucket(client,
@@ -3063,11 +3253,11 @@ def planner_user_planner_plan_list_bucket(client,
                                           orderby=None,
                                           select=None,
                                           expand=None):
-    return client.list_bucket(user_id=user_id,
-                              planner_plan_id=planner_plan_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_buckets(user_id=user_id,
+                               planner_plan_id=planner_plan_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def planner_user_planner_plan_list_task(client,
@@ -3076,11 +3266,11 @@ def planner_user_planner_plan_list_task(client,
                                         orderby=None,
                                         select=None,
                                         expand=None):
-    return client.list_task(user_id=user_id,
-                            planner_plan_id=planner_plan_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_tasks(user_id=user_id,
+                             planner_plan_id=planner_plan_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_user_planner_plan_show_bucket(client,
@@ -3089,11 +3279,11 @@ def planner_user_planner_plan_show_bucket(client,
                                           planner_bucket_id,
                                           select=None,
                                           expand=None):
-    return client.get_bucket(user_id=user_id,
-                             planner_plan_id=planner_plan_id,
-                             planner_bucket_id=planner_bucket_id,
-                             select=select,
-                             expand=expand)
+    return client.get_buckets(user_id=user_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_bucket_id=planner_bucket_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_user_planner_plan_show_detail(client,
@@ -3101,10 +3291,10 @@ def planner_user_planner_plan_show_detail(client,
                                           planner_plan_id,
                                           select=None,
                                           expand=None):
-    return client.get_detail(user_id=user_id,
-                             planner_plan_id=planner_plan_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(user_id=user_id,
+                              planner_plan_id=planner_plan_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_user_planner_plan_show_task(client,
@@ -3113,11 +3303,11 @@ def planner_user_planner_plan_show_task(client,
                                         planner_task_id,
                                         select=None,
                                         expand=None):
-    return client.get_task(user_id=user_id,
-                           planner_plan_id=planner_plan_id,
-                           planner_task_id=planner_task_id,
-                           select=select,
-                           expand=expand)
+    return client.get_tasks(user_id=user_id,
+                            planner_plan_id=planner_plan_id,
+                            planner_task_id=planner_task_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_user_planner_plan_update_bucket(client,
@@ -3129,14 +3319,16 @@ def planner_user_planner_plan_update_bucket(client,
                                             order_hint=None,
                                             plan_id=None,
                                             tasks=None):
-    return client.update_bucket(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                id=id_,
-                                name=name,
-                                order_hint=order_hint,
-                                plan_id=plan_id,
-                                tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['name'] = name
+    body['order_hint'] = order_hint
+    body['plan_id'] = plan_id
+    body['tasks'] = tasks
+    return client.update_buckets(user_id=user_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 body=body)
 
 
 def planner_user_planner_plan_update_detail(client,
@@ -3146,12 +3338,14 @@ def planner_user_planner_plan_update_detail(client,
                                             category_descriptions=None,
                                             context_details=None,
                                             shared_with=None):
-    return client.update_detail(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                id=id_,
-                                category_descriptions=category_descriptions,
-                                context_details=context_details,
-                                shared_with=shared_with)
+    body = {}
+    body['id'] = id_
+    body['category_descriptions'] = category_descriptions
+    body['context_details'] = context_details
+    body['shared_with'] = shared_with
+    return client.update_details(user_id=user_id,
+                                 planner_plan_id=planner_plan_id,
+                                 body=body)
 
 
 def planner_user_planner_plan_update_task(client,
@@ -3194,45 +3388,51 @@ def planner_user_planner_plan_update_task(client,
                                           microsoft_graph_identity_application=None,
                                           microsoft_graph_identity_device=None,
                                           microsoft_graph_identity_user=None):
-    return client.update_task(user_id=user_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_task_id=planner_task_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.update_tasks(user_id=user_id,
+                               planner_plan_id=planner_plan_id,
+                               planner_task_id=planner_task_id,
+                               body=body)
 
 
 def planner_user_planner_plan_bucket_create_task(client,
@@ -3275,45 +3475,51 @@ def planner_user_planner_plan_bucket_create_task(client,
                                                  microsoft_graph_identity_application=None,
                                                  microsoft_graph_identity_device=None,
                                                  microsoft_graph_identity_user=None):
-    return client.create_task(user_id=user_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.create_tasks(user_id=user_id,
+                               planner_plan_id=planner_plan_id,
+                               planner_bucket_id=planner_bucket_id,
+                               body=body)
 
 
 def planner_user_planner_plan_bucket_delete_task(client,
@@ -3322,11 +3528,11 @@ def planner_user_planner_plan_bucket_delete_task(client,
                                                  planner_bucket_id,
                                                  planner_task_id,
                                                  if_match=None):
-    return client.delete_task(user_id=user_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
+    return client.delete_tasks(user_id=user_id,
+                               planner_plan_id=planner_plan_id,
+                               planner_bucket_id=planner_bucket_id,
+                               planner_task_id=planner_task_id,
+                               if_match=if_match)
 
 
 def planner_user_planner_plan_bucket_list_task(client,
@@ -3336,12 +3542,12 @@ def planner_user_planner_plan_bucket_list_task(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_task(user_id=user_id,
-                            planner_plan_id=planner_plan_id,
-                            planner_bucket_id=planner_bucket_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_tasks(user_id=user_id,
+                             planner_plan_id=planner_plan_id,
+                             planner_bucket_id=planner_bucket_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def planner_user_planner_plan_bucket_show_task(client,
@@ -3351,12 +3557,12 @@ def planner_user_planner_plan_bucket_show_task(client,
                                                planner_task_id,
                                                select=None,
                                                expand=None):
-    return client.get_task(user_id=user_id,
-                           planner_plan_id=planner_plan_id,
-                           planner_bucket_id=planner_bucket_id,
-                           planner_task_id=planner_task_id,
-                           select=select,
-                           expand=expand)
+    return client.get_tasks(user_id=user_id,
+                            planner_plan_id=planner_plan_id,
+                            planner_bucket_id=planner_bucket_id,
+                            planner_task_id=planner_task_id,
+                            select=select,
+                            expand=expand)
 
 
 def planner_user_planner_plan_bucket_update_task(client,
@@ -3400,46 +3606,52 @@ def planner_user_planner_plan_bucket_update_task(client,
                                                  microsoft_graph_identity_application=None,
                                                  microsoft_graph_identity_device=None,
                                                  microsoft_graph_identity_user=None):
-    return client.update_task(user_id=user_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              id=id_,
-                              active_checklist_item_count=active_checklist_item_count,
-                              applied_categories=applied_categories,
-                              assignee_priority=assignee_priority,
-                              assignments=assignments,
-                              bucket_id=bucket_id,
-                              checklist_item_count=checklist_item_count,
-                              completed_date_time=completed_date_time,
-                              conversation_thread_id=conversation_thread_id,
-                              created_date_time=created_date_time,
-                              due_date_time=due_date_time,
-                              has_description=has_description,
-                              order_hint=order_hint,
-                              percent_complete=percent_complete,
-                              plan_id=plan_id,
-                              preview_type=preview_type,
-                              priority=priority,
-                              reference_count=reference_count,
-                              start_date_time=start_date_time,
-                              title=title,
-                              bucket_task_board_format=bucket_task_board_format,
-                              progress_task_board_format=progress_task_board_format,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              checklist=checklist,
-                              description=description,
-                              microsoft_graph_planner_preview_type=microsoft_graph_planner_preview_type,
-                              references=references,
-                              id1=id1,
-                              order_hints_by_assignee=order_hints_by_assignee,
-                              unassigned_order_hint=unassigned_order_hint,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user)
+    body = {}
+    body['id'] = id_
+    body['active_checklist_item_count'] = active_checklist_item_count
+    body['applied_categories'] = applied_categories
+    body['assignee_priority'] = assignee_priority
+    body['assignments'] = assignments
+    body['bucket_id'] = bucket_id
+    body['checklist_item_count'] = checklist_item_count
+    body['completed_date_time'] = completed_date_time
+    body['conversation_thread_id'] = conversation_thread_id
+    body['created_date_time'] = created_date_time
+    body['due_date_time'] = due_date_time
+    body['has_description'] = has_description
+    body['order_hint'] = order_hint
+    body['percent_complete'] = percent_complete
+    body['plan_id'] = plan_id
+    body['preview_type'] = preview_type
+    body['priority'] = priority
+    body['reference_count'] = reference_count
+    body['start_date_time'] = start_date_time
+    body['title'] = title
+    body['bucket_task_board_format'] = bucket_task_board_format
+    body['progress_task_board_format'] = progress_task_board_format
+    body['details'] = {}
+    body['details']['id'] = microsoft_graph_entity_id
+    body['details']['checklist'] = checklist
+    body['details']['description'] = description
+    body['details']['preview_type'] = microsoft_graph_planner_preview_type
+    body['details']['references'] = references
+    body['assigned_to_task_board_format'] = {}
+    body['assigned_to_task_board_format']['id'] = id1
+    body['assigned_to_task_board_format']['order_hints_by_assignee'] = order_hints_by_assignee
+    body['assigned_to_task_board_format']['unassigned_order_hint'] = unassigned_order_hint
+    body['created_by'] = {}
+    body['created_by']['application'] = application
+    body['created_by']['device'] = device
+    body['created_by']['user'] = user
+    body['completed_by'] = {}
+    body['completed_by']['application'] = microsoft_graph_identity_application
+    body['completed_by']['device'] = microsoft_graph_identity_device
+    body['completed_by']['user'] = microsoft_graph_identity_user
+    return client.update_tasks(user_id=user_id,
+                               planner_plan_id=planner_plan_id,
+                               planner_bucket_id=planner_bucket_id,
+                               planner_task_id=planner_task_id,
+                               body=body)
 
 
 def planner_user_planner_plan_bucket_task_delete_assigned_to_task_board_format(client,
@@ -3474,11 +3686,11 @@ def planner_user_planner_plan_bucket_task_delete_detail(client,
                                                         planner_bucket_id,
                                                         planner_task_id,
                                                         if_match=None):
-    return client.delete_detail(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                planner_task_id=planner_task_id,
-                                if_match=if_match)
+    return client.delete_details(user_id=user_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 planner_task_id=planner_task_id,
+                                 if_match=if_match)
 
 
 def planner_user_planner_plan_bucket_task_delete_progress_task_board_format(client,
@@ -3531,12 +3743,12 @@ def planner_user_planner_plan_bucket_task_show_detail(client,
                                                       planner_task_id,
                                                       select=None,
                                                       expand=None):
-    return client.get_detail(user_id=user_id,
-                             planner_plan_id=planner_plan_id,
-                             planner_bucket_id=planner_bucket_id,
-                             planner_task_id=planner_task_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(user_id=user_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_bucket_id=planner_bucket_id,
+                              planner_task_id=planner_task_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_user_planner_plan_bucket_task_show_progress_task_board_format(client,
@@ -3562,13 +3774,15 @@ def planner_user_planner_plan_bucket_task_update_assigned_to_task_board_format(c
                                                                                id_=None,
                                                                                order_hints_by_assignee=None,
                                                                                unassigned_order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hints_by_assignee'] = order_hints_by_assignee
+    body['unassigned_order_hint'] = unassigned_order_hint
     return client.update_assigned_to_task_board_format(user_id=user_id,
                                                        planner_plan_id=planner_plan_id,
                                                        planner_bucket_id=planner_bucket_id,
                                                        planner_task_id=planner_task_id,
-                                                       id=id_,
-                                                       order_hints_by_assignee=order_hints_by_assignee,
-                                                       unassigned_order_hint=unassigned_order_hint)
+                                                       body=body)
 
 
 def planner_user_planner_plan_bucket_task_update_bucket_task_board_format(client,
@@ -3578,12 +3792,14 @@ def planner_user_planner_plan_bucket_task_update_bucket_task_board_format(client
                                                                           planner_task_id,
                                                                           id_=None,
                                                                           order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_bucket_task_board_format(user_id=user_id,
                                                   planner_plan_id=planner_plan_id,
                                                   planner_bucket_id=planner_bucket_id,
                                                   planner_task_id=planner_task_id,
-                                                  id=id_,
-                                                  order_hint=order_hint)
+                                                  body=body)
 
 
 def planner_user_planner_plan_bucket_task_update_detail(client,
@@ -3596,15 +3812,17 @@ def planner_user_planner_plan_bucket_task_update_detail(client,
                                                         description=None,
                                                         preview_type=None,
                                                         references=None):
-    return client.update_detail(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_bucket_id=planner_bucket_id,
-                                planner_task_id=planner_task_id,
-                                id=id_,
-                                checklist=checklist,
-                                description=description,
-                                preview_type=preview_type,
-                                references=references)
+    body = {}
+    body['id'] = id_
+    body['checklist'] = checklist
+    body['description'] = description
+    body['preview_type'] = preview_type
+    body['references'] = references
+    return client.update_details(user_id=user_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_bucket_id=planner_bucket_id,
+                                 planner_task_id=planner_task_id,
+                                 body=body)
 
 
 def planner_user_planner_plan_bucket_task_update_progress_task_board_format(client,
@@ -3614,12 +3832,14 @@ def planner_user_planner_plan_bucket_task_update_progress_task_board_format(clie
                                                                             planner_task_id,
                                                                             id_=None,
                                                                             order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_progress_task_board_format(user_id=user_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
-                                                    id=id_,
-                                                    order_hint=order_hint)
+                                                    body=body)
 
 
 def planner_user_planner_plan_task_delete_assigned_to_task_board_format(client,
@@ -3649,10 +3869,10 @@ def planner_user_planner_plan_task_delete_detail(client,
                                                  planner_plan_id,
                                                  planner_task_id,
                                                  if_match=None):
-    return client.delete_detail(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_task_id=planner_task_id,
-                                if_match=if_match)
+    return client.delete_details(user_id=user_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_task_id=planner_task_id,
+                                 if_match=if_match)
 
 
 def planner_user_planner_plan_task_delete_progress_task_board_format(client,
@@ -3698,11 +3918,11 @@ def planner_user_planner_plan_task_show_detail(client,
                                                planner_task_id,
                                                select=None,
                                                expand=None):
-    return client.get_detail(user_id=user_id,
-                             planner_plan_id=planner_plan_id,
-                             planner_task_id=planner_task_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(user_id=user_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_task_id=planner_task_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_user_planner_plan_task_show_progress_task_board_format(client,
@@ -3725,12 +3945,14 @@ def planner_user_planner_plan_task_update_assigned_to_task_board_format(client,
                                                                         id_=None,
                                                                         order_hints_by_assignee=None,
                                                                         unassigned_order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hints_by_assignee'] = order_hints_by_assignee
+    body['unassigned_order_hint'] = unassigned_order_hint
     return client.update_assigned_to_task_board_format(user_id=user_id,
                                                        planner_plan_id=planner_plan_id,
                                                        planner_task_id=planner_task_id,
-                                                       id=id_,
-                                                       order_hints_by_assignee=order_hints_by_assignee,
-                                                       unassigned_order_hint=unassigned_order_hint)
+                                                       body=body)
 
 
 def planner_user_planner_plan_task_update_bucket_task_board_format(client,
@@ -3739,11 +3961,13 @@ def planner_user_planner_plan_task_update_bucket_task_board_format(client,
                                                                    planner_task_id,
                                                                    id_=None,
                                                                    order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_bucket_task_board_format(user_id=user_id,
                                                   planner_plan_id=planner_plan_id,
                                                   planner_task_id=planner_task_id,
-                                                  id=id_,
-                                                  order_hint=order_hint)
+                                                  body=body)
 
 
 def planner_user_planner_plan_task_update_detail(client,
@@ -3755,14 +3979,16 @@ def planner_user_planner_plan_task_update_detail(client,
                                                  description=None,
                                                  preview_type=None,
                                                  references=None):
-    return client.update_detail(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                planner_task_id=planner_task_id,
-                                id=id_,
-                                checklist=checklist,
-                                description=description,
-                                preview_type=preview_type,
-                                references=references)
+    body = {}
+    body['id'] = id_
+    body['checklist'] = checklist
+    body['description'] = description
+    body['preview_type'] = preview_type
+    body['references'] = references
+    return client.update_details(user_id=user_id,
+                                 planner_plan_id=planner_plan_id,
+                                 planner_task_id=planner_task_id,
+                                 body=body)
 
 
 def planner_user_planner_plan_task_update_progress_task_board_format(client,
@@ -3771,11 +3997,13 @@ def planner_user_planner_plan_task_update_progress_task_board_format(client,
                                                                      planner_task_id,
                                                                      id_=None,
                                                                      order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_progress_task_board_format(user_id=user_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
-                                                    id=id_,
-                                                    order_hint=order_hint)
+                                                    body=body)
 
 
 def planner_user_planner_task_delete_assigned_to_task_board_format(client,
@@ -3800,9 +4028,9 @@ def planner_user_planner_task_delete_detail(client,
                                             user_id,
                                             planner_task_id,
                                             if_match=None):
-    return client.delete_detail(user_id=user_id,
-                                planner_task_id=planner_task_id,
-                                if_match=if_match)
+    return client.delete_details(user_id=user_id,
+                                 planner_task_id=planner_task_id,
+                                 if_match=if_match)
 
 
 def planner_user_planner_task_delete_progress_task_board_format(client,
@@ -3841,10 +4069,10 @@ def planner_user_planner_task_show_detail(client,
                                           planner_task_id,
                                           select=None,
                                           expand=None):
-    return client.get_detail(user_id=user_id,
-                             planner_task_id=planner_task_id,
-                             select=select,
-                             expand=expand)
+    return client.get_details(user_id=user_id,
+                              planner_task_id=planner_task_id,
+                              select=select,
+                              expand=expand)
 
 
 def planner_user_planner_task_show_progress_task_board_format(client,
@@ -3864,11 +4092,13 @@ def planner_user_planner_task_update_assigned_to_task_board_format(client,
                                                                    id_=None,
                                                                    order_hints_by_assignee=None,
                                                                    unassigned_order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hints_by_assignee'] = order_hints_by_assignee
+    body['unassigned_order_hint'] = unassigned_order_hint
     return client.update_assigned_to_task_board_format(user_id=user_id,
                                                        planner_task_id=planner_task_id,
-                                                       id=id_,
-                                                       order_hints_by_assignee=order_hints_by_assignee,
-                                                       unassigned_order_hint=unassigned_order_hint)
+                                                       body=body)
 
 
 def planner_user_planner_task_update_bucket_task_board_format(client,
@@ -3876,10 +4106,12 @@ def planner_user_planner_task_update_bucket_task_board_format(client,
                                                               planner_task_id,
                                                               id_=None,
                                                               order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_bucket_task_board_format(user_id=user_id,
                                                   planner_task_id=planner_task_id,
-                                                  id=id_,
-                                                  order_hint=order_hint)
+                                                  body=body)
 
 
 def planner_user_planner_task_update_detail(client,
@@ -3890,13 +4122,15 @@ def planner_user_planner_task_update_detail(client,
                                             description=None,
                                             preview_type=None,
                                             references=None):
-    return client.update_detail(user_id=user_id,
-                                planner_task_id=planner_task_id,
-                                id=id_,
-                                checklist=checklist,
-                                description=description,
-                                preview_type=preview_type,
-                                references=references)
+    body = {}
+    body['id'] = id_
+    body['checklist'] = checklist
+    body['description'] = description
+    body['preview_type'] = preview_type
+    body['references'] = references
+    return client.update_details(user_id=user_id,
+                                 planner_task_id=planner_task_id,
+                                 body=body)
 
 
 def planner_user_planner_task_update_progress_task_board_format(client,
@@ -3904,7 +4138,9 @@ def planner_user_planner_task_update_progress_task_board_format(client,
                                                                 planner_task_id,
                                                                 id_=None,
                                                                 order_hint=None):
+    body = {}
+    body['id'] = id_
+    body['order_hint'] = order_hint
     return client.update_progress_task_board_format(user_id=user_id,
                                                     planner_task_id=planner_task_id,
-                                                    id=id_,
-                                                    order_hint=order_hint)
+                                                    body=body)

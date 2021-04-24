@@ -19,12 +19,12 @@ def cf_people_beta_cl(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_people_beta_cl(cli_ctx).user
+    return cf_people_beta_cl(cli_ctx).users
 
 
 def cf_user_analytic(cli_ctx, *_):
-    return cf_people_beta_cl(cli_ctx).user_analytic
+    return cf_people_beta_cl(cli_ctx).users_analytics
 
 
 def cf_user_profile(cli_ctx, *_):
-    return cf_people_beta_cl(cli_ctx).user_profile
+    return cf_people_beta_cl(cli_ctx).users_profile

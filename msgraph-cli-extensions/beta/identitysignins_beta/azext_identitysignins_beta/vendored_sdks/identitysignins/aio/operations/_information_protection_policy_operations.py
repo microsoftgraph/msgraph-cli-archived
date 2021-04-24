@@ -41,7 +41,7 @@ class InformationProtectionPolicyOperations:
         self._deserialize = deserializer
         self._config = config
 
-    def list_label(
+    def list_labels(
         self,
         orderby: Optional[List[Union[str, "models.Enum49"]]] = None,
         select: Optional[List[Union[str, "models.Enum50"]]] = None,
@@ -77,7 +77,7 @@ class InformationProtectionPolicyOperations:
 
             if not next_link:
                 # Construct URL
-                url = self.list_label.metadata['url']  # type: ignore
+                url = self.list_labels.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -127,40 +127,19 @@ class InformationProtectionPolicyOperations:
         return AsyncItemPaged(
             get_next, extract_data
         )
-    list_label.metadata = {'url': '/informationProtection/policy/labels'}  # type: ignore
+    list_labels.metadata = {'url': '/informationProtection/policy/labels'}  # type: ignore
 
-    async def create_label(
+    async def create_labels(
         self,
-        id: Optional[str] = None,
-        color: Optional[str] = None,
-        description: Optional[str] = None,
-        is_active: Optional[bool] = None,
-        name: Optional[str] = None,
-        parent: Optional["models.MicrosoftGraphParentLabelDetails"] = None,
-        sensitivity: Optional[int] = None,
-        tooltip: Optional[str] = None,
+        body: "models.MicrosoftGraphInformationProtectionLabel",
         **kwargs
     ) -> "models.MicrosoftGraphInformationProtectionLabel":
         """Create new navigation property to labels for informationProtection.
 
         Create new navigation property to labels for informationProtection.
 
-        :param id: Read-only.
-        :type id: str
-        :param color:
-        :type color: str
-        :param description:
-        :type description: str
-        :param is_active:
-        :type is_active: bool
-        :param name:
-        :type name: str
-        :param parent: parentLabelDetails.
-        :type parent: ~identity_sign_ins.models.MicrosoftGraphParentLabelDetails
-        :param sensitivity:
-        :type sensitivity: int
-        :param tooltip:
-        :type tooltip: str
+        :param body: New navigation property.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphInformationProtectionLabel
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphInformationProtectionLabel, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphInformationProtectionLabel
@@ -171,13 +150,11 @@ class InformationProtectionPolicyOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphInformationProtectionLabel(id=id, color=color, description=description, is_active=is_active, name=name, parent=parent, sensitivity=sensitivity, tooltip=tooltip)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_label.metadata['url']  # type: ignore
+        url = self.create_labels.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -205,9 +182,9 @@ class InformationProtectionPolicyOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_label.metadata = {'url': '/informationProtection/policy/labels'}  # type: ignore
+    create_labels.metadata = {'url': '/informationProtection/policy/labels'}  # type: ignore
 
-    async def get_label(
+    async def get_labels(
         self,
         information_protection_label_id: str,
         select: Optional[List[Union[str, "models.Enum51"]]] = None,
@@ -237,7 +214,7 @@ class InformationProtectionPolicyOperations:
         accept = "application/json"
 
         # Construct URL
-        url = self.get_label.metadata['url']  # type: ignore
+        url = self.get_labels.metadata['url']  # type: ignore
         path_format_arguments = {
             'informationProtectionLabel-id': self._serialize.url("information_protection_label_id", information_protection_label_id, 'str'),
         }
@@ -269,19 +246,12 @@ class InformationProtectionPolicyOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_label.metadata = {'url': '/informationProtection/policy/labels/{informationProtectionLabel-id}'}  # type: ignore
+    get_labels.metadata = {'url': '/informationProtection/policy/labels/{informationProtectionLabel-id}'}  # type: ignore
 
-    async def update_label(
+    async def update_labels(
         self,
         information_protection_label_id: str,
-        id: Optional[str] = None,
-        color: Optional[str] = None,
-        description: Optional[str] = None,
-        is_active: Optional[bool] = None,
-        name: Optional[str] = None,
-        parent: Optional["models.MicrosoftGraphParentLabelDetails"] = None,
-        sensitivity: Optional[int] = None,
-        tooltip: Optional[str] = None,
+        body: "models.MicrosoftGraphInformationProtectionLabel",
         **kwargs
     ) -> None:
         """Update the navigation property labels in informationProtection.
@@ -290,22 +260,8 @@ class InformationProtectionPolicyOperations:
 
         :param information_protection_label_id: key: id of informationProtectionLabel.
         :type information_protection_label_id: str
-        :param id: Read-only.
-        :type id: str
-        :param color:
-        :type color: str
-        :param description:
-        :type description: str
-        :param is_active:
-        :type is_active: bool
-        :param name:
-        :type name: str
-        :param parent: parentLabelDetails.
-        :type parent: ~identity_sign_ins.models.MicrosoftGraphParentLabelDetails
-        :param sensitivity:
-        :type sensitivity: int
-        :param tooltip:
-        :type tooltip: str
+        :param body: New navigation property values.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphInformationProtectionLabel
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -316,13 +272,11 @@ class InformationProtectionPolicyOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphInformationProtectionLabel(id=id, color=color, description=description, is_active=is_active, name=name, parent=parent, sensitivity=sensitivity, tooltip=tooltip)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.update_label.metadata['url']  # type: ignore
+        url = self.update_labels.metadata['url']  # type: ignore
         path_format_arguments = {
             'informationProtectionLabel-id': self._serialize.url("information_protection_label_id", information_protection_label_id, 'str'),
         }
@@ -351,9 +305,9 @@ class InformationProtectionPolicyOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_label.metadata = {'url': '/informationProtection/policy/labels/{informationProtectionLabel-id}'}  # type: ignore
+    update_labels.metadata = {'url': '/informationProtection/policy/labels/{informationProtectionLabel-id}'}  # type: ignore
 
-    async def delete_label(
+    async def delete_labels(
         self,
         information_protection_label_id: str,
         if_match: Optional[str] = None,
@@ -380,7 +334,7 @@ class InformationProtectionPolicyOperations:
         accept = "application/json"
 
         # Construct URL
-        url = self.delete_label.metadata['url']  # type: ignore
+        url = self.delete_labels.metadata['url']  # type: ignore
         path_format_arguments = {
             'informationProtectionLabel-id': self._serialize.url("information_protection_label_id", information_protection_label_id, 'str'),
         }
@@ -407,4 +361,4 @@ class InformationProtectionPolicyOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_label.metadata = {'url': '/informationProtection/policy/labels/{informationProtectionLabel-id}'}  # type: ignore
+    delete_labels.metadata = {'url': '/informationProtection/policy/labels/{informationProtectionLabel-id}'}  # type: ignore

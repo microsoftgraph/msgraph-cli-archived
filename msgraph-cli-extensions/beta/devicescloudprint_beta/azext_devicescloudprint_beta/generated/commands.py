@@ -44,61 +44,61 @@ devicescloudprint_beta_print = CliCommandType(
 
 
 devicescloudprint_beta_print_printer = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_operations#PrintPrinterOperations.{}',
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printers_operations#PrintPrintersOperations.{}',
     client_factory=cf_print_printer,
 )
 
 
 devicescloudprint_beta_print_printer_task_trigger = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_task_trigger_operations#PrintPrinterTaskTriggerOperations.{}',
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printers_task_triggers_operations#PrintPrintersTaskTriggersOperations.{}',
     client_factory=cf_print_printer_task_trigger,
 )
 
 
 devicescloudprint_beta_print_printer_share = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_share_operations#PrintPrinterShareOperations.{}',
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_shares_operations#PrintPrinterSharesOperations.{}',
     client_factory=cf_print_printer_share,
 )
 
 
 devicescloudprint_beta_print_printer_share_printer = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_share_printer_operations#PrintPrinterSharePrinterOperations.{}',
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_shares_printer_operations#PrintPrinterSharesPrinterOperations.{}',
     client_factory=cf_print_printer_share_printer,
 )
 
 
 devicescloudprint_beta_print_report = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_report_operations#PrintReportOperations.{}',
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_reports_operations#PrintReportsOperations.{}',
     client_factory=cf_print_report,
 )
 
 
 devicescloudprint_beta_print_service = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_service_operations#PrintServiceOperations.{}',
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_services_operations#PrintServicesOperations.{}',
     client_factory=cf_print_service,
 )
 
 
 devicescloudprint_beta_print_share = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_share_operations#PrintShareOperations.{}',
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_shares_operations#PrintSharesOperations.{}',
     client_factory=cf_print_share,
 )
 
 
 devicescloudprint_beta_print_share_printer = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_share_printer_operations#PrintSharePrinterOperations.{}',
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_shares_printer_operations#PrintSharesPrinterOperations.{}',
     client_factory=cf_print_share_printer,
 )
 
 
 devicescloudprint_beta_print_task_definition = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_task_definition_operations#PrintTaskDefinitionOperations.{}',
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_task_definitions_operations#PrintTaskDefinitionsOperations.{}',
     client_factory=cf_print_task_definition,
 )
 
 
 devicescloudprint_beta_print_task_definition_task = CliCommandType(
-    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_task_definition_task_operations#PrintTaskDefinitionTaskOperations.{}',
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_task_definitions_tasks_operations#PrintTaskDefinitionsTasksOperations.{}',
     client_factory=cf_print_task_definition_task,
 )
 

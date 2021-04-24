@@ -8,14 +8,14 @@
 
 from ._security_security_operations import SecuritySecurityOperations
 from ._security_operations import SecurityOperations
-from ._security_alert_operations import SecurityAlertOperations
-from ._security_security_action_operations import SecuritySecurityActionOperations
-from ._security_ti_indicator_operations import SecurityTIIndicatorOperations
+from ._security_alerts_operations import SecurityAlertsOperations
+from ._security_security_actions_operations import SecuritySecurityActionsOperations
+from ._security_ti_indicators_operations import SecurityTiIndicatorsOperations
 
 __all__ = [
     'SecuritySecurityOperations',
     'SecurityOperations',
-    'SecurityAlertOperations',
-    'SecuritySecurityActionOperations',
-    'SecurityTIIndicatorOperations',
+    'SecurityAlertsOperations',
+    'SecuritySecurityActionsOperations',
+    'SecurityTiIndicatorsOperations',
 ]

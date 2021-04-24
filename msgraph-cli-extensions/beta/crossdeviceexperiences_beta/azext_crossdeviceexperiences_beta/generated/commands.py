@@ -21,19 +21,19 @@ from azext_crossdeviceexperiences_beta.generated._client_factory import (
 
 
 crossdeviceexperiences_beta_user = CliCommandType(
-    operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
 crossdeviceexperiences_beta_user_activity = CliCommandType(
-    operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._user_activity_operations#UserActivityOperations.{}',
+    operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._users_activities_operations#UsersActivitiesOperations.{}',
     client_factory=cf_user_activity,
 )
 
 
 crossdeviceexperiences_beta_user_activity_history_item = CliCommandType(
-    operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._user_activity_history_item_operations#UserActivityHistoryItemOperations.{}',
+    operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._users_activities_history_items_operations#UsersActivitiesHistoryItemsOperations.{}',
     client_factory=cf_user_activity_history_item,
 )
 

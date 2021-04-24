@@ -6,18 +6,18 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._application_application_operations import ApplicationApplicationOperations
-from ._application_operations import ApplicationOperations
-from ._group_operations import GroupOperations
-from ._service_principal_service_principal_operations import ServicePrincipalServicePrincipalOperations
-from ._service_principal_operations import ServicePrincipalOperations
-from ._user_operations import UserOperations
+from ._applications_application_operations import ApplicationsApplicationOperations
+from ._applications_operations import ApplicationsOperations
+from ._groups_operations import GroupsOperations
+from ._service_principals_service_principal_operations import ServicePrincipalsServicePrincipalOperations
+from ._service_principals_operations import ServicePrincipalsOperations
+from ._users_operations import UsersOperations
 
 __all__ = [
-    'ApplicationApplicationOperations',
-    'ApplicationOperations',
-    'GroupOperations',
-    'ServicePrincipalServicePrincipalOperations',
-    'ServicePrincipalOperations',
-    'UserOperations',
+    'ApplicationsApplicationOperations',
+    'ApplicationsOperations',
+    'GroupsOperations',
+    'ServicePrincipalsServicePrincipalOperations',
+    'ServicePrincipalsOperations',
+    'UsersOperations',
 ]

@@ -8,28 +8,28 @@
 
 from ._print_print_operations import PrintPrintOperations
 from ._print_operations import PrintOperations
-from ._print_printer_operations import PrintPrinterOperations
-from ._print_printer_task_trigger_operations import PrintPrinterTaskTriggerOperations
-from ._print_printer_share_operations import PrintPrinterShareOperations
-from ._print_printer_share_printer_operations import PrintPrinterSharePrinterOperations
-from ._print_report_operations import PrintReportOperations
-from ._print_service_operations import PrintServiceOperations
-from ._print_share_operations import PrintShareOperations
-from ._print_share_printer_operations import PrintSharePrinterOperations
-from ._print_task_definition_operations import PrintTaskDefinitionOperations
-from ._print_task_definition_task_operations import PrintTaskDefinitionTaskOperations
+from ._print_printers_operations import PrintPrintersOperations
+from ._print_printers_task_triggers_operations import PrintPrintersTaskTriggersOperations
+from ._print_printer_shares_operations import PrintPrinterSharesOperations
+from ._print_printer_shares_printer_operations import PrintPrinterSharesPrinterOperations
+from ._print_reports_operations import PrintReportsOperations
+from ._print_services_operations import PrintServicesOperations
+from ._print_shares_operations import PrintSharesOperations
+from ._print_shares_printer_operations import PrintSharesPrinterOperations
+from ._print_task_definitions_operations import PrintTaskDefinitionsOperations
+from ._print_task_definitions_tasks_operations import PrintTaskDefinitionsTasksOperations
 
 __all__ = [
     'PrintPrintOperations',
     'PrintOperations',
-    'PrintPrinterOperations',
-    'PrintPrinterTaskTriggerOperations',
-    'PrintPrinterShareOperations',
-    'PrintPrinterSharePrinterOperations',
-    'PrintReportOperations',
-    'PrintServiceOperations',
-    'PrintShareOperations',
-    'PrintSharePrinterOperations',
-    'PrintTaskDefinitionOperations',
-    'PrintTaskDefinitionTaskOperations',
+    'PrintPrintersOperations',
+    'PrintPrintersTaskTriggersOperations',
+    'PrintPrinterSharesOperations',
+    'PrintPrinterSharesPrinterOperations',
+    'PrintReportsOperations',
+    'PrintServicesOperations',
+    'PrintSharesOperations',
+    'PrintSharesPrinterOperations',
+    'PrintTaskDefinitionsOperations',
+    'PrintTaskDefinitionsTasksOperations',
 ]

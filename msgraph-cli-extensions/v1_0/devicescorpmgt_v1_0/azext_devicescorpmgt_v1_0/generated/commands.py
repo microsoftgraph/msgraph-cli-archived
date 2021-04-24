@@ -47,93 +47,93 @@ devicescorpmgt_v1_0_device_app_management = CliCommandType(
 
 
 devicescorpmgt_v1_0_device_app_management_android_managed_app_protection = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_android_managed_app_protection_operations#DeviceAppManagementAndroidManagedAppProtectionOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_android_managed_app_protections_operations#DeviceAppManagementAndroidManagedAppProtectionsOperations.{}',
     client_factory=cf_device_app_management_android_managed_app_protection,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_default_managed_app_protection = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_default_managed_app_protection_operations#DeviceAppManagementDefaultManagedAppProtectionOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_default_managed_app_protections_operations#DeviceAppManagementDefaultManagedAppProtectionsOperations.{}',
     client_factory=cf_device_app_management_default_managed_app_protection,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_io_managed_app_protection = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_io_managed_app_protection_operations#DeviceAppManagementIoManagedAppProtectionOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_ios_managed_app_protections_operations#DeviceAppManagementIosManagedAppProtectionsOperations.{}',
     client_factory=cf_device_app_management_io_managed_app_protection,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_managed_app_policy = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_app_policy_operations#DeviceAppManagementManagedAppPolicyOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_app_policies_operations#DeviceAppManagementManagedAppPoliciesOperations.{}',
     client_factory=cf_device_app_management_managed_app_policy,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_managed_app_registration = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_app_registration_operations#DeviceAppManagementManagedAppRegistrationOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_app_registrations_operations#DeviceAppManagementManagedAppRegistrationsOperations.{}',
     client_factory=cf_device_app_management_managed_app_registration,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_managed_app_registration_applied_policy = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_app_registration_applied_policy_operations#DeviceAppManagementManagedAppRegistrationAppliedPolicyOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_app_registrations_applied_policies_operations#DeviceAppManagementManagedAppRegistrationsAppliedPoliciesOperations.{}',
     client_factory=cf_device_app_management_managed_app_registration_applied_policy,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_managed_app_registration_intended_policy = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_app_registration_intended_policy_operations#DeviceAppManagementManagedAppRegistrationIntendedPolicyOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_app_registrations_intended_policies_operations#DeviceAppManagementManagedAppRegistrationsIntendedPoliciesOperations.{}',
     client_factory=cf_device_app_management_managed_app_registration_intended_policy,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_managed_ebook = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_ebook_operations#DeviceAppManagementManagedEBookOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_ebooks_operations#DeviceAppManagementManagedEBooksOperations.{}',
     client_factory=cf_device_app_management_managed_ebook,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_managed_ebook_user_state_summary = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_ebook_user_state_summary_operations#DeviceAppManagementManagedEBookUserStateSummaryOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_managed_ebooks_user_state_summary_operations#DeviceAppManagementManagedEBooksUserStateSummaryOperations.{}',
     client_factory=cf_device_app_management_managed_ebook_user_state_summary,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_mobile_app_configuration = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_mobile_app_configuration_operations#DeviceAppManagementMobileAppConfigurationOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_mobile_app_configurations_operations#DeviceAppManagementMobileAppConfigurationsOperations.{}',
     client_factory=cf_device_app_management_mobile_app_configuration,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_mobile_app = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_mobile_app_operations#DeviceAppManagementMobileAppOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_mobile_apps_operations#DeviceAppManagementMobileAppsOperations.{}',
     client_factory=cf_device_app_management_mobile_app,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_targeted_managed_app_configuration = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_targeted_managed_app_configuration_operations#DeviceAppManagementTargetedManagedAppConfigurationOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_targeted_managed_app_configurations_operations#DeviceAppManagementTargetedManagedAppConfigurationsOperations.{}',
     client_factory=cf_device_app_management_targeted_managed_app_configuration,
 )
 
 
 devicescorpmgt_v1_0_device_app_management_vpp_token = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_vpp_token_operations#DeviceAppManagementVppTokenOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._device_app_management_vpp_tokens_operations#DeviceAppManagementVppTokensOperations.{}',
     client_factory=cf_device_app_management_vpp_token,
 )
 
 
 devicescorpmgt_v1_0_user = CliCommandType(
     operations_tmpl=(
-        'azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._user_operations#UserOperations.{}'
+        'azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._users_operations#UsersOperations.{}'
     ),
     client_factory=cf_user,
 )
 
 
 devicescorpmgt_v1_0_user_managed_device = CliCommandType(
-    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._user_managed_device_operations#UserManagedDeviceOperations.{}',
+    operations_tmpl='azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt.operations._users_managed_devices_operations#UsersManagedDevicesOperations.{}',
     client_factory=cf_user_managed_device,
 )
 

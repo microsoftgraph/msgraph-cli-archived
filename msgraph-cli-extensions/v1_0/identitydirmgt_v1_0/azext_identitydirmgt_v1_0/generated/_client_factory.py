@@ -19,27 +19,27 @@ def cf_identitydirmgt_v1_0_cl(cli_ctx, *_):
 
 
 def cf_contact_org_contact(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).contact_org_contact
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).contacts_org_contact
 
 
 def cf_contact(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).contact
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).contacts
 
 
 def cf_contract_contract(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).contract_contract
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).contracts_contract
 
 
 def cf_contract(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).contract
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).contracts
 
 
 def cf_device_device(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).device_device
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).devices_device
 
 
 def cf_device(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).device
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).devices
 
 
 def cf_directory_directory(cli_ctx, *_):
@@ -51,31 +51,31 @@ def cf_directory(cli_ctx, *_):
 
 
 def cf_directory_administrative_unit(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).directory_administrative_unit
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).directory_administrative_units
 
 
 def cf_directory_role_directory_role(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).directory_role_directory_role
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).directory_roles_directory_role
 
 
 def cf_directory_role(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).directory_role
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).directory_roles
 
 
 def cf_directory_role_template_directory_role_template(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).directory_role_template_directory_role_template
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).directory_role_templates_directory_role_template
 
 
 def cf_directory_role_template(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).directory_role_template
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).directory_role_templates
 
 
 def cf_domain_domain(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).domain_domain
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).domains_domain
 
 
 def cf_domain(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).domain
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).domains
 
 
 def cf_organization_organization(cli_ctx, *_):
@@ -87,8 +87,8 @@ def cf_organization(cli_ctx, *_):
 
 
 def cf_subscribed_sku_subscribed_sku(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).subscribed_sku_subscribed_sku
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).subscribed_skus_subscribed_sku
 
 
 def cf_user(cli_ctx, *_):
-    return cf_identitydirmgt_v1_0_cl(cli_ctx).user
+    return cf_identitydirmgt_v1_0_cl(cli_ctx).users

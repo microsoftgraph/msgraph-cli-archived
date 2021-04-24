@@ -71,321 +71,321 @@ from azext_usersfunctions_v1_0.generated._client_factory import (
 
 
 usersfunctions_v1_0_user_activity = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_activity_operations#UserActivityOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_activities_operations#UsersActivitiesOperations.{}',
     client_factory=cf_user_activity,
 )
 
 
 usersfunctions_v1_0_user_calendar_calendar_view_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_calendar_view_calendar_operations#UserCalendarCalendarViewCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_calendar_view_calendar_operations#UsersCalendarCalendarViewCalendarOperations.{}',
     client_factory=cf_user_calendar_calendar_view_calendar,
 )
 
 
 usersfunctions_v1_0_user_calendar_calendar_view_instance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_calendar_view_instance_operations#UserCalendarCalendarViewInstanceOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_calendar_view_instances_operations#UsersCalendarCalendarViewInstancesOperations.{}',
     client_factory=cf_user_calendar_calendar_view_instance,
 )
 
 
 usersfunctions_v1_0_user_calendar_calendar_view = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_calendar_view_operations#UsersCalendarCalendarViewOperations.{}',
     client_factory=cf_user_calendar_calendar_view,
 )
 
 
 usersfunctions_v1_0_user_calendar_event_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_event_calendar_operations#UserCalendarEventCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_events_calendar_operations#UsersCalendarEventsCalendarOperations.{}',
     client_factory=cf_user_calendar_event_calendar,
 )
 
 
 usersfunctions_v1_0_user_calendar_event_instance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_event_instance_operations#UserCalendarEventInstanceOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_events_instances_operations#UsersCalendarEventsInstancesOperations.{}',
     client_factory=cf_user_calendar_event_instance,
 )
 
 
 usersfunctions_v1_0_user_calendar_event = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_events_operations#UsersCalendarEventsOperations.{}',
     client_factory=cf_user_calendar_event,
 )
 
 
 usersfunctions_v1_0_user_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_operations#UserCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_operations#UsersCalendarOperations.{}',
     client_factory=cf_user_calendar,
 )
 
 
 usersfunctions_v1_0_user_calendar_group_calendar_calendar_view_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_group_calendar_calendar_view_calendar_operations#UserCalendarGroupCalendarCalendarViewCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_calendar_view_calendar_operations#UsersCalendarGroupsCalendarsCalendarViewCalendarOperations.{}',
     client_factory=cf_user_calendar_group_calendar_calendar_view_calendar,
 )
 
 
 usersfunctions_v1_0_user_calendar_group_calendar_calendar_view_instance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_group_calendar_calendar_view_instance_operations#UserCalendarGroupCalendarCalendarViewInstanceOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_calendar_view_instances_operations#UsersCalendarGroupsCalendarsCalendarViewInstancesOperations.{}',
     client_factory=cf_user_calendar_group_calendar_calendar_view_instance,
 )
 
 
 usersfunctions_v1_0_user_calendar_group_calendar_calendar_view = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_group_calendar_calendar_view_operations#UserCalendarGroupCalendarCalendarViewOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_calendar_view_operations#UsersCalendarGroupsCalendarsCalendarViewOperations.{}',
     client_factory=cf_user_calendar_group_calendar_calendar_view,
 )
 
 
 usersfunctions_v1_0_user_calendar_group_calendar_event_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_group_calendar_event_calendar_operations#UserCalendarGroupCalendarEventCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_events_calendar_operations#UsersCalendarGroupsCalendarsEventsCalendarOperations.{}',
     client_factory=cf_user_calendar_group_calendar_event_calendar,
 )
 
 
 usersfunctions_v1_0_user_calendar_group_calendar_event_instance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_group_calendar_event_instance_operations#UserCalendarGroupCalendarEventInstanceOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_events_instances_operations#UsersCalendarGroupsCalendarsEventsInstancesOperations.{}',
     client_factory=cf_user_calendar_group_calendar_event_instance,
 )
 
 
 usersfunctions_v1_0_user_calendar_group_calendar_event = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_group_calendar_event_operations#UserCalendarGroupCalendarEventOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_events_operations#UsersCalendarGroupsCalendarsEventsOperations.{}',
     client_factory=cf_user_calendar_group_calendar_event,
 )
 
 
 usersfunctions_v1_0_user_calendar_group_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_group_calendar_operations#UserCalendarGroupCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_groups_calendars_operations#UsersCalendarGroupsCalendarsOperations.{}',
     client_factory=cf_user_calendar_group_calendar,
 )
 
 
 usersfunctions_v1_0_user_calendar_calendar_view_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_calendar_view_calendar_operations#UserCalendarCalendarViewCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendars_calendar_view_calendar_operations#UsersCalendarsCalendarViewCalendarOperations.{}',
     client_factory=cf_user_calendar_calendar_view_calendar,
 )
 
 
 usersfunctions_v1_0_user_calendar_calendar_view_instance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_calendar_view_instance_operations#UserCalendarCalendarViewInstanceOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendars_calendar_view_instances_operations#UsersCalendarsCalendarViewInstancesOperations.{}',
     client_factory=cf_user_calendar_calendar_view_instance,
 )
 
 
 usersfunctions_v1_0_user_calendar_calendar_view = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendars_calendar_view_operations#UsersCalendarsCalendarViewOperations.{}',
     client_factory=cf_user_calendar_calendar_view,
 )
 
 
 usersfunctions_v1_0_user_calendar_event_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_event_calendar_operations#UserCalendarEventCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendars_events_calendar_operations#UsersCalendarsEventsCalendarOperations.{}',
     client_factory=cf_user_calendar_event_calendar,
 )
 
 
 usersfunctions_v1_0_user_calendar_event_instance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_event_instance_operations#UserCalendarEventInstanceOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendars_events_instances_operations#UsersCalendarsEventsInstancesOperations.{}',
     client_factory=cf_user_calendar_event_instance,
 )
 
 
 usersfunctions_v1_0_user_calendar_event = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendars_events_operations#UsersCalendarsEventsOperations.{}',
     client_factory=cf_user_calendar_event,
 )
 
 
 usersfunctions_v1_0_user_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_operations#UserCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendars_operations#UsersCalendarsOperations.{}',
     client_factory=cf_user_calendar,
 )
 
 
 usersfunctions_v1_0_user_calendar_view_calendar_calendar_view = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_view_calendar_calendar_view_operations#UserCalendarViewCalendarCalendarViewOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_view_calendar_calendar_view_operations#UsersCalendarViewCalendarCalendarViewOperations.{}',
     client_factory=cf_user_calendar_view_calendar_calendar_view,
 )
 
 
 usersfunctions_v1_0_user_calendar_view_calendar_event = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_view_calendar_event_operations#UserCalendarViewCalendarEventOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_view_calendar_events_operations#UsersCalendarViewCalendarEventsOperations.{}',
     client_factory=cf_user_calendar_view_calendar_event,
 )
 
 
 usersfunctions_v1_0_user_calendar_view_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_view_calendar_operations#UserCalendarViewCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_view_calendar_operations#UsersCalendarViewCalendarOperations.{}',
     client_factory=cf_user_calendar_view_calendar,
 )
 
 
 usersfunctions_v1_0_user_calendar_view_instance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_view_instance_operations#UserCalendarViewInstanceOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_view_instances_operations#UsersCalendarViewInstancesOperations.{}',
     client_factory=cf_user_calendar_view_instance,
 )
 
 
 usersfunctions_v1_0_user_calendar_view = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_calendar_view_operations#UserCalendarViewOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_calendar_view_operations#UsersCalendarViewOperations.{}',
     client_factory=cf_user_calendar_view,
 )
 
 
 usersfunctions_v1_0_user_contact_folder_child_folder = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_contact_folder_child_folder_operations#UserContactFolderChildFolderOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_contact_folders_child_folders_operations#UsersContactFoldersChildFoldersOperations.{}',
     client_factory=cf_user_contact_folder_child_folder,
 )
 
 
 usersfunctions_v1_0_user_contact_folder_contact = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_contact_folder_contact_operations#UserContactFolderContactOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_contact_folders_contacts_operations#UsersContactFoldersContactsOperations.{}',
     client_factory=cf_user_contact_folder_contact,
 )
 
 
 usersfunctions_v1_0_user_contact_folder = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_contact_folder_operations#UserContactFolderOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_contact_folders_operations#UsersContactFoldersOperations.{}',
     client_factory=cf_user_contact_folder,
 )
 
 
 usersfunctions_v1_0_user_contact = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_contact_operations#UserContactOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_contacts_operations#UsersContactsOperations.{}',
     client_factory=cf_user_contact,
 )
 
 
 usersfunctions_v1_0_user_event_calendar_calendar_view = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_event_calendar_calendar_view_operations#UserEventCalendarCalendarViewOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_events_calendar_calendar_view_operations#UsersEventsCalendarCalendarViewOperations.{}',
     client_factory=cf_user_event_calendar_calendar_view,
 )
 
 
 usersfunctions_v1_0_user_event_calendar_event = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_event_calendar_event_operations#UserEventCalendarEventOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_events_calendar_events_operations#UsersEventsCalendarEventsOperations.{}',
     client_factory=cf_user_event_calendar_event,
 )
 
 
 usersfunctions_v1_0_user_event_calendar = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_event_calendar_operations#UserEventCalendarOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_events_calendar_operations#UsersEventsCalendarOperations.{}',
     client_factory=cf_user_event_calendar,
 )
 
 
 usersfunctions_v1_0_user_event_instance = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_event_instance_operations#UserEventInstanceOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_events_instances_operations#UsersEventsInstancesOperations.{}',
     client_factory=cf_user_event_instance,
 )
 
 
 usersfunctions_v1_0_user_event = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_event_operations#UserEventOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_events_operations#UsersEventsOperations.{}',
     client_factory=cf_user_event,
 )
 
 
 usersfunctions_v1_0_user_mail_folder_child_folder = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_mail_folder_child_folder_operations#UserMailFolderChildFolderOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_mail_folders_child_folders_operations#UsersMailFoldersChildFoldersOperations.{}',
     client_factory=cf_user_mail_folder_child_folder,
 )
 
 
 usersfunctions_v1_0_user_mail_folder_message = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_mail_folder_message_operations#UserMailFolderMessageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_mail_folders_messages_operations#UsersMailFoldersMessagesOperations.{}',
     client_factory=cf_user_mail_folder_message,
 )
 
 
 usersfunctions_v1_0_user_mail_folder = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_mail_folder_operations#UserMailFolderOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_mail_folders_operations#UsersMailFoldersOperations.{}',
     client_factory=cf_user_mail_folder,
 )
 
 
 usersfunctions_v1_0_user_managed_app_registration = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_managed_app_registration_operations#UserManagedAppRegistrationOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_managed_app_registrations_operations#UsersManagedAppRegistrationsOperations.{}',
     client_factory=cf_user_managed_app_registration,
 )
 
 
 usersfunctions_v1_0_user_message = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_message_operations#UserMessageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_messages_operations#UsersMessagesOperations.{}',
     client_factory=cf_user_message,
 )
 
 
 usersfunctions_v1_0_user = CliCommandType(
     operations_tmpl=(
-        'azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_operations#UserOperations.{}'
+        'azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_operations#UsersOperations.{}'
     ),
     client_factory=cf_user,
 )
 
 
 usersfunctions_v1_0_user_onenote_notebook_section_group_section_page = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_onenote_notebook_section_group_section_page_operations#UserOnenoteNotebookSectionGroupSectionPageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_onenote_notebooks_section_groups_sections_pages_operations#UsersOnenoteNotebooksSectionGroupsSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_notebook_section_group_section_page,
 )
 
 
 usersfunctions_v1_0_user_onenote_notebook_section_page = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_onenote_notebook_section_page_operations#UserOnenoteNotebookSectionPageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_onenote_notebooks_sections_pages_operations#UsersOnenoteNotebooksSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_notebook_section_page,
 )
 
 
 usersfunctions_v1_0_user_onenote_notebook = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_onenote_notebook_operations#UserOnenoteNotebookOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_onenote_notebooks_operations#UsersOnenoteNotebooksOperations.{}',
     client_factory=cf_user_onenote_notebook,
 )
 
 
 usersfunctions_v1_0_user_onenote_page = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_onenote_page_operations#UserOnenotePageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_onenote_pages_operations#UsersOnenotePagesOperations.{}',
     client_factory=cf_user_onenote_page,
 )
 
 
 usersfunctions_v1_0_user_onenote_page_parent_notebook_section_group_section_page = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_onenote_page_parent_notebook_section_group_section_page_operations#UserOnenotePageParentNotebookSectionGroupSectionPageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_onenote_pages_parent_notebook_section_groups_sections_pages_operations#UsersOnenotePagesParentNotebookSectionGroupsSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_page_parent_notebook_section_group_section_page,
 )
 
 
 usersfunctions_v1_0_user_onenote_page_parent_notebook_section_page = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_onenote_page_parent_notebook_section_page_operations#UserOnenotePageParentNotebookSectionPageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_onenote_pages_parent_notebook_sections_pages_operations#UsersOnenotePagesParentNotebookSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_page_parent_notebook_section_page,
 )
 
 
 usersfunctions_v1_0_user_onenote_page_parent_section_page = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_onenote_page_parent_section_page_operations#UserOnenotePageParentSectionPageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_onenote_pages_parent_section_pages_operations#UsersOnenotePagesParentSectionPagesOperations.{}',
     client_factory=cf_user_onenote_page_parent_section_page,
 )
 
 
 usersfunctions_v1_0_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_onenote_section_group_parent_notebook_section_page_operations#UserOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_onenote_section_groups_parent_notebook_sections_pages_operations#UsersOnenoteSectionGroupsParentNotebookSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
 )
 
 
 usersfunctions_v1_0_user_onenote_section_group_section_page = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_onenote_section_group_section_page_operations#UserOnenoteSectionGroupSectionPageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_onenote_section_groups_sections_pages_operations#UsersOnenoteSectionGroupsSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_section_group_section_page,
 )
 
 
 usersfunctions_v1_0_user_onenote_section_page = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_onenote_section_page_operations#UserOnenoteSectionPageOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_onenote_sections_pages_operations#UsersOnenoteSectionsPagesOperations.{}',
     client_factory=cf_user_onenote_section_page,
 )
 
 
 usersfunctions_v1_0_user_outlook = CliCommandType(
-    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._user_outlook_operations#UserOutlookOperations.{}',
+    operations_tmpl='azext_usersfunctions_v1_0.vendored_sdks.usersfunctions.operations._users_outlook_operations#UsersOutlookOperations.{}',
     client_factory=cf_user_outlook,
 )
 

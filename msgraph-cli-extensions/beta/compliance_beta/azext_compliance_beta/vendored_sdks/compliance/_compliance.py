@@ -21,11 +21,11 @@ from ._configuration import ComplianceConfiguration
 from .operations import ComplianceComplianceOperations
 from .operations import ComplianceOperations
 from .operations import ComplianceEdiscoveryOperations
-from .operations import ComplianceEdiscoveryCaseOperations
-from .operations import ComplianceEdiscoveryCaseCustodianOperations
-from .operations import ComplianceEdiscoveryCaseCustodianSiteSourceOperations
-from .operations import ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations
-from .operations import ComplianceEdiscoveryCaseReviewSetOperations
+from .operations import ComplianceEdiscoveryCasesOperations
+from .operations import ComplianceEdiscoveryCasesCustodiansOperations
+from .operations import ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations
+from .operations import ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations
+from .operations import ComplianceEdiscoveryCasesReviewSetsOperations
 from . import models
 
 
@@ -38,16 +38,16 @@ class Compliance(object):
     :vartype compliance: compliance.operations.ComplianceOperations
     :ivar compliance_ediscovery: ComplianceEdiscoveryOperations operations
     :vartype compliance_ediscovery: compliance.operations.ComplianceEdiscoveryOperations
-    :ivar compliance_ediscovery_case: ComplianceEdiscoveryCaseOperations operations
-    :vartype compliance_ediscovery_case: compliance.operations.ComplianceEdiscoveryCaseOperations
-    :ivar compliance_ediscovery_case_custodian: ComplianceEdiscoveryCaseCustodianOperations operations
-    :vartype compliance_ediscovery_case_custodian: compliance.operations.ComplianceEdiscoveryCaseCustodianOperations
-    :ivar compliance_ediscovery_case_custodian_site_source: ComplianceEdiscoveryCaseCustodianSiteSourceOperations operations
-    :vartype compliance_ediscovery_case_custodian_site_source: compliance.operations.ComplianceEdiscoveryCaseCustodianSiteSourceOperations
-    :ivar compliance_ediscovery_case_custodian_unified_group_source: ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations operations
-    :vartype compliance_ediscovery_case_custodian_unified_group_source: compliance.operations.ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations
-    :ivar compliance_ediscovery_case_review_set: ComplianceEdiscoveryCaseReviewSetOperations operations
-    :vartype compliance_ediscovery_case_review_set: compliance.operations.ComplianceEdiscoveryCaseReviewSetOperations
+    :ivar compliance_ediscovery_cases: ComplianceEdiscoveryCasesOperations operations
+    :vartype compliance_ediscovery_cases: compliance.operations.ComplianceEdiscoveryCasesOperations
+    :ivar compliance_ediscovery_cases_custodians: ComplianceEdiscoveryCasesCustodiansOperations operations
+    :vartype compliance_ediscovery_cases_custodians: compliance.operations.ComplianceEdiscoveryCasesCustodiansOperations
+    :ivar compliance_ediscovery_cases_custodians_site_sources: ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations operations
+    :vartype compliance_ediscovery_cases_custodians_site_sources: compliance.operations.ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations
+    :ivar compliance_ediscovery_cases_custodians_unified_group_sources: ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations operations
+    :vartype compliance_ediscovery_cases_custodians_unified_group_sources: compliance.operations.ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations
+    :ivar compliance_ediscovery_cases_review_sets: ComplianceEdiscoveryCasesReviewSetsOperations operations
+    :vartype compliance_ediscovery_cases_review_sets: compliance.operations.ComplianceEdiscoveryCasesReviewSetsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -91,15 +91,15 @@ class Compliance(object):
             self._client, self._config, self._serialize, self._deserialize)
         self.compliance_ediscovery = ComplianceEdiscoveryOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery_case = ComplianceEdiscoveryCaseOperations(
+        self.compliance_ediscovery_cases = ComplianceEdiscoveryCasesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery_case_custodian = ComplianceEdiscoveryCaseCustodianOperations(
+        self.compliance_ediscovery_cases_custodians = ComplianceEdiscoveryCasesCustodiansOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery_case_custodian_site_source = ComplianceEdiscoveryCaseCustodianSiteSourceOperations(
+        self.compliance_ediscovery_cases_custodians_site_sources = ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery_case_custodian_unified_group_source = ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations(
+        self.compliance_ediscovery_cases_custodians_unified_group_sources = ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.compliance_ediscovery_case_review_set = ComplianceEdiscoveryCaseReviewSetOperations(
+        self.compliance_ediscovery_cases_review_sets = ComplianceEdiscoveryCasesReviewSetsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

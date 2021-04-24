@@ -104,7 +104,7 @@ class ExternalExternalOperations(object):
 
     def update_external(
         self,
-        connections=None,  # type: Optional[List["models.MicrosoftGraphExternalConnection"]]
+        body,  # type: "models.MicrosoftGraphExternal"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -112,8 +112,8 @@ class ExternalExternalOperations(object):
 
         Update external.
 
-        :param connections:
-        :type connections: list[~search.models.MicrosoftGraphExternalConnection]
+        :param body: New property values.
+        :type body: ~search.models.MicrosoftGraphExternal
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -124,8 +124,6 @@ class ExternalExternalOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphExternal(connections=connections)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

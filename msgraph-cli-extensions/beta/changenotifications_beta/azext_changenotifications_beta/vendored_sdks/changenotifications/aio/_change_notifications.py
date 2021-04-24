@@ -16,15 +16,15 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import ChangeNotificationsConfiguration
-from .operations import SubscriptionSubscriptionOperations
+from .operations import SubscriptionsSubscriptionOperations
 from .. import models
 
 
 class ChangeNotifications(object):
     """ChangeNotifications.
 
-    :ivar subscription_subscription: SubscriptionSubscriptionOperations operations
-    :vartype subscription_subscription: change_notifications.aio.operations.SubscriptionSubscriptionOperations
+    :ivar subscriptions_subscription: SubscriptionsSubscriptionOperations operations
+    :vartype subscriptions_subscription: change_notifications.aio.operations.SubscriptionsSubscriptionOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -61,7 +61,7 @@ class ChangeNotifications(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.subscription_subscription = SubscriptionSubscriptionOperations(
+        self.subscriptions_subscription = SubscriptionsSubscriptionOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

@@ -56,37 +56,37 @@ education_beta_education = CliCommandType(
 
 
 education_beta_education_class = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_operations#EducationClassOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_operations#EducationClassesOperations.{}',
     client_factory=cf_education_class,
 )
 
 
 education_beta_education_class_assignment = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_assignment_operations#EducationClassAssignmentOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_assignments_operations#EducationClassesAssignmentsOperations.{}',
     client_factory=cf_education_class_assignment,
 )
 
 
 education_beta_education_class_assignment_submission = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_assignment_submission_operations#EducationClassAssignmentSubmissionOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_assignments_submissions_operations#EducationClassesAssignmentsSubmissionsOperations.{}',
     client_factory=cf_education_class_assignment_submission,
 )
 
 
 education_beta_education_class_member = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_member_operations#EducationClassMemberOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_members_operations#EducationClassesMembersOperations.{}',
     client_factory=cf_education_class_member,
 )
 
 
 education_beta_education_class_school = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_school_operations#EducationClassSchoolOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_schools_operations#EducationClassesSchoolsOperations.{}',
     client_factory=cf_education_class_school,
 )
 
 
 education_beta_education_class_teacher = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_teacher_operations#EducationClassTeacherOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_classes_teachers_operations#EducationClassesTeachersOperations.{}',
     client_factory=cf_education_class_teacher,
 )
 
@@ -100,93 +100,91 @@ education_beta_education_me = CliCommandType(
 
 
 education_beta_education_me_assignment = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_assignment_operations#EducationMeAssignmentOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_assignments_operations#EducationMeAssignmentsOperations.{}',
     client_factory=cf_education_me_assignment,
 )
 
 
 education_beta_education_me_assignment_submission = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_assignment_submission_operations#EducationMeAssignmentSubmissionOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_assignments_submissions_operations#EducationMeAssignmentsSubmissionsOperations.{}',
     client_factory=cf_education_me_assignment_submission,
 )
 
 
 education_beta_education_me_class = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_class_operations#EducationMeClassOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_classes_operations#EducationMeClassesOperations.{}',
     client_factory=cf_education_me_class,
 )
 
 
 education_beta_education_me_school = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_school_operations#EducationMeSchoolOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_schools_operations#EducationMeSchoolsOperations.{}',
     client_factory=cf_education_me_school,
 )
 
 
 education_beta_education_me_taught_class = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_taught_class_operations#EducationMeTaughtClassOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_taught_classes_operations#EducationMeTaughtClassesOperations.{}',
     client_factory=cf_education_me_taught_class,
 )
 
 
 education_beta_education_school = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_school_operations#EducationSchoolOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_schools_operations#EducationSchoolsOperations.{}',
     client_factory=cf_education_school,
 )
 
 
 education_beta_education_school_class = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_school_class_operations#EducationSchoolClassOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_schools_classes_operations#EducationSchoolsClassesOperations.{}',
     client_factory=cf_education_school_class,
 )
 
 
 education_beta_education_school_user = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_school_user_operations#EducationSchoolUserOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_schools_users_operations#EducationSchoolsUsersOperations.{}',
     client_factory=cf_education_school_user,
 )
 
 
 education_beta_education_synchronization_profile = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_synchronization_profile_operations#EducationSynchronizationProfileOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_synchronization_profiles_operations#EducationSynchronizationProfilesOperations.{}',
     client_factory=cf_education_synchronization_profile,
 )
 
 
 education_beta_education_user = CliCommandType(
-    operations_tmpl=(
-        'azext_education_beta.vendored_sdks.education.operations._education_user_operations#EducationUserOperations.{}'
-    ),
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_operations#EducationUsersOperations.{}',
     client_factory=cf_education_user,
 )
 
 
 education_beta_education_user_assignment = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_assignment_operations#EducationUserAssignmentOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_assignments_operations#EducationUsersAssignmentsOperations.{}',
     client_factory=cf_education_user_assignment,
 )
 
 
 education_beta_education_user_assignment_submission = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_assignment_submission_operations#EducationUserAssignmentSubmissionOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_assignments_submissions_operations#EducationUsersAssignmentsSubmissionsOperations.{}',
     client_factory=cf_education_user_assignment_submission,
 )
 
 
 education_beta_education_user_class = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_class_operations#EducationUserClassOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_classes_operations#EducationUsersClassesOperations.{}',
     client_factory=cf_education_user_class,
 )
 
 
 education_beta_education_user_school = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_school_operations#EducationUserSchoolOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_schools_operations#EducationUsersSchoolsOperations.{}',
     client_factory=cf_education_user_school,
 )
 
 
 education_beta_education_user_taught_class = CliCommandType(
-    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_taught_class_operations#EducationUserTaughtClassOperations.{}',
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_users_taught_classes_operations#EducationUsersTaughtClassesOperations.{}',
     client_factory=cf_education_user_taught_class,
 )
 

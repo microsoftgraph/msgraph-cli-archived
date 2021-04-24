@@ -4424,6 +4424,8 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param class_code: Class code used by the school to identify the class.
     :type class_code: str
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param description: Description of the class.
     :type description: str
     :param display_name: Name of the class.
@@ -4447,18 +4449,13 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
     :type schools: list[~education.models.MicrosoftGraphEducationSchool]
     :param teachers: All teachers in the class. Nullable.
     :type teachers: list[~education.models.MicrosoftGraphEducationUser]
-    :param application: identity.
-    :type application: ~education.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~education.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'class_code': {'key': 'classCode', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'external_id': {'key': 'externalId', 'type': 'str'},
@@ -4470,9 +4467,6 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         'members': {'key': 'members', 'type': '[MicrosoftGraphEducationUser]'},
         'schools': {'key': 'schools', 'type': '[MicrosoftGraphEducationSchool]'},
         'teachers': {'key': 'teachers', 'type': '[MicrosoftGraphEducationUser]'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -4481,6 +4475,7 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         class_code: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         external_id: Optional[str] = None,
@@ -4492,14 +4487,12 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         members: Optional[List["MicrosoftGraphEducationUser"]] = None,
         schools: Optional[List["MicrosoftGraphEducationSchool"]] = None,
         teachers: Optional[List["MicrosoftGraphEducationUser"]] = None,
-        application: Optional["MicrosoftGraphIdentity"] = None,
-        device: Optional["MicrosoftGraphIdentity"] = None,
-        user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphEducationClass, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.class_code = class_code
+        self.created_by = created_by
         self.description = description
         self.display_name = display_name
         self.external_id = external_id
@@ -4511,9 +4504,6 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         self.members = members
         self.schools = schools
         self.teachers = teachers
-        self.application = application
-        self.device = device
-        self.user = user
 
 
 class MicrosoftGraphEducationOrganization(MicrosoftGraphEntity):
@@ -4619,6 +4609,8 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
     :type address: ~education.models.MicrosoftGraphPhysicalAddress
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param external_id: ID of school in syncing system.
     :type external_id: str
     :param external_principal_id: ID of principal in syncing system.
@@ -4641,12 +4633,6 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
     :type classes: list[~education.models.MicrosoftGraphEducationClass]
     :param users: Users in the school. Nullable.
     :type users: list[~education.models.MicrosoftGraphEducationUser]
-    :param application: identity.
-    :type application: ~education.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~education.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -4656,6 +4642,7 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         'external_source': {'key': 'externalSource', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'external_id': {'key': 'externalId', 'type': 'str'},
         'external_principal_id': {'key': 'externalPrincipalId', 'type': 'str'},
         'fax': {'key': 'fax', 'type': 'str'},
@@ -4667,9 +4654,6 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         'school_number': {'key': 'schoolNumber', 'type': 'str'},
         'classes': {'key': 'classes', 'type': '[MicrosoftGraphEducationClass]'},
         'users': {'key': 'users', 'type': '[MicrosoftGraphEducationUser]'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -4681,6 +4665,7 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         external_source: Optional[Union[str, "MicrosoftGraphEducationExternalSource"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         address: Optional["MicrosoftGraphPhysicalAddress"] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         external_id: Optional[str] = None,
         external_principal_id: Optional[str] = None,
         fax: Optional[str] = None,
@@ -4692,14 +4677,12 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         school_number: Optional[str] = None,
         classes: Optional[List["MicrosoftGraphEducationClass"]] = None,
         users: Optional[List["MicrosoftGraphEducationUser"]] = None,
-        application: Optional["MicrosoftGraphIdentity"] = None,
-        device: Optional["MicrosoftGraphIdentity"] = None,
-        user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphEducationSchool, self).__init__(id=id, description=description, display_name=display_name, external_source=external_source, **kwargs)
         self.additional_properties = additional_properties
         self.address = address
+        self.created_by = created_by
         self.external_id = external_id
         self.external_principal_id = external_principal_id
         self.fax = fax
@@ -4711,9 +4694,6 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         self.school_number = school_number
         self.classes = classes
         self.users = users
-        self.application = application
-        self.device = device
-        self.user = user
 
 
 class MicrosoftGraphEducationStudent(msrest.serialization.Model):
@@ -4860,6 +4840,8 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :param business_phones: The telephone numbers for the user. Note: Although this is a string
      collection, only one number can be set for this property.
     :type business_phones: list[str]
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param department: The name for the department in which the user works. Supports $filter.
     :type department: str
     :param display_name: The name displayed in the address book for the user. This is usually the
@@ -4932,12 +4914,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :type schools: list[~education.models.MicrosoftGraphEducationSchool]
     :param user: Represents an Azure Active Directory user object.
     :type user: ~education.models.MicrosoftGraphUser
-    :param application: identity.
-    :type application: ~education.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~education.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -4947,6 +4923,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'assigned_licenses': {'key': 'assignedLicenses', 'type': '[MicrosoftGraphAssignedLicense]'},
         'assigned_plans': {'key': 'assignedPlans', 'type': '[MicrosoftGraphAssignedPlan]'},
         'business_phones': {'key': 'businessPhones', 'type': '[str]'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'department': {'key': 'department', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'external_source': {'key': 'externalSource', 'type': 'str'},
@@ -4974,9 +4951,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'classes': {'key': 'classes', 'type': '[MicrosoftGraphEducationClass]'},
         'schools': {'key': 'schools', 'type': '[MicrosoftGraphEducationSchool]'},
         'user': {'key': 'user', 'type': 'MicrosoftGraphUser'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -4988,6 +4962,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         assigned_licenses: Optional[List["MicrosoftGraphAssignedLicense"]] = None,
         assigned_plans: Optional[List["MicrosoftGraphAssignedPlan"]] = None,
         business_phones: Optional[List[str]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         department: Optional[str] = None,
         display_name: Optional[str] = None,
         external_source: Optional[Union[str, "MicrosoftGraphEducationExternalSource"]] = None,
@@ -5015,9 +4990,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         classes: Optional[List["MicrosoftGraphEducationClass"]] = None,
         schools: Optional[List["MicrosoftGraphEducationSchool"]] = None,
         user: Optional["MicrosoftGraphUser"] = None,
-        application: Optional["MicrosoftGraphIdentity"] = None,
-        device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphEducationUser, self).__init__(id=id, **kwargs)
@@ -5026,6 +4998,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.assigned_licenses = assigned_licenses
         self.assigned_plans = assigned_plans
         self.business_phones = business_phones
+        self.created_by = created_by
         self.department = department
         self.display_name = display_name
         self.external_source = external_source
@@ -5053,9 +5026,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.classes = classes
         self.schools = schools
         self.user = user
-        self.application = application
-        self.device = device
-        self.user_created_by_user = user_created_by_user
 
 
 class MicrosoftGraphEmailAddress(msrest.serialization.Model):

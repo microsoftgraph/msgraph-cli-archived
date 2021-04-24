@@ -18,153 +18,153 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import FinancialsConfiguration
-from .operations import FinancialFinancialOperations
-from .operations import FinancialOperations
-from .operations import FinancialCompanyOperations
-from .operations import FinancialCompanyCustomerPaymentJournalOperations
-from .operations import FinancialCompanyCustomerPaymentJournalCustomerPaymentOperations
-from .operations import FinancialCompanyCustomerPaymentJournalCustomerPaymentCustomerOperations
-from .operations import FinancialCompanyCustomerPaymentOperations
-from .operations import FinancialCompanyCustomerPaymentCustomerOperations
-from .operations import FinancialCompanyCustomerOperations
-from .operations import FinancialCompanyDimensionOperations
-from .operations import FinancialCompanyEmployeeOperations
-from .operations import FinancialCompanyGeneralLedgerEntryOperations
-from .operations import FinancialCompanyItemOperations
-from .operations import FinancialCompanyJournalLineOperations
-from .operations import FinancialCompanyJournalOperations
-from .operations import FinancialCompanyJournalJournalLineOperations
-from .operations import FinancialCompanyPurchaseInvoiceLineOperations
-from .operations import FinancialCompanyPurchaseInvoiceLineItemOperations
-from .operations import FinancialCompanyPurchaseInvoiceOperations
-from .operations import FinancialCompanyPurchaseInvoicePurchaseInvoiceLineOperations
-from .operations import FinancialCompanyPurchaseInvoicePurchaseInvoiceLineItemOperations
-from .operations import FinancialCompanyPurchaseInvoiceVendorOperations
-from .operations import FinancialCompanySaleCreditMemoLineOperations
-from .operations import FinancialCompanySaleCreditMemoLineItemOperations
-from .operations import FinancialCompanySaleCreditMemoOperations
-from .operations import FinancialCompanySaleCreditMemoCustomerOperations
-from .operations import FinancialCompanySaleCreditMemoSaleCreditMemoLineOperations
-from .operations import FinancialCompanySaleCreditMemoSaleCreditMemoLineItemOperations
-from .operations import FinancialCompanySaleInvoiceLineOperations
-from .operations import FinancialCompanySaleInvoiceLineItemOperations
-from .operations import FinancialCompanySaleInvoiceOperations
-from .operations import FinancialCompanySaleInvoiceCustomerOperations
-from .operations import FinancialCompanySaleInvoiceSaleInvoiceLineOperations
-from .operations import FinancialCompanySaleInvoiceSaleInvoiceLineItemOperations
-from .operations import FinancialCompanySaleOrderLineOperations
-from .operations import FinancialCompanySaleOrderLineItemOperations
-from .operations import FinancialCompanySaleOrderOperations
-from .operations import FinancialCompanySaleOrderCustomerOperations
-from .operations import FinancialCompanySaleOrderSaleOrderLineOperations
-from .operations import FinancialCompanySaleOrderSaleOrderLineItemOperations
-from .operations import FinancialCompanySaleQuoteLineOperations
-from .operations import FinancialCompanySaleQuoteLineItemOperations
-from .operations import FinancialCompanySaleQuoteOperations
-from .operations import FinancialCompanySaleQuoteCustomerOperations
-from .operations import FinancialCompanySaleQuoteSaleQuoteLineOperations
-from .operations import FinancialCompanySaleQuoteSaleQuoteLineItemOperations
-from .operations import FinancialCompanyVendorOperations
+from .operations import FinancialsFinancialsOperations
+from .operations import FinancialsOperations
+from .operations import FinancialsCompaniesOperations
+from .operations import FinancialsCompaniesCustomerPaymentJournalsOperations
+from .operations import FinancialsCompaniesCustomerPaymentJournalsCustomerPaymentsOperations
+from .operations import FinancialsCompaniesCustomerPaymentJournalsCustomerPaymentsCustomerOperations
+from .operations import FinancialsCompaniesCustomerPaymentsOperations
+from .operations import FinancialsCompaniesCustomerPaymentsCustomerOperations
+from .operations import FinancialsCompaniesCustomersOperations
+from .operations import FinancialsCompaniesDimensionsOperations
+from .operations import FinancialsCompaniesEmployeesOperations
+from .operations import FinancialsCompaniesGeneralLedgerEntriesOperations
+from .operations import FinancialsCompaniesItemsOperations
+from .operations import FinancialsCompaniesJournalLinesOperations
+from .operations import FinancialsCompaniesJournalsOperations
+from .operations import FinancialsCompaniesJournalsJournalLinesOperations
+from .operations import FinancialsCompaniesPurchaseInvoiceLinesOperations
+from .operations import FinancialsCompaniesPurchaseInvoiceLinesItemOperations
+from .operations import FinancialsCompaniesPurchaseInvoicesOperations
+from .operations import FinancialsCompaniesPurchaseInvoicesPurchaseInvoiceLinesOperations
+from .operations import FinancialsCompaniesPurchaseInvoicesPurchaseInvoiceLinesItemOperations
+from .operations import FinancialsCompaniesPurchaseInvoicesVendorOperations
+from .operations import FinancialsCompaniesSalesCreditMemoLinesOperations
+from .operations import FinancialsCompaniesSalesCreditMemoLinesItemOperations
+from .operations import FinancialsCompaniesSalesCreditMemosOperations
+from .operations import FinancialsCompaniesSalesCreditMemosCustomerOperations
+from .operations import FinancialsCompaniesSalesCreditMemosSalesCreditMemoLinesOperations
+from .operations import FinancialsCompaniesSalesCreditMemosSalesCreditMemoLinesItemOperations
+from .operations import FinancialsCompaniesSalesInvoiceLinesOperations
+from .operations import FinancialsCompaniesSalesInvoiceLinesItemOperations
+from .operations import FinancialsCompaniesSalesInvoicesOperations
+from .operations import FinancialsCompaniesSalesInvoicesCustomerOperations
+from .operations import FinancialsCompaniesSalesInvoicesSalesInvoiceLinesOperations
+from .operations import FinancialsCompaniesSalesInvoicesSalesInvoiceLinesItemOperations
+from .operations import FinancialsCompaniesSalesOrderLinesOperations
+from .operations import FinancialsCompaniesSalesOrderLinesItemOperations
+from .operations import FinancialsCompaniesSalesOrdersOperations
+from .operations import FinancialsCompaniesSalesOrdersCustomerOperations
+from .operations import FinancialsCompaniesSalesOrdersSalesOrderLinesOperations
+from .operations import FinancialsCompaniesSalesOrdersSalesOrderLinesItemOperations
+from .operations import FinancialsCompaniesSalesQuoteLinesOperations
+from .operations import FinancialsCompaniesSalesQuoteLinesItemOperations
+from .operations import FinancialsCompaniesSalesQuotesOperations
+from .operations import FinancialsCompaniesSalesQuotesCustomerOperations
+from .operations import FinancialsCompaniesSalesQuotesSalesQuoteLinesOperations
+from .operations import FinancialsCompaniesSalesQuotesSalesQuoteLinesItemOperations
+from .operations import FinancialsCompaniesVendorsOperations
 from . import models
 
 
 class Financials(object):
     """Financials.
 
-    :ivar financial_financial: FinancialFinancialOperations operations
-    :vartype financial_financial: financials.operations.FinancialFinancialOperations
-    :ivar financial: FinancialOperations operations
-    :vartype financial: financials.operations.FinancialOperations
-    :ivar financial_company: FinancialCompanyOperations operations
-    :vartype financial_company: financials.operations.FinancialCompanyOperations
-    :ivar financial_company_customer_payment_journal: FinancialCompanyCustomerPaymentJournalOperations operations
-    :vartype financial_company_customer_payment_journal: financials.operations.FinancialCompanyCustomerPaymentJournalOperations
-    :ivar financial_company_customer_payment_journal_customer_payment: FinancialCompanyCustomerPaymentJournalCustomerPaymentOperations operations
-    :vartype financial_company_customer_payment_journal_customer_payment: financials.operations.FinancialCompanyCustomerPaymentJournalCustomerPaymentOperations
-    :ivar financial_company_customer_payment_journal_customer_payment_customer: FinancialCompanyCustomerPaymentJournalCustomerPaymentCustomerOperations operations
-    :vartype financial_company_customer_payment_journal_customer_payment_customer: financials.operations.FinancialCompanyCustomerPaymentJournalCustomerPaymentCustomerOperations
-    :ivar financial_company_customer_payment: FinancialCompanyCustomerPaymentOperations operations
-    :vartype financial_company_customer_payment: financials.operations.FinancialCompanyCustomerPaymentOperations
-    :ivar financial_company_customer_payment_customer: FinancialCompanyCustomerPaymentCustomerOperations operations
-    :vartype financial_company_customer_payment_customer: financials.operations.FinancialCompanyCustomerPaymentCustomerOperations
-    :ivar financial_company_customer: FinancialCompanyCustomerOperations operations
-    :vartype financial_company_customer: financials.operations.FinancialCompanyCustomerOperations
-    :ivar financial_company_dimension: FinancialCompanyDimensionOperations operations
-    :vartype financial_company_dimension: financials.operations.FinancialCompanyDimensionOperations
-    :ivar financial_company_employee: FinancialCompanyEmployeeOperations operations
-    :vartype financial_company_employee: financials.operations.FinancialCompanyEmployeeOperations
-    :ivar financial_company_general_ledger_entry: FinancialCompanyGeneralLedgerEntryOperations operations
-    :vartype financial_company_general_ledger_entry: financials.operations.FinancialCompanyGeneralLedgerEntryOperations
-    :ivar financial_company_item: FinancialCompanyItemOperations operations
-    :vartype financial_company_item: financials.operations.FinancialCompanyItemOperations
-    :ivar financial_company_journal_line: FinancialCompanyJournalLineOperations operations
-    :vartype financial_company_journal_line: financials.operations.FinancialCompanyJournalLineOperations
-    :ivar financial_company_journal: FinancialCompanyJournalOperations operations
-    :vartype financial_company_journal: financials.operations.FinancialCompanyJournalOperations
-    :ivar financial_company_journal_journal_line: FinancialCompanyJournalJournalLineOperations operations
-    :vartype financial_company_journal_journal_line: financials.operations.FinancialCompanyJournalJournalLineOperations
-    :ivar financial_company_purchase_invoice_line: FinancialCompanyPurchaseInvoiceLineOperations operations
-    :vartype financial_company_purchase_invoice_line: financials.operations.FinancialCompanyPurchaseInvoiceLineOperations
-    :ivar financial_company_purchase_invoice_line_item: FinancialCompanyPurchaseInvoiceLineItemOperations operations
-    :vartype financial_company_purchase_invoice_line_item: financials.operations.FinancialCompanyPurchaseInvoiceLineItemOperations
-    :ivar financial_company_purchase_invoice: FinancialCompanyPurchaseInvoiceOperations operations
-    :vartype financial_company_purchase_invoice: financials.operations.FinancialCompanyPurchaseInvoiceOperations
-    :ivar financial_company_purchase_invoice_purchase_invoice_line: FinancialCompanyPurchaseInvoicePurchaseInvoiceLineOperations operations
-    :vartype financial_company_purchase_invoice_purchase_invoice_line: financials.operations.FinancialCompanyPurchaseInvoicePurchaseInvoiceLineOperations
-    :ivar financial_company_purchase_invoice_purchase_invoice_line_item: FinancialCompanyPurchaseInvoicePurchaseInvoiceLineItemOperations operations
-    :vartype financial_company_purchase_invoice_purchase_invoice_line_item: financials.operations.FinancialCompanyPurchaseInvoicePurchaseInvoiceLineItemOperations
-    :ivar financial_company_purchase_invoice_vendor: FinancialCompanyPurchaseInvoiceVendorOperations operations
-    :vartype financial_company_purchase_invoice_vendor: financials.operations.FinancialCompanyPurchaseInvoiceVendorOperations
-    :ivar financial_company_sale_credit_memo_line: FinancialCompanySaleCreditMemoLineOperations operations
-    :vartype financial_company_sale_credit_memo_line: financials.operations.FinancialCompanySaleCreditMemoLineOperations
-    :ivar financial_company_sale_credit_memo_line_item: FinancialCompanySaleCreditMemoLineItemOperations operations
-    :vartype financial_company_sale_credit_memo_line_item: financials.operations.FinancialCompanySaleCreditMemoLineItemOperations
-    :ivar financial_company_sale_credit_memo: FinancialCompanySaleCreditMemoOperations operations
-    :vartype financial_company_sale_credit_memo: financials.operations.FinancialCompanySaleCreditMemoOperations
-    :ivar financial_company_sale_credit_memo_customer: FinancialCompanySaleCreditMemoCustomerOperations operations
-    :vartype financial_company_sale_credit_memo_customer: financials.operations.FinancialCompanySaleCreditMemoCustomerOperations
-    :ivar financial_company_sale_credit_memo_sale_credit_memo_line: FinancialCompanySaleCreditMemoSaleCreditMemoLineOperations operations
-    :vartype financial_company_sale_credit_memo_sale_credit_memo_line: financials.operations.FinancialCompanySaleCreditMemoSaleCreditMemoLineOperations
-    :ivar financial_company_sale_credit_memo_sale_credit_memo_line_item: FinancialCompanySaleCreditMemoSaleCreditMemoLineItemOperations operations
-    :vartype financial_company_sale_credit_memo_sale_credit_memo_line_item: financials.operations.FinancialCompanySaleCreditMemoSaleCreditMemoLineItemOperations
-    :ivar financial_company_sale_invoice_line: FinancialCompanySaleInvoiceLineOperations operations
-    :vartype financial_company_sale_invoice_line: financials.operations.FinancialCompanySaleInvoiceLineOperations
-    :ivar financial_company_sale_invoice_line_item: FinancialCompanySaleInvoiceLineItemOperations operations
-    :vartype financial_company_sale_invoice_line_item: financials.operations.FinancialCompanySaleInvoiceLineItemOperations
-    :ivar financial_company_sale_invoice: FinancialCompanySaleInvoiceOperations operations
-    :vartype financial_company_sale_invoice: financials.operations.FinancialCompanySaleInvoiceOperations
-    :ivar financial_company_sale_invoice_customer: FinancialCompanySaleInvoiceCustomerOperations operations
-    :vartype financial_company_sale_invoice_customer: financials.operations.FinancialCompanySaleInvoiceCustomerOperations
-    :ivar financial_company_sale_invoice_sale_invoice_line: FinancialCompanySaleInvoiceSaleInvoiceLineOperations operations
-    :vartype financial_company_sale_invoice_sale_invoice_line: financials.operations.FinancialCompanySaleInvoiceSaleInvoiceLineOperations
-    :ivar financial_company_sale_invoice_sale_invoice_line_item: FinancialCompanySaleInvoiceSaleInvoiceLineItemOperations operations
-    :vartype financial_company_sale_invoice_sale_invoice_line_item: financials.operations.FinancialCompanySaleInvoiceSaleInvoiceLineItemOperations
-    :ivar financial_company_sale_order_line: FinancialCompanySaleOrderLineOperations operations
-    :vartype financial_company_sale_order_line: financials.operations.FinancialCompanySaleOrderLineOperations
-    :ivar financial_company_sale_order_line_item: FinancialCompanySaleOrderLineItemOperations operations
-    :vartype financial_company_sale_order_line_item: financials.operations.FinancialCompanySaleOrderLineItemOperations
-    :ivar financial_company_sale_order: FinancialCompanySaleOrderOperations operations
-    :vartype financial_company_sale_order: financials.operations.FinancialCompanySaleOrderOperations
-    :ivar financial_company_sale_order_customer: FinancialCompanySaleOrderCustomerOperations operations
-    :vartype financial_company_sale_order_customer: financials.operations.FinancialCompanySaleOrderCustomerOperations
-    :ivar financial_company_sale_order_sale_order_line: FinancialCompanySaleOrderSaleOrderLineOperations operations
-    :vartype financial_company_sale_order_sale_order_line: financials.operations.FinancialCompanySaleOrderSaleOrderLineOperations
-    :ivar financial_company_sale_order_sale_order_line_item: FinancialCompanySaleOrderSaleOrderLineItemOperations operations
-    :vartype financial_company_sale_order_sale_order_line_item: financials.operations.FinancialCompanySaleOrderSaleOrderLineItemOperations
-    :ivar financial_company_sale_quote_line: FinancialCompanySaleQuoteLineOperations operations
-    :vartype financial_company_sale_quote_line: financials.operations.FinancialCompanySaleQuoteLineOperations
-    :ivar financial_company_sale_quote_line_item: FinancialCompanySaleQuoteLineItemOperations operations
-    :vartype financial_company_sale_quote_line_item: financials.operations.FinancialCompanySaleQuoteLineItemOperations
-    :ivar financial_company_sale_quote: FinancialCompanySaleQuoteOperations operations
-    :vartype financial_company_sale_quote: financials.operations.FinancialCompanySaleQuoteOperations
-    :ivar financial_company_sale_quote_customer: FinancialCompanySaleQuoteCustomerOperations operations
-    :vartype financial_company_sale_quote_customer: financials.operations.FinancialCompanySaleQuoteCustomerOperations
-    :ivar financial_company_sale_quote_sale_quote_line: FinancialCompanySaleQuoteSaleQuoteLineOperations operations
-    :vartype financial_company_sale_quote_sale_quote_line: financials.operations.FinancialCompanySaleQuoteSaleQuoteLineOperations
-    :ivar financial_company_sale_quote_sale_quote_line_item: FinancialCompanySaleQuoteSaleQuoteLineItemOperations operations
-    :vartype financial_company_sale_quote_sale_quote_line_item: financials.operations.FinancialCompanySaleQuoteSaleQuoteLineItemOperations
-    :ivar financial_company_vendor: FinancialCompanyVendorOperations operations
-    :vartype financial_company_vendor: financials.operations.FinancialCompanyVendorOperations
+    :ivar financials_financials: FinancialsFinancialsOperations operations
+    :vartype financials_financials: financials.operations.FinancialsFinancialsOperations
+    :ivar financials: FinancialsOperations operations
+    :vartype financials: financials.operations.FinancialsOperations
+    :ivar financials_companies: FinancialsCompaniesOperations operations
+    :vartype financials_companies: financials.operations.FinancialsCompaniesOperations
+    :ivar financials_companies_customer_payment_journals: FinancialsCompaniesCustomerPaymentJournalsOperations operations
+    :vartype financials_companies_customer_payment_journals: financials.operations.FinancialsCompaniesCustomerPaymentJournalsOperations
+    :ivar financials_companies_customer_payment_journals_customer_payments: FinancialsCompaniesCustomerPaymentJournalsCustomerPaymentsOperations operations
+    :vartype financials_companies_customer_payment_journals_customer_payments: financials.operations.FinancialsCompaniesCustomerPaymentJournalsCustomerPaymentsOperations
+    :ivar financials_companies_customer_payment_journals_customer_payments_customer: FinancialsCompaniesCustomerPaymentJournalsCustomerPaymentsCustomerOperations operations
+    :vartype financials_companies_customer_payment_journals_customer_payments_customer: financials.operations.FinancialsCompaniesCustomerPaymentJournalsCustomerPaymentsCustomerOperations
+    :ivar financials_companies_customer_payments: FinancialsCompaniesCustomerPaymentsOperations operations
+    :vartype financials_companies_customer_payments: financials.operations.FinancialsCompaniesCustomerPaymentsOperations
+    :ivar financials_companies_customer_payments_customer: FinancialsCompaniesCustomerPaymentsCustomerOperations operations
+    :vartype financials_companies_customer_payments_customer: financials.operations.FinancialsCompaniesCustomerPaymentsCustomerOperations
+    :ivar financials_companies_customers: FinancialsCompaniesCustomersOperations operations
+    :vartype financials_companies_customers: financials.operations.FinancialsCompaniesCustomersOperations
+    :ivar financials_companies_dimensions: FinancialsCompaniesDimensionsOperations operations
+    :vartype financials_companies_dimensions: financials.operations.FinancialsCompaniesDimensionsOperations
+    :ivar financials_companies_employees: FinancialsCompaniesEmployeesOperations operations
+    :vartype financials_companies_employees: financials.operations.FinancialsCompaniesEmployeesOperations
+    :ivar financials_companies_general_ledger_entries: FinancialsCompaniesGeneralLedgerEntriesOperations operations
+    :vartype financials_companies_general_ledger_entries: financials.operations.FinancialsCompaniesGeneralLedgerEntriesOperations
+    :ivar financials_companies_items: FinancialsCompaniesItemsOperations operations
+    :vartype financials_companies_items: financials.operations.FinancialsCompaniesItemsOperations
+    :ivar financials_companies_journal_lines: FinancialsCompaniesJournalLinesOperations operations
+    :vartype financials_companies_journal_lines: financials.operations.FinancialsCompaniesJournalLinesOperations
+    :ivar financials_companies_journals: FinancialsCompaniesJournalsOperations operations
+    :vartype financials_companies_journals: financials.operations.FinancialsCompaniesJournalsOperations
+    :ivar financials_companies_journals_journal_lines: FinancialsCompaniesJournalsJournalLinesOperations operations
+    :vartype financials_companies_journals_journal_lines: financials.operations.FinancialsCompaniesJournalsJournalLinesOperations
+    :ivar financials_companies_purchase_invoice_lines: FinancialsCompaniesPurchaseInvoiceLinesOperations operations
+    :vartype financials_companies_purchase_invoice_lines: financials.operations.FinancialsCompaniesPurchaseInvoiceLinesOperations
+    :ivar financials_companies_purchase_invoice_lines_item: FinancialsCompaniesPurchaseInvoiceLinesItemOperations operations
+    :vartype financials_companies_purchase_invoice_lines_item: financials.operations.FinancialsCompaniesPurchaseInvoiceLinesItemOperations
+    :ivar financials_companies_purchase_invoices: FinancialsCompaniesPurchaseInvoicesOperations operations
+    :vartype financials_companies_purchase_invoices: financials.operations.FinancialsCompaniesPurchaseInvoicesOperations
+    :ivar financials_companies_purchase_invoices_purchase_invoice_lines: FinancialsCompaniesPurchaseInvoicesPurchaseInvoiceLinesOperations operations
+    :vartype financials_companies_purchase_invoices_purchase_invoice_lines: financials.operations.FinancialsCompaniesPurchaseInvoicesPurchaseInvoiceLinesOperations
+    :ivar financials_companies_purchase_invoices_purchase_invoice_lines_item: FinancialsCompaniesPurchaseInvoicesPurchaseInvoiceLinesItemOperations operations
+    :vartype financials_companies_purchase_invoices_purchase_invoice_lines_item: financials.operations.FinancialsCompaniesPurchaseInvoicesPurchaseInvoiceLinesItemOperations
+    :ivar financials_companies_purchase_invoices_vendor: FinancialsCompaniesPurchaseInvoicesVendorOperations operations
+    :vartype financials_companies_purchase_invoices_vendor: financials.operations.FinancialsCompaniesPurchaseInvoicesVendorOperations
+    :ivar financials_companies_sales_credit_memo_lines: FinancialsCompaniesSalesCreditMemoLinesOperations operations
+    :vartype financials_companies_sales_credit_memo_lines: financials.operations.FinancialsCompaniesSalesCreditMemoLinesOperations
+    :ivar financials_companies_sales_credit_memo_lines_item: FinancialsCompaniesSalesCreditMemoLinesItemOperations operations
+    :vartype financials_companies_sales_credit_memo_lines_item: financials.operations.FinancialsCompaniesSalesCreditMemoLinesItemOperations
+    :ivar financials_companies_sales_credit_memos: FinancialsCompaniesSalesCreditMemosOperations operations
+    :vartype financials_companies_sales_credit_memos: financials.operations.FinancialsCompaniesSalesCreditMemosOperations
+    :ivar financials_companies_sales_credit_memos_customer: FinancialsCompaniesSalesCreditMemosCustomerOperations operations
+    :vartype financials_companies_sales_credit_memos_customer: financials.operations.FinancialsCompaniesSalesCreditMemosCustomerOperations
+    :ivar financials_companies_sales_credit_memos_sales_credit_memo_lines: FinancialsCompaniesSalesCreditMemosSalesCreditMemoLinesOperations operations
+    :vartype financials_companies_sales_credit_memos_sales_credit_memo_lines: financials.operations.FinancialsCompaniesSalesCreditMemosSalesCreditMemoLinesOperations
+    :ivar financials_companies_sales_credit_memos_sales_credit_memo_lines_item: FinancialsCompaniesSalesCreditMemosSalesCreditMemoLinesItemOperations operations
+    :vartype financials_companies_sales_credit_memos_sales_credit_memo_lines_item: financials.operations.FinancialsCompaniesSalesCreditMemosSalesCreditMemoLinesItemOperations
+    :ivar financials_companies_sales_invoice_lines: FinancialsCompaniesSalesInvoiceLinesOperations operations
+    :vartype financials_companies_sales_invoice_lines: financials.operations.FinancialsCompaniesSalesInvoiceLinesOperations
+    :ivar financials_companies_sales_invoice_lines_item: FinancialsCompaniesSalesInvoiceLinesItemOperations operations
+    :vartype financials_companies_sales_invoice_lines_item: financials.operations.FinancialsCompaniesSalesInvoiceLinesItemOperations
+    :ivar financials_companies_sales_invoices: FinancialsCompaniesSalesInvoicesOperations operations
+    :vartype financials_companies_sales_invoices: financials.operations.FinancialsCompaniesSalesInvoicesOperations
+    :ivar financials_companies_sales_invoices_customer: FinancialsCompaniesSalesInvoicesCustomerOperations operations
+    :vartype financials_companies_sales_invoices_customer: financials.operations.FinancialsCompaniesSalesInvoicesCustomerOperations
+    :ivar financials_companies_sales_invoices_sales_invoice_lines: FinancialsCompaniesSalesInvoicesSalesInvoiceLinesOperations operations
+    :vartype financials_companies_sales_invoices_sales_invoice_lines: financials.operations.FinancialsCompaniesSalesInvoicesSalesInvoiceLinesOperations
+    :ivar financials_companies_sales_invoices_sales_invoice_lines_item: FinancialsCompaniesSalesInvoicesSalesInvoiceLinesItemOperations operations
+    :vartype financials_companies_sales_invoices_sales_invoice_lines_item: financials.operations.FinancialsCompaniesSalesInvoicesSalesInvoiceLinesItemOperations
+    :ivar financials_companies_sales_order_lines: FinancialsCompaniesSalesOrderLinesOperations operations
+    :vartype financials_companies_sales_order_lines: financials.operations.FinancialsCompaniesSalesOrderLinesOperations
+    :ivar financials_companies_sales_order_lines_item: FinancialsCompaniesSalesOrderLinesItemOperations operations
+    :vartype financials_companies_sales_order_lines_item: financials.operations.FinancialsCompaniesSalesOrderLinesItemOperations
+    :ivar financials_companies_sales_orders: FinancialsCompaniesSalesOrdersOperations operations
+    :vartype financials_companies_sales_orders: financials.operations.FinancialsCompaniesSalesOrdersOperations
+    :ivar financials_companies_sales_orders_customer: FinancialsCompaniesSalesOrdersCustomerOperations operations
+    :vartype financials_companies_sales_orders_customer: financials.operations.FinancialsCompaniesSalesOrdersCustomerOperations
+    :ivar financials_companies_sales_orders_sales_order_lines: FinancialsCompaniesSalesOrdersSalesOrderLinesOperations operations
+    :vartype financials_companies_sales_orders_sales_order_lines: financials.operations.FinancialsCompaniesSalesOrdersSalesOrderLinesOperations
+    :ivar financials_companies_sales_orders_sales_order_lines_item: FinancialsCompaniesSalesOrdersSalesOrderLinesItemOperations operations
+    :vartype financials_companies_sales_orders_sales_order_lines_item: financials.operations.FinancialsCompaniesSalesOrdersSalesOrderLinesItemOperations
+    :ivar financials_companies_sales_quote_lines: FinancialsCompaniesSalesQuoteLinesOperations operations
+    :vartype financials_companies_sales_quote_lines: financials.operations.FinancialsCompaniesSalesQuoteLinesOperations
+    :ivar financials_companies_sales_quote_lines_item: FinancialsCompaniesSalesQuoteLinesItemOperations operations
+    :vartype financials_companies_sales_quote_lines_item: financials.operations.FinancialsCompaniesSalesQuoteLinesItemOperations
+    :ivar financials_companies_sales_quotes: FinancialsCompaniesSalesQuotesOperations operations
+    :vartype financials_companies_sales_quotes: financials.operations.FinancialsCompaniesSalesQuotesOperations
+    :ivar financials_companies_sales_quotes_customer: FinancialsCompaniesSalesQuotesCustomerOperations operations
+    :vartype financials_companies_sales_quotes_customer: financials.operations.FinancialsCompaniesSalesQuotesCustomerOperations
+    :ivar financials_companies_sales_quotes_sales_quote_lines: FinancialsCompaniesSalesQuotesSalesQuoteLinesOperations operations
+    :vartype financials_companies_sales_quotes_sales_quote_lines: financials.operations.FinancialsCompaniesSalesQuotesSalesQuoteLinesOperations
+    :ivar financials_companies_sales_quotes_sales_quote_lines_item: FinancialsCompaniesSalesQuotesSalesQuoteLinesItemOperations operations
+    :vartype financials_companies_sales_quotes_sales_quote_lines_item: financials.operations.FinancialsCompaniesSalesQuotesSalesQuoteLinesItemOperations
+    :ivar financials_companies_vendors: FinancialsCompaniesVendorsOperations operations
+    :vartype financials_companies_vendors: financials.operations.FinancialsCompaniesVendorsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -202,99 +202,99 @@ class Financials(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.financial_financial = FinancialFinancialOperations(
+        self.financials_financials = FinancialsFinancialsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial = FinancialOperations(
+        self.financials = FinancialsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company = FinancialCompanyOperations(
+        self.financials_companies = FinancialsCompaniesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_customer_payment_journal = FinancialCompanyCustomerPaymentJournalOperations(
+        self.financials_companies_customer_payment_journals = FinancialsCompaniesCustomerPaymentJournalsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_customer_payment_journal_customer_payment = FinancialCompanyCustomerPaymentJournalCustomerPaymentOperations(
+        self.financials_companies_customer_payment_journals_customer_payments = FinancialsCompaniesCustomerPaymentJournalsCustomerPaymentsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_customer_payment_journal_customer_payment_customer = FinancialCompanyCustomerPaymentJournalCustomerPaymentCustomerOperations(
+        self.financials_companies_customer_payment_journals_customer_payments_customer = FinancialsCompaniesCustomerPaymentJournalsCustomerPaymentsCustomerOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_customer_payment = FinancialCompanyCustomerPaymentOperations(
+        self.financials_companies_customer_payments = FinancialsCompaniesCustomerPaymentsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_customer_payment_customer = FinancialCompanyCustomerPaymentCustomerOperations(
+        self.financials_companies_customer_payments_customer = FinancialsCompaniesCustomerPaymentsCustomerOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_customer = FinancialCompanyCustomerOperations(
+        self.financials_companies_customers = FinancialsCompaniesCustomersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_dimension = FinancialCompanyDimensionOperations(
+        self.financials_companies_dimensions = FinancialsCompaniesDimensionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_employee = FinancialCompanyEmployeeOperations(
+        self.financials_companies_employees = FinancialsCompaniesEmployeesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_general_ledger_entry = FinancialCompanyGeneralLedgerEntryOperations(
+        self.financials_companies_general_ledger_entries = FinancialsCompaniesGeneralLedgerEntriesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_item = FinancialCompanyItemOperations(
+        self.financials_companies_items = FinancialsCompaniesItemsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_journal_line = FinancialCompanyJournalLineOperations(
+        self.financials_companies_journal_lines = FinancialsCompaniesJournalLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_journal = FinancialCompanyJournalOperations(
+        self.financials_companies_journals = FinancialsCompaniesJournalsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_journal_journal_line = FinancialCompanyJournalJournalLineOperations(
+        self.financials_companies_journals_journal_lines = FinancialsCompaniesJournalsJournalLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_purchase_invoice_line = FinancialCompanyPurchaseInvoiceLineOperations(
+        self.financials_companies_purchase_invoice_lines = FinancialsCompaniesPurchaseInvoiceLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_purchase_invoice_line_item = FinancialCompanyPurchaseInvoiceLineItemOperations(
+        self.financials_companies_purchase_invoice_lines_item = FinancialsCompaniesPurchaseInvoiceLinesItemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_purchase_invoice = FinancialCompanyPurchaseInvoiceOperations(
+        self.financials_companies_purchase_invoices = FinancialsCompaniesPurchaseInvoicesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_purchase_invoice_purchase_invoice_line = FinancialCompanyPurchaseInvoicePurchaseInvoiceLineOperations(
+        self.financials_companies_purchase_invoices_purchase_invoice_lines = FinancialsCompaniesPurchaseInvoicesPurchaseInvoiceLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_purchase_invoice_purchase_invoice_line_item = FinancialCompanyPurchaseInvoicePurchaseInvoiceLineItemOperations(
+        self.financials_companies_purchase_invoices_purchase_invoice_lines_item = FinancialsCompaniesPurchaseInvoicesPurchaseInvoiceLinesItemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_purchase_invoice_vendor = FinancialCompanyPurchaseInvoiceVendorOperations(
+        self.financials_companies_purchase_invoices_vendor = FinancialsCompaniesPurchaseInvoicesVendorOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_credit_memo_line = FinancialCompanySaleCreditMemoLineOperations(
+        self.financials_companies_sales_credit_memo_lines = FinancialsCompaniesSalesCreditMemoLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_credit_memo_line_item = FinancialCompanySaleCreditMemoLineItemOperations(
+        self.financials_companies_sales_credit_memo_lines_item = FinancialsCompaniesSalesCreditMemoLinesItemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_credit_memo = FinancialCompanySaleCreditMemoOperations(
+        self.financials_companies_sales_credit_memos = FinancialsCompaniesSalesCreditMemosOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_credit_memo_customer = FinancialCompanySaleCreditMemoCustomerOperations(
+        self.financials_companies_sales_credit_memos_customer = FinancialsCompaniesSalesCreditMemosCustomerOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_credit_memo_sale_credit_memo_line = FinancialCompanySaleCreditMemoSaleCreditMemoLineOperations(
+        self.financials_companies_sales_credit_memos_sales_credit_memo_lines = FinancialsCompaniesSalesCreditMemosSalesCreditMemoLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_credit_memo_sale_credit_memo_line_item = FinancialCompanySaleCreditMemoSaleCreditMemoLineItemOperations(
+        self.financials_companies_sales_credit_memos_sales_credit_memo_lines_item = FinancialsCompaniesSalesCreditMemosSalesCreditMemoLinesItemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_invoice_line = FinancialCompanySaleInvoiceLineOperations(
+        self.financials_companies_sales_invoice_lines = FinancialsCompaniesSalesInvoiceLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_invoice_line_item = FinancialCompanySaleInvoiceLineItemOperations(
+        self.financials_companies_sales_invoice_lines_item = FinancialsCompaniesSalesInvoiceLinesItemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_invoice = FinancialCompanySaleInvoiceOperations(
+        self.financials_companies_sales_invoices = FinancialsCompaniesSalesInvoicesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_invoice_customer = FinancialCompanySaleInvoiceCustomerOperations(
+        self.financials_companies_sales_invoices_customer = FinancialsCompaniesSalesInvoicesCustomerOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_invoice_sale_invoice_line = FinancialCompanySaleInvoiceSaleInvoiceLineOperations(
+        self.financials_companies_sales_invoices_sales_invoice_lines = FinancialsCompaniesSalesInvoicesSalesInvoiceLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_invoice_sale_invoice_line_item = FinancialCompanySaleInvoiceSaleInvoiceLineItemOperations(
+        self.financials_companies_sales_invoices_sales_invoice_lines_item = FinancialsCompaniesSalesInvoicesSalesInvoiceLinesItemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_order_line = FinancialCompanySaleOrderLineOperations(
+        self.financials_companies_sales_order_lines = FinancialsCompaniesSalesOrderLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_order_line_item = FinancialCompanySaleOrderLineItemOperations(
+        self.financials_companies_sales_order_lines_item = FinancialsCompaniesSalesOrderLinesItemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_order = FinancialCompanySaleOrderOperations(
+        self.financials_companies_sales_orders = FinancialsCompaniesSalesOrdersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_order_customer = FinancialCompanySaleOrderCustomerOperations(
+        self.financials_companies_sales_orders_customer = FinancialsCompaniesSalesOrdersCustomerOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_order_sale_order_line = FinancialCompanySaleOrderSaleOrderLineOperations(
+        self.financials_companies_sales_orders_sales_order_lines = FinancialsCompaniesSalesOrdersSalesOrderLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_order_sale_order_line_item = FinancialCompanySaleOrderSaleOrderLineItemOperations(
+        self.financials_companies_sales_orders_sales_order_lines_item = FinancialsCompaniesSalesOrdersSalesOrderLinesItemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_quote_line = FinancialCompanySaleQuoteLineOperations(
+        self.financials_companies_sales_quote_lines = FinancialsCompaniesSalesQuoteLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_quote_line_item = FinancialCompanySaleQuoteLineItemOperations(
+        self.financials_companies_sales_quote_lines_item = FinancialsCompaniesSalesQuoteLinesItemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_quote = FinancialCompanySaleQuoteOperations(
+        self.financials_companies_sales_quotes = FinancialsCompaniesSalesQuotesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_quote_customer = FinancialCompanySaleQuoteCustomerOperations(
+        self.financials_companies_sales_quotes_customer = FinancialsCompaniesSalesQuotesCustomerOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_quote_sale_quote_line = FinancialCompanySaleQuoteSaleQuoteLineOperations(
+        self.financials_companies_sales_quotes_sales_quote_lines = FinancialsCompaniesSalesQuotesSalesQuoteLinesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_sale_quote_sale_quote_line_item = FinancialCompanySaleQuoteSaleQuoteLineItemOperations(
+        self.financials_companies_sales_quotes_sales_quote_lines_item = FinancialsCompaniesSalesQuotesSalesQuoteLinesItemOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.financial_company_vendor = FinancialCompanyVendorOperations(
+        self.financials_companies_vendors = FinancialsCompaniesVendorsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

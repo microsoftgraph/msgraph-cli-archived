@@ -50,207 +50,203 @@ from azext_files_beta.generated._client_factory import (
 
 
 files_beta_drive_drive = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_drive_operations#DriveDriveOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_drive_operations#DrivesDriveOperations.{}',
     client_factory=cf_drive_drive,
 )
 
 
 files_beta_drive = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_operations#DriveOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_operations#DrivesOperations.{}',
     client_factory=cf_drive,
 )
 
 
 files_beta_drive_activity = CliCommandType(
     operations_tmpl=(
-        'azext_files_beta.vendored_sdks.files.operations._drive_activity_operations#DriveActivityOperations.{}'
+        'azext_files_beta.vendored_sdks.files.operations._drives_activities_operations#DrivesActivitiesOperations.{}'
     ),
     client_factory=cf_drive_activity,
 )
 
 
 files_beta_drive_activity_list_item = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_activity_list_item_operations#DriveActivityListItemOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_activities_list_item_operations#DrivesActivitiesListItemOperations.{}',
     client_factory=cf_drive_activity_list_item,
 )
 
 
 files_beta_drive_activity_list_item_version = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_activity_list_item_version_operations#DriveActivityListItemVersionOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_activities_list_item_versions_operations#DrivesActivitiesListItemVersionsOperations.{}',
     client_factory=cf_drive_activity_list_item_version,
 )
 
 
 files_beta_drive_list = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_operations#DriveListOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_list_operations#DrivesListOperations.{}',
     client_factory=cf_drive_list,
 )
 
 
 files_beta_drive_list_activity = CliCommandType(
-    operations_tmpl=(
-        'azext_files_beta.vendored_sdks.files.operations._drive_list_activity_operations#DriveListActivityOperations.{}'
-    ),
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_list_activities_operations#DrivesListActivitiesOperations.{}',
     client_factory=cf_drive_list_activity,
 )
 
 
 files_beta_drive_list_activity_list_item = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_activity_list_item_operations#DriveListActivityListItemOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_list_activities_list_item_operations#DrivesListActivitiesListItemOperations.{}',
     client_factory=cf_drive_list_activity_list_item,
 )
 
 
 files_beta_drive_list_activity_list_item_version = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_activity_list_item_version_operations#DriveListActivityListItemVersionOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_list_activities_list_item_versions_operations#DrivesListActivitiesListItemVersionsOperations.{}',
     client_factory=cf_drive_list_activity_list_item_version,
 )
 
 
 files_beta_drive_list_content_type = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_content_type_operations#DriveListContentTypeOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_list_content_types_operations#DrivesListContentTypesOperations.{}',
     client_factory=cf_drive_list_content_type,
 )
 
 
 files_beta_drive_list_item = CliCommandType(
     operations_tmpl=(
-        'azext_files_beta.vendored_sdks.files.operations._drive_list_item_operations#DriveListItemOperations.{}'
+        'azext_files_beta.vendored_sdks.files.operations._drives_list_items_operations#DrivesListItemsOperations.{}'
     ),
     client_factory=cf_drive_list_item,
 )
 
 
 files_beta_drive_list_item_activity = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_item_activity_operations#DriveListItemActivityOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_list_items_activities_operations#DrivesListItemsActivitiesOperations.{}',
     client_factory=cf_drive_list_item_activity,
 )
 
 
 files_beta_drive_list_item_activity_list_item = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_item_activity_list_item_operations#DriveListItemActivityListItemOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_list_items_activities_list_item_operations#DrivesListItemsActivitiesListItemOperations.{}',
     client_factory=cf_drive_list_item_activity_list_item,
 )
 
 
 files_beta_drive_list_item_version = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drive_list_item_version_operations#DriveListItemVersionOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._drives_list_items_versions_operations#DrivesListItemsVersionsOperations.{}',
     client_factory=cf_drive_list_item_version,
 )
 
 
 files_beta_group = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._group_operations#GroupOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._groups_operations#GroupsOperations.{}',
     client_factory=cf_group,
 )
 
 
 files_beta_share_shared_drive_item = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_shared_drive_item_operations#ShareSharedDriveItemOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_shared_drive_item_operations#SharesSharedDriveItemOperations.{}',
     client_factory=cf_share_shared_drive_item,
 )
 
 
 files_beta_share = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_operations#ShareOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_operations#SharesOperations.{}',
     client_factory=cf_share,
 )
 
 
 files_beta_share_list = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_operations#ShareListOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_operations#SharesListOperations.{}',
     client_factory=cf_share_list,
 )
 
 
 files_beta_share_list_activity = CliCommandType(
-    operations_tmpl=(
-        'azext_files_beta.vendored_sdks.files.operations._share_list_activity_operations#ShareListActivityOperations.{}'
-    ),
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_activities_operations#SharesListActivitiesOperations.{}',
     client_factory=cf_share_list_activity,
 )
 
 
 files_beta_share_list_activity_list_item = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_activity_list_item_operations#ShareListActivityListItemOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_activities_list_item_operations#SharesListActivitiesListItemOperations.{}',
     client_factory=cf_share_list_activity_list_item,
 )
 
 
 files_beta_share_list_activity_list_item_version = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_activity_list_item_version_operations#ShareListActivityListItemVersionOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_activities_list_item_versions_operations#SharesListActivitiesListItemVersionsOperations.{}',
     client_factory=cf_share_list_activity_list_item_version,
 )
 
 
 files_beta_share_list_content_type = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_content_type_operations#ShareListContentTypeOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_content_types_operations#SharesListContentTypesOperations.{}',
     client_factory=cf_share_list_content_type,
 )
 
 
 files_beta_share_list_item = CliCommandType(
     operations_tmpl=(
-        'azext_files_beta.vendored_sdks.files.operations._share_list_item_operations#ShareListItemOperations.{}'
+        'azext_files_beta.vendored_sdks.files.operations._shares_list_items_operations#SharesListItemsOperations.{}'
     ),
     client_factory=cf_share_list_item,
 )
 
 
 files_beta_share_list_item_activity = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_activity_operations#ShareListItemActivityOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_items_activities_operations#SharesListItemsActivitiesOperations.{}',
     client_factory=cf_share_list_item_activity,
 )
 
 
 files_beta_share_list_item_activity_list_item = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_activity_list_item_operations#ShareListItemActivityListItemOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_items_activities_list_item_operations#SharesListItemsActivitiesListItemOperations.{}',
     client_factory=cf_share_list_item_activity_list_item,
 )
 
 
 files_beta_share_list_item_version = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_version_operations#ShareListItemVersionOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_items_versions_operations#SharesListItemsVersionsOperations.{}',
     client_factory=cf_share_list_item_version,
 )
 
 
 files_beta_share_list_item = CliCommandType(
     operations_tmpl=(
-        'azext_files_beta.vendored_sdks.files.operations._share_list_item_operations#ShareListItemOperations.{}'
+        'azext_files_beta.vendored_sdks.files.operations._shares_list_item_operations#SharesListItemOperations.{}'
     ),
     client_factory=cf_share_list_item,
 )
 
 
 files_beta_share_list_item_activity = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_activity_operations#ShareListItemActivityOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_item_activities_operations#SharesListItemActivitiesOperations.{}',
     client_factory=cf_share_list_item_activity,
 )
 
 
 files_beta_share_list_item_activity_list_item = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_activity_list_item_operations#ShareListItemActivityListItemOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_item_activities_list_item_operations#SharesListItemActivitiesListItemOperations.{}',
     client_factory=cf_share_list_item_activity_list_item,
 )
 
 
 files_beta_share_list_item_version = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._share_list_item_version_operations#ShareListItemVersionOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._shares_list_item_versions_operations#SharesListItemVersionsOperations.{}',
     client_factory=cf_share_list_item_version,
 )
 
 
 files_beta_share_permission = CliCommandType(
     operations_tmpl=(
-        'azext_files_beta.vendored_sdks.files.operations._share_permission_operations#SharePermissionOperations.{}'
+        'azext_files_beta.vendored_sdks.files.operations._shares_permission_operations#SharesPermissionOperations.{}'
     ),
     client_factory=cf_share_permission,
 )
 
 
 files_beta_user = CliCommandType(
-    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_files_beta.vendored_sdks.files.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 

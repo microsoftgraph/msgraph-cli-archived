@@ -17,14 +17,14 @@ from azext_people_beta.generated._client_factory import cf_user, cf_user_analyti
 
 
 people_beta_user = CliCommandType(
-    operations_tmpl='azext_people_beta.vendored_sdks.people.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_people_beta.vendored_sdks.people.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
 people_beta_user_analytic = CliCommandType(
     operations_tmpl=(
-        'azext_people_beta.vendored_sdks.people.operations._user_analytic_operations#UserAnalyticOperations.{}'
+        'azext_people_beta.vendored_sdks.people.operations._users_analytics_operations#UsersAnalyticsOperations.{}'
     ),
     client_factory=cf_user_analytic,
 )
@@ -32,7 +32,7 @@ people_beta_user_analytic = CliCommandType(
 
 people_beta_user_profile = CliCommandType(
     operations_tmpl=(
-        'azext_people_beta.vendored_sdks.people.operations._user_profile_operations#UserProfileOperations.{}'
+        'azext_people_beta.vendored_sdks.people.operations._users_profile_operations#UsersProfileOperations.{}'
     ),
     client_factory=cf_user_profile,
 )

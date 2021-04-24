@@ -16,15 +16,15 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import CloudCommunicationsConfiguration
-from .operations import UserOperations
+from .operations import UsersOperations
 from .. import models
 
 
 class CloudCommunications(object):
     """CloudCommunications.
 
-    :ivar user: UserOperations operations
-    :vartype user: cloud_communications.aio.operations.UserOperations
+    :ivar users: UsersOperations operations
+    :vartype users: cloud_communications.aio.operations.UsersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -61,7 +61,7 @@ class CloudCommunications(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

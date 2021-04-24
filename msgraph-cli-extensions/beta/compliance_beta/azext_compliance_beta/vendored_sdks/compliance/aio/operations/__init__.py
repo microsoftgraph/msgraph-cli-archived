@@ -9,19 +9,19 @@
 from ._compliance_compliance_operations import ComplianceComplianceOperations
 from ._compliance_operations import ComplianceOperations
 from ._compliance_ediscovery_operations import ComplianceEdiscoveryOperations
-from ._compliance_ediscovery_case_operations import ComplianceEdiscoveryCaseOperations
-from ._compliance_ediscovery_case_custodian_operations import ComplianceEdiscoveryCaseCustodianOperations
-from ._compliance_ediscovery_case_custodian_site_source_operations import ComplianceEdiscoveryCaseCustodianSiteSourceOperations
-from ._compliance_ediscovery_case_custodian_unified_group_source_operations import ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations
-from ._compliance_ediscovery_case_review_set_operations import ComplianceEdiscoveryCaseReviewSetOperations
+from ._compliance_ediscovery_cases_operations import ComplianceEdiscoveryCasesOperations
+from ._compliance_ediscovery_cases_custodians_operations import ComplianceEdiscoveryCasesCustodiansOperations
+from ._compliance_ediscovery_cases_custodians_site_sources_operations import ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations
+from ._compliance_ediscovery_cases_custodians_unified_group_sources_operations import ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations
+from ._compliance_ediscovery_cases_review_sets_operations import ComplianceEdiscoveryCasesReviewSetsOperations
 
 __all__ = [
     'ComplianceComplianceOperations',
     'ComplianceOperations',
     'ComplianceEdiscoveryOperations',
-    'ComplianceEdiscoveryCaseOperations',
-    'ComplianceEdiscoveryCaseCustodianOperations',
-    'ComplianceEdiscoveryCaseCustodianSiteSourceOperations',
-    'ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations',
-    'ComplianceEdiscoveryCaseReviewSetOperations',
+    'ComplianceEdiscoveryCasesOperations',
+    'ComplianceEdiscoveryCasesCustodiansOperations',
+    'ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations',
+    'ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations',
+    'ComplianceEdiscoveryCasesReviewSetsOperations',
 ]

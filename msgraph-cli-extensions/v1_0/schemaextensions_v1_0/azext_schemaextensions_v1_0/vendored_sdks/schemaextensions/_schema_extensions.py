@@ -18,15 +18,15 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import SchemaExtensionsConfiguration
-from .operations import SchemaExtensionSchemaExtensionOperations
+from .operations import SchemaExtensionsSchemaExtensionOperations
 from . import models
 
 
 class SchemaExtensions(object):
     """SchemaExtensions.
 
-    :ivar schema_extension_schema_extension: SchemaExtensionSchemaExtensionOperations operations
-    :vartype schema_extension_schema_extension: schema_extensions.operations.SchemaExtensionSchemaExtensionOperations
+    :ivar schema_extensions_schema_extension: SchemaExtensionsSchemaExtensionOperations operations
+    :vartype schema_extensions_schema_extension: schema_extensions.operations.SchemaExtensionsSchemaExtensionOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -64,7 +64,7 @@ class SchemaExtensions(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.schema_extension_schema_extension = SchemaExtensionSchemaExtensionOperations(
+        self.schema_extensions_schema_extension = SchemaExtensionsSchemaExtensionOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

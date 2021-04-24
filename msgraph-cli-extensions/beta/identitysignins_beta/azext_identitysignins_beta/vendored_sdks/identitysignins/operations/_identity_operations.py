@@ -105,9 +105,7 @@ class IdentityOperations(object):
 
     def update_conditional_access(
         self,
-        id=None,  # type: Optional[str]
-        named_locations=None,  # type: Optional[List["models.MicrosoftGraphNamedLocation"]]
-        policies=None,  # type: Optional[List["models.MicrosoftGraphConditionalAccessPolicy"]]
+        body,  # type: "models.MicrosoftGraphConditionalAccessRoot"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -115,12 +113,8 @@ class IdentityOperations(object):
 
         Update the navigation property conditionalAccess in identity.
 
-        :param id: Read-only.
-        :type id: str
-        :param named_locations:
-        :type named_locations: list[~identity_sign_ins.models.MicrosoftGraphNamedLocation]
-        :param policies:
-        :type policies: list[~identity_sign_ins.models.MicrosoftGraphConditionalAccessPolicy]
+        :param body: New navigation property values.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessRoot
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -131,8 +125,6 @@ class IdentityOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphConditionalAccessRoot(id=id, named_locations=named_locations, policies=policies)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -214,7 +206,7 @@ class IdentityOperations(object):
 
     delete_conditional_access.metadata = {'url': '/identity/conditionalAccess'}  # type: ignore
 
-    def list_user_flow(
+    def list_user_flows(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum20"]]]
         select=None,  # type: Optional[List[Union[str, "models.Enum21"]]]
@@ -251,7 +243,7 @@ class IdentityOperations(object):
 
             if not next_link:
                 # Construct URL
-                url = self.list_user_flow.metadata['url']  # type: ignore
+                url = self.list_user_flows.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -301,13 +293,11 @@ class IdentityOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_user_flow.metadata = {'url': '/identity/userFlows'}  # type: ignore
+    list_user_flows.metadata = {'url': '/identity/userFlows'}  # type: ignore
 
-    def create_user_flow(
+    def create_user_flows(
         self,
-        id=None,  # type: Optional[str]
-        user_flow_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphUserFlowType"]]
-        user_flow_type_version=None,  # type: Optional[float]
+        body,  # type: "models.MicrosoftGraphIdentityUserFlow"
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphIdentityUserFlow"
@@ -315,12 +305,8 @@ class IdentityOperations(object):
 
         Create new navigation property to userFlows for identity.
 
-        :param id: Read-only.
-        :type id: str
-        :param user_flow_type:
-        :type user_flow_type: str or ~identity_sign_ins.models.MicrosoftGraphUserFlowType
-        :param user_flow_type_version:
-        :type user_flow_type_version: float
+        :param body: New navigation property.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphIdentityUserFlow
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphIdentityUserFlow, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphIdentityUserFlow
@@ -331,13 +317,11 @@ class IdentityOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphIdentityUserFlow(id=id, user_flow_type=user_flow_type, user_flow_type_version=user_flow_type_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_user_flow.metadata['url']  # type: ignore
+        url = self.create_user_flows.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -365,9 +349,9 @@ class IdentityOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_user_flow.metadata = {'url': '/identity/userFlows'}  # type: ignore
+    create_user_flows.metadata = {'url': '/identity/userFlows'}  # type: ignore
 
-    def get_user_flow(
+    def get_user_flows(
         self,
         identity_user_flow_id,  # type: str
         select=None,  # type: Optional[List[Union[str, "models.Enum23"]]]
@@ -398,7 +382,7 @@ class IdentityOperations(object):
         accept = "application/json"
 
         # Construct URL
-        url = self.get_user_flow.metadata['url']  # type: ignore
+        url = self.get_user_flows.metadata['url']  # type: ignore
         path_format_arguments = {
             'identityUserFlow-id': self._serialize.url("identity_user_flow_id", identity_user_flow_id, 'str'),
         }
@@ -430,14 +414,12 @@ class IdentityOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_user_flow.metadata = {'url': '/identity/userFlows/{identityUserFlow-id}'}  # type: ignore
+    get_user_flows.metadata = {'url': '/identity/userFlows/{identityUserFlow-id}'}  # type: ignore
 
-    def update_user_flow(
+    def update_user_flows(
         self,
         identity_user_flow_id,  # type: str
-        id=None,  # type: Optional[str]
-        user_flow_type=None,  # type: Optional[Union[str, "models.MicrosoftGraphUserFlowType"]]
-        user_flow_type_version=None,  # type: Optional[float]
+        body,  # type: "models.MicrosoftGraphIdentityUserFlow"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -447,12 +429,8 @@ class IdentityOperations(object):
 
         :param identity_user_flow_id: key: id of identityUserFlow.
         :type identity_user_flow_id: str
-        :param id: Read-only.
-        :type id: str
-        :param user_flow_type:
-        :type user_flow_type: str or ~identity_sign_ins.models.MicrosoftGraphUserFlowType
-        :param user_flow_type_version:
-        :type user_flow_type_version: float
+        :param body: New navigation property values.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphIdentityUserFlow
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -463,13 +441,11 @@ class IdentityOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphIdentityUserFlow(id=id, user_flow_type=user_flow_type, user_flow_type_version=user_flow_type_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.update_user_flow.metadata['url']  # type: ignore
+        url = self.update_user_flows.metadata['url']  # type: ignore
         path_format_arguments = {
             'identityUserFlow-id': self._serialize.url("identity_user_flow_id", identity_user_flow_id, 'str'),
         }
@@ -498,9 +474,9 @@ class IdentityOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_user_flow.metadata = {'url': '/identity/userFlows/{identityUserFlow-id}'}  # type: ignore
+    update_user_flows.metadata = {'url': '/identity/userFlows/{identityUserFlow-id}'}  # type: ignore
 
-    def delete_user_flow(
+    def delete_user_flows(
         self,
         identity_user_flow_id,  # type: str
         if_match=None,  # type: Optional[str]
@@ -528,7 +504,7 @@ class IdentityOperations(object):
         accept = "application/json"
 
         # Construct URL
-        url = self.delete_user_flow.metadata['url']  # type: ignore
+        url = self.delete_user_flows.metadata['url']  # type: ignore
         path_format_arguments = {
             'identityUserFlow-id': self._serialize.url("identity_user_flow_id", identity_user_flow_id, 'str'),
         }
@@ -555,4 +531,4 @@ class IdentityOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_user_flow.metadata = {'url': '/identity/userFlows/{identityUserFlow-id}'}  # type: ignore
+    delete_user_flows.metadata = {'url': '/identity/userFlows/{identityUserFlow-id}'}  # type: ignore

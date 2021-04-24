@@ -34,84 +34,84 @@ from azext_teams_v1_0.generated._client_factory import (
 
 
 teams_v1_0_chat_chat = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._chat_chat_operations#ChatChatOperations.{}',
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._chats_chat_operations#ChatsChatOperations.{}',
     client_factory=cf_chat_chat,
 )
 
 
 teams_v1_0_chat = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._chat_operations#ChatOperations.{}',
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._chats_operations#ChatsOperations.{}',
     client_factory=cf_chat,
 )
 
 
 teams_v1_0_group = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._group_operations#GroupOperations.{}',
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._groups_operations#GroupsOperations.{}',
     client_factory=cf_group,
 )
 
 
 teams_v1_0_team_team = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._team_team_operations#TeamTeamOperations.{}',
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._teams_team_operations#TeamsTeamOperations.{}',
     client_factory=cf_team_team,
 )
 
 
 teams_v1_0_team = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._team_operations#TeamOperations.{}',
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._teams_operations#TeamsOperations.{}',
     client_factory=cf_team,
 )
 
 
 teams_v1_0_team_channel = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._team_channel_operations#TeamChannelOperations.{}',
+    operations_tmpl=(
+        'azext_teams_v1_0.vendored_sdks.teams.operations._teams_channels_operations#TeamsChannelsOperations.{}'
+    ),
     client_factory=cf_team_channel,
 )
 
 
 teams_v1_0_team_channel_message = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._team_channel_message_operations#TeamChannelMessageOperations.{}',
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._teams_channels_messages_operations#TeamsChannelsMessagesOperations.{}',
     client_factory=cf_team_channel_message,
 )
 
 
 teams_v1_0_team_channel_tab = CliCommandType(
     operations_tmpl=(
-        'azext_teams_v1_0.vendored_sdks.teams.operations._team_channel_tab_operations#TeamChannelTabOperations.{}'
+        'azext_teams_v1_0.vendored_sdks.teams.operations._teams_channels_tabs_operations#TeamsChannelsTabsOperations.{}'
     ),
     client_factory=cf_team_channel_tab,
 )
 
 
 teams_v1_0_team_installed_app = CliCommandType(
-    operations_tmpl=(
-        'azext_teams_v1_0.vendored_sdks.teams.operations._team_installed_app_operations#TeamInstalledAppOperations.{}'
-    ),
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._teams_installed_apps_operations#TeamsInstalledAppsOperations.{}',
     client_factory=cf_team_installed_app,
 )
 
 
 teams_v1_0_team_primary_channel = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._team_primary_channel_operations#TeamPrimaryChannelOperations.{}',
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._teams_primary_channel_operations#TeamsPrimaryChannelOperations.{}',
     client_factory=cf_team_primary_channel,
 )
 
 
 teams_v1_0_team_primary_channel_message = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._team_primary_channel_message_operations#TeamPrimaryChannelMessageOperations.{}',
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._teams_primary_channel_messages_operations#TeamsPrimaryChannelMessagesOperations.{}',
     client_factory=cf_team_primary_channel_message,
 )
 
 
 teams_v1_0_team_primary_channel_tab = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._team_primary_channel_tab_operations#TeamPrimaryChannelTabOperations.{}',
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._teams_primary_channel_tabs_operations#TeamsPrimaryChannelTabsOperations.{}',
     client_factory=cf_team_primary_channel_tab,
 )
 
 
 teams_v1_0_team_schedule = CliCommandType(
     operations_tmpl=(
-        'azext_teams_v1_0.vendored_sdks.teams.operations._team_schedule_operations#TeamScheduleOperations.{}'
+        'azext_teams_v1_0.vendored_sdks.teams.operations._teams_schedule_operations#TeamsScheduleOperations.{}'
     ),
     client_factory=cf_team_schedule,
 )
@@ -132,7 +132,7 @@ teams_v1_0_teamwork = CliCommandType(
 
 
 teams_v1_0_user = CliCommandType(
-    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_teams_v1_0.vendored_sdks.teams.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 

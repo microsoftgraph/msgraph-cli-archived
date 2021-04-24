@@ -6,38 +6,38 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._chat_chat_operations import ChatChatOperations
-from ._chat_operations import ChatOperations
-from ._group_operations import GroupOperations
-from ._team_team_operations import TeamTeamOperations
-from ._team_operations import TeamOperations
-from ._team_channel_operations import TeamChannelOperations
-from ._team_channel_message_operations import TeamChannelMessageOperations
-from ._team_channel_tab_operations import TeamChannelTabOperations
-from ._team_installed_app_operations import TeamInstalledAppOperations
-from ._team_primary_channel_operations import TeamPrimaryChannelOperations
-from ._team_primary_channel_message_operations import TeamPrimaryChannelMessageOperations
-from ._team_primary_channel_tab_operations import TeamPrimaryChannelTabOperations
-from ._team_schedule_operations import TeamScheduleOperations
+from ._chats_chat_operations import ChatsChatOperations
+from ._chats_operations import ChatsOperations
+from ._groups_operations import GroupsOperations
+from ._teams_team_operations import TeamsTeamOperations
+from ._teams_operations import TeamsOperations
+from ._teams_channels_operations import TeamsChannelsOperations
+from ._teams_channels_messages_operations import TeamsChannelsMessagesOperations
+from ._teams_channels_tabs_operations import TeamsChannelsTabsOperations
+from ._teams_installed_apps_operations import TeamsInstalledAppsOperations
+from ._teams_primary_channel_operations import TeamsPrimaryChannelOperations
+from ._teams_primary_channel_messages_operations import TeamsPrimaryChannelMessagesOperations
+from ._teams_primary_channel_tabs_operations import TeamsPrimaryChannelTabsOperations
+from ._teams_schedule_operations import TeamsScheduleOperations
 from ._teamwork_teamwork_operations import TeamworkTeamworkOperations
 from ._teamwork_operations import TeamworkOperations
-from ._user_operations import UserOperations
+from ._users_operations import UsersOperations
 
 __all__ = [
-    'ChatChatOperations',
-    'ChatOperations',
-    'GroupOperations',
-    'TeamTeamOperations',
-    'TeamOperations',
-    'TeamChannelOperations',
-    'TeamChannelMessageOperations',
-    'TeamChannelTabOperations',
-    'TeamInstalledAppOperations',
-    'TeamPrimaryChannelOperations',
-    'TeamPrimaryChannelMessageOperations',
-    'TeamPrimaryChannelTabOperations',
-    'TeamScheduleOperations',
+    'ChatsChatOperations',
+    'ChatsOperations',
+    'GroupsOperations',
+    'TeamsTeamOperations',
+    'TeamsOperations',
+    'TeamsChannelsOperations',
+    'TeamsChannelsMessagesOperations',
+    'TeamsChannelsTabsOperations',
+    'TeamsInstalledAppsOperations',
+    'TeamsPrimaryChannelOperations',
+    'TeamsPrimaryChannelMessagesOperations',
+    'TeamsPrimaryChannelTabsOperations',
+    'TeamsScheduleOperations',
     'TeamworkTeamworkOperations',
     'TeamworkOperations',
-    'UserOperations',
+    'UsersOperations',
 ]

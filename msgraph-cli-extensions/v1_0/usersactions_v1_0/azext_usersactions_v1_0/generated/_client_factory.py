@@ -19,436 +19,436 @@ def cf_usersactions_v1_0_cl(cli_ctx, *_):
 
 
 def cf_user_calendar_calendar_view_attachment(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_calendar_view_attachment
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_calendar_view_attachments
 
 
 def cf_user_calendar_calendar_view_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_calendar_view_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_calendar_view_calendar
 
 
 def cf_user_calendar_calendar_view_instance(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_calendar_view_instance
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_calendar_view_instances
 
 
 def cf_user_calendar_calendar_view(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_calendar_view
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_calendar_view
 
 
 def cf_user_calendar_event_attachment(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_event_attachment
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_events_attachments
 
 
 def cf_user_calendar_event_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_event_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_events_calendar
 
 
 def cf_user_calendar_event_instance(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_event_instance
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_events_instances
 
 
 def cf_user_calendar_event(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_event
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_events
 
 
 def cf_user_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar
 
 
 def cf_user_calendar_group_calendar_calendar_view_attachment(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_group_calendar_calendar_view_attachment
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_groups_calendars_calendar_view_attachments
 
 
 def cf_user_calendar_group_calendar_calendar_view_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_group_calendar_calendar_view_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_groups_calendars_calendar_view_calendar
 
 
 def cf_user_calendar_group_calendar_calendar_view_instance(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_group_calendar_calendar_view_instance
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_groups_calendars_calendar_view_instances
 
 
 def cf_user_calendar_group_calendar_calendar_view(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_group_calendar_calendar_view
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_groups_calendars_calendar_view
 
 
 def cf_user_calendar_group_calendar_event_attachment(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_group_calendar_event_attachment
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_groups_calendars_events_attachments
 
 
 def cf_user_calendar_group_calendar_event_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_group_calendar_event_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_groups_calendars_events_calendar
 
 
 def cf_user_calendar_group_calendar_event_instance(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_group_calendar_event_instance
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_groups_calendars_events_instances
 
 
 def cf_user_calendar_group_calendar_event(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_group_calendar_event
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_groups_calendars_events
 
 
 def cf_user_calendar_group_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_group_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_groups_calendars
 
 
 def cf_user_calendar_calendar_view_attachment(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_calendar_view_attachment
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendars_calendar_view_attachments
 
 
 def cf_user_calendar_calendar_view_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_calendar_view_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendars_calendar_view_calendar
 
 
 def cf_user_calendar_calendar_view_instance(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_calendar_view_instance
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendars_calendar_view_instances
 
 
 def cf_user_calendar_calendar_view(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_calendar_view
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendars_calendar_view
 
 
 def cf_user_calendar_event_attachment(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_event_attachment
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendars_events_attachments
 
 
 def cf_user_calendar_event_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_event_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendars_events_calendar
 
 
 def cf_user_calendar_event_instance(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_event_instance
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendars_events_instances
 
 
 def cf_user_calendar_event(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_event
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendars_events
 
 
 def cf_user_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendars
 
 
 def cf_user_calendar_view_attachment(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_view_attachment
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_view_attachments
 
 
 def cf_user_calendar_view_calendar_calendar_view(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_view_calendar_calendar_view
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_view_calendar_calendar_view
 
 
 def cf_user_calendar_view_calendar_event(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_view_calendar_event
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_view_calendar_events
 
 
 def cf_user_calendar_view_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_view_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_view_calendar
 
 
 def cf_user_calendar_view_instance(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_view_instance
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_view_instances
 
 
 def cf_user_calendar_view(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_calendar_view
+    return cf_usersactions_v1_0_cl(cli_ctx).users_calendar_view
 
 
 def cf_user_event_attachment(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_event_attachment
+    return cf_usersactions_v1_0_cl(cli_ctx).users_events_attachments
 
 
 def cf_user_event_calendar_calendar_view(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_event_calendar_calendar_view
+    return cf_usersactions_v1_0_cl(cli_ctx).users_events_calendar_calendar_view
 
 
 def cf_user_event_calendar_event(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_event_calendar_event
+    return cf_usersactions_v1_0_cl(cli_ctx).users_events_calendar_events
 
 
 def cf_user_event_calendar(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_event_calendar
+    return cf_usersactions_v1_0_cl(cli_ctx).users_events_calendar
 
 
 def cf_user_event_instance(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_event_instance
+    return cf_usersactions_v1_0_cl(cli_ctx).users_events_instances
 
 
 def cf_user_event(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_event
+    return cf_usersactions_v1_0_cl(cli_ctx).users_events
 
 
 def cf_user_mail_folder_child_folder(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_mail_folder_child_folder
+    return cf_usersactions_v1_0_cl(cli_ctx).users_mail_folders_child_folders
 
 
 def cf_user_mail_folder_message_attachment(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_mail_folder_message_attachment
+    return cf_usersactions_v1_0_cl(cli_ctx).users_mail_folders_messages_attachments
 
 
 def cf_user_mail_folder_message(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_mail_folder_message
+    return cf_usersactions_v1_0_cl(cli_ctx).users_mail_folders_messages
 
 
 def cf_user_mail_folder(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_mail_folder
+    return cf_usersactions_v1_0_cl(cli_ctx).users_mail_folders
 
 
 def cf_user_managed_device(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_managed_device
+    return cf_usersactions_v1_0_cl(cli_ctx).users_managed_devices
 
 
 def cf_user_message_attachment(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_message_attachment
+    return cf_usersactions_v1_0_cl(cli_ctx).users_messages_attachments
 
 
 def cf_user_message(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_message
+    return cf_usersactions_v1_0_cl(cli_ctx).users_messages
 
 
 def cf_user(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user
+    return cf_usersactions_v1_0_cl(cli_ctx).users
 
 
 def cf_user_onenote_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks
 
 
 def cf_user_onenote_notebook_section_group_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_group_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_section_groups_parent_notebook
 
 
 def cf_user_onenote_notebook_section_group_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_group_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_section_groups_sections
 
 
 def cf_user_onenote_notebook_section_group_section_page(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_group_section_page
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_section_groups_sections_pages
 
 
 def cf_user_onenote_notebook_section_group_section_page_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_group_section_page_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_section_groups_sections_pages_parent_notebook
 
 
 def cf_user_onenote_notebook_section_group_section_page_parent_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_group_section_page_parent_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_section_groups_sections_pages_parent_section
 
 
 def cf_user_onenote_notebook_section_group_section_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_group_section_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_section_groups_sections_parent_notebook
 
 
 def cf_user_onenote_notebook_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_sections
 
 
 def cf_user_onenote_notebook_section_page(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_page
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_sections_pages
 
 
 def cf_user_onenote_notebook_section_page_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_page_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_sections_pages_parent_notebook
 
 
 def cf_user_onenote_notebook_section_page_parent_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_page_parent_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_sections_pages_parent_section
 
 
 def cf_user_onenote_notebook_section_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_sections_parent_notebook
 
 
 def cf_user_onenote_notebook_section_parent_section_group_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_parent_section_group_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_sections_parent_section_group_parent_notebook
 
 
 def cf_user_onenote_notebook_section_parent_section_group_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_notebook_section_parent_section_group_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_notebooks_sections_parent_section_group_sections
 
 
 def cf_user_onenote_page(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages
 
 
 def cf_user_onenote_page_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_notebook
 
 
 def cf_user_onenote_page_parent_notebook_section_group_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_notebook_section_group_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_notebook_section_groups_parent_notebook
 
 
 def cf_user_onenote_page_parent_notebook_section_group_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_notebook_section_group_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_notebook_section_groups_sections
 
 
 def cf_user_onenote_page_parent_notebook_section_group_section_page(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_notebook_section_group_section_page
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_notebook_section_groups_sections_pages
 
 
 def cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_notebook_section_group_section_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_notebook_section_groups_sections_parent_notebook
 
 
 def cf_user_onenote_page_parent_notebook_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_notebook_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_notebook_sections
 
 
 def cf_user_onenote_page_parent_notebook_section_page(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_notebook_section_page
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_notebook_sections_pages
 
 
 def cf_user_onenote_page_parent_notebook_section_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_notebook_section_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_notebook_sections_parent_notebook
 
 
 def cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_notebook_sections_parent_section_group_parent_notebook
 
 
 def cf_user_onenote_page_parent_notebook_section_parent_section_group_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_notebook_section_parent_section_group_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_notebook_sections_parent_section_group_sections
 
 
 def cf_user_onenote_page_parent_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_section
 
 
 def cf_user_onenote_page_parent_section_page(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_section_page
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_section_pages
 
 
 def cf_user_onenote_page_parent_section_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_section_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_section_parent_notebook
 
 
 def cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_section_parent_notebook_section_groups_parent_notebook
 
 
 def cf_user_onenote_page_parent_section_parent_notebook_section_group_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_section_parent_notebook_section_group_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_section_parent_notebook_section_groups_sections
 
 
 def cf_user_onenote_page_parent_section_parent_notebook_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_section_parent_notebook_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_section_parent_notebook_sections
 
 
 def cf_user_onenote_page_parent_section_parent_section_group_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_section_parent_section_group_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_section_parent_section_group_parent_notebook
 
 
 def cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_section_parent_section_group_parent_notebook_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_section_parent_section_group_parent_notebook_sections
 
 
 def cf_user_onenote_page_parent_section_parent_section_group_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_page_parent_section_parent_section_group_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_pages_parent_section_parent_section_group_sections
 
 
 def cf_user_onenote_section_group_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_parent_notebook
 
 
 def cf_user_onenote_section_group_parent_notebook_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_parent_notebook_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_parent_notebook_sections
 
 
 def cf_user_onenote_section_group_parent_notebook_section_page(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_parent_notebook_section_page
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_parent_notebook_sections_pages
 
 
 def cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_parent_notebook_section_page_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_parent_notebook_sections_pages_parent_notebook
 
 
 def cf_user_onenote_section_group_parent_notebook_section_page_parent_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_parent_notebook_section_page_parent_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_parent_notebook_sections_pages_parent_section
 
 
 def cf_user_onenote_section_group_parent_notebook_section_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_parent_notebook_section_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_parent_notebook_sections_parent_notebook
 
 
 def cf_user_onenote_section_group_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_sections
 
 
 def cf_user_onenote_section_group_section_page(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_section_page
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_sections_pages
 
 
 def cf_user_onenote_section_group_section_page_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_section_page_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_sections_pages_parent_notebook
 
 
 def cf_user_onenote_section_group_section_page_parent_notebook_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_section_page_parent_notebook_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_sections_pages_parent_notebook_sections
 
 
 def cf_user_onenote_section_group_section_page_parent_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_section_page_parent_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_sections_pages_parent_section
 
 
 def cf_user_onenote_section_group_section_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_section_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_sections_parent_notebook
 
 
 def cf_user_onenote_section_group_section_parent_notebook_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_group_section_parent_notebook_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_section_groups_sections_parent_notebook_sections
 
 
 def cf_user_onenote_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections
 
 
 def cf_user_onenote_section_page(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_page
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_pages
 
 
 def cf_user_onenote_section_page_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_page_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_pages_parent_notebook
 
 
 def cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_page_parent_notebook_section_group_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_pages_parent_notebook_section_groups_parent_notebook
 
 
 def cf_user_onenote_section_page_parent_notebook_section_group_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_page_parent_notebook_section_group_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_pages_parent_notebook_section_groups_sections
 
 
 def cf_user_onenote_section_page_parent_notebook_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_page_parent_notebook_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_pages_parent_notebook_sections
 
 
 def cf_user_onenote_section_page_parent_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_page_parent_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_pages_parent_section
 
 
 def cf_user_onenote_section_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_parent_notebook
 
 
 def cf_user_onenote_section_parent_notebook_section_group_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_parent_notebook_section_group_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_parent_notebook_section_groups_parent_notebook
 
 
 def cf_user_onenote_section_parent_notebook_section_group_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_parent_notebook_section_group_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_parent_notebook_section_groups_sections
 
 
 def cf_user_onenote_section_parent_notebook_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_parent_notebook_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_parent_notebook_sections
 
 
 def cf_user_onenote_section_parent_section_group_parent_notebook(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_parent_section_group_parent_notebook
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_parent_section_group_parent_notebook
 
 
 def cf_user_onenote_section_parent_section_group_parent_notebook_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_parent_section_group_parent_notebook_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_parent_section_group_parent_notebook_sections
 
 
 def cf_user_onenote_section_parent_section_group_section(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_onenote_section_parent_section_group_section
+    return cf_usersactions_v1_0_cl(cli_ctx).users_onenote_sections_parent_section_group_sections
 
 
 def cf_user_online_meeting(cli_ctx, *_):
-    return cf_usersactions_v1_0_cl(cli_ctx).user_online_meeting
+    return cf_usersactions_v1_0_cl(cli_ctx).users_online_meetings

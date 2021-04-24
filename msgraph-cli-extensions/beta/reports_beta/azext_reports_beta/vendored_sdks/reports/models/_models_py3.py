@@ -1177,6 +1177,8 @@ class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
     :param correlation_id: Indicates a unique ID that helps correlate activities that span across
      various services. Can be used to trace logs across services.
     :type correlation_id: str
+    :param initiated_by: auditActivityInitiator.
+    :type initiated_by: ~reports.models.MicrosoftGraphAuditActivityInitiator
     :param logged_by_service: Indicates information on which service initiated the activity (For
      example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft
      Identity Manager, Privileged Identity Management.
@@ -1191,10 +1193,6 @@ class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
      activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or
      Other.
     :type target_resources: list[~reports.models.MicrosoftGraphTargetResource]
-    :param app: appIdentity.
-    :type app: ~reports.models.MicrosoftGraphAppIdentity
-    :param user: userIdentity.
-    :type user: ~reports.models.MicrosoftGraphUserIdentity
     """
 
     _attribute_map = {
@@ -1205,13 +1203,12 @@ class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
         'additional_details': {'key': 'additionalDetails', 'type': '[MicrosoftGraphKeyValue]'},
         'category': {'key': 'category', 'type': 'str'},
         'correlation_id': {'key': 'correlationId', 'type': 'str'},
+        'initiated_by': {'key': 'initiatedBy', 'type': 'MicrosoftGraphAuditActivityInitiator'},
         'logged_by_service': {'key': 'loggedByService', 'type': 'str'},
         'operation_type': {'key': 'operationType', 'type': 'str'},
         'result': {'key': 'result', 'type': 'str'},
         'result_reason': {'key': 'resultReason', 'type': 'str'},
         'target_resources': {'key': 'targetResources', 'type': '[MicrosoftGraphTargetResource]'},
-        'app': {'key': 'initiatedBy.app', 'type': 'MicrosoftGraphAppIdentity'},
-        'user': {'key': 'initiatedBy.user', 'type': 'MicrosoftGraphUserIdentity'},
     }
 
     def __init__(
@@ -1224,13 +1221,12 @@ class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
         additional_details: Optional[List["MicrosoftGraphKeyValue"]] = None,
         category: Optional[str] = None,
         correlation_id: Optional[str] = None,
+        initiated_by: Optional["MicrosoftGraphAuditActivityInitiator"] = None,
         logged_by_service: Optional[str] = None,
         operation_type: Optional[str] = None,
         result: Optional[Union[str, "MicrosoftGraphOperationResult"]] = None,
         result_reason: Optional[str] = None,
         target_resources: Optional[List["MicrosoftGraphTargetResource"]] = None,
-        app: Optional["MicrosoftGraphAppIdentity"] = None,
-        user: Optional["MicrosoftGraphUserIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphDirectoryAudit, self).__init__(id=id, **kwargs)
@@ -1240,13 +1236,12 @@ class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
         self.additional_details = additional_details
         self.category = category
         self.correlation_id = correlation_id
+        self.initiated_by = initiated_by
         self.logged_by_service = logged_by_service
         self.operation_type = operation_type
         self.result = result
         self.result_reason = result_reason
         self.target_resources = target_resources
-        self.app = app
-        self.user = user
 
 
 class MicrosoftGraphEmailActivitySummary(MicrosoftGraphEntity):
@@ -3635,38 +3630,18 @@ class MicrosoftGraphProvisioningObjectSummary(MicrosoftGraphEntity):
     :type provisioning_steps: list[~reports.models.MicrosoftGraphProvisioningStep]
     :param service_principal: provisioningServicePrincipal.
     :type service_principal: ~reports.models.MicrosoftGraphProvisioningServicePrincipal
+    :param source_identity: provisionedIdentity.
+    :type source_identity: ~reports.models.MicrosoftGraphProvisionedIdentity
+    :param source_system: provisioningSystemDetails.
+    :type source_system: ~reports.models.MicrosoftGraphProvisioningSystemDetails
+    :param status_info: statusBase.
+    :type status_info: ~reports.models.MicrosoftGraphStatusBase
+    :param target_identity: provisionedIdentity.
+    :type target_identity: ~reports.models.MicrosoftGraphProvisionedIdentity
+    :param target_system: provisioningSystemDetails.
+    :type target_system: ~reports.models.MicrosoftGraphProvisioningSystemDetails
     :param tenant_id:
     :type tenant_id: str
-    :param details_target_system_details: detailsInfo.
-    :type details_target_system_details: dict[str, object]
-    :param display_name_target_system_display_name:
-    :type display_name_target_system_display_name: str
-    :param id_target_system_id:
-    :type id_target_system_id: str
-    :param details_target_identity_details: detailsInfo.
-    :type details_target_identity_details: dict[str, object]
-    :param display_name_target_identity_display_name:
-    :type display_name_target_identity_display_name: str
-    :param id_target_identity_id:
-    :type id_target_identity_id: str
-    :param identity_type_target_identity_type:
-    :type identity_type_target_identity_type: str
-    :param status:  Possible values include: "success", "failure", "skipped", "unknownFutureValue".
-    :type status: str or ~reports.models.MicrosoftGraphProvisioningResult
-    :param details_source_system_details: detailsInfo.
-    :type details_source_system_details: dict[str, object]
-    :param display_name_source_system_display_name:
-    :type display_name_source_system_display_name: str
-    :param id_source_system_id:
-    :type id_source_system_id: str
-    :param details_source_identity_details: detailsInfo.
-    :type details_source_identity_details: dict[str, object]
-    :param display_name_source_identity_display_name:
-    :type display_name_source_identity_display_name: str
-    :param id_source_identity_id:
-    :type id_source_identity_id: str
-    :param identity_type_source_identity_type:
-    :type identity_type_source_identity_type: str
     """
 
     _validation = {
@@ -3686,22 +3661,12 @@ class MicrosoftGraphProvisioningObjectSummary(MicrosoftGraphEntity):
         'modified_properties': {'key': 'modifiedProperties', 'type': '[MicrosoftGraphModifiedProperty]'},
         'provisioning_steps': {'key': 'provisioningSteps', 'type': '[MicrosoftGraphProvisioningStep]'},
         'service_principal': {'key': 'servicePrincipal', 'type': 'MicrosoftGraphProvisioningServicePrincipal'},
+        'source_identity': {'key': 'sourceIdentity', 'type': 'MicrosoftGraphProvisionedIdentity'},
+        'source_system': {'key': 'sourceSystem', 'type': 'MicrosoftGraphProvisioningSystemDetails'},
+        'status_info': {'key': 'statusInfo', 'type': 'MicrosoftGraphStatusBase'},
+        'target_identity': {'key': 'targetIdentity', 'type': 'MicrosoftGraphProvisionedIdentity'},
+        'target_system': {'key': 'targetSystem', 'type': 'MicrosoftGraphProvisioningSystemDetails'},
         'tenant_id': {'key': 'tenantId', 'type': 'str'},
-        'details_target_system_details': {'key': 'targetSystem.details', 'type': '{object}'},
-        'display_name_target_system_display_name': {'key': 'targetSystem.displayName', 'type': 'str'},
-        'id_target_system_id': {'key': 'targetSystem.id', 'type': 'str'},
-        'details_target_identity_details': {'key': 'targetIdentity.details', 'type': '{object}'},
-        'display_name_target_identity_display_name': {'key': 'targetIdentity.displayName', 'type': 'str'},
-        'id_target_identity_id': {'key': 'targetIdentity.id', 'type': 'str'},
-        'identity_type_target_identity_type': {'key': 'targetIdentity.identityType', 'type': 'str'},
-        'status': {'key': 'statusInfo.status', 'type': 'str'},
-        'details_source_system_details': {'key': 'sourceSystem.details', 'type': '{object}'},
-        'display_name_source_system_display_name': {'key': 'sourceSystem.displayName', 'type': 'str'},
-        'id_source_system_id': {'key': 'sourceSystem.id', 'type': 'str'},
-        'details_source_identity_details': {'key': 'sourceIdentity.details', 'type': '{object}'},
-        'display_name_source_identity_display_name': {'key': 'sourceIdentity.displayName', 'type': 'str'},
-        'id_source_identity_id': {'key': 'sourceIdentity.id', 'type': 'str'},
-        'identity_type_source_identity_type': {'key': 'sourceIdentity.identityType', 'type': 'str'},
     }
 
     def __init__(
@@ -3719,22 +3684,12 @@ class MicrosoftGraphProvisioningObjectSummary(MicrosoftGraphEntity):
         modified_properties: Optional[List["MicrosoftGraphModifiedProperty"]] = None,
         provisioning_steps: Optional[List["MicrosoftGraphProvisioningStep"]] = None,
         service_principal: Optional["MicrosoftGraphProvisioningServicePrincipal"] = None,
+        source_identity: Optional["MicrosoftGraphProvisionedIdentity"] = None,
+        source_system: Optional["MicrosoftGraphProvisioningSystemDetails"] = None,
+        status_info: Optional["MicrosoftGraphStatusBase"] = None,
+        target_identity: Optional["MicrosoftGraphProvisionedIdentity"] = None,
+        target_system: Optional["MicrosoftGraphProvisioningSystemDetails"] = None,
         tenant_id: Optional[str] = None,
-        details_target_system_details: Optional[Dict[str, object]] = None,
-        display_name_target_system_display_name: Optional[str] = None,
-        id_target_system_id: Optional[str] = None,
-        details_target_identity_details: Optional[Dict[str, object]] = None,
-        display_name_target_identity_display_name: Optional[str] = None,
-        id_target_identity_id: Optional[str] = None,
-        identity_type_target_identity_type: Optional[str] = None,
-        status: Optional[Union[str, "MicrosoftGraphProvisioningResult"]] = None,
-        details_source_system_details: Optional[Dict[str, object]] = None,
-        display_name_source_system_display_name: Optional[str] = None,
-        id_source_system_id: Optional[str] = None,
-        details_source_identity_details: Optional[Dict[str, object]] = None,
-        display_name_source_identity_display_name: Optional[str] = None,
-        id_source_identity_id: Optional[str] = None,
-        identity_type_source_identity_type: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphProvisioningObjectSummary, self).__init__(id=id, **kwargs)
@@ -3749,22 +3704,12 @@ class MicrosoftGraphProvisioningObjectSummary(MicrosoftGraphEntity):
         self.modified_properties = modified_properties
         self.provisioning_steps = provisioning_steps
         self.service_principal = service_principal
+        self.source_identity = source_identity
+        self.source_system = source_system
+        self.status_info = status_info
+        self.target_identity = target_identity
+        self.target_system = target_system
         self.tenant_id = tenant_id
-        self.details_target_system_details = details_target_system_details
-        self.display_name_target_system_display_name = display_name_target_system_display_name
-        self.id_target_system_id = id_target_system_id
-        self.details_target_identity_details = details_target_identity_details
-        self.display_name_target_identity_display_name = display_name_target_identity_display_name
-        self.id_target_identity_id = id_target_identity_id
-        self.identity_type_target_identity_type = identity_type_target_identity_type
-        self.status = status
-        self.details_source_system_details = details_source_system_details
-        self.display_name_source_system_display_name = display_name_source_system_display_name
-        self.id_source_system_id = id_source_system_id
-        self.details_source_identity_details = details_source_identity_details
-        self.display_name_source_identity_display_name = display_name_source_identity_display_name
-        self.id_source_identity_id = id_source_identity_id
-        self.identity_type_source_identity_type = identity_type_source_identity_type
 
 
 class MicrosoftGraphProvisioningServicePrincipal(MicrosoftGraphIdentity):
@@ -4108,6 +4053,8 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
     :type ip_address: str
     :param is_interactive: Indicates if a sign-in is interactive or not.
     :type is_interactive: bool
+    :param location: signInLocation.
+    :type location: ~reports.models.MicrosoftGraphSignInLocation
     :param mfa_detail: mfaDetail.
     :type mfa_detail: ~reports.models.MicrosoftGraphMfaDetail
     :param network_location_details:
@@ -4168,17 +4115,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
     :type user_id: str
     :param user_principal_name: User principal name of the user that initiated the sign-in.
     :type user_principal_name: str
-    :param city: Provides the city where the sign-in originated. This is calculated using
-     latitude/longitude information from the sign-in activity.
-    :type city: str
-    :param country_or_region: Provides the country code info (2 letter code) where the sign-in
-     originated.  This is calculated using latitude/longitude information from the sign-in activity.
-    :type country_or_region: str
-    :param geo_coordinates: geoCoordinates.
-    :type geo_coordinates: ~reports.models.MicrosoftGraphGeoCoordinates
-    :param state: Provides the State where the sign-in originated. This is calculated using
-     latitude/longitude information from the sign-in activity.
-    :type state: str
     """
 
     _validation = {
@@ -4204,6 +4140,7 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         'device_detail': {'key': 'deviceDetail', 'type': 'MicrosoftGraphDeviceDetail'},
         'ip_address': {'key': 'ipAddress', 'type': 'str'},
         'is_interactive': {'key': 'isInteractive', 'type': 'bool'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphSignInLocation'},
         'mfa_detail': {'key': 'mfaDetail', 'type': 'MicrosoftGraphMfaDetail'},
         'network_location_details': {'key': 'networkLocationDetails', 'type': '[MicrosoftGraphNetworkLocationDetail]'},
         'original_request_id': {'key': 'originalRequestId', 'type': 'str'},
@@ -4227,10 +4164,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'city': {'key': 'location.city', 'type': 'str'},
-        'country_or_region': {'key': 'location.countryOrRegion', 'type': 'str'},
-        'geo_coordinates': {'key': 'location.geoCoordinates', 'type': 'MicrosoftGraphGeoCoordinates'},
-        'state': {'key': 'location.state', 'type': 'str'},
     }
 
     def __init__(
@@ -4254,6 +4187,7 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         device_detail: Optional["MicrosoftGraphDeviceDetail"] = None,
         ip_address: Optional[str] = None,
         is_interactive: Optional[bool] = None,
+        location: Optional["MicrosoftGraphSignInLocation"] = None,
         mfa_detail: Optional["MicrosoftGraphMfaDetail"] = None,
         network_location_details: Optional[List["MicrosoftGraphNetworkLocationDetail"]] = None,
         original_request_id: Optional[str] = None,
@@ -4277,10 +4211,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         user_display_name: Optional[str] = None,
         user_id: Optional[str] = None,
         user_principal_name: Optional[str] = None,
-        city: Optional[str] = None,
-        country_or_region: Optional[str] = None,
-        geo_coordinates: Optional["MicrosoftGraphGeoCoordinates"] = None,
-        state: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphSignIn, self).__init__(id=id, **kwargs)
@@ -4301,6 +4231,7 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         self.device_detail = device_detail
         self.ip_address = ip_address
         self.is_interactive = is_interactive
+        self.location = location
         self.mfa_detail = mfa_detail
         self.network_location_details = network_location_details
         self.original_request_id = original_request_id
@@ -4324,10 +4255,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         self.user_display_name = user_display_name
         self.user_id = user_id
         self.user_principal_name = user_principal_name
-        self.city = city
-        self.country_or_region = country_or_region
-        self.geo_coordinates = geo_coordinates
-        self.state = state
 
 
 class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
@@ -4373,6 +4300,8 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     :type ip_address: str
     :param is_interactive: Indicates if a sign-in is interactive or not.
     :type is_interactive: bool
+    :param location: signInLocation.
+    :type location: ~reports.models.MicrosoftGraphSignInLocation
     :param mfa_detail: mfaDetail.
     :type mfa_detail: ~reports.models.MicrosoftGraphMfaDetail
     :param network_location_details:
@@ -4433,17 +4362,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     :type user_id: str
     :param user_principal_name: User principal name of the user that initiated the sign-in.
     :type user_principal_name: str
-    :param city: Provides the city where the sign-in originated. This is calculated using
-     latitude/longitude information from the sign-in activity.
-    :type city: str
-    :param country_or_region: Provides the country code info (2 letter code) where the sign-in
-     originated.  This is calculated using latitude/longitude information from the sign-in activity.
-    :type country_or_region: str
-    :param geo_coordinates: geoCoordinates.
-    :type geo_coordinates: ~reports.models.MicrosoftGraphGeoCoordinates
-    :param state: Provides the State where the sign-in originated. This is calculated using
-     latitude/longitude information from the sign-in activity.
-    :type state: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -4473,6 +4391,7 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         'device_detail': {'key': 'deviceDetail', 'type': 'MicrosoftGraphDeviceDetail'},
         'ip_address': {'key': 'ipAddress', 'type': 'str'},
         'is_interactive': {'key': 'isInteractive', 'type': 'bool'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphSignInLocation'},
         'mfa_detail': {'key': 'mfaDetail', 'type': 'MicrosoftGraphMfaDetail'},
         'network_location_details': {'key': 'networkLocationDetails', 'type': '[MicrosoftGraphNetworkLocationDetail]'},
         'original_request_id': {'key': 'originalRequestId', 'type': 'str'},
@@ -4496,10 +4415,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'city': {'key': 'location.city', 'type': 'str'},
-        'country_or_region': {'key': 'location.countryOrRegion', 'type': 'str'},
-        'geo_coordinates': {'key': 'location.geoCoordinates', 'type': 'MicrosoftGraphGeoCoordinates'},
-        'state': {'key': 'location.state', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'target_tenant_id': {'key': 'targetTenantId', 'type': 'str'},
     }
@@ -4524,6 +4439,7 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         device_detail: Optional["MicrosoftGraphDeviceDetail"] = None,
         ip_address: Optional[str] = None,
         is_interactive: Optional[bool] = None,
+        location: Optional["MicrosoftGraphSignInLocation"] = None,
         mfa_detail: Optional["MicrosoftGraphMfaDetail"] = None,
         network_location_details: Optional[List["MicrosoftGraphNetworkLocationDetail"]] = None,
         original_request_id: Optional[str] = None,
@@ -4547,15 +4463,11 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         user_display_name: Optional[str] = None,
         user_id: Optional[str] = None,
         user_principal_name: Optional[str] = None,
-        city: Optional[str] = None,
-        country_or_region: Optional[str] = None,
-        geo_coordinates: Optional["MicrosoftGraphGeoCoordinates"] = None,
-        state: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         target_tenant_id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphRestrictedSignIn, self).__init__(id=id, alternate_sign_in_name=alternate_sign_in_name, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, authentication_details=authentication_details, authentication_methods_used=authentication_methods_used, authentication_processing_details=authentication_processing_details, authentication_requirement=authentication_requirement, authentication_requirement_policies=authentication_requirement_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, mfa_detail=mfa_detail, network_location_details=network_location_details, original_request_id=original_request_id, processing_time_in_milliseconds=processing_time_in_milliseconds, resource_display_name=resource_display_name, resource_id=resource_id, resource_tenant_id=resource_tenant_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, service_principal_id=service_principal_id, service_principal_name=service_principal_name, sign_in_event_types=sign_in_event_types, status=status, token_issuer_name=token_issuer_name, token_issuer_type=token_issuer_type, user_agent=user_agent, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state, **kwargs)
+        super(MicrosoftGraphRestrictedSignIn, self).__init__(id=id, alternate_sign_in_name=alternate_sign_in_name, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, authentication_details=authentication_details, authentication_methods_used=authentication_methods_used, authentication_processing_details=authentication_processing_details, authentication_requirement=authentication_requirement, authentication_requirement_policies=authentication_requirement_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, location=location, mfa_detail=mfa_detail, network_location_details=network_location_details, original_request_id=original_request_id, processing_time_in_milliseconds=processing_time_in_milliseconds, resource_display_name=resource_display_name, resource_id=resource_id, resource_tenant_id=resource_tenant_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, service_principal_id=service_principal_id, service_principal_name=service_principal_name, sign_in_event_types=sign_in_event_types, status=status, token_issuer_name=token_issuer_name, token_issuer_type=token_issuer_type, user_agent=user_agent, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, **kwargs)
         self.additional_properties = additional_properties
         self.target_tenant_id = target_tenant_id
 

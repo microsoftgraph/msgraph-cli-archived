@@ -104,8 +104,7 @@ class TrustFrameworkTrustFrameworkOperations(object):
 
     def update_trust_framework(
         self,
-        key_sets=None,  # type: Optional[List["models.MicrosoftGraphTrustFrameworkKeySet"]]
-        policies=None,  # type: Optional[List["models.MicrosoftGraphTrustFrameworkPolicy"]]
+        body,  # type: "models.MicrosoftGraphTrustFramework"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -113,10 +112,8 @@ class TrustFrameworkTrustFrameworkOperations(object):
 
         Update trustFramework.
 
-        :param key_sets:
-        :type key_sets: list[~identity_sign_ins.models.MicrosoftGraphTrustFrameworkKeySet]
-        :param policies:
-        :type policies: list[~identity_sign_ins.models.MicrosoftGraphTrustFrameworkPolicy]
+        :param body: New property values.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphTrustFramework
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -127,8 +124,6 @@ class TrustFrameworkTrustFrameworkOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphTrustFramework(key_sets=key_sets, policies=policies)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

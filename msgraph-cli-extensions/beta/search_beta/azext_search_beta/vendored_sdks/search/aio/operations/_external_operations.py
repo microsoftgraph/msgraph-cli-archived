@@ -41,7 +41,7 @@ class ExternalOperations:
         self._deserialize = deserializer
         self._config = config
 
-    def list_connection(
+    def list_connections(
         self,
         orderby: Optional[List[Union[str, "models.Get5ItemsItem"]]] = None,
         select: Optional[List[Union[str, "models.Get6ItemsItem"]]] = None,
@@ -77,7 +77,7 @@ class ExternalOperations:
 
             if not next_link:
                 # Construct URL
-                url = self.list_connection.metadata['url']  # type: ignore
+                url = self.list_connections.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -127,49 +127,19 @@ class ExternalOperations:
         return AsyncItemPaged(
             get_next, extract_data
         )
-    list_connection.metadata = {'url': '/external/connections'}  # type: ignore
+    list_connections.metadata = {'url': '/external/connections'}  # type: ignore
 
-    async def create_connection(
+    async def create_connections(
         self,
-        id: Optional[str] = None,
-        configuration: Optional["models.MicrosoftGraphConfiguration"] = None,
-        description: Optional[str] = None,
-        name: Optional[str] = None,
-        state: Optional[Union[str, "models.MicrosoftGraphConnectionState"]] = None,
-        groups: Optional[List["models.MicrosoftGraphExternalGroup"]] = None,
-        items: Optional[List["models.MicrosoftGraphExternalItem"]] = None,
-        operations: Optional[List["models.MicrosoftGraphConnectionOperation"]] = None,
-        microsoft_graph_entity_id: Optional[str] = None,
-        base_type: Optional[str] = None,
-        properties: Optional[List["models.MicrosoftGraphProperty"]] = None,
+        body: "models.MicrosoftGraphExternalConnection",
         **kwargs
     ) -> "models.MicrosoftGraphExternalConnection":
         """Create new navigation property to connections for external.
 
         Create new navigation property to connections for external.
 
-        :param id: Read-only.
-        :type id: str
-        :param configuration: configuration.
-        :type configuration: ~search.models.MicrosoftGraphConfiguration
-        :param description:
-        :type description: str
-        :param name:
-        :type name: str
-        :param state:
-        :type state: str or ~search.models.MicrosoftGraphConnectionState
-        :param groups:
-        :type groups: list[~search.models.MicrosoftGraphExternalGroup]
-        :param items:
-        :type items: list[~search.models.MicrosoftGraphExternalItem]
-        :param operations:
-        :type operations: list[~search.models.MicrosoftGraphConnectionOperation]
-        :param microsoft_graph_entity_id: Read-only.
-        :type microsoft_graph_entity_id: str
-        :param base_type:
-        :type base_type: str
-        :param properties:
-        :type properties: list[~search.models.MicrosoftGraphProperty]
+        :param body: New navigation property.
+        :type body: ~search.models.MicrosoftGraphExternalConnection
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphExternalConnection, or the result of cls(response)
         :rtype: ~search.models.MicrosoftGraphExternalConnection
@@ -180,13 +150,11 @@ class ExternalOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphExternalConnection(id=id, configuration=configuration, description=description, name=name, state=state, groups=groups, items=items, operations=operations, id_schema_id=microsoft_graph_entity_id, base_type=base_type, properties=properties)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_connection.metadata['url']  # type: ignore
+        url = self.create_connections.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -214,9 +182,9 @@ class ExternalOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_connection.metadata = {'url': '/external/connections'}  # type: ignore
+    create_connections.metadata = {'url': '/external/connections'}  # type: ignore
 
-    async def get_connection(
+    async def get_connections(
         self,
         external_connection_id: str,
         select: Optional[List[Union[str, "models.Enum13"]]] = None,
@@ -246,7 +214,7 @@ class ExternalOperations:
         accept = "application/json"
 
         # Construct URL
-        url = self.get_connection.metadata['url']  # type: ignore
+        url = self.get_connections.metadata['url']  # type: ignore
         path_format_arguments = {
             'externalConnection-id': self._serialize.url("external_connection_id", external_connection_id, 'str'),
         }
@@ -278,22 +246,12 @@ class ExternalOperations:
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_connection.metadata = {'url': '/external/connections/{externalConnection-id}'}  # type: ignore
+    get_connections.metadata = {'url': '/external/connections/{externalConnection-id}'}  # type: ignore
 
-    async def update_connection(
+    async def update_connections(
         self,
         external_connection_id: str,
-        id: Optional[str] = None,
-        configuration: Optional["models.MicrosoftGraphConfiguration"] = None,
-        description: Optional[str] = None,
-        name: Optional[str] = None,
-        state: Optional[Union[str, "models.MicrosoftGraphConnectionState"]] = None,
-        groups: Optional[List["models.MicrosoftGraphExternalGroup"]] = None,
-        items: Optional[List["models.MicrosoftGraphExternalItem"]] = None,
-        operations: Optional[List["models.MicrosoftGraphConnectionOperation"]] = None,
-        microsoft_graph_entity_id: Optional[str] = None,
-        base_type: Optional[str] = None,
-        properties: Optional[List["models.MicrosoftGraphProperty"]] = None,
+        body: "models.MicrosoftGraphExternalConnection",
         **kwargs
     ) -> None:
         """Update the navigation property connections in external.
@@ -302,28 +260,8 @@ class ExternalOperations:
 
         :param external_connection_id: key: id of externalConnection.
         :type external_connection_id: str
-        :param id: Read-only.
-        :type id: str
-        :param configuration: configuration.
-        :type configuration: ~search.models.MicrosoftGraphConfiguration
-        :param description:
-        :type description: str
-        :param name:
-        :type name: str
-        :param state:
-        :type state: str or ~search.models.MicrosoftGraphConnectionState
-        :param groups:
-        :type groups: list[~search.models.MicrosoftGraphExternalGroup]
-        :param items:
-        :type items: list[~search.models.MicrosoftGraphExternalItem]
-        :param operations:
-        :type operations: list[~search.models.MicrosoftGraphConnectionOperation]
-        :param microsoft_graph_entity_id: Read-only.
-        :type microsoft_graph_entity_id: str
-        :param base_type:
-        :type base_type: str
-        :param properties:
-        :type properties: list[~search.models.MicrosoftGraphProperty]
+        :param body: New navigation property values.
+        :type body: ~search.models.MicrosoftGraphExternalConnection
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -334,13 +272,11 @@ class ExternalOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphExternalConnection(id=id, configuration=configuration, description=description, name=name, state=state, groups=groups, items=items, operations=operations, id_schema_id=microsoft_graph_entity_id, base_type=base_type, properties=properties)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.update_connection.metadata['url']  # type: ignore
+        url = self.update_connections.metadata['url']  # type: ignore
         path_format_arguments = {
             'externalConnection-id': self._serialize.url("external_connection_id", external_connection_id, 'str'),
         }
@@ -369,9 +305,9 @@ class ExternalOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_connection.metadata = {'url': '/external/connections/{externalConnection-id}'}  # type: ignore
+    update_connections.metadata = {'url': '/external/connections/{externalConnection-id}'}  # type: ignore
 
-    async def delete_connection(
+    async def delete_connections(
         self,
         external_connection_id: str,
         if_match: Optional[str] = None,
@@ -398,7 +334,7 @@ class ExternalOperations:
         accept = "application/json"
 
         # Construct URL
-        url = self.delete_connection.metadata['url']  # type: ignore
+        url = self.delete_connections.metadata['url']  # type: ignore
         path_format_arguments = {
             'externalConnection-id': self._serialize.url("external_connection_id", external_connection_id, 'str'),
         }
@@ -425,4 +361,4 @@ class ExternalOperations:
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_connection.metadata = {'url': '/external/connections/{externalConnection-id}'}  # type: ignore
+    delete_connections.metadata = {'url': '/external/connections/{externalConnection-id}'}  # type: ignore

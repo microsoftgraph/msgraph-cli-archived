@@ -3063,6 +3063,8 @@ class MicrosoftGraphConditionalAccessPolicy(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param conditions: conditionalAccessConditionSet.
+    :type conditions: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessConditionSet
     :param created_date_time: The Timestamp type represents date and time information using ISO
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'. Readonly.
@@ -3077,56 +3079,25 @@ class MicrosoftGraphConditionalAccessPolicy(MicrosoftGraphEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'. Readonly.
     :type modified_date_time: ~datetime.datetime
+    :param session_controls: conditionalAccessSessionControls.
+    :type session_controls:
+     ~identity_sign_ins.models.MicrosoftGraphConditionalAccessSessionControls
     :param state:  Possible values include: "enabled", "disabled",
      "enabledForReportingButNotEnforced".
     :type state: str or ~identity_sign_ins.models.MicrosoftGraphConditionalAccessPolicyState
-    :param application_enforced_restrictions: applicationEnforcedRestrictionsSessionControl.
-    :type application_enforced_restrictions:
-     ~identity_sign_ins.models.MicrosoftGraphApplicationEnforcedRestrictionsSessionControl
-    :param cloud_app_security: cloudAppSecuritySessionControl.
-    :type cloud_app_security:
-     ~identity_sign_ins.models.MicrosoftGraphCloudAppSecuritySessionControl
-    :param persistent_browser: persistentBrowserSessionControl.
-    :type persistent_browser:
-     ~identity_sign_ins.models.MicrosoftGraphPersistentBrowserSessionControl
-    :param sign_in_frequency: signInFrequencySessionControl.
-    :type sign_in_frequency: ~identity_sign_ins.models.MicrosoftGraphSignInFrequencySessionControl
-    :param applications: conditionalAccessApplications.
-    :type applications: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessApplications
-    :param client_app_types: Client application types included in the policy. Possible values are:
-     all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other.
-    :type client_app_types: list[str or
-     ~identity_sign_ins.models.MicrosoftGraphConditionalAccessClientApp]
-    :param locations: conditionalAccessLocations.
-    :type locations: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessLocations
-    :param platforms: conditionalAccessPlatforms.
-    :type platforms: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessPlatforms
-    :param sign_in_risk_levels: Risk levels included in the policy. Possible values are: low,
-     medium, high, none.
-    :type sign_in_risk_levels: list[str or ~identity_sign_ins.models.MicrosoftGraphRiskLevel]
-    :param users: conditionalAccessUsers.
-    :type users: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessUsers
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'conditions': {'key': 'conditions', 'type': 'MicrosoftGraphConditionalAccessConditionSet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'grant_controls': {'key': 'grantControls', 'type': 'MicrosoftGraphConditionalAccessGrantControls'},
         'modified_date_time': {'key': 'modifiedDateTime', 'type': 'iso-8601'},
+        'session_controls': {'key': 'sessionControls', 'type': 'MicrosoftGraphConditionalAccessSessionControls'},
         'state': {'key': 'state', 'type': 'str'},
-        'application_enforced_restrictions': {'key': 'sessionControls.applicationEnforcedRestrictions', 'type': 'MicrosoftGraphApplicationEnforcedRestrictionsSessionControl'},
-        'cloud_app_security': {'key': 'sessionControls.cloudAppSecurity', 'type': 'MicrosoftGraphCloudAppSecuritySessionControl'},
-        'persistent_browser': {'key': 'sessionControls.persistentBrowser', 'type': 'MicrosoftGraphPersistentBrowserSessionControl'},
-        'sign_in_frequency': {'key': 'sessionControls.signInFrequency', 'type': 'MicrosoftGraphSignInFrequencySessionControl'},
-        'applications': {'key': 'conditions.applications', 'type': 'MicrosoftGraphConditionalAccessApplications'},
-        'client_app_types': {'key': 'conditions.clientAppTypes', 'type': '[str]'},
-        'locations': {'key': 'conditions.locations', 'type': 'MicrosoftGraphConditionalAccessLocations'},
-        'platforms': {'key': 'conditions.platforms', 'type': 'MicrosoftGraphConditionalAccessPlatforms'},
-        'sign_in_risk_levels': {'key': 'conditions.signInRiskLevels', 'type': '[str]'},
-        'users': {'key': 'conditions.users', 'type': 'MicrosoftGraphConditionalAccessUsers'},
     }
 
     def __init__(
@@ -3134,42 +3105,26 @@ class MicrosoftGraphConditionalAccessPolicy(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
+        conditions: Optional["MicrosoftGraphConditionalAccessConditionSet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         grant_controls: Optional["MicrosoftGraphConditionalAccessGrantControls"] = None,
         modified_date_time: Optional[datetime.datetime] = None,
+        session_controls: Optional["MicrosoftGraphConditionalAccessSessionControls"] = None,
         state: Optional[Union[str, "MicrosoftGraphConditionalAccessPolicyState"]] = None,
-        application_enforced_restrictions: Optional["MicrosoftGraphApplicationEnforcedRestrictionsSessionControl"] = None,
-        cloud_app_security: Optional["MicrosoftGraphCloudAppSecuritySessionControl"] = None,
-        persistent_browser: Optional["MicrosoftGraphPersistentBrowserSessionControl"] = None,
-        sign_in_frequency: Optional["MicrosoftGraphSignInFrequencySessionControl"] = None,
-        applications: Optional["MicrosoftGraphConditionalAccessApplications"] = None,
-        client_app_types: Optional[List[Union[str, "MicrosoftGraphConditionalAccessClientApp"]]] = None,
-        locations: Optional["MicrosoftGraphConditionalAccessLocations"] = None,
-        platforms: Optional["MicrosoftGraphConditionalAccessPlatforms"] = None,
-        sign_in_risk_levels: Optional[List[Union[str, "MicrosoftGraphRiskLevel"]]] = None,
-        users: Optional["MicrosoftGraphConditionalAccessUsers"] = None,
         **kwargs
     ):
         super(MicrosoftGraphConditionalAccessPolicy, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
+        self.conditions = conditions
         self.created_date_time = created_date_time
         self.description = description
         self.display_name = display_name
         self.grant_controls = grant_controls
         self.modified_date_time = modified_date_time
+        self.session_controls = session_controls
         self.state = state
-        self.application_enforced_restrictions = application_enforced_restrictions
-        self.cloud_app_security = cloud_app_security
-        self.persistent_browser = persistent_browser
-        self.sign_in_frequency = sign_in_frequency
-        self.applications = applications
-        self.client_app_types = client_app_types
-        self.locations = locations
-        self.platforms = platforms
-        self.sign_in_risk_levels = sign_in_risk_levels
-        self.users = users
 
 
 class MicrosoftGraphConditionalAccessRoot(MicrosoftGraphEntity):
@@ -6969,6 +6924,8 @@ class MicrosoftGraphInvitation(MicrosoftGraphEntity):
      in the user name, except at the beginning or end of the name.An underscore (_) is permitted
      anywhere in the user name. This includes at the beginning or end of the name.
     :type invited_user_email_address: str
+    :param invited_user_message_info: invitedUserMessageInfo.
+    :type invited_user_message_info: ~identity_sign_ins.models.MicrosoftGraphInvitedUserMessageInfo
     :param invited_user_type: The userType of the user being invited. By default, this is Guest.
      You can invite as Member if you are a company administrator.
     :type invited_user_type: str
@@ -6985,16 +6942,6 @@ class MicrosoftGraphInvitation(MicrosoftGraphEntity):
     :type status: str
     :param invited_user: Represents an Azure Active Directory user object.
     :type invited_user: ~identity_sign_ins.models.MicrosoftGraphUser
-    :param cc_recipients: Additional recipients the invitation message should be sent to. Currently
-     only 1 additional recipient is supported.
-    :type cc_recipients: list[~identity_sign_ins.models.MicrosoftGraphRecipient]
-    :param customized_message_body: Customized message body you want to send if you don't want the
-     default message.
-    :type customized_message_body: str
-    :param message_language: The language you want to send the default message in. If the
-     customizedMessageBody is specified, this property is ignored, and the message is sent using the
-     customizedMessageBody. The language format should be in ISO 639. The default is en-US.
-    :type message_language: str
     """
 
     _attribute_map = {
@@ -7002,15 +6949,13 @@ class MicrosoftGraphInvitation(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'invited_user_display_name': {'key': 'invitedUserDisplayName', 'type': 'str'},
         'invited_user_email_address': {'key': 'invitedUserEmailAddress', 'type': 'str'},
+        'invited_user_message_info': {'key': 'invitedUserMessageInfo', 'type': 'MicrosoftGraphInvitedUserMessageInfo'},
         'invited_user_type': {'key': 'invitedUserType', 'type': 'str'},
         'invite_redeem_url': {'key': 'inviteRedeemUrl', 'type': 'str'},
         'invite_redirect_url': {'key': 'inviteRedirectUrl', 'type': 'str'},
         'send_invitation_message': {'key': 'sendInvitationMessage', 'type': 'bool'},
         'status': {'key': 'status', 'type': 'str'},
         'invited_user': {'key': 'invitedUser', 'type': 'MicrosoftGraphUser'},
-        'cc_recipients': {'key': 'invitedUserMessageInfo.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'customized_message_body': {'key': 'invitedUserMessageInfo.customizedMessageBody', 'type': 'str'},
-        'message_language': {'key': 'invitedUserMessageInfo.messageLanguage', 'type': 'str'},
     }
 
     def __init__(
@@ -7020,30 +6965,26 @@ class MicrosoftGraphInvitation(MicrosoftGraphEntity):
         additional_properties: Optional[Dict[str, object]] = None,
         invited_user_display_name: Optional[str] = None,
         invited_user_email_address: Optional[str] = None,
+        invited_user_message_info: Optional["MicrosoftGraphInvitedUserMessageInfo"] = None,
         invited_user_type: Optional[str] = None,
         invite_redeem_url: Optional[str] = None,
         invite_redirect_url: Optional[str] = None,
         send_invitation_message: Optional[bool] = None,
         status: Optional[str] = None,
         invited_user: Optional["MicrosoftGraphUser"] = None,
-        cc_recipients: Optional[List["MicrosoftGraphRecipient"]] = None,
-        customized_message_body: Optional[str] = None,
-        message_language: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphInvitation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.invited_user_display_name = invited_user_display_name
         self.invited_user_email_address = invited_user_email_address
+        self.invited_user_message_info = invited_user_message_info
         self.invited_user_type = invited_user_type
         self.invite_redeem_url = invite_redeem_url
         self.invite_redirect_url = invite_redirect_url
         self.send_invitation_message = send_invitation_message
         self.status = status
         self.invited_user = invited_user
-        self.cc_recipients = cc_recipients
-        self.customized_message_body = customized_message_body
-        self.message_language = message_language
 
 
 class MicrosoftGraphInvitedUserMessageInfo(msrest.serialization.Model):
@@ -15657,6 +15598,8 @@ class MicrosoftGraphThreatAssessmentRequest(MicrosoftGraphEntity):
     :type category: str or ~identity_sign_ins.models.MicrosoftGraphThreatCategory
     :param content_type:  Possible values include: "mail", "url", "file".
     :type content_type: str or ~identity_sign_ins.models.MicrosoftGraphThreatAssessmentContentType
+    :param created_by: identitySet.
+    :type created_by: ~identity_sign_ins.models.MicrosoftGraphIdentitySet
     :param created_date_time: The Timestamp type represents date and time information using ISO
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
@@ -15672,12 +15615,6 @@ class MicrosoftGraphThreatAssessmentRequest(MicrosoftGraphEntity):
     :param results: A collection of threat assessment results. Read-only. By default, a GET
      /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.
     :type results: list[~identity_sign_ins.models.MicrosoftGraphThreatAssessmentResult]
-    :param application: identity.
-    :type application: ~identity_sign_ins.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~identity_sign_ins.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~identity_sign_ins.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -15685,14 +15622,12 @@ class MicrosoftGraphThreatAssessmentRequest(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'category': {'key': 'category', 'type': 'str'},
         'content_type': {'key': 'contentType', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'expected_assessment': {'key': 'expectedAssessment', 'type': 'str'},
         'request_source': {'key': 'requestSource', 'type': 'str'},
         'status': {'key': 'status', 'type': 'str'},
         'results': {'key': 'results', 'type': '[MicrosoftGraphThreatAssessmentResult]'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -15702,28 +15637,24 @@ class MicrosoftGraphThreatAssessmentRequest(MicrosoftGraphEntity):
         additional_properties: Optional[Dict[str, object]] = None,
         category: Optional[Union[str, "MicrosoftGraphThreatCategory"]] = None,
         content_type: Optional[Union[str, "MicrosoftGraphThreatAssessmentContentType"]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         expected_assessment: Optional[Union[str, "MicrosoftGraphThreatExpectedAssessment"]] = None,
         request_source: Optional[Union[str, "MicrosoftGraphThreatAssessmentRequestSource"]] = None,
         status: Optional[Union[str, "MicrosoftGraphThreatAssessmentStatus"]] = None,
         results: Optional[List["MicrosoftGraphThreatAssessmentResult"]] = None,
-        application: Optional["MicrosoftGraphIdentity"] = None,
-        device: Optional["MicrosoftGraphIdentity"] = None,
-        user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphThreatAssessmentRequest, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.category = category
         self.content_type = content_type
+        self.created_by = created_by
         self.created_date_time = created_date_time
         self.expected_assessment = expected_assessment
         self.request_source = request_source
         self.status = status
         self.results = results
-        self.application = application
-        self.device = device
-        self.user = user
 
 
 class MicrosoftGraphThreatAssessmentResult(MicrosoftGraphEntity):

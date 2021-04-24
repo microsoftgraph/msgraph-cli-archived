@@ -18,28 +18,28 @@ if TYPE_CHECKING:
 from ._configuration import EducationConfiguration
 from .operations import EducationEducationRootOperations
 from .operations import EducationOperations
-from .operations import EducationClassOperations
-from .operations import EducationClassAssignmentOperations
-from .operations import EducationClassAssignmentSubmissionOperations
-from .operations import EducationClassMemberOperations
-from .operations import EducationClassSchoolOperations
-from .operations import EducationClassTeacherOperations
+from .operations import EducationClassesOperations
+from .operations import EducationClassesAssignmentsOperations
+from .operations import EducationClassesAssignmentsSubmissionsOperations
+from .operations import EducationClassesMembersOperations
+from .operations import EducationClassesSchoolsOperations
+from .operations import EducationClassesTeachersOperations
 from .operations import EducationMeOperations
-from .operations import EducationMeAssignmentOperations
-from .operations import EducationMeAssignmentSubmissionOperations
-from .operations import EducationMeClassOperations
-from .operations import EducationMeSchoolOperations
-from .operations import EducationMeTaughtClassOperations
-from .operations import EducationSchoolOperations
-from .operations import EducationSchoolClassOperations
-from .operations import EducationSchoolUserOperations
-from .operations import EducationSynchronizationProfileOperations
-from .operations import EducationUserOperations
-from .operations import EducationUserAssignmentOperations
-from .operations import EducationUserAssignmentSubmissionOperations
-from .operations import EducationUserClassOperations
-from .operations import EducationUserSchoolOperations
-from .operations import EducationUserTaughtClassOperations
+from .operations import EducationMeAssignmentsOperations
+from .operations import EducationMeAssignmentsSubmissionsOperations
+from .operations import EducationMeClassesOperations
+from .operations import EducationMeSchoolsOperations
+from .operations import EducationMeTaughtClassesOperations
+from .operations import EducationSchoolsOperations
+from .operations import EducationSchoolsClassesOperations
+from .operations import EducationSchoolsUsersOperations
+from .operations import EducationSynchronizationProfilesOperations
+from .operations import EducationUsersOperations
+from .operations import EducationUsersAssignmentsOperations
+from .operations import EducationUsersAssignmentsSubmissionsOperations
+from .operations import EducationUsersClassesOperations
+from .operations import EducationUsersSchoolsOperations
+from .operations import EducationUsersTaughtClassesOperations
 from .. import models
 
 
@@ -50,50 +50,50 @@ class Education(object):
     :vartype education_education_root: education.aio.operations.EducationEducationRootOperations
     :ivar education: EducationOperations operations
     :vartype education: education.aio.operations.EducationOperations
-    :ivar education_class: EducationClassOperations operations
-    :vartype education_class: education.aio.operations.EducationClassOperations
-    :ivar education_class_assignment: EducationClassAssignmentOperations operations
-    :vartype education_class_assignment: education.aio.operations.EducationClassAssignmentOperations
-    :ivar education_class_assignment_submission: EducationClassAssignmentSubmissionOperations operations
-    :vartype education_class_assignment_submission: education.aio.operations.EducationClassAssignmentSubmissionOperations
-    :ivar education_class_member: EducationClassMemberOperations operations
-    :vartype education_class_member: education.aio.operations.EducationClassMemberOperations
-    :ivar education_class_school: EducationClassSchoolOperations operations
-    :vartype education_class_school: education.aio.operations.EducationClassSchoolOperations
-    :ivar education_class_teacher: EducationClassTeacherOperations operations
-    :vartype education_class_teacher: education.aio.operations.EducationClassTeacherOperations
+    :ivar education_classes: EducationClassesOperations operations
+    :vartype education_classes: education.aio.operations.EducationClassesOperations
+    :ivar education_classes_assignments: EducationClassesAssignmentsOperations operations
+    :vartype education_classes_assignments: education.aio.operations.EducationClassesAssignmentsOperations
+    :ivar education_classes_assignments_submissions: EducationClassesAssignmentsSubmissionsOperations operations
+    :vartype education_classes_assignments_submissions: education.aio.operations.EducationClassesAssignmentsSubmissionsOperations
+    :ivar education_classes_members: EducationClassesMembersOperations operations
+    :vartype education_classes_members: education.aio.operations.EducationClassesMembersOperations
+    :ivar education_classes_schools: EducationClassesSchoolsOperations operations
+    :vartype education_classes_schools: education.aio.operations.EducationClassesSchoolsOperations
+    :ivar education_classes_teachers: EducationClassesTeachersOperations operations
+    :vartype education_classes_teachers: education.aio.operations.EducationClassesTeachersOperations
     :ivar education_me: EducationMeOperations operations
     :vartype education_me: education.aio.operations.EducationMeOperations
-    :ivar education_me_assignment: EducationMeAssignmentOperations operations
-    :vartype education_me_assignment: education.aio.operations.EducationMeAssignmentOperations
-    :ivar education_me_assignment_submission: EducationMeAssignmentSubmissionOperations operations
-    :vartype education_me_assignment_submission: education.aio.operations.EducationMeAssignmentSubmissionOperations
-    :ivar education_me_class: EducationMeClassOperations operations
-    :vartype education_me_class: education.aio.operations.EducationMeClassOperations
-    :ivar education_me_school: EducationMeSchoolOperations operations
-    :vartype education_me_school: education.aio.operations.EducationMeSchoolOperations
-    :ivar education_me_taught_class: EducationMeTaughtClassOperations operations
-    :vartype education_me_taught_class: education.aio.operations.EducationMeTaughtClassOperations
-    :ivar education_school: EducationSchoolOperations operations
-    :vartype education_school: education.aio.operations.EducationSchoolOperations
-    :ivar education_school_class: EducationSchoolClassOperations operations
-    :vartype education_school_class: education.aio.operations.EducationSchoolClassOperations
-    :ivar education_school_user: EducationSchoolUserOperations operations
-    :vartype education_school_user: education.aio.operations.EducationSchoolUserOperations
-    :ivar education_synchronization_profile: EducationSynchronizationProfileOperations operations
-    :vartype education_synchronization_profile: education.aio.operations.EducationSynchronizationProfileOperations
-    :ivar education_user: EducationUserOperations operations
-    :vartype education_user: education.aio.operations.EducationUserOperations
-    :ivar education_user_assignment: EducationUserAssignmentOperations operations
-    :vartype education_user_assignment: education.aio.operations.EducationUserAssignmentOperations
-    :ivar education_user_assignment_submission: EducationUserAssignmentSubmissionOperations operations
-    :vartype education_user_assignment_submission: education.aio.operations.EducationUserAssignmentSubmissionOperations
-    :ivar education_user_class: EducationUserClassOperations operations
-    :vartype education_user_class: education.aio.operations.EducationUserClassOperations
-    :ivar education_user_school: EducationUserSchoolOperations operations
-    :vartype education_user_school: education.aio.operations.EducationUserSchoolOperations
-    :ivar education_user_taught_class: EducationUserTaughtClassOperations operations
-    :vartype education_user_taught_class: education.aio.operations.EducationUserTaughtClassOperations
+    :ivar education_me_assignments: EducationMeAssignmentsOperations operations
+    :vartype education_me_assignments: education.aio.operations.EducationMeAssignmentsOperations
+    :ivar education_me_assignments_submissions: EducationMeAssignmentsSubmissionsOperations operations
+    :vartype education_me_assignments_submissions: education.aio.operations.EducationMeAssignmentsSubmissionsOperations
+    :ivar education_me_classes: EducationMeClassesOperations operations
+    :vartype education_me_classes: education.aio.operations.EducationMeClassesOperations
+    :ivar education_me_schools: EducationMeSchoolsOperations operations
+    :vartype education_me_schools: education.aio.operations.EducationMeSchoolsOperations
+    :ivar education_me_taught_classes: EducationMeTaughtClassesOperations operations
+    :vartype education_me_taught_classes: education.aio.operations.EducationMeTaughtClassesOperations
+    :ivar education_schools: EducationSchoolsOperations operations
+    :vartype education_schools: education.aio.operations.EducationSchoolsOperations
+    :ivar education_schools_classes: EducationSchoolsClassesOperations operations
+    :vartype education_schools_classes: education.aio.operations.EducationSchoolsClassesOperations
+    :ivar education_schools_users: EducationSchoolsUsersOperations operations
+    :vartype education_schools_users: education.aio.operations.EducationSchoolsUsersOperations
+    :ivar education_synchronization_profiles: EducationSynchronizationProfilesOperations operations
+    :vartype education_synchronization_profiles: education.aio.operations.EducationSynchronizationProfilesOperations
+    :ivar education_users: EducationUsersOperations operations
+    :vartype education_users: education.aio.operations.EducationUsersOperations
+    :ivar education_users_assignments: EducationUsersAssignmentsOperations operations
+    :vartype education_users_assignments: education.aio.operations.EducationUsersAssignmentsOperations
+    :ivar education_users_assignments_submissions: EducationUsersAssignmentsSubmissionsOperations operations
+    :vartype education_users_assignments_submissions: education.aio.operations.EducationUsersAssignmentsSubmissionsOperations
+    :ivar education_users_classes: EducationUsersClassesOperations operations
+    :vartype education_users_classes: education.aio.operations.EducationUsersClassesOperations
+    :ivar education_users_schools: EducationUsersSchoolsOperations operations
+    :vartype education_users_schools: education.aio.operations.EducationUsersSchoolsOperations
+    :ivar education_users_taught_classes: EducationUsersTaughtClassesOperations operations
+    :vartype education_users_taught_classes: education.aio.operations.EducationUsersTaughtClassesOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -134,49 +134,49 @@ class Education(object):
             self._client, self._config, self._serialize, self._deserialize)
         self.education = EducationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_class = EducationClassOperations(
+        self.education_classes = EducationClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_class_assignment = EducationClassAssignmentOperations(
+        self.education_classes_assignments = EducationClassesAssignmentsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_class_assignment_submission = EducationClassAssignmentSubmissionOperations(
+        self.education_classes_assignments_submissions = EducationClassesAssignmentsSubmissionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_class_member = EducationClassMemberOperations(
+        self.education_classes_members = EducationClassesMembersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_class_school = EducationClassSchoolOperations(
+        self.education_classes_schools = EducationClassesSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_class_teacher = EducationClassTeacherOperations(
+        self.education_classes_teachers = EducationClassesTeachersOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.education_me = EducationMeOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_me_assignment = EducationMeAssignmentOperations(
+        self.education_me_assignments = EducationMeAssignmentsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_me_assignment_submission = EducationMeAssignmentSubmissionOperations(
+        self.education_me_assignments_submissions = EducationMeAssignmentsSubmissionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_me_class = EducationMeClassOperations(
+        self.education_me_classes = EducationMeClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_me_school = EducationMeSchoolOperations(
+        self.education_me_schools = EducationMeSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_me_taught_class = EducationMeTaughtClassOperations(
+        self.education_me_taught_classes = EducationMeTaughtClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_school = EducationSchoolOperations(
+        self.education_schools = EducationSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_school_class = EducationSchoolClassOperations(
+        self.education_schools_classes = EducationSchoolsClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_school_user = EducationSchoolUserOperations(
+        self.education_schools_users = EducationSchoolsUsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_synchronization_profile = EducationSynchronizationProfileOperations(
+        self.education_synchronization_profiles = EducationSynchronizationProfilesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_user = EducationUserOperations(
+        self.education_users = EducationUsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_user_assignment = EducationUserAssignmentOperations(
+        self.education_users_assignments = EducationUsersAssignmentsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_user_assignment_submission = EducationUserAssignmentSubmissionOperations(
+        self.education_users_assignments_submissions = EducationUsersAssignmentsSubmissionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_user_class = EducationUserClassOperations(
+        self.education_users_classes = EducationUsersClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_user_school = EducationUserSchoolOperations(
+        self.education_users_schools = EducationUsersSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_user_taught_class = EducationUserTaughtClassOperations(
+        self.education_users_taught_classes = EducationUsersTaughtClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

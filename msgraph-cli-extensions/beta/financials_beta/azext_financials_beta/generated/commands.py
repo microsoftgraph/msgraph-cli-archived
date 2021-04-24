@@ -65,285 +65,285 @@ from azext_financials_beta.generated._client_factory import (
 
 
 financials_beta_financial_financial = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_financial_operations#FinancialFinancialOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_financials_operations#FinancialsFinancialsOperations.{}',
     client_factory=cf_financial_financial,
 )
 
 
 financials_beta_financial = CliCommandType(
     operations_tmpl=(
-        'azext_financials_beta.vendored_sdks.financials.operations._financial_operations#FinancialOperations.{}'
+        'azext_financials_beta.vendored_sdks.financials.operations._financials_operations#FinancialsOperations.{}'
     ),
     client_factory=cf_financial,
 )
 
 
 financials_beta_financial_company = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_operations#FinancialCompanyOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_operations#FinancialsCompaniesOperations.{}',
     client_factory=cf_financial_company,
 )
 
 
 financials_beta_financial_company_customer_payment_journal = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_journal_operations#FinancialCompanyCustomerPaymentJournalOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_customer_payment_journals_operations#FinancialsCompaniesCustomerPaymentJournalsOperations.{}',
     client_factory=cf_financial_company_customer_payment_journal,
 )
 
 
 financials_beta_financial_company_customer_payment_journal_customer_payment = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_journal_customer_payment_operations#FinancialCompanyCustomerPaymentJournalCustomerPaymentOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_customer_payment_journals_customer_payments_operations#FinancialsCompaniesCustomerPaymentJournalsCustomerPaymentsOperations.{}',
     client_factory=cf_financial_company_customer_payment_journal_customer_payment,
 )
 
 
 financials_beta_financial_company_customer_payment_journal_customer_payment_customer = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_journal_customer_payment_customer_operations#FinancialCompanyCustomerPaymentJournalCustomerPaymentCustomerOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_customer_payment_journals_customer_payments_customer_operations#FinancialsCompaniesCustomerPaymentJournalsCustomerPaymentsCustomerOperations.{}',
     client_factory=cf_financial_company_customer_payment_journal_customer_payment_customer,
 )
 
 
 financials_beta_financial_company_customer_payment = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_operations#FinancialCompanyCustomerPaymentOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_customer_payments_operations#FinancialsCompaniesCustomerPaymentsOperations.{}',
     client_factory=cf_financial_company_customer_payment,
 )
 
 
 financials_beta_financial_company_customer_payment_customer = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_customer_operations#FinancialCompanyCustomerPaymentCustomerOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_customer_payments_customer_operations#FinancialsCompaniesCustomerPaymentsCustomerOperations.{}',
     client_factory=cf_financial_company_customer_payment_customer,
 )
 
 
 financials_beta_financial_company_customer = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_operations#FinancialCompanyCustomerOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_customers_operations#FinancialsCompaniesCustomersOperations.{}',
     client_factory=cf_financial_company_customer,
 )
 
 
 financials_beta_financial_company_dimension = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_dimension_operations#FinancialCompanyDimensionOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_dimensions_operations#FinancialsCompaniesDimensionsOperations.{}',
     client_factory=cf_financial_company_dimension,
 )
 
 
 financials_beta_financial_company_employee = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_employee_operations#FinancialCompanyEmployeeOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_employees_operations#FinancialsCompaniesEmployeesOperations.{}',
     client_factory=cf_financial_company_employee,
 )
 
 
 financials_beta_financial_company_general_ledger_entry = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_general_ledger_entry_operations#FinancialCompanyGeneralLedgerEntryOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_general_ledger_entries_operations#FinancialsCompaniesGeneralLedgerEntriesOperations.{}',
     client_factory=cf_financial_company_general_ledger_entry,
 )
 
 
 financials_beta_financial_company_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_item_operations#FinancialCompanyItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_items_operations#FinancialsCompaniesItemsOperations.{}',
     client_factory=cf_financial_company_item,
 )
 
 
 financials_beta_financial_company_journal_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_line_operations#FinancialCompanyJournalLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_journal_lines_operations#FinancialsCompaniesJournalLinesOperations.{}',
     client_factory=cf_financial_company_journal_line,
 )
 
 
 financials_beta_financial_company_journal = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_operations#FinancialCompanyJournalOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_journals_operations#FinancialsCompaniesJournalsOperations.{}',
     client_factory=cf_financial_company_journal,
 )
 
 
 financials_beta_financial_company_journal_journal_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_journal_line_operations#FinancialCompanyJournalJournalLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_journals_journal_lines_operations#FinancialsCompaniesJournalsJournalLinesOperations.{}',
     client_factory=cf_financial_company_journal_journal_line,
 )
 
 
 financials_beta_financial_company_purchase_invoice_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_line_operations#FinancialCompanyPurchaseInvoiceLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_purchase_invoice_lines_operations#FinancialsCompaniesPurchaseInvoiceLinesOperations.{}',
     client_factory=cf_financial_company_purchase_invoice_line,
 )
 
 
 financials_beta_financial_company_purchase_invoice_line_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_line_item_operations#FinancialCompanyPurchaseInvoiceLineItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_purchase_invoice_lines_item_operations#FinancialsCompaniesPurchaseInvoiceLinesItemOperations.{}',
     client_factory=cf_financial_company_purchase_invoice_line_item,
 )
 
 
 financials_beta_financial_company_purchase_invoice = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_operations#FinancialCompanyPurchaseInvoiceOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_purchase_invoices_operations#FinancialsCompaniesPurchaseInvoicesOperations.{}',
     client_factory=cf_financial_company_purchase_invoice,
 )
 
 
 financials_beta_financial_company_purchase_invoice_purchase_invoice_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_purchase_invoice_line_operations#FinancialCompanyPurchaseInvoicePurchaseInvoiceLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_purchase_invoices_purchase_invoice_lines_operations#FinancialsCompaniesPurchaseInvoicesPurchaseInvoiceLinesOperations.{}',
     client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line,
 )
 
 
 financials_beta_financial_company_purchase_invoice_purchase_invoice_line_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_purchase_invoice_line_item_operations#FinancialCompanyPurchaseInvoicePurchaseInvoiceLineItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_purchase_invoices_purchase_invoice_lines_item_operations#FinancialsCompaniesPurchaseInvoicesPurchaseInvoiceLinesItemOperations.{}',
     client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line_item,
 )
 
 
 financials_beta_financial_company_purchase_invoice_vendor = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_vendor_operations#FinancialCompanyPurchaseInvoiceVendorOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_purchase_invoices_vendor_operations#FinancialsCompaniesPurchaseInvoicesVendorOperations.{}',
     client_factory=cf_financial_company_purchase_invoice_vendor,
 )
 
 
 financials_beta_financial_company_sale_credit_memo_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_line_operations#FinancialCompanySaleCreditMemoLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_credit_memo_lines_operations#FinancialsCompaniesSalesCreditMemoLinesOperations.{}',
     client_factory=cf_financial_company_sale_credit_memo_line,
 )
 
 
 financials_beta_financial_company_sale_credit_memo_line_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_line_item_operations#FinancialCompanySaleCreditMemoLineItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_credit_memo_lines_item_operations#FinancialsCompaniesSalesCreditMemoLinesItemOperations.{}',
     client_factory=cf_financial_company_sale_credit_memo_line_item,
 )
 
 
 financials_beta_financial_company_sale_credit_memo = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_operations#FinancialCompanySaleCreditMemoOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_credit_memos_operations#FinancialsCompaniesSalesCreditMemosOperations.{}',
     client_factory=cf_financial_company_sale_credit_memo,
 )
 
 
 financials_beta_financial_company_sale_credit_memo_customer = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_customer_operations#FinancialCompanySaleCreditMemoCustomerOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_credit_memos_customer_operations#FinancialsCompaniesSalesCreditMemosCustomerOperations.{}',
     client_factory=cf_financial_company_sale_credit_memo_customer,
 )
 
 
 financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_sale_credit_memo_line_operations#FinancialCompanySaleCreditMemoSaleCreditMemoLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_credit_memos_sales_credit_memo_lines_operations#FinancialsCompaniesSalesCreditMemosSalesCreditMemoLinesOperations.{}',
     client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line,
 )
 
 
 financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_sale_credit_memo_line_item_operations#FinancialCompanySaleCreditMemoSaleCreditMemoLineItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_credit_memos_sales_credit_memo_lines_item_operations#FinancialsCompaniesSalesCreditMemosSalesCreditMemoLinesItemOperations.{}',
     client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line_item,
 )
 
 
 financials_beta_financial_company_sale_invoice_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_line_operations#FinancialCompanySaleInvoiceLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_invoice_lines_operations#FinancialsCompaniesSalesInvoiceLinesOperations.{}',
     client_factory=cf_financial_company_sale_invoice_line,
 )
 
 
 financials_beta_financial_company_sale_invoice_line_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_line_item_operations#FinancialCompanySaleInvoiceLineItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_invoice_lines_item_operations#FinancialsCompaniesSalesInvoiceLinesItemOperations.{}',
     client_factory=cf_financial_company_sale_invoice_line_item,
 )
 
 
 financials_beta_financial_company_sale_invoice = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_operations#FinancialCompanySaleInvoiceOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_invoices_operations#FinancialsCompaniesSalesInvoicesOperations.{}',
     client_factory=cf_financial_company_sale_invoice,
 )
 
 
 financials_beta_financial_company_sale_invoice_customer = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_customer_operations#FinancialCompanySaleInvoiceCustomerOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_invoices_customer_operations#FinancialsCompaniesSalesInvoicesCustomerOperations.{}',
     client_factory=cf_financial_company_sale_invoice_customer,
 )
 
 
 financials_beta_financial_company_sale_invoice_sale_invoice_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_sale_invoice_line_operations#FinancialCompanySaleInvoiceSaleInvoiceLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_invoices_sales_invoice_lines_operations#FinancialsCompaniesSalesInvoicesSalesInvoiceLinesOperations.{}',
     client_factory=cf_financial_company_sale_invoice_sale_invoice_line,
 )
 
 
 financials_beta_financial_company_sale_invoice_sale_invoice_line_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_sale_invoice_line_item_operations#FinancialCompanySaleInvoiceSaleInvoiceLineItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_invoices_sales_invoice_lines_item_operations#FinancialsCompaniesSalesInvoicesSalesInvoiceLinesItemOperations.{}',
     client_factory=cf_financial_company_sale_invoice_sale_invoice_line_item,
 )
 
 
 financials_beta_financial_company_sale_order_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_line_operations#FinancialCompanySaleOrderLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_order_lines_operations#FinancialsCompaniesSalesOrderLinesOperations.{}',
     client_factory=cf_financial_company_sale_order_line,
 )
 
 
 financials_beta_financial_company_sale_order_line_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_line_item_operations#FinancialCompanySaleOrderLineItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_order_lines_item_operations#FinancialsCompaniesSalesOrderLinesItemOperations.{}',
     client_factory=cf_financial_company_sale_order_line_item,
 )
 
 
 financials_beta_financial_company_sale_order = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_operations#FinancialCompanySaleOrderOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_orders_operations#FinancialsCompaniesSalesOrdersOperations.{}',
     client_factory=cf_financial_company_sale_order,
 )
 
 
 financials_beta_financial_company_sale_order_customer = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_customer_operations#FinancialCompanySaleOrderCustomerOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_orders_customer_operations#FinancialsCompaniesSalesOrdersCustomerOperations.{}',
     client_factory=cf_financial_company_sale_order_customer,
 )
 
 
 financials_beta_financial_company_sale_order_sale_order_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_sale_order_line_operations#FinancialCompanySaleOrderSaleOrderLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_orders_sales_order_lines_operations#FinancialsCompaniesSalesOrdersSalesOrderLinesOperations.{}',
     client_factory=cf_financial_company_sale_order_sale_order_line,
 )
 
 
 financials_beta_financial_company_sale_order_sale_order_line_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_sale_order_line_item_operations#FinancialCompanySaleOrderSaleOrderLineItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_orders_sales_order_lines_item_operations#FinancialsCompaniesSalesOrdersSalesOrderLinesItemOperations.{}',
     client_factory=cf_financial_company_sale_order_sale_order_line_item,
 )
 
 
 financials_beta_financial_company_sale_quote_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_line_operations#FinancialCompanySaleQuoteLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_quote_lines_operations#FinancialsCompaniesSalesQuoteLinesOperations.{}',
     client_factory=cf_financial_company_sale_quote_line,
 )
 
 
 financials_beta_financial_company_sale_quote_line_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_line_item_operations#FinancialCompanySaleQuoteLineItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_quote_lines_item_operations#FinancialsCompaniesSalesQuoteLinesItemOperations.{}',
     client_factory=cf_financial_company_sale_quote_line_item,
 )
 
 
 financials_beta_financial_company_sale_quote = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_operations#FinancialCompanySaleQuoteOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_quotes_operations#FinancialsCompaniesSalesQuotesOperations.{}',
     client_factory=cf_financial_company_sale_quote,
 )
 
 
 financials_beta_financial_company_sale_quote_customer = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_customer_operations#FinancialCompanySaleQuoteCustomerOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_quotes_customer_operations#FinancialsCompaniesSalesQuotesCustomerOperations.{}',
     client_factory=cf_financial_company_sale_quote_customer,
 )
 
 
 financials_beta_financial_company_sale_quote_sale_quote_line = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_sale_quote_line_operations#FinancialCompanySaleQuoteSaleQuoteLineOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_quotes_sales_quote_lines_operations#FinancialsCompaniesSalesQuotesSalesQuoteLinesOperations.{}',
     client_factory=cf_financial_company_sale_quote_sale_quote_line,
 )
 
 
 financials_beta_financial_company_sale_quote_sale_quote_line_item = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_sale_quote_line_item_operations#FinancialCompanySaleQuoteSaleQuoteLineItemOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_sales_quotes_sales_quote_lines_item_operations#FinancialsCompaniesSalesQuotesSalesQuoteLinesItemOperations.{}',
     client_factory=cf_financial_company_sale_quote_sale_quote_line_item,
 )
 
 
 financials_beta_financial_company_vendor = CliCommandType(
-    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_vendor_operations#FinancialCompanyVendorOperations.{}',
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financials_companies_vendors_operations#FinancialsCompaniesVendorsOperations.{}',
     client_factory=cf_financial_company_vendor,
 )
 

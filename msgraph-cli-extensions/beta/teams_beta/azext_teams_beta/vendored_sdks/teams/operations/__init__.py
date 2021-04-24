@@ -6,68 +6,68 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._app_catalog_operations import AppCatalogOperations
-from ._app_catalog_team_app_operations import AppCatalogTeamAppOperations
-from ._chat_chat_operations import ChatChatOperations
-from ._chat_operations import ChatOperations
-from ._chat_installed_app_operations import ChatInstalledAppOperations
-from ._chat_member_operations import ChatMemberOperations
-from ._chat_message_operations import ChatMessageOperations
-from ._chat_message_reply_operations import ChatMessageReplyOperations
-from ._chat_tab_operations import ChatTabOperations
-from ._group_operations import GroupOperations
-from ._team_team_operations import TeamTeamOperations
-from ._team_operations import TeamOperations
-from ._team_channel_operations import TeamChannelOperations
-from ._team_channel_member_operations import TeamChannelMemberOperations
-from ._team_channel_message_operations import TeamChannelMessageOperations
-from ._team_channel_message_reply_operations import TeamChannelMessageReplyOperations
-from ._team_channel_tab_operations import TeamChannelTabOperations
-from ._team_installed_app_operations import TeamInstalledAppOperations
-from ._team_member_operations import TeamMemberOperations
-from ._team_primary_channel_operations import TeamPrimaryChannelOperations
-from ._team_primary_channel_member_operations import TeamPrimaryChannelMemberOperations
-from ._team_primary_channel_message_operations import TeamPrimaryChannelMessageOperations
-from ._team_primary_channel_message_reply_operations import TeamPrimaryChannelMessageReplyOperations
-from ._team_primary_channel_tab_operations import TeamPrimaryChannelTabOperations
-from ._team_schedule_operations import TeamScheduleOperations
-from ._team_schedule_time_card_operations import TeamScheduleTimeCardOperations
+from ._app_catalogs_operations import AppCatalogsOperations
+from ._app_catalogs_teams_apps_operations import AppCatalogsTeamsAppsOperations
+from ._chats_chat_operations import ChatsChatOperations
+from ._chats_operations import ChatsOperations
+from ._chats_installed_apps_operations import ChatsInstalledAppsOperations
+from ._chats_members_operations import ChatsMembersOperations
+from ._chats_messages_operations import ChatsMessagesOperations
+from ._chats_messages_replies_operations import ChatsMessagesRepliesOperations
+from ._chats_tabs_operations import ChatsTabsOperations
+from ._groups_operations import GroupsOperations
+from ._teams_team_operations import TeamsTeamOperations
+from ._teams_operations import TeamsOperations
+from ._teams_channels_operations import TeamsChannelsOperations
+from ._teams_channels_members_operations import TeamsChannelsMembersOperations
+from ._teams_channels_messages_operations import TeamsChannelsMessagesOperations
+from ._teams_channels_messages_replies_operations import TeamsChannelsMessagesRepliesOperations
+from ._teams_channels_tabs_operations import TeamsChannelsTabsOperations
+from ._teams_installed_apps_operations import TeamsInstalledAppsOperations
+from ._teams_members_operations import TeamsMembersOperations
+from ._teams_primary_channel_operations import TeamsPrimaryChannelOperations
+from ._teams_primary_channel_members_operations import TeamsPrimaryChannelMembersOperations
+from ._teams_primary_channel_messages_operations import TeamsPrimaryChannelMessagesOperations
+from ._teams_primary_channel_messages_replies_operations import TeamsPrimaryChannelMessagesRepliesOperations
+from ._teams_primary_channel_tabs_operations import TeamsPrimaryChannelTabsOperations
+from ._teams_schedule_operations import TeamsScheduleOperations
+from ._teams_schedule_time_cards_operations import TeamsScheduleTimeCardsOperations
 from ._teamwork_teamwork_operations import TeamworkTeamworkOperations
 from ._teamwork_operations import TeamworkOperations
-from ._user_operations import UserOperations
-from ._user_teamwork_operations import UserTeamworkOperations
-from ._user_teamwork_installed_app_operations import UserTeamworkInstalledAppOperations
+from ._users_operations import UsersOperations
+from ._users_teamwork_operations import UsersTeamworkOperations
+from ._users_teamwork_installed_apps_operations import UsersTeamworkInstalledAppsOperations
 
 __all__ = [
-    'AppCatalogOperations',
-    'AppCatalogTeamAppOperations',
-    'ChatChatOperations',
-    'ChatOperations',
-    'ChatInstalledAppOperations',
-    'ChatMemberOperations',
-    'ChatMessageOperations',
-    'ChatMessageReplyOperations',
-    'ChatTabOperations',
-    'GroupOperations',
-    'TeamTeamOperations',
-    'TeamOperations',
-    'TeamChannelOperations',
-    'TeamChannelMemberOperations',
-    'TeamChannelMessageOperations',
-    'TeamChannelMessageReplyOperations',
-    'TeamChannelTabOperations',
-    'TeamInstalledAppOperations',
-    'TeamMemberOperations',
-    'TeamPrimaryChannelOperations',
-    'TeamPrimaryChannelMemberOperations',
-    'TeamPrimaryChannelMessageOperations',
-    'TeamPrimaryChannelMessageReplyOperations',
-    'TeamPrimaryChannelTabOperations',
-    'TeamScheduleOperations',
-    'TeamScheduleTimeCardOperations',
+    'AppCatalogsOperations',
+    'AppCatalogsTeamsAppsOperations',
+    'ChatsChatOperations',
+    'ChatsOperations',
+    'ChatsInstalledAppsOperations',
+    'ChatsMembersOperations',
+    'ChatsMessagesOperations',
+    'ChatsMessagesRepliesOperations',
+    'ChatsTabsOperations',
+    'GroupsOperations',
+    'TeamsTeamOperations',
+    'TeamsOperations',
+    'TeamsChannelsOperations',
+    'TeamsChannelsMembersOperations',
+    'TeamsChannelsMessagesOperations',
+    'TeamsChannelsMessagesRepliesOperations',
+    'TeamsChannelsTabsOperations',
+    'TeamsInstalledAppsOperations',
+    'TeamsMembersOperations',
+    'TeamsPrimaryChannelOperations',
+    'TeamsPrimaryChannelMembersOperations',
+    'TeamsPrimaryChannelMessagesOperations',
+    'TeamsPrimaryChannelMessagesRepliesOperations',
+    'TeamsPrimaryChannelTabsOperations',
+    'TeamsScheduleOperations',
+    'TeamsScheduleTimeCardsOperations',
     'TeamworkTeamworkOperations',
     'TeamworkOperations',
-    'UserOperations',
-    'UserTeamworkOperations',
-    'UserTeamworkInstalledAppOperations',
+    'UsersOperations',
+    'UsersTeamworkOperations',
+    'UsersTeamworkInstalledAppsOperations',
 ]

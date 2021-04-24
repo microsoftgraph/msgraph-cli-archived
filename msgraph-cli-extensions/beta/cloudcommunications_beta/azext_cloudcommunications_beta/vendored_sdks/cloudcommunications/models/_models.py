@@ -396,6 +396,8 @@ class MicrosoftGraphCall(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param active_modalities:
     :type active_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
+    :param answered_by: participantInfo.
+    :type answered_by: ~cloud_communications.models.MicrosoftGraphParticipantInfo
     :param callback_uri: The callback URL on which callbacks will be delivered. Must be https.
     :type callback_uri: str
     :param call_chain_id: A unique identifier for all the participant calls in a conference or a
@@ -410,8 +412,16 @@ class MicrosoftGraphCall(MicrosoftGraphEntity):
     :type chat_info: ~cloud_communications.models.MicrosoftGraphChatInfo
     :param direction:  Possible values include: "incoming", "outgoing".
     :type direction: str or ~cloud_communications.models.MicrosoftGraphCallDirection
+    :param incoming_context: incomingContext.
+    :type incoming_context: ~cloud_communications.models.MicrosoftGraphIncomingContext
+    :param media_config: mediaConfig.
+    :type media_config: ~cloud_communications.models.MicrosoftGraphMediaConfig
+    :param media_state: callMediaState.
+    :type media_state: ~cloud_communications.models.MicrosoftGraphCallMediaState
     :param meeting_capability: meetingCapability.
     :type meeting_capability: ~cloud_communications.models.MicrosoftGraphMeetingCapability
+    :param meeting_info: meetingInfo.
+    :type meeting_info: ~cloud_communications.models.MicrosoftGraphMeetingInfo
     :param my_participant_id:
     :type my_participant_id: str
     :param requested_modalities:
@@ -422,6 +432,8 @@ class MicrosoftGraphCall(MicrosoftGraphEntity):
     :type ringing_timeout_in_seconds: int
     :param routing_policies:
     :type routing_policies: list[str or ~cloud_communications.models.MicrosoftGraphRoutingPolicy]
+    :param source: participantInfo.
+    :type source: ~cloud_communications.models.MicrosoftGraphParticipantInfo
     :param state:  Possible values include: "incoming", "establishing", "ringing", "established",
      "hold", "transferring", "transferAccepted", "redirecting", "terminating", "terminated",
      "unknownFutureValue".
@@ -444,51 +456,6 @@ class MicrosoftGraphCall(MicrosoftGraphEntity):
     :type operations: list[~cloud_communications.models.MicrosoftGraphCommsOperation]
     :param participants: Read-only. Nullable.
     :type participants: list[~cloud_communications.models.MicrosoftGraphParticipant]
-    :param country_code_source_country_code: The ISO 3166-1 Alpha-2 country code of the
-     participant's best estimated physical location at the start of the call. Read-only.
-    :type country_code_source_country_code: str
-    :param endpoint_type_source_endpoint_type:  Possible values include: "default", "voicemail",
-     "skypeForBusiness", "skypeForBusinessVoipPhone", "unknownFutureValue".
-    :type endpoint_type_source_endpoint_type: str or
-     ~cloud_communications.models.MicrosoftGraphEndpointType
-    :param identity_source_identity: identitySet.
-    :type identity_source_identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
-    :param language_id_source_language_id: The language culture string. Read-only.
-    :type language_id_source_language_id: str
-    :param region_source_region: The home region of the participant. This can be a country, a
-     continent, or a larger geographic region. This does not change based on the participant's
-     current physical location. Read-only.
-    :type region_source_region: str
-    :param allow_conversation_without_host:
-    :type allow_conversation_without_host: bool
-    :param audio:  Possible values include: "active", "inactive", "unknownFutureValue".
-    :type audio: str or ~cloud_communications.models.MicrosoftGraphMediaState
-    :param remove_from_default_audio_group:
-    :type remove_from_default_audio_group: bool
-    :param observed_participant_id: The ID of the participant that is under observation. Read-only.
-    :type observed_participant_id: str
-    :param on_behalf_of: identitySet.
-    :type on_behalf_of: ~cloud_communications.models.MicrosoftGraphIdentitySet
-    :param source_participant_id: The ID of the participant that triggered the incoming call. Read-
-     only.
-    :type source_participant_id: str
-    :param transferor: identitySet.
-    :type transferor: ~cloud_communications.models.MicrosoftGraphIdentitySet
-    :param country_code_answered_by_country_code: The ISO 3166-1 Alpha-2 country code of the
-     participant's best estimated physical location at the start of the call. Read-only.
-    :type country_code_answered_by_country_code: str
-    :param endpoint_type_answered_by_endpoint_type:  Possible values include: "default",
-     "voicemail", "skypeForBusiness", "skypeForBusinessVoipPhone", "unknownFutureValue".
-    :type endpoint_type_answered_by_endpoint_type: str or
-     ~cloud_communications.models.MicrosoftGraphEndpointType
-    :param identity_answered_by_identity: identitySet.
-    :type identity_answered_by_identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
-    :param language_id_answered_by_language_id: The language culture string. Read-only.
-    :type language_id_answered_by_language_id: str
-    :param region_answered_by_region: The home region of the participant. This can be a country, a
-     continent, or a larger geographic region. This does not change based on the participant's
-     current physical location. Read-only.
-    :type region_answered_by_region: str
     """
 
     _validation = {
@@ -499,18 +466,24 @@ class MicrosoftGraphCall(MicrosoftGraphEntity):
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'active_modalities': {'key': 'activeModalities', 'type': '[str]'},
+        'answered_by': {'key': 'answeredBy', 'type': 'MicrosoftGraphParticipantInfo'},
         'callback_uri': {'key': 'callbackUri', 'type': 'str'},
         'call_chain_id': {'key': 'callChainId', 'type': 'str'},
         'call_options': {'key': 'callOptions', 'type': '{object}'},
         'call_routes': {'key': 'callRoutes', 'type': '[MicrosoftGraphCallRoute]'},
         'chat_info': {'key': 'chatInfo', 'type': 'MicrosoftGraphChatInfo'},
         'direction': {'key': 'direction', 'type': 'str'},
+        'incoming_context': {'key': 'incomingContext', 'type': 'MicrosoftGraphIncomingContext'},
+        'media_config': {'key': 'mediaConfig', 'type': 'MicrosoftGraphMediaConfig'},
+        'media_state': {'key': 'mediaState', 'type': 'MicrosoftGraphCallMediaState'},
         'meeting_capability': {'key': 'meetingCapability', 'type': 'MicrosoftGraphMeetingCapability'},
+        'meeting_info': {'key': 'meetingInfo', 'type': 'MicrosoftGraphMeetingInfo'},
         'my_participant_id': {'key': 'myParticipantId', 'type': 'str'},
         'requested_modalities': {'key': 'requestedModalities', 'type': '[str]'},
         'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'ringing_timeout_in_seconds': {'key': 'ringingTimeoutInSeconds', 'type': 'int'},
         'routing_policies': {'key': 'routingPolicies', 'type': '[str]'},
+        'source': {'key': 'source', 'type': 'MicrosoftGraphParticipantInfo'},
         'state': {'key': 'state', 'type': 'str'},
         'subject': {'key': 'subject', 'type': 'str'},
         'targets': {'key': 'targets', 'type': '[MicrosoftGraphInvitationParticipantInfo]'},
@@ -521,23 +494,6 @@ class MicrosoftGraphCall(MicrosoftGraphEntity):
         'audio_routing_groups': {'key': 'audioRoutingGroups', 'type': '[MicrosoftGraphAudioRoutingGroup]'},
         'operations': {'key': 'operations', 'type': '[MicrosoftGraphCommsOperation]'},
         'participants': {'key': 'participants', 'type': '[MicrosoftGraphParticipant]'},
-        'country_code_source_country_code': {'key': 'source.countryCode', 'type': 'str'},
-        'endpoint_type_source_endpoint_type': {'key': 'source.endpointType', 'type': 'str'},
-        'identity_source_identity': {'key': 'source.identity', 'type': 'MicrosoftGraphIdentitySet'},
-        'language_id_source_language_id': {'key': 'source.languageId', 'type': 'str'},
-        'region_source_region': {'key': 'source.region', 'type': 'str'},
-        'allow_conversation_without_host': {'key': 'meetingInfo.allowConversationWithoutHost', 'type': 'bool'},
-        'audio': {'key': 'mediaState.audio', 'type': 'str'},
-        'remove_from_default_audio_group': {'key': 'mediaConfig.removeFromDefaultAudioGroup', 'type': 'bool'},
-        'observed_participant_id': {'key': 'incomingContext.observedParticipantId', 'type': 'str'},
-        'on_behalf_of': {'key': 'incomingContext.onBehalfOf', 'type': 'MicrosoftGraphIdentitySet'},
-        'source_participant_id': {'key': 'incomingContext.sourceParticipantId', 'type': 'str'},
-        'transferor': {'key': 'incomingContext.transferor', 'type': 'MicrosoftGraphIdentitySet'},
-        'country_code_answered_by_country_code': {'key': 'answeredBy.countryCode', 'type': 'str'},
-        'endpoint_type_answered_by_endpoint_type': {'key': 'answeredBy.endpointType', 'type': 'str'},
-        'identity_answered_by_identity': {'key': 'answeredBy.identity', 'type': 'MicrosoftGraphIdentitySet'},
-        'language_id_answered_by_language_id': {'key': 'answeredBy.languageId', 'type': 'str'},
-        'region_answered_by_region': {'key': 'answeredBy.region', 'type': 'str'},
     }
 
     def __init__(
@@ -547,18 +503,24 @@ class MicrosoftGraphCall(MicrosoftGraphEntity):
         super(MicrosoftGraphCall, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.active_modalities = kwargs.get('active_modalities', None)
+        self.answered_by = kwargs.get('answered_by', None)
         self.callback_uri = kwargs.get('callback_uri', None)
         self.call_chain_id = kwargs.get('call_chain_id', None)
         self.call_options = kwargs.get('call_options', None)
         self.call_routes = kwargs.get('call_routes', None)
         self.chat_info = kwargs.get('chat_info', None)
         self.direction = kwargs.get('direction', None)
+        self.incoming_context = kwargs.get('incoming_context', None)
+        self.media_config = kwargs.get('media_config', None)
+        self.media_state = kwargs.get('media_state', None)
         self.meeting_capability = kwargs.get('meeting_capability', None)
+        self.meeting_info = kwargs.get('meeting_info', None)
         self.my_participant_id = kwargs.get('my_participant_id', None)
         self.requested_modalities = kwargs.get('requested_modalities', None)
         self.result_info = kwargs.get('result_info', None)
         self.ringing_timeout_in_seconds = kwargs.get('ringing_timeout_in_seconds', None)
         self.routing_policies = kwargs.get('routing_policies', None)
+        self.source = kwargs.get('source', None)
         self.state = kwargs.get('state', None)
         self.subject = kwargs.get('subject', None)
         self.targets = kwargs.get('targets', None)
@@ -569,23 +531,6 @@ class MicrosoftGraphCall(MicrosoftGraphEntity):
         self.audio_routing_groups = kwargs.get('audio_routing_groups', None)
         self.operations = kwargs.get('operations', None)
         self.participants = kwargs.get('participants', None)
-        self.country_code_source_country_code = kwargs.get('country_code_source_country_code', None)
-        self.endpoint_type_source_endpoint_type = kwargs.get('endpoint_type_source_endpoint_type', None)
-        self.identity_source_identity = kwargs.get('identity_source_identity', None)
-        self.language_id_source_language_id = kwargs.get('language_id_source_language_id', None)
-        self.region_source_region = kwargs.get('region_source_region', None)
-        self.allow_conversation_without_host = kwargs.get('allow_conversation_without_host', None)
-        self.audio = kwargs.get('audio', None)
-        self.remove_from_default_audio_group = kwargs.get('remove_from_default_audio_group', None)
-        self.observed_participant_id = kwargs.get('observed_participant_id', None)
-        self.on_behalf_of = kwargs.get('on_behalf_of', None)
-        self.source_participant_id = kwargs.get('source_participant_id', None)
-        self.transferor = kwargs.get('transferor', None)
-        self.country_code_answered_by_country_code = kwargs.get('country_code_answered_by_country_code', None)
-        self.endpoint_type_answered_by_endpoint_type = kwargs.get('endpoint_type_answered_by_endpoint_type', None)
-        self.identity_answered_by_identity = kwargs.get('identity_answered_by_identity', None)
-        self.language_id_answered_by_language_id = kwargs.get('language_id_answered_by_language_id', None)
-        self.region_answered_by_region = kwargs.get('region_answered_by_region', None)
 
 
 class MicrosoftGraphCallMediaState(msrest.serialization.Model):
@@ -634,6 +579,8 @@ class MicrosoftGraphCallRecordsCallRecord(MicrosoftGraphEntity):
     :param modalities: List of all the modalities used in the call. Possible values are: unknown,
      audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
     :type modalities: list[str or ~cloud_communications.models.MicrosoftGraphCallRecordsModality]
+    :param organizer: identitySet.
+    :type organizer: ~cloud_communications.models.MicrosoftGraphIdentitySet
     :param participants: List of distinct identities involved in the call.
     :type participants: list[~cloud_communications.models.MicrosoftGraphIdentitySet]
     :param start_date_time: UTC time when the first user joined the call. The DatetimeOffset type
@@ -650,12 +597,6 @@ class MicrosoftGraphCallRecordsCallRecord(MicrosoftGraphEntity):
      one session, whereas group calls typically have at least one session per participant. Read-
      only. Nullable.
     :type sessions: list[~cloud_communications.models.MicrosoftGraphCallRecordsSession]
-    :param application: identity.
-    :type application: ~cloud_communications.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~cloud_communications.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~cloud_communications.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -665,14 +606,12 @@ class MicrosoftGraphCallRecordsCallRecord(MicrosoftGraphEntity):
         'join_web_url': {'key': 'joinWebUrl', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'modalities': {'key': 'modalities', 'type': '[str]'},
+        'organizer': {'key': 'organizer', 'type': 'MicrosoftGraphIdentitySet'},
         'participants': {'key': 'participants', 'type': '[MicrosoftGraphIdentitySet]'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'type': {'key': 'type', 'type': 'str'},
         'version': {'key': 'version', 'type': 'long'},
         'sessions': {'key': 'sessions', 'type': '[MicrosoftGraphCallRecordsSession]'},
-        'application': {'key': 'organizer.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'organizer.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'organizer.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -685,14 +624,12 @@ class MicrosoftGraphCallRecordsCallRecord(MicrosoftGraphEntity):
         self.join_web_url = kwargs.get('join_web_url', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.modalities = kwargs.get('modalities', None)
+        self.organizer = kwargs.get('organizer', None)
         self.participants = kwargs.get('participants', None)
         self.start_date_time = kwargs.get('start_date_time', None)
         self.type = kwargs.get('type', None)
         self.version = kwargs.get('version', None)
         self.sessions = kwargs.get('sessions', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphCallRecordsDeviceInfo(msrest.serialization.Model):
@@ -1223,6 +1160,10 @@ class MicrosoftGraphCallRecordsSegment(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param callee: endpoint.
+    :type callee: ~cloud_communications.models.MicrosoftGraphCallRecordsEndpoint
+    :param caller: endpoint.
+    :type caller: ~cloud_communications.models.MicrosoftGraphCallRecordsEndpoint
     :param end_date_time: UTC time when the segment ended. The DateTimeOffset type represents date
      and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC
      on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -1235,23 +1176,17 @@ class MicrosoftGraphCallRecordsSegment(MicrosoftGraphEntity):
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
     :type start_date_time: ~datetime.datetime
-    :param user_agent_caller_user_agent: userAgent.
-    :type user_agent_caller_user_agent:
-     ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
-    :param user_agent_callee_user_agent: userAgent.
-    :type user_agent_callee_user_agent:
-     ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'callee': {'key': 'callee', 'type': 'MicrosoftGraphCallRecordsEndpoint'},
+        'caller': {'key': 'caller', 'type': 'MicrosoftGraphCallRecordsEndpoint'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'failure_info': {'key': 'failureInfo', 'type': 'MicrosoftGraphCallRecordsFailureInfo'},
         'media': {'key': 'media', 'type': '[MicrosoftGraphCallRecordsMedia]'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
-        'user_agent_caller_user_agent': {'key': 'caller.userAgent', 'type': 'MicrosoftGraphCallRecordsUserAgent'},
-        'user_agent_callee_user_agent': {'key': 'callee.userAgent', 'type': 'MicrosoftGraphCallRecordsUserAgent'},
     }
 
     def __init__(
@@ -1260,12 +1195,12 @@ class MicrosoftGraphCallRecordsSegment(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphCallRecordsSegment, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.callee = kwargs.get('callee', None)
+        self.caller = kwargs.get('caller', None)
         self.end_date_time = kwargs.get('end_date_time', None)
         self.failure_info = kwargs.get('failure_info', None)
         self.media = kwargs.get('media', None)
         self.start_date_time = kwargs.get('start_date_time', None)
-        self.user_agent_caller_user_agent = kwargs.get('user_agent_caller_user_agent', None)
-        self.user_agent_callee_user_agent = kwargs.get('user_agent_callee_user_agent', None)
 
 
 class MicrosoftGraphCallRecordsSession(MicrosoftGraphEntity):
@@ -1276,6 +1211,10 @@ class MicrosoftGraphCallRecordsSession(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param callee: endpoint.
+    :type callee: ~cloud_communications.models.MicrosoftGraphCallRecordsEndpoint
+    :param caller: endpoint.
+    :type caller: ~cloud_communications.models.MicrosoftGraphCallRecordsEndpoint
     :param end_date_time: UTC time when the last user left the session. The DateTimeOffset type
      represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -1291,24 +1230,18 @@ class MicrosoftGraphCallRecordsSession(MicrosoftGraphEntity):
     :type start_date_time: ~datetime.datetime
     :param segments: The list of segments involved in the session. Read-only. Nullable.
     :type segments: list[~cloud_communications.models.MicrosoftGraphCallRecordsSegment]
-    :param user_agent_caller_user_agent: userAgent.
-    :type user_agent_caller_user_agent:
-     ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
-    :param user_agent_callee_user_agent: userAgent.
-    :type user_agent_callee_user_agent:
-     ~cloud_communications.models.MicrosoftGraphCallRecordsUserAgent
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'callee': {'key': 'callee', 'type': 'MicrosoftGraphCallRecordsEndpoint'},
+        'caller': {'key': 'caller', 'type': 'MicrosoftGraphCallRecordsEndpoint'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'failure_info': {'key': 'failureInfo', 'type': 'MicrosoftGraphCallRecordsFailureInfo'},
         'modalities': {'key': 'modalities', 'type': '[str]'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'segments': {'key': 'segments', 'type': '[MicrosoftGraphCallRecordsSegment]'},
-        'user_agent_caller_user_agent': {'key': 'caller.userAgent', 'type': 'MicrosoftGraphCallRecordsUserAgent'},
-        'user_agent_callee_user_agent': {'key': 'callee.userAgent', 'type': 'MicrosoftGraphCallRecordsUserAgent'},
     }
 
     def __init__(
@@ -1317,13 +1250,13 @@ class MicrosoftGraphCallRecordsSession(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphCallRecordsSession, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.callee = kwargs.get('callee', None)
+        self.caller = kwargs.get('caller', None)
         self.end_date_time = kwargs.get('end_date_time', None)
         self.failure_info = kwargs.get('failure_info', None)
         self.modalities = kwargs.get('modalities', None)
         self.start_date_time = kwargs.get('start_date_time', None)
         self.segments = kwargs.get('segments', None)
-        self.user_agent_caller_user_agent = kwargs.get('user_agent_caller_user_agent', None)
-        self.user_agent_callee_user_agent = kwargs.get('user_agent_callee_user_agent', None)
 
 
 class MicrosoftGraphCallRecordsUserAgent(msrest.serialization.Model):
@@ -1664,24 +1597,18 @@ class MicrosoftGraphInvitationParticipantInfo(msrest.serialization.Model):
     :param endpoint_type:  Possible values include: "default", "voicemail", "skypeForBusiness",
      "skypeForBusinessVoipPhone", "unknownFutureValue".
     :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
+    :param identity: identitySet.
+    :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
     :param replaces_call_id: Optional. The call which the target identity is currently a part of.
      This call will be dropped once the participant is added.
     :type replaces_call_id: str
-    :param application: identity.
-    :type application: ~cloud_communications.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~cloud_communications.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~cloud_communications.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'endpoint_type': {'key': 'endpointType', 'type': 'str'},
+        'identity': {'key': 'identity', 'type': 'MicrosoftGraphIdentitySet'},
         'replaces_call_id': {'key': 'replacesCallId', 'type': 'str'},
-        'application': {'key': 'identity.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'identity.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'identity.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -1691,10 +1618,8 @@ class MicrosoftGraphInvitationParticipantInfo(msrest.serialization.Model):
         super(MicrosoftGraphInvitationParticipantInfo, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.endpoint_type = kwargs.get('endpoint_type', None)
+        self.identity = kwargs.get('identity', None)
         self.replaces_call_id = kwargs.get('replaces_call_id', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphInviteParticipantsOperation(MicrosoftGraphCommsOperation):
@@ -2094,20 +2019,14 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
     :type join_url: str
     :param lobby_bypass_settings: lobbyBypassSettings.
     :type lobby_bypass_settings: ~cloud_communications.models.MicrosoftGraphLobbyBypassSettings
+    :param participants: meetingParticipants.
+    :type participants: ~cloud_communications.models.MicrosoftGraphMeetingParticipants
     :param start_date_time: The meeting start time in UTC.
     :type start_date_time: ~datetime.datetime
     :param subject: The subject of the online meeting.
     :type subject: str
     :param video_teleconference_id: The video teleconferencing ID. Read-only.
     :type video_teleconference_id: str
-    :param attendees:
-    :type attendees: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
-    :param contributors:
-    :type contributors: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
-    :param organizer: meetingParticipantInfo.
-    :type organizer: ~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo
-    :param producers:
-    :type producers: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
     """
 
     _attribute_map = {
@@ -2130,13 +2049,10 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
         'join_information': {'key': 'joinInformation', 'type': 'MicrosoftGraphItemBody'},
         'join_url': {'key': 'joinUrl', 'type': 'str'},
         'lobby_bypass_settings': {'key': 'lobbyBypassSettings', 'type': 'MicrosoftGraphLobbyBypassSettings'},
+        'participants': {'key': 'participants', 'type': 'MicrosoftGraphMeetingParticipants'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
         'video_teleconference_id': {'key': 'videoTeleconferenceId', 'type': 'str'},
-        'attendees': {'key': 'participants.attendees', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
-        'contributors': {'key': 'participants.contributors', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
-        'organizer': {'key': 'participants.organizer', 'type': 'MicrosoftGraphMeetingParticipantInfo'},
-        'producers': {'key': 'participants.producers', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
     }
 
     def __init__(
@@ -2162,13 +2078,10 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
         self.join_information = kwargs.get('join_information', None)
         self.join_url = kwargs.get('join_url', None)
         self.lobby_bypass_settings = kwargs.get('lobby_bypass_settings', None)
+        self.participants = kwargs.get('participants', None)
         self.start_date_time = kwargs.get('start_date_time', None)
         self.subject = kwargs.get('subject', None)
         self.video_teleconference_id = kwargs.get('video_teleconference_id', None)
-        self.attendees = kwargs.get('attendees', None)
-        self.contributors = kwargs.get('contributors', None)
-        self.organizer = kwargs.get('organizer', None)
-        self.producers = kwargs.get('producers', None)
 
 
 class MicrosoftGraphParticipant(MicrosoftGraphEntity):
@@ -2179,6 +2092,8 @@ class MicrosoftGraphParticipant(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param info: participantInfo.
+    :type info: ~cloud_communications.models.MicrosoftGraphParticipantInfo
     :param is_in_lobby: true if the participant is in lobby.
     :type is_in_lobby: bool
     :param is_muted: true if the participant is muted (client or server muted).
@@ -2187,44 +2102,19 @@ class MicrosoftGraphParticipant(MicrosoftGraphEntity):
     :type media_streams: list[~cloud_communications.models.MicrosoftGraphMediaStream]
     :param metadata:
     :type metadata: str
-    :param initiated_by: participantInfo.
-    :type initiated_by: ~cloud_communications.models.MicrosoftGraphParticipantInfo
-    :param initiator: identitySet.
-    :type initiator: ~cloud_communications.models.MicrosoftGraphIdentitySet
-    :param recording_status:  Possible values include: "unknown", "notRecording", "recording",
-     "failed", "unknownFutureValue".
-    :type recording_status: str or ~cloud_communications.models.MicrosoftGraphRecordingStatus
-    :param country_code: The ISO 3166-1 Alpha-2 country code of the participant's best estimated
-     physical location at the start of the call. Read-only.
-    :type country_code: str
-    :param endpoint_type:  Possible values include: "default", "voicemail", "skypeForBusiness",
-     "skypeForBusinessVoipPhone", "unknownFutureValue".
-    :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
-    :param identity: identitySet.
-    :type identity: ~cloud_communications.models.MicrosoftGraphIdentitySet
-    :param language_id: The language culture string. Read-only.
-    :type language_id: str
-    :param region: The home region of the participant. This can be a country, a continent, or a
-     larger geographic region. This does not change based on the participant's current physical
-     location. Read-only.
-    :type region: str
+    :param recording_info: recordingInfo.
+    :type recording_info: ~cloud_communications.models.MicrosoftGraphRecordingInfo
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'info': {'key': 'info', 'type': 'MicrosoftGraphParticipantInfo'},
         'is_in_lobby': {'key': 'isInLobby', 'type': 'bool'},
         'is_muted': {'key': 'isMuted', 'type': 'bool'},
         'media_streams': {'key': 'mediaStreams', 'type': '[MicrosoftGraphMediaStream]'},
         'metadata': {'key': 'metadata', 'type': 'str'},
-        'initiated_by': {'key': 'recordingInfo.initiatedBy', 'type': 'MicrosoftGraphParticipantInfo'},
-        'initiator': {'key': 'recordingInfo.initiator', 'type': 'MicrosoftGraphIdentitySet'},
-        'recording_status': {'key': 'recordingInfo.recordingStatus', 'type': 'str'},
-        'country_code': {'key': 'info.countryCode', 'type': 'str'},
-        'endpoint_type': {'key': 'info.endpointType', 'type': 'str'},
-        'identity': {'key': 'info.identity', 'type': 'MicrosoftGraphIdentitySet'},
-        'language_id': {'key': 'info.languageId', 'type': 'str'},
-        'region': {'key': 'info.region', 'type': 'str'},
+        'recording_info': {'key': 'recordingInfo', 'type': 'MicrosoftGraphRecordingInfo'},
     }
 
     def __init__(
@@ -2233,18 +2123,12 @@ class MicrosoftGraphParticipant(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphParticipant, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.info = kwargs.get('info', None)
         self.is_in_lobby = kwargs.get('is_in_lobby', None)
         self.is_muted = kwargs.get('is_muted', None)
         self.media_streams = kwargs.get('media_streams', None)
         self.metadata = kwargs.get('metadata', None)
-        self.initiated_by = kwargs.get('initiated_by', None)
-        self.initiator = kwargs.get('initiator', None)
-        self.recording_status = kwargs.get('recording_status', None)
-        self.country_code = kwargs.get('country_code', None)
-        self.endpoint_type = kwargs.get('endpoint_type', None)
-        self.identity = kwargs.get('identity', None)
-        self.language_id = kwargs.get('language_id', None)
-        self.region = kwargs.get('region', None)
+        self.recording_info = kwargs.get('recording_info', None)
 
 
 class MicrosoftGraphParticipantInfo(msrest.serialization.Model):
@@ -3127,49 +3011,13 @@ class Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalit
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param call_chain_id: A unique identifier for all  the participant calls in a conference or a
-     unique identifier for two participant calls in P2P call. This needs to be copied over from
-     Microsoft.Graph.Call.CallChainId.
-    :type call_chain_id: str
-    :param cloud_service_deployment_environment: A geo-region where the service is deployed, such
-     as ProdNoam.
-    :type cloud_service_deployment_environment: str
-    :param cloud_service_deployment_id: A unique deployment identifier assigned by Azure.
-    :type cloud_service_deployment_id: str
-    :param cloud_service_instance_name: The Azure deployed cloud service instance name, such as
-     FrontEnd_IN_3.
-    :type cloud_service_instance_name: str
-    :param cloud_service_name: The Azure deployed cloud service name, such as contoso.cloudapp.net.
-    :type cloud_service_name: str
-    :param device_description: Any additional description, such as VTC Bldg 30/21.
-    :type device_description: str
-    :param device_name: The user media agent name, such as Cisco SX80.
-    :type device_name: str
-    :param media_leg_id: A unique identifier for a specific media leg of a participant in a
-     conference.  One participant can have multiple media leg identifiers if retargeting happens.
-     CVI partner assigns this value.
-    :type media_leg_id: str
-    :param media_quality_list: The list of media qualities in a media session (call), such as audio
-     quality, video quality, and/or screen sharing quality.
-    :type media_quality_list:
-     list[~cloud_communications.models.MicrosoftGraphTeleconferenceDeviceMediaQuality]
-    :param participant_id: A unique identifier for a specific participant in a conference. The CVI
-     partner needs to copy over Call.MyParticipantId to this property.
-    :type participant_id: str
+    :param quality: teleconferenceDeviceQuality.
+    :type quality: ~cloud_communications.models.MicrosoftGraphTeleconferenceDeviceQuality
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'call_chain_id': {'key': 'quality.callChainId', 'type': 'str'},
-        'cloud_service_deployment_environment': {'key': 'quality.cloudServiceDeploymentEnvironment', 'type': 'str'},
-        'cloud_service_deployment_id': {'key': 'quality.cloudServiceDeploymentId', 'type': 'str'},
-        'cloud_service_instance_name': {'key': 'quality.cloudServiceInstanceName', 'type': 'str'},
-        'cloud_service_name': {'key': 'quality.cloudServiceName', 'type': 'str'},
-        'device_description': {'key': 'quality.deviceDescription', 'type': 'str'},
-        'device_name': {'key': 'quality.deviceName', 'type': 'str'},
-        'media_leg_id': {'key': 'quality.mediaLegId', 'type': 'str'},
-        'media_quality_list': {'key': 'quality.mediaQualityList', 'type': '[MicrosoftGraphTeleconferenceDeviceMediaQuality]'},
-        'participant_id': {'key': 'quality.participantId', 'type': 'str'},
+        'quality': {'key': 'quality', 'type': 'MicrosoftGraphTeleconferenceDeviceQuality'},
     }
 
     def __init__(
@@ -3178,16 +3026,7 @@ class Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalit
     ):
         super(Paths1JbdsmaCommunicationsCallsMicrosoftGraphLogteleconferencedevicequalityPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.call_chain_id = kwargs.get('call_chain_id', None)
-        self.cloud_service_deployment_environment = kwargs.get('cloud_service_deployment_environment', None)
-        self.cloud_service_deployment_id = kwargs.get('cloud_service_deployment_id', None)
-        self.cloud_service_instance_name = kwargs.get('cloud_service_instance_name', None)
-        self.cloud_service_name = kwargs.get('cloud_service_name', None)
-        self.device_description = kwargs.get('device_description', None)
-        self.device_name = kwargs.get('device_name', None)
-        self.media_leg_id = kwargs.get('media_leg_id', None)
-        self.media_quality_list = kwargs.get('media_quality_list', None)
-        self.participant_id = kwargs.get('participant_id', None)
+        self.quality = kwargs.get('quality', None)
 
 
 class Paths1Mdqe66CommunicationsCallsCallIdMicrosoftGraphRecordPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -3264,18 +3103,12 @@ class Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostReque
     :type end_date_time: ~datetime.datetime
     :param external_id:
     :type external_id: str
+    :param participants: meetingParticipants.
+    :type participants: ~cloud_communications.models.MicrosoftGraphMeetingParticipants
     :param start_date_time:
     :type start_date_time: ~datetime.datetime
     :param subject:
     :type subject: str
-    :param attendees:
-    :type attendees: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
-    :param contributors:
-    :type contributors: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
-    :param organizer: meetingParticipantInfo.
-    :type organizer: ~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo
-    :param producers:
-    :type producers: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
     """
 
     _attribute_map = {
@@ -3283,12 +3116,9 @@ class Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostReque
         'chat_info': {'key': 'chatInfo', 'type': 'MicrosoftGraphChatInfo'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'external_id': {'key': 'externalId', 'type': 'str'},
+        'participants': {'key': 'participants', 'type': 'MicrosoftGraphMeetingParticipants'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
-        'attendees': {'key': 'participants.attendees', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
-        'contributors': {'key': 'participants.contributors', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
-        'organizer': {'key': 'participants.organizer', 'type': 'MicrosoftGraphMeetingParticipantInfo'},
-        'producers': {'key': 'participants.producers', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
     }
 
     def __init__(
@@ -3300,12 +3130,9 @@ class Paths1Pc6SxrCommunicationsOnlinemeetingsMicrosoftGraphCreateorgetPostReque
         self.chat_info = kwargs.get('chat_info', None)
         self.end_date_time = kwargs.get('end_date_time', None)
         self.external_id = kwargs.get('external_id', None)
+        self.participants = kwargs.get('participants', None)
         self.start_date_time = kwargs.get('start_date_time', None)
         self.subject = kwargs.get('subject', None)
-        self.attendees = kwargs.get('attendees', None)
-        self.contributors = kwargs.get('contributors', None)
-        self.organizer = kwargs.get('organizer', None)
-        self.producers = kwargs.get('producers', None)
 
 
 class Paths1X7BvttCommunicationsCallsCallIdMicrosoftGraphUnmutePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -3366,27 +3193,13 @@ class Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyC
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param endpoint_type:  Possible values include: "default", "voicemail", "skypeForBusiness",
-     "skypeForBusinessVoipPhone", "unknownFutureValue".
-    :type endpoint_type: str or ~cloud_communications.models.MicrosoftGraphEndpointType
-    :param replaces_call_id: Optional. The call which the target identity is currently a part of.
-     This call will be dropped once the participant is added.
-    :type replaces_call_id: str
-    :param application: identity.
-    :type application: ~cloud_communications.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~cloud_communications.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~cloud_communications.models.MicrosoftGraphIdentity
+    :param transfer_target: invitationParticipantInfo.
+    :type transfer_target: ~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'endpoint_type': {'key': 'transferTarget.endpointType', 'type': 'str'},
-        'replaces_call_id': {'key': 'transferTarget.replacesCallId', 'type': 'str'},
-        'application': {'key': 'transferTarget.identity.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'transferTarget.identity.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'transferTarget.identity.user', 'type': 'MicrosoftGraphIdentity'},
+        'transfer_target': {'key': 'transferTarget', 'type': 'MicrosoftGraphInvitationParticipantInfo'},
     }
 
     def __init__(
@@ -3395,11 +3208,7 @@ class Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyC
     ):
         super(Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.endpoint_type = kwargs.get('endpoint_type', None)
-        self.replaces_call_id = kwargs.get('replaces_call_id', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
+        self.transfer_target = kwargs.get('transfer_target', None)
 
 
 class PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -3491,17 +3300,17 @@ class PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyCon
     :type additional_properties: dict[str, object]
     :param callback_uri:
     :type callback_uri: str
+    :param media_config: mediaConfig.
+    :type media_config: ~cloud_communications.models.MicrosoftGraphMediaConfig
     :param accepted_modalities:
     :type accepted_modalities: list[str or ~cloud_communications.models.MicrosoftGraphModality]
-    :param remove_from_default_audio_group:
-    :type remove_from_default_audio_group: bool
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'callback_uri': {'key': 'callbackUri', 'type': 'str'},
+        'media_config': {'key': 'mediaConfig', 'type': 'MicrosoftGraphMediaConfig'},
         'accepted_modalities': {'key': 'acceptedModalities', 'type': '[str]'},
-        'remove_from_default_audio_group': {'key': 'mediaConfig.removeFromDefaultAudioGroup', 'type': 'bool'},
     }
 
     def __init__(
@@ -3511,8 +3320,8 @@ class PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyCon
         super(PathsQvpqn4CommunicationsCallsCallIdMicrosoftGraphAnswerPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.callback_uri = kwargs.get('callback_uri', None)
+        self.media_config = kwargs.get('media_config', None)
         self.accepted_modalities = kwargs.get('accepted_modalities', None)
-        self.remove_from_default_audio_group = kwargs.get('remove_from_default_audio_group', None)
 
 
 class PathsTobgxoCommunicationsCallsCallIdParticipantsParticipantIdMicrosoftGraphMutePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):

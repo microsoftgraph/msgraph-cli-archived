@@ -22,25 +22,25 @@ from azext_reports_v1_0.generated._client_factory import (
 
 
 reports_v1_0_audit_log_audit_log_root = CliCommandType(
-    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._audit_log_audit_log_root_operations#AuditLogAuditLogRootOperations.{}',
+    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._audit_logs_audit_log_root_operations#AuditLogsAuditLogRootOperations.{}',
     client_factory=cf_audit_log_audit_log_root,
 )
 
 
 reports_v1_0_audit_log = CliCommandType(
-    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._audit_log_operations#AuditLogOperations.{}',
+    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._audit_logs_operations#AuditLogsOperations.{}',
     client_factory=cf_audit_log,
 )
 
 
 reports_v1_0_report_report_root = CliCommandType(
-    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._report_report_root_operations#ReportReportRootOperations.{}',
+    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._reports_report_root_operations#ReportsReportRootOperations.{}',
     client_factory=cf_report_report_root,
 )
 
 
 reports_v1_0_report = CliCommandType(
-    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._report_operations#ReportOperations.{}',
+    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._reports_operations#ReportsOperations.{}',
     client_factory=cf_report,
 )
 

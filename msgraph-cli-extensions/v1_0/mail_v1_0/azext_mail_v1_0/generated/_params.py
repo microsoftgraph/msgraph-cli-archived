@@ -81,8 +81,8 @@ def load_arguments(self, _):
         c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
                    'attachments. This property doesn\'t include inline attachments, so if a message contains only '
                    'inline attachments, this property is false. To verify the existence of inline attachments, parse '
-                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
-                   '6C05F070\'>`.')
+                   'the body property to look for a src attribute, such as <IMG src=\'cid:image001.jpg@01D26CD8.6C05F07'
+                   '0\'>.')
         c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
         c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
         c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='+', help='A collection of '
@@ -234,8 +234,8 @@ def load_arguments(self, _):
         c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
                    'attachments. This property doesn\'t include inline attachments, so if a message contains only '
                    'inline attachments, this property is false. To verify the existence of inline attachments, parse '
-                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
-                   '6C05F070\'>`.')
+                   'the body property to look for a src attribute, such as <IMG src=\'cid:image001.jpg@01D26CD8.6C05F07'
+                   '0\'>.')
         c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
         c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
         c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='+', help='A collection of '
@@ -370,8 +370,8 @@ def load_arguments(self, _):
         c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
                    'attachments. This property doesn\'t include inline attachments, so if a message contains only '
                    'inline attachments, this property is false. To verify the existence of inline attachments, parse '
-                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
-                   '6C05F070\'>`.')
+                   'the body property to look for a src attribute, such as <IMG src=\'cid:image001.jpg@01D26CD8.6C05F07'
+                   '0\'>.')
         c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
         c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
         c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='+', help='A collection of '
@@ -797,8 +797,8 @@ def load_arguments(self, _):
         c.argument('has_attachments', arg_type=get_three_state_flag(), help='Indicates whether the message has '
                    'attachments. This property doesn\'t include inline attachments, so if a message contains only '
                    'inline attachments, this property is false. To verify the existence of inline attachments, parse '
-                   'the body property to look for a src attribute, such as :code:`<IMG src=\'cid:image001.jpg@01D26CD8.'
-                   '6C05F070\'>`.')
+                   'the body property to look for a src attribute, such as <IMG src=\'cid:image001.jpg@01D26CD8.6C05F07'
+                   '0\'>.')
         c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='')
         c.argument('inference_classification', arg_type=get_enum_type(['focused', 'other']), help='')
         c.argument('internet_message_headers', action=AddInternetMessageHeaders, nargs='+', help='A collection of '

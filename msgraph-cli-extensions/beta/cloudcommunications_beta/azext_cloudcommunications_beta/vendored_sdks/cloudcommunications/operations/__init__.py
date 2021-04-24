@@ -6,22 +6,22 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._communication_cloud_communication_operations import CommunicationCloudCommunicationOperations
-from ._communication_operations import CommunicationOperations
-from ._communication_call_record_operations import CommunicationCallRecordOperations
-from ._communication_call_record_session_operations import CommunicationCallRecordSessionOperations
-from ._communication_call_operations import CommunicationCallOperations
-from ._communication_call_participant_operations import CommunicationCallParticipantOperations
-from ._communication_online_meeting_operations import CommunicationOnlineMeetingOperations
-from ._user_operations import UserOperations
+from ._communications_cloud_communications_operations import CommunicationsCloudCommunicationsOperations
+from ._communications_operations import CommunicationsOperations
+from ._communications_call_records_operations import CommunicationsCallRecordsOperations
+from ._communications_call_records_sessions_operations import CommunicationsCallRecordsSessionsOperations
+from ._communications_calls_operations import CommunicationsCallsOperations
+from ._communications_calls_participants_operations import CommunicationsCallsParticipantsOperations
+from ._communications_online_meetings_operations import CommunicationsOnlineMeetingsOperations
+from ._users_operations import UsersOperations
 
 __all__ = [
-    'CommunicationCloudCommunicationOperations',
-    'CommunicationOperations',
-    'CommunicationCallRecordOperations',
-    'CommunicationCallRecordSessionOperations',
-    'CommunicationCallOperations',
-    'CommunicationCallParticipantOperations',
-    'CommunicationOnlineMeetingOperations',
-    'UserOperations',
+    'CommunicationsCloudCommunicationsOperations',
+    'CommunicationsOperations',
+    'CommunicationsCallRecordsOperations',
+    'CommunicationsCallRecordsSessionsOperations',
+    'CommunicationsCallsOperations',
+    'CommunicationsCallsParticipantsOperations',
+    'CommunicationsOnlineMeetingsOperations',
+    'UsersOperations',
 ]

@@ -19,12 +19,12 @@ def cf_crossdeviceexperiences_beta_cl(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_crossdeviceexperiences_beta_cl(cli_ctx).user
+    return cf_crossdeviceexperiences_beta_cl(cli_ctx).users
 
 
 def cf_user_activity(cli_ctx, *_):
-    return cf_crossdeviceexperiences_beta_cl(cli_ctx).user_activity
+    return cf_crossdeviceexperiences_beta_cl(cli_ctx).users_activities
 
 
 def cf_user_activity_history_item(cli_ctx, *_):
-    return cf_crossdeviceexperiences_beta_cl(cli_ctx).user_activity_history_item
+    return cf_crossdeviceexperiences_beta_cl(cli_ctx).users_activities_history_items

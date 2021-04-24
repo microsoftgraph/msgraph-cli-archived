@@ -17,7 +17,7 @@ from azext_changenotifications_beta.generated._client_factory import cf_subscrip
 
 
 changenotifications_beta_subscription_subscription = CliCommandType(
-    operations_tmpl='azext_changenotifications_beta.vendored_sdks.changenotifications.operations._subscription_subscription_operations#SubscriptionSubscriptionOperations.{}',
+    operations_tmpl='azext_changenotifications_beta.vendored_sdks.changenotifications.operations._subscriptions_subscription_operations#SubscriptionsSubscriptionOperations.{}',
     client_factory=cf_subscription_subscription,
 )
 

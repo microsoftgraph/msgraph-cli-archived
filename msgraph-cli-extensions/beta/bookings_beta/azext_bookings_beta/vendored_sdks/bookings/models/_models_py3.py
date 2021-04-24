@@ -280,6 +280,8 @@ class MicrosoftGraphBookingAppointment(MicrosoftGraphEntity):
     :type customer_email_address: str
     :param customer_id: The id of the booking customer associated with this appointment.
     :type customer_id: str
+    :param customer_location: location.
+    :type customer_location: ~bookings.models.MicrosoftGraphLocation
     :param customer_name:
     :type customer_name: str
     :param customer_notes: Notes from the customer associated with this appointment.
@@ -322,6 +324,8 @@ class MicrosoftGraphBookingAppointment(MicrosoftGraphEntity):
     :type self_service_appointment_id: str
     :param service_id: The id of the booking service associated with this appointment.
     :type service_id: str
+    :param service_location: location.
+    :type service_location: ~bookings.models.MicrosoftGraphLocation
     :param service_name: The name of the booking service associated with this appointment.
     :type service_name: str
     :param service_notes:
@@ -330,50 +334,6 @@ class MicrosoftGraphBookingAppointment(MicrosoftGraphEntity):
     :type staff_member_ids: list[str]
     :param start: dateTimeTimeZone.
     :type start: ~bookings.models.MicrosoftGraphDateTimeZone
-    :param address_service_location_address: physicalAddress.
-    :type address_service_location_address: ~bookings.models.MicrosoftGraphPhysicalAddress
-    :param coordinates_service_location_coordinates: outlookGeoCoordinates.
-    :type coordinates_service_location_coordinates:
-     ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-    :param display_name_service_location_display_name: The name associated with the location.
-    :type display_name_service_location_display_name: str
-    :param location_email_address_service_location_email_address: Optional email address of the
-     location.
-    :type location_email_address_service_location_email_address: str
-    :param location_type_service_location_type:  Possible values include: "default",
-     "conferenceRoom", "homeAddress", "businessAddress", "geoCoordinates", "streetAddress", "hotel",
-     "restaurant", "localBusiness", "postalAddress".
-    :type location_type_service_location_type: str or ~bookings.models.MicrosoftGraphLocationType
-    :param location_uri_service_location_uri: Optional URI representing the location.
-    :type location_uri_service_location_uri: str
-    :param unique_id_service_location_unique_id: For internal use only.
-    :type unique_id_service_location_unique_id: str
-    :param unique_id_type_service_location_unique_id_type:  Possible values include: "unknown",
-     "locationStore", "directory", "private", "bing".
-    :type unique_id_type_service_location_unique_id_type: str or
-     ~bookings.models.MicrosoftGraphLocationUniqueIdType
-    :param address_customer_location_address: physicalAddress.
-    :type address_customer_location_address: ~bookings.models.MicrosoftGraphPhysicalAddress
-    :param coordinates_customer_location_coordinates: outlookGeoCoordinates.
-    :type coordinates_customer_location_coordinates:
-     ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-    :param display_name_customer_location_display_name: The name associated with the location.
-    :type display_name_customer_location_display_name: str
-    :param location_email_address_customer_location_email_address: Optional email address of the
-     location.
-    :type location_email_address_customer_location_email_address: str
-    :param location_type_customer_location_type:  Possible values include: "default",
-     "conferenceRoom", "homeAddress", "businessAddress", "geoCoordinates", "streetAddress", "hotel",
-     "restaurant", "localBusiness", "postalAddress".
-    :type location_type_customer_location_type: str or ~bookings.models.MicrosoftGraphLocationType
-    :param location_uri_customer_location_uri: Optional URI representing the location.
-    :type location_uri_customer_location_uri: str
-    :param unique_id_customer_location_unique_id: For internal use only.
-    :type unique_id_customer_location_unique_id: str
-    :param unique_id_type_customer_location_unique_id_type:  Possible values include: "unknown",
-     "locationStore", "directory", "private", "bing".
-    :type unique_id_type_customer_location_unique_id_type: str or
-     ~bookings.models.MicrosoftGraphLocationUniqueIdType
     """
 
     _attribute_map = {
@@ -382,6 +342,7 @@ class MicrosoftGraphBookingAppointment(MicrosoftGraphEntity):
         'additional_information': {'key': 'additionalInformation', 'type': 'str'},
         'customer_email_address': {'key': 'customerEmailAddress', 'type': 'str'},
         'customer_id': {'key': 'customerId', 'type': 'str'},
+        'customer_location': {'key': 'customerLocation', 'type': 'MicrosoftGraphLocation'},
         'customer_name': {'key': 'customerName', 'type': 'str'},
         'customer_notes': {'key': 'customerNotes', 'type': 'str'},
         'customer_phone': {'key': 'customerPhone', 'type': 'str'},
@@ -402,26 +363,11 @@ class MicrosoftGraphBookingAppointment(MicrosoftGraphEntity):
         'reminders': {'key': 'reminders', 'type': '[MicrosoftGraphBookingReminder]'},
         'self_service_appointment_id': {'key': 'selfServiceAppointmentId', 'type': 'str'},
         'service_id': {'key': 'serviceId', 'type': 'str'},
+        'service_location': {'key': 'serviceLocation', 'type': 'MicrosoftGraphLocation'},
         'service_name': {'key': 'serviceName', 'type': 'str'},
         'service_notes': {'key': 'serviceNotes', 'type': 'str'},
         'staff_member_ids': {'key': 'staffMemberIds', 'type': '[str]'},
         'start': {'key': 'start', 'type': 'MicrosoftGraphDateTimeZone'},
-        'address_service_location_address': {'key': 'serviceLocation.address', 'type': 'MicrosoftGraphPhysicalAddress'},
-        'coordinates_service_location_coordinates': {'key': 'serviceLocation.coordinates', 'type': 'MicrosoftGraphOutlookGeoCoordinates'},
-        'display_name_service_location_display_name': {'key': 'serviceLocation.displayName', 'type': 'str'},
-        'location_email_address_service_location_email_address': {'key': 'serviceLocation.locationEmailAddress', 'type': 'str'},
-        'location_type_service_location_type': {'key': 'serviceLocation.locationType', 'type': 'str'},
-        'location_uri_service_location_uri': {'key': 'serviceLocation.locationUri', 'type': 'str'},
-        'unique_id_service_location_unique_id': {'key': 'serviceLocation.uniqueId', 'type': 'str'},
-        'unique_id_type_service_location_unique_id_type': {'key': 'serviceLocation.uniqueIdType', 'type': 'str'},
-        'address_customer_location_address': {'key': 'customerLocation.address', 'type': 'MicrosoftGraphPhysicalAddress'},
-        'coordinates_customer_location_coordinates': {'key': 'customerLocation.coordinates', 'type': 'MicrosoftGraphOutlookGeoCoordinates'},
-        'display_name_customer_location_display_name': {'key': 'customerLocation.displayName', 'type': 'str'},
-        'location_email_address_customer_location_email_address': {'key': 'customerLocation.locationEmailAddress', 'type': 'str'},
-        'location_type_customer_location_type': {'key': 'customerLocation.locationType', 'type': 'str'},
-        'location_uri_customer_location_uri': {'key': 'customerLocation.locationUri', 'type': 'str'},
-        'unique_id_customer_location_unique_id': {'key': 'customerLocation.uniqueId', 'type': 'str'},
-        'unique_id_type_customer_location_unique_id_type': {'key': 'customerLocation.uniqueIdType', 'type': 'str'},
     }
 
     def __init__(
@@ -432,6 +378,7 @@ class MicrosoftGraphBookingAppointment(MicrosoftGraphEntity):
         additional_information: Optional[str] = None,
         customer_email_address: Optional[str] = None,
         customer_id: Optional[str] = None,
+        customer_location: Optional["MicrosoftGraphLocation"] = None,
         customer_name: Optional[str] = None,
         customer_notes: Optional[str] = None,
         customer_phone: Optional[str] = None,
@@ -452,26 +399,11 @@ class MicrosoftGraphBookingAppointment(MicrosoftGraphEntity):
         reminders: Optional[List["MicrosoftGraphBookingReminder"]] = None,
         self_service_appointment_id: Optional[str] = None,
         service_id: Optional[str] = None,
+        service_location: Optional["MicrosoftGraphLocation"] = None,
         service_name: Optional[str] = None,
         service_notes: Optional[str] = None,
         staff_member_ids: Optional[List[str]] = None,
         start: Optional["MicrosoftGraphDateTimeZone"] = None,
-        address_service_location_address: Optional["MicrosoftGraphPhysicalAddress"] = None,
-        coordinates_service_location_coordinates: Optional["MicrosoftGraphOutlookGeoCoordinates"] = None,
-        display_name_service_location_display_name: Optional[str] = None,
-        location_email_address_service_location_email_address: Optional[str] = None,
-        location_type_service_location_type: Optional[Union[str, "MicrosoftGraphLocationType"]] = None,
-        location_uri_service_location_uri: Optional[str] = None,
-        unique_id_service_location_unique_id: Optional[str] = None,
-        unique_id_type_service_location_unique_id_type: Optional[Union[str, "MicrosoftGraphLocationUniqueIdType"]] = None,
-        address_customer_location_address: Optional["MicrosoftGraphPhysicalAddress"] = None,
-        coordinates_customer_location_coordinates: Optional["MicrosoftGraphOutlookGeoCoordinates"] = None,
-        display_name_customer_location_display_name: Optional[str] = None,
-        location_email_address_customer_location_email_address: Optional[str] = None,
-        location_type_customer_location_type: Optional[Union[str, "MicrosoftGraphLocationType"]] = None,
-        location_uri_customer_location_uri: Optional[str] = None,
-        unique_id_customer_location_unique_id: Optional[str] = None,
-        unique_id_type_customer_location_unique_id_type: Optional[Union[str, "MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
     ):
         super(MicrosoftGraphBookingAppointment, self).__init__(id=id, **kwargs)
@@ -479,6 +411,7 @@ class MicrosoftGraphBookingAppointment(MicrosoftGraphEntity):
         self.additional_information = additional_information
         self.customer_email_address = customer_email_address
         self.customer_id = customer_id
+        self.customer_location = customer_location
         self.customer_name = customer_name
         self.customer_notes = customer_notes
         self.customer_phone = customer_phone
@@ -499,26 +432,11 @@ class MicrosoftGraphBookingAppointment(MicrosoftGraphEntity):
         self.reminders = reminders
         self.self_service_appointment_id = self_service_appointment_id
         self.service_id = service_id
+        self.service_location = service_location
         self.service_name = service_name
         self.service_notes = service_notes
         self.staff_member_ids = staff_member_ids
         self.start = start
-        self.address_service_location_address = address_service_location_address
-        self.coordinates_service_location_coordinates = coordinates_service_location_coordinates
-        self.display_name_service_location_display_name = display_name_service_location_display_name
-        self.location_email_address_service_location_email_address = location_email_address_service_location_email_address
-        self.location_type_service_location_type = location_type_service_location_type
-        self.location_uri_service_location_uri = location_uri_service_location_uri
-        self.unique_id_service_location_unique_id = unique_id_service_location_unique_id
-        self.unique_id_type_service_location_unique_id_type = unique_id_type_service_location_unique_id_type
-        self.address_customer_location_address = address_customer_location_address
-        self.coordinates_customer_location_coordinates = coordinates_customer_location_coordinates
-        self.display_name_customer_location_display_name = display_name_customer_location_display_name
-        self.location_email_address_customer_location_email_address = location_email_address_customer_location_email_address
-        self.location_type_customer_location_type = location_type_customer_location_type
-        self.location_uri_customer_location_uri = location_uri_customer_location_uri
-        self.unique_id_customer_location_unique_id = unique_id_customer_location_unique_id
-        self.unique_id_type_customer_location_unique_id_type = unique_id_type_customer_location_unique_id_type
 
 
 class MicrosoftGraphBookingNamedEntity(MicrosoftGraphEntity):
@@ -857,6 +775,8 @@ class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
     :type additional_information: str
     :param default_duration:
     :type default_duration: ~datetime.timedelta
+    :param default_location: location.
+    :type default_location: ~bookings.models.MicrosoftGraphLocation
     :param default_price:
     :type default_price: float
     :param default_price_type:  Possible values include: "undefined", "fixedPrice", "startingAt",
@@ -881,25 +801,6 @@ class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
     :type scheduling_policy: ~bookings.models.MicrosoftGraphBookingSchedulingPolicy
     :param staff_member_ids:
     :type staff_member_ids: list[str]
-    :param address: physicalAddress.
-    :type address: ~bookings.models.MicrosoftGraphPhysicalAddress
-    :param coordinates: outlookGeoCoordinates.
-    :type coordinates: ~bookings.models.MicrosoftGraphOutlookGeoCoordinates
-    :param display_name_default_location_display_name: The name associated with the location.
-    :type display_name_default_location_display_name: str
-    :param location_email_address: Optional email address of the location.
-    :type location_email_address: str
-    :param location_type:  Possible values include: "default", "conferenceRoom", "homeAddress",
-     "businessAddress", "geoCoordinates", "streetAddress", "hotel", "restaurant", "localBusiness",
-     "postalAddress".
-    :type location_type: str or ~bookings.models.MicrosoftGraphLocationType
-    :param location_uri: Optional URI representing the location.
-    :type location_uri: str
-    :param unique_id: For internal use only.
-    :type unique_id: str
-    :param unique_id_type:  Possible values include: "unknown", "locationStore", "directory",
-     "private", "bing".
-    :type unique_id_type: str or ~bookings.models.MicrosoftGraphLocationUniqueIdType
     """
 
     _attribute_map = {
@@ -908,6 +809,7 @@ class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'additional_information': {'key': 'additionalInformation', 'type': 'str'},
         'default_duration': {'key': 'defaultDuration', 'type': 'duration'},
+        'default_location': {'key': 'defaultLocation', 'type': 'MicrosoftGraphLocation'},
         'default_price': {'key': 'defaultPrice', 'type': 'float'},
         'default_price_type': {'key': 'defaultPriceType', 'type': 'str'},
         'default_reminders': {'key': 'defaultReminders', 'type': '[MicrosoftGraphBookingReminder]'},
@@ -919,14 +821,6 @@ class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
         'pre_buffer': {'key': 'preBuffer', 'type': 'duration'},
         'scheduling_policy': {'key': 'schedulingPolicy', 'type': 'MicrosoftGraphBookingSchedulingPolicy'},
         'staff_member_ids': {'key': 'staffMemberIds', 'type': '[str]'},
-        'address': {'key': 'defaultLocation.address', 'type': 'MicrosoftGraphPhysicalAddress'},
-        'coordinates': {'key': 'defaultLocation.coordinates', 'type': 'MicrosoftGraphOutlookGeoCoordinates'},
-        'display_name_default_location_display_name': {'key': 'defaultLocation.displayName', 'type': 'str'},
-        'location_email_address': {'key': 'defaultLocation.locationEmailAddress', 'type': 'str'},
-        'location_type': {'key': 'defaultLocation.locationType', 'type': 'str'},
-        'location_uri': {'key': 'defaultLocation.locationUri', 'type': 'str'},
-        'unique_id': {'key': 'defaultLocation.uniqueId', 'type': 'str'},
-        'unique_id_type': {'key': 'defaultLocation.uniqueIdType', 'type': 'str'},
     }
 
     def __init__(
@@ -937,6 +831,7 @@ class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
         additional_properties: Optional[Dict[str, object]] = None,
         additional_information: Optional[str] = None,
         default_duration: Optional[datetime.timedelta] = None,
+        default_location: Optional["MicrosoftGraphLocation"] = None,
         default_price: Optional[float] = None,
         default_price_type: Optional[Union[str, "MicrosoftGraphBookingPriceType"]] = None,
         default_reminders: Optional[List["MicrosoftGraphBookingReminder"]] = None,
@@ -948,20 +843,13 @@ class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
         pre_buffer: Optional[datetime.timedelta] = None,
         scheduling_policy: Optional["MicrosoftGraphBookingSchedulingPolicy"] = None,
         staff_member_ids: Optional[List[str]] = None,
-        address: Optional["MicrosoftGraphPhysicalAddress"] = None,
-        coordinates: Optional["MicrosoftGraphOutlookGeoCoordinates"] = None,
-        display_name_default_location_display_name: Optional[str] = None,
-        location_email_address: Optional[str] = None,
-        location_type: Optional[Union[str, "MicrosoftGraphLocationType"]] = None,
-        location_uri: Optional[str] = None,
-        unique_id: Optional[str] = None,
-        unique_id_type: Optional[Union[str, "MicrosoftGraphLocationUniqueIdType"]] = None,
         **kwargs
     ):
         super(MicrosoftGraphBookingService, self).__init__(id=id, display_name=display_name, **kwargs)
         self.additional_properties = additional_properties
         self.additional_information = additional_information
         self.default_duration = default_duration
+        self.default_location = default_location
         self.default_price = default_price
         self.default_price_type = default_price_type
         self.default_reminders = default_reminders
@@ -973,14 +861,6 @@ class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
         self.pre_buffer = pre_buffer
         self.scheduling_policy = scheduling_policy
         self.staff_member_ids = staff_member_ids
-        self.address = address
-        self.coordinates = coordinates
-        self.display_name_default_location_display_name = display_name_default_location_display_name
-        self.location_email_address = location_email_address
-        self.location_type = location_type
-        self.location_uri = location_uri
-        self.unique_id = unique_id
-        self.unique_id_type = unique_id_type
 
 
 class MicrosoftGraphBookingStaffMember(MicrosoftGraphBookingPerson):

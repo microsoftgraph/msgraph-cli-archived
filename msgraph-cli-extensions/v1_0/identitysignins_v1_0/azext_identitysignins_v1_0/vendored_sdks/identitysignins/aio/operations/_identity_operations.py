@@ -99,21 +99,15 @@ class IdentityOperations:
 
     async def update_conditional_access(
         self,
-        id: Optional[str] = None,
-        named_locations: Optional[List["models.MicrosoftGraphNamedLocation"]] = None,
-        policies: Optional[List["models.MicrosoftGraphConditionalAccessPolicy"]] = None,
+        body: "models.MicrosoftGraphConditionalAccessRoot",
         **kwargs
     ) -> None:
         """Update the navigation property conditionalAccess in identity.
 
         Update the navigation property conditionalAccess in identity.
 
-        :param id: Read-only.
-        :type id: str
-        :param named_locations:
-        :type named_locations: list[~identity_sign_ins.models.MicrosoftGraphNamedLocation]
-        :param policies:
-        :type policies: list[~identity_sign_ins.models.MicrosoftGraphConditionalAccessPolicy]
+        :param body: New navigation property values.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessRoot
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -124,8 +118,6 @@ class IdentityOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphConditionalAccessRoot(id=id, named_locations=named_locations, policies=policies)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

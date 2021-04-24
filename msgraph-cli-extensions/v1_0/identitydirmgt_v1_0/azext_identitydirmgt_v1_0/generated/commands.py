@@ -37,42 +37,42 @@ from azext_identitydirmgt_v1_0.generated._client_factory import (
 
 
 identitydirmgt_v1_0_contact_org_contact = CliCommandType(
-    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contact_org_contact_operations#ContactOrgContactOperations.{}',
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contacts_org_contact_operations#ContactsOrgContactOperations.{}',
     client_factory=cf_contact_org_contact,
 )
 
 
 identitydirmgt_v1_0_contact = CliCommandType(
     operations_tmpl=(
-        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contact_operations#ContactOperations.{}'
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contacts_operations#ContactsOperations.{}'
     ),
     client_factory=cf_contact,
 )
 
 
 identitydirmgt_v1_0_contract_contract = CliCommandType(
-    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contract_contract_operations#ContractContractOperations.{}',
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contracts_contract_operations#ContractsContractOperations.{}',
     client_factory=cf_contract_contract,
 )
 
 
 identitydirmgt_v1_0_contract = CliCommandType(
     operations_tmpl=(
-        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contract_operations#ContractOperations.{}'
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contracts_operations#ContractsOperations.{}'
     ),
     client_factory=cf_contract,
 )
 
 
 identitydirmgt_v1_0_device_device = CliCommandType(
-    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._device_device_operations#DeviceDeviceOperations.{}',
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._devices_device_operations#DevicesDeviceOperations.{}',
     client_factory=cf_device_device,
 )
 
 
 identitydirmgt_v1_0_device = CliCommandType(
     operations_tmpl=(
-        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._device_operations#DeviceOperations.{}'
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._devices_operations#DevicesOperations.{}'
     ),
     client_factory=cf_device,
 )
@@ -93,44 +93,44 @@ identitydirmgt_v1_0_directory = CliCommandType(
 
 
 identitydirmgt_v1_0_directory_administrative_unit = CliCommandType(
-    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_administrative_unit_operations#DirectoryAdministrativeUnitOperations.{}',
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_administrative_units_operations#DirectoryAdministrativeUnitsOperations.{}',
     client_factory=cf_directory_administrative_unit,
 )
 
 
 identitydirmgt_v1_0_directory_role_directory_role = CliCommandType(
-    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_directory_role_operations#DirectoryRoleDirectoryRoleOperations.{}',
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_roles_directory_role_operations#DirectoryRolesDirectoryRoleOperations.{}',
     client_factory=cf_directory_role_directory_role,
 )
 
 
 identitydirmgt_v1_0_directory_role = CliCommandType(
-    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_operations#DirectoryRoleOperations.{}',
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_roles_operations#DirectoryRolesOperations.{}',
     client_factory=cf_directory_role,
 )
 
 
 identitydirmgt_v1_0_directory_role_template_directory_role_template = CliCommandType(
-    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_template_directory_role_template_operations#DirectoryRoleTemplateDirectoryRoleTemplateOperations.{}',
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_templates_directory_role_template_operations#DirectoryRoleTemplatesDirectoryRoleTemplateOperations.{}',
     client_factory=cf_directory_role_template_directory_role_template,
 )
 
 
 identitydirmgt_v1_0_directory_role_template = CliCommandType(
-    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_template_operations#DirectoryRoleTemplateOperations.{}',
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_templates_operations#DirectoryRoleTemplatesOperations.{}',
     client_factory=cf_directory_role_template,
 )
 
 
 identitydirmgt_v1_0_domain_domain = CliCommandType(
-    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._domain_domain_operations#DomainDomainOperations.{}',
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._domains_domain_operations#DomainsDomainOperations.{}',
     client_factory=cf_domain_domain,
 )
 
 
 identitydirmgt_v1_0_domain = CliCommandType(
     operations_tmpl=(
-        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._domain_operations#DomainOperations.{}'
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._domains_operations#DomainsOperations.{}'
     ),
     client_factory=cf_domain,
 )
@@ -149,14 +149,14 @@ identitydirmgt_v1_0_organization = CliCommandType(
 
 
 identitydirmgt_v1_0_subscribed_sku_subscribed_sku = CliCommandType(
-    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._subscribed_sku_subscribed_sku_operations#SubscribedSkuSubscribedSkuOperations.{}',
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._subscribed_skus_subscribed_sku_operations#SubscribedSkusSubscribedSkuOperations.{}',
     client_factory=cf_subscribed_sku_subscribed_sku,
 )
 
 
 identitydirmgt_v1_0_user = CliCommandType(
     operations_tmpl=(
-        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._user_operations#UserOperations.{}'
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._users_operations#UsersOperations.{}'
     ),
     client_factory=cf_user,
 )

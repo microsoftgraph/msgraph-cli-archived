@@ -18,27 +18,27 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import BookingsConfiguration
-from .operations import BookingBusinessBookingBusinessOperations
-from .operations import BookingBusinessOperations
-from .operations import BookingBusinessAppointmentOperations
-from .operations import BookingBusinessCalendarViewOperations
-from .operations import BookingCurrencyBookingCurrencyOperations
+from .operations import BookingBusinessesBookingBusinessOperations
+from .operations import BookingBusinessesOperations
+from .operations import BookingBusinessesAppointmentsOperations
+from .operations import BookingBusinessesCalendarViewOperations
+from .operations import BookingCurrenciesBookingCurrencyOperations
 from . import models
 
 
 class Bookings(object):
     """Bookings.
 
-    :ivar booking_business_booking_business: BookingBusinessBookingBusinessOperations operations
-    :vartype booking_business_booking_business: bookings.operations.BookingBusinessBookingBusinessOperations
-    :ivar booking_business: BookingBusinessOperations operations
-    :vartype booking_business: bookings.operations.BookingBusinessOperations
-    :ivar booking_business_appointment: BookingBusinessAppointmentOperations operations
-    :vartype booking_business_appointment: bookings.operations.BookingBusinessAppointmentOperations
-    :ivar booking_business_calendar_view: BookingBusinessCalendarViewOperations operations
-    :vartype booking_business_calendar_view: bookings.operations.BookingBusinessCalendarViewOperations
-    :ivar booking_currency_booking_currency: BookingCurrencyBookingCurrencyOperations operations
-    :vartype booking_currency_booking_currency: bookings.operations.BookingCurrencyBookingCurrencyOperations
+    :ivar booking_businesses_booking_business: BookingBusinessesBookingBusinessOperations operations
+    :vartype booking_businesses_booking_business: bookings.operations.BookingBusinessesBookingBusinessOperations
+    :ivar booking_businesses: BookingBusinessesOperations operations
+    :vartype booking_businesses: bookings.operations.BookingBusinessesOperations
+    :ivar booking_businesses_appointments: BookingBusinessesAppointmentsOperations operations
+    :vartype booking_businesses_appointments: bookings.operations.BookingBusinessesAppointmentsOperations
+    :ivar booking_businesses_calendar_view: BookingBusinessesCalendarViewOperations operations
+    :vartype booking_businesses_calendar_view: bookings.operations.BookingBusinessesCalendarViewOperations
+    :ivar booking_currencies_booking_currency: BookingCurrenciesBookingCurrencyOperations operations
+    :vartype booking_currencies_booking_currency: bookings.operations.BookingCurrenciesBookingCurrencyOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -76,15 +76,15 @@ class Bookings(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.booking_business_booking_business = BookingBusinessBookingBusinessOperations(
+        self.booking_businesses_booking_business = BookingBusinessesBookingBusinessOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.booking_business = BookingBusinessOperations(
+        self.booking_businesses = BookingBusinessesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.booking_business_appointment = BookingBusinessAppointmentOperations(
+        self.booking_businesses_appointments = BookingBusinessesAppointmentsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.booking_business_calendar_view = BookingBusinessCalendarViewOperations(
+        self.booking_businesses_calendar_view = BookingBusinessesCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.booking_currency_booking_currency = BookingCurrencyBookingCurrencyOperations(
+        self.booking_currencies_booking_currency = BookingCurrenciesBookingCurrencyOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

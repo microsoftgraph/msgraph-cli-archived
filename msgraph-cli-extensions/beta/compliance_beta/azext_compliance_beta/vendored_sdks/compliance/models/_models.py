@@ -2940,16 +2940,13 @@ class MicrosoftGraphCompliance(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param id: Read-only.
-    :type id: str
-    :param cases:
-    :type cases: list[~compliance.models.MicrosoftGraphEdiscoveryCase]
+    :param ediscovery: ediscovery.
+    :type ediscovery: ~compliance.models.MicrosoftGraphEdiscovery
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'id': {'key': 'ediscovery.id', 'type': 'str'},
-        'cases': {'key': 'ediscovery.cases', 'type': '[MicrosoftGraphEdiscoveryCase]'},
+        'ediscovery': {'key': 'ediscovery', 'type': 'MicrosoftGraphEdiscovery'},
     }
 
     def __init__(
@@ -2958,8 +2955,7 @@ class MicrosoftGraphCompliance(msrest.serialization.Model):
     ):
         super(MicrosoftGraphCompliance, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.id = kwargs.get('id', None)
-        self.cases = kwargs.get('cases', None)
+        self.ediscovery = kwargs.get('ediscovery', None)
 
 
 class MicrosoftGraphConfigurationManagerClientEnabledFeatures(msrest.serialization.Model):
@@ -3781,26 +3777,20 @@ class MicrosoftGraphDataSource(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~compliance.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param display_name:
     :type display_name: str
-    :param application: identity.
-    :type application: ~compliance.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~compliance.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~compliance.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -3809,11 +3799,9 @@ class MicrosoftGraphDataSource(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphDataSource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.display_name = kwargs.get('display_name', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphDateTimeColumn(msrest.serialization.Model):
@@ -5454,6 +5442,8 @@ class MicrosoftGraphEdiscoveryCase(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param closed_by: identitySet.
+    :type closed_by: ~compliance.models.MicrosoftGraphIdentitySet
     :param closed_date_time:
     :type closed_date_time: ~datetime.datetime
     :param created_date_time:
@@ -5464,6 +5454,8 @@ class MicrosoftGraphEdiscoveryCase(MicrosoftGraphEntity):
     :type display_name: str
     :param external_id:
     :type external_id: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~compliance.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param status:  Possible values include: "unknown", "active", "pendingDelete", "closing",
@@ -5473,38 +5465,22 @@ class MicrosoftGraphEdiscoveryCase(MicrosoftGraphEntity):
     :type custodians: list[~compliance.models.MicrosoftGraphCustodian]
     :param review_sets:
     :type review_sets: list[~compliance.models.MicrosoftGraphReviewSet]
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~compliance.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~compliance.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~compliance.models.MicrosoftGraphIdentity
-    :param application_closed_by_application: identity.
-    :type application_closed_by_application: ~compliance.models.MicrosoftGraphIdentity
-    :param device_closed_by_device: identity.
-    :type device_closed_by_device: ~compliance.models.MicrosoftGraphIdentity
-    :param user_closed_by_user: identity.
-    :type user_closed_by_user: ~compliance.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'closed_by': {'key': 'closedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'closed_date_time': {'key': 'closedDateTime', 'type': 'iso-8601'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'external_id': {'key': 'externalId', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'custodians': {'key': 'custodians', 'type': '[MicrosoftGraphCustodian]'},
         'review_sets': {'key': 'reviewSets', 'type': '[MicrosoftGraphReviewSet]'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_closed_by_application': {'key': 'closedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_closed_by_device': {'key': 'closedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_closed_by_user': {'key': 'closedBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -5513,21 +5489,17 @@ class MicrosoftGraphEdiscoveryCase(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphEdiscoveryCase, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.closed_by = kwargs.get('closed_by', None)
         self.closed_date_time = kwargs.get('closed_date_time', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.external_id = kwargs.get('external_id', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.status = kwargs.get('status', None)
         self.custodians = kwargs.get('custodians', None)
         self.review_sets = kwargs.get('review_sets', None)
-        self.application_last_modified_by_application = kwargs.get('application_last_modified_by_application', None)
-        self.device_last_modified_by_device = kwargs.get('device_last_modified_by_device', None)
-        self.user_last_modified_by_user = kwargs.get('user_last_modified_by_user', None)
-        self.application_closed_by_application = kwargs.get('application_closed_by_application', None)
-        self.device_closed_by_device = kwargs.get('device_closed_by_device', None)
-        self.user_closed_by_user = kwargs.get('user_closed_by_user', None)
 
 
 class MicrosoftGraphItemFacet(MicrosoftGraphEntity):
@@ -15600,29 +15572,23 @@ class MicrosoftGraphReviewSet(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~compliance.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param display_name:
     :type display_name: str
     :param queries:
     :type queries: list[~compliance.models.MicrosoftGraphReviewSetQuery]
-    :param application: identity.
-    :type application: ~compliance.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~compliance.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~compliance.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'queries': {'key': 'queries', 'type': '[MicrosoftGraphReviewSetQuery]'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -15631,12 +15597,10 @@ class MicrosoftGraphReviewSet(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphReviewSet, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.display_name = kwargs.get('display_name', None)
         self.queries = kwargs.get('queries', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphReviewSetQuery(MicrosoftGraphEntity):
@@ -15647,41 +15611,29 @@ class MicrosoftGraphReviewSetQuery(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~compliance.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param display_name:
     :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~compliance.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param query:
     :type query: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~compliance.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~compliance.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~compliance.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~compliance.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~compliance.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~compliance.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'query': {'key': 'query', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -15690,16 +15642,12 @@ class MicrosoftGraphReviewSetQuery(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphReviewSetQuery, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.display_name = kwargs.get('display_name', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.query = kwargs.get('query', None)
-        self.application_last_modified_by_application = kwargs.get('application_last_modified_by_application', None)
-        self.device_last_modified_by_device = kwargs.get('device_last_modified_by_device', None)
-        self.user_last_modified_by_user = kwargs.get('user_last_modified_by_user', None)
-        self.application_created_by_application = kwargs.get('application_created_by_application', None)
-        self.device_created_by_device = kwargs.get('device_created_by_device', None)
-        self.user_created_by_user = kwargs.get('user_created_by_user', None)
 
 
 class MicrosoftGraphSchedule(MicrosoftGraphEntity):
@@ -17266,16 +17214,12 @@ class MicrosoftGraphSiteSource(MicrosoftGraphDataSource):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~compliance.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param display_name:
     :type display_name: str
-    :param application: identity.
-    :type application: ~compliance.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~compliance.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~compliance.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -17285,11 +17229,9 @@ class MicrosoftGraphSiteSource(MicrosoftGraphDataSource):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'site': {'key': 'site', 'type': 'MicrosoftGraphSite'},
     }
@@ -19315,16 +19257,12 @@ class MicrosoftGraphUnifiedGroupSource(MicrosoftGraphDataSource):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~compliance.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param display_name:
     :type display_name: str
-    :param application: identity.
-    :type application: ~compliance.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~compliance.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~compliance.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -19337,11 +19275,9 @@ class MicrosoftGraphUnifiedGroupSource(MicrosoftGraphDataSource):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'included_sources': {'key': 'includedSources', 'type': 'str'},
         'group': {'key': 'group', 'type': 'MicrosoftGraphGroup'},
@@ -20495,16 +20431,12 @@ class MicrosoftGraphUserSource(MicrosoftGraphDataSource):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~compliance.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param display_name:
     :type display_name: str
-    :param application: identity.
-    :type application: ~compliance.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~compliance.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~compliance.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -20516,11 +20448,9 @@ class MicrosoftGraphUserSource(MicrosoftGraphDataSource):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'email': {'key': 'email', 'type': 'str'},
         'included_sources': {'key': 'includedSources', 'type': 'str'},

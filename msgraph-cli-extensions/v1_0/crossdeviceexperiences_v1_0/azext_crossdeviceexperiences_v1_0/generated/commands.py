@@ -21,19 +21,19 @@ from azext_crossdeviceexperiences_v1_0.generated._client_factory import (
 
 
 crossdeviceexperiences_v1_0_user = CliCommandType(
-    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 
 
 crossdeviceexperiences_v1_0_user_activity = CliCommandType(
-    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._user_activity_operations#UserActivityOperations.{}',
+    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._users_activities_operations#UsersActivitiesOperations.{}',
     client_factory=cf_user_activity,
 )
 
 
 crossdeviceexperiences_v1_0_user_activity_history_item = CliCommandType(
-    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._user_activity_history_item_operations#UserActivityHistoryItemOperations.{}',
+    operations_tmpl='azext_crossdeviceexperiences_v1_0.vendored_sdks.crossdeviceexperiences.operations._users_activities_history_items_operations#UsersActivitiesHistoryItemsOperations.{}',
     client_factory=cf_user_activity_history_item,
 )
 

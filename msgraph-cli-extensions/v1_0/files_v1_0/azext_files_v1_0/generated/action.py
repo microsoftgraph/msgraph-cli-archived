@@ -575,7 +575,7 @@ class AddDrivesListVersions(argparse._AppendAction):
             kl = k.lower()
             v = properties[k]
             if kl == 'id-fields-id':
-                d['id_fields_id'] = v[0]
+                d['id'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
             elif kl == 'publication':

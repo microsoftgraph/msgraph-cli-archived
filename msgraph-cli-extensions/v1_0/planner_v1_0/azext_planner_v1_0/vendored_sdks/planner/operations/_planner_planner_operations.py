@@ -104,10 +104,7 @@ class PlannerPlannerOperations(object):
 
     def update_planner(
         self,
-        id=None,  # type: Optional[str]
-        buckets=None,  # type: Optional[List["models.MicrosoftGraphPlannerBucket"]]
-        plans=None,  # type: Optional[List["models.MicrosoftGraphPlannerPlan"]]
-        tasks=None,  # type: Optional[List["models.MicrosoftGraphPlannerTask"]]
+        body,  # type: "models.MicrosoftGraphPlanner"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -115,14 +112,8 @@ class PlannerPlannerOperations(object):
 
         Update planner.
 
-        :param id: Read-only.
-        :type id: str
-        :param buckets: Read-only. Nullable. Returns a collection of the specified buckets.
-        :type buckets: list[~planner.models.MicrosoftGraphPlannerBucket]
-        :param plans: Read-only. Nullable. Returns a collection of the specified plans.
-        :type plans: list[~planner.models.MicrosoftGraphPlannerPlan]
-        :param tasks: Read-only. Nullable. Returns a collection of the specified tasks.
-        :type tasks: list[~planner.models.MicrosoftGraphPlannerTask]
+        :param body: New property values.
+        :type body: ~planner.models.MicrosoftGraphPlanner
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -133,8 +124,6 @@ class PlannerPlannerOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphPlanner(id=id, buckets=buckets, plans=plans, tasks=tasks)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

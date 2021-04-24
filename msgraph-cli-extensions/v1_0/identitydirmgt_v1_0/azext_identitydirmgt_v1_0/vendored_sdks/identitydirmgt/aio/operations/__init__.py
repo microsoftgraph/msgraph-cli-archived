@@ -6,44 +6,44 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._contact_org_contact_operations import ContactOrgContactOperations
-from ._contact_operations import ContactOperations
-from ._contract_contract_operations import ContractContractOperations
-from ._contract_operations import ContractOperations
-from ._device_device_operations import DeviceDeviceOperations
-from ._device_operations import DeviceOperations
+from ._contacts_org_contact_operations import ContactsOrgContactOperations
+from ._contacts_operations import ContactsOperations
+from ._contracts_contract_operations import ContractsContractOperations
+from ._contracts_operations import ContractsOperations
+from ._devices_device_operations import DevicesDeviceOperations
+from ._devices_operations import DevicesOperations
 from ._directory_directory_operations import DirectoryDirectoryOperations
 from ._directory_operations import DirectoryOperations
-from ._directory_administrative_unit_operations import DirectoryAdministrativeUnitOperations
-from ._directory_role_directory_role_operations import DirectoryRoleDirectoryRoleOperations
-from ._directory_role_operations import DirectoryRoleOperations
-from ._directory_role_template_directory_role_template_operations import DirectoryRoleTemplateDirectoryRoleTemplateOperations
-from ._directory_role_template_operations import DirectoryRoleTemplateOperations
-from ._domain_domain_operations import DomainDomainOperations
-from ._domain_operations import DomainOperations
+from ._directory_administrative_units_operations import DirectoryAdministrativeUnitsOperations
+from ._directory_roles_directory_role_operations import DirectoryRolesDirectoryRoleOperations
+from ._directory_roles_operations import DirectoryRolesOperations
+from ._directory_role_templates_directory_role_template_operations import DirectoryRoleTemplatesDirectoryRoleTemplateOperations
+from ._directory_role_templates_operations import DirectoryRoleTemplatesOperations
+from ._domains_domain_operations import DomainsDomainOperations
+from ._domains_operations import DomainsOperations
 from ._organization_organization_operations import OrganizationOrganizationOperations
 from ._organization_operations import OrganizationOperations
-from ._subscribed_sku_subscribed_sku_operations import SubscribedSkuSubscribedSkuOperations
-from ._user_operations import UserOperations
+from ._subscribed_skus_subscribed_sku_operations import SubscribedSkusSubscribedSkuOperations
+from ._users_operations import UsersOperations
 
 __all__ = [
-    'ContactOrgContactOperations',
-    'ContactOperations',
-    'ContractContractOperations',
-    'ContractOperations',
-    'DeviceDeviceOperations',
-    'DeviceOperations',
+    'ContactsOrgContactOperations',
+    'ContactsOperations',
+    'ContractsContractOperations',
+    'ContractsOperations',
+    'DevicesDeviceOperations',
+    'DevicesOperations',
     'DirectoryDirectoryOperations',
     'DirectoryOperations',
-    'DirectoryAdministrativeUnitOperations',
-    'DirectoryRoleDirectoryRoleOperations',
-    'DirectoryRoleOperations',
-    'DirectoryRoleTemplateDirectoryRoleTemplateOperations',
-    'DirectoryRoleTemplateOperations',
-    'DomainDomainOperations',
-    'DomainOperations',
+    'DirectoryAdministrativeUnitsOperations',
+    'DirectoryRolesDirectoryRoleOperations',
+    'DirectoryRolesOperations',
+    'DirectoryRoleTemplatesDirectoryRoleTemplateOperations',
+    'DirectoryRoleTemplatesOperations',
+    'DomainsDomainOperations',
+    'DomainsOperations',
     'OrganizationOrganizationOperations',
     'OrganizationOperations',
-    'SubscribedSkuSubscribedSkuOperations',
-    'UserOperations',
+    'SubscribedSkusSubscribedSkuOperations',
+    'UsersOperations',
 ]

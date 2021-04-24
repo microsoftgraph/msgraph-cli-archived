@@ -4678,8 +4678,8 @@ def load_arguments(self, _):
                    'signed into the same tenant.', arg_group='Permission Link')
         c.argument('type_', options_list=['--type'], type=str, help='The type of the link created.',
                    arg_group='Permission Link')
-        c.argument('web_html', type=str, help='For embed links, this property contains the HTML code for an '
-                   ':code:`<iframe>` element that will embed the item in a webpage.', arg_group='Permission Link')
+        c.argument('web_html', type=str, help='For embed links, this property contains the HTML code for an <iframe> '
+                   'element that will embed the item in a webpage.', arg_group='Permission Link')
         c.argument('microsoft_graph_sharing_link_web_url', type=str, help='A URL that opens the item in the browser on '
                    'the OneDrive website.', arg_group='Permission Link')
         c.argument('email', type=str, help='The email address provided for the recipient of the sharing invitation. '
@@ -4850,8 +4850,8 @@ def load_arguments(self, _):
                    'signed into the same tenant.', arg_group='Permission Link')
         c.argument('type_', options_list=['--type'], type=str, help='The type of the link created.',
                    arg_group='Permission Link')
-        c.argument('web_html', type=str, help='For embed links, this property contains the HTML code for an '
-                   ':code:`<iframe>` element that will embed the item in a webpage.', arg_group='Permission Link')
+        c.argument('web_html', type=str, help='For embed links, this property contains the HTML code for an <iframe> '
+                   'element that will embed the item in a webpage.', arg_group='Permission Link')
         c.argument('microsoft_graph_sharing_link_web_url', type=str, help='A URL that opens the item in the browser on '
                    'the OneDrive website.', arg_group='Permission Link')
         c.argument('email', type=str, help='The email address provided for the recipient of the sharing invitation. '
@@ -5604,8 +5604,8 @@ def load_arguments(self, _):
                    'indicates the link is usable by anyone, organization indicates the link is only usable for users '
                    'signed into the same tenant.', arg_group='Link')
         c.argument('type_', options_list=['--type'], type=str, help='The type of the link created.', arg_group='Link')
-        c.argument('web_html', type=str, help='For embed links, this property contains the HTML code for an '
-                   ':code:`<iframe>` element that will embed the item in a webpage.', arg_group='Link')
+        c.argument('web_html', type=str, help='For embed links, this property contains the HTML code for an <iframe> '
+                   'element that will embed the item in a webpage.', arg_group='Link')
         c.argument('web_url', type=str, help='A URL that opens the item in the browser on the OneDrive website.',
                    arg_group='Link')
         c.argument('email', type=str, help='The email address provided for the recipient of the sharing invitation. '

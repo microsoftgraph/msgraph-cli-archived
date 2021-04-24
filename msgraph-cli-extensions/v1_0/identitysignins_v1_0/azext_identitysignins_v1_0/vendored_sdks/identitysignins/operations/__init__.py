@@ -6,36 +6,36 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._data_policy_operation_data_policy_operation_operations import DataPolicyOperationDataPolicyOperationOperations
+from ._data_policy_operations_data_policy_operation_operations import DataPolicyOperationsDataPolicyOperationOperations
 from ._identity_operations import IdentityOperations
 from ._identity_conditional_access_operations import IdentityConditionalAccessOperations
-from ._identity_provider_identity_provider_operations import IdentityProviderIdentityProviderOperations
+from ._identity_providers_identity_provider_operations import IdentityProvidersIdentityProviderOperations
 from ._information_protection_information_protection_operations import InformationProtectionInformationProtectionOperations
 from ._information_protection_operations import InformationProtectionOperations
-from ._information_protection_threat_assessment_request_operations import InformationProtectionThreatAssessmentRequestOperations
-from ._invitation_invitation_operations import InvitationInvitationOperations
-from ._invitation_operations import InvitationOperations
-from ._oauth2_permission_grant_oauth2_permission_grant_operations import Oauth2PermissionGrantOAuth2PermissionGrantOperations
-from ._oauth2_permission_grant_operations import Oauth2PermissionGrantOperations
+from ._information_protection_threat_assessment_requests_operations import InformationProtectionThreatAssessmentRequestsOperations
+from ._invitations_invitation_operations import InvitationsInvitationOperations
+from ._invitations_operations import InvitationsOperations
+from ._oauth2_permission_grants_oauth2_permission_grant_operations import Oauth2PermissionGrantsOAuth2PermissionGrantOperations
+from ._oauth2_permission_grants_operations import Oauth2PermissionGrantsOperations
 from ._organization_operations import OrganizationOperations
-from ._policy_policy_root_operations import PolicyPolicyRootOperations
-from ._policy_operations import PolicyOperations
-from ._policy_permission_grant_policy_operations import PolicyPermissionGrantPolicyOperations
+from ._policies_policy_root_operations import PoliciesPolicyRootOperations
+from ._policies_operations import PoliciesOperations
+from ._policies_permission_grant_policies_operations import PoliciesPermissionGrantPoliciesOperations
 
 __all__ = [
-    'DataPolicyOperationDataPolicyOperationOperations',
+    'DataPolicyOperationsDataPolicyOperationOperations',
     'IdentityOperations',
     'IdentityConditionalAccessOperations',
-    'IdentityProviderIdentityProviderOperations',
+    'IdentityProvidersIdentityProviderOperations',
     'InformationProtectionInformationProtectionOperations',
     'InformationProtectionOperations',
-    'InformationProtectionThreatAssessmentRequestOperations',
-    'InvitationInvitationOperations',
-    'InvitationOperations',
-    'Oauth2PermissionGrantOAuth2PermissionGrantOperations',
-    'Oauth2PermissionGrantOperations',
+    'InformationProtectionThreatAssessmentRequestsOperations',
+    'InvitationsInvitationOperations',
+    'InvitationsOperations',
+    'Oauth2PermissionGrantsOAuth2PermissionGrantOperations',
+    'Oauth2PermissionGrantsOperations',
     'OrganizationOperations',
-    'PolicyPolicyRootOperations',
-    'PolicyOperations',
-    'PolicyPermissionGrantPolicyOperations',
+    'PoliciesPolicyRootOperations',
+    'PoliciesOperations',
+    'PoliciesPermissionGrantPoliciesOperations',
 ]

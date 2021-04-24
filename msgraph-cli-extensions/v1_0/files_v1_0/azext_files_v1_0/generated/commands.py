@@ -35,111 +35,111 @@ from azext_files_v1_0.generated._client_factory import (
 
 
 files_v1_0_drive_drive = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_drive_operations#DriveDriveOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drives_drive_operations#DrivesDriveOperations.{}',
     client_factory=cf_drive_drive,
 )
 
 
 files_v1_0_drive = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_operations#DriveOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drives_operations#DrivesOperations.{}',
     client_factory=cf_drive,
 )
 
 
 files_v1_0_drive_list = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_list_operations#DriveListOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drives_list_operations#DrivesListOperations.{}',
     client_factory=cf_drive_list,
 )
 
 
 files_v1_0_drive_list_content_type = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_list_content_type_operations#DriveListContentTypeOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drives_list_content_types_operations#DrivesListContentTypesOperations.{}',
     client_factory=cf_drive_list_content_type,
 )
 
 
 files_v1_0_drive_list_item = CliCommandType(
     operations_tmpl=(
-        'azext_files_v1_0.vendored_sdks.files.operations._drive_list_item_operations#DriveListItemOperations.{}'
+        'azext_files_v1_0.vendored_sdks.files.operations._drives_list_items_operations#DrivesListItemsOperations.{}'
     ),
     client_factory=cf_drive_list_item,
 )
 
 
 files_v1_0_drive_list_item_version = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_list_item_version_operations#DriveListItemVersionOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drives_list_items_versions_operations#DrivesListItemsVersionsOperations.{}',
     client_factory=cf_drive_list_item_version,
 )
 
 
 files_v1_0_group = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._group_operations#GroupOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._groups_operations#GroupsOperations.{}',
     client_factory=cf_group,
 )
 
 
 files_v1_0_share_shared_drive_item = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_shared_drive_item_operations#ShareSharedDriveItemOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._shares_shared_drive_item_operations#SharesSharedDriveItemOperations.{}',
     client_factory=cf_share_shared_drive_item,
 )
 
 
 files_v1_0_share = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_operations#ShareOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._shares_operations#SharesOperations.{}',
     client_factory=cf_share,
 )
 
 
 files_v1_0_share_list = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_operations#ShareListOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._shares_list_operations#SharesListOperations.{}',
     client_factory=cf_share_list,
 )
 
 
 files_v1_0_share_list_content_type = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_content_type_operations#ShareListContentTypeOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._shares_list_content_types_operations#SharesListContentTypesOperations.{}',
     client_factory=cf_share_list_content_type,
 )
 
 
 files_v1_0_share_list_item = CliCommandType(
     operations_tmpl=(
-        'azext_files_v1_0.vendored_sdks.files.operations._share_list_item_operations#ShareListItemOperations.{}'
+        'azext_files_v1_0.vendored_sdks.files.operations._shares_list_items_operations#SharesListItemsOperations.{}'
     ),
     client_factory=cf_share_list_item,
 )
 
 
 files_v1_0_share_list_item_version = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_item_version_operations#ShareListItemVersionOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._shares_list_items_versions_operations#SharesListItemsVersionsOperations.{}',
     client_factory=cf_share_list_item_version,
 )
 
 
 files_v1_0_share_list_item = CliCommandType(
     operations_tmpl=(
-        'azext_files_v1_0.vendored_sdks.files.operations._share_list_item_operations#ShareListItemOperations.{}'
+        'azext_files_v1_0.vendored_sdks.files.operations._shares_list_item_operations#SharesListItemOperations.{}'
     ),
     client_factory=cf_share_list_item,
 )
 
 
 files_v1_0_share_list_item_version = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_item_version_operations#ShareListItemVersionOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._shares_list_item_versions_operations#SharesListItemVersionsOperations.{}',
     client_factory=cf_share_list_item_version,
 )
 
 
 files_v1_0_share_permission = CliCommandType(
     operations_tmpl=(
-        'azext_files_v1_0.vendored_sdks.files.operations._share_permission_operations#SharePermissionOperations.{}'
+        'azext_files_v1_0.vendored_sdks.files.operations._shares_permission_operations#SharesPermissionOperations.{}'
     ),
     client_factory=cf_share_permission,
 )
 
 
 files_v1_0_user = CliCommandType(
-    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._user_operations#UserOperations.{}',
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 

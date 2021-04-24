@@ -2707,8 +2707,9 @@ class MicrosoftGraphAuthenticationFlowsPolicy(MicrosoftGraphEntity):
     :type description: str
     :param display_name:
     :type display_name: str
-    :param is_enabled:
-    :type is_enabled: bool
+    :param self_service_sign_up: selfServiceSignUpAuthenticationFlowConfiguration.
+    :type self_service_sign_up:
+     ~identity_sign_ins.models.MicrosoftGraphSelfServiceSignUpAuthenticationFlowConfiguration
     """
 
     _attribute_map = {
@@ -2716,7 +2717,7 @@ class MicrosoftGraphAuthenticationFlowsPolicy(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'is_enabled': {'key': 'selfServiceSignUp.isEnabled', 'type': 'bool'},
+        'self_service_sign_up': {'key': 'selfServiceSignUp', 'type': 'MicrosoftGraphSelfServiceSignUpAuthenticationFlowConfiguration'},
     }
 
     def __init__(
@@ -2727,7 +2728,7 @@ class MicrosoftGraphAuthenticationFlowsPolicy(MicrosoftGraphEntity):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
-        self.is_enabled = kwargs.get('is_enabled', None)
+        self.self_service_sign_up = kwargs.get('self_service_sign_up', None)
 
 
 class MicrosoftGraphAuthenticationMethod(MicrosoftGraphEntity):
@@ -4878,6 +4879,8 @@ class MicrosoftGraphConditionalAccessPolicy(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param conditions: conditionalAccessConditionSet.
+    :type conditions: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessConditionSet
     :param created_date_time: The Timestamp type represents date and time information using ISO
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'. Readonly.
@@ -4892,69 +4895,25 @@ class MicrosoftGraphConditionalAccessPolicy(MicrosoftGraphEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'. Readonly.
     :type modified_date_time: ~datetime.datetime
+    :param session_controls: conditionalAccessSessionControls.
+    :type session_controls:
+     ~identity_sign_ins.models.MicrosoftGraphConditionalAccessSessionControls
     :param state:  Possible values include: "enabled", "disabled",
      "enabledForReportingButNotEnforced".
     :type state: str or ~identity_sign_ins.models.MicrosoftGraphConditionalAccessPolicyState
-    :param application_enforced_restrictions: applicationEnforcedRestrictionsSessionControl.
-    :type application_enforced_restrictions:
-     ~identity_sign_ins.models.MicrosoftGraphApplicationEnforcedRestrictionsSessionControl
-    :param cloud_app_security: cloudAppSecuritySessionControl.
-    :type cloud_app_security:
-     ~identity_sign_ins.models.MicrosoftGraphCloudAppSecuritySessionControl
-    :param persistent_browser: persistentBrowserSessionControl.
-    :type persistent_browser:
-     ~identity_sign_ins.models.MicrosoftGraphPersistentBrowserSessionControl
-    :param sign_in_frequency: signInFrequencySessionControl.
-    :type sign_in_frequency: ~identity_sign_ins.models.MicrosoftGraphSignInFrequencySessionControl
-    :param applications: conditionalAccessApplications.
-    :type applications: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessApplications
-    :param client_applications: conditionalAccessClientApplications.
-    :type client_applications:
-     ~identity_sign_ins.models.MicrosoftGraphConditionalAccessClientApplications
-    :param client_app_types: Client application types included in the policy. Possible values are:
-     all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other.
-    :type client_app_types: list[str or
-     ~identity_sign_ins.models.MicrosoftGraphConditionalAccessClientApp]
-    :param devices: conditionalAccessDevices.
-    :type devices: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessDevices
-    :param device_states: conditionalAccessDeviceStates.
-    :type device_states: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessDeviceStates
-    :param locations: conditionalAccessLocations.
-    :type locations: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessLocations
-    :param platforms: conditionalAccessPlatforms.
-    :type platforms: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessPlatforms
-    :param sign_in_risk_levels: Risk levels included in the policy. Possible values are: low,
-     medium, high, none.
-    :type sign_in_risk_levels: list[str or ~identity_sign_ins.models.MicrosoftGraphRiskLevel]
-    :param user_risk_levels:
-    :type user_risk_levels: list[str or ~identity_sign_ins.models.MicrosoftGraphRiskLevel]
-    :param users: conditionalAccessUsers.
-    :type users: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessUsers
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'conditions': {'key': 'conditions', 'type': 'MicrosoftGraphConditionalAccessConditionSet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'grant_controls': {'key': 'grantControls', 'type': 'MicrosoftGraphConditionalAccessGrantControls'},
         'modified_date_time': {'key': 'modifiedDateTime', 'type': 'iso-8601'},
+        'session_controls': {'key': 'sessionControls', 'type': 'MicrosoftGraphConditionalAccessSessionControls'},
         'state': {'key': 'state', 'type': 'str'},
-        'application_enforced_restrictions': {'key': 'sessionControls.applicationEnforcedRestrictions', 'type': 'MicrosoftGraphApplicationEnforcedRestrictionsSessionControl'},
-        'cloud_app_security': {'key': 'sessionControls.cloudAppSecurity', 'type': 'MicrosoftGraphCloudAppSecuritySessionControl'},
-        'persistent_browser': {'key': 'sessionControls.persistentBrowser', 'type': 'MicrosoftGraphPersistentBrowserSessionControl'},
-        'sign_in_frequency': {'key': 'sessionControls.signInFrequency', 'type': 'MicrosoftGraphSignInFrequencySessionControl'},
-        'applications': {'key': 'conditions.applications', 'type': 'MicrosoftGraphConditionalAccessApplications'},
-        'client_applications': {'key': 'conditions.clientApplications', 'type': 'MicrosoftGraphConditionalAccessClientApplications'},
-        'client_app_types': {'key': 'conditions.clientAppTypes', 'type': '[str]'},
-        'devices': {'key': 'conditions.devices', 'type': 'MicrosoftGraphConditionalAccessDevices'},
-        'device_states': {'key': 'conditions.deviceStates', 'type': 'MicrosoftGraphConditionalAccessDeviceStates'},
-        'locations': {'key': 'conditions.locations', 'type': 'MicrosoftGraphConditionalAccessLocations'},
-        'platforms': {'key': 'conditions.platforms', 'type': 'MicrosoftGraphConditionalAccessPlatforms'},
-        'sign_in_risk_levels': {'key': 'conditions.signInRiskLevels', 'type': '[str]'},
-        'user_risk_levels': {'key': 'conditions.userRiskLevels', 'type': '[str]'},
-        'users': {'key': 'conditions.users', 'type': 'MicrosoftGraphConditionalAccessUsers'},
     }
 
     def __init__(
@@ -4963,26 +4922,14 @@ class MicrosoftGraphConditionalAccessPolicy(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphConditionalAccessPolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.conditions = kwargs.get('conditions', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.grant_controls = kwargs.get('grant_controls', None)
         self.modified_date_time = kwargs.get('modified_date_time', None)
+        self.session_controls = kwargs.get('session_controls', None)
         self.state = kwargs.get('state', None)
-        self.application_enforced_restrictions = kwargs.get('application_enforced_restrictions', None)
-        self.cloud_app_security = kwargs.get('cloud_app_security', None)
-        self.persistent_browser = kwargs.get('persistent_browser', None)
-        self.sign_in_frequency = kwargs.get('sign_in_frequency', None)
-        self.applications = kwargs.get('applications', None)
-        self.client_applications = kwargs.get('client_applications', None)
-        self.client_app_types = kwargs.get('client_app_types', None)
-        self.devices = kwargs.get('devices', None)
-        self.device_states = kwargs.get('device_states', None)
-        self.locations = kwargs.get('locations', None)
-        self.platforms = kwargs.get('platforms', None)
-        self.sign_in_risk_levels = kwargs.get('sign_in_risk_levels', None)
-        self.user_risk_levels = kwargs.get('user_risk_levels', None)
-        self.users = kwargs.get('users', None)
 
 
 class MicrosoftGraphConditionalAccessRoot(MicrosoftGraphEntity):
@@ -7364,45 +7311,14 @@ class MicrosoftGraphDirectoryRoleAccessReviewPolicy(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param apply_actions:
-    :type apply_actions: list[dict[str, object]]
-    :param auto_apply_decisions_enabled:
-    :type auto_apply_decisions_enabled: bool
-    :param default_decision:
-    :type default_decision: str
-    :param default_decision_enabled:
-    :type default_decision_enabled: bool
-    :param instance_duration_in_days:
-    :type instance_duration_in_days: int
-    :param justification_required_on_approval:
-    :type justification_required_on_approval: bool
-    :param mail_notifications_enabled:
-    :type mail_notifications_enabled: bool
-    :param recommendations_enabled:
-    :type recommendations_enabled: bool
-    :param recurrence: patternedRecurrence.
-    :type recurrence: ~identity_sign_ins.models.MicrosoftGraphPatternedRecurrence
-    :param reminder_notifications_enabled:
-    :type reminder_notifications_enabled: bool
+    :param settings: accessReviewScheduleSettings.
+    :type settings: ~identity_sign_ins.models.MicrosoftGraphAccessReviewScheduleSettings
     """
-
-    _validation = {
-        'instance_duration_in_days': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'apply_actions': {'key': 'settings.applyActions', 'type': '[{object}]'},
-        'auto_apply_decisions_enabled': {'key': 'settings.autoApplyDecisionsEnabled', 'type': 'bool'},
-        'default_decision': {'key': 'settings.defaultDecision', 'type': 'str'},
-        'default_decision_enabled': {'key': 'settings.defaultDecisionEnabled', 'type': 'bool'},
-        'instance_duration_in_days': {'key': 'settings.instanceDurationInDays', 'type': 'int'},
-        'justification_required_on_approval': {'key': 'settings.justificationRequiredOnApproval', 'type': 'bool'},
-        'mail_notifications_enabled': {'key': 'settings.mailNotificationsEnabled', 'type': 'bool'},
-        'recommendations_enabled': {'key': 'settings.recommendationsEnabled', 'type': 'bool'},
-        'recurrence': {'key': 'settings.recurrence', 'type': 'MicrosoftGraphPatternedRecurrence'},
-        'reminder_notifications_enabled': {'key': 'settings.reminderNotificationsEnabled', 'type': 'bool'},
+        'settings': {'key': 'settings', 'type': 'MicrosoftGraphAccessReviewScheduleSettings'},
     }
 
     def __init__(
@@ -7411,16 +7327,7 @@ class MicrosoftGraphDirectoryRoleAccessReviewPolicy(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphDirectoryRoleAccessReviewPolicy, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.apply_actions = kwargs.get('apply_actions', None)
-        self.auto_apply_decisions_enabled = kwargs.get('auto_apply_decisions_enabled', None)
-        self.default_decision = kwargs.get('default_decision', None)
-        self.default_decision_enabled = kwargs.get('default_decision_enabled', None)
-        self.instance_duration_in_days = kwargs.get('instance_duration_in_days', None)
-        self.justification_required_on_approval = kwargs.get('justification_required_on_approval', None)
-        self.mail_notifications_enabled = kwargs.get('mail_notifications_enabled', None)
-        self.recommendations_enabled = kwargs.get('recommendations_enabled', None)
-        self.recurrence = kwargs.get('recurrence', None)
-        self.reminder_notifications_enabled = kwargs.get('reminder_notifications_enabled', None)
+        self.settings = kwargs.get('settings', None)
 
 
 class MicrosoftGraphDirectorySetting(MicrosoftGraphEntity):
@@ -10273,6 +10180,8 @@ class MicrosoftGraphInformationProtection(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param policy: informationProtectionPolicy.
+    :type policy: ~identity_sign_ins.models.MicrosoftGraphInformationProtectionPolicy
     :param data_loss_prevention_policies:
     :type data_loss_prevention_policies:
      list[~identity_sign_ins.models.MicrosoftGraphDataLossPreventionPolicy]
@@ -10284,21 +10193,16 @@ class MicrosoftGraphInformationProtection(MicrosoftGraphEntity):
     :param threat_assessment_requests:
     :type threat_assessment_requests:
      list[~identity_sign_ins.models.MicrosoftGraphThreatAssessmentRequest]
-    :param id_policy_id: Read-only.
-    :type id_policy_id: str
-    :param labels:
-    :type labels: list[~identity_sign_ins.models.MicrosoftGraphInformationProtectionLabel]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'policy': {'key': 'policy', 'type': 'MicrosoftGraphInformationProtectionPolicy'},
         'data_loss_prevention_policies': {'key': 'dataLossPreventionPolicies', 'type': '[MicrosoftGraphDataLossPreventionPolicy]'},
         'sensitivity_labels': {'key': 'sensitivityLabels', 'type': '[MicrosoftGraphSensitivityLabel]'},
         'sensitivity_policy_settings': {'key': 'sensitivityPolicySettings', 'type': 'MicrosoftGraphSensitivityPolicySettings'},
         'threat_assessment_requests': {'key': 'threatAssessmentRequests', 'type': '[MicrosoftGraphThreatAssessmentRequest]'},
-        'id_policy_id': {'key': 'policy.id', 'type': 'str'},
-        'labels': {'key': 'policy.labels', 'type': '[MicrosoftGraphInformationProtectionLabel]'},
     }
 
     def __init__(
@@ -10307,12 +10211,11 @@ class MicrosoftGraphInformationProtection(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphInformationProtection, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.policy = kwargs.get('policy', None)
         self.data_loss_prevention_policies = kwargs.get('data_loss_prevention_policies', None)
         self.sensitivity_labels = kwargs.get('sensitivity_labels', None)
         self.sensitivity_policy_settings = kwargs.get('sensitivity_policy_settings', None)
         self.threat_assessment_requests = kwargs.get('threat_assessment_requests', None)
-        self.id_policy_id = kwargs.get('id_policy_id', None)
-        self.labels = kwargs.get('labels', None)
 
 
 class MicrosoftGraphInformationProtectionContentLabel(msrest.serialization.Model):
@@ -10544,6 +10447,8 @@ class MicrosoftGraphInvitation(MicrosoftGraphEntity):
      in the user name, except at the beginning or end of the name.An underscore (_) is permitted
      anywhere in the user name. This includes at the beginning or end of the name.
     :type invited_user_email_address: str
+    :param invited_user_message_info: invitedUserMessageInfo.
+    :type invited_user_message_info: ~identity_sign_ins.models.MicrosoftGraphInvitedUserMessageInfo
     :param invited_user_type: The userType of the user being invited. By default, this is Guest.
      You can invite as Member if you are a company administrator.
     :type invited_user_type: str
@@ -10562,16 +10467,6 @@ class MicrosoftGraphInvitation(MicrosoftGraphEntity):
     :type status: str
     :param invited_user: Represents an Azure Active Directory user object.
     :type invited_user: ~identity_sign_ins.models.MicrosoftGraphUser
-    :param cc_recipients: Additional recipients the invitation message should be sent to. Currently
-     only 1 additional recipient is supported.
-    :type cc_recipients: list[~identity_sign_ins.models.MicrosoftGraphRecipient]
-    :param customized_message_body: Customized message body you want to send if you don't want the
-     default message.
-    :type customized_message_body: str
-    :param message_language: The language you want to send the default message in. If the
-     customizedMessageBody is specified, this property is ignored, and the message is sent using the
-     customizedMessageBody. The language format should be in ISO 639. The default is en-US.
-    :type message_language: str
     """
 
     _attribute_map = {
@@ -10579,6 +10474,7 @@ class MicrosoftGraphInvitation(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'invited_user_display_name': {'key': 'invitedUserDisplayName', 'type': 'str'},
         'invited_user_email_address': {'key': 'invitedUserEmailAddress', 'type': 'str'},
+        'invited_user_message_info': {'key': 'invitedUserMessageInfo', 'type': 'MicrosoftGraphInvitedUserMessageInfo'},
         'invited_user_type': {'key': 'invitedUserType', 'type': 'str'},
         'invite_redeem_url': {'key': 'inviteRedeemUrl', 'type': 'str'},
         'invite_redirect_url': {'key': 'inviteRedirectUrl', 'type': 'str'},
@@ -10586,9 +10482,6 @@ class MicrosoftGraphInvitation(MicrosoftGraphEntity):
         'send_invitation_message': {'key': 'sendInvitationMessage', 'type': 'bool'},
         'status': {'key': 'status', 'type': 'str'},
         'invited_user': {'key': 'invitedUser', 'type': 'MicrosoftGraphUser'},
-        'cc_recipients': {'key': 'invitedUserMessageInfo.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'customized_message_body': {'key': 'invitedUserMessageInfo.customizedMessageBody', 'type': 'str'},
-        'message_language': {'key': 'invitedUserMessageInfo.messageLanguage', 'type': 'str'},
     }
 
     def __init__(
@@ -10599,6 +10492,7 @@ class MicrosoftGraphInvitation(MicrosoftGraphEntity):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.invited_user_display_name = kwargs.get('invited_user_display_name', None)
         self.invited_user_email_address = kwargs.get('invited_user_email_address', None)
+        self.invited_user_message_info = kwargs.get('invited_user_message_info', None)
         self.invited_user_type = kwargs.get('invited_user_type', None)
         self.invite_redeem_url = kwargs.get('invite_redeem_url', None)
         self.invite_redirect_url = kwargs.get('invite_redirect_url', None)
@@ -10606,9 +10500,6 @@ class MicrosoftGraphInvitation(MicrosoftGraphEntity):
         self.send_invitation_message = kwargs.get('send_invitation_message', None)
         self.status = kwargs.get('status', None)
         self.invited_user = kwargs.get('invited_user', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.customized_message_body = kwargs.get('customized_message_body', None)
-        self.message_language = kwargs.get('message_language', None)
 
 
 class MicrosoftGraphInvitedUserMessageInfo(msrest.serialization.Model):
@@ -18060,9 +17951,15 @@ class MicrosoftGraphPolicyRoot(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param authentication_flows_policy: authenticationFlowsPolicy.
+    :type authentication_flows_policy:
+     ~identity_sign_ins.models.MicrosoftGraphAuthenticationFlowsPolicy
     :param b2_c_authentication_methods_policy: b2cAuthenticationMethodsPolicy.
     :type b2_c_authentication_methods_policy:
      ~identity_sign_ins.models.MicrosoftGraphB2CAuthenticationMethodsPolicy
+    :param device_registration_policy: deviceRegistrationPolicy.
+    :type device_registration_policy:
+     ~identity_sign_ins.models.MicrosoftGraphDeviceRegistrationPolicy
     :param activity_based_timeout_policies:
     :type activity_based_timeout_policies:
      list[~identity_sign_ins.models.MicrosoftGraphActivityBasedTimeoutPolicy]
@@ -18086,6 +17983,12 @@ class MicrosoftGraphPolicyRoot(msrest.serialization.Model):
     :param token_lifetime_policies:
     :type token_lifetime_policies:
      list[~identity_sign_ins.models.MicrosoftGraphTokenLifetimePolicy]
+    :param admin_consent_request_policy: adminConsentRequestPolicy.
+    :type admin_consent_request_policy:
+     ~identity_sign_ins.models.MicrosoftGraphAdminConsentRequestPolicy
+    :param directory_role_access_review_policy: directoryRoleAccessReviewPolicy.
+    :type directory_role_access_review_policy:
+     ~identity_sign_ins.models.MicrosoftGraphDirectoryRoleAccessReviewPolicy
     :param conditional_access_policies:
     :type conditional_access_policies:
      list[~identity_sign_ins.models.MicrosoftGraphConditionalAccessPolicy]
@@ -18093,63 +17996,13 @@ class MicrosoftGraphPolicyRoot(msrest.serialization.Model):
      object. The directoryObject type is the base type for many other directory entity types.
     :type identity_security_defaults_enforcement_policy:
      ~identity_sign_ins.models.MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy
-    :param id_directory_role_access_review_policy_id: Read-only.
-    :type id_directory_role_access_review_policy_id: str
-    :param apply_actions:
-    :type apply_actions: list[dict[str, object]]
-    :param auto_apply_decisions_enabled:
-    :type auto_apply_decisions_enabled: bool
-    :param default_decision:
-    :type default_decision: str
-    :param default_decision_enabled:
-    :type default_decision_enabled: bool
-    :param instance_duration_in_days:
-    :type instance_duration_in_days: int
-    :param justification_required_on_approval:
-    :type justification_required_on_approval: bool
-    :param mail_notifications_enabled:
-    :type mail_notifications_enabled: bool
-    :param recommendations_enabled:
-    :type recommendations_enabled: bool
-    :param recurrence: patternedRecurrence.
-    :type recurrence: ~identity_sign_ins.models.MicrosoftGraphPatternedRecurrence
-    :param reminder_notifications_enabled:
-    :type reminder_notifications_enabled: bool
-    :param id_admin_consent_request_policy_id: Read-only.
-    :type id_admin_consent_request_policy_id: str
-    :param is_enabled_admin_consent_request_policy_is_enabled:
-    :type is_enabled_admin_consent_request_policy_is_enabled: bool
-    :param notify_reviewers:
-    :type notify_reviewers: bool
-    :param reminders_enabled:
-    :type reminders_enabled: bool
-    :param request_duration_in_days:
-    :type request_duration_in_days: int
-    :param reviewers:
-    :type reviewers: list[~identity_sign_ins.models.MicrosoftGraphAccessReviewScope]
-    :param version:
-    :type version: int
-    :param id_device_registration_policy_id: Read-only.
-    :type id_device_registration_policy_id: str
-    :param id_authentication_flows_policy_id: Read-only.
-    :type id_authentication_flows_policy_id: str
-    :param description:
-    :type description: str
-    :param display_name:
-    :type display_name: str
-    :param is_enabled_authentication_flows_policy_self_service_sign_up_is_enabled:
-    :type is_enabled_authentication_flows_policy_self_service_sign_up_is_enabled: bool
     """
-
-    _validation = {
-        'instance_duration_in_days': {'maximum': 2147483647, 'minimum': -2147483648},
-        'request_duration_in_days': {'maximum': 2147483647, 'minimum': -2147483648},
-        'version': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'authentication_flows_policy': {'key': 'authenticationFlowsPolicy', 'type': 'MicrosoftGraphAuthenticationFlowsPolicy'},
         'b2_c_authentication_methods_policy': {'key': 'b2cAuthenticationMethodsPolicy', 'type': 'MicrosoftGraphB2CAuthenticationMethodsPolicy'},
+        'device_registration_policy': {'key': 'deviceRegistrationPolicy', 'type': 'MicrosoftGraphDeviceRegistrationPolicy'},
         'activity_based_timeout_policies': {'key': 'activityBasedTimeoutPolicies', 'type': '[MicrosoftGraphActivityBasedTimeoutPolicy]'},
         'authorization_policy': {'key': 'authorizationPolicy', 'type': '[MicrosoftGraphAuthorizationPolicy]'},
         'claims_mapping_policies': {'key': 'claimsMappingPolicies', 'type': '[MicrosoftGraphClaimsMappingPolicy]'},
@@ -18158,31 +18011,10 @@ class MicrosoftGraphPolicyRoot(msrest.serialization.Model):
         'private_link_resource_policies': {'key': 'privateLinkResourcePolicies', 'type': '[MicrosoftGraphPrivateLinkResource]'},
         'token_issuance_policies': {'key': 'tokenIssuancePolicies', 'type': '[MicrosoftGraphTokenIssuancePolicy]'},
         'token_lifetime_policies': {'key': 'tokenLifetimePolicies', 'type': '[MicrosoftGraphTokenLifetimePolicy]'},
+        'admin_consent_request_policy': {'key': 'adminConsentRequestPolicy', 'type': 'MicrosoftGraphAdminConsentRequestPolicy'},
+        'directory_role_access_review_policy': {'key': 'directoryRoleAccessReviewPolicy', 'type': 'MicrosoftGraphDirectoryRoleAccessReviewPolicy'},
         'conditional_access_policies': {'key': 'conditionalAccessPolicies', 'type': '[MicrosoftGraphConditionalAccessPolicy]'},
         'identity_security_defaults_enforcement_policy': {'key': 'identitySecurityDefaultsEnforcementPolicy', 'type': 'MicrosoftGraphIdentitySecurityDefaultsEnforcementPolicy'},
-        'id_directory_role_access_review_policy_id': {'key': 'directoryRoleAccessReviewPolicy.id', 'type': 'str'},
-        'apply_actions': {'key': 'directoryRoleAccessReviewPolicy.settings.applyActions', 'type': '[{object}]'},
-        'auto_apply_decisions_enabled': {'key': 'directoryRoleAccessReviewPolicy.settings.autoApplyDecisionsEnabled', 'type': 'bool'},
-        'default_decision': {'key': 'directoryRoleAccessReviewPolicy.settings.defaultDecision', 'type': 'str'},
-        'default_decision_enabled': {'key': 'directoryRoleAccessReviewPolicy.settings.defaultDecisionEnabled', 'type': 'bool'},
-        'instance_duration_in_days': {'key': 'directoryRoleAccessReviewPolicy.settings.instanceDurationInDays', 'type': 'int'},
-        'justification_required_on_approval': {'key': 'directoryRoleAccessReviewPolicy.settings.justificationRequiredOnApproval', 'type': 'bool'},
-        'mail_notifications_enabled': {'key': 'directoryRoleAccessReviewPolicy.settings.mailNotificationsEnabled', 'type': 'bool'},
-        'recommendations_enabled': {'key': 'directoryRoleAccessReviewPolicy.settings.recommendationsEnabled', 'type': 'bool'},
-        'recurrence': {'key': 'directoryRoleAccessReviewPolicy.settings.recurrence', 'type': 'MicrosoftGraphPatternedRecurrence'},
-        'reminder_notifications_enabled': {'key': 'directoryRoleAccessReviewPolicy.settings.reminderNotificationsEnabled', 'type': 'bool'},
-        'id_admin_consent_request_policy_id': {'key': 'adminConsentRequestPolicy.id', 'type': 'str'},
-        'is_enabled_admin_consent_request_policy_is_enabled': {'key': 'adminConsentRequestPolicy.isEnabled', 'type': 'bool'},
-        'notify_reviewers': {'key': 'adminConsentRequestPolicy.notifyReviewers', 'type': 'bool'},
-        'reminders_enabled': {'key': 'adminConsentRequestPolicy.remindersEnabled', 'type': 'bool'},
-        'request_duration_in_days': {'key': 'adminConsentRequestPolicy.requestDurationInDays', 'type': 'int'},
-        'reviewers': {'key': 'adminConsentRequestPolicy.reviewers', 'type': '[MicrosoftGraphAccessReviewScope]'},
-        'version': {'key': 'adminConsentRequestPolicy.version', 'type': 'int'},
-        'id_device_registration_policy_id': {'key': 'deviceRegistrationPolicy.id', 'type': 'str'},
-        'id_authentication_flows_policy_id': {'key': 'authenticationFlowsPolicy.id', 'type': 'str'},
-        'description': {'key': 'authenticationFlowsPolicy.description', 'type': 'str'},
-        'display_name': {'key': 'authenticationFlowsPolicy.displayName', 'type': 'str'},
-        'is_enabled_authentication_flows_policy_self_service_sign_up_is_enabled': {'key': 'authenticationFlowsPolicy.selfServiceSignUp.isEnabled', 'type': 'bool'},
     }
 
     def __init__(
@@ -18191,7 +18023,9 @@ class MicrosoftGraphPolicyRoot(msrest.serialization.Model):
     ):
         super(MicrosoftGraphPolicyRoot, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.authentication_flows_policy = kwargs.get('authentication_flows_policy', None)
         self.b2_c_authentication_methods_policy = kwargs.get('b2_c_authentication_methods_policy', None)
+        self.device_registration_policy = kwargs.get('device_registration_policy', None)
         self.activity_based_timeout_policies = kwargs.get('activity_based_timeout_policies', None)
         self.authorization_policy = kwargs.get('authorization_policy', None)
         self.claims_mapping_policies = kwargs.get('claims_mapping_policies', None)
@@ -18200,31 +18034,10 @@ class MicrosoftGraphPolicyRoot(msrest.serialization.Model):
         self.private_link_resource_policies = kwargs.get('private_link_resource_policies', None)
         self.token_issuance_policies = kwargs.get('token_issuance_policies', None)
         self.token_lifetime_policies = kwargs.get('token_lifetime_policies', None)
+        self.admin_consent_request_policy = kwargs.get('admin_consent_request_policy', None)
+        self.directory_role_access_review_policy = kwargs.get('directory_role_access_review_policy', None)
         self.conditional_access_policies = kwargs.get('conditional_access_policies', None)
         self.identity_security_defaults_enforcement_policy = kwargs.get('identity_security_defaults_enforcement_policy', None)
-        self.id_directory_role_access_review_policy_id = kwargs.get('id_directory_role_access_review_policy_id', None)
-        self.apply_actions = kwargs.get('apply_actions', None)
-        self.auto_apply_decisions_enabled = kwargs.get('auto_apply_decisions_enabled', None)
-        self.default_decision = kwargs.get('default_decision', None)
-        self.default_decision_enabled = kwargs.get('default_decision_enabled', None)
-        self.instance_duration_in_days = kwargs.get('instance_duration_in_days', None)
-        self.justification_required_on_approval = kwargs.get('justification_required_on_approval', None)
-        self.mail_notifications_enabled = kwargs.get('mail_notifications_enabled', None)
-        self.recommendations_enabled = kwargs.get('recommendations_enabled', None)
-        self.recurrence = kwargs.get('recurrence', None)
-        self.reminder_notifications_enabled = kwargs.get('reminder_notifications_enabled', None)
-        self.id_admin_consent_request_policy_id = kwargs.get('id_admin_consent_request_policy_id', None)
-        self.is_enabled_admin_consent_request_policy_is_enabled = kwargs.get('is_enabled_admin_consent_request_policy_is_enabled', None)
-        self.notify_reviewers = kwargs.get('notify_reviewers', None)
-        self.reminders_enabled = kwargs.get('reminders_enabled', None)
-        self.request_duration_in_days = kwargs.get('request_duration_in_days', None)
-        self.reviewers = kwargs.get('reviewers', None)
-        self.version = kwargs.get('version', None)
-        self.id_device_registration_policy_id = kwargs.get('id_device_registration_policy_id', None)
-        self.id_authentication_flows_policy_id = kwargs.get('id_authentication_flows_policy_id', None)
-        self.description = kwargs.get('description', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.is_enabled_authentication_flows_policy_self_service_sign_up_is_enabled = kwargs.get('is_enabled_authentication_flows_policy_self_service_sign_up_is_enabled', None)
 
 
 class MicrosoftGraphPositionDetail(msrest.serialization.Model):
@@ -19448,6 +19261,8 @@ class MicrosoftGraphRiskDetection(MicrosoftGraphEntity):
     :type ip_address: str
     :param last_updated_date_time: Date and time that the risk detection was last updated.
     :type last_updated_date_time: ~datetime.datetime
+    :param location: signInLocation.
+    :type location: ~identity_sign_ins.models.MicrosoftGraphSignInLocation
     :param request_id: Request ID of the sign-in associated with the risk detection. This property
      is null if the risk detection is not associated with a sign-in.
     :type request_id: str
@@ -19489,17 +19304,6 @@ class MicrosoftGraphRiskDetection(MicrosoftGraphEntity):
     :type user_id: str
     :param user_principal_name: The user principal name (UPN) of the user.
     :type user_principal_name: str
-    :param city: Provides the city where the sign-in originated. This is calculated using
-     latitude/longitude information from the sign-in activity.
-    :type city: str
-    :param country_or_region: Provides the country code info (2 letter code) where the sign-in
-     originated.  This is calculated using latitude/longitude information from the sign-in activity.
-    :type country_or_region: str
-    :param geo_coordinates: geoCoordinates.
-    :type geo_coordinates: ~identity_sign_ins.models.MicrosoftGraphGeoCoordinates
-    :param state: Provides the State where the sign-in originated. This is calculated using
-     latitude/longitude information from the sign-in activity.
-    :type state: str
     """
 
     _attribute_map = {
@@ -19513,6 +19317,7 @@ class MicrosoftGraphRiskDetection(MicrosoftGraphEntity):
         'detection_timing_type': {'key': 'detectionTimingType', 'type': 'str'},
         'ip_address': {'key': 'ipAddress', 'type': 'str'},
         'last_updated_date_time': {'key': 'lastUpdatedDateTime', 'type': 'iso-8601'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphSignInLocation'},
         'request_id': {'key': 'requestId', 'type': 'str'},
         'risk_detail': {'key': 'riskDetail', 'type': 'str'},
         'risk_event_type': {'key': 'riskEventType', 'type': 'str'},
@@ -19524,10 +19329,6 @@ class MicrosoftGraphRiskDetection(MicrosoftGraphEntity):
         'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'city': {'key': 'location.city', 'type': 'str'},
-        'country_or_region': {'key': 'location.countryOrRegion', 'type': 'str'},
-        'geo_coordinates': {'key': 'location.geoCoordinates', 'type': 'MicrosoftGraphGeoCoordinates'},
-        'state': {'key': 'location.state', 'type': 'str'},
     }
 
     def __init__(
@@ -19544,6 +19345,7 @@ class MicrosoftGraphRiskDetection(MicrosoftGraphEntity):
         self.detection_timing_type = kwargs.get('detection_timing_type', None)
         self.ip_address = kwargs.get('ip_address', None)
         self.last_updated_date_time = kwargs.get('last_updated_date_time', None)
+        self.location = kwargs.get('location', None)
         self.request_id = kwargs.get('request_id', None)
         self.risk_detail = kwargs.get('risk_detail', None)
         self.risk_event_type = kwargs.get('risk_event_type', None)
@@ -19555,10 +19357,6 @@ class MicrosoftGraphRiskDetection(MicrosoftGraphEntity):
         self.user_display_name = kwargs.get('user_display_name', None)
         self.user_id = kwargs.get('user_id', None)
         self.user_principal_name = kwargs.get('user_principal_name', None)
-        self.city = kwargs.get('city', None)
-        self.country_or_region = kwargs.get('country_or_region', None)
-        self.geo_coordinates = kwargs.get('geo_coordinates', None)
-        self.state = kwargs.get('state', None)
 
 
 class MicrosoftGraphRiskUserActivity(msrest.serialization.Model):
@@ -22659,6 +22457,8 @@ class MicrosoftGraphThreatAssessmentRequest(MicrosoftGraphEntity):
     :type category: str or ~identity_sign_ins.models.MicrosoftGraphThreatCategory
     :param content_type:  Possible values include: "mail", "url", "file".
     :type content_type: str or ~identity_sign_ins.models.MicrosoftGraphThreatAssessmentContentType
+    :param created_by: identitySet.
+    :type created_by: ~identity_sign_ins.models.MicrosoftGraphIdentitySet
     :param created_date_time: The Timestamp type represents date and time information using ISO
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
@@ -22674,12 +22474,6 @@ class MicrosoftGraphThreatAssessmentRequest(MicrosoftGraphEntity):
     :param results: A collection of threat assessment results. Read-only. By default, a GET
      /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.
     :type results: list[~identity_sign_ins.models.MicrosoftGraphThreatAssessmentResult]
-    :param application: identity.
-    :type application: ~identity_sign_ins.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~identity_sign_ins.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~identity_sign_ins.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -22687,14 +22481,12 @@ class MicrosoftGraphThreatAssessmentRequest(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'category': {'key': 'category', 'type': 'str'},
         'content_type': {'key': 'contentType', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'expected_assessment': {'key': 'expectedAssessment', 'type': 'str'},
         'request_source': {'key': 'requestSource', 'type': 'str'},
         'status': {'key': 'status', 'type': 'str'},
         'results': {'key': 'results', 'type': '[MicrosoftGraphThreatAssessmentResult]'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -22705,14 +22497,12 @@ class MicrosoftGraphThreatAssessmentRequest(MicrosoftGraphEntity):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.category = kwargs.get('category', None)
         self.content_type = kwargs.get('content_type', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.expected_assessment = kwargs.get('expected_assessment', None)
         self.request_source = kwargs.get('request_source', None)
         self.status = kwargs.get('status', None)
         self.results = kwargs.get('results', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphThreatAssessmentResult(MicrosoftGraphEntity):
@@ -27511,34 +27301,16 @@ class Paths1Aushj1InformationprotectionPolicyLabelsMicrosoftGraphEvaluateapplica
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param assignment_method:  Possible values include: "standard", "privileged", "auto".
-    :type assignment_method: str or ~identity_sign_ins.models.MicrosoftGraphAssignmentMethod
-    :param downgrade_justification: downgradeJustification.
-    :type downgrade_justification: ~identity_sign_ins.models.MicrosoftGraphDowngradeJustification
-    :param extended_properties:
-    :type extended_properties: list[~identity_sign_ins.models.MicrosoftGraphKeyValuePair]
-    :param label_id:
-    :type label_id: str
-    :param format:  Possible values include: "default", "email".
-    :type format: str or ~identity_sign_ins.models.MicrosoftGraphContentFormat
-    :param identifier:
-    :type identifier: str
-    :param metadata:
-    :type metadata: list[~identity_sign_ins.models.MicrosoftGraphKeyValuePair]
-    :param state:  Possible values include: "rest", "motion", "use".
-    :type state: str or ~identity_sign_ins.models.MicrosoftGraphContentState
+    :param content_info: contentInfo.
+    :type content_info: ~identity_sign_ins.models.MicrosoftGraphContentInfo
+    :param labeling_options: labelingOptions.
+    :type labeling_options: ~identity_sign_ins.models.MicrosoftGraphLabelingOptions
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'assignment_method': {'key': 'labelingOptions.assignmentMethod', 'type': 'str'},
-        'downgrade_justification': {'key': 'labelingOptions.downgradeJustification', 'type': 'MicrosoftGraphDowngradeJustification'},
-        'extended_properties': {'key': 'labelingOptions.extendedProperties', 'type': '[MicrosoftGraphKeyValuePair]'},
-        'label_id': {'key': 'labelingOptions.labelId', 'type': 'str'},
-        'format': {'key': 'contentInfo.format', 'type': 'str'},
-        'identifier': {'key': 'contentInfo.identifier', 'type': 'str'},
-        'metadata': {'key': 'contentInfo.metadata', 'type': '[MicrosoftGraphKeyValuePair]'},
-        'state': {'key': 'contentInfo.state', 'type': 'str'},
+        'content_info': {'key': 'contentInfo', 'type': 'MicrosoftGraphContentInfo'},
+        'labeling_options': {'key': 'labelingOptions', 'type': 'MicrosoftGraphLabelingOptions'},
     }
 
     def __init__(
@@ -27547,14 +27319,8 @@ class Paths1Aushj1InformationprotectionPolicyLabelsMicrosoftGraphEvaluateapplica
     ):
         super(Paths1Aushj1InformationprotectionPolicyLabelsMicrosoftGraphEvaluateapplicationPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.assignment_method = kwargs.get('assignment_method', None)
-        self.downgrade_justification = kwargs.get('downgrade_justification', None)
-        self.extended_properties = kwargs.get('extended_properties', None)
-        self.label_id = kwargs.get('label_id', None)
-        self.format = kwargs.get('format', None)
-        self.identifier = kwargs.get('identifier', None)
-        self.metadata = kwargs.get('metadata', None)
-        self.state = kwargs.get('state', None)
+        self.content_info = kwargs.get('content_info', None)
+        self.labeling_options = kwargs.get('labeling_options', None)
 
 
 class Paths1IaopbhTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphGeneratekeyPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -27601,24 +27367,17 @@ class Paths1JhdydfInformationprotectionDatalosspreventionpoliciesMicrosoftGraphE
     :type additional_properties: dict[str, object]
     :param target:
     :type target: str
-    :param author:
-    :type author: str
-    :param access_scope:  Possible values include: "inOrganization", "notInOrganization".
-    :type access_scope: str or ~identity_sign_ins.models.MicrosoftGraphAccessScope
-    :param current_label: currentLabel.
-    :type current_label: ~identity_sign_ins.models.MicrosoftGraphCurrentLabel
-    :param discovered_sensitive_types:
-    :type discovered_sensitive_types:
-     list[~identity_sign_ins.models.MicrosoftGraphDiscoveredSensitiveType]
+    :param evaluation_input: dlpEvaluationInput.
+    :type evaluation_input: ~identity_sign_ins.models.MicrosoftGraphDlpEvaluationInput
+    :param notification_info: dlpNotification.
+    :type notification_info: ~identity_sign_ins.models.MicrosoftGraphDlpNotification
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'target': {'key': 'target', 'type': 'str'},
-        'author': {'key': 'notificationInfo.author', 'type': 'str'},
-        'access_scope': {'key': 'evaluationInput.accessScope', 'type': 'str'},
-        'current_label': {'key': 'evaluationInput.currentLabel', 'type': 'MicrosoftGraphCurrentLabel'},
-        'discovered_sensitive_types': {'key': 'evaluationInput.discoveredSensitiveTypes', 'type': '[MicrosoftGraphDiscoveredSensitiveType]'},
+        'evaluation_input': {'key': 'evaluationInput', 'type': 'MicrosoftGraphDlpEvaluationInput'},
+        'notification_info': {'key': 'notificationInfo', 'type': 'MicrosoftGraphDlpNotification'},
     }
 
     def __init__(
@@ -27628,10 +27387,8 @@ class Paths1JhdydfInformationprotectionDatalosspreventionpoliciesMicrosoftGraphE
         super(Paths1JhdydfInformationprotectionDatalosspreventionpoliciesMicrosoftGraphEvaluatePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.target = kwargs.get('target', None)
-        self.author = kwargs.get('author', None)
-        self.access_scope = kwargs.get('access_scope', None)
-        self.current_label = kwargs.get('current_label', None)
-        self.discovered_sensitive_types = kwargs.get('discovered_sensitive_types', None)
+        self.evaluation_input = kwargs.get('evaluation_input', None)
+        self.notification_info = kwargs.get('notification_info', None)
 
 
 class PathsBj48EsInformationprotectionPolicyLabelsMicrosoftGraphExtractlabelPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -27640,22 +27397,13 @@ class PathsBj48EsInformationprotectionPolicyLabelsMicrosoftGraphExtractlabelPost
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param format:  Possible values include: "default", "email".
-    :type format: str or ~identity_sign_ins.models.MicrosoftGraphContentFormat
-    :param identifier:
-    :type identifier: str
-    :param metadata:
-    :type metadata: list[~identity_sign_ins.models.MicrosoftGraphKeyValuePair]
-    :param state:  Possible values include: "rest", "motion", "use".
-    :type state: str or ~identity_sign_ins.models.MicrosoftGraphContentState
+    :param content_info: contentInfo.
+    :type content_info: ~identity_sign_ins.models.MicrosoftGraphContentInfo
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'format': {'key': 'contentInfo.format', 'type': 'str'},
-        'identifier': {'key': 'contentInfo.identifier', 'type': 'str'},
-        'metadata': {'key': 'contentInfo.metadata', 'type': '[MicrosoftGraphKeyValuePair]'},
-        'state': {'key': 'contentInfo.state', 'type': 'str'},
+        'content_info': {'key': 'contentInfo', 'type': 'MicrosoftGraphContentInfo'},
     }
 
     def __init__(
@@ -27664,10 +27412,7 @@ class PathsBj48EsInformationprotectionPolicyLabelsMicrosoftGraphExtractlabelPost
     ):
         super(PathsBj48EsInformationprotectionPolicyLabelsMicrosoftGraphExtractlabelPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.format = kwargs.get('format', None)
-        self.identifier = kwargs.get('identifier', None)
-        self.metadata = kwargs.get('metadata', None)
-        self.state = kwargs.get('state', None)
+        self.content_info = kwargs.get('content_info', None)
 
 
 class PathsDmvqaiTrustframeworkKeysetsTrustframeworkkeysetIdMicrosoftGraphUploadsecretPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -27765,26 +27510,17 @@ class PathsLeqqhcInformationprotectionPolicyLabelsMicrosoftGraphEvaluateclassifi
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param content_info: contentInfo.
+    :type content_info: ~identity_sign_ins.models.MicrosoftGraphContentInfo
     :param classification_results:
     :type classification_results:
      list[~identity_sign_ins.models.MicrosoftGraphClassificationResult]
-    :param format:  Possible values include: "default", "email".
-    :type format: str or ~identity_sign_ins.models.MicrosoftGraphContentFormat
-    :param identifier:
-    :type identifier: str
-    :param metadata:
-    :type metadata: list[~identity_sign_ins.models.MicrosoftGraphKeyValuePair]
-    :param state:  Possible values include: "rest", "motion", "use".
-    :type state: str or ~identity_sign_ins.models.MicrosoftGraphContentState
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'content_info': {'key': 'contentInfo', 'type': 'MicrosoftGraphContentInfo'},
         'classification_results': {'key': 'classificationResults', 'type': '[MicrosoftGraphClassificationResult]'},
-        'format': {'key': 'contentInfo.format', 'type': 'str'},
-        'identifier': {'key': 'contentInfo.identifier', 'type': 'str'},
-        'metadata': {'key': 'contentInfo.metadata', 'type': '[MicrosoftGraphKeyValuePair]'},
-        'state': {'key': 'contentInfo.state', 'type': 'str'},
     }
 
     def __init__(
@@ -27793,11 +27529,8 @@ class PathsLeqqhcInformationprotectionPolicyLabelsMicrosoftGraphEvaluateclassifi
     ):
         super(PathsLeqqhcInformationprotectionPolicyLabelsMicrosoftGraphEvaluateclassificationresultsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.content_info = kwargs.get('content_info', None)
         self.classification_results = kwargs.get('classification_results', None)
-        self.format = kwargs.get('format', None)
-        self.identifier = kwargs.get('identifier', None)
-        self.metadata = kwargs.get('metadata', None)
-        self.state = kwargs.get('state', None)
 
 
 class PathsTai6NqRiskyusersMicrosoftGraphDismissPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -27830,29 +27563,21 @@ class PathsU4Eih0InformationprotectionMicrosoftGraphEvaluatelabelsandpoliciesPos
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param evaluate_sensitivity_labels: evaluateSensitivityLabelsRequest.
+    :type evaluate_sensitivity_labels:
+     ~identity_sign_ins.models.MicrosoftGraphEvaluateSensitivityLabelsRequest
+    :param evaluate_data_loss_prevention_policies: dlpEvaluatePoliciesRequest.
+    :type evaluate_data_loss_prevention_policies:
+     ~identity_sign_ins.models.MicrosoftGraphDlpEvaluatePoliciesRequest
     :param classify_text: textClassificationRequest.
     :type classify_text: ~identity_sign_ins.models.MicrosoftGraphTextClassificationRequest
-    :param evaluation_input: dlpEvaluationInput.
-    :type evaluation_input: ~identity_sign_ins.models.MicrosoftGraphDlpEvaluationInput
-    :param notification_info: dlpNotification.
-    :type notification_info: ~identity_sign_ins.models.MicrosoftGraphDlpNotification
-    :param target:
-    :type target: str
-    :param current_label: currentLabel.
-    :type current_label: ~identity_sign_ins.models.MicrosoftGraphCurrentLabel
-    :param discovered_sensitive_types:
-    :type discovered_sensitive_types:
-     list[~identity_sign_ins.models.MicrosoftGraphDiscoveredSensitiveType]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'evaluate_sensitivity_labels': {'key': 'evaluateSensitivityLabels', 'type': 'MicrosoftGraphEvaluateSensitivityLabelsRequest'},
+        'evaluate_data_loss_prevention_policies': {'key': 'evaluateDataLossPreventionPolicies', 'type': 'MicrosoftGraphDlpEvaluatePoliciesRequest'},
         'classify_text': {'key': 'classifyText', 'type': 'MicrosoftGraphTextClassificationRequest'},
-        'evaluation_input': {'key': 'evaluateDataLossPreventionPolicies.evaluationInput', 'type': 'MicrosoftGraphDlpEvaluationInput'},
-        'notification_info': {'key': 'evaluateDataLossPreventionPolicies.notificationInfo', 'type': 'MicrosoftGraphDlpNotification'},
-        'target': {'key': 'evaluateDataLossPreventionPolicies.target', 'type': 'str'},
-        'current_label': {'key': 'evaluateSensitivityLabels.currentLabel', 'type': 'MicrosoftGraphCurrentLabel'},
-        'discovered_sensitive_types': {'key': 'evaluateSensitivityLabels.discoveredSensitiveTypes', 'type': '[MicrosoftGraphDiscoveredSensitiveType]'},
     }
 
     def __init__(
@@ -27861,12 +27586,9 @@ class PathsU4Eih0InformationprotectionMicrosoftGraphEvaluatelabelsandpoliciesPos
     ):
         super(PathsU4Eih0InformationprotectionMicrosoftGraphEvaluatelabelsandpoliciesPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.evaluate_sensitivity_labels = kwargs.get('evaluate_sensitivity_labels', None)
+        self.evaluate_data_loss_prevention_policies = kwargs.get('evaluate_data_loss_prevention_policies', None)
         self.classify_text = kwargs.get('classify_text', None)
-        self.evaluation_input = kwargs.get('evaluation_input', None)
-        self.notification_info = kwargs.get('notification_info', None)
-        self.target = kwargs.get('target', None)
-        self.current_label = kwargs.get('current_label', None)
-        self.discovered_sensitive_types = kwargs.get('discovered_sensitive_types', None)
 
 
 class PathsZ22GcjInformationprotectionPolicyLabelsMicrosoftGraphEvaluateremovalPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -27875,25 +27597,16 @@ class PathsZ22GcjInformationprotectionPolicyLabelsMicrosoftGraphEvaluateremovalP
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param content_info: contentInfo.
+    :type content_info: ~identity_sign_ins.models.MicrosoftGraphContentInfo
     :param downgrade_justification: downgradeJustification.
     :type downgrade_justification: ~identity_sign_ins.models.MicrosoftGraphDowngradeJustification
-    :param format:  Possible values include: "default", "email".
-    :type format: str or ~identity_sign_ins.models.MicrosoftGraphContentFormat
-    :param identifier:
-    :type identifier: str
-    :param metadata:
-    :type metadata: list[~identity_sign_ins.models.MicrosoftGraphKeyValuePair]
-    :param state:  Possible values include: "rest", "motion", "use".
-    :type state: str or ~identity_sign_ins.models.MicrosoftGraphContentState
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'content_info': {'key': 'contentInfo', 'type': 'MicrosoftGraphContentInfo'},
         'downgrade_justification': {'key': 'downgradeJustification', 'type': 'MicrosoftGraphDowngradeJustification'},
-        'format': {'key': 'contentInfo.format', 'type': 'str'},
-        'identifier': {'key': 'contentInfo.identifier', 'type': 'str'},
-        'metadata': {'key': 'contentInfo.metadata', 'type': '[MicrosoftGraphKeyValuePair]'},
-        'state': {'key': 'contentInfo.state', 'type': 'str'},
     }
 
     def __init__(
@@ -27902,8 +27615,5 @@ class PathsZ22GcjInformationprotectionPolicyLabelsMicrosoftGraphEvaluateremovalP
     ):
         super(PathsZ22GcjInformationprotectionPolicyLabelsMicrosoftGraphEvaluateremovalPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.content_info = kwargs.get('content_info', None)
         self.downgrade_justification = kwargs.get('downgrade_justification', None)
-        self.format = kwargs.get('format', None)
-        self.identifier = kwargs.get('identifier', None)
-        self.metadata = kwargs.get('metadata', None)
-        self.state = kwargs.get('state', None)

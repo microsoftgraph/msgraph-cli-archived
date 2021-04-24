@@ -38,7 +38,7 @@ education_v1_0_education = CliCommandType(
 
 
 education_v1_0_education_class = CliCommandType(
-    operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._education_class_operations#EducationClassOperations.{}',
+    operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._education_classes_operations#EducationClassesOperations.{}',
     client_factory=cf_education_class,
 )
 
@@ -52,15 +52,13 @@ education_v1_0_education_me = CliCommandType(
 
 
 education_v1_0_education_school = CliCommandType(
-    operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._education_school_operations#EducationSchoolOperations.{}',
+    operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._education_schools_operations#EducationSchoolsOperations.{}',
     client_factory=cf_education_school,
 )
 
 
 education_v1_0_education_user = CliCommandType(
-    operations_tmpl=(
-        'azext_education_v1_0.vendored_sdks.education.operations._education_user_operations#EducationUserOperations.{}'
-    ),
+    operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._education_users_operations#EducationUsersOperations.{}',
     client_factory=cf_education_user,
 )
 

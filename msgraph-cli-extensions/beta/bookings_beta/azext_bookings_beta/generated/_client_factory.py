@@ -19,20 +19,20 @@ def cf_bookings_beta_cl(cli_ctx, *_):
 
 
 def cf_booking_business_booking_business(cli_ctx, *_):
-    return cf_bookings_beta_cl(cli_ctx).booking_business_booking_business
+    return cf_bookings_beta_cl(cli_ctx).booking_businesses_booking_business
 
 
 def cf_booking_business(cli_ctx, *_):
-    return cf_bookings_beta_cl(cli_ctx).booking_business
+    return cf_bookings_beta_cl(cli_ctx).booking_businesses
 
 
 def cf_booking_business_appointment(cli_ctx, *_):
-    return cf_bookings_beta_cl(cli_ctx).booking_business_appointment
+    return cf_bookings_beta_cl(cli_ctx).booking_businesses_appointments
 
 
 def cf_booking_business_calendar_view(cli_ctx, *_):
-    return cf_bookings_beta_cl(cli_ctx).booking_business_calendar_view
+    return cf_bookings_beta_cl(cli_ctx).booking_businesses_calendar_view
 
 
 def cf_booking_currency_booking_currency(cli_ctx, *_):
-    return cf_bookings_beta_cl(cli_ctx).booking_currency_booking_currency
+    return cf_bookings_beta_cl(cli_ctx).booking_currencies_booking_currency

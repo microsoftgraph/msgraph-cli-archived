@@ -71,65 +71,71 @@ def calendar_group_create_calendar_view(client,
                                         location_uri=None,
                                         unique_id=None,
                                         unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.create_calendar_view(group_id=group_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_group_create_event(client,
@@ -192,65 +198,71 @@ def calendar_group_create_event(client,
                                 location_uri=None,
                                 unique_id=None,
                                 unique_id_type=None):
-    return client.create_event(group_id=group_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_events(group_id=group_id,
+                                body=body)
 
 
 def calendar_group_delete_calendar(client,
@@ -273,9 +285,9 @@ def calendar_group_delete_event(client,
                                 group_id,
                                 event_id,
                                 if_match=None):
-    return client.delete_event(group_id=group_id,
-                               event_id=event_id,
-                               if_match=if_match)
+    return client.delete_events(group_id=group_id,
+                                event_id=event_id,
+                                if_match=if_match)
 
 
 def calendar_group_list_calendar_view(client,
@@ -298,10 +310,10 @@ def calendar_group_list_event(client,
                               orderby=None,
                               select=None,
                               expand=None):
-    return client.list_event(group_id=group_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_events(group_id=group_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def calendar_group_show_calendar(client,
@@ -333,10 +345,10 @@ def calendar_group_show_event(client,
                               event_id,
                               select=None,
                               expand=None):
-    return client.get_event(group_id=group_id,
-                            event_id=event_id,
-                            select=select,
-                            expand=expand)
+    return client.get_events(group_id=group_id,
+                             event_id=event_id,
+                             select=select,
+                             expand=expand)
 
 
 def calendar_group_update_calendar(client,
@@ -358,24 +370,26 @@ def calendar_group_update_calendar(client,
                                    events=None,
                                    multi_value_extended_properties=None,
                                    single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(group_id=group_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_group_update_calendar_view(client,
@@ -439,66 +453,72 @@ def calendar_group_update_calendar_view(client,
                                         location_uri=None,
                                         unique_id=None,
                                         unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.update_calendar_view(group_id=group_id,
                                        event_id=event_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_group_update_event(client,
@@ -562,66 +582,72 @@ def calendar_group_update_event(client,
                                 location_uri=None,
                                 unique_id=None,
                                 unique_id_type=None):
-    return client.update_event(group_id=group_id,
-                               event_id=event_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_events(group_id=group_id,
+                                event_id=event_id,
+                                body=body)
 
 
 def calendar_group_calendar_create_calendar_permission(client,
@@ -632,13 +658,15 @@ def calendar_group_calendar_create_calendar_permission(client,
                                                        is_inside_organization=None,
                                                        is_removable=None,
                                                        role=None):
-    return client.create_calendar_permission(group_id=group_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.create_calendar_permissions(group_id=group_id,
+                                              body=body)
 
 
 def calendar_group_calendar_create_calendar_view(client,
@@ -701,65 +729,71 @@ def calendar_group_calendar_create_calendar_view(client,
                                                  location_uri=None,
                                                  unique_id=None,
                                                  unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.create_calendar_view(group_id=group_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_group_calendar_create_event(client,
@@ -822,92 +856,102 @@ def calendar_group_calendar_create_event(client,
                                          location_uri=None,
                                          unique_id=None,
                                          unique_id_type=None):
-    return client.create_event(group_id=group_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_events(group_id=group_id,
+                                body=body)
 
 
 def calendar_group_calendar_create_multi_value_extended_property(client,
                                                                  group_id,
                                                                  id_=None,
                                                                  value=None):
-    return client.create_multi_value_extended_property(group_id=group_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(group_id=group_id,
+                                                         body=body)
 
 
 def calendar_group_calendar_create_single_value_extended_property(client,
                                                                   group_id,
                                                                   id_=None,
                                                                   value=None):
-    return client.create_single_value_extended_property(group_id=group_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(group_id=group_id,
+                                                          body=body)
 
 
 def calendar_group_calendar_delete_calendar_permission(client,
                                                        group_id,
                                                        calendar_permission_id,
                                                        if_match=None):
-    return client.delete_calendar_permission(group_id=group_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             if_match=if_match)
+    return client.delete_calendar_permissions(group_id=group_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              if_match=if_match)
 
 
 def calendar_group_calendar_delete_calendar_view(client,
@@ -923,27 +967,27 @@ def calendar_group_calendar_delete_event(client,
                                          group_id,
                                          event_id,
                                          if_match=None):
-    return client.delete_event(group_id=group_id,
-                               event_id=event_id,
-                               if_match=if_match)
+    return client.delete_events(group_id=group_id,
+                                event_id=event_id,
+                                if_match=if_match)
 
 
 def calendar_group_calendar_delete_multi_value_extended_property(client,
                                                                  group_id,
                                                                  multi_value_legacy_extended_property_id,
                                                                  if_match=None):
-    return client.delete_multi_value_extended_property(group_id=group_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(group_id=group_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_group_calendar_delete_single_value_extended_property(client,
                                                                   group_id,
                                                                   single_value_legacy_extended_property_id,
                                                                   if_match=None):
-    return client.delete_single_value_extended_property(group_id=group_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(group_id=group_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_group_calendar_list_calendar_permission(client,
@@ -951,10 +995,10 @@ def calendar_group_calendar_list_calendar_permission(client,
                                                      orderby=None,
                                                      select=None,
                                                      expand=None):
-    return client.list_calendar_permission(group_id=group_id,
-                                           orderby=orderby,
-                                           select=select,
-                                           expand=expand)
+    return client.list_calendar_permissions(group_id=group_id,
+                                            orderby=orderby,
+                                            select=select,
+                                            expand=expand)
 
 
 def calendar_group_calendar_list_calendar_view(client,
@@ -977,10 +1021,10 @@ def calendar_group_calendar_list_event(client,
                                        orderby=None,
                                        select=None,
                                        expand=None):
-    return client.list_event(group_id=group_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_events(group_id=group_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def calendar_group_calendar_list_multi_value_extended_property(client,
@@ -988,10 +1032,10 @@ def calendar_group_calendar_list_multi_value_extended_property(client,
                                                                orderby=None,
                                                                select=None,
                                                                expand=None):
-    return client.list_multi_value_extended_property(group_id=group_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(group_id=group_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_calendar_list_single_value_extended_property(client,
@@ -999,10 +1043,10 @@ def calendar_group_calendar_list_single_value_extended_property(client,
                                                                 orderby=None,
                                                                 select=None,
                                                                 expand=None):
-    return client.list_single_value_extended_property(group_id=group_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(group_id=group_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_group_calendar_show_calendar_permission(client,
@@ -1010,10 +1054,10 @@ def calendar_group_calendar_show_calendar_permission(client,
                                                      calendar_permission_id,
                                                      select=None,
                                                      expand=None):
-    return client.get_calendar_permission(group_id=group_id,
-                                          calendar_permission_id=calendar_permission_id,
-                                          select=select,
-                                          expand=expand)
+    return client.get_calendar_permissions(group_id=group_id,
+                                           calendar_permission_id=calendar_permission_id,
+                                           select=select,
+                                           expand=expand)
 
 
 def calendar_group_calendar_show_calendar_view(client,
@@ -1036,10 +1080,10 @@ def calendar_group_calendar_show_event(client,
                                        event_id,
                                        select=None,
                                        expand=None):
-    return client.get_event(group_id=group_id,
-                            event_id=event_id,
-                            select=select,
-                            expand=expand)
+    return client.get_events(group_id=group_id,
+                             event_id=event_id,
+                             select=select,
+                             expand=expand)
 
 
 def calendar_group_calendar_show_multi_value_extended_property(client,
@@ -1047,10 +1091,10 @@ def calendar_group_calendar_show_multi_value_extended_property(client,
                                                                multi_value_legacy_extended_property_id,
                                                                select=None,
                                                                expand=None):
-    return client.get_multi_value_extended_property(group_id=group_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(group_id=group_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_group_calendar_show_single_value_extended_property(client,
@@ -1058,10 +1102,10 @@ def calendar_group_calendar_show_single_value_extended_property(client,
                                                                 single_value_legacy_extended_property_id,
                                                                 select=None,
                                                                 expand=None):
-    return client.get_single_value_extended_property(group_id=group_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(group_id=group_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_calendar_update_calendar_permission(client,
@@ -1073,14 +1117,16 @@ def calendar_group_calendar_update_calendar_permission(client,
                                                        is_inside_organization=None,
                                                        is_removable=None,
                                                        role=None):
-    return client.update_calendar_permission(group_id=group_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.update_calendar_permissions(group_id=group_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              body=body)
 
 
 def calendar_group_calendar_update_calendar_view(client,
@@ -1144,66 +1190,72 @@ def calendar_group_calendar_update_calendar_view(client,
                                                  location_uri=None,
                                                  unique_id=None,
                                                  unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.update_calendar_view(group_id=group_id,
                                        event_id=event_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_group_calendar_update_event(client,
@@ -1267,66 +1319,72 @@ def calendar_group_calendar_update_event(client,
                                          location_uri=None,
                                          unique_id=None,
                                          unique_id_type=None):
-    return client.update_event(group_id=group_id,
-                               event_id=event_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_events(group_id=group_id,
+                                event_id=event_id,
+                                body=body)
 
 
 def calendar_group_calendar_update_multi_value_extended_property(client,
@@ -1334,10 +1392,12 @@ def calendar_group_calendar_update_multi_value_extended_property(client,
                                                                  multi_value_legacy_extended_property_id,
                                                                  id_=None,
                                                                  value=None):
-    return client.update_multi_value_extended_property(group_id=group_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(group_id=group_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_group_calendar_update_single_value_extended_property(client,
@@ -1345,10 +1405,12 @@ def calendar_group_calendar_update_single_value_extended_property(client,
                                                                   single_value_legacy_extended_property_id,
                                                                   id_=None,
                                                                   value=None):
-    return client.update_single_value_extended_property(group_id=group_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(group_id=group_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_group_calendar_view_create_attachment(client,
@@ -1360,23 +1422,27 @@ def calendar_group_calendar_view_create_attachment(client,
                                                    last_modified_date_time=None,
                                                    name=None,
                                                    size=None):
-    return client.create_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_group_calendar_view_create_extension(client,
                                                   group_id,
                                                   event_id,
                                                   id_=None):
-    return client.create_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_group_calendar_view_create_instance(client,
@@ -1440,66 +1506,72 @@ def calendar_group_calendar_view_create_instance(client,
                                                  location_uri=None,
                                                  unique_id=None,
                                                  unique_id_type=None):
-    return client.create_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_group_calendar_view_create_multi_value_extended_property(client,
@@ -1507,10 +1579,12 @@ def calendar_group_calendar_view_create_multi_value_extended_property(client,
                                                                       event_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.create_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_group_calendar_view_create_single_value_extended_property(client,
@@ -1518,10 +1592,12 @@ def calendar_group_calendar_view_create_single_value_extended_property(client,
                                                                        event_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.create_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_group_calendar_view_delete_attachment(client,
@@ -1529,10 +1605,10 @@ def calendar_group_calendar_view_delete_attachment(client,
                                                    event_id,
                                                    attachment_id,
                                                    if_match=None):
-    return client.delete_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_group_calendar_view_delete_calendar(client,
@@ -1549,10 +1625,10 @@ def calendar_group_calendar_view_delete_extension(client,
                                                   event_id,
                                                   extension_id,
                                                   if_match=None):
-    return client.delete_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_group_calendar_view_delete_instance(client,
@@ -1560,10 +1636,10 @@ def calendar_group_calendar_view_delete_instance(client,
                                                  event_id,
                                                  event_id1,
                                                  if_match=None):
-    return client.delete_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_group_calendar_view_delete_multi_value_extended_property(client,
@@ -1571,10 +1647,10 @@ def calendar_group_calendar_view_delete_multi_value_extended_property(client,
                                                                       event_id,
                                                                       multi_value_legacy_extended_property_id,
                                                                       if_match=None):
-    return client.delete_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_group_calendar_view_delete_single_value_extended_property(client,
@@ -1582,10 +1658,10 @@ def calendar_group_calendar_view_delete_single_value_extended_property(client,
                                                                        event_id,
                                                                        single_value_legacy_extended_property_id,
                                                                        if_match=None):
-    return client.delete_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_group_calendar_view_list_attachment(client,
@@ -1594,11 +1670,11 @@ def calendar_group_calendar_view_list_attachment(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_attachment(group_id=group_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(group_id=group_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_group_calendar_view_list_extension(client,
@@ -1607,11 +1683,11 @@ def calendar_group_calendar_view_list_extension(client,
                                                 orderby=None,
                                                 select=None,
                                                 expand=None):
-    return client.list_extension(group_id=group_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(group_id=group_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_group_calendar_view_list_instance(client,
@@ -1620,11 +1696,11 @@ def calendar_group_calendar_view_list_instance(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_instance(group_id=group_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(group_id=group_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_group_calendar_view_list_multi_value_extended_property(client,
@@ -1633,11 +1709,11 @@ def calendar_group_calendar_view_list_multi_value_extended_property(client,
                                                                     orderby=None,
                                                                     select=None,
                                                                     expand=None):
-    return client.list_multi_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_calendar_view_list_single_value_extended_property(client,
@@ -1646,11 +1722,11 @@ def calendar_group_calendar_view_list_single_value_extended_property(client,
                                                                      orderby=None,
                                                                      select=None,
                                                                      expand=None):
-    return client.list_single_value_extended_property(group_id=group_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(group_id=group_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_group_calendar_view_show_attachment(client,
@@ -1659,11 +1735,11 @@ def calendar_group_calendar_view_show_attachment(client,
                                                  attachment_id,
                                                  select=None,
                                                  expand=None):
-    return client.get_attachment(group_id=group_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(group_id=group_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_group_calendar_view_show_calendar(client,
@@ -1683,11 +1759,11 @@ def calendar_group_calendar_view_show_extension(client,
                                                 extension_id,
                                                 select=None,
                                                 expand=None):
-    return client.get_extension(group_id=group_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(group_id=group_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_group_calendar_view_show_instance(client,
@@ -1696,11 +1772,11 @@ def calendar_group_calendar_view_show_instance(client,
                                                event_id1,
                                                select=None,
                                                expand=None):
-    return client.get_instance(group_id=group_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(group_id=group_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_group_calendar_view_show_multi_value_extended_property(client,
@@ -1709,11 +1785,11 @@ def calendar_group_calendar_view_show_multi_value_extended_property(client,
                                                                     multi_value_legacy_extended_property_id,
                                                                     select=None,
                                                                     expand=None):
-    return client.get_multi_value_extended_property(group_id=group_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(group_id=group_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_group_calendar_view_show_single_value_extended_property(client,
@@ -1722,11 +1798,11 @@ def calendar_group_calendar_view_show_single_value_extended_property(client,
                                                                      single_value_legacy_extended_property_id,
                                                                      select=None,
                                                                      expand=None):
-    return client.get_single_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_calendar_view_update_attachment(client,
@@ -1739,15 +1815,17 @@ def calendar_group_calendar_view_update_attachment(client,
                                                    last_modified_date_time=None,
                                                    name=None,
                                                    size=None):
-    return client.update_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_group_calendar_view_update_calendar(client,
@@ -1770,25 +1848,27 @@ def calendar_group_calendar_view_update_calendar(client,
                                                  events=None,
                                                  multi_value_extended_properties=None,
                                                  single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(group_id=group_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_group_calendar_view_update_extension(client,
@@ -1796,10 +1876,12 @@ def calendar_group_calendar_view_update_extension(client,
                                                   event_id,
                                                   extension_id,
                                                   id_=None):
-    return client.update_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_group_calendar_view_update_instance(client,
@@ -1864,67 +1946,73 @@ def calendar_group_calendar_view_update_instance(client,
                                                  location_uri=None,
                                                  unique_id=None,
                                                  unique_id_type=None):
-    return client.update_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_group_calendar_view_update_multi_value_extended_property(client,
@@ -1933,11 +2021,13 @@ def calendar_group_calendar_view_update_multi_value_extended_property(client,
                                                                       multi_value_legacy_extended_property_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.update_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_group_calendar_view_update_single_value_extended_property(client,
@@ -1946,11 +2036,13 @@ def calendar_group_calendar_view_update_single_value_extended_property(client,
                                                                        single_value_legacy_extended_property_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.update_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_group_calendar_event_create_attachment(client,
@@ -1962,23 +2054,27 @@ def calendar_group_calendar_event_create_attachment(client,
                                                     last_modified_date_time=None,
                                                     name=None,
                                                     size=None):
-    return client.create_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_group_calendar_event_create_extension(client,
                                                    group_id,
                                                    event_id,
                                                    id_=None):
-    return client.create_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_group_calendar_event_create_instance(client,
@@ -2042,66 +2138,72 @@ def calendar_group_calendar_event_create_instance(client,
                                                   location_uri=None,
                                                   unique_id=None,
                                                   unique_id_type=None):
-    return client.create_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_group_calendar_event_create_multi_value_extended_property(client,
@@ -2109,10 +2211,12 @@ def calendar_group_calendar_event_create_multi_value_extended_property(client,
                                                                        event_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.create_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_group_calendar_event_create_single_value_extended_property(client,
@@ -2120,10 +2224,12 @@ def calendar_group_calendar_event_create_single_value_extended_property(client,
                                                                         event_id,
                                                                         id_=None,
                                                                         value=None):
-    return client.create_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_group_calendar_event_delete_attachment(client,
@@ -2131,10 +2237,10 @@ def calendar_group_calendar_event_delete_attachment(client,
                                                     event_id,
                                                     attachment_id,
                                                     if_match=None):
-    return client.delete_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_group_calendar_event_delete_calendar(client,
@@ -2151,10 +2257,10 @@ def calendar_group_calendar_event_delete_extension(client,
                                                    event_id,
                                                    extension_id,
                                                    if_match=None):
-    return client.delete_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_group_calendar_event_delete_instance(client,
@@ -2162,10 +2268,10 @@ def calendar_group_calendar_event_delete_instance(client,
                                                   event_id,
                                                   event_id1,
                                                   if_match=None):
-    return client.delete_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_group_calendar_event_delete_multi_value_extended_property(client,
@@ -2173,10 +2279,10 @@ def calendar_group_calendar_event_delete_multi_value_extended_property(client,
                                                                        event_id,
                                                                        multi_value_legacy_extended_property_id,
                                                                        if_match=None):
-    return client.delete_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_group_calendar_event_delete_single_value_extended_property(client,
@@ -2184,10 +2290,10 @@ def calendar_group_calendar_event_delete_single_value_extended_property(client,
                                                                         event_id,
                                                                         single_value_legacy_extended_property_id,
                                                                         if_match=None):
-    return client.delete_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_group_calendar_event_list_attachment(client,
@@ -2196,11 +2302,11 @@ def calendar_group_calendar_event_list_attachment(client,
                                                   orderby=None,
                                                   select=None,
                                                   expand=None):
-    return client.list_attachment(group_id=group_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(group_id=group_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_group_calendar_event_list_extension(client,
@@ -2209,11 +2315,11 @@ def calendar_group_calendar_event_list_extension(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_extension(group_id=group_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(group_id=group_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_group_calendar_event_list_instance(client,
@@ -2222,11 +2328,11 @@ def calendar_group_calendar_event_list_instance(client,
                                                 orderby=None,
                                                 select=None,
                                                 expand=None):
-    return client.list_instance(group_id=group_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(group_id=group_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_group_calendar_event_list_multi_value_extended_property(client,
@@ -2235,11 +2341,11 @@ def calendar_group_calendar_event_list_multi_value_extended_property(client,
                                                                      orderby=None,
                                                                      select=None,
                                                                      expand=None):
-    return client.list_multi_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_calendar_event_list_single_value_extended_property(client,
@@ -2248,11 +2354,11 @@ def calendar_group_calendar_event_list_single_value_extended_property(client,
                                                                       orderby=None,
                                                                       select=None,
                                                                       expand=None):
-    return client.list_single_value_extended_property(group_id=group_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(group_id=group_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_group_calendar_event_show_attachment(client,
@@ -2261,11 +2367,11 @@ def calendar_group_calendar_event_show_attachment(client,
                                                   attachment_id,
                                                   select=None,
                                                   expand=None):
-    return client.get_attachment(group_id=group_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(group_id=group_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_group_calendar_event_show_calendar(client,
@@ -2285,11 +2391,11 @@ def calendar_group_calendar_event_show_extension(client,
                                                  extension_id,
                                                  select=None,
                                                  expand=None):
-    return client.get_extension(group_id=group_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(group_id=group_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_group_calendar_event_show_instance(client,
@@ -2298,11 +2404,11 @@ def calendar_group_calendar_event_show_instance(client,
                                                 event_id1,
                                                 select=None,
                                                 expand=None):
-    return client.get_instance(group_id=group_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(group_id=group_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_group_calendar_event_show_multi_value_extended_property(client,
@@ -2311,11 +2417,11 @@ def calendar_group_calendar_event_show_multi_value_extended_property(client,
                                                                      multi_value_legacy_extended_property_id,
                                                                      select=None,
                                                                      expand=None):
-    return client.get_multi_value_extended_property(group_id=group_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(group_id=group_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_group_calendar_event_show_single_value_extended_property(client,
@@ -2324,11 +2430,11 @@ def calendar_group_calendar_event_show_single_value_extended_property(client,
                                                                       single_value_legacy_extended_property_id,
                                                                       select=None,
                                                                       expand=None):
-    return client.get_single_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_calendar_event_update_attachment(client,
@@ -2341,15 +2447,17 @@ def calendar_group_calendar_event_update_attachment(client,
                                                     last_modified_date_time=None,
                                                     name=None,
                                                     size=None):
-    return client.update_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_group_calendar_event_update_calendar(client,
@@ -2372,25 +2480,27 @@ def calendar_group_calendar_event_update_calendar(client,
                                                   events=None,
                                                   multi_value_extended_properties=None,
                                                   single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(group_id=group_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_group_calendar_event_update_extension(client,
@@ -2398,10 +2508,12 @@ def calendar_group_calendar_event_update_extension(client,
                                                    event_id,
                                                    extension_id,
                                                    id_=None):
-    return client.update_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_group_calendar_event_update_instance(client,
@@ -2466,67 +2578,73 @@ def calendar_group_calendar_event_update_instance(client,
                                                   location_uri=None,
                                                   unique_id=None,
                                                   unique_id_type=None):
-    return client.update_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_group_calendar_event_update_multi_value_extended_property(client,
@@ -2535,11 +2653,13 @@ def calendar_group_calendar_event_update_multi_value_extended_property(client,
                                                                        multi_value_legacy_extended_property_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.update_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_group_calendar_event_update_single_value_extended_property(client,
@@ -2548,11 +2668,13 @@ def calendar_group_calendar_event_update_single_value_extended_property(client,
                                                                         single_value_legacy_extended_property_id,
                                                                         id_=None,
                                                                         value=None):
-    return client.update_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_group_calendar_view_create_attachment(client,
@@ -2564,23 +2686,27 @@ def calendar_group_calendar_view_create_attachment(client,
                                                    last_modified_date_time=None,
                                                    name=None,
                                                    size=None):
-    return client.create_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_group_calendar_view_create_extension(client,
                                                   group_id,
                                                   event_id,
                                                   id_=None):
-    return client.create_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_group_calendar_view_create_instance(client,
@@ -2644,66 +2770,72 @@ def calendar_group_calendar_view_create_instance(client,
                                                  location_uri=None,
                                                  unique_id=None,
                                                  unique_id_type=None):
-    return client.create_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_group_calendar_view_create_multi_value_extended_property(client,
@@ -2711,10 +2843,12 @@ def calendar_group_calendar_view_create_multi_value_extended_property(client,
                                                                       event_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.create_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_group_calendar_view_create_single_value_extended_property(client,
@@ -2722,10 +2856,12 @@ def calendar_group_calendar_view_create_single_value_extended_property(client,
                                                                        event_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.create_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_group_calendar_view_delete_attachment(client,
@@ -2733,10 +2869,10 @@ def calendar_group_calendar_view_delete_attachment(client,
                                                    event_id,
                                                    attachment_id,
                                                    if_match=None):
-    return client.delete_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_group_calendar_view_delete_calendar(client,
@@ -2753,10 +2889,10 @@ def calendar_group_calendar_view_delete_extension(client,
                                                   event_id,
                                                   extension_id,
                                                   if_match=None):
-    return client.delete_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_group_calendar_view_delete_instance(client,
@@ -2764,10 +2900,10 @@ def calendar_group_calendar_view_delete_instance(client,
                                                  event_id,
                                                  event_id1,
                                                  if_match=None):
-    return client.delete_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_group_calendar_view_delete_multi_value_extended_property(client,
@@ -2775,10 +2911,10 @@ def calendar_group_calendar_view_delete_multi_value_extended_property(client,
                                                                       event_id,
                                                                       multi_value_legacy_extended_property_id,
                                                                       if_match=None):
-    return client.delete_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_group_calendar_view_delete_single_value_extended_property(client,
@@ -2786,10 +2922,10 @@ def calendar_group_calendar_view_delete_single_value_extended_property(client,
                                                                        event_id,
                                                                        single_value_legacy_extended_property_id,
                                                                        if_match=None):
-    return client.delete_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_group_calendar_view_list_attachment(client,
@@ -2798,11 +2934,11 @@ def calendar_group_calendar_view_list_attachment(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_attachment(group_id=group_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(group_id=group_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_group_calendar_view_list_extension(client,
@@ -2811,11 +2947,11 @@ def calendar_group_calendar_view_list_extension(client,
                                                 orderby=None,
                                                 select=None,
                                                 expand=None):
-    return client.list_extension(group_id=group_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(group_id=group_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_group_calendar_view_list_instance(client,
@@ -2824,11 +2960,11 @@ def calendar_group_calendar_view_list_instance(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_instance(group_id=group_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(group_id=group_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_group_calendar_view_list_multi_value_extended_property(client,
@@ -2837,11 +2973,11 @@ def calendar_group_calendar_view_list_multi_value_extended_property(client,
                                                                     orderby=None,
                                                                     select=None,
                                                                     expand=None):
-    return client.list_multi_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_calendar_view_list_single_value_extended_property(client,
@@ -2850,11 +2986,11 @@ def calendar_group_calendar_view_list_single_value_extended_property(client,
                                                                      orderby=None,
                                                                      select=None,
                                                                      expand=None):
-    return client.list_single_value_extended_property(group_id=group_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(group_id=group_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_group_calendar_view_show_attachment(client,
@@ -2863,11 +2999,11 @@ def calendar_group_calendar_view_show_attachment(client,
                                                  attachment_id,
                                                  select=None,
                                                  expand=None):
-    return client.get_attachment(group_id=group_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(group_id=group_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_group_calendar_view_show_calendar(client,
@@ -2887,11 +3023,11 @@ def calendar_group_calendar_view_show_extension(client,
                                                 extension_id,
                                                 select=None,
                                                 expand=None):
-    return client.get_extension(group_id=group_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(group_id=group_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_group_calendar_view_show_instance(client,
@@ -2900,11 +3036,11 @@ def calendar_group_calendar_view_show_instance(client,
                                                event_id1,
                                                select=None,
                                                expand=None):
-    return client.get_instance(group_id=group_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(group_id=group_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_group_calendar_view_show_multi_value_extended_property(client,
@@ -2913,11 +3049,11 @@ def calendar_group_calendar_view_show_multi_value_extended_property(client,
                                                                     multi_value_legacy_extended_property_id,
                                                                     select=None,
                                                                     expand=None):
-    return client.get_multi_value_extended_property(group_id=group_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(group_id=group_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_group_calendar_view_show_single_value_extended_property(client,
@@ -2926,11 +3062,11 @@ def calendar_group_calendar_view_show_single_value_extended_property(client,
                                                                      single_value_legacy_extended_property_id,
                                                                      select=None,
                                                                      expand=None):
-    return client.get_single_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_calendar_view_update_attachment(client,
@@ -2943,15 +3079,17 @@ def calendar_group_calendar_view_update_attachment(client,
                                                    last_modified_date_time=None,
                                                    name=None,
                                                    size=None):
-    return client.update_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_group_calendar_view_update_calendar(client,
@@ -2974,25 +3112,27 @@ def calendar_group_calendar_view_update_calendar(client,
                                                  events=None,
                                                  multi_value_extended_properties=None,
                                                  single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(group_id=group_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_group_calendar_view_update_extension(client,
@@ -3000,10 +3140,12 @@ def calendar_group_calendar_view_update_extension(client,
                                                   event_id,
                                                   extension_id,
                                                   id_=None):
-    return client.update_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_group_calendar_view_update_instance(client,
@@ -3068,67 +3210,73 @@ def calendar_group_calendar_view_update_instance(client,
                                                  location_uri=None,
                                                  unique_id=None,
                                                  unique_id_type=None):
-    return client.update_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_group_calendar_view_update_multi_value_extended_property(client,
@@ -3137,11 +3285,13 @@ def calendar_group_calendar_view_update_multi_value_extended_property(client,
                                                                       multi_value_legacy_extended_property_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.update_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_group_calendar_view_update_single_value_extended_property(client,
@@ -3150,11 +3300,13 @@ def calendar_group_calendar_view_update_single_value_extended_property(client,
                                                                        single_value_legacy_extended_property_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.update_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_group_calendar_view_calendar_create_calendar_permission(client,
@@ -3166,14 +3318,16 @@ def calendar_group_calendar_view_calendar_create_calendar_permission(client,
                                                                      is_inside_organization=None,
                                                                      is_removable=None,
                                                                      role=None):
-    return client.create_calendar_permission(group_id=group_id,
-                                             event_id=event_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.create_calendar_permissions(group_id=group_id,
+                                              event_id=event_id,
+                                              body=body)
 
 
 def calendar_group_calendar_view_calendar_create_calendar_view(client,
@@ -3237,66 +3391,72 @@ def calendar_group_calendar_view_calendar_create_calendar_view(client,
                                                                location_uri=None,
                                                                unique_id=None,
                                                                unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.create_calendar_view(group_id=group_id,
                                        event_id=event_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_group_calendar_view_calendar_create_event(client,
@@ -3360,66 +3520,72 @@ def calendar_group_calendar_view_calendar_create_event(client,
                                                        location_uri=None,
                                                        unique_id=None,
                                                        unique_id_type=None):
-    return client.create_event(group_id=group_id,
-                               event_id=event_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_events(group_id=group_id,
+                                event_id=event_id,
+                                body=body)
 
 
 def calendar_group_calendar_view_calendar_create_multi_value_extended_property(client,
@@ -3427,10 +3593,12 @@ def calendar_group_calendar_view_calendar_create_multi_value_extended_property(c
                                                                                event_id,
                                                                                id_=None,
                                                                                value=None):
-    return client.create_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_group_calendar_view_calendar_create_single_value_extended_property(client,
@@ -3438,10 +3606,12 @@ def calendar_group_calendar_view_calendar_create_single_value_extended_property(
                                                                                 event_id,
                                                                                 id_=None,
                                                                                 value=None):
-    return client.create_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_group_calendar_view_calendar_delete_calendar_permission(client,
@@ -3449,10 +3619,10 @@ def calendar_group_calendar_view_calendar_delete_calendar_permission(client,
                                                                      event_id,
                                                                      calendar_permission_id,
                                                                      if_match=None):
-    return client.delete_calendar_permission(group_id=group_id,
-                                             event_id=event_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             if_match=if_match)
+    return client.delete_calendar_permissions(group_id=group_id,
+                                              event_id=event_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              if_match=if_match)
 
 
 def calendar_group_calendar_view_calendar_delete_calendar_view(client,
@@ -3471,10 +3641,10 @@ def calendar_group_calendar_view_calendar_delete_event(client,
                                                        event_id,
                                                        event_id1,
                                                        if_match=None):
-    return client.delete_event(group_id=group_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               if_match=if_match)
+    return client.delete_events(group_id=group_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                if_match=if_match)
 
 
 def calendar_group_calendar_view_calendar_delete_multi_value_extended_property(client,
@@ -3482,10 +3652,10 @@ def calendar_group_calendar_view_calendar_delete_multi_value_extended_property(c
                                                                                event_id,
                                                                                multi_value_legacy_extended_property_id,
                                                                                if_match=None):
-    return client.delete_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_group_calendar_view_calendar_delete_single_value_extended_property(client,
@@ -3493,10 +3663,10 @@ def calendar_group_calendar_view_calendar_delete_single_value_extended_property(
                                                                                 event_id,
                                                                                 single_value_legacy_extended_property_id,
                                                                                 if_match=None):
-    return client.delete_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_group_calendar_view_calendar_list_calendar_permission(client,
@@ -3505,11 +3675,11 @@ def calendar_group_calendar_view_calendar_list_calendar_permission(client,
                                                                    orderby=None,
                                                                    select=None,
                                                                    expand=None):
-    return client.list_calendar_permission(group_id=group_id,
-                                           event_id=event_id,
-                                           orderby=orderby,
-                                           select=select,
-                                           expand=expand)
+    return client.list_calendar_permissions(group_id=group_id,
+                                            event_id=event_id,
+                                            orderby=orderby,
+                                            select=select,
+                                            expand=expand)
 
 
 def calendar_group_calendar_view_calendar_list_calendar_view(client,
@@ -3531,11 +3701,11 @@ def calendar_group_calendar_view_calendar_list_event(client,
                                                      orderby=None,
                                                      select=None,
                                                      expand=None):
-    return client.list_event(group_id=group_id,
-                             event_id=event_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_events(group_id=group_id,
+                              event_id=event_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def calendar_group_calendar_view_calendar_list_multi_value_extended_property(client,
@@ -3544,11 +3714,11 @@ def calendar_group_calendar_view_calendar_list_multi_value_extended_property(cli
                                                                              orderby=None,
                                                                              select=None,
                                                                              expand=None):
-    return client.list_multi_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_calendar_view_calendar_list_single_value_extended_property(client,
@@ -3557,11 +3727,11 @@ def calendar_group_calendar_view_calendar_list_single_value_extended_property(cl
                                                                               orderby=None,
                                                                               select=None,
                                                                               expand=None):
-    return client.list_single_value_extended_property(group_id=group_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(group_id=group_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_group_calendar_view_calendar_show_calendar_permission(client,
@@ -3570,11 +3740,11 @@ def calendar_group_calendar_view_calendar_show_calendar_permission(client,
                                                                    calendar_permission_id,
                                                                    select=None,
                                                                    expand=None):
-    return client.get_calendar_permission(group_id=group_id,
-                                          event_id=event_id,
-                                          calendar_permission_id=calendar_permission_id,
-                                          select=select,
-                                          expand=expand)
+    return client.get_calendar_permissions(group_id=group_id,
+                                           event_id=event_id,
+                                           calendar_permission_id=calendar_permission_id,
+                                           select=select,
+                                           expand=expand)
 
 
 def calendar_group_calendar_view_calendar_show_calendar_view(client,
@@ -3596,11 +3766,11 @@ def calendar_group_calendar_view_calendar_show_event(client,
                                                      event_id1,
                                                      select=None,
                                                      expand=None):
-    return client.get_event(group_id=group_id,
-                            event_id=event_id,
-                            event_id1=event_id1,
-                            select=select,
-                            expand=expand)
+    return client.get_events(group_id=group_id,
+                             event_id=event_id,
+                             event_id1=event_id1,
+                             select=select,
+                             expand=expand)
 
 
 def calendar_group_calendar_view_calendar_show_multi_value_extended_property(client,
@@ -3609,11 +3779,11 @@ def calendar_group_calendar_view_calendar_show_multi_value_extended_property(cli
                                                                              multi_value_legacy_extended_property_id,
                                                                              select=None,
                                                                              expand=None):
-    return client.get_multi_value_extended_property(group_id=group_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(group_id=group_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_group_calendar_view_calendar_show_single_value_extended_property(client,
@@ -3622,11 +3792,11 @@ def calendar_group_calendar_view_calendar_show_single_value_extended_property(cl
                                                                               single_value_legacy_extended_property_id,
                                                                               select=None,
                                                                               expand=None):
-    return client.get_single_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_calendar_view_calendar_update_calendar_permission(client,
@@ -3639,15 +3809,17 @@ def calendar_group_calendar_view_calendar_update_calendar_permission(client,
                                                                      is_inside_organization=None,
                                                                      is_removable=None,
                                                                      role=None):
-    return client.update_calendar_permission(group_id=group_id,
-                                             event_id=event_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.update_calendar_permissions(group_id=group_id,
+                                              event_id=event_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              body=body)
 
 
 def calendar_group_calendar_view_calendar_update_calendar_view(client,
@@ -3712,67 +3884,73 @@ def calendar_group_calendar_view_calendar_update_calendar_view(client,
                                                                location_uri=None,
                                                                unique_id=None,
                                                                unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.update_calendar_view(group_id=group_id,
                                        event_id=event_id,
                                        event_id1=event_id1,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_group_calendar_view_calendar_update_event(client,
@@ -3837,67 +4015,73 @@ def calendar_group_calendar_view_calendar_update_event(client,
                                                        location_uri=None,
                                                        unique_id=None,
                                                        unique_id_type=None):
-    return client.update_event(group_id=group_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_events(group_id=group_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                body=body)
 
 
 def calendar_group_calendar_view_calendar_update_multi_value_extended_property(client,
@@ -3906,11 +4090,13 @@ def calendar_group_calendar_view_calendar_update_multi_value_extended_property(c
                                                                                multi_value_legacy_extended_property_id,
                                                                                id_=None,
                                                                                value=None):
-    return client.update_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_group_calendar_view_calendar_update_single_value_extended_property(client,
@@ -3919,11 +4105,13 @@ def calendar_group_calendar_view_calendar_update_single_value_extended_property(
                                                                                 single_value_legacy_extended_property_id,
                                                                                 id_=None,
                                                                                 value=None):
-    return client.update_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_group_event_create_attachment(client,
@@ -3935,23 +4123,27 @@ def calendar_group_event_create_attachment(client,
                                            last_modified_date_time=None,
                                            name=None,
                                            size=None):
-    return client.create_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_group_event_create_extension(client,
                                           group_id,
                                           event_id,
                                           id_=None):
-    return client.create_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_group_event_create_instance(client,
@@ -4015,66 +4207,72 @@ def calendar_group_event_create_instance(client,
                                          location_uri=None,
                                          unique_id=None,
                                          unique_id_type=None):
-    return client.create_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_group_event_create_multi_value_extended_property(client,
@@ -4082,10 +4280,12 @@ def calendar_group_event_create_multi_value_extended_property(client,
                                                               event_id,
                                                               id_=None,
                                                               value=None):
-    return client.create_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_group_event_create_single_value_extended_property(client,
@@ -4093,10 +4293,12 @@ def calendar_group_event_create_single_value_extended_property(client,
                                                                event_id,
                                                                id_=None,
                                                                value=None):
-    return client.create_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_group_event_delete_attachment(client,
@@ -4104,10 +4306,10 @@ def calendar_group_event_delete_attachment(client,
                                            event_id,
                                            attachment_id,
                                            if_match=None):
-    return client.delete_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_group_event_delete_calendar(client,
@@ -4124,10 +4326,10 @@ def calendar_group_event_delete_extension(client,
                                           event_id,
                                           extension_id,
                                           if_match=None):
-    return client.delete_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_group_event_delete_instance(client,
@@ -4135,10 +4337,10 @@ def calendar_group_event_delete_instance(client,
                                          event_id,
                                          event_id1,
                                          if_match=None):
-    return client.delete_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_group_event_delete_multi_value_extended_property(client,
@@ -4146,10 +4348,10 @@ def calendar_group_event_delete_multi_value_extended_property(client,
                                                               event_id,
                                                               multi_value_legacy_extended_property_id,
                                                               if_match=None):
-    return client.delete_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_group_event_delete_single_value_extended_property(client,
@@ -4157,10 +4359,10 @@ def calendar_group_event_delete_single_value_extended_property(client,
                                                                event_id,
                                                                single_value_legacy_extended_property_id,
                                                                if_match=None):
-    return client.delete_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_group_event_list_attachment(client,
@@ -4169,11 +4371,11 @@ def calendar_group_event_list_attachment(client,
                                          orderby=None,
                                          select=None,
                                          expand=None):
-    return client.list_attachment(group_id=group_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(group_id=group_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_group_event_list_extension(client,
@@ -4182,11 +4384,11 @@ def calendar_group_event_list_extension(client,
                                         orderby=None,
                                         select=None,
                                         expand=None):
-    return client.list_extension(group_id=group_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(group_id=group_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_group_event_list_instance(client,
@@ -4195,11 +4397,11 @@ def calendar_group_event_list_instance(client,
                                        orderby=None,
                                        select=None,
                                        expand=None):
-    return client.list_instance(group_id=group_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(group_id=group_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_group_event_list_multi_value_extended_property(client,
@@ -4208,11 +4410,11 @@ def calendar_group_event_list_multi_value_extended_property(client,
                                                             orderby=None,
                                                             select=None,
                                                             expand=None):
-    return client.list_multi_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_event_list_single_value_extended_property(client,
@@ -4221,11 +4423,11 @@ def calendar_group_event_list_single_value_extended_property(client,
                                                              orderby=None,
                                                              select=None,
                                                              expand=None):
-    return client.list_single_value_extended_property(group_id=group_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(group_id=group_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_group_event_show_attachment(client,
@@ -4234,11 +4436,11 @@ def calendar_group_event_show_attachment(client,
                                          attachment_id,
                                          select=None,
                                          expand=None):
-    return client.get_attachment(group_id=group_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(group_id=group_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_group_event_show_calendar(client,
@@ -4258,11 +4460,11 @@ def calendar_group_event_show_extension(client,
                                         extension_id,
                                         select=None,
                                         expand=None):
-    return client.get_extension(group_id=group_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(group_id=group_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_group_event_show_instance(client,
@@ -4271,11 +4473,11 @@ def calendar_group_event_show_instance(client,
                                        event_id1,
                                        select=None,
                                        expand=None):
-    return client.get_instance(group_id=group_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(group_id=group_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_group_event_show_multi_value_extended_property(client,
@@ -4284,11 +4486,11 @@ def calendar_group_event_show_multi_value_extended_property(client,
                                                             multi_value_legacy_extended_property_id,
                                                             select=None,
                                                             expand=None):
-    return client.get_multi_value_extended_property(group_id=group_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(group_id=group_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_group_event_show_single_value_extended_property(client,
@@ -4297,11 +4499,11 @@ def calendar_group_event_show_single_value_extended_property(client,
                                                              single_value_legacy_extended_property_id,
                                                              select=None,
                                                              expand=None):
-    return client.get_single_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_event_update_attachment(client,
@@ -4314,15 +4516,17 @@ def calendar_group_event_update_attachment(client,
                                            last_modified_date_time=None,
                                            name=None,
                                            size=None):
-    return client.update_attachment(group_id=group_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(group_id=group_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_group_event_update_calendar(client,
@@ -4345,25 +4549,27 @@ def calendar_group_event_update_calendar(client,
                                          events=None,
                                          multi_value_extended_properties=None,
                                          single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(group_id=group_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_group_event_update_extension(client,
@@ -4371,10 +4577,12 @@ def calendar_group_event_update_extension(client,
                                           event_id,
                                           extension_id,
                                           id_=None):
-    return client.update_extension(group_id=group_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(group_id=group_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_group_event_update_instance(client,
@@ -4439,67 +4647,73 @@ def calendar_group_event_update_instance(client,
                                          location_uri=None,
                                          unique_id=None,
                                          unique_id_type=None):
-    return client.update_instance(group_id=group_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(group_id=group_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_group_event_update_multi_value_extended_property(client,
@@ -4508,11 +4722,13 @@ def calendar_group_event_update_multi_value_extended_property(client,
                                                               multi_value_legacy_extended_property_id,
                                                               id_=None,
                                                               value=None):
-    return client.update_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_group_event_update_single_value_extended_property(client,
@@ -4521,11 +4737,13 @@ def calendar_group_event_update_single_value_extended_property(client,
                                                                single_value_legacy_extended_property_id,
                                                                id_=None,
                                                                value=None):
-    return client.update_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_group_event_calendar_create_calendar_permission(client,
@@ -4537,14 +4755,16 @@ def calendar_group_event_calendar_create_calendar_permission(client,
                                                              is_inside_organization=None,
                                                              is_removable=None,
                                                              role=None):
-    return client.create_calendar_permission(group_id=group_id,
-                                             event_id=event_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.create_calendar_permissions(group_id=group_id,
+                                              event_id=event_id,
+                                              body=body)
 
 
 def calendar_group_event_calendar_create_calendar_view(client,
@@ -4608,66 +4828,72 @@ def calendar_group_event_calendar_create_calendar_view(client,
                                                        location_uri=None,
                                                        unique_id=None,
                                                        unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.create_calendar_view(group_id=group_id,
                                        event_id=event_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_group_event_calendar_create_event(client,
@@ -4731,66 +4957,72 @@ def calendar_group_event_calendar_create_event(client,
                                                location_uri=None,
                                                unique_id=None,
                                                unique_id_type=None):
-    return client.create_event(group_id=group_id,
-                               event_id=event_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_events(group_id=group_id,
+                                event_id=event_id,
+                                body=body)
 
 
 def calendar_group_event_calendar_create_multi_value_extended_property(client,
@@ -4798,10 +5030,12 @@ def calendar_group_event_calendar_create_multi_value_extended_property(client,
                                                                        event_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.create_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_group_event_calendar_create_single_value_extended_property(client,
@@ -4809,10 +5043,12 @@ def calendar_group_event_calendar_create_single_value_extended_property(client,
                                                                         event_id,
                                                                         id_=None,
                                                                         value=None):
-    return client.create_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_group_event_calendar_delete_calendar_permission(client,
@@ -4820,10 +5056,10 @@ def calendar_group_event_calendar_delete_calendar_permission(client,
                                                              event_id,
                                                              calendar_permission_id,
                                                              if_match=None):
-    return client.delete_calendar_permission(group_id=group_id,
-                                             event_id=event_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             if_match=if_match)
+    return client.delete_calendar_permissions(group_id=group_id,
+                                              event_id=event_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              if_match=if_match)
 
 
 def calendar_group_event_calendar_delete_calendar_view(client,
@@ -4842,10 +5078,10 @@ def calendar_group_event_calendar_delete_event(client,
                                                event_id,
                                                event_id1,
                                                if_match=None):
-    return client.delete_event(group_id=group_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               if_match=if_match)
+    return client.delete_events(group_id=group_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                if_match=if_match)
 
 
 def calendar_group_event_calendar_delete_multi_value_extended_property(client,
@@ -4853,10 +5089,10 @@ def calendar_group_event_calendar_delete_multi_value_extended_property(client,
                                                                        event_id,
                                                                        multi_value_legacy_extended_property_id,
                                                                        if_match=None):
-    return client.delete_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_group_event_calendar_delete_single_value_extended_property(client,
@@ -4864,10 +5100,10 @@ def calendar_group_event_calendar_delete_single_value_extended_property(client,
                                                                         event_id,
                                                                         single_value_legacy_extended_property_id,
                                                                         if_match=None):
-    return client.delete_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_group_event_calendar_list_calendar_permission(client,
@@ -4876,11 +5112,11 @@ def calendar_group_event_calendar_list_calendar_permission(client,
                                                            orderby=None,
                                                            select=None,
                                                            expand=None):
-    return client.list_calendar_permission(group_id=group_id,
-                                           event_id=event_id,
-                                           orderby=orderby,
-                                           select=select,
-                                           expand=expand)
+    return client.list_calendar_permissions(group_id=group_id,
+                                            event_id=event_id,
+                                            orderby=orderby,
+                                            select=select,
+                                            expand=expand)
 
 
 def calendar_group_event_calendar_list_calendar_view(client,
@@ -4902,11 +5138,11 @@ def calendar_group_event_calendar_list_event(client,
                                              orderby=None,
                                              select=None,
                                              expand=None):
-    return client.list_event(group_id=group_id,
-                             event_id=event_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_events(group_id=group_id,
+                              event_id=event_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def calendar_group_event_calendar_list_multi_value_extended_property(client,
@@ -4915,11 +5151,11 @@ def calendar_group_event_calendar_list_multi_value_extended_property(client,
                                                                      orderby=None,
                                                                      select=None,
                                                                      expand=None):
-    return client.list_multi_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_event_calendar_list_single_value_extended_property(client,
@@ -4928,11 +5164,11 @@ def calendar_group_event_calendar_list_single_value_extended_property(client,
                                                                       orderby=None,
                                                                       select=None,
                                                                       expand=None):
-    return client.list_single_value_extended_property(group_id=group_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(group_id=group_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_group_event_calendar_show_calendar_permission(client,
@@ -4941,11 +5177,11 @@ def calendar_group_event_calendar_show_calendar_permission(client,
                                                            calendar_permission_id,
                                                            select=None,
                                                            expand=None):
-    return client.get_calendar_permission(group_id=group_id,
-                                          event_id=event_id,
-                                          calendar_permission_id=calendar_permission_id,
-                                          select=select,
-                                          expand=expand)
+    return client.get_calendar_permissions(group_id=group_id,
+                                           event_id=event_id,
+                                           calendar_permission_id=calendar_permission_id,
+                                           select=select,
+                                           expand=expand)
 
 
 def calendar_group_event_calendar_show_calendar_view(client,
@@ -4967,11 +5203,11 @@ def calendar_group_event_calendar_show_event(client,
                                              event_id1,
                                              select=None,
                                              expand=None):
-    return client.get_event(group_id=group_id,
-                            event_id=event_id,
-                            event_id1=event_id1,
-                            select=select,
-                            expand=expand)
+    return client.get_events(group_id=group_id,
+                             event_id=event_id,
+                             event_id1=event_id1,
+                             select=select,
+                             expand=expand)
 
 
 def calendar_group_event_calendar_show_multi_value_extended_property(client,
@@ -4980,11 +5216,11 @@ def calendar_group_event_calendar_show_multi_value_extended_property(client,
                                                                      multi_value_legacy_extended_property_id,
                                                                      select=None,
                                                                      expand=None):
-    return client.get_multi_value_extended_property(group_id=group_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(group_id=group_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_group_event_calendar_show_single_value_extended_property(client,
@@ -4993,11 +5229,11 @@ def calendar_group_event_calendar_show_single_value_extended_property(client,
                                                                       single_value_legacy_extended_property_id,
                                                                       select=None,
                                                                       expand=None):
-    return client.get_single_value_extended_property(group_id=group_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(group_id=group_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_group_event_calendar_update_calendar_permission(client,
@@ -5010,15 +5246,17 @@ def calendar_group_event_calendar_update_calendar_permission(client,
                                                              is_inside_organization=None,
                                                              is_removable=None,
                                                              role=None):
-    return client.update_calendar_permission(group_id=group_id,
-                                             event_id=event_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.update_calendar_permissions(group_id=group_id,
+                                              event_id=event_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              body=body)
 
 
 def calendar_group_event_calendar_update_calendar_view(client,
@@ -5083,67 +5321,73 @@ def calendar_group_event_calendar_update_calendar_view(client,
                                                        location_uri=None,
                                                        unique_id=None,
                                                        unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.update_calendar_view(group_id=group_id,
                                        event_id=event_id,
                                        event_id1=event_id1,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_group_event_calendar_update_event(client,
@@ -5208,67 +5452,73 @@ def calendar_group_event_calendar_update_event(client,
                                                location_uri=None,
                                                unique_id=None,
                                                unique_id_type=None):
-    return client.update_event(group_id=group_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_events(group_id=group_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                body=body)
 
 
 def calendar_group_event_calendar_update_multi_value_extended_property(client,
@@ -5277,11 +5527,13 @@ def calendar_group_event_calendar_update_multi_value_extended_property(client,
                                                                        multi_value_legacy_extended_property_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.update_multi_value_extended_property(group_id=group_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(group_id=group_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_group_event_calendar_update_single_value_extended_property(client,
@@ -5290,11 +5542,13 @@ def calendar_group_event_calendar_update_single_value_extended_property(client,
                                                                         single_value_legacy_extended_property_id,
                                                                         id_=None,
                                                                         value=None):
-    return client.update_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(group_id=group_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_place_place_create_place(client,
@@ -5303,11 +5557,13 @@ def calendar_place_place_create_place(client,
                                       display_name=None,
                                       geo_coordinates=None,
                                       phone=None):
-    return client.create_place(id=id_,
-                               address=address,
-                               display_name=display_name,
-                               geo_coordinates=geo_coordinates,
-                               phone=phone)
+    body = {}
+    body['id'] = id_
+    body['address'] = address
+    body['display_name'] = display_name
+    body['geo_coordinates'] = geo_coordinates
+    body['phone'] = phone
+    return client.create_place(body=body)
 
 
 def calendar_place_place_delete_place(client,
@@ -5342,12 +5598,14 @@ def calendar_place_place_update_place(client,
                                       display_name=None,
                                       geo_coordinates=None,
                                       phone=None):
+    body = {}
+    body['id'] = id_
+    body['address'] = address
+    body['display_name'] = display_name
+    body['geo_coordinates'] = geo_coordinates
+    body['phone'] = phone
     return client.update_place(place_id=place_id,
-                               id=id_,
-                               address=address,
-                               display_name=display_name,
-                               geo_coordinates=geo_coordinates,
-                               phone=phone)
+                               body=body)
 
 
 def calendar_user_create_calendar(client,
@@ -5369,24 +5627,26 @@ def calendar_user_create_calendar(client,
                                   events=None,
                                   multi_value_extended_properties=None,
                                   single_value_extended_properties=None):
-    return client.create_calendar(user_id=user_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    return client.create_calendars(user_id=user_id,
+                                   body=body)
 
 
 def calendar_user_create_calendar_group(client,
@@ -5396,12 +5656,14 @@ def calendar_user_create_calendar_group(client,
                                         class_id=None,
                                         name=None,
                                         calendars=None):
-    return client.create_calendar_group(user_id=user_id,
-                                        id=id_,
-                                        change_key=change_key,
-                                        class_id=class_id,
-                                        name=name,
-                                        calendars=calendars)
+    body = {}
+    body['id'] = id_
+    body['change_key'] = change_key
+    body['class_id'] = class_id
+    body['name'] = name
+    body['calendars'] = calendars
+    return client.create_calendar_groups(user_id=user_id,
+                                         body=body)
 
 
 def calendar_user_create_calendar_view(client,
@@ -5464,65 +5726,71 @@ def calendar_user_create_calendar_view(client,
                                        location_uri=None,
                                        unique_id=None,
                                        unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.create_calendar_view(user_id=user_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_create_event(client,
@@ -5585,65 +5853,71 @@ def calendar_user_create_event(client,
                                location_uri=None,
                                unique_id=None,
                                unique_id_type=None):
-    return client.create_event(user_id=user_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_events(user_id=user_id,
+                                body=body)
 
 
 def calendar_user_delete_calendar(client,
@@ -5651,9 +5925,9 @@ def calendar_user_delete_calendar(client,
                                   calendar_id=None,
                                   if_match=None):
     if user_id is not None and calendar_id is not None:
-        return client.delete_calendar(user_id=user_id,
-                                      calendar_id=calendar_id,
-                                      if_match=if_match)
+        return client.delete_calendars(user_id=user_id,
+                                       calendar_id=calendar_id,
+                                       if_match=if_match)
     return client.delete_calendar(user_id=user_id,
                                   if_match=if_match)
 
@@ -5662,9 +5936,9 @@ def calendar_user_delete_calendar_group(client,
                                         user_id,
                                         calendar_group_id,
                                         if_match=None):
-    return client.delete_calendar_group(user_id=user_id,
-                                        calendar_group_id=calendar_group_id,
-                                        if_match=if_match)
+    return client.delete_calendar_groups(user_id=user_id,
+                                         calendar_group_id=calendar_group_id,
+                                         if_match=if_match)
 
 
 def calendar_user_delete_calendar_view(client,
@@ -5680,9 +5954,9 @@ def calendar_user_delete_event(client,
                                user_id,
                                event_id,
                                if_match=None):
-    return client.delete_event(user_id=user_id,
-                               event_id=event_id,
-                               if_match=if_match)
+    return client.delete_events(user_id=user_id,
+                                event_id=event_id,
+                                if_match=if_match)
 
 
 def calendar_user_list_calendar(client,
@@ -5690,10 +5964,10 @@ def calendar_user_list_calendar(client,
                                 orderby=None,
                                 select=None,
                                 expand=None):
-    return client.list_calendar(user_id=user_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_calendars(user_id=user_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_list_calendar_group(client,
@@ -5701,10 +5975,10 @@ def calendar_user_list_calendar_group(client,
                                       orderby=None,
                                       select=None,
                                       expand=None):
-    return client.list_calendar_group(user_id=user_id,
-                                      orderby=orderby,
-                                      select=select,
-                                      expand=expand)
+    return client.list_calendar_groups(user_id=user_id,
+                                       orderby=orderby,
+                                       select=select,
+                                       expand=expand)
 
 
 def calendar_user_list_calendar_view(client,
@@ -5727,10 +6001,10 @@ def calendar_user_list_event(client,
                              orderby=None,
                              select=None,
                              expand=None):
-    return client.list_event(user_id=user_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_events(user_id=user_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def calendar_user_show_calendar(client,
@@ -5739,10 +6013,10 @@ def calendar_user_show_calendar(client,
                                 select=None,
                                 expand=None):
     if user_id is not None and calendar_id is not None:
-        return client.get_calendar(user_id=user_id,
-                                   calendar_id=calendar_id,
-                                   select=select,
-                                   expand=expand)
+        return client.get_calendars(user_id=user_id,
+                                    calendar_id=calendar_id,
+                                    select=select,
+                                    expand=expand)
     return client.get_calendar(user_id=user_id,
                                select=select,
                                expand=expand)
@@ -5753,10 +6027,10 @@ def calendar_user_show_calendar_group(client,
                                       calendar_group_id,
                                       select=None,
                                       expand=None):
-    return client.get_calendar_group(user_id=user_id,
-                                     calendar_group_id=calendar_group_id,
-                                     select=select,
-                                     expand=expand)
+    return client.get_calendar_groups(user_id=user_id,
+                                      calendar_group_id=calendar_group_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def calendar_user_show_calendar_view(client,
@@ -5779,10 +6053,10 @@ def calendar_user_show_event(client,
                              event_id,
                              select=None,
                              expand=None):
-    return client.get_event(user_id=user_id,
-                            event_id=event_id,
-                            select=select,
-                            expand=expand)
+    return client.get_events(user_id=user_id,
+                             event_id=event_id,
+                             select=select,
+                             expand=expand)
 
 
 def calendar_user_update_calendar(client,
@@ -5805,44 +6079,30 @@ def calendar_user_update_calendar(client,
                                   events=None,
                                   multi_value_extended_properties=None,
                                   single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     if user_id is not None and calendar_id is not None:
-        return client.update_calendar(user_id=user_id,
-                                      calendar_id=calendar_id,
-                                      id=id_,
-                                      allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                      can_edit=can_edit,
-                                      can_share=can_share,
-                                      can_view_private_items=can_view_private_items,
-                                      change_key=change_key,
-                                      color=color,
-                                      default_online_meeting_provider=default_online_meeting_provider,
-                                      is_removable=is_removable,
-                                      is_tallying_responses=is_tallying_responses,
-                                      name=name,
-                                      owner=owner,
-                                      calendar_permissions=calendar_permissions,
-                                      calendar_view=calendar_view,
-                                      events=events,
-                                      multi_value_extended_properties=multi_value_extended_properties,
-                                      single_value_extended_properties=single_value_extended_properties)
+        return client.update_calendars(user_id=user_id,
+                                       calendar_id=calendar_id,
+                                       body=body)
     return client.update_calendar(user_id=user_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_user_update_calendar_group(client,
@@ -5853,13 +6113,15 @@ def calendar_user_update_calendar_group(client,
                                         class_id=None,
                                         name=None,
                                         calendars=None):
-    return client.update_calendar_group(user_id=user_id,
-                                        calendar_group_id=calendar_group_id,
-                                        id=id_,
-                                        change_key=change_key,
-                                        class_id=class_id,
-                                        name=name,
-                                        calendars=calendars)
+    body = {}
+    body['id'] = id_
+    body['change_key'] = change_key
+    body['class_id'] = class_id
+    body['name'] = name
+    body['calendars'] = calendars
+    return client.update_calendar_groups(user_id=user_id,
+                                         calendar_group_id=calendar_group_id,
+                                         body=body)
 
 
 def calendar_user_update_calendar_view(client,
@@ -5923,66 +6185,72 @@ def calendar_user_update_calendar_view(client,
                                        location_uri=None,
                                        unique_id=None,
                                        unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.update_calendar_view(user_id=user_id,
                                        event_id=event_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_update_event(client,
@@ -6046,66 +6314,72 @@ def calendar_user_update_event(client,
                                location_uri=None,
                                unique_id=None,
                                unique_id_type=None):
-    return client.update_event(user_id=user_id,
-                               event_id=event_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_events(user_id=user_id,
+                                event_id=event_id,
+                                body=body)
 
 
 def calendar_user_calendar_create_calendar_permission(client,
@@ -6116,13 +6390,15 @@ def calendar_user_calendar_create_calendar_permission(client,
                                                       is_inside_organization=None,
                                                       is_removable=None,
                                                       role=None):
-    return client.create_calendar_permission(user_id=user_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.create_calendar_permissions(user_id=user_id,
+                                              body=body)
 
 
 def calendar_user_calendar_create_calendar_view(client,
@@ -6185,65 +6461,71 @@ def calendar_user_calendar_create_calendar_view(client,
                                                 location_uri=None,
                                                 unique_id=None,
                                                 unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.create_calendar_view(user_id=user_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_calendar_create_event(client,
@@ -6306,92 +6588,102 @@ def calendar_user_calendar_create_event(client,
                                         location_uri=None,
                                         unique_id=None,
                                         unique_id_type=None):
-    return client.create_event(user_id=user_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_events(user_id=user_id,
+                                body=body)
 
 
 def calendar_user_calendar_create_multi_value_extended_property(client,
                                                                 user_id,
                                                                 id_=None,
                                                                 value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_create_single_value_extended_property(client,
                                                                  user_id,
                                                                  id_=None,
                                                                  value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_delete_calendar_permission(client,
                                                       user_id,
                                                       calendar_permission_id,
                                                       if_match=None):
-    return client.delete_calendar_permission(user_id=user_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             if_match=if_match)
+    return client.delete_calendar_permissions(user_id=user_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              if_match=if_match)
 
 
 def calendar_user_calendar_delete_calendar_view(client,
@@ -6407,27 +6699,27 @@ def calendar_user_calendar_delete_event(client,
                                         user_id,
                                         event_id,
                                         if_match=None):
-    return client.delete_event(user_id=user_id,
-                               event_id=event_id,
-                               if_match=if_match)
+    return client.delete_events(user_id=user_id,
+                                event_id=event_id,
+                                if_match=if_match)
 
 
 def calendar_user_calendar_delete_multi_value_extended_property(client,
                                                                 user_id,
                                                                 multi_value_legacy_extended_property_id,
                                                                 if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_delete_single_value_extended_property(client,
                                                                  user_id,
                                                                  single_value_legacy_extended_property_id,
                                                                  if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_list_calendar_permission(client,
@@ -6435,10 +6727,10 @@ def calendar_user_calendar_list_calendar_permission(client,
                                                     orderby=None,
                                                     select=None,
                                                     expand=None):
-    return client.list_calendar_permission(user_id=user_id,
-                                           orderby=orderby,
-                                           select=select,
-                                           expand=expand)
+    return client.list_calendar_permissions(user_id=user_id,
+                                            orderby=orderby,
+                                            select=select,
+                                            expand=expand)
 
 
 def calendar_user_calendar_list_calendar_view(client,
@@ -6461,10 +6753,10 @@ def calendar_user_calendar_list_event(client,
                                       orderby=None,
                                       select=None,
                                       expand=None):
-    return client.list_event(user_id=user_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_events(user_id=user_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def calendar_user_calendar_list_multi_value_extended_property(client,
@@ -6472,10 +6764,10 @@ def calendar_user_calendar_list_multi_value_extended_property(client,
                                                               orderby=None,
                                                               select=None,
                                                               expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_list_single_value_extended_property(client,
@@ -6483,10 +6775,10 @@ def calendar_user_calendar_list_single_value_extended_property(client,
                                                                orderby=None,
                                                                select=None,
                                                                expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_show_calendar_permission(client,
@@ -6494,10 +6786,10 @@ def calendar_user_calendar_show_calendar_permission(client,
                                                     calendar_permission_id,
                                                     select=None,
                                                     expand=None):
-    return client.get_calendar_permission(user_id=user_id,
-                                          calendar_permission_id=calendar_permission_id,
-                                          select=select,
-                                          expand=expand)
+    return client.get_calendar_permissions(user_id=user_id,
+                                           calendar_permission_id=calendar_permission_id,
+                                           select=select,
+                                           expand=expand)
 
 
 def calendar_user_calendar_show_calendar_view(client,
@@ -6520,10 +6812,10 @@ def calendar_user_calendar_show_event(client,
                                       event_id,
                                       select=None,
                                       expand=None):
-    return client.get_event(user_id=user_id,
-                            event_id=event_id,
-                            select=select,
-                            expand=expand)
+    return client.get_events(user_id=user_id,
+                             event_id=event_id,
+                             select=select,
+                             expand=expand)
 
 
 def calendar_user_calendar_show_multi_value_extended_property(client,
@@ -6531,10 +6823,10 @@ def calendar_user_calendar_show_multi_value_extended_property(client,
                                                               multi_value_legacy_extended_property_id,
                                                               select=None,
                                                               expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_show_single_value_extended_property(client,
@@ -6542,10 +6834,10 @@ def calendar_user_calendar_show_single_value_extended_property(client,
                                                                single_value_legacy_extended_property_id,
                                                                select=None,
                                                                expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_update_calendar_permission(client,
@@ -6557,14 +6849,16 @@ def calendar_user_calendar_update_calendar_permission(client,
                                                       is_inside_organization=None,
                                                       is_removable=None,
                                                       role=None):
-    return client.update_calendar_permission(user_id=user_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.update_calendar_permissions(user_id=user_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              body=body)
 
 
 def calendar_user_calendar_update_calendar_view(client,
@@ -6628,66 +6922,72 @@ def calendar_user_calendar_update_calendar_view(client,
                                                 location_uri=None,
                                                 unique_id=None,
                                                 unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.update_calendar_view(user_id=user_id,
                                        event_id=event_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_calendar_update_event(client,
@@ -6751,66 +7051,72 @@ def calendar_user_calendar_update_event(client,
                                         location_uri=None,
                                         unique_id=None,
                                         unique_id_type=None):
-    return client.update_event(user_id=user_id,
-                               event_id=event_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_events(user_id=user_id,
+                                event_id=event_id,
+                                body=body)
 
 
 def calendar_user_calendar_update_multi_value_extended_property(client,
@@ -6818,10 +7124,12 @@ def calendar_user_calendar_update_multi_value_extended_property(client,
                                                                 multi_value_legacy_extended_property_id,
                                                                 id_=None,
                                                                 value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_update_single_value_extended_property(client,
@@ -6829,10 +7137,12 @@ def calendar_user_calendar_update_single_value_extended_property(client,
                                                                  single_value_legacy_extended_property_id,
                                                                  id_=None,
                                                                  value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_view_create_attachment(client,
@@ -6844,23 +7154,27 @@ def calendar_user_calendar_view_create_attachment(client,
                                                   last_modified_date_time=None,
                                                   name=None,
                                                   size=None):
-    return client.create_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_user_calendar_view_create_extension(client,
                                                  user_id,
                                                  event_id,
                                                  id_=None):
-    return client.create_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_user_calendar_view_create_instance(client,
@@ -6924,66 +7238,72 @@ def calendar_user_calendar_view_create_instance(client,
                                                 location_uri=None,
                                                 unique_id=None,
                                                 unique_id_type=None):
-    return client.create_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_user_calendar_view_create_multi_value_extended_property(client,
@@ -6991,10 +7311,12 @@ def calendar_user_calendar_view_create_multi_value_extended_property(client,
                                                                      event_id,
                                                                      id_=None,
                                                                      value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_view_create_single_value_extended_property(client,
@@ -7002,10 +7324,12 @@ def calendar_user_calendar_view_create_single_value_extended_property(client,
                                                                       event_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_view_delete_attachment(client,
@@ -7013,10 +7337,10 @@ def calendar_user_calendar_view_delete_attachment(client,
                                                   event_id,
                                                   attachment_id,
                                                   if_match=None):
-    return client.delete_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_calendar(client,
@@ -7033,10 +7357,10 @@ def calendar_user_calendar_view_delete_extension(client,
                                                  event_id,
                                                  extension_id,
                                                  if_match=None):
-    return client.delete_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_instance(client,
@@ -7044,10 +7368,10 @@ def calendar_user_calendar_view_delete_instance(client,
                                                 event_id,
                                                 event_id1,
                                                 if_match=None):
-    return client.delete_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_multi_value_extended_property(client,
@@ -7055,10 +7379,10 @@ def calendar_user_calendar_view_delete_multi_value_extended_property(client,
                                                                      event_id,
                                                                      multi_value_legacy_extended_property_id,
                                                                      if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_single_value_extended_property(client,
@@ -7066,10 +7390,10 @@ def calendar_user_calendar_view_delete_single_value_extended_property(client,
                                                                       event_id,
                                                                       single_value_legacy_extended_property_id,
                                                                       if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_view_list_attachment(client,
@@ -7078,11 +7402,11 @@ def calendar_user_calendar_view_list_attachment(client,
                                                 orderby=None,
                                                 select=None,
                                                 expand=None):
-    return client.list_attachment(user_id=user_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(user_id=user_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_user_calendar_view_list_extension(client,
@@ -7091,11 +7415,11 @@ def calendar_user_calendar_view_list_extension(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_extension(user_id=user_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_view_list_instance(client,
@@ -7104,11 +7428,11 @@ def calendar_user_calendar_view_list_instance(client,
                                               orderby=None,
                                               select=None,
                                               expand=None):
-    return client.list_instance(user_id=user_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(user_id=user_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_view_list_multi_value_extended_property(client,
@@ -7117,11 +7441,11 @@ def calendar_user_calendar_view_list_multi_value_extended_property(client,
                                                                    orderby=None,
                                                                    select=None,
                                                                    expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_view_list_single_value_extended_property(client,
@@ -7130,11 +7454,11 @@ def calendar_user_calendar_view_list_single_value_extended_property(client,
                                                                     orderby=None,
                                                                     select=None,
                                                                     expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_view_show_attachment(client,
@@ -7143,11 +7467,11 @@ def calendar_user_calendar_view_show_attachment(client,
                                                 attachment_id,
                                                 select=None,
                                                 expand=None):
-    return client.get_attachment(user_id=user_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(user_id=user_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_view_show_calendar(client,
@@ -7167,11 +7491,11 @@ def calendar_user_calendar_view_show_extension(client,
                                                extension_id,
                                                select=None,
                                                expand=None):
-    return client.get_extension(user_id=user_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(user_id=user_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_view_show_instance(client,
@@ -7180,11 +7504,11 @@ def calendar_user_calendar_view_show_instance(client,
                                               event_id1,
                                               select=None,
                                               expand=None):
-    return client.get_instance(user_id=user_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(user_id=user_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_user_calendar_view_show_multi_value_extended_property(client,
@@ -7193,11 +7517,11 @@ def calendar_user_calendar_view_show_multi_value_extended_property(client,
                                                                    multi_value_legacy_extended_property_id,
                                                                    select=None,
                                                                    expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_view_show_single_value_extended_property(client,
@@ -7206,11 +7530,11 @@ def calendar_user_calendar_view_show_single_value_extended_property(client,
                                                                     single_value_legacy_extended_property_id,
                                                                     select=None,
                                                                     expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_view_update_attachment(client,
@@ -7223,15 +7547,17 @@ def calendar_user_calendar_view_update_attachment(client,
                                                   last_modified_date_time=None,
                                                   name=None,
                                                   size=None):
-    return client.update_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_user_calendar_view_update_calendar(client,
@@ -7254,25 +7580,27 @@ def calendar_user_calendar_view_update_calendar(client,
                                                 events=None,
                                                 multi_value_extended_properties=None,
                                                 single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(user_id=user_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_user_calendar_view_update_extension(client,
@@ -7280,10 +7608,12 @@ def calendar_user_calendar_view_update_extension(client,
                                                  event_id,
                                                  extension_id,
                                                  id_=None):
-    return client.update_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_user_calendar_view_update_instance(client,
@@ -7348,67 +7678,73 @@ def calendar_user_calendar_view_update_instance(client,
                                                 location_uri=None,
                                                 unique_id=None,
                                                 unique_id_type=None):
-    return client.update_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_user_calendar_view_update_multi_value_extended_property(client,
@@ -7417,11 +7753,13 @@ def calendar_user_calendar_view_update_multi_value_extended_property(client,
                                                                      multi_value_legacy_extended_property_id,
                                                                      id_=None,
                                                                      value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_view_update_single_value_extended_property(client,
@@ -7430,11 +7768,13 @@ def calendar_user_calendar_view_update_single_value_extended_property(client,
                                                                       single_value_legacy_extended_property_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_event_create_attachment(client,
@@ -7446,23 +7786,27 @@ def calendar_user_calendar_event_create_attachment(client,
                                                    last_modified_date_time=None,
                                                    name=None,
                                                    size=None):
-    return client.create_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_user_calendar_event_create_extension(client,
                                                   user_id,
                                                   event_id,
                                                   id_=None):
-    return client.create_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_user_calendar_event_create_instance(client,
@@ -7526,66 +7870,72 @@ def calendar_user_calendar_event_create_instance(client,
                                                  location_uri=None,
                                                  unique_id=None,
                                                  unique_id_type=None):
-    return client.create_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_user_calendar_event_create_multi_value_extended_property(client,
@@ -7593,10 +7943,12 @@ def calendar_user_calendar_event_create_multi_value_extended_property(client,
                                                                       event_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_event_create_single_value_extended_property(client,
@@ -7604,10 +7956,12 @@ def calendar_user_calendar_event_create_single_value_extended_property(client,
                                                                        event_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_event_delete_attachment(client,
@@ -7615,10 +7969,10 @@ def calendar_user_calendar_event_delete_attachment(client,
                                                    event_id,
                                                    attachment_id,
                                                    if_match=None):
-    return client.delete_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_user_calendar_event_delete_calendar(client,
@@ -7635,10 +7989,10 @@ def calendar_user_calendar_event_delete_extension(client,
                                                   event_id,
                                                   extension_id,
                                                   if_match=None):
-    return client.delete_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_user_calendar_event_delete_instance(client,
@@ -7646,10 +8000,10 @@ def calendar_user_calendar_event_delete_instance(client,
                                                  event_id,
                                                  event_id1,
                                                  if_match=None):
-    return client.delete_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_user_calendar_event_delete_multi_value_extended_property(client,
@@ -7657,10 +8011,10 @@ def calendar_user_calendar_event_delete_multi_value_extended_property(client,
                                                                       event_id,
                                                                       multi_value_legacy_extended_property_id,
                                                                       if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_event_delete_single_value_extended_property(client,
@@ -7668,10 +8022,10 @@ def calendar_user_calendar_event_delete_single_value_extended_property(client,
                                                                        event_id,
                                                                        single_value_legacy_extended_property_id,
                                                                        if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_event_list_attachment(client,
@@ -7680,11 +8034,11 @@ def calendar_user_calendar_event_list_attachment(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_attachment(user_id=user_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(user_id=user_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_user_calendar_event_list_extension(client,
@@ -7693,11 +8047,11 @@ def calendar_user_calendar_event_list_extension(client,
                                                 orderby=None,
                                                 select=None,
                                                 expand=None):
-    return client.list_extension(user_id=user_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_event_list_instance(client,
@@ -7706,11 +8060,11 @@ def calendar_user_calendar_event_list_instance(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_instance(user_id=user_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(user_id=user_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_event_list_multi_value_extended_property(client,
@@ -7719,11 +8073,11 @@ def calendar_user_calendar_event_list_multi_value_extended_property(client,
                                                                     orderby=None,
                                                                     select=None,
                                                                     expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_event_list_single_value_extended_property(client,
@@ -7732,11 +8086,11 @@ def calendar_user_calendar_event_list_single_value_extended_property(client,
                                                                      orderby=None,
                                                                      select=None,
                                                                      expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_event_show_attachment(client,
@@ -7745,11 +8099,11 @@ def calendar_user_calendar_event_show_attachment(client,
                                                  attachment_id,
                                                  select=None,
                                                  expand=None):
-    return client.get_attachment(user_id=user_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(user_id=user_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_event_show_calendar(client,
@@ -7769,11 +8123,11 @@ def calendar_user_calendar_event_show_extension(client,
                                                 extension_id,
                                                 select=None,
                                                 expand=None):
-    return client.get_extension(user_id=user_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(user_id=user_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_event_show_instance(client,
@@ -7782,11 +8136,11 @@ def calendar_user_calendar_event_show_instance(client,
                                                event_id1,
                                                select=None,
                                                expand=None):
-    return client.get_instance(user_id=user_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(user_id=user_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_user_calendar_event_show_multi_value_extended_property(client,
@@ -7795,11 +8149,11 @@ def calendar_user_calendar_event_show_multi_value_extended_property(client,
                                                                     multi_value_legacy_extended_property_id,
                                                                     select=None,
                                                                     expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_event_show_single_value_extended_property(client,
@@ -7808,11 +8162,11 @@ def calendar_user_calendar_event_show_single_value_extended_property(client,
                                                                      single_value_legacy_extended_property_id,
                                                                      select=None,
                                                                      expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_event_update_attachment(client,
@@ -7825,15 +8179,17 @@ def calendar_user_calendar_event_update_attachment(client,
                                                    last_modified_date_time=None,
                                                    name=None,
                                                    size=None):
-    return client.update_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_user_calendar_event_update_calendar(client,
@@ -7856,25 +8212,27 @@ def calendar_user_calendar_event_update_calendar(client,
                                                  events=None,
                                                  multi_value_extended_properties=None,
                                                  single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(user_id=user_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_user_calendar_event_update_extension(client,
@@ -7882,10 +8240,12 @@ def calendar_user_calendar_event_update_extension(client,
                                                   event_id,
                                                   extension_id,
                                                   id_=None):
-    return client.update_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_user_calendar_event_update_instance(client,
@@ -7950,67 +8310,73 @@ def calendar_user_calendar_event_update_instance(client,
                                                  location_uri=None,
                                                  unique_id=None,
                                                  unique_id_type=None):
-    return client.update_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_user_calendar_event_update_multi_value_extended_property(client,
@@ -8019,11 +8385,13 @@ def calendar_user_calendar_event_update_multi_value_extended_property(client,
                                                                       multi_value_legacy_extended_property_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_event_update_single_value_extended_property(client,
@@ -8032,11 +8400,13 @@ def calendar_user_calendar_event_update_single_value_extended_property(client,
                                                                        single_value_legacy_extended_property_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_group_create_calendar(client,
@@ -8059,25 +8429,27 @@ def calendar_user_calendar_group_create_calendar(client,
                                                  events=None,
                                                  multi_value_extended_properties=None,
                                                  single_value_extended_properties=None):
-    return client.create_calendar(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    return client.create_calendars(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   body=body)
 
 
 def calendar_user_calendar_group_delete_calendar(client,
@@ -8085,10 +8457,10 @@ def calendar_user_calendar_group_delete_calendar(client,
                                                  calendar_group_id,
                                                  calendar_id,
                                                  if_match=None):
-    return client.delete_calendar(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  if_match=if_match)
+    return client.delete_calendars(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   if_match=if_match)
 
 
 def calendar_user_calendar_group_list_calendar(client,
@@ -8097,11 +8469,11 @@ def calendar_user_calendar_group_list_calendar(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_calendar(user_id=user_id,
-                                calendar_group_id=calendar_group_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_calendars(user_id=user_id,
+                                 calendar_group_id=calendar_group_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_group_show_calendar(client,
@@ -8110,11 +8482,11 @@ def calendar_user_calendar_group_show_calendar(client,
                                                calendar_id,
                                                select=None,
                                                expand=None):
-    return client.get_calendar(user_id=user_id,
-                               calendar_group_id=calendar_group_id,
-                               calendar_id=calendar_id,
-                               select=select,
-                               expand=expand)
+    return client.get_calendars(user_id=user_id,
+                                calendar_group_id=calendar_group_id,
+                                calendar_id=calendar_id,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_user_calendar_group_update_calendar(client,
@@ -8138,26 +8510,28 @@ def calendar_user_calendar_group_update_calendar(client,
                                                  events=None,
                                                  multi_value_extended_properties=None,
                                                  single_value_extended_properties=None):
-    return client.update_calendar(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    return client.update_calendars(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   body=body)
 
 
 def calendar_user_calendar_group_calendar_create_calendar_permission(client,
@@ -8170,15 +8544,17 @@ def calendar_user_calendar_group_calendar_create_calendar_permission(client,
                                                                      is_inside_organization=None,
                                                                      is_removable=None,
                                                                      role=None):
-    return client.create_calendar_permission(user_id=user_id,
-                                             calendar_group_id=calendar_group_id,
-                                             calendar_id=calendar_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.create_calendar_permissions(user_id=user_id,
+                                              calendar_group_id=calendar_group_id,
+                                              calendar_id=calendar_id,
+                                              body=body)
 
 
 def calendar_user_calendar_group_calendar_create_calendar_view(client,
@@ -8243,67 +8619,73 @@ def calendar_user_calendar_group_calendar_create_calendar_view(client,
                                                                location_uri=None,
                                                                unique_id=None,
                                                                unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.create_calendar_view(user_id=user_id,
                                        calendar_group_id=calendar_group_id,
                                        calendar_id=calendar_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_calendar_group_calendar_create_event(client,
@@ -8368,67 +8750,73 @@ def calendar_user_calendar_group_calendar_create_event(client,
                                                        location_uri=None,
                                                        unique_id=None,
                                                        unique_id_type=None):
-    return client.create_event(user_id=user_id,
-                               calendar_group_id=calendar_group_id,
-                               calendar_id=calendar_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_events(user_id=user_id,
+                                calendar_group_id=calendar_group_id,
+                                calendar_id=calendar_id,
+                                body=body)
 
 
 def calendar_user_calendar_group_calendar_create_multi_value_extended_property(client,
@@ -8437,11 +8825,13 @@ def calendar_user_calendar_group_calendar_create_multi_value_extended_property(c
                                                                                calendar_id,
                                                                                id_=None,
                                                                                value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       calendar_group_id=calendar_group_id,
-                                                       calendar_id=calendar_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_group_id=calendar_group_id,
+                                                         calendar_id=calendar_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_group_calendar_create_single_value_extended_property(client,
@@ -8450,11 +8840,13 @@ def calendar_user_calendar_group_calendar_create_single_value_extended_property(
                                                                                 calendar_id,
                                                                                 id_=None,
                                                                                 value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        calendar_group_id=calendar_group_id,
-                                                        calendar_id=calendar_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          calendar_group_id=calendar_group_id,
+                                                          calendar_id=calendar_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_group_calendar_delete_calendar_permission(client,
@@ -8463,11 +8855,11 @@ def calendar_user_calendar_group_calendar_delete_calendar_permission(client,
                                                                      calendar_id,
                                                                      calendar_permission_id,
                                                                      if_match=None):
-    return client.delete_calendar_permission(user_id=user_id,
-                                             calendar_group_id=calendar_group_id,
-                                             calendar_id=calendar_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             if_match=if_match)
+    return client.delete_calendar_permissions(user_id=user_id,
+                                              calendar_group_id=calendar_group_id,
+                                              calendar_id=calendar_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_delete_calendar_view(client,
@@ -8489,11 +8881,11 @@ def calendar_user_calendar_group_calendar_delete_event(client,
                                                        calendar_id,
                                                        event_id,
                                                        if_match=None):
-    return client.delete_event(user_id=user_id,
-                               calendar_group_id=calendar_group_id,
-                               calendar_id=calendar_id,
-                               event_id=event_id,
-                               if_match=if_match)
+    return client.delete_events(user_id=user_id,
+                                calendar_group_id=calendar_group_id,
+                                calendar_id=calendar_id,
+                                event_id=event_id,
+                                if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_delete_multi_value_extended_property(client,
@@ -8502,11 +8894,11 @@ def calendar_user_calendar_group_calendar_delete_multi_value_extended_property(c
                                                                                calendar_id,
                                                                                multi_value_legacy_extended_property_id,
                                                                                if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       calendar_group_id=calendar_group_id,
-                                                       calendar_id=calendar_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_group_id=calendar_group_id,
+                                                         calendar_id=calendar_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_delete_single_value_extended_property(client,
@@ -8515,11 +8907,11 @@ def calendar_user_calendar_group_calendar_delete_single_value_extended_property(
                                                                                 calendar_id,
                                                                                 single_value_legacy_extended_property_id,
                                                                                 if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        calendar_group_id=calendar_group_id,
-                                                        calendar_id=calendar_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          calendar_group_id=calendar_group_id,
+                                                          calendar_id=calendar_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_list_calendar_permission(client,
@@ -8529,12 +8921,12 @@ def calendar_user_calendar_group_calendar_list_calendar_permission(client,
                                                                    orderby=None,
                                                                    select=None,
                                                                    expand=None):
-    return client.list_calendar_permission(user_id=user_id,
-                                           calendar_group_id=calendar_group_id,
-                                           calendar_id=calendar_id,
-                                           orderby=orderby,
-                                           select=select,
-                                           expand=expand)
+    return client.list_calendar_permissions(user_id=user_id,
+                                            calendar_group_id=calendar_group_id,
+                                            calendar_id=calendar_id,
+                                            orderby=orderby,
+                                            select=select,
+                                            expand=expand)
 
 
 def calendar_user_calendar_group_calendar_list_calendar_view(client,
@@ -8559,12 +8951,12 @@ def calendar_user_calendar_group_calendar_list_event(client,
                                                      orderby=None,
                                                      select=None,
                                                      expand=None):
-    return client.list_event(user_id=user_id,
-                             calendar_group_id=calendar_group_id,
-                             calendar_id=calendar_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_events(user_id=user_id,
+                              calendar_group_id=calendar_group_id,
+                              calendar_id=calendar_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def calendar_user_calendar_group_calendar_list_multi_value_extended_property(client,
@@ -8574,12 +8966,12 @@ def calendar_user_calendar_group_calendar_list_multi_value_extended_property(cli
                                                                              orderby=None,
                                                                              select=None,
                                                                              expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     calendar_group_id=calendar_group_id,
-                                                     calendar_id=calendar_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       calendar_group_id=calendar_group_id,
+                                                       calendar_id=calendar_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_group_calendar_list_single_value_extended_property(client,
@@ -8589,12 +8981,12 @@ def calendar_user_calendar_group_calendar_list_single_value_extended_property(cl
                                                                               orderby=None,
                                                                               select=None,
                                                                               expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      calendar_group_id=calendar_group_id,
-                                                      calendar_id=calendar_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        calendar_group_id=calendar_group_id,
+                                                        calendar_id=calendar_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_group_calendar_show_calendar_permission(client,
@@ -8604,12 +8996,12 @@ def calendar_user_calendar_group_calendar_show_calendar_permission(client,
                                                                    calendar_permission_id,
                                                                    select=None,
                                                                    expand=None):
-    return client.get_calendar_permission(user_id=user_id,
-                                          calendar_group_id=calendar_group_id,
-                                          calendar_id=calendar_id,
-                                          calendar_permission_id=calendar_permission_id,
-                                          select=select,
-                                          expand=expand)
+    return client.get_calendar_permissions(user_id=user_id,
+                                           calendar_group_id=calendar_group_id,
+                                           calendar_id=calendar_id,
+                                           calendar_permission_id=calendar_permission_id,
+                                           select=select,
+                                           expand=expand)
 
 
 def calendar_user_calendar_group_calendar_show_calendar_view(client,
@@ -8634,12 +9026,12 @@ def calendar_user_calendar_group_calendar_show_event(client,
                                                      event_id,
                                                      select=None,
                                                      expand=None):
-    return client.get_event(user_id=user_id,
-                            calendar_group_id=calendar_group_id,
-                            calendar_id=calendar_id,
-                            event_id=event_id,
-                            select=select,
-                            expand=expand)
+    return client.get_events(user_id=user_id,
+                             calendar_group_id=calendar_group_id,
+                             calendar_id=calendar_id,
+                             event_id=event_id,
+                             select=select,
+                             expand=expand)
 
 
 def calendar_user_calendar_group_calendar_show_multi_value_extended_property(client,
@@ -8649,12 +9041,12 @@ def calendar_user_calendar_group_calendar_show_multi_value_extended_property(cli
                                                                              multi_value_legacy_extended_property_id,
                                                                              select=None,
                                                                              expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    calendar_group_id=calendar_group_id,
-                                                    calendar_id=calendar_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      calendar_group_id=calendar_group_id,
+                                                      calendar_id=calendar_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_group_calendar_show_single_value_extended_property(client,
@@ -8664,12 +9056,12 @@ def calendar_user_calendar_group_calendar_show_single_value_extended_property(cl
                                                                               single_value_legacy_extended_property_id,
                                                                               select=None,
                                                                               expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     calendar_group_id=calendar_group_id,
-                                                     calendar_id=calendar_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       calendar_group_id=calendar_group_id,
+                                                       calendar_id=calendar_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_group_calendar_update_calendar_permission(client,
@@ -8683,16 +9075,18 @@ def calendar_user_calendar_group_calendar_update_calendar_permission(client,
                                                                      is_inside_organization=None,
                                                                      is_removable=None,
                                                                      role=None):
-    return client.update_calendar_permission(user_id=user_id,
-                                             calendar_group_id=calendar_group_id,
-                                             calendar_id=calendar_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.update_calendar_permissions(user_id=user_id,
+                                              calendar_group_id=calendar_group_id,
+                                              calendar_id=calendar_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              body=body)
 
 
 def calendar_user_calendar_group_calendar_update_calendar_view(client,
@@ -8758,68 +9152,74 @@ def calendar_user_calendar_group_calendar_update_calendar_view(client,
                                                                location_uri=None,
                                                                unique_id=None,
                                                                unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.update_calendar_view(user_id=user_id,
                                        calendar_group_id=calendar_group_id,
                                        calendar_id=calendar_id,
                                        event_id=event_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_calendar_group_calendar_update_event(client,
@@ -8885,68 +9285,74 @@ def calendar_user_calendar_group_calendar_update_event(client,
                                                        location_uri=None,
                                                        unique_id=None,
                                                        unique_id_type=None):
-    return client.update_event(user_id=user_id,
-                               calendar_group_id=calendar_group_id,
-                               calendar_id=calendar_id,
-                               event_id=event_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_events(user_id=user_id,
+                                calendar_group_id=calendar_group_id,
+                                calendar_id=calendar_id,
+                                event_id=event_id,
+                                body=body)
 
 
 def calendar_user_calendar_group_calendar_update_multi_value_extended_property(client,
@@ -8956,12 +9362,14 @@ def calendar_user_calendar_group_calendar_update_multi_value_extended_property(c
                                                                                multi_value_legacy_extended_property_id,
                                                                                id_=None,
                                                                                value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       calendar_group_id=calendar_group_id,
-                                                       calendar_id=calendar_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_group_id=calendar_group_id,
+                                                         calendar_id=calendar_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_group_calendar_update_single_value_extended_property(client,
@@ -8971,12 +9379,14 @@ def calendar_user_calendar_group_calendar_update_single_value_extended_property(
                                                                                 single_value_legacy_extended_property_id,
                                                                                 id_=None,
                                                                                 value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        calendar_group_id=calendar_group_id,
-                                                        calendar_id=calendar_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          calendar_group_id=calendar_group_id,
+                                                          calendar_id=calendar_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_group_calendar_view_create_attachment(client,
@@ -8990,16 +9400,18 @@ def calendar_user_calendar_group_calendar_view_create_attachment(client,
                                                                  last_modified_date_time=None,
                                                                  name=None,
                                                                  size=None):
-    return client.create_attachment(user_id=user_id,
-                                    calendar_group_id=calendar_group_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(user_id=user_id,
+                                     calendar_group_id=calendar_group_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_user_calendar_group_calendar_view_create_extension(client,
@@ -9008,11 +9420,13 @@ def calendar_user_calendar_group_calendar_view_create_extension(client,
                                                                 calendar_id,
                                                                 event_id,
                                                                 id_=None):
-    return client.create_extension(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    calendar_group_id=calendar_group_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_user_calendar_group_calendar_view_create_instance(client,
@@ -9078,68 +9492,74 @@ def calendar_user_calendar_group_calendar_view_create_instance(client,
                                                                location_uri=None,
                                                                unique_id=None,
                                                                unique_id_type=None):
-    return client.create_instance(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_user_calendar_group_calendar_view_create_multi_value_extended_property(client,
@@ -9149,12 +9569,14 @@ def calendar_user_calendar_group_calendar_view_create_multi_value_extended_prope
                                                                                     event_id,
                                                                                     id_=None,
                                                                                     value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       calendar_group_id=calendar_group_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_group_id=calendar_group_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_group_calendar_view_create_single_value_extended_property(client,
@@ -9164,12 +9586,14 @@ def calendar_user_calendar_group_calendar_view_create_single_value_extended_prop
                                                                                      event_id,
                                                                                      id_=None,
                                                                                      value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        calendar_group_id=calendar_group_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          calendar_group_id=calendar_group_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_group_calendar_view_delete_attachment(client,
@@ -9179,12 +9603,12 @@ def calendar_user_calendar_group_calendar_view_delete_attachment(client,
                                                                  event_id,
                                                                  attachment_id,
                                                                  if_match=None):
-    return client.delete_attachment(user_id=user_id,
-                                    calendar_group_id=calendar_group_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(user_id=user_id,
+                                     calendar_group_id=calendar_group_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_view_delete_calendar(client,
@@ -9207,12 +9631,12 @@ def calendar_user_calendar_group_calendar_view_delete_extension(client,
                                                                 event_id,
                                                                 extension_id,
                                                                 if_match=None):
-    return client.delete_extension(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(user_id=user_id,
+                                    calendar_group_id=calendar_group_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_view_delete_instance(client,
@@ -9222,12 +9646,12 @@ def calendar_user_calendar_group_calendar_view_delete_instance(client,
                                                                event_id,
                                                                event_id1,
                                                                if_match=None):
-    return client.delete_instance(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_view_delete_multi_value_extended_property(client,
@@ -9237,12 +9661,12 @@ def calendar_user_calendar_group_calendar_view_delete_multi_value_extended_prope
                                                                                     event_id,
                                                                                     multi_value_legacy_extended_property_id,
                                                                                     if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       calendar_group_id=calendar_group_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_group_id=calendar_group_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_view_delete_single_value_extended_property(client,
@@ -9252,12 +9676,12 @@ def calendar_user_calendar_group_calendar_view_delete_single_value_extended_prop
                                                                                      event_id,
                                                                                      single_value_legacy_extended_property_id,
                                                                                      if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        calendar_group_id=calendar_group_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          calendar_group_id=calendar_group_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_view_list_attachment(client,
@@ -9268,13 +9692,13 @@ def calendar_user_calendar_group_calendar_view_list_attachment(client,
                                                                orderby=None,
                                                                select=None,
                                                                expand=None):
-    return client.list_attachment(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_user_calendar_group_calendar_view_list_extension(client,
@@ -9285,13 +9709,13 @@ def calendar_user_calendar_group_calendar_view_list_extension(client,
                                                               orderby=None,
                                                               select=None,
                                                               expand=None):
-    return client.list_extension(user_id=user_id,
-                                 calendar_group_id=calendar_group_id,
-                                 calendar_id=calendar_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_group_calendar_view_list_instance(client,
@@ -9302,13 +9726,13 @@ def calendar_user_calendar_group_calendar_view_list_instance(client,
                                                              orderby=None,
                                                              select=None,
                                                              expand=None):
-    return client.list_instance(user_id=user_id,
-                                calendar_group_id=calendar_group_id,
-                                calendar_id=calendar_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(user_id=user_id,
+                                 calendar_group_id=calendar_group_id,
+                                 calendar_id=calendar_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_group_calendar_view_list_multi_value_extended_property(client,
@@ -9319,13 +9743,13 @@ def calendar_user_calendar_group_calendar_view_list_multi_value_extended_propert
                                                                                   orderby=None,
                                                                                   select=None,
                                                                                   expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     calendar_group_id=calendar_group_id,
-                                                     calendar_id=calendar_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       calendar_group_id=calendar_group_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_group_calendar_view_list_single_value_extended_property(client,
@@ -9336,13 +9760,13 @@ def calendar_user_calendar_group_calendar_view_list_single_value_extended_proper
                                                                                    orderby=None,
                                                                                    select=None,
                                                                                    expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      calendar_group_id=calendar_group_id,
-                                                      calendar_id=calendar_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        calendar_group_id=calendar_group_id,
+                                                        calendar_id=calendar_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_group_calendar_view_show_attachment(client,
@@ -9353,13 +9777,13 @@ def calendar_user_calendar_group_calendar_view_show_attachment(client,
                                                                attachment_id,
                                                                select=None,
                                                                expand=None):
-    return client.get_attachment(user_id=user_id,
-                                 calendar_group_id=calendar_group_id,
-                                 calendar_id=calendar_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_group_calendar_view_show_calendar(client,
@@ -9385,13 +9809,13 @@ def calendar_user_calendar_group_calendar_view_show_extension(client,
                                                               extension_id,
                                                               select=None,
                                                               expand=None):
-    return client.get_extension(user_id=user_id,
-                                calendar_group_id=calendar_group_id,
-                                calendar_id=calendar_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(user_id=user_id,
+                                 calendar_group_id=calendar_group_id,
+                                 calendar_id=calendar_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_group_calendar_view_show_instance(client,
@@ -9402,13 +9826,13 @@ def calendar_user_calendar_group_calendar_view_show_instance(client,
                                                              event_id1,
                                                              select=None,
                                                              expand=None):
-    return client.get_instance(user_id=user_id,
-                               calendar_group_id=calendar_group_id,
-                               calendar_id=calendar_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(user_id=user_id,
+                                calendar_group_id=calendar_group_id,
+                                calendar_id=calendar_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_user_calendar_group_calendar_view_show_multi_value_extended_property(client,
@@ -9419,13 +9843,13 @@ def calendar_user_calendar_group_calendar_view_show_multi_value_extended_propert
                                                                                   multi_value_legacy_extended_property_id,
                                                                                   select=None,
                                                                                   expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    calendar_group_id=calendar_group_id,
-                                                    calendar_id=calendar_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      calendar_group_id=calendar_group_id,
+                                                      calendar_id=calendar_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_group_calendar_view_show_single_value_extended_property(client,
@@ -9436,13 +9860,13 @@ def calendar_user_calendar_group_calendar_view_show_single_value_extended_proper
                                                                                    single_value_legacy_extended_property_id,
                                                                                    select=None,
                                                                                    expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     calendar_group_id=calendar_group_id,
-                                                     calendar_id=calendar_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       calendar_group_id=calendar_group_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_group_calendar_view_update_attachment(client,
@@ -9457,17 +9881,19 @@ def calendar_user_calendar_group_calendar_view_update_attachment(client,
                                                                  last_modified_date_time=None,
                                                                  name=None,
                                                                  size=None):
-    return client.update_attachment(user_id=user_id,
-                                    calendar_group_id=calendar_group_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(user_id=user_id,
+                                     calendar_group_id=calendar_group_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_user_calendar_group_calendar_view_update_calendar(client,
@@ -9492,27 +9918,29 @@ def calendar_user_calendar_group_calendar_view_update_calendar(client,
                                                                events=None,
                                                                multi_value_extended_properties=None,
                                                                single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(user_id=user_id,
                                   calendar_group_id=calendar_group_id,
                                   calendar_id=calendar_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_user_calendar_group_calendar_view_update_extension(client,
@@ -9522,12 +9950,14 @@ def calendar_user_calendar_group_calendar_view_update_extension(client,
                                                                 event_id,
                                                                 extension_id,
                                                                 id_=None):
-    return client.update_extension(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    calendar_group_id=calendar_group_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_user_calendar_group_calendar_view_update_instance(client,
@@ -9594,69 +10024,75 @@ def calendar_user_calendar_group_calendar_view_update_instance(client,
                                                                location_uri=None,
                                                                unique_id=None,
                                                                unique_id_type=None):
-    return client.update_instance(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_user_calendar_group_calendar_view_update_multi_value_extended_property(client,
@@ -9667,13 +10103,15 @@ def calendar_user_calendar_group_calendar_view_update_multi_value_extended_prope
                                                                                     multi_value_legacy_extended_property_id,
                                                                                     id_=None,
                                                                                     value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       calendar_group_id=calendar_group_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_group_id=calendar_group_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_group_calendar_view_update_single_value_extended_property(client,
@@ -9684,13 +10122,15 @@ def calendar_user_calendar_group_calendar_view_update_single_value_extended_prop
                                                                                      single_value_legacy_extended_property_id,
                                                                                      id_=None,
                                                                                      value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        calendar_group_id=calendar_group_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          calendar_group_id=calendar_group_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_group_calendar_event_create_attachment(client,
@@ -9704,16 +10144,18 @@ def calendar_user_calendar_group_calendar_event_create_attachment(client,
                                                                   last_modified_date_time=None,
                                                                   name=None,
                                                                   size=None):
-    return client.create_attachment(user_id=user_id,
-                                    calendar_group_id=calendar_group_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(user_id=user_id,
+                                     calendar_group_id=calendar_group_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_user_calendar_group_calendar_event_create_extension(client,
@@ -9722,11 +10164,13 @@ def calendar_user_calendar_group_calendar_event_create_extension(client,
                                                                  calendar_id,
                                                                  event_id,
                                                                  id_=None):
-    return client.create_extension(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    calendar_group_id=calendar_group_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_user_calendar_group_calendar_event_create_instance(client,
@@ -9792,68 +10236,74 @@ def calendar_user_calendar_group_calendar_event_create_instance(client,
                                                                 location_uri=None,
                                                                 unique_id=None,
                                                                 unique_id_type=None):
-    return client.create_instance(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_user_calendar_group_calendar_event_create_multi_value_extended_property(client,
@@ -9863,12 +10313,14 @@ def calendar_user_calendar_group_calendar_event_create_multi_value_extended_prop
                                                                                      event_id,
                                                                                      id_=None,
                                                                                      value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       calendar_group_id=calendar_group_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_group_id=calendar_group_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_group_calendar_event_create_single_value_extended_property(client,
@@ -9878,12 +10330,14 @@ def calendar_user_calendar_group_calendar_event_create_single_value_extended_pro
                                                                                       event_id,
                                                                                       id_=None,
                                                                                       value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        calendar_group_id=calendar_group_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          calendar_group_id=calendar_group_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_group_calendar_event_delete_attachment(client,
@@ -9893,12 +10347,12 @@ def calendar_user_calendar_group_calendar_event_delete_attachment(client,
                                                                   event_id,
                                                                   attachment_id,
                                                                   if_match=None):
-    return client.delete_attachment(user_id=user_id,
-                                    calendar_group_id=calendar_group_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(user_id=user_id,
+                                     calendar_group_id=calendar_group_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_event_delete_calendar(client,
@@ -9921,12 +10375,12 @@ def calendar_user_calendar_group_calendar_event_delete_extension(client,
                                                                  event_id,
                                                                  extension_id,
                                                                  if_match=None):
-    return client.delete_extension(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(user_id=user_id,
+                                    calendar_group_id=calendar_group_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_event_delete_instance(client,
@@ -9936,12 +10390,12 @@ def calendar_user_calendar_group_calendar_event_delete_instance(client,
                                                                 event_id,
                                                                 event_id1,
                                                                 if_match=None):
-    return client.delete_instance(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_event_delete_multi_value_extended_property(client,
@@ -9951,12 +10405,12 @@ def calendar_user_calendar_group_calendar_event_delete_multi_value_extended_prop
                                                                                      event_id,
                                                                                      multi_value_legacy_extended_property_id,
                                                                                      if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       calendar_group_id=calendar_group_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_group_id=calendar_group_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_event_delete_single_value_extended_property(client,
@@ -9966,12 +10420,12 @@ def calendar_user_calendar_group_calendar_event_delete_single_value_extended_pro
                                                                                       event_id,
                                                                                       single_value_legacy_extended_property_id,
                                                                                       if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        calendar_group_id=calendar_group_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          calendar_group_id=calendar_group_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_event_list_attachment(client,
@@ -9982,13 +10436,13 @@ def calendar_user_calendar_group_calendar_event_list_attachment(client,
                                                                 orderby=None,
                                                                 select=None,
                                                                 expand=None):
-    return client.list_attachment(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_user_calendar_group_calendar_event_list_extension(client,
@@ -9999,13 +10453,13 @@ def calendar_user_calendar_group_calendar_event_list_extension(client,
                                                                orderby=None,
                                                                select=None,
                                                                expand=None):
-    return client.list_extension(user_id=user_id,
-                                 calendar_group_id=calendar_group_id,
-                                 calendar_id=calendar_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_group_calendar_event_list_instance(client,
@@ -10016,13 +10470,13 @@ def calendar_user_calendar_group_calendar_event_list_instance(client,
                                                               orderby=None,
                                                               select=None,
                                                               expand=None):
-    return client.list_instance(user_id=user_id,
-                                calendar_group_id=calendar_group_id,
-                                calendar_id=calendar_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(user_id=user_id,
+                                 calendar_group_id=calendar_group_id,
+                                 calendar_id=calendar_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_group_calendar_event_list_multi_value_extended_property(client,
@@ -10033,13 +10487,13 @@ def calendar_user_calendar_group_calendar_event_list_multi_value_extended_proper
                                                                                    orderby=None,
                                                                                    select=None,
                                                                                    expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     calendar_group_id=calendar_group_id,
-                                                     calendar_id=calendar_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       calendar_group_id=calendar_group_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_group_calendar_event_list_single_value_extended_property(client,
@@ -10050,13 +10504,13 @@ def calendar_user_calendar_group_calendar_event_list_single_value_extended_prope
                                                                                     orderby=None,
                                                                                     select=None,
                                                                                     expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      calendar_group_id=calendar_group_id,
-                                                      calendar_id=calendar_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        calendar_group_id=calendar_group_id,
+                                                        calendar_id=calendar_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_group_calendar_event_show_attachment(client,
@@ -10067,13 +10521,13 @@ def calendar_user_calendar_group_calendar_event_show_attachment(client,
                                                                 attachment_id,
                                                                 select=None,
                                                                 expand=None):
-    return client.get_attachment(user_id=user_id,
-                                 calendar_group_id=calendar_group_id,
-                                 calendar_id=calendar_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_group_calendar_event_show_calendar(client,
@@ -10099,13 +10553,13 @@ def calendar_user_calendar_group_calendar_event_show_extension(client,
                                                                extension_id,
                                                                select=None,
                                                                expand=None):
-    return client.get_extension(user_id=user_id,
-                                calendar_group_id=calendar_group_id,
-                                calendar_id=calendar_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(user_id=user_id,
+                                 calendar_group_id=calendar_group_id,
+                                 calendar_id=calendar_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_group_calendar_event_show_instance(client,
@@ -10116,13 +10570,13 @@ def calendar_user_calendar_group_calendar_event_show_instance(client,
                                                               event_id1,
                                                               select=None,
                                                               expand=None):
-    return client.get_instance(user_id=user_id,
-                               calendar_group_id=calendar_group_id,
-                               calendar_id=calendar_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(user_id=user_id,
+                                calendar_group_id=calendar_group_id,
+                                calendar_id=calendar_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_user_calendar_group_calendar_event_show_multi_value_extended_property(client,
@@ -10133,13 +10587,13 @@ def calendar_user_calendar_group_calendar_event_show_multi_value_extended_proper
                                                                                    multi_value_legacy_extended_property_id,
                                                                                    select=None,
                                                                                    expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    calendar_group_id=calendar_group_id,
-                                                    calendar_id=calendar_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      calendar_group_id=calendar_group_id,
+                                                      calendar_id=calendar_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_group_calendar_event_show_single_value_extended_property(client,
@@ -10150,13 +10604,13 @@ def calendar_user_calendar_group_calendar_event_show_single_value_extended_prope
                                                                                     single_value_legacy_extended_property_id,
                                                                                     select=None,
                                                                                     expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     calendar_group_id=calendar_group_id,
-                                                     calendar_id=calendar_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       calendar_group_id=calendar_group_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_group_calendar_event_update_attachment(client,
@@ -10171,17 +10625,19 @@ def calendar_user_calendar_group_calendar_event_update_attachment(client,
                                                                   last_modified_date_time=None,
                                                                   name=None,
                                                                   size=None):
-    return client.update_attachment(user_id=user_id,
-                                    calendar_group_id=calendar_group_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(user_id=user_id,
+                                     calendar_group_id=calendar_group_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_user_calendar_group_calendar_event_update_calendar(client,
@@ -10206,27 +10662,29 @@ def calendar_user_calendar_group_calendar_event_update_calendar(client,
                                                                 events=None,
                                                                 multi_value_extended_properties=None,
                                                                 single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(user_id=user_id,
                                   calendar_group_id=calendar_group_id,
                                   calendar_id=calendar_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_user_calendar_group_calendar_event_update_extension(client,
@@ -10236,12 +10694,14 @@ def calendar_user_calendar_group_calendar_event_update_extension(client,
                                                                  event_id,
                                                                  extension_id,
                                                                  id_=None):
-    return client.update_extension(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    calendar_group_id=calendar_group_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_user_calendar_group_calendar_event_update_instance(client,
@@ -10308,69 +10768,75 @@ def calendar_user_calendar_group_calendar_event_update_instance(client,
                                                                 location_uri=None,
                                                                 unique_id=None,
                                                                 unique_id_type=None):
-    return client.update_instance(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_user_calendar_group_calendar_event_update_multi_value_extended_property(client,
@@ -10381,13 +10847,15 @@ def calendar_user_calendar_group_calendar_event_update_multi_value_extended_prop
                                                                                      multi_value_legacy_extended_property_id,
                                                                                      id_=None,
                                                                                      value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       calendar_group_id=calendar_group_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_group_id=calendar_group_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_group_calendar_event_update_single_value_extended_property(client,
@@ -10398,13 +10866,15 @@ def calendar_user_calendar_group_calendar_event_update_single_value_extended_pro
                                                                                       single_value_legacy_extended_property_id,
                                                                                       id_=None,
                                                                                       value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        calendar_group_id=calendar_group_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          calendar_group_id=calendar_group_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_create_calendar_permission(client,
@@ -10416,14 +10886,16 @@ def calendar_user_calendar_create_calendar_permission(client,
                                                       is_inside_organization=None,
                                                       is_removable=None,
                                                       role=None):
-    return client.create_calendar_permission(user_id=user_id,
-                                             calendar_id=calendar_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.create_calendar_permissions(user_id=user_id,
+                                              calendar_id=calendar_id,
+                                              body=body)
 
 
 def calendar_user_calendar_create_calendar_view(client,
@@ -10487,66 +10959,72 @@ def calendar_user_calendar_create_calendar_view(client,
                                                 location_uri=None,
                                                 unique_id=None,
                                                 unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.create_calendar_view(user_id=user_id,
                                        calendar_id=calendar_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_calendar_create_event(client,
@@ -10610,66 +11088,72 @@ def calendar_user_calendar_create_event(client,
                                         location_uri=None,
                                         unique_id=None,
                                         unique_id_type=None):
-    return client.create_event(user_id=user_id,
-                               calendar_id=calendar_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_events(user_id=user_id,
+                                calendar_id=calendar_id,
+                                body=body)
 
 
 def calendar_user_calendar_create_multi_value_extended_property(client,
@@ -10677,10 +11161,12 @@ def calendar_user_calendar_create_multi_value_extended_property(client,
                                                                 calendar_id,
                                                                 id_=None,
                                                                 value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       calendar_id=calendar_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_id=calendar_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_create_single_value_extended_property(client,
@@ -10688,10 +11174,12 @@ def calendar_user_calendar_create_single_value_extended_property(client,
                                                                  calendar_id,
                                                                  id_=None,
                                                                  value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        calendar_id=calendar_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          calendar_id=calendar_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_delete_calendar_permission(client,
@@ -10699,10 +11187,10 @@ def calendar_user_calendar_delete_calendar_permission(client,
                                                       calendar_id,
                                                       calendar_permission_id,
                                                       if_match=None):
-    return client.delete_calendar_permission(user_id=user_id,
-                                             calendar_id=calendar_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             if_match=if_match)
+    return client.delete_calendar_permissions(user_id=user_id,
+                                              calendar_id=calendar_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              if_match=if_match)
 
 
 def calendar_user_calendar_delete_calendar_view(client,
@@ -10721,10 +11209,10 @@ def calendar_user_calendar_delete_event(client,
                                         calendar_id,
                                         event_id,
                                         if_match=None):
-    return client.delete_event(user_id=user_id,
-                               calendar_id=calendar_id,
-                               event_id=event_id,
-                               if_match=if_match)
+    return client.delete_events(user_id=user_id,
+                                calendar_id=calendar_id,
+                                event_id=event_id,
+                                if_match=if_match)
 
 
 def calendar_user_calendar_delete_multi_value_extended_property(client,
@@ -10732,10 +11220,10 @@ def calendar_user_calendar_delete_multi_value_extended_property(client,
                                                                 calendar_id,
                                                                 multi_value_legacy_extended_property_id,
                                                                 if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       calendar_id=calendar_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_id=calendar_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_delete_single_value_extended_property(client,
@@ -10743,10 +11231,10 @@ def calendar_user_calendar_delete_single_value_extended_property(client,
                                                                  calendar_id,
                                                                  single_value_legacy_extended_property_id,
                                                                  if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        calendar_id=calendar_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          calendar_id=calendar_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_list_calendar_permission(client,
@@ -10755,11 +11243,11 @@ def calendar_user_calendar_list_calendar_permission(client,
                                                     orderby=None,
                                                     select=None,
                                                     expand=None):
-    return client.list_calendar_permission(user_id=user_id,
-                                           calendar_id=calendar_id,
-                                           orderby=orderby,
-                                           select=select,
-                                           expand=expand)
+    return client.list_calendar_permissions(user_id=user_id,
+                                            calendar_id=calendar_id,
+                                            orderby=orderby,
+                                            select=select,
+                                            expand=expand)
 
 
 def calendar_user_calendar_list_calendar_view(client,
@@ -10785,11 +11273,11 @@ def calendar_user_calendar_list_event(client,
                                       orderby=None,
                                       select=None,
                                       expand=None):
-    return client.list_event(user_id=user_id,
-                             calendar_id=calendar_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_events(user_id=user_id,
+                              calendar_id=calendar_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def calendar_user_calendar_list_multi_value_extended_property(client,
@@ -10798,11 +11286,11 @@ def calendar_user_calendar_list_multi_value_extended_property(client,
                                                               orderby=None,
                                                               select=None,
                                                               expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     calendar_id=calendar_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       calendar_id=calendar_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_list_single_value_extended_property(client,
@@ -10811,11 +11299,11 @@ def calendar_user_calendar_list_single_value_extended_property(client,
                                                                orderby=None,
                                                                select=None,
                                                                expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      calendar_id=calendar_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        calendar_id=calendar_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_show_calendar_permission(client,
@@ -10824,11 +11312,11 @@ def calendar_user_calendar_show_calendar_permission(client,
                                                     calendar_permission_id,
                                                     select=None,
                                                     expand=None):
-    return client.get_calendar_permission(user_id=user_id,
-                                          calendar_id=calendar_id,
-                                          calendar_permission_id=calendar_permission_id,
-                                          select=select,
-                                          expand=expand)
+    return client.get_calendar_permissions(user_id=user_id,
+                                           calendar_id=calendar_id,
+                                           calendar_permission_id=calendar_permission_id,
+                                           select=select,
+                                           expand=expand)
 
 
 def calendar_user_calendar_show_calendar_view(client,
@@ -10854,11 +11342,11 @@ def calendar_user_calendar_show_event(client,
                                       event_id,
                                       select=None,
                                       expand=None):
-    return client.get_event(user_id=user_id,
-                            calendar_id=calendar_id,
-                            event_id=event_id,
-                            select=select,
-                            expand=expand)
+    return client.get_events(user_id=user_id,
+                             calendar_id=calendar_id,
+                             event_id=event_id,
+                             select=select,
+                             expand=expand)
 
 
 def calendar_user_calendar_show_multi_value_extended_property(client,
@@ -10867,11 +11355,11 @@ def calendar_user_calendar_show_multi_value_extended_property(client,
                                                               multi_value_legacy_extended_property_id,
                                                               select=None,
                                                               expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    calendar_id=calendar_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      calendar_id=calendar_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_show_single_value_extended_property(client,
@@ -10880,11 +11368,11 @@ def calendar_user_calendar_show_single_value_extended_property(client,
                                                                single_value_legacy_extended_property_id,
                                                                select=None,
                                                                expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     calendar_id=calendar_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       calendar_id=calendar_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_update_calendar_permission(client,
@@ -10897,15 +11385,17 @@ def calendar_user_calendar_update_calendar_permission(client,
                                                       is_inside_organization=None,
                                                       is_removable=None,
                                                       role=None):
-    return client.update_calendar_permission(user_id=user_id,
-                                             calendar_id=calendar_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.update_calendar_permissions(user_id=user_id,
+                                              calendar_id=calendar_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              body=body)
 
 
 def calendar_user_calendar_update_calendar_view(client,
@@ -10970,67 +11460,73 @@ def calendar_user_calendar_update_calendar_view(client,
                                                 location_uri=None,
                                                 unique_id=None,
                                                 unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.update_calendar_view(user_id=user_id,
                                        calendar_id=calendar_id,
                                        event_id=event_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_calendar_update_event(client,
@@ -11095,67 +11591,73 @@ def calendar_user_calendar_update_event(client,
                                         location_uri=None,
                                         unique_id=None,
                                         unique_id_type=None):
-    return client.update_event(user_id=user_id,
-                               calendar_id=calendar_id,
-                               event_id=event_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_events(user_id=user_id,
+                                calendar_id=calendar_id,
+                                event_id=event_id,
+                                body=body)
 
 
 def calendar_user_calendar_update_multi_value_extended_property(client,
@@ -11164,11 +11666,13 @@ def calendar_user_calendar_update_multi_value_extended_property(client,
                                                                 multi_value_legacy_extended_property_id,
                                                                 id_=None,
                                                                 value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       calendar_id=calendar_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_id=calendar_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_update_single_value_extended_property(client,
@@ -11177,11 +11681,13 @@ def calendar_user_calendar_update_single_value_extended_property(client,
                                                                  single_value_legacy_extended_property_id,
                                                                  id_=None,
                                                                  value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        calendar_id=calendar_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          calendar_id=calendar_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_view_create_attachment(client,
@@ -11194,15 +11700,17 @@ def calendar_user_calendar_view_create_attachment(client,
                                                   last_modified_date_time=None,
                                                   name=None,
                                                   size=None):
-    return client.create_attachment(user_id=user_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(user_id=user_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_user_calendar_view_create_extension(client,
@@ -11210,10 +11718,12 @@ def calendar_user_calendar_view_create_extension(client,
                                                  calendar_id,
                                                  event_id,
                                                  id_=None):
-    return client.create_extension(user_id=user_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_user_calendar_view_create_instance(client,
@@ -11278,67 +11788,73 @@ def calendar_user_calendar_view_create_instance(client,
                                                 location_uri=None,
                                                 unique_id=None,
                                                 unique_id_type=None):
-    return client.create_instance(user_id=user_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(user_id=user_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_user_calendar_view_create_multi_value_extended_property(client,
@@ -11347,11 +11863,13 @@ def calendar_user_calendar_view_create_multi_value_extended_property(client,
                                                                      event_id,
                                                                      id_=None,
                                                                      value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_view_create_single_value_extended_property(client,
@@ -11360,11 +11878,13 @@ def calendar_user_calendar_view_create_single_value_extended_property(client,
                                                                       event_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_view_delete_attachment(client,
@@ -11373,11 +11893,11 @@ def calendar_user_calendar_view_delete_attachment(client,
                                                   event_id,
                                                   attachment_id,
                                                   if_match=None):
-    return client.delete_attachment(user_id=user_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(user_id=user_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_calendar(client,
@@ -11397,11 +11917,11 @@ def calendar_user_calendar_view_delete_extension(client,
                                                  event_id,
                                                  extension_id,
                                                  if_match=None):
-    return client.delete_extension(user_id=user_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(user_id=user_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_instance(client,
@@ -11410,11 +11930,11 @@ def calendar_user_calendar_view_delete_instance(client,
                                                 event_id,
                                                 event_id1,
                                                 if_match=None):
-    return client.delete_instance(user_id=user_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(user_id=user_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_multi_value_extended_property(client,
@@ -11423,11 +11943,11 @@ def calendar_user_calendar_view_delete_multi_value_extended_property(client,
                                                                      event_id,
                                                                      multi_value_legacy_extended_property_id,
                                                                      if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_single_value_extended_property(client,
@@ -11436,11 +11956,11 @@ def calendar_user_calendar_view_delete_single_value_extended_property(client,
                                                                       event_id,
                                                                       single_value_legacy_extended_property_id,
                                                                       if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_view_list_attachment(client,
@@ -11450,12 +11970,12 @@ def calendar_user_calendar_view_list_attachment(client,
                                                 orderby=None,
                                                 select=None,
                                                 expand=None):
-    return client.list_attachment(user_id=user_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(user_id=user_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_user_calendar_view_list_extension(client,
@@ -11465,12 +11985,12 @@ def calendar_user_calendar_view_list_extension(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_extension(user_id=user_id,
-                                 calendar_id=calendar_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_view_list_instance(client,
@@ -11480,12 +12000,12 @@ def calendar_user_calendar_view_list_instance(client,
                                               orderby=None,
                                               select=None,
                                               expand=None):
-    return client.list_instance(user_id=user_id,
-                                calendar_id=calendar_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(user_id=user_id,
+                                 calendar_id=calendar_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_view_list_multi_value_extended_property(client,
@@ -11495,12 +12015,12 @@ def calendar_user_calendar_view_list_multi_value_extended_property(client,
                                                                    orderby=None,
                                                                    select=None,
                                                                    expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     calendar_id=calendar_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_view_list_single_value_extended_property(client,
@@ -11510,12 +12030,12 @@ def calendar_user_calendar_view_list_single_value_extended_property(client,
                                                                     orderby=None,
                                                                     select=None,
                                                                     expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      calendar_id=calendar_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        calendar_id=calendar_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_view_show_attachment(client,
@@ -11525,12 +12045,12 @@ def calendar_user_calendar_view_show_attachment(client,
                                                 attachment_id,
                                                 select=None,
                                                 expand=None):
-    return client.get_attachment(user_id=user_id,
-                                 calendar_id=calendar_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(user_id=user_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_view_show_calendar(client,
@@ -11553,12 +12073,12 @@ def calendar_user_calendar_view_show_extension(client,
                                                extension_id,
                                                select=None,
                                                expand=None):
-    return client.get_extension(user_id=user_id,
-                                calendar_id=calendar_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(user_id=user_id,
+                                 calendar_id=calendar_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_view_show_instance(client,
@@ -11568,12 +12088,12 @@ def calendar_user_calendar_view_show_instance(client,
                                               event_id1,
                                               select=None,
                                               expand=None):
-    return client.get_instance(user_id=user_id,
-                               calendar_id=calendar_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(user_id=user_id,
+                                calendar_id=calendar_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_user_calendar_view_show_multi_value_extended_property(client,
@@ -11583,12 +12103,12 @@ def calendar_user_calendar_view_show_multi_value_extended_property(client,
                                                                    multi_value_legacy_extended_property_id,
                                                                    select=None,
                                                                    expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    calendar_id=calendar_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      calendar_id=calendar_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_view_show_single_value_extended_property(client,
@@ -11598,12 +12118,12 @@ def calendar_user_calendar_view_show_single_value_extended_property(client,
                                                                     single_value_legacy_extended_property_id,
                                                                     select=None,
                                                                     expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     calendar_id=calendar_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_view_update_attachment(client,
@@ -11617,16 +12137,18 @@ def calendar_user_calendar_view_update_attachment(client,
                                                   last_modified_date_time=None,
                                                   name=None,
                                                   size=None):
-    return client.update_attachment(user_id=user_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(user_id=user_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_user_calendar_view_update_calendar(client,
@@ -11650,26 +12172,28 @@ def calendar_user_calendar_view_update_calendar(client,
                                                 events=None,
                                                 multi_value_extended_properties=None,
                                                 single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(user_id=user_id,
                                   calendar_id=calendar_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_user_calendar_view_update_extension(client,
@@ -11678,11 +12202,13 @@ def calendar_user_calendar_view_update_extension(client,
                                                  event_id,
                                                  extension_id,
                                                  id_=None):
-    return client.update_extension(user_id=user_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_user_calendar_view_update_instance(client,
@@ -11748,68 +12274,74 @@ def calendar_user_calendar_view_update_instance(client,
                                                 location_uri=None,
                                                 unique_id=None,
                                                 unique_id_type=None):
-    return client.update_instance(user_id=user_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(user_id=user_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_user_calendar_view_update_multi_value_extended_property(client,
@@ -11819,12 +12351,14 @@ def calendar_user_calendar_view_update_multi_value_extended_property(client,
                                                                      multi_value_legacy_extended_property_id,
                                                                      id_=None,
                                                                      value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_view_update_single_value_extended_property(client,
@@ -11834,12 +12368,14 @@ def calendar_user_calendar_view_update_single_value_extended_property(client,
                                                                       single_value_legacy_extended_property_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_event_create_attachment(client,
@@ -11852,15 +12388,17 @@ def calendar_user_calendar_event_create_attachment(client,
                                                    last_modified_date_time=None,
                                                    name=None,
                                                    size=None):
-    return client.create_attachment(user_id=user_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(user_id=user_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_user_calendar_event_create_extension(client,
@@ -11868,10 +12406,12 @@ def calendar_user_calendar_event_create_extension(client,
                                                   calendar_id,
                                                   event_id,
                                                   id_=None):
-    return client.create_extension(user_id=user_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_user_calendar_event_create_instance(client,
@@ -11936,67 +12476,73 @@ def calendar_user_calendar_event_create_instance(client,
                                                  location_uri=None,
                                                  unique_id=None,
                                                  unique_id_type=None):
-    return client.create_instance(user_id=user_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(user_id=user_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_user_calendar_event_create_multi_value_extended_property(client,
@@ -12005,11 +12551,13 @@ def calendar_user_calendar_event_create_multi_value_extended_property(client,
                                                                       event_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_event_create_single_value_extended_property(client,
@@ -12018,11 +12566,13 @@ def calendar_user_calendar_event_create_single_value_extended_property(client,
                                                                        event_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_event_delete_attachment(client,
@@ -12031,11 +12581,11 @@ def calendar_user_calendar_event_delete_attachment(client,
                                                    event_id,
                                                    attachment_id,
                                                    if_match=None):
-    return client.delete_attachment(user_id=user_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(user_id=user_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_user_calendar_event_delete_calendar(client,
@@ -12055,11 +12605,11 @@ def calendar_user_calendar_event_delete_extension(client,
                                                   event_id,
                                                   extension_id,
                                                   if_match=None):
-    return client.delete_extension(user_id=user_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(user_id=user_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_user_calendar_event_delete_instance(client,
@@ -12068,11 +12618,11 @@ def calendar_user_calendar_event_delete_instance(client,
                                                  event_id,
                                                  event_id1,
                                                  if_match=None):
-    return client.delete_instance(user_id=user_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(user_id=user_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_user_calendar_event_delete_multi_value_extended_property(client,
@@ -12081,11 +12631,11 @@ def calendar_user_calendar_event_delete_multi_value_extended_property(client,
                                                                       event_id,
                                                                       multi_value_legacy_extended_property_id,
                                                                       if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_event_delete_single_value_extended_property(client,
@@ -12094,11 +12644,11 @@ def calendar_user_calendar_event_delete_single_value_extended_property(client,
                                                                        event_id,
                                                                        single_value_legacy_extended_property_id,
                                                                        if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_event_list_attachment(client,
@@ -12108,12 +12658,12 @@ def calendar_user_calendar_event_list_attachment(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_attachment(user_id=user_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(user_id=user_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_user_calendar_event_list_extension(client,
@@ -12123,12 +12673,12 @@ def calendar_user_calendar_event_list_extension(client,
                                                 orderby=None,
                                                 select=None,
                                                 expand=None):
-    return client.list_extension(user_id=user_id,
-                                 calendar_id=calendar_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_event_list_instance(client,
@@ -12138,12 +12688,12 @@ def calendar_user_calendar_event_list_instance(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_instance(user_id=user_id,
-                                calendar_id=calendar_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(user_id=user_id,
+                                 calendar_id=calendar_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_event_list_multi_value_extended_property(client,
@@ -12153,12 +12703,12 @@ def calendar_user_calendar_event_list_multi_value_extended_property(client,
                                                                     orderby=None,
                                                                     select=None,
                                                                     expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     calendar_id=calendar_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_event_list_single_value_extended_property(client,
@@ -12168,12 +12718,12 @@ def calendar_user_calendar_event_list_single_value_extended_property(client,
                                                                      orderby=None,
                                                                      select=None,
                                                                      expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      calendar_id=calendar_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        calendar_id=calendar_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_event_show_attachment(client,
@@ -12183,12 +12733,12 @@ def calendar_user_calendar_event_show_attachment(client,
                                                  attachment_id,
                                                  select=None,
                                                  expand=None):
-    return client.get_attachment(user_id=user_id,
-                                 calendar_id=calendar_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(user_id=user_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_event_show_calendar(client,
@@ -12211,12 +12761,12 @@ def calendar_user_calendar_event_show_extension(client,
                                                 extension_id,
                                                 select=None,
                                                 expand=None):
-    return client.get_extension(user_id=user_id,
-                                calendar_id=calendar_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(user_id=user_id,
+                                 calendar_id=calendar_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_event_show_instance(client,
@@ -12226,12 +12776,12 @@ def calendar_user_calendar_event_show_instance(client,
                                                event_id1,
                                                select=None,
                                                expand=None):
-    return client.get_instance(user_id=user_id,
-                               calendar_id=calendar_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(user_id=user_id,
+                                calendar_id=calendar_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_user_calendar_event_show_multi_value_extended_property(client,
@@ -12241,12 +12791,12 @@ def calendar_user_calendar_event_show_multi_value_extended_property(client,
                                                                     multi_value_legacy_extended_property_id,
                                                                     select=None,
                                                                     expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    calendar_id=calendar_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      calendar_id=calendar_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_event_show_single_value_extended_property(client,
@@ -12256,12 +12806,12 @@ def calendar_user_calendar_event_show_single_value_extended_property(client,
                                                                      single_value_legacy_extended_property_id,
                                                                      select=None,
                                                                      expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     calendar_id=calendar_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_event_update_attachment(client,
@@ -12275,16 +12825,18 @@ def calendar_user_calendar_event_update_attachment(client,
                                                    last_modified_date_time=None,
                                                    name=None,
                                                    size=None):
-    return client.update_attachment(user_id=user_id,
-                                    calendar_id=calendar_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(user_id=user_id,
+                                     calendar_id=calendar_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_user_calendar_event_update_calendar(client,
@@ -12308,26 +12860,28 @@ def calendar_user_calendar_event_update_calendar(client,
                                                  events=None,
                                                  multi_value_extended_properties=None,
                                                  single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(user_id=user_id,
                                   calendar_id=calendar_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_user_calendar_event_update_extension(client,
@@ -12336,11 +12890,13 @@ def calendar_user_calendar_event_update_extension(client,
                                                   event_id,
                                                   extension_id,
                                                   id_=None):
-    return client.update_extension(user_id=user_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_user_calendar_event_update_instance(client,
@@ -12406,68 +12962,74 @@ def calendar_user_calendar_event_update_instance(client,
                                                  location_uri=None,
                                                  unique_id=None,
                                                  unique_id_type=None):
-    return client.update_instance(user_id=user_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(user_id=user_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_user_calendar_event_update_multi_value_extended_property(client,
@@ -12477,12 +13039,14 @@ def calendar_user_calendar_event_update_multi_value_extended_property(client,
                                                                       multi_value_legacy_extended_property_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       calendar_id=calendar_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         calendar_id=calendar_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_event_update_single_value_extended_property(client,
@@ -12492,12 +13056,14 @@ def calendar_user_calendar_event_update_single_value_extended_property(client,
                                                                        single_value_legacy_extended_property_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        calendar_id=calendar_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          calendar_id=calendar_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_view_create_attachment(client,
@@ -12509,23 +13075,27 @@ def calendar_user_calendar_view_create_attachment(client,
                                                   last_modified_date_time=None,
                                                   name=None,
                                                   size=None):
-    return client.create_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_user_calendar_view_create_extension(client,
                                                  user_id,
                                                  event_id,
                                                  id_=None):
-    return client.create_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_user_calendar_view_create_instance(client,
@@ -12589,66 +13159,72 @@ def calendar_user_calendar_view_create_instance(client,
                                                 location_uri=None,
                                                 unique_id=None,
                                                 unique_id_type=None):
-    return client.create_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_user_calendar_view_create_multi_value_extended_property(client,
@@ -12656,10 +13232,12 @@ def calendar_user_calendar_view_create_multi_value_extended_property(client,
                                                                      event_id,
                                                                      id_=None,
                                                                      value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_view_create_single_value_extended_property(client,
@@ -12667,10 +13245,12 @@ def calendar_user_calendar_view_create_single_value_extended_property(client,
                                                                       event_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_view_delete_attachment(client,
@@ -12678,10 +13258,10 @@ def calendar_user_calendar_view_delete_attachment(client,
                                                   event_id,
                                                   attachment_id,
                                                   if_match=None):
-    return client.delete_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_calendar(client,
@@ -12698,10 +13278,10 @@ def calendar_user_calendar_view_delete_extension(client,
                                                  event_id,
                                                  extension_id,
                                                  if_match=None):
-    return client.delete_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_instance(client,
@@ -12709,10 +13289,10 @@ def calendar_user_calendar_view_delete_instance(client,
                                                 event_id,
                                                 event_id1,
                                                 if_match=None):
-    return client.delete_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_multi_value_extended_property(client,
@@ -12720,10 +13300,10 @@ def calendar_user_calendar_view_delete_multi_value_extended_property(client,
                                                                      event_id,
                                                                      multi_value_legacy_extended_property_id,
                                                                      if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_view_delete_single_value_extended_property(client,
@@ -12731,10 +13311,10 @@ def calendar_user_calendar_view_delete_single_value_extended_property(client,
                                                                       event_id,
                                                                       single_value_legacy_extended_property_id,
                                                                       if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_view_list_attachment(client,
@@ -12743,11 +13323,11 @@ def calendar_user_calendar_view_list_attachment(client,
                                                 orderby=None,
                                                 select=None,
                                                 expand=None):
-    return client.list_attachment(user_id=user_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(user_id=user_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_user_calendar_view_list_extension(client,
@@ -12756,11 +13336,11 @@ def calendar_user_calendar_view_list_extension(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_extension(user_id=user_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_view_list_instance(client,
@@ -12769,11 +13349,11 @@ def calendar_user_calendar_view_list_instance(client,
                                               orderby=None,
                                               select=None,
                                               expand=None):
-    return client.list_instance(user_id=user_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(user_id=user_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_view_list_multi_value_extended_property(client,
@@ -12782,11 +13362,11 @@ def calendar_user_calendar_view_list_multi_value_extended_property(client,
                                                                    orderby=None,
                                                                    select=None,
                                                                    expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_view_list_single_value_extended_property(client,
@@ -12795,11 +13375,11 @@ def calendar_user_calendar_view_list_single_value_extended_property(client,
                                                                     orderby=None,
                                                                     select=None,
                                                                     expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_view_show_attachment(client,
@@ -12808,11 +13388,11 @@ def calendar_user_calendar_view_show_attachment(client,
                                                 attachment_id,
                                                 select=None,
                                                 expand=None):
-    return client.get_attachment(user_id=user_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(user_id=user_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_calendar_view_show_calendar(client,
@@ -12832,11 +13412,11 @@ def calendar_user_calendar_view_show_extension(client,
                                                extension_id,
                                                select=None,
                                                expand=None):
-    return client.get_extension(user_id=user_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(user_id=user_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_calendar_view_show_instance(client,
@@ -12845,11 +13425,11 @@ def calendar_user_calendar_view_show_instance(client,
                                               event_id1,
                                               select=None,
                                               expand=None):
-    return client.get_instance(user_id=user_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(user_id=user_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_user_calendar_view_show_multi_value_extended_property(client,
@@ -12858,11 +13438,11 @@ def calendar_user_calendar_view_show_multi_value_extended_property(client,
                                                                    multi_value_legacy_extended_property_id,
                                                                    select=None,
                                                                    expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_view_show_single_value_extended_property(client,
@@ -12871,11 +13451,11 @@ def calendar_user_calendar_view_show_single_value_extended_property(client,
                                                                     single_value_legacy_extended_property_id,
                                                                     select=None,
                                                                     expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_view_update_attachment(client,
@@ -12888,15 +13468,17 @@ def calendar_user_calendar_view_update_attachment(client,
                                                   last_modified_date_time=None,
                                                   name=None,
                                                   size=None):
-    return client.update_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_user_calendar_view_update_calendar(client,
@@ -12919,25 +13501,27 @@ def calendar_user_calendar_view_update_calendar(client,
                                                 events=None,
                                                 multi_value_extended_properties=None,
                                                 single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(user_id=user_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_user_calendar_view_update_extension(client,
@@ -12945,10 +13529,12 @@ def calendar_user_calendar_view_update_extension(client,
                                                  event_id,
                                                  extension_id,
                                                  id_=None):
-    return client.update_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_user_calendar_view_update_instance(client,
@@ -13013,67 +13599,73 @@ def calendar_user_calendar_view_update_instance(client,
                                                 location_uri=None,
                                                 unique_id=None,
                                                 unique_id_type=None):
-    return client.update_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_user_calendar_view_update_multi_value_extended_property(client,
@@ -13082,11 +13674,13 @@ def calendar_user_calendar_view_update_multi_value_extended_property(client,
                                                                      multi_value_legacy_extended_property_id,
                                                                      id_=None,
                                                                      value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_view_update_single_value_extended_property(client,
@@ -13095,11 +13689,13 @@ def calendar_user_calendar_view_update_single_value_extended_property(client,
                                                                       single_value_legacy_extended_property_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_view_calendar_create_calendar_permission(client,
@@ -13111,14 +13707,16 @@ def calendar_user_calendar_view_calendar_create_calendar_permission(client,
                                                                     is_inside_organization=None,
                                                                     is_removable=None,
                                                                     role=None):
-    return client.create_calendar_permission(user_id=user_id,
-                                             event_id=event_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.create_calendar_permissions(user_id=user_id,
+                                              event_id=event_id,
+                                              body=body)
 
 
 def calendar_user_calendar_view_calendar_create_calendar_view(client,
@@ -13182,66 +13780,72 @@ def calendar_user_calendar_view_calendar_create_calendar_view(client,
                                                               location_uri=None,
                                                               unique_id=None,
                                                               unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.create_calendar_view(user_id=user_id,
                                        event_id=event_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_calendar_view_calendar_create_event(client,
@@ -13305,66 +13909,72 @@ def calendar_user_calendar_view_calendar_create_event(client,
                                                       location_uri=None,
                                                       unique_id=None,
                                                       unique_id_type=None):
-    return client.create_event(user_id=user_id,
-                               event_id=event_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_events(user_id=user_id,
+                                event_id=event_id,
+                                body=body)
 
 
 def calendar_user_calendar_view_calendar_create_multi_value_extended_property(client,
@@ -13372,10 +13982,12 @@ def calendar_user_calendar_view_calendar_create_multi_value_extended_property(cl
                                                                               event_id,
                                                                               id_=None,
                                                                               value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_view_calendar_create_single_value_extended_property(client,
@@ -13383,10 +13995,12 @@ def calendar_user_calendar_view_calendar_create_single_value_extended_property(c
                                                                                event_id,
                                                                                id_=None,
                                                                                value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_user_calendar_view_calendar_delete_calendar_permission(client,
@@ -13394,10 +14008,10 @@ def calendar_user_calendar_view_calendar_delete_calendar_permission(client,
                                                                     event_id,
                                                                     calendar_permission_id,
                                                                     if_match=None):
-    return client.delete_calendar_permission(user_id=user_id,
-                                             event_id=event_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             if_match=if_match)
+    return client.delete_calendar_permissions(user_id=user_id,
+                                              event_id=event_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              if_match=if_match)
 
 
 def calendar_user_calendar_view_calendar_delete_calendar_view(client,
@@ -13416,10 +14030,10 @@ def calendar_user_calendar_view_calendar_delete_event(client,
                                                       event_id,
                                                       event_id1,
                                                       if_match=None):
-    return client.delete_event(user_id=user_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               if_match=if_match)
+    return client.delete_events(user_id=user_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                if_match=if_match)
 
 
 def calendar_user_calendar_view_calendar_delete_multi_value_extended_property(client,
@@ -13427,10 +14041,10 @@ def calendar_user_calendar_view_calendar_delete_multi_value_extended_property(cl
                                                                               event_id,
                                                                               multi_value_legacy_extended_property_id,
                                                                               if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_calendar_view_calendar_delete_single_value_extended_property(client,
@@ -13438,10 +14052,10 @@ def calendar_user_calendar_view_calendar_delete_single_value_extended_property(c
                                                                                event_id,
                                                                                single_value_legacy_extended_property_id,
                                                                                if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_calendar_view_calendar_list_calendar_permission(client,
@@ -13450,11 +14064,11 @@ def calendar_user_calendar_view_calendar_list_calendar_permission(client,
                                                                   orderby=None,
                                                                   select=None,
                                                                   expand=None):
-    return client.list_calendar_permission(user_id=user_id,
-                                           event_id=event_id,
-                                           orderby=orderby,
-                                           select=select,
-                                           expand=expand)
+    return client.list_calendar_permissions(user_id=user_id,
+                                            event_id=event_id,
+                                            orderby=orderby,
+                                            select=select,
+                                            expand=expand)
 
 
 def calendar_user_calendar_view_calendar_list_calendar_view(client,
@@ -13476,11 +14090,11 @@ def calendar_user_calendar_view_calendar_list_event(client,
                                                     orderby=None,
                                                     select=None,
                                                     expand=None):
-    return client.list_event(user_id=user_id,
-                             event_id=event_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_events(user_id=user_id,
+                              event_id=event_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def calendar_user_calendar_view_calendar_list_multi_value_extended_property(client,
@@ -13489,11 +14103,11 @@ def calendar_user_calendar_view_calendar_list_multi_value_extended_property(clie
                                                                             orderby=None,
                                                                             select=None,
                                                                             expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_view_calendar_list_single_value_extended_property(client,
@@ -13502,11 +14116,11 @@ def calendar_user_calendar_view_calendar_list_single_value_extended_property(cli
                                                                              orderby=None,
                                                                              select=None,
                                                                              expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_calendar_view_calendar_show_calendar_permission(client,
@@ -13515,11 +14129,11 @@ def calendar_user_calendar_view_calendar_show_calendar_permission(client,
                                                                   calendar_permission_id,
                                                                   select=None,
                                                                   expand=None):
-    return client.get_calendar_permission(user_id=user_id,
-                                          event_id=event_id,
-                                          calendar_permission_id=calendar_permission_id,
-                                          select=select,
-                                          expand=expand)
+    return client.get_calendar_permissions(user_id=user_id,
+                                           event_id=event_id,
+                                           calendar_permission_id=calendar_permission_id,
+                                           select=select,
+                                           expand=expand)
 
 
 def calendar_user_calendar_view_calendar_show_calendar_view(client,
@@ -13541,11 +14155,11 @@ def calendar_user_calendar_view_calendar_show_event(client,
                                                     event_id1,
                                                     select=None,
                                                     expand=None):
-    return client.get_event(user_id=user_id,
-                            event_id=event_id,
-                            event_id1=event_id1,
-                            select=select,
-                            expand=expand)
+    return client.get_events(user_id=user_id,
+                             event_id=event_id,
+                             event_id1=event_id1,
+                             select=select,
+                             expand=expand)
 
 
 def calendar_user_calendar_view_calendar_show_multi_value_extended_property(client,
@@ -13554,11 +14168,11 @@ def calendar_user_calendar_view_calendar_show_multi_value_extended_property(clie
                                                                             multi_value_legacy_extended_property_id,
                                                                             select=None,
                                                                             expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_calendar_view_calendar_show_single_value_extended_property(client,
@@ -13567,11 +14181,11 @@ def calendar_user_calendar_view_calendar_show_single_value_extended_property(cli
                                                                              single_value_legacy_extended_property_id,
                                                                              select=None,
                                                                              expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_calendar_view_calendar_update_calendar_permission(client,
@@ -13584,15 +14198,17 @@ def calendar_user_calendar_view_calendar_update_calendar_permission(client,
                                                                     is_inside_organization=None,
                                                                     is_removable=None,
                                                                     role=None):
-    return client.update_calendar_permission(user_id=user_id,
-                                             event_id=event_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.update_calendar_permissions(user_id=user_id,
+                                              event_id=event_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              body=body)
 
 
 def calendar_user_calendar_view_calendar_update_calendar_view(client,
@@ -13657,67 +14273,73 @@ def calendar_user_calendar_view_calendar_update_calendar_view(client,
                                                               location_uri=None,
                                                               unique_id=None,
                                                               unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.update_calendar_view(user_id=user_id,
                                        event_id=event_id,
                                        event_id1=event_id1,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_calendar_view_calendar_update_event(client,
@@ -13782,67 +14404,73 @@ def calendar_user_calendar_view_calendar_update_event(client,
                                                       location_uri=None,
                                                       unique_id=None,
                                                       unique_id_type=None):
-    return client.update_event(user_id=user_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_events(user_id=user_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                body=body)
 
 
 def calendar_user_calendar_view_calendar_update_multi_value_extended_property(client,
@@ -13851,11 +14479,13 @@ def calendar_user_calendar_view_calendar_update_multi_value_extended_property(cl
                                                                               multi_value_legacy_extended_property_id,
                                                                               id_=None,
                                                                               value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_calendar_view_calendar_update_single_value_extended_property(client,
@@ -13864,11 +14494,13 @@ def calendar_user_calendar_view_calendar_update_single_value_extended_property(c
                                                                                single_value_legacy_extended_property_id,
                                                                                id_=None,
                                                                                value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_event_create_attachment(client,
@@ -13880,23 +14512,27 @@ def calendar_user_event_create_attachment(client,
                                           last_modified_date_time=None,
                                           name=None,
                                           size=None):
-    return client.create_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     body=body)
 
 
 def calendar_user_event_create_extension(client,
                                          user_id,
                                          event_id,
                                          id_=None):
-    return client.create_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    body=body)
 
 
 def calendar_user_event_create_instance(client,
@@ -13960,66 +14596,72 @@ def calendar_user_event_create_instance(client,
                                         location_uri=None,
                                         unique_id=None,
                                         unique_id_type=None):
-    return client.create_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   body=body)
 
 
 def calendar_user_event_create_multi_value_extended_property(client,
@@ -14027,10 +14669,12 @@ def calendar_user_event_create_multi_value_extended_property(client,
                                                              event_id,
                                                              id_=None,
                                                              value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_user_event_create_single_value_extended_property(client,
@@ -14038,10 +14682,12 @@ def calendar_user_event_create_single_value_extended_property(client,
                                                               event_id,
                                                               id_=None,
                                                               value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_user_event_delete_attachment(client,
@@ -14049,10 +14695,10 @@ def calendar_user_event_delete_attachment(client,
                                           event_id,
                                           attachment_id,
                                           if_match=None):
-    return client.delete_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    if_match=if_match)
+    return client.delete_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
 def calendar_user_event_delete_calendar(client,
@@ -14069,10 +14715,10 @@ def calendar_user_event_delete_extension(client,
                                          event_id,
                                          extension_id,
                                          if_match=None):
-    return client.delete_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
+    return client.delete_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
 def calendar_user_event_delete_instance(client,
@@ -14080,10 +14726,10 @@ def calendar_user_event_delete_instance(client,
                                         event_id,
                                         event_id1,
                                         if_match=None):
-    return client.delete_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  if_match=if_match)
+    return client.delete_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   if_match=if_match)
 
 
 def calendar_user_event_delete_multi_value_extended_property(client,
@@ -14091,10 +14737,10 @@ def calendar_user_event_delete_multi_value_extended_property(client,
                                                              event_id,
                                                              multi_value_legacy_extended_property_id,
                                                              if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_event_delete_single_value_extended_property(client,
@@ -14102,10 +14748,10 @@ def calendar_user_event_delete_single_value_extended_property(client,
                                                               event_id,
                                                               single_value_legacy_extended_property_id,
                                                               if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_event_list_attachment(client,
@@ -14114,11 +14760,11 @@ def calendar_user_event_list_attachment(client,
                                         orderby=None,
                                         select=None,
                                         expand=None):
-    return client.list_attachment(user_id=user_id,
-                                  event_id=event_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(user_id=user_id,
+                                   event_id=event_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def calendar_user_event_list_extension(client,
@@ -14127,11 +14773,11 @@ def calendar_user_event_list_extension(client,
                                        orderby=None,
                                        select=None,
                                        expand=None):
-    return client.list_extension(user_id=user_id,
-                                 event_id=event_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  event_id=event_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_event_list_instance(client,
@@ -14140,11 +14786,11 @@ def calendar_user_event_list_instance(client,
                                       orderby=None,
                                       select=None,
                                       expand=None):
-    return client.list_instance(user_id=user_id,
-                                event_id=event_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_instances(user_id=user_id,
+                                 event_id=event_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_event_list_multi_value_extended_property(client,
@@ -14153,11 +14799,11 @@ def calendar_user_event_list_multi_value_extended_property(client,
                                                            orderby=None,
                                                            select=None,
                                                            expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_event_list_single_value_extended_property(client,
@@ -14166,11 +14812,11 @@ def calendar_user_event_list_single_value_extended_property(client,
                                                             orderby=None,
                                                             select=None,
                                                             expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_event_show_attachment(client,
@@ -14179,11 +14825,11 @@ def calendar_user_event_show_attachment(client,
                                         attachment_id,
                                         select=None,
                                         expand=None):
-    return client.get_attachment(user_id=user_id,
-                                 event_id=event_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+    return client.get_attachments(user_id=user_id,
+                                  event_id=event_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def calendar_user_event_show_calendar(client,
@@ -14203,11 +14849,11 @@ def calendar_user_event_show_extension(client,
                                        extension_id,
                                        select=None,
                                        expand=None):
-    return client.get_extension(user_id=user_id,
-                                event_id=event_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(user_id=user_id,
+                                 event_id=event_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def calendar_user_event_show_instance(client,
@@ -14216,11 +14862,11 @@ def calendar_user_event_show_instance(client,
                                       event_id1,
                                       select=None,
                                       expand=None):
-    return client.get_instance(user_id=user_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               select=select,
-                               expand=expand)
+    return client.get_instances(user_id=user_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                select=select,
+                                expand=expand)
 
 
 def calendar_user_event_show_multi_value_extended_property(client,
@@ -14229,11 +14875,11 @@ def calendar_user_event_show_multi_value_extended_property(client,
                                                            multi_value_legacy_extended_property_id,
                                                            select=None,
                                                            expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_event_show_single_value_extended_property(client,
@@ -14242,11 +14888,11 @@ def calendar_user_event_show_single_value_extended_property(client,
                                                             single_value_legacy_extended_property_id,
                                                             select=None,
                                                             expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_event_update_attachment(client,
@@ -14259,15 +14905,17 @@ def calendar_user_event_update_attachment(client,
                                           last_modified_date_time=None,
                                           name=None,
                                           size=None):
-    return client.update_attachment(user_id=user_id,
-                                    event_id=event_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(user_id=user_id,
+                                     event_id=event_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def calendar_user_event_update_calendar(client,
@@ -14290,25 +14938,27 @@ def calendar_user_event_update_calendar(client,
                                         events=None,
                                         multi_value_extended_properties=None,
                                         single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_online_meeting_providers'] = allowed_online_meeting_providers
+    body['can_edit'] = can_edit
+    body['can_share'] = can_share
+    body['can_view_private_items'] = can_view_private_items
+    body['change_key'] = change_key
+    body['color'] = color
+    body['default_online_meeting_provider'] = default_online_meeting_provider
+    body['is_removable'] = is_removable
+    body['is_tallying_responses'] = is_tallying_responses
+    body['name'] = name
+    body['owner'] = owner
+    body['calendar_permissions'] = calendar_permissions
+    body['calendar_view'] = calendar_view
+    body['events'] = events
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
     return client.update_calendar(user_id=user_id,
                                   event_id=event_id,
-                                  id=id_,
-                                  allowed_online_meeting_providers=allowed_online_meeting_providers,
-                                  can_edit=can_edit,
-                                  can_share=can_share,
-                                  can_view_private_items=can_view_private_items,
-                                  change_key=change_key,
-                                  color=color,
-                                  default_online_meeting_provider=default_online_meeting_provider,
-                                  is_removable=is_removable,
-                                  is_tallying_responses=is_tallying_responses,
-                                  name=name,
-                                  owner=owner,
-                                  calendar_permissions=calendar_permissions,
-                                  calendar_view=calendar_view,
-                                  events=events,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties)
+                                  body=body)
 
 
 def calendar_user_event_update_extension(client,
@@ -14316,10 +14966,12 @@ def calendar_user_event_update_extension(client,
                                          event_id,
                                          extension_id,
                                          id_=None):
-    return client.update_extension(user_id=user_id,
-                                   event_id=event_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    event_id=event_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def calendar_user_event_update_instance(client,
@@ -14384,67 +15036,73 @@ def calendar_user_event_update_instance(client,
                                         location_uri=None,
                                         unique_id=None,
                                         unique_id_type=None):
-    return client.update_instance(user_id=user_id,
-                                  event_id=event_id,
-                                  event_id1=event_id1,
-                                  id=id_,
-                                  categories=categories,
-                                  change_key=change_key,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  allow_new_time_proposals=allow_new_time_proposals,
-                                  attendees=attendees,
-                                  body=body,
-                                  body_preview=body_preview,
-                                  end=end,
-                                  has_attachments=has_attachments,
-                                  i_cal_u_id=i_cal_u_id,
-                                  importance=importance,
-                                  is_all_day=is_all_day,
-                                  is_cancelled=is_cancelled,
-                                  is_online_meeting=is_online_meeting,
-                                  is_organizer=is_organizer,
-                                  is_reminder_on=is_reminder_on,
-                                  locations=locations,
-                                  online_meeting_provider=online_meeting_provider,
-                                  online_meeting_url=online_meeting_url,
-                                  original_end_time_zone=original_end_time_zone,
-                                  original_start=original_start,
-                                  original_start_time_zone=original_start_time_zone,
-                                  reminder_minutes_before_start=reminder_minutes_before_start,
-                                  response_requested=response_requested,
-                                  response_status=response_status,
-                                  sensitivity=sensitivity,
-                                  series_master_id=series_master_id,
-                                  show_as=show_as,
-                                  start=start,
-                                  subject=subject,
-                                  transaction_id=transaction_id,
-                                  type=type_,
-                                  web_link=web_link,
-                                  attachments=attachments,
-                                  calendar=calendar,
-                                  extensions=extensions,
-                                  instances=instances,
-                                  multi_value_extended_properties=multi_value_extended_properties,
-                                  single_value_extended_properties=single_value_extended_properties,
-                                  pattern=pattern,
-                                  range=range,
-                                  email_address=email_address,
-                                  conference_id=conference_id,
-                                  join_url=join_url,
-                                  phones=phones,
-                                  quick_dial=quick_dial,
-                                  toll_free_numbers=toll_free_numbers,
-                                  toll_number=toll_number,
-                                  address=address,
-                                  coordinates=coordinates,
-                                  display_name=display_name,
-                                  location_email_address=location_email_address,
-                                  location_type=location_type,
-                                  location_uri=location_uri,
-                                  unique_id=unique_id,
-                                  unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_instances(user_id=user_id,
+                                   event_id=event_id,
+                                   event_id1=event_id1,
+                                   body=body)
 
 
 def calendar_user_event_update_multi_value_extended_property(client,
@@ -14453,11 +15111,13 @@ def calendar_user_event_update_multi_value_extended_property(client,
                                                              multi_value_legacy_extended_property_id,
                                                              id_=None,
                                                              value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_event_update_single_value_extended_property(client,
@@ -14466,11 +15126,13 @@ def calendar_user_event_update_single_value_extended_property(client,
                                                               single_value_legacy_extended_property_id,
                                                               id_=None,
                                                               value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def calendar_user_event_calendar_create_calendar_permission(client,
@@ -14482,14 +15144,16 @@ def calendar_user_event_calendar_create_calendar_permission(client,
                                                             is_inside_organization=None,
                                                             is_removable=None,
                                                             role=None):
-    return client.create_calendar_permission(user_id=user_id,
-                                             event_id=event_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.create_calendar_permissions(user_id=user_id,
+                                              event_id=event_id,
+                                              body=body)
 
 
 def calendar_user_event_calendar_create_calendar_view(client,
@@ -14553,66 +15217,72 @@ def calendar_user_event_calendar_create_calendar_view(client,
                                                       location_uri=None,
                                                       unique_id=None,
                                                       unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.create_calendar_view(user_id=user_id,
                                        event_id=event_id,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_event_calendar_create_event(client,
@@ -14676,66 +15346,72 @@ def calendar_user_event_calendar_create_event(client,
                                               location_uri=None,
                                               unique_id=None,
                                               unique_id_type=None):
-    return client.create_event(user_id=user_id,
-                               event_id=event_id,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.create_events(user_id=user_id,
+                                event_id=event_id,
+                                body=body)
 
 
 def calendar_user_event_calendar_create_multi_value_extended_property(client,
@@ -14743,10 +15419,12 @@ def calendar_user_event_calendar_create_multi_value_extended_property(client,
                                                                       event_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         body=body)
 
 
 def calendar_user_event_calendar_create_single_value_extended_property(client,
@@ -14754,10 +15432,12 @@ def calendar_user_event_calendar_create_single_value_extended_property(client,
                                                                        event_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          body=body)
 
 
 def calendar_user_event_calendar_delete_calendar_permission(client,
@@ -14765,10 +15445,10 @@ def calendar_user_event_calendar_delete_calendar_permission(client,
                                                             event_id,
                                                             calendar_permission_id,
                                                             if_match=None):
-    return client.delete_calendar_permission(user_id=user_id,
-                                             event_id=event_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             if_match=if_match)
+    return client.delete_calendar_permissions(user_id=user_id,
+                                              event_id=event_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              if_match=if_match)
 
 
 def calendar_user_event_calendar_delete_calendar_view(client,
@@ -14787,10 +15467,10 @@ def calendar_user_event_calendar_delete_event(client,
                                               event_id,
                                               event_id1,
                                               if_match=None):
-    return client.delete_event(user_id=user_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               if_match=if_match)
+    return client.delete_events(user_id=user_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                if_match=if_match)
 
 
 def calendar_user_event_calendar_delete_multi_value_extended_property(client,
@@ -14798,10 +15478,10 @@ def calendar_user_event_calendar_delete_multi_value_extended_property(client,
                                                                       event_id,
                                                                       multi_value_legacy_extended_property_id,
                                                                       if_match=None):
-    return client.delete_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       if_match=if_match)
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
 def calendar_user_event_calendar_delete_single_value_extended_property(client,
@@ -14809,10 +15489,10 @@ def calendar_user_event_calendar_delete_single_value_extended_property(client,
                                                                        event_id,
                                                                        single_value_legacy_extended_property_id,
                                                                        if_match=None):
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def calendar_user_event_calendar_list_calendar_permission(client,
@@ -14821,11 +15501,11 @@ def calendar_user_event_calendar_list_calendar_permission(client,
                                                           orderby=None,
                                                           select=None,
                                                           expand=None):
-    return client.list_calendar_permission(user_id=user_id,
-                                           event_id=event_id,
-                                           orderby=orderby,
-                                           select=select,
-                                           expand=expand)
+    return client.list_calendar_permissions(user_id=user_id,
+                                            event_id=event_id,
+                                            orderby=orderby,
+                                            select=select,
+                                            expand=expand)
 
 
 def calendar_user_event_calendar_list_calendar_view(client,
@@ -14847,11 +15527,11 @@ def calendar_user_event_calendar_list_event(client,
                                             orderby=None,
                                             select=None,
                                             expand=None):
-    return client.list_event(user_id=user_id,
-                             event_id=event_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_events(user_id=user_id,
+                              event_id=event_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def calendar_user_event_calendar_list_multi_value_extended_property(client,
@@ -14860,11 +15540,11 @@ def calendar_user_event_calendar_list_multi_value_extended_property(client,
                                                                     orderby=None,
                                                                     select=None,
                                                                     expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_event_calendar_list_single_value_extended_property(client,
@@ -14873,11 +15553,11 @@ def calendar_user_event_calendar_list_single_value_extended_property(client,
                                                                      orderby=None,
                                                                      select=None,
                                                                      expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
-                                                      event_id=event_id,
-                                                      orderby=orderby,
-                                                      select=select,
-                                                      expand=expand)
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        event_id=event_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
 
 
 def calendar_user_event_calendar_show_calendar_permission(client,
@@ -14886,11 +15566,11 @@ def calendar_user_event_calendar_show_calendar_permission(client,
                                                           calendar_permission_id,
                                                           select=None,
                                                           expand=None):
-    return client.get_calendar_permission(user_id=user_id,
-                                          event_id=event_id,
-                                          calendar_permission_id=calendar_permission_id,
-                                          select=select,
-                                          expand=expand)
+    return client.get_calendar_permissions(user_id=user_id,
+                                           event_id=event_id,
+                                           calendar_permission_id=calendar_permission_id,
+                                           select=select,
+                                           expand=expand)
 
 
 def calendar_user_event_calendar_show_calendar_view(client,
@@ -14912,11 +15592,11 @@ def calendar_user_event_calendar_show_event(client,
                                             event_id1,
                                             select=None,
                                             expand=None):
-    return client.get_event(user_id=user_id,
-                            event_id=event_id,
-                            event_id1=event_id1,
-                            select=select,
-                            expand=expand)
+    return client.get_events(user_id=user_id,
+                             event_id=event_id,
+                             event_id1=event_id1,
+                             select=select,
+                             expand=expand)
 
 
 def calendar_user_event_calendar_show_multi_value_extended_property(client,
@@ -14925,11 +15605,11 @@ def calendar_user_event_calendar_show_multi_value_extended_property(client,
                                                                     multi_value_legacy_extended_property_id,
                                                                     select=None,
                                                                     expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    event_id=event_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+    return client.get_multi_value_extended_properties(user_id=user_id,
+                                                      event_id=event_id,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                      select=select,
+                                                      expand=expand)
 
 
 def calendar_user_event_calendar_show_single_value_extended_property(client,
@@ -14938,11 +15618,11 @@ def calendar_user_event_calendar_show_single_value_extended_property(client,
                                                                      single_value_legacy_extended_property_id,
                                                                      select=None,
                                                                      expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     event_id=event_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       event_id=event_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def calendar_user_event_calendar_update_calendar_permission(client,
@@ -14955,15 +15635,17 @@ def calendar_user_event_calendar_update_calendar_permission(client,
                                                             is_inside_organization=None,
                                                             is_removable=None,
                                                             role=None):
-    return client.update_calendar_permission(user_id=user_id,
-                                             event_id=event_id,
-                                             calendar_permission_id=calendar_permission_id,
-                                             id=id_,
-                                             allowed_roles=allowed_roles,
-                                             email_address=email_address,
-                                             is_inside_organization=is_inside_organization,
-                                             is_removable=is_removable,
-                                             role=role)
+    body = {}
+    body['id'] = id_
+    body['allowed_roles'] = allowed_roles
+    body['email_address'] = email_address
+    body['is_inside_organization'] = is_inside_organization
+    body['is_removable'] = is_removable
+    body['role'] = role
+    return client.update_calendar_permissions(user_id=user_id,
+                                              event_id=event_id,
+                                              calendar_permission_id=calendar_permission_id,
+                                              body=body)
 
 
 def calendar_user_event_calendar_update_calendar_view(client,
@@ -15028,67 +15710,73 @@ def calendar_user_event_calendar_update_calendar_view(client,
                                                       location_uri=None,
                                                       unique_id=None,
                                                       unique_id_type=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
     return client.update_calendar_view(user_id=user_id,
                                        event_id=event_id,
                                        event_id1=event_id1,
-                                       id=id_,
-                                       categories=categories,
-                                       change_key=change_key,
-                                       created_date_time=created_date_time,
-                                       last_modified_date_time=last_modified_date_time,
-                                       allow_new_time_proposals=allow_new_time_proposals,
-                                       attendees=attendees,
-                                       body=body,
-                                       body_preview=body_preview,
-                                       end=end,
-                                       has_attachments=has_attachments,
-                                       i_cal_u_id=i_cal_u_id,
-                                       importance=importance,
-                                       is_all_day=is_all_day,
-                                       is_cancelled=is_cancelled,
-                                       is_online_meeting=is_online_meeting,
-                                       is_organizer=is_organizer,
-                                       is_reminder_on=is_reminder_on,
-                                       locations=locations,
-                                       online_meeting_provider=online_meeting_provider,
-                                       online_meeting_url=online_meeting_url,
-                                       original_end_time_zone=original_end_time_zone,
-                                       original_start=original_start,
-                                       original_start_time_zone=original_start_time_zone,
-                                       reminder_minutes_before_start=reminder_minutes_before_start,
-                                       response_requested=response_requested,
-                                       response_status=response_status,
-                                       sensitivity=sensitivity,
-                                       series_master_id=series_master_id,
-                                       show_as=show_as,
-                                       start=start,
-                                       subject=subject,
-                                       transaction_id=transaction_id,
-                                       type=type_,
-                                       web_link=web_link,
-                                       attachments=attachments,
-                                       calendar=calendar,
-                                       extensions=extensions,
-                                       instances=instances,
-                                       multi_value_extended_properties=multi_value_extended_properties,
-                                       single_value_extended_properties=single_value_extended_properties,
-                                       pattern=pattern,
-                                       range=range,
-                                       email_address=email_address,
-                                       conference_id=conference_id,
-                                       join_url=join_url,
-                                       phones=phones,
-                                       quick_dial=quick_dial,
-                                       toll_free_numbers=toll_free_numbers,
-                                       toll_number=toll_number,
-                                       address=address,
-                                       coordinates=coordinates,
-                                       display_name=display_name,
-                                       location_email_address=location_email_address,
-                                       location_type=location_type,
-                                       location_uri=location_uri,
-                                       unique_id=unique_id,
-                                       unique_id_type=unique_id_type)
+                                       body=body)
 
 
 def calendar_user_event_calendar_update_event(client,
@@ -15153,67 +15841,73 @@ def calendar_user_event_calendar_update_event(client,
                                               location_uri=None,
                                               unique_id=None,
                                               unique_id_type=None):
-    return client.update_event(user_id=user_id,
-                               event_id=event_id,
-                               event_id1=event_id1,
-                               id=id_,
-                               categories=categories,
-                               change_key=change_key,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               allow_new_time_proposals=allow_new_time_proposals,
-                               attendees=attendees,
-                               body=body,
-                               body_preview=body_preview,
-                               end=end,
-                               has_attachments=has_attachments,
-                               i_cal_u_id=i_cal_u_id,
-                               importance=importance,
-                               is_all_day=is_all_day,
-                               is_cancelled=is_cancelled,
-                               is_online_meeting=is_online_meeting,
-                               is_organizer=is_organizer,
-                               is_reminder_on=is_reminder_on,
-                               locations=locations,
-                               online_meeting_provider=online_meeting_provider,
-                               online_meeting_url=online_meeting_url,
-                               original_end_time_zone=original_end_time_zone,
-                               original_start=original_start,
-                               original_start_time_zone=original_start_time_zone,
-                               reminder_minutes_before_start=reminder_minutes_before_start,
-                               response_requested=response_requested,
-                               response_status=response_status,
-                               sensitivity=sensitivity,
-                               series_master_id=series_master_id,
-                               show_as=show_as,
-                               start=start,
-                               subject=subject,
-                               transaction_id=transaction_id,
-                               type=type_,
-                               web_link=web_link,
-                               attachments=attachments,
-                               calendar=calendar,
-                               extensions=extensions,
-                               instances=instances,
-                               multi_value_extended_properties=multi_value_extended_properties,
-                               single_value_extended_properties=single_value_extended_properties,
-                               pattern=pattern,
-                               range=range,
-                               email_address=email_address,
-                               conference_id=conference_id,
-                               join_url=join_url,
-                               phones=phones,
-                               quick_dial=quick_dial,
-                               toll_free_numbers=toll_free_numbers,
-                               toll_number=toll_number,
-                               address=address,
-                               coordinates=coordinates,
-                               display_name=display_name,
-                               location_email_address=location_email_address,
-                               location_type=location_type,
-                               location_uri=location_uri,
-                               unique_id=unique_id,
-                               unique_id_type=unique_id_type)
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['allow_new_time_proposals'] = allow_new_time_proposals
+    body['attendees'] = attendees
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['end'] = end
+    body['has_attachments'] = has_attachments
+    body['i_cal_u_id'] = i_cal_u_id
+    body['importance'] = importance
+    body['is_all_day'] = is_all_day
+    body['is_cancelled'] = is_cancelled
+    body['is_online_meeting'] = is_online_meeting
+    body['is_organizer'] = is_organizer
+    body['is_reminder_on'] = is_reminder_on
+    body['locations'] = locations
+    body['online_meeting_provider'] = online_meeting_provider
+    body['online_meeting_url'] = online_meeting_url
+    body['original_end_time_zone'] = original_end_time_zone
+    body['original_start'] = original_start
+    body['original_start_time_zone'] = original_start_time_zone
+    body['reminder_minutes_before_start'] = reminder_minutes_before_start
+    body['response_requested'] = response_requested
+    body['response_status'] = response_status
+    body['sensitivity'] = sensitivity
+    body['series_master_id'] = series_master_id
+    body['show_as'] = show_as
+    body['start'] = start
+    body['subject'] = subject
+    body['transaction_id'] = transaction_id
+    body['type'] = type_
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['calendar'] = calendar
+    body['extensions'] = extensions
+    body['instances'] = instances
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['recurrence'] = {}
+    body['recurrence']['pattern'] = pattern
+    body['recurrence']['range'] = range
+    body['organizer'] = {}
+    body['organizer']['email_address'] = email_address
+    body['online_meeting'] = {}
+    body['online_meeting']['conference_id'] = conference_id
+    body['online_meeting']['join_url'] = join_url
+    body['online_meeting']['phones'] = phones
+    body['online_meeting']['quick_dial'] = quick_dial
+    body['online_meeting']['toll_free_numbers'] = toll_free_numbers
+    body['online_meeting']['toll_number'] = toll_number
+    body['location'] = {}
+    body['location']['address'] = address
+    body['location']['coordinates'] = coordinates
+    body['location']['display_name'] = display_name
+    body['location']['location_email_address'] = location_email_address
+    body['location']['location_type'] = location_type
+    body['location']['location_uri'] = location_uri
+    body['location']['unique_id'] = unique_id
+    body['location']['unique_id_type'] = unique_id_type
+    return client.update_events(user_id=user_id,
+                                event_id=event_id,
+                                event_id1=event_id1,
+                                body=body)
 
 
 def calendar_user_event_calendar_update_multi_value_extended_property(client,
@@ -15222,11 +15916,13 @@ def calendar_user_event_calendar_update_multi_value_extended_property(client,
                                                                       multi_value_legacy_extended_property_id,
                                                                       id_=None,
                                                                       value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       event_id=event_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         event_id=event_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def calendar_user_event_calendar_update_single_value_extended_property(client,
@@ -15235,8 +15931,10 @@ def calendar_user_event_calendar_update_single_value_extended_property(client,
                                                                        single_value_legacy_extended_property_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          event_id=event_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)

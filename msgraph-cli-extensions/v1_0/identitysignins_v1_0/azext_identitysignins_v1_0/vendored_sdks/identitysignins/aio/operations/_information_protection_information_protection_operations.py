@@ -99,18 +99,15 @@ class InformationProtectionInformationProtectionOperations:
 
     async def update_information_protection(
         self,
-        id: Optional[str] = None,
-        threat_assessment_requests: Optional[List["models.MicrosoftGraphThreatAssessmentRequest"]] = None,
+        body: "models.MicrosoftGraphInformationProtection",
         **kwargs
     ) -> None:
         """Update informationProtection.
 
         Update informationProtection.
 
-        :param id: Read-only.
-        :type id: str
-        :param threat_assessment_requests:
-        :type threat_assessment_requests: list[~identity_sign_ins.models.MicrosoftGraphThreatAssessmentRequest]
+        :param body: New property values.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphInformationProtection
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -121,8 +118,6 @@ class InformationProtectionInformationProtectionOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphInformationProtection(id=id, threat_assessment_requests=threat_assessment_requests)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

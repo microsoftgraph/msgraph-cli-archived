@@ -17,12 +17,14 @@ def schemaextensions_schema_extension_schema_extension_create_schema_extension(c
                                                                                properties=None,
                                                                                status=None,
                                                                                target_types=None):
-    return client.create_schema_extension(id=id_,
-                                          description=description,
-                                          owner=owner,
-                                          properties=properties,
-                                          status=status,
-                                          target_types=target_types)
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['owner'] = owner
+    body['properties'] = properties
+    body['status'] = status
+    body['target_types'] = target_types
+    return client.create_schema_extension(body=body)
 
 
 def schemaextensions_schema_extension_schema_extension_delete_schema_extension(client,
@@ -58,10 +60,12 @@ def schemaextensions_schema_extension_schema_extension_update_schema_extension(c
                                                                                properties=None,
                                                                                status=None,
                                                                                target_types=None):
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['owner'] = owner
+    body['properties'] = properties
+    body['status'] = status
+    body['target_types'] = target_types
     return client.update_schema_extension(schema_extension_id=schema_extension_id,
-                                          id=id_,
-                                          description=description,
-                                          owner=owner,
-                                          properties=properties,
-                                          status=status,
-                                          target_types=target_types)
+                                          body=body)

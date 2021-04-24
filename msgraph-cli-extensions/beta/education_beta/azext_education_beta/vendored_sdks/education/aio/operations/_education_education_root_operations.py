@@ -99,30 +99,15 @@ class EducationEducationRootOperations:
 
     async def update_education_root(
         self,
-        id: Optional[str] = None,
-        synchronization_profiles: Optional[List["models.MicrosoftGraphEducationSynchronizationProfile"]] = None,
-        classes: Optional[List["models.MicrosoftGraphEducationClass"]] = None,
-        me: Optional["models.MicrosoftGraphEducationUser"] = None,
-        schools: Optional[List["models.MicrosoftGraphEducationSchool"]] = None,
-        users: Optional[List["models.MicrosoftGraphEducationUser"]] = None,
+        body: "models.MicrosoftGraphEducationRoot",
         **kwargs
     ) -> None:
         """Update education.
 
         Update education.
 
-        :param id: Read-only.
-        :type id: str
-        :param synchronization_profiles:
-        :type synchronization_profiles: list[~education.models.MicrosoftGraphEducationSynchronizationProfile]
-        :param classes: Read-only. Nullable.
-        :type classes: list[~education.models.MicrosoftGraphEducationClass]
-        :param me: educationUser.
-        :type me: ~education.models.MicrosoftGraphEducationUser
-        :param schools: Read-only. Nullable.
-        :type schools: list[~education.models.MicrosoftGraphEducationSchool]
-        :param users: Read-only. Nullable.
-        :type users: list[~education.models.MicrosoftGraphEducationUser]
+        :param body: New property values.
+        :type body: ~education.models.MicrosoftGraphEducationRoot
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -133,8 +118,6 @@ class EducationEducationRootOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphEducationRoot(id=id, synchronization_profiles=synchronization_profiles, classes=classes, me=me, schools=schools, users=users)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

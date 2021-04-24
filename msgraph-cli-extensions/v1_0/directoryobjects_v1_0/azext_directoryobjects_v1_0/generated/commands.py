@@ -20,13 +20,13 @@ from azext_directoryobjects_v1_0.generated._client_factory import (
 
 
 directoryobjects_v1_0_directory_object_directory_object = CliCommandType(
-    operations_tmpl='azext_directoryobjects_v1_0.vendored_sdks.directoryobjects.operations._directory_object_directory_object_operations#DirectoryObjectDirectoryObjectOperations.{}',
+    operations_tmpl='azext_directoryobjects_v1_0.vendored_sdks.directoryobjects.operations._directory_objects_directory_object_operations#DirectoryObjectsDirectoryObjectOperations.{}',
     client_factory=cf_directory_object_directory_object,
 )
 
 
 directoryobjects_v1_0_directory_object = CliCommandType(
-    operations_tmpl='azext_directoryobjects_v1_0.vendored_sdks.directoryobjects.operations._directory_object_operations#DirectoryObjectOperations.{}',
+    operations_tmpl='azext_directoryobjects_v1_0.vendored_sdks.directoryobjects.operations._directory_objects_operations#DirectoryObjectsOperations.{}',
     client_factory=cf_directory_object,
 )
 

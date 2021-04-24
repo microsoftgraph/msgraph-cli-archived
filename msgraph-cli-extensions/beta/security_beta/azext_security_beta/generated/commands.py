@@ -36,20 +36,20 @@ security_beta_security = CliCommandType(
 
 security_beta_security_alert = CliCommandType(
     operations_tmpl=(
-        'azext_security_beta.vendored_sdks.security.operations._security_alert_operations#SecurityAlertOperations.{}'
+        'azext_security_beta.vendored_sdks.security.operations._security_alerts_operations#SecurityAlertsOperations.{}'
     ),
     client_factory=cf_security_alert,
 )
 
 
 security_beta_security_security_action = CliCommandType(
-    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_security_action_operations#SecuritySecurityActionOperations.{}',
+    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_security_actions_operations#SecuritySecurityActionsOperations.{}',
     client_factory=cf_security_security_action,
 )
 
 
 security_beta_security_tiindicator = CliCommandType(
-    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_ti_indicator_operations#SecurityTIIndicatorOperations.{}',
+    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_ti_indicators_operations#SecurityTiIndicatorsOperations.{}',
     client_factory=cf_security_tiindicator,
 )
 

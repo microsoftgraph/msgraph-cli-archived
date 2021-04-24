@@ -104,8 +104,7 @@ class TeamworkTeamworkOperations(object):
 
     def update_teamwork(
         self,
-        id=None,  # type: Optional[str]
-        workforce_integrations=None,  # type: Optional[List["models.MicrosoftGraphWorkforceIntegration"]]
+        body,  # type: "models.MicrosoftGraphTeamwork"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -113,10 +112,8 @@ class TeamworkTeamworkOperations(object):
 
         Update teamwork.
 
-        :param id: Read-only.
-        :type id: str
-        :param workforce_integrations:
-        :type workforce_integrations: list[~teams.models.MicrosoftGraphWorkforceIntegration]
+        :param body: New property values.
+        :type body: ~teams.models.MicrosoftGraphTeamwork
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -127,8 +124,6 @@ class TeamworkTeamworkOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphTeamwork(id=id, workforce_integrations=workforce_integrations)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

@@ -2277,78 +2277,44 @@ class MicrosoftGraphBaseItem(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~sites.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~sites.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~sites.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~sites.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -2356,54 +2322,32 @@ class MicrosoftGraphBaseItem(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
         created_by_user: Optional["MicrosoftGraphUser"] = None,
         last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
-        drive_id: Optional[str] = None,
-        drive_type: Optional[str] = None,
-        id_parent_reference_id: Optional[str] = None,
-        name_parent_reference_name: Optional[str] = None,
-        path: Optional[str] = None,
-        share_id: Optional[str] = None,
-        sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
-        site_id: Optional[str] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphBaseItem, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
+        self.created_by = created_by
         self.created_date_time = created_date_time
         self.description = description
         self.e_tag = e_tag
+        self.last_modified_by = last_modified_by
         self.last_modified_date_time = last_modified_date_time
         self.name = name
+        self.parent_reference = parent_reference
         self.web_url = web_url
         self.created_by_user = created_by_user
         self.last_modified_by_user = last_modified_by_user
-        self.drive_id = drive_id
-        self.drive_type = drive_type
-        self.id_parent_reference_id = id_parent_reference_id
-        self.name_parent_reference_name = name_parent_reference_name
-        self.path = path
-        self.share_id = share_id
-        self.sharepoint_ids = sharepoint_ids
-        self.site_id = site_id
-        self.application_last_modified_by_application = application_last_modified_by_application
-        self.device_last_modified_by_device = device_last_modified_by_device
-        self.user_last_modified_by_user = user_last_modified_by_user
-        self.application_created_by_application = application_created_by_application
-        self.device_created_by_device = device_created_by_device
-        self.user_created_by_user = user_created_by_user
 
 
 class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
@@ -2414,26 +2358,20 @@ class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the version was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
     :type publication: ~sites.models.MicrosoftGraphPublicationFacet
-    :param application: identity.
-    :type application: ~sites.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~sites.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~sites.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -2441,20 +2379,16 @@ class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         publication: Optional["MicrosoftGraphPublicationFacet"] = None,
-        application: Optional["MicrosoftGraphIdentity"] = None,
-        device: Optional["MicrosoftGraphIdentity"] = None,
-        user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphBaseItemVersion, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
+        self.last_modified_by = last_modified_by
         self.last_modified_date_time = last_modified_date_time
         self.publication = publication
-        self.application = application
-        self.device = device
-        self.user = user
 
 
 class MicrosoftGraphBundle(msrest.serialization.Model):
@@ -3589,6 +3523,8 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
     :param column_group: For site columns, the name of the group this column belongs to. Helps
      organize related columns.
     :type column_group: str
+    :param currency: currencyColumn.
+    :type currency: ~sites.models.MicrosoftGraphCurrencyColumn
     :param date_time: dateTimeColumn.
     :type date_time: ~sites.models.MicrosoftGraphDateTimeColumn
     :param default_value: defaultColumnValue.
@@ -3621,8 +3557,6 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
     :type required: bool
     :param text: textColumn.
     :type text: ~sites.models.MicrosoftGraphTextColumn
-    :param locale: Specifies the locale from which to infer the currency symbol.
-    :type locale: str
     """
 
     _attribute_map = {
@@ -3632,6 +3566,7 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
         'calculated': {'key': 'calculated', 'type': 'MicrosoftGraphCalculatedColumn'},
         'choice': {'key': 'choice', 'type': 'MicrosoftGraphChoiceColumn'},
         'column_group': {'key': 'columnGroup', 'type': 'str'},
+        'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrencyColumn'},
         'date_time': {'key': 'dateTime', 'type': 'MicrosoftGraphDateTimeColumn'},
         'default_value': {'key': 'defaultValue', 'type': 'MicrosoftGraphDefaultColumnValue'},
         'description': {'key': 'description', 'type': 'str'},
@@ -3647,7 +3582,6 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
         'read_only': {'key': 'readOnly', 'type': 'bool'},
         'required': {'key': 'required', 'type': 'bool'},
         'text': {'key': 'text', 'type': 'MicrosoftGraphTextColumn'},
-        'locale': {'key': 'currency.locale', 'type': 'str'},
     }
 
     def __init__(
@@ -3659,6 +3593,7 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
         calculated: Optional["MicrosoftGraphCalculatedColumn"] = None,
         choice: Optional["MicrosoftGraphChoiceColumn"] = None,
         column_group: Optional[str] = None,
+        currency: Optional["MicrosoftGraphCurrencyColumn"] = None,
         date_time: Optional["MicrosoftGraphDateTimeColumn"] = None,
         default_value: Optional["MicrosoftGraphDefaultColumnValue"] = None,
         description: Optional[str] = None,
@@ -3674,7 +3609,6 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
         read_only: Optional[bool] = None,
         required: Optional[bool] = None,
         text: Optional["MicrosoftGraphTextColumn"] = None,
-        locale: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphColumnDefinition, self).__init__(id=id, **kwargs)
@@ -3683,6 +3617,7 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
         self.calculated = calculated
         self.choice = choice
         self.column_group = column_group
+        self.currency = currency
         self.date_time = date_time
         self.default_value = default_value
         self.description = description
@@ -3698,7 +3633,6 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
         self.read_only = read_only
         self.required = required
         self.text = text
-        self.locale = locale
 
 
 class MicrosoftGraphColumnLink(MicrosoftGraphEntity):
@@ -4404,6 +4338,8 @@ class MicrosoftGraphContentType(MicrosoftGraphEntity):
     :type group: str
     :param hidden: Indicates whether the content type is hidden in the list's 'New' menu.
     :type hidden: bool
+    :param inherited_from: itemReference.
+    :type inherited_from: ~sites.models.MicrosoftGraphItemReference
     :param name: The name of the content type.
     :type name: str
     :param order: contentTypeOrder.
@@ -4418,23 +4354,6 @@ class MicrosoftGraphContentType(MicrosoftGraphEntity):
     :type sealed: bool
     :param column_links: The collection of columns that are required by this content type.
     :type column_links: list[~sites.models.MicrosoftGraphColumnLink]
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_inherited_from_id: Unique identifier of the item in the drive. Read-only.
-    :type id_inherited_from_id: str
-    :param name_inherited_from_name: The name of the item being referenced. Read-only.
-    :type name_inherited_from_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
     """
 
     _attribute_map = {
@@ -4443,20 +4362,13 @@ class MicrosoftGraphContentType(MicrosoftGraphEntity):
         'description': {'key': 'description', 'type': 'str'},
         'group': {'key': 'group', 'type': 'str'},
         'hidden': {'key': 'hidden', 'type': 'bool'},
+        'inherited_from': {'key': 'inheritedFrom', 'type': 'MicrosoftGraphItemReference'},
         'name': {'key': 'name', 'type': 'str'},
         'order': {'key': 'order', 'type': 'MicrosoftGraphContentTypeOrder'},
         'parent_id': {'key': 'parentId', 'type': 'str'},
         'read_only': {'key': 'readOnly', 'type': 'bool'},
         'sealed': {'key': 'sealed', 'type': 'bool'},
         'column_links': {'key': 'columnLinks', 'type': '[MicrosoftGraphColumnLink]'},
-        'drive_id': {'key': 'inheritedFrom.driveId', 'type': 'str'},
-        'drive_type': {'key': 'inheritedFrom.driveType', 'type': 'str'},
-        'id_inherited_from_id': {'key': 'inheritedFrom.id', 'type': 'str'},
-        'name_inherited_from_name': {'key': 'inheritedFrom.name', 'type': 'str'},
-        'path': {'key': 'inheritedFrom.path', 'type': 'str'},
-        'share_id': {'key': 'inheritedFrom.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'inheritedFrom.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'inheritedFrom.siteId', 'type': 'str'},
     }
 
     def __init__(
@@ -4467,20 +4379,13 @@ class MicrosoftGraphContentType(MicrosoftGraphEntity):
         description: Optional[str] = None,
         group: Optional[str] = None,
         hidden: Optional[bool] = None,
+        inherited_from: Optional["MicrosoftGraphItemReference"] = None,
         name: Optional[str] = None,
         order: Optional["MicrosoftGraphContentTypeOrder"] = None,
         parent_id: Optional[str] = None,
         read_only: Optional[bool] = None,
         sealed: Optional[bool] = None,
         column_links: Optional[List["MicrosoftGraphColumnLink"]] = None,
-        drive_id: Optional[str] = None,
-        drive_type: Optional[str] = None,
-        id_inherited_from_id: Optional[str] = None,
-        name_inherited_from_name: Optional[str] = None,
-        path: Optional[str] = None,
-        share_id: Optional[str] = None,
-        sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
-        site_id: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphContentType, self).__init__(id=id, **kwargs)
@@ -4488,20 +4393,13 @@ class MicrosoftGraphContentType(MicrosoftGraphEntity):
         self.description = description
         self.group = group
         self.hidden = hidden
+        self.inherited_from = inherited_from
         self.name = name
         self.order = order
         self.parent_id = parent_id
         self.read_only = read_only
         self.sealed = sealed
         self.column_links = column_links
-        self.drive_id = drive_id
-        self.drive_type = drive_type
-        self.id_inherited_from_id = id_inherited_from_id
-        self.name_inherited_from_name = name_inherited_from_name
-        self.path = path
-        self.share_id = share_id
-        self.sharepoint_ids = sharepoint_ids
-        self.site_id = site_id
 
 
 class MicrosoftGraphContentTypeInfo(msrest.serialization.Model):
@@ -6399,49 +6297,28 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~sites.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~sites.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~sites.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~sites.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -6449,6 +6326,10 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
      drives will return personal. OneDrive for Business will return business. SharePoint document
      libraries will return documentLibrary. Read-only.
     :type drive_type: str
+    :param owner: identitySet.
+    :type owner: ~sites.models.MicrosoftGraphIdentitySet
+    :param quota: quota.
+    :type quota: ~sites.models.MicrosoftGraphQuota
     :param share_point_ids: sharepointIds.
     :type share_point_ids: ~sites.models.MicrosoftGraphSharepointIds
     :param system: systemFacet.
@@ -6467,51 +6348,25 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     :type root: ~sites.models.MicrosoftGraphDriveItem
     :param special: Collection of common folders available in OneDrive. Read-only. Nullable.
     :type special: list[~sites.models.MicrosoftGraphDriveItem]
-    :param deleted: Total space consumed by files in the recycle bin, in bytes. Read-only.
-    :type deleted: long
-    :param remaining: Total space remaining before reaching the quota limit, in bytes. Read-only.
-    :type remaining: long
-    :param state: Enumeration value that indicates the state of the storage space. Read-only.
-    :type state: str
-    :param storage_plan_information: storagePlanInformation.
-    :type storage_plan_information: ~sites.models.MicrosoftGraphStoragePlanInformation
-    :param total: Total allowed storage space, in bytes. Read-only.
-    :type total: long
-    :param used: Total space used, in bytes. Read-only.
-    :type used: long
-    :param application: identity.
-    :type application: ~sites.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~sites.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~sites.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'drive_type': {'key': 'driveType', 'type': 'str'},
+        'owner': {'key': 'owner', 'type': 'MicrosoftGraphIdentitySet'},
+        'quota': {'key': 'quota', 'type': 'MicrosoftGraphQuota'},
         'share_point_ids': {'key': 'sharePointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'system': {'key': 'system', 'type': '{object}'},
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphItemActivityOld]'},
@@ -6521,44 +6376,27 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
         'list': {'key': 'list', 'type': 'MicrosoftGraphList'},
         'root': {'key': 'root', 'type': 'MicrosoftGraphDriveItem'},
         'special': {'key': 'special', 'type': '[MicrosoftGraphDriveItem]'},
-        'deleted': {'key': 'quota.deleted', 'type': 'long'},
-        'remaining': {'key': 'quota.remaining', 'type': 'long'},
-        'state': {'key': 'quota.state', 'type': 'str'},
-        'storage_plan_information': {'key': 'quota.storagePlanInformation', 'type': 'MicrosoftGraphStoragePlanInformation'},
-        'total': {'key': 'quota.total', 'type': 'long'},
-        'used': {'key': 'quota.used', 'type': 'long'},
-        'application': {'key': 'owner.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'owner.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'owner.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
         created_by_user: Optional["MicrosoftGraphUser"] = None,
         last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
-        drive_id: Optional[str] = None,
-        id_parent_reference_id: Optional[str] = None,
-        name_parent_reference_name: Optional[str] = None,
-        path: Optional[str] = None,
-        share_id: Optional[str] = None,
-        sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
-        site_id: Optional[str] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         drive_type: Optional[str] = None,
+        owner: Optional["MicrosoftGraphIdentitySet"] = None,
+        quota: Optional["MicrosoftGraphQuota"] = None,
         share_point_ids: Optional["MicrosoftGraphSharepointIds"] = None,
         system: Optional[Dict[str, object]] = None,
         activities: Optional[List["MicrosoftGraphItemActivityOld"]] = None,
@@ -6568,20 +6406,13 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
         list: Optional["MicrosoftGraphList"] = None,
         root: Optional["MicrosoftGraphDriveItem"] = None,
         special: Optional[List["MicrosoftGraphDriveItem"]] = None,
-        deleted: Optional[int] = None,
-        remaining: Optional[int] = None,
-        state: Optional[str] = None,
-        storage_plan_information: Optional["MicrosoftGraphStoragePlanInformation"] = None,
-        total: Optional[int] = None,
-        used: Optional[int] = None,
-        application: Optional["MicrosoftGraphIdentity"] = None,
-        device: Optional["MicrosoftGraphIdentity"] = None,
-        user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDrive, self).__init__(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, id_parent_reference_id=id_parent_reference_id, name_parent_reference_name=name_parent_reference_name, path=path, share_id=share_id, sharepoint_ids=sharepoint_ids, site_id=site_id, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphDrive, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.drive_type = drive_type
+        self.owner = owner
+        self.quota = quota
         self.share_point_ids = share_point_ids
         self.system = system
         self.activities = activities
@@ -6591,15 +6422,6 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
         self.list = list
         self.root = root
         self.special = special
-        self.deleted = deleted
-        self.remaining = remaining
-        self.state = state
-        self.storage_plan_information = storage_plan_information
-        self.total = total
-        self.used = used
-        self.application = application
-        self.device = device
-        self.user = user
 
 
 class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
@@ -6607,79 +6429,80 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~sites.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~sites.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~sites.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~sites.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param audio: audio.
     :type audio: ~sites.models.MicrosoftGraphAudio
+    :param bundle: bundle.
+    :type bundle: ~sites.models.MicrosoftGraphBundle
     :param content: The content stream, if the item represents a file.
     :type content: bytes
     :param c_tag: An eTag for the content of the item. This eTag is not changed if only the
      metadata is changed. Note This property is not returned if the item is a folder. Read-only.
     :type c_tag: str
+    :param deleted: deleted.
+    :type deleted: ~sites.models.MicrosoftGraphDeleted
+    :param file: file.
+    :type file: ~sites.models.MicrosoftGraphFile
     :param file_system_info: fileSystemInfo.
     :type file_system_info: ~sites.models.MicrosoftGraphFileSystemInfo
+    :param folder: folder.
+    :type folder: ~sites.models.MicrosoftGraphFolder
     :param image: image.
     :type image: ~sites.models.MicrosoftGraphImage
     :param location: geoCoordinates.
     :type location: ~sites.models.MicrosoftGraphGeoCoordinates
+    :param package: package.
+    :type package: ~sites.models.MicrosoftGraphPackage
+    :param pending_operations: pendingOperations.
+    :type pending_operations: ~sites.models.MicrosoftGraphPendingOperations
     :param photo: photo.
     :type photo: ~sites.models.MicrosoftGraphPhoto
     :param publication: publicationFacet.
     :type publication: ~sites.models.MicrosoftGraphPublicationFacet
+    :param remote_item: remoteItem.
+    :type remote_item: ~sites.models.MicrosoftGraphRemoteItem
     :param root: root.
     :type root: dict[str, object]
+    :param search_result: searchResult.
+    :type search_result: ~sites.models.MicrosoftGraphSearchResult
+    :param shared: shared.
+    :type shared: ~sites.models.MicrosoftGraphShared
     :param sharepoint_ids: sharepointIds.
     :type sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
     :param size: Size of the item in bytes. Read-only.
     :type size: long
+    :param special_folder: specialFolder.
+    :type special_folder: ~sites.models.MicrosoftGraphSpecialFolder
     :param video: video.
     :type video: ~sites.models.MicrosoftGraphVideo
     :param web_dav_url: WebDAV compatible URL for the item.
     :type web_dav_url: str
+    :param workbook: workbook.
+    :type workbook: ~sites.models.MicrosoftGraphWorkbook
     :param activities: The list of recent activities that took place on this item.
     :type activities: list[~sites.models.MicrosoftGraphItemActivityOld]
     :param analytics: itemAnalytics.
@@ -6687,6 +6510,8 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     :param children: Collection containing Item objects for the immediate children of Item. Only
      items representing folders have children. Read-only. Nullable.
     :type children: list[~sites.models.MicrosoftGraphDriveItem]
+    :param list_item: listItem.
+    :type list_item: ~sites.models.MicrosoftGraphListItem
     :param permissions: The set of permissions for the item. Read-only. Nullable.
     :type permissions: list[~sites.models.MicrosoftGraphPermission]
     :param subscriptions: The set of subscriptions on the item. Only supported on the root of a
@@ -6698,520 +6523,140 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     :param versions: The list of previous versions of the item. For more info, see [getting
      previous versions][]. Read-only. Nullable.
     :type versions: list[~sites.models.MicrosoftGraphDriveItemVersion]
-    :param id_list_item_id: Read-only.
-    :type id_list_item_id: str
-    :param created_date_time_list_item_created_date_time: Date and time of item creation. Read-
-     only.
-    :type created_date_time_list_item_created_date_time: ~datetime.datetime
-    :param description_list_item_description: Provides a user-visible description of the item.
-     Optional.
-    :type description_list_item_description: str
-    :param e_tag_list_item_e_tag: ETag for the item. Read-only.
-    :type e_tag_list_item_e_tag: str
-    :param last_modified_date_time_list_item_last_modified_date_time: Date and time the item was
-     last modified. Read-only.
-    :type last_modified_date_time_list_item_last_modified_date_time: ~datetime.datetime
-    :param name_list_item_name: The name of the item. Read-write.
-    :type name_list_item_name: str
-    :param web_url_list_item_web_url: URL that displays the resource in the browser. Read-only.
-    :type web_url_list_item_web_url: str
-    :param created_by_user_list_item_created_by_user: Represents an Azure Active Directory user
-     object.
-    :type created_by_user_list_item_created_by_user: ~sites.models.MicrosoftGraphUser
-    :param last_modified_by_user_list_item_last_modified_by_user: Represents an Azure Active
-     Directory user object.
-    :type last_modified_by_user_list_item_last_modified_by_user: ~sites.models.MicrosoftGraphUser
-    :param drive_id_list_item_parent_reference_drive_id: Unique identifier of the drive instance
-     that contains the item. Read-only.
-    :type drive_id_list_item_parent_reference_drive_id: str
-    :param drive_type_list_item_parent_reference_drive_type: Identifies the type of drive. See
-     [drive][] resource for values.
-    :type drive_type_list_item_parent_reference_drive_type: str
-    :param id_list_item_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_list_item_parent_reference_id: str
-    :param name_list_item_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_list_item_parent_reference_name: str
-    :param path_list_item_parent_reference_path: Path that can be used to navigate to the item.
-     Read-only.
-    :type path_list_item_parent_reference_path: str
-    :param share_id_list_item_parent_reference_share_id: A unique identifier for a shared resource
-     that can be accessed via the [Shares][] API.
-    :type share_id_list_item_parent_reference_share_id: str
-    :param sharepoint_ids_list_item_parent_reference_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_list_item_parent_reference_sharepoint_ids:
-     ~sites.models.MicrosoftGraphSharepointIds
-    :param site_id_list_item_parent_reference_site_id:
-    :type site_id_list_item_parent_reference_site_id: str
-    :param application_list_item_last_modified_by_application: identity.
-    :type application_list_item_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_list_item_last_modified_by_device: identity.
-    :type device_list_item_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_list_item_last_modified_by_user: identity.
-    :type user_list_item_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param application_list_item_created_by_application: identity.
-    :type application_list_item_created_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_list_item_created_by_device: identity.
-    :type device_list_item_created_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_list_item_created_by_user: identity.
-    :type user_list_item_created_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param content_type: contentTypeInfo.
-    :type content_type: ~sites.models.MicrosoftGraphContentTypeInfo
-    :param sharepoint_ids_list_item_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_list_item_sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
-    :param activities_list_item_activities: The list of recent activities that took place on this
-     item.
-    :type activities_list_item_activities: list[~sites.models.MicrosoftGraphItemActivityOld]
-    :param analytics_list_item_analytics: itemAnalytics.
-    :type analytics_list_item_analytics: ~sites.models.MicrosoftGraphItemAnalytics
-    :param drive_item: driveItem.
-    :type drive_item: ~sites.models.MicrosoftGraphDriveItem
-    :param versions_list_item_versions: The list of previous versions of the list item.
-    :type versions_list_item_versions: list[~sites.models.MicrosoftGraphListItemVersion]
-    :param id_list_item_fields_id: Read-only.
-    :type id_list_item_fields_id: str
-    :param id_workbook_id: Read-only.
-    :type id_workbook_id: str
-    :param application_workbook_application: workbookApplication.
-    :type application_workbook_application: ~sites.models.MicrosoftGraphWorkbookApplication
-    :param comments:
-    :type comments: list[~sites.models.MicrosoftGraphWorkbookComment]
-    :param functions: workbookFunctions.
-    :type functions: ~sites.models.MicrosoftGraphWorkbookFunctions
-    :param names: Represents a collection of workbook scoped named items (named ranges and
-     constants). Read-only.
-    :type names: list[~sites.models.MicrosoftGraphWorkbookNamedItem]
-    :param operations: The status of workbook operations. Getting an operation collection is not
-     supported, but you can get the status of a long-running operation if the Location header is
-     returned in the response. Read-only.
-    :type operations: list[~sites.models.MicrosoftGraphWorkbookOperation]
-    :param tables: Represents a collection of tables associated with the workbook. Read-only.
-    :type tables: list[~sites.models.MicrosoftGraphWorkbookTable]
-    :param worksheets: Represents a collection of worksheets associated with the workbook. Read-
-     only.
-    :type worksheets: list[~sites.models.MicrosoftGraphWorkbookWorksheet]
-    :param name_special_folder_name: The unique identifier for this item in the /drive/special
-     collection.
-    :type name_special_folder_name: str
-    :param owner: identitySet.
-    :type owner: ~sites.models.MicrosoftGraphIdentitySet
-    :param scope: Indicates the scope of how the item is shared: anonymous, organization, or users.
-     Read-only.
-    :type scope: str
-    :param shared_by: identitySet.
-    :type shared_by: ~sites.models.MicrosoftGraphIdentitySet
-    :param shared_date_time: The UTC date and time when the item was shared. Read-only.
-    :type shared_date_time: ~datetime.datetime
-    :param on_click_telemetry_url: A callback URL that can be used to record telemetry information.
-     The application should issue a GET on this URL if the user interacts with this item to improve
-     the quality of results.
-    :type on_click_telemetry_url: str
-    :param created_by: identitySet.
-    :type created_by: ~sites.models.MicrosoftGraphIdentitySet
-    :param created_date_time_remote_item_created_date_time: Date and time of item creation. Read-
-     only.
-    :type created_date_time_remote_item_created_date_time: ~datetime.datetime
-    :param file: file.
-    :type file: ~sites.models.MicrosoftGraphFile
-    :param file_system_info_remote_item_file_system_info: fileSystemInfo.
-    :type file_system_info_remote_item_file_system_info: ~sites.models.MicrosoftGraphFileSystemInfo
-    :param folder: folder.
-    :type folder: ~sites.models.MicrosoftGraphFolder
-    :param id_remote_item_id: Unique identifier for the remote item in its drive. Read-only.
-    :type id_remote_item_id: str
-    :param image_remote_item_image: image.
-    :type image_remote_item_image: ~sites.models.MicrosoftGraphImage
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
-    :param last_modified_date_time_remote_item_last_modified_date_time: Date and time the item was
-     last modified. Read-only.
-    :type last_modified_date_time_remote_item_last_modified_date_time: ~datetime.datetime
-    :param name_remote_item_name: Optional. Filename of the remote item. Read-only.
-    :type name_remote_item_name: str
-    :param package: package.
-    :type package: ~sites.models.MicrosoftGraphPackage
-    :param parent_reference: itemReference.
-    :type parent_reference: ~sites.models.MicrosoftGraphItemReference
-    :param shared: shared.
-    :type shared: ~sites.models.MicrosoftGraphShared
-    :param sharepoint_ids_remote_item_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_remote_item_sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
-    :param size_remote_item_size: Size of the remote item. Read-only.
-    :type size_remote_item_size: long
-    :param special_folder: specialFolder.
-    :type special_folder: ~sites.models.MicrosoftGraphSpecialFolder
-    :param video_remote_item_video: video.
-    :type video_remote_item_video: ~sites.models.MicrosoftGraphVideo
-    :param web_dav_url_remote_item_web_dav_url: DAV compatible URL for the item.
-    :type web_dav_url_remote_item_web_dav_url: str
-    :param web_url_remote_item_web_url: URL that displays the resource in the browser. Read-only.
-    :type web_url_remote_item_web_url: str
-    :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
-     Read-only.
-    :type queued_date_time: ~datetime.datetime
-    :param type: A string indicating the type of package. While oneNote is the only currently
-     defined value, you should expect other package types to be returned and handle them
-     accordingly.
-    :type type: str
-    :param child_count_folder_child_count: Number of children contained immediately within this
-     container.
-    :type child_count_folder_child_count: int
-    :param view: folderView.
-    :type view: ~sites.models.MicrosoftGraphFolderView
-    :param hashes: hashes.
-    :type hashes: ~sites.models.MicrosoftGraphHashes
-    :param mime_type: The MIME type for the file. This is determined by logic on the server and
-     might not be the value provided when the file was uploaded. Read-only.
-    :type mime_type: str
-    :param processing_metadata:
-    :type processing_metadata: bool
-    :param state: Represents the state of the deleted item.
-    :type state: str
-    :param album: album.
-    :type album: ~sites.models.MicrosoftGraphAlbum
-    :param child_count_bundle_child_count:
-    :type child_count_bundle_child_count: int
     """
-
-    _validation = {
-        'child_count_folder_child_count': {'maximum': 2147483647, 'minimum': -2147483648},
-        'child_count_bundle_child_count': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'audio': {'key': 'audio', 'type': 'MicrosoftGraphAudio'},
+        'bundle': {'key': 'bundle', 'type': 'MicrosoftGraphBundle'},
         'content': {'key': 'content', 'type': 'base64'},
         'c_tag': {'key': 'cTag', 'type': 'str'},
+        'deleted': {'key': 'deleted', 'type': 'MicrosoftGraphDeleted'},
+        'file': {'key': 'file', 'type': 'MicrosoftGraphFile'},
         'file_system_info': {'key': 'fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
+        'folder': {'key': 'folder', 'type': 'MicrosoftGraphFolder'},
         'image': {'key': 'image', 'type': 'MicrosoftGraphImage'},
         'location': {'key': 'location', 'type': 'MicrosoftGraphGeoCoordinates'},
+        'package': {'key': 'package', 'type': 'MicrosoftGraphPackage'},
+        'pending_operations': {'key': 'pendingOperations', 'type': 'MicrosoftGraphPendingOperations'},
         'photo': {'key': 'photo', 'type': 'MicrosoftGraphPhoto'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
+        'remote_item': {'key': 'remoteItem', 'type': 'MicrosoftGraphRemoteItem'},
         'root': {'key': 'root', 'type': '{object}'},
+        'search_result': {'key': 'searchResult', 'type': 'MicrosoftGraphSearchResult'},
+        'shared': {'key': 'shared', 'type': 'MicrosoftGraphShared'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'size': {'key': 'size', 'type': 'long'},
+        'special_folder': {'key': 'specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
         'video': {'key': 'video', 'type': 'MicrosoftGraphVideo'},
         'web_dav_url': {'key': 'webDavUrl', 'type': 'str'},
+        'workbook': {'key': 'workbook', 'type': 'MicrosoftGraphWorkbook'},
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphItemActivityOld]'},
         'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
         'children': {'key': 'children', 'type': '[MicrosoftGraphDriveItem]'},
+        'list_item': {'key': 'listItem', 'type': 'MicrosoftGraphListItem'},
         'permissions': {'key': 'permissions', 'type': '[MicrosoftGraphPermission]'},
         'subscriptions': {'key': 'subscriptions', 'type': '[MicrosoftGraphSubscription]'},
         'thumbnails': {'key': 'thumbnails', 'type': '[MicrosoftGraphThumbnailSet]'},
         'versions': {'key': 'versions', 'type': '[MicrosoftGraphDriveItemVersion]'},
-        'id_list_item_id': {'key': 'listItem.id', 'type': 'str'},
-        'created_date_time_list_item_created_date_time': {'key': 'listItem.createdDateTime', 'type': 'iso-8601'},
-        'description_list_item_description': {'key': 'listItem.description', 'type': 'str'},
-        'e_tag_list_item_e_tag': {'key': 'listItem.eTag', 'type': 'str'},
-        'last_modified_date_time_list_item_last_modified_date_time': {'key': 'listItem.lastModifiedDateTime', 'type': 'iso-8601'},
-        'name_list_item_name': {'key': 'listItem.name', 'type': 'str'},
-        'web_url_list_item_web_url': {'key': 'listItem.webUrl', 'type': 'str'},
-        'created_by_user_list_item_created_by_user': {'key': 'listItem.createdByUser', 'type': 'MicrosoftGraphUser'},
-        'last_modified_by_user_list_item_last_modified_by_user': {'key': 'listItem.lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id_list_item_parent_reference_drive_id': {'key': 'listItem.parentReference.driveId', 'type': 'str'},
-        'drive_type_list_item_parent_reference_drive_type': {'key': 'listItem.parentReference.driveType', 'type': 'str'},
-        'id_list_item_parent_reference_id': {'key': 'listItem.parentReference.id', 'type': 'str'},
-        'name_list_item_parent_reference_name': {'key': 'listItem.parentReference.name', 'type': 'str'},
-        'path_list_item_parent_reference_path': {'key': 'listItem.parentReference.path', 'type': 'str'},
-        'share_id_list_item_parent_reference_share_id': {'key': 'listItem.parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids_list_item_parent_reference_sharepoint_ids': {'key': 'listItem.parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id_list_item_parent_reference_site_id': {'key': 'listItem.parentReference.siteId', 'type': 'str'},
-        'application_list_item_last_modified_by_application': {'key': 'listItem.lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_list_item_last_modified_by_device': {'key': 'listItem.lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_list_item_last_modified_by_user': {'key': 'listItem.lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_list_item_created_by_application': {'key': 'listItem.createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_list_item_created_by_device': {'key': 'listItem.createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_list_item_created_by_user': {'key': 'listItem.createdBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'content_type': {'key': 'listItem.contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
-        'sharepoint_ids_list_item_sharepoint_ids': {'key': 'listItem.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'activities_list_item_activities': {'key': 'listItem.activities', 'type': '[MicrosoftGraphItemActivityOld]'},
-        'analytics_list_item_analytics': {'key': 'listItem.analytics', 'type': 'MicrosoftGraphItemAnalytics'},
-        'drive_item': {'key': 'listItem.driveItem', 'type': 'MicrosoftGraphDriveItem'},
-        'versions_list_item_versions': {'key': 'listItem.versions', 'type': '[MicrosoftGraphListItemVersion]'},
-        'id_list_item_fields_id': {'key': 'listItem.fields.id', 'type': 'str'},
-        'id_workbook_id': {'key': 'workbook.id', 'type': 'str'},
-        'application_workbook_application': {'key': 'workbook.application', 'type': 'MicrosoftGraphWorkbookApplication'},
-        'comments': {'key': 'workbook.comments', 'type': '[MicrosoftGraphWorkbookComment]'},
-        'functions': {'key': 'workbook.functions', 'type': 'MicrosoftGraphWorkbookFunctions'},
-        'names': {'key': 'workbook.names', 'type': '[MicrosoftGraphWorkbookNamedItem]'},
-        'operations': {'key': 'workbook.operations', 'type': '[MicrosoftGraphWorkbookOperation]'},
-        'tables': {'key': 'workbook.tables', 'type': '[MicrosoftGraphWorkbookTable]'},
-        'worksheets': {'key': 'workbook.worksheets', 'type': '[MicrosoftGraphWorkbookWorksheet]'},
-        'name_special_folder_name': {'key': 'specialFolder.name', 'type': 'str'},
-        'owner': {'key': 'shared.owner', 'type': 'MicrosoftGraphIdentitySet'},
-        'scope': {'key': 'shared.scope', 'type': 'str'},
-        'shared_by': {'key': 'shared.sharedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'shared_date_time': {'key': 'shared.sharedDateTime', 'type': 'iso-8601'},
-        'on_click_telemetry_url': {'key': 'searchResult.onClickTelemetryUrl', 'type': 'str'},
-        'created_by': {'key': 'remoteItem.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'created_date_time_remote_item_created_date_time': {'key': 'remoteItem.createdDateTime', 'type': 'iso-8601'},
-        'file': {'key': 'remoteItem.file', 'type': 'MicrosoftGraphFile'},
-        'file_system_info_remote_item_file_system_info': {'key': 'remoteItem.fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
-        'folder': {'key': 'remoteItem.folder', 'type': 'MicrosoftGraphFolder'},
-        'id_remote_item_id': {'key': 'remoteItem.id', 'type': 'str'},
-        'image_remote_item_image': {'key': 'remoteItem.image', 'type': 'MicrosoftGraphImage'},
-        'last_modified_by': {'key': 'remoteItem.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'last_modified_date_time_remote_item_last_modified_date_time': {'key': 'remoteItem.lastModifiedDateTime', 'type': 'iso-8601'},
-        'name_remote_item_name': {'key': 'remoteItem.name', 'type': 'str'},
-        'package': {'key': 'remoteItem.package', 'type': 'MicrosoftGraphPackage'},
-        'parent_reference': {'key': 'remoteItem.parentReference', 'type': 'MicrosoftGraphItemReference'},
-        'shared': {'key': 'remoteItem.shared', 'type': 'MicrosoftGraphShared'},
-        'sharepoint_ids_remote_item_sharepoint_ids': {'key': 'remoteItem.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'size_remote_item_size': {'key': 'remoteItem.size', 'type': 'long'},
-        'special_folder': {'key': 'remoteItem.specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
-        'video_remote_item_video': {'key': 'remoteItem.video', 'type': 'MicrosoftGraphVideo'},
-        'web_dav_url_remote_item_web_dav_url': {'key': 'remoteItem.webDavUrl', 'type': 'str'},
-        'web_url_remote_item_web_url': {'key': 'remoteItem.webUrl', 'type': 'str'},
-        'queued_date_time': {'key': 'pendingOperations.pendingContentUpdate.queuedDateTime', 'type': 'iso-8601'},
-        'type': {'key': 'package.type', 'type': 'str'},
-        'child_count_folder_child_count': {'key': 'folder.childCount', 'type': 'int'},
-        'view': {'key': 'folder.view', 'type': 'MicrosoftGraphFolderView'},
-        'hashes': {'key': 'file.hashes', 'type': 'MicrosoftGraphHashes'},
-        'mime_type': {'key': 'file.mimeType', 'type': 'str'},
-        'processing_metadata': {'key': 'file.processingMetadata', 'type': 'bool'},
-        'state': {'key': 'deleted.state', 'type': 'str'},
-        'album': {'key': 'bundle.album', 'type': 'MicrosoftGraphAlbum'},
-        'child_count_bundle_child_count': {'key': 'bundle.childCount', 'type': 'int'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
         created_by_user: Optional["MicrosoftGraphUser"] = None,
         last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
-        drive_id: Optional[str] = None,
-        drive_type: Optional[str] = None,
-        id_parent_reference_id: Optional[str] = None,
-        name_parent_reference_name: Optional[str] = None,
-        path: Optional[str] = None,
-        share_id: Optional[str] = None,
-        site_id: Optional[str] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         audio: Optional["MicrosoftGraphAudio"] = None,
+        bundle: Optional["MicrosoftGraphBundle"] = None,
         content: Optional[bytes] = None,
         c_tag: Optional[str] = None,
+        deleted: Optional["MicrosoftGraphDeleted"] = None,
+        file: Optional["MicrosoftGraphFile"] = None,
         file_system_info: Optional["MicrosoftGraphFileSystemInfo"] = None,
+        folder: Optional["MicrosoftGraphFolder"] = None,
         image: Optional["MicrosoftGraphImage"] = None,
         location: Optional["MicrosoftGraphGeoCoordinates"] = None,
+        package: Optional["MicrosoftGraphPackage"] = None,
+        pending_operations: Optional["MicrosoftGraphPendingOperations"] = None,
         photo: Optional["MicrosoftGraphPhoto"] = None,
         publication: Optional["MicrosoftGraphPublicationFacet"] = None,
+        remote_item: Optional["MicrosoftGraphRemoteItem"] = None,
         root: Optional[Dict[str, object]] = None,
+        search_result: Optional["MicrosoftGraphSearchResult"] = None,
+        shared: Optional["MicrosoftGraphShared"] = None,
         sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
         size: Optional[int] = None,
+        special_folder: Optional["MicrosoftGraphSpecialFolder"] = None,
         video: Optional["MicrosoftGraphVideo"] = None,
         web_dav_url: Optional[str] = None,
+        workbook: Optional["MicrosoftGraphWorkbook"] = None,
         activities: Optional[List["MicrosoftGraphItemActivityOld"]] = None,
         analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
         children: Optional[List["MicrosoftGraphDriveItem"]] = None,
+        list_item: Optional["MicrosoftGraphListItem"] = None,
         permissions: Optional[List["MicrosoftGraphPermission"]] = None,
         subscriptions: Optional[List["MicrosoftGraphSubscription"]] = None,
         thumbnails: Optional[List["MicrosoftGraphThumbnailSet"]] = None,
         versions: Optional[List["MicrosoftGraphDriveItemVersion"]] = None,
-        id_list_item_id: Optional[str] = None,
-        created_date_time_list_item_created_date_time: Optional[datetime.datetime] = None,
-        description_list_item_description: Optional[str] = None,
-        e_tag_list_item_e_tag: Optional[str] = None,
-        last_modified_date_time_list_item_last_modified_date_time: Optional[datetime.datetime] = None,
-        name_list_item_name: Optional[str] = None,
-        web_url_list_item_web_url: Optional[str] = None,
-        created_by_user_list_item_created_by_user: Optional["MicrosoftGraphUser"] = None,
-        last_modified_by_user_list_item_last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
-        drive_id_list_item_parent_reference_drive_id: Optional[str] = None,
-        drive_type_list_item_parent_reference_drive_type: Optional[str] = None,
-        id_list_item_parent_reference_id: Optional[str] = None,
-        name_list_item_parent_reference_name: Optional[str] = None,
-        path_list_item_parent_reference_path: Optional[str] = None,
-        share_id_list_item_parent_reference_share_id: Optional[str] = None,
-        sharepoint_ids_list_item_parent_reference_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
-        site_id_list_item_parent_reference_site_id: Optional[str] = None,
-        application_list_item_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_list_item_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_list_item_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_list_item_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_list_item_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_list_item_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        content_type: Optional["MicrosoftGraphContentTypeInfo"] = None,
-        sharepoint_ids_list_item_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
-        activities_list_item_activities: Optional[List["MicrosoftGraphItemActivityOld"]] = None,
-        analytics_list_item_analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
-        drive_item: Optional["MicrosoftGraphDriveItem"] = None,
-        versions_list_item_versions: Optional[List["MicrosoftGraphListItemVersion"]] = None,
-        id_list_item_fields_id: Optional[str] = None,
-        id_workbook_id: Optional[str] = None,
-        application_workbook_application: Optional["MicrosoftGraphWorkbookApplication"] = None,
-        comments: Optional[List["MicrosoftGraphWorkbookComment"]] = None,
-        functions: Optional["MicrosoftGraphWorkbookFunctions"] = None,
-        names: Optional[List["MicrosoftGraphWorkbookNamedItem"]] = None,
-        operations: Optional[List["MicrosoftGraphWorkbookOperation"]] = None,
-        tables: Optional[List["MicrosoftGraphWorkbookTable"]] = None,
-        worksheets: Optional[List["MicrosoftGraphWorkbookWorksheet"]] = None,
-        name_special_folder_name: Optional[str] = None,
-        owner: Optional["MicrosoftGraphIdentitySet"] = None,
-        scope: Optional[str] = None,
-        shared_by: Optional["MicrosoftGraphIdentitySet"] = None,
-        shared_date_time: Optional[datetime.datetime] = None,
-        on_click_telemetry_url: Optional[str] = None,
-        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
-        created_date_time_remote_item_created_date_time: Optional[datetime.datetime] = None,
-        file: Optional["MicrosoftGraphFile"] = None,
-        file_system_info_remote_item_file_system_info: Optional["MicrosoftGraphFileSystemInfo"] = None,
-        folder: Optional["MicrosoftGraphFolder"] = None,
-        id_remote_item_id: Optional[str] = None,
-        image_remote_item_image: Optional["MicrosoftGraphImage"] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
-        last_modified_date_time_remote_item_last_modified_date_time: Optional[datetime.datetime] = None,
-        name_remote_item_name: Optional[str] = None,
-        package: Optional["MicrosoftGraphPackage"] = None,
-        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
-        shared: Optional["MicrosoftGraphShared"] = None,
-        sharepoint_ids_remote_item_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
-        size_remote_item_size: Optional[int] = None,
-        special_folder: Optional["MicrosoftGraphSpecialFolder"] = None,
-        video_remote_item_video: Optional["MicrosoftGraphVideo"] = None,
-        web_dav_url_remote_item_web_dav_url: Optional[str] = None,
-        web_url_remote_item_web_url: Optional[str] = None,
-        queued_date_time: Optional[datetime.datetime] = None,
-        type: Optional[str] = None,
-        child_count_folder_child_count: Optional[int] = None,
-        view: Optional["MicrosoftGraphFolderView"] = None,
-        hashes: Optional["MicrosoftGraphHashes"] = None,
-        mime_type: Optional[str] = None,
-        processing_metadata: Optional[bool] = None,
-        state: Optional[str] = None,
-        album: Optional["MicrosoftGraphAlbum"] = None,
-        child_count_bundle_child_count: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDriveItem, self).__init__(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_parent_reference_id=id_parent_reference_id, name_parent_reference_name=name_parent_reference_name, path=path, share_id=share_id, site_id=site_id, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphDriveItem, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.audio = audio
+        self.bundle = bundle
         self.content = content
         self.c_tag = c_tag
+        self.deleted = deleted
+        self.file = file
         self.file_system_info = file_system_info
+        self.folder = folder
         self.image = image
         self.location = location
+        self.package = package
+        self.pending_operations = pending_operations
         self.photo = photo
         self.publication = publication
+        self.remote_item = remote_item
         self.root = root
+        self.search_result = search_result
+        self.shared = shared
         self.sharepoint_ids = sharepoint_ids
         self.size = size
+        self.special_folder = special_folder
         self.video = video
         self.web_dav_url = web_dav_url
+        self.workbook = workbook
         self.activities = activities
         self.analytics = analytics
         self.children = children
+        self.list_item = list_item
         self.permissions = permissions
         self.subscriptions = subscriptions
         self.thumbnails = thumbnails
         self.versions = versions
-        self.id_list_item_id = id_list_item_id
-        self.created_date_time_list_item_created_date_time = created_date_time_list_item_created_date_time
-        self.description_list_item_description = description_list_item_description
-        self.e_tag_list_item_e_tag = e_tag_list_item_e_tag
-        self.last_modified_date_time_list_item_last_modified_date_time = last_modified_date_time_list_item_last_modified_date_time
-        self.name_list_item_name = name_list_item_name
-        self.web_url_list_item_web_url = web_url_list_item_web_url
-        self.created_by_user_list_item_created_by_user = created_by_user_list_item_created_by_user
-        self.last_modified_by_user_list_item_last_modified_by_user = last_modified_by_user_list_item_last_modified_by_user
-        self.drive_id_list_item_parent_reference_drive_id = drive_id_list_item_parent_reference_drive_id
-        self.drive_type_list_item_parent_reference_drive_type = drive_type_list_item_parent_reference_drive_type
-        self.id_list_item_parent_reference_id = id_list_item_parent_reference_id
-        self.name_list_item_parent_reference_name = name_list_item_parent_reference_name
-        self.path_list_item_parent_reference_path = path_list_item_parent_reference_path
-        self.share_id_list_item_parent_reference_share_id = share_id_list_item_parent_reference_share_id
-        self.sharepoint_ids_list_item_parent_reference_sharepoint_ids = sharepoint_ids_list_item_parent_reference_sharepoint_ids
-        self.site_id_list_item_parent_reference_site_id = site_id_list_item_parent_reference_site_id
-        self.application_list_item_last_modified_by_application = application_list_item_last_modified_by_application
-        self.device_list_item_last_modified_by_device = device_list_item_last_modified_by_device
-        self.user_list_item_last_modified_by_user = user_list_item_last_modified_by_user
-        self.application_list_item_created_by_application = application_list_item_created_by_application
-        self.device_list_item_created_by_device = device_list_item_created_by_device
-        self.user_list_item_created_by_user = user_list_item_created_by_user
-        self.content_type = content_type
-        self.sharepoint_ids_list_item_sharepoint_ids = sharepoint_ids_list_item_sharepoint_ids
-        self.activities_list_item_activities = activities_list_item_activities
-        self.analytics_list_item_analytics = analytics_list_item_analytics
-        self.drive_item = drive_item
-        self.versions_list_item_versions = versions_list_item_versions
-        self.id_list_item_fields_id = id_list_item_fields_id
-        self.id_workbook_id = id_workbook_id
-        self.application_workbook_application = application_workbook_application
-        self.comments = comments
-        self.functions = functions
-        self.names = names
-        self.operations = operations
-        self.tables = tables
-        self.worksheets = worksheets
-        self.name_special_folder_name = name_special_folder_name
-        self.owner = owner
-        self.scope = scope
-        self.shared_by = shared_by
-        self.shared_date_time = shared_date_time
-        self.on_click_telemetry_url = on_click_telemetry_url
-        self.created_by = created_by
-        self.created_date_time_remote_item_created_date_time = created_date_time_remote_item_created_date_time
-        self.file = file
-        self.file_system_info_remote_item_file_system_info = file_system_info_remote_item_file_system_info
-        self.folder = folder
-        self.id_remote_item_id = id_remote_item_id
-        self.image_remote_item_image = image_remote_item_image
-        self.last_modified_by = last_modified_by
-        self.last_modified_date_time_remote_item_last_modified_date_time = last_modified_date_time_remote_item_last_modified_date_time
-        self.name_remote_item_name = name_remote_item_name
-        self.package = package
-        self.parent_reference = parent_reference
-        self.shared = shared
-        self.sharepoint_ids_remote_item_sharepoint_ids = sharepoint_ids_remote_item_sharepoint_ids
-        self.size_remote_item_size = size_remote_item_size
-        self.special_folder = special_folder
-        self.video_remote_item_video = video_remote_item_video
-        self.web_dav_url_remote_item_web_dav_url = web_dav_url_remote_item_web_dav_url
-        self.web_url_remote_item_web_url = web_url_remote_item_web_url
-        self.queued_date_time = queued_date_time
-        self.type = type
-        self.child_count_folder_child_count = child_count_folder_child_count
-        self.view = view
-        self.hashes = hashes
-        self.mime_type = mime_type
-        self.processing_metadata = processing_metadata
-        self.state = state
-        self.album = album
-        self.child_count_bundle_child_count = child_count_bundle_child_count
 
 
 class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
@@ -7219,16 +6664,12 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
 
     :param id: Read-only.
     :type id: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the version was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
     :type publication: ~sites.models.MicrosoftGraphPublicationFacet
-    :param application: identity.
-    :type application: ~sites.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~sites.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~sites.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -7240,11 +6681,9 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content': {'key': 'content', 'type': 'base64'},
         'size': {'key': 'size', 'type': 'long'},
@@ -7254,17 +6693,15 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
         self,
         *,
         id: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         publication: Optional["MicrosoftGraphPublicationFacet"] = None,
-        application: Optional["MicrosoftGraphIdentity"] = None,
-        device: Optional["MicrosoftGraphIdentity"] = None,
-        user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         content: Optional[bytes] = None,
         size: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDriveItemVersion, self).__init__(id=id, last_modified_date_time=last_modified_date_time, publication=publication, application=application, device=device, user=user, **kwargs)
+        super(MicrosoftGraphDriveItemVersion, self).__init__(id=id, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, publication=publication, **kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.size = size
@@ -9830,148 +9267,26 @@ class MicrosoftGraphItemActivityOld(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param action: itemActionSet.
+    :type action: ~sites.models.MicrosoftGraphItemActionSet
+    :param actor: identitySet.
+    :type actor: ~sites.models.MicrosoftGraphIdentitySet
     :param times: itemActivityTimeSet.
     :type times: ~sites.models.MicrosoftGraphItemActivityTimeSet
     :param drive_item: driveItem.
     :type drive_item: ~sites.models.MicrosoftGraphDriveItem
-    :param id_list_item_id: Read-only.
-    :type id_list_item_id: str
-    :param created_date_time: Date and time of item creation. Read-only.
-    :type created_date_time: ~datetime.datetime
-    :param description: Provides a user-visible description of the item. Optional.
-    :type description: str
-    :param e_tag: ETag for the item. Read-only.
-    :type e_tag: str
-    :param last_modified_date_time: Date and time the item was last modified. Read-only.
-    :type last_modified_date_time: ~datetime.datetime
-    :param name_list_item_name: The name of the item. Read-write.
-    :type name_list_item_name: str
-    :param web_url: URL that displays the resource in the browser. Read-only.
-    :type web_url: str
-    :param created_by_user: Represents an Azure Active Directory user object.
-    :type created_by_user: ~sites.models.MicrosoftGraphUser
-    :param last_modified_by_user: Represents an Azure Active Directory user object.
-    :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_list_item_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_list_item_parent_reference_id: str
-    :param name_list_item_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_list_item_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids_list_item_parent_reference_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_list_item_parent_reference_sharepoint_ids:
-     ~sites.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param application_list_item_last_modified_by_application: identity.
-    :type application_list_item_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_list_item_last_modified_by_device: identity.
-    :type device_list_item_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_list_item_last_modified_by_user: identity.
-    :type user_list_item_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param application_list_item_created_by_application: identity.
-    :type application_list_item_created_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_list_item_created_by_device: identity.
-    :type device_list_item_created_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_list_item_created_by_user: identity.
-    :type user_list_item_created_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param content_type: contentTypeInfo.
-    :type content_type: ~sites.models.MicrosoftGraphContentTypeInfo
-    :param sharepoint_ids_list_item_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_list_item_sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
-    :param activities: The list of recent activities that took place on this item.
-    :type activities: list[~sites.models.MicrosoftGraphItemActivityOld]
-    :param analytics: itemAnalytics.
-    :type analytics: ~sites.models.MicrosoftGraphItemAnalytics
-    :param drive_item_list_item_drive_item: driveItem.
-    :type drive_item_list_item_drive_item: ~sites.models.MicrosoftGraphDriveItem
-    :param versions: The list of previous versions of the list item.
-    :type versions: list[~sites.models.MicrosoftGraphListItemVersion]
-    :param id_list_item_fields_id: Read-only.
-    :type id_list_item_fields_id: str
-    :param application_actor_application: identity.
-    :type application_actor_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_actor_device: identity.
-    :type device_actor_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_actor_user: identity.
-    :type user_actor_user: ~sites.models.MicrosoftGraphIdentity
-    :param comment: commentAction.
-    :type comment: ~sites.models.MicrosoftGraphCommentAction
-    :param create: createAction.
-    :type create: dict[str, object]
-    :param delete: deleteAction.
-    :type delete: ~sites.models.MicrosoftGraphDeleteAction
-    :param edit: editAction.
-    :type edit: dict[str, object]
-    :param mention: mentionAction.
-    :type mention: ~sites.models.MicrosoftGraphMentionAction
-    :param move: moveAction.
-    :type move: ~sites.models.MicrosoftGraphMoveAction
-    :param rename: renameAction.
-    :type rename: ~sites.models.MicrosoftGraphRenameAction
-    :param restore: restoreAction.
-    :type restore: dict[str, object]
-    :param share: shareAction.
-    :type share: ~sites.models.MicrosoftGraphShareAction
-    :param version: versionAction.
-    :type version: ~sites.models.MicrosoftGraphVersionAction
+    :param list_item: listItem.
+    :type list_item: ~sites.models.MicrosoftGraphListItem
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'action': {'key': 'action', 'type': 'MicrosoftGraphItemActionSet'},
+        'actor': {'key': 'actor', 'type': 'MicrosoftGraphIdentitySet'},
         'times': {'key': 'times', 'type': 'MicrosoftGraphItemActivityTimeSet'},
         'drive_item': {'key': 'driveItem', 'type': 'MicrosoftGraphDriveItem'},
-        'id_list_item_id': {'key': 'listItem.id', 'type': 'str'},
-        'created_date_time': {'key': 'listItem.createdDateTime', 'type': 'iso-8601'},
-        'description': {'key': 'listItem.description', 'type': 'str'},
-        'e_tag': {'key': 'listItem.eTag', 'type': 'str'},
-        'last_modified_date_time': {'key': 'listItem.lastModifiedDateTime', 'type': 'iso-8601'},
-        'name_list_item_name': {'key': 'listItem.name', 'type': 'str'},
-        'web_url': {'key': 'listItem.webUrl', 'type': 'str'},
-        'created_by_user': {'key': 'listItem.createdByUser', 'type': 'MicrosoftGraphUser'},
-        'last_modified_by_user': {'key': 'listItem.lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'listItem.parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'listItem.parentReference.driveType', 'type': 'str'},
-        'id_list_item_parent_reference_id': {'key': 'listItem.parentReference.id', 'type': 'str'},
-        'name_list_item_parent_reference_name': {'key': 'listItem.parentReference.name', 'type': 'str'},
-        'path': {'key': 'listItem.parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'listItem.parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids_list_item_parent_reference_sharepoint_ids': {'key': 'listItem.parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'listItem.parentReference.siteId', 'type': 'str'},
-        'application_list_item_last_modified_by_application': {'key': 'listItem.lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_list_item_last_modified_by_device': {'key': 'listItem.lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_list_item_last_modified_by_user': {'key': 'listItem.lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_list_item_created_by_application': {'key': 'listItem.createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_list_item_created_by_device': {'key': 'listItem.createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_list_item_created_by_user': {'key': 'listItem.createdBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'content_type': {'key': 'listItem.contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
-        'sharepoint_ids_list_item_sharepoint_ids': {'key': 'listItem.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'activities': {'key': 'listItem.activities', 'type': '[MicrosoftGraphItemActivityOld]'},
-        'analytics': {'key': 'listItem.analytics', 'type': 'MicrosoftGraphItemAnalytics'},
-        'drive_item_list_item_drive_item': {'key': 'listItem.driveItem', 'type': 'MicrosoftGraphDriveItem'},
-        'versions': {'key': 'listItem.versions', 'type': '[MicrosoftGraphListItemVersion]'},
-        'id_list_item_fields_id': {'key': 'listItem.fields.id', 'type': 'str'},
-        'application_actor_application': {'key': 'actor.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_actor_device': {'key': 'actor.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_actor_user': {'key': 'actor.user', 'type': 'MicrosoftGraphIdentity'},
-        'comment': {'key': 'action.comment', 'type': 'MicrosoftGraphCommentAction'},
-        'create': {'key': 'action.create', 'type': '{object}'},
-        'delete': {'key': 'action.delete', 'type': 'MicrosoftGraphDeleteAction'},
-        'edit': {'key': 'action.edit', 'type': '{object}'},
-        'mention': {'key': 'action.mention', 'type': 'MicrosoftGraphMentionAction'},
-        'move': {'key': 'action.move', 'type': 'MicrosoftGraphMoveAction'},
-        'rename': {'key': 'action.rename', 'type': 'MicrosoftGraphRenameAction'},
-        'restore': {'key': 'action.restore', 'type': '{object}'},
-        'share': {'key': 'action.share', 'type': 'MicrosoftGraphShareAction'},
-        'version': {'key': 'action.version', 'type': 'MicrosoftGraphVersionAction'},
+        'list_item': {'key': 'listItem', 'type': 'MicrosoftGraphListItem'},
     }
 
     def __init__(
@@ -9979,100 +9294,20 @@ class MicrosoftGraphItemActivityOld(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
+        action: Optional["MicrosoftGraphItemActionSet"] = None,
+        actor: Optional["MicrosoftGraphIdentitySet"] = None,
         times: Optional["MicrosoftGraphItemActivityTimeSet"] = None,
         drive_item: Optional["MicrosoftGraphDriveItem"] = None,
-        id_list_item_id: Optional[str] = None,
-        created_date_time: Optional[datetime.datetime] = None,
-        description: Optional[str] = None,
-        e_tag: Optional[str] = None,
-        last_modified_date_time: Optional[datetime.datetime] = None,
-        name_list_item_name: Optional[str] = None,
-        web_url: Optional[str] = None,
-        created_by_user: Optional["MicrosoftGraphUser"] = None,
-        last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
-        drive_id: Optional[str] = None,
-        drive_type: Optional[str] = None,
-        id_list_item_parent_reference_id: Optional[str] = None,
-        name_list_item_parent_reference_name: Optional[str] = None,
-        path: Optional[str] = None,
-        share_id: Optional[str] = None,
-        sharepoint_ids_list_item_parent_reference_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
-        site_id: Optional[str] = None,
-        application_list_item_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_list_item_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_list_item_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_list_item_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_list_item_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_list_item_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        content_type: Optional["MicrosoftGraphContentTypeInfo"] = None,
-        sharepoint_ids_list_item_sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
-        activities: Optional[List["MicrosoftGraphItemActivityOld"]] = None,
-        analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
-        drive_item_list_item_drive_item: Optional["MicrosoftGraphDriveItem"] = None,
-        versions: Optional[List["MicrosoftGraphListItemVersion"]] = None,
-        id_list_item_fields_id: Optional[str] = None,
-        application_actor_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_actor_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_actor_user: Optional["MicrosoftGraphIdentity"] = None,
-        comment: Optional["MicrosoftGraphCommentAction"] = None,
-        create: Optional[Dict[str, object]] = None,
-        delete: Optional["MicrosoftGraphDeleteAction"] = None,
-        edit: Optional[Dict[str, object]] = None,
-        mention: Optional["MicrosoftGraphMentionAction"] = None,
-        move: Optional["MicrosoftGraphMoveAction"] = None,
-        rename: Optional["MicrosoftGraphRenameAction"] = None,
-        restore: Optional[Dict[str, object]] = None,
-        share: Optional["MicrosoftGraphShareAction"] = None,
-        version: Optional["MicrosoftGraphVersionAction"] = None,
+        list_item: Optional["MicrosoftGraphListItem"] = None,
         **kwargs
     ):
         super(MicrosoftGraphItemActivityOld, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
+        self.action = action
+        self.actor = actor
         self.times = times
         self.drive_item = drive_item
-        self.id_list_item_id = id_list_item_id
-        self.created_date_time = created_date_time
-        self.description = description
-        self.e_tag = e_tag
-        self.last_modified_date_time = last_modified_date_time
-        self.name_list_item_name = name_list_item_name
-        self.web_url = web_url
-        self.created_by_user = created_by_user
-        self.last_modified_by_user = last_modified_by_user
-        self.drive_id = drive_id
-        self.drive_type = drive_type
-        self.id_list_item_parent_reference_id = id_list_item_parent_reference_id
-        self.name_list_item_parent_reference_name = name_list_item_parent_reference_name
-        self.path = path
-        self.share_id = share_id
-        self.sharepoint_ids_list_item_parent_reference_sharepoint_ids = sharepoint_ids_list_item_parent_reference_sharepoint_ids
-        self.site_id = site_id
-        self.application_list_item_last_modified_by_application = application_list_item_last_modified_by_application
-        self.device_list_item_last_modified_by_device = device_list_item_last_modified_by_device
-        self.user_list_item_last_modified_by_user = user_list_item_last_modified_by_user
-        self.application_list_item_created_by_application = application_list_item_created_by_application
-        self.device_list_item_created_by_device = device_list_item_created_by_device
-        self.user_list_item_created_by_user = user_list_item_created_by_user
-        self.content_type = content_type
-        self.sharepoint_ids_list_item_sharepoint_ids = sharepoint_ids_list_item_sharepoint_ids
-        self.activities = activities
-        self.analytics = analytics
-        self.drive_item_list_item_drive_item = drive_item_list_item_drive_item
-        self.versions = versions
-        self.id_list_item_fields_id = id_list_item_fields_id
-        self.application_actor_application = application_actor_application
-        self.device_actor_device = device_actor_device
-        self.user_actor_user = user_actor_user
-        self.comment = comment
-        self.create = create
-        self.delete = delete
-        self.edit = edit
-        self.mention = mention
-        self.move = move
-        self.rename = rename
-        self.restore = restore
-        self.share = share
-        self.version = version
+        self.list_item = list_item
 
 
 class MicrosoftGraphItemActivityStat(MicrosoftGraphEntity):
@@ -11152,49 +10387,28 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~sites.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~sites.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~sites.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~sites.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -11222,27 +10436,17 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'list': {'key': 'list', 'type': 'MicrosoftGraphListInfo'},
@@ -11260,27 +10464,17 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
         self,
         *,
         id: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
         created_by_user: Optional["MicrosoftGraphUser"] = None,
         last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
-        drive_id: Optional[str] = None,
-        drive_type: Optional[str] = None,
-        id_parent_reference_id: Optional[str] = None,
-        name_parent_reference_name: Optional[str] = None,
-        path: Optional[str] = None,
-        share_id: Optional[str] = None,
-        site_id: Optional[str] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
         list: Optional["MicrosoftGraphListInfo"] = None,
@@ -11294,7 +10488,7 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
         subscriptions: Optional[List["MicrosoftGraphSubscription"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphList, self).__init__(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_parent_reference_id=id_parent_reference_id, name_parent_reference_name=name_parent_reference_name, path=path, share_id=share_id, site_id=site_id, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphList, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.list = list
@@ -11353,49 +10547,28 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~sites.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~sites.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~sites.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~sites.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -11409,89 +10582,69 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     :type analytics: ~sites.models.MicrosoftGraphItemAnalytics
     :param drive_item: driveItem.
     :type drive_item: ~sites.models.MicrosoftGraphDriveItem
+    :param fields: fieldValueSet.
+    :type fields: ~sites.models.MicrosoftGraphFieldValueSet
     :param versions: The list of previous versions of the list item.
     :type versions: list[~sites.models.MicrosoftGraphListItemVersion]
-    :param id_fields_id: Read-only.
-    :type id_fields_id: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content_type': {'key': 'contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphItemActivityOld]'},
         'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
         'drive_item': {'key': 'driveItem', 'type': 'MicrosoftGraphDriveItem'},
+        'fields': {'key': 'fields', 'type': 'MicrosoftGraphFieldValueSet'},
         'versions': {'key': 'versions', 'type': '[MicrosoftGraphListItemVersion]'},
-        'id_fields_id': {'key': 'fields.id', 'type': 'str'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
         created_by_user: Optional["MicrosoftGraphUser"] = None,
         last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
-        drive_id: Optional[str] = None,
-        drive_type: Optional[str] = None,
-        id_parent_reference_id: Optional[str] = None,
-        name_parent_reference_name: Optional[str] = None,
-        path: Optional[str] = None,
-        share_id: Optional[str] = None,
-        site_id: Optional[str] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         content_type: Optional["MicrosoftGraphContentTypeInfo"] = None,
         sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
         activities: Optional[List["MicrosoftGraphItemActivityOld"]] = None,
         analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
         drive_item: Optional["MicrosoftGraphDriveItem"] = None,
+        fields: Optional["MicrosoftGraphFieldValueSet"] = None,
         versions: Optional[List["MicrosoftGraphListItemVersion"]] = None,
-        id_fields_id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphListItem, self).__init__(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_parent_reference_id=id_parent_reference_id, name_parent_reference_name=name_parent_reference_name, path=path, share_id=share_id, site_id=site_id, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphListItem, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.content_type = content_type
         self.sharepoint_ids = sharepoint_ids
         self.activities = activities
         self.analytics = analytics
         self.drive_item = drive_item
+        self.fields = fields
         self.versions = versions
-        self.id_fields_id = id_fields_id
 
 
 class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
@@ -11499,50 +10652,42 @@ class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
 
     :param id: Read-only.
     :type id: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the version was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
     :type publication: ~sites.models.MicrosoftGraphPublicationFacet
-    :param application: identity.
-    :type application: ~sites.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~sites.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~sites.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param id_fields_id: Read-only.
-    :type id_fields_id: str
+    :param fields: fieldValueSet.
+    :type fields: ~sites.models.MicrosoftGraphFieldValueSet
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'id_fields_id': {'key': 'fields.id', 'type': 'str'},
+        'fields': {'key': 'fields', 'type': 'MicrosoftGraphFieldValueSet'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         publication: Optional["MicrosoftGraphPublicationFacet"] = None,
-        application: Optional["MicrosoftGraphIdentity"] = None,
-        device: Optional["MicrosoftGraphIdentity"] = None,
-        user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        id_fields_id: Optional[str] = None,
+        fields: Optional["MicrosoftGraphFieldValueSet"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphListItemVersion, self).__init__(id=id, last_modified_date_time=last_modified_date_time, publication=publication, application=application, device=device, user=user, **kwargs)
+        super(MicrosoftGraphListItemVersion, self).__init__(id=id, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, publication=publication, **kwargs)
         self.additional_properties = additional_properties
-        self.id_fields_id = id_fields_id
+        self.fields = fields
 
 
 class MicrosoftGraphLobbyBypassSettings(msrest.serialization.Model):
@@ -16556,26 +15701,25 @@ class MicrosoftGraphPendingOperations(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
-     Read-only.
-    :type queued_date_time: ~datetime.datetime
+    :param pending_content_update: pendingContentUpdate.
+    :type pending_content_update: ~sites.models.MicrosoftGraphPendingContentUpdate
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'queued_date_time': {'key': 'pendingContentUpdate.queuedDateTime', 'type': 'iso-8601'},
+        'pending_content_update': {'key': 'pendingContentUpdate', 'type': 'MicrosoftGraphPendingContentUpdate'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        queued_date_time: Optional[datetime.datetime] = None,
+        pending_content_update: Optional["MicrosoftGraphPendingContentUpdate"] = None,
         **kwargs
     ):
         super(MicrosoftGraphPendingOperations, self).__init__(**kwargs)
         self.additional_properties = additional_properties
-        self.queued_date_time = queued_date_time
+        self.pending_content_update = pending_content_update
 
 
 class MicrosoftGraphPermission(MicrosoftGraphEntity):
@@ -21257,58 +20401,41 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~sites.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~sites.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~sites.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~sites.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param deleted: deleted.
+    :type deleted: ~sites.models.MicrosoftGraphDeleted
     :param display_name: The full title for the site. Read-only.
     :type display_name: str
     :param root: root.
     :type root: dict[str, object]
     :param sharepoint_ids: sharepointIds.
     :type sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
+    :param site_collection: siteCollection.
+    :type site_collection: ~sites.models.MicrosoftGraphSiteCollection
     :param analytics: itemAnalytics.
     :type analytics: ~sites.models.MicrosoftGraphItemAnalytics
     :param columns: The collection of column definitions reusable across lists under this site.
@@ -21328,66 +20455,29 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
     :type pages: list[~sites.models.MicrosoftGraphSitePage]
     :param sites: The collection of the sub-sites under this site.
     :type sites: list[~sites.models.MicrosoftGraphSite]
-    :param id_onenote_id: Read-only.
-    :type id_onenote_id: str
-    :param notebooks: The collection of OneNote notebooks that are owned by the user or group.
-     Read-only. Nullable.
-    :type notebooks: list[~sites.models.MicrosoftGraphNotebook]
-    :param operations: The status of OneNote operations. Getting an operations collection is not
-     supported, but you can get the status of long-running operations if the Operation-Location
-     header is returned in the response. Read-only. Nullable.
-    :type operations: list[~sites.models.MicrosoftGraphOnenoteOperation]
-    :param pages_onenote_pages: The pages in all OneNote notebooks that are owned by the user or
-     group.  Read-only. Nullable.
-    :type pages_onenote_pages: list[~sites.models.MicrosoftGraphOnenotePage]
-    :param resources: The image and other file resources in OneNote pages. Getting a resources
-     collection is not supported, but you can get the binary content of a specific resource. Read-
-     only. Nullable.
-    :type resources: list[~sites.models.MicrosoftGraphOnenoteResource]
-    :param section_groups: The section groups in all OneNote notebooks that are owned by the user
-     or group.  Read-only. Nullable.
-    :type section_groups: list[~sites.models.MicrosoftGraphSectionGroup]
-    :param sections: The sections in all OneNote notebooks that are owned by the user or group.
-     Read-only. Nullable.
-    :type sections: list[~sites.models.MicrosoftGraphOnenoteSection]
-    :param data_location_code: The geographic region code for where this site collection resides.
-     Read-only.
-    :type data_location_code: str
-    :param hostname: The hostname for the site collection. Read-only.
-    :type hostname: str
-    :param root_site_collection_root: root.
-    :type root_site_collection_root: dict[str, object]
-    :param state: Represents the state of the deleted item.
-    :type state: str
+    :param onenote: onenote.
+    :type onenote: ~sites.models.MicrosoftGraphOnenote
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'deleted': {'key': 'deleted', 'type': 'MicrosoftGraphDeleted'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'root': {'key': 'root', 'type': '{object}'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'site_collection': {'key': 'siteCollection', 'type': 'MicrosoftGraphSiteCollection'},
         'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
         'columns': {'key': 'columns', 'type': '[MicrosoftGraphColumnDefinition]'},
         'content_types': {'key': 'contentTypes', 'type': '[MicrosoftGraphContentType]'},
@@ -21397,48 +20487,30 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
         'lists': {'key': 'lists', 'type': '[MicrosoftGraphList]'},
         'pages': {'key': 'pages', 'type': '[MicrosoftGraphSitePage]'},
         'sites': {'key': 'sites', 'type': '[MicrosoftGraphSite]'},
-        'id_onenote_id': {'key': 'onenote.id', 'type': 'str'},
-        'notebooks': {'key': 'onenote.notebooks', 'type': '[MicrosoftGraphNotebook]'},
-        'operations': {'key': 'onenote.operations', 'type': '[MicrosoftGraphOnenoteOperation]'},
-        'pages_onenote_pages': {'key': 'onenote.pages', 'type': '[MicrosoftGraphOnenotePage]'},
-        'resources': {'key': 'onenote.resources', 'type': '[MicrosoftGraphOnenoteResource]'},
-        'section_groups': {'key': 'onenote.sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
-        'sections': {'key': 'onenote.sections', 'type': '[MicrosoftGraphOnenoteSection]'},
-        'data_location_code': {'key': 'siteCollection.dataLocationCode', 'type': 'str'},
-        'hostname': {'key': 'siteCollection.hostname', 'type': 'str'},
-        'root_site_collection_root': {'key': 'siteCollection.root', 'type': '{object}'},
-        'state': {'key': 'deleted.state', 'type': 'str'},
+        'onenote': {'key': 'onenote', 'type': 'MicrosoftGraphOnenote'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
         created_by_user: Optional["MicrosoftGraphUser"] = None,
         last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
-        drive_id: Optional[str] = None,
-        drive_type: Optional[str] = None,
-        id_parent_reference_id: Optional[str] = None,
-        name_parent_reference_name: Optional[str] = None,
-        path: Optional[str] = None,
-        share_id: Optional[str] = None,
-        site_id: Optional[str] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
+        deleted: Optional["MicrosoftGraphDeleted"] = None,
         display_name: Optional[str] = None,
         root: Optional[Dict[str, object]] = None,
         sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
+        site_collection: Optional["MicrosoftGraphSiteCollection"] = None,
         analytics: Optional["MicrosoftGraphItemAnalytics"] = None,
         columns: Optional[List["MicrosoftGraphColumnDefinition"]] = None,
         content_types: Optional[List["MicrosoftGraphContentType"]] = None,
@@ -21448,24 +20520,16 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
         lists: Optional[List["MicrosoftGraphList"]] = None,
         pages: Optional[List["MicrosoftGraphSitePage"]] = None,
         sites: Optional[List["MicrosoftGraphSite"]] = None,
-        id_onenote_id: Optional[str] = None,
-        notebooks: Optional[List["MicrosoftGraphNotebook"]] = None,
-        operations: Optional[List["MicrosoftGraphOnenoteOperation"]] = None,
-        pages_onenote_pages: Optional[List["MicrosoftGraphOnenotePage"]] = None,
-        resources: Optional[List["MicrosoftGraphOnenoteResource"]] = None,
-        section_groups: Optional[List["MicrosoftGraphSectionGroup"]] = None,
-        sections: Optional[List["MicrosoftGraphOnenoteSection"]] = None,
-        data_location_code: Optional[str] = None,
-        hostname: Optional[str] = None,
-        root_site_collection_root: Optional[Dict[str, object]] = None,
-        state: Optional[str] = None,
+        onenote: Optional["MicrosoftGraphOnenote"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphSite, self).__init__(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_parent_reference_id=id_parent_reference_id, name_parent_reference_name=name_parent_reference_name, path=path, share_id=share_id, site_id=site_id, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphSite, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
+        self.deleted = deleted
         self.display_name = display_name
         self.root = root
         self.sharepoint_ids = sharepoint_ids
+        self.site_collection = site_collection
         self.analytics = analytics
         self.columns = columns
         self.content_types = content_types
@@ -21475,17 +20539,7 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
         self.lists = lists
         self.pages = pages
         self.sites = sites
-        self.id_onenote_id = id_onenote_id
-        self.notebooks = notebooks
-        self.operations = operations
-        self.pages_onenote_pages = pages_onenote_pages
-        self.resources = resources
-        self.section_groups = section_groups
-        self.sections = sections
-        self.data_location_code = data_location_code
-        self.hostname = hostname
-        self.root_site_collection_root = root_site_collection_root
-        self.state = state
+        self.onenote = onenote
 
 
 class MicrosoftGraphSiteCollection(msrest.serialization.Model):
@@ -21531,51 +20585,28 @@ class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~sites.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~sites.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~sites.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~sites.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~sites.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~sites.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~sites.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~sites.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~sites.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~sites.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -21593,28 +20624,17 @@ class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content_type': {'key': 'contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
         'page_layout_type': {'key': 'pageLayoutType', 'type': 'str'},
@@ -21627,28 +20647,17 @@ class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
         self,
         *,
         id: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         e_tag: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         name: Optional[str] = None,
+        parent_reference: Optional["MicrosoftGraphItemReference"] = None,
         web_url: Optional[str] = None,
         created_by_user: Optional["MicrosoftGraphUser"] = None,
         last_modified_by_user: Optional["MicrosoftGraphUser"] = None,
-        drive_id: Optional[str] = None,
-        drive_type: Optional[str] = None,
-        id_parent_reference_id: Optional[str] = None,
-        name_parent_reference_name: Optional[str] = None,
-        path: Optional[str] = None,
-        share_id: Optional[str] = None,
-        sharepoint_ids: Optional["MicrosoftGraphSharepointIds"] = None,
-        site_id: Optional[str] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         content_type: Optional["MicrosoftGraphContentTypeInfo"] = None,
         page_layout_type: Optional[str] = None,
@@ -21657,7 +20666,7 @@ class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
         web_parts: Optional[List["MicrosoftGraphWebPart"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphSitePage, self).__init__(id=id, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_date_time=last_modified_date_time, name=name, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, drive_id=drive_id, drive_type=drive_type, id_parent_reference_id=id_parent_reference_id, name_parent_reference_name=name_parent_reference_name, path=path, share_id=share_id, sharepoint_ids=sharepoint_ids, site_id=site_id, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
+        super(MicrosoftGraphSitePage, self).__init__(id=id, created_by=created_by, created_date_time=created_date_time, description=description, e_tag=e_tag, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, name=name, parent_reference=parent_reference, web_url=web_url, created_by_user=created_by_user, last_modified_by_user=last_modified_by_user, **kwargs)
         self.additional_properties = additional_properties
         self.content_type = content_type
         self.page_layout_type = page_layout_type

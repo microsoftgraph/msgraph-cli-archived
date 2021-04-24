@@ -16,27 +16,27 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import PeopleConfiguration
-from .operations import UserOperations
-from .operations import UserInsightOperations
-from .operations import UserInsightSharedOperations
-from .operations import UserInsightTrendingOperations
-from .operations import UserInsightUsedOperations
+from .operations import UsersOperations
+from .operations import UsersInsightsOperations
+from .operations import UsersInsightsSharedOperations
+from .operations import UsersInsightsTrendingOperations
+from .operations import UsersInsightsUsedOperations
 from .. import models
 
 
 class People(object):
     """People.
 
-    :ivar user: UserOperations operations
-    :vartype user: people.aio.operations.UserOperations
-    :ivar user_insight: UserInsightOperations operations
-    :vartype user_insight: people.aio.operations.UserInsightOperations
-    :ivar user_insight_shared: UserInsightSharedOperations operations
-    :vartype user_insight_shared: people.aio.operations.UserInsightSharedOperations
-    :ivar user_insight_trending: UserInsightTrendingOperations operations
-    :vartype user_insight_trending: people.aio.operations.UserInsightTrendingOperations
-    :ivar user_insight_used: UserInsightUsedOperations operations
-    :vartype user_insight_used: people.aio.operations.UserInsightUsedOperations
+    :ivar users: UsersOperations operations
+    :vartype users: people.aio.operations.UsersOperations
+    :ivar users_insights: UsersInsightsOperations operations
+    :vartype users_insights: people.aio.operations.UsersInsightsOperations
+    :ivar users_insights_shared: UsersInsightsSharedOperations operations
+    :vartype users_insights_shared: people.aio.operations.UsersInsightsSharedOperations
+    :ivar users_insights_trending: UsersInsightsTrendingOperations operations
+    :vartype users_insights_trending: people.aio.operations.UsersInsightsTrendingOperations
+    :ivar users_insights_used: UsersInsightsUsedOperations operations
+    :vartype users_insights_used: people.aio.operations.UsersInsightsUsedOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -73,15 +73,15 @@ class People(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_insight = UserInsightOperations(
+        self.users_insights = UsersInsightsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_insight_shared = UserInsightSharedOperations(
+        self.users_insights_shared = UsersInsightsSharedOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_insight_trending = UserInsightTrendingOperations(
+        self.users_insights_trending = UsersInsightsTrendingOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_insight_used = UserInsightUsedOperations(
+        self.users_insights_used = UsersInsightsUsedOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

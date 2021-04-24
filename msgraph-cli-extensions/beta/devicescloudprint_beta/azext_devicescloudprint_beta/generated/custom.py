@@ -27,15 +27,18 @@ def devicescloudprint_print_print_update_print(client,
                                                shares=None,
                                                task_definitions=None,
                                                document_conversion_enabled=None):
-    return client.update_print(connectors=connectors,
-                               operations=operations,
-                               printers=printers,
-                               printer_shares=printer_shares,
-                               reports=reports,
-                               services=services,
-                               shares=shares,
-                               task_definitions=task_definitions,
-                               document_conversion_enabled=document_conversion_enabled)
+    body = {}
+    body['connectors'] = connectors
+    body['operations'] = operations
+    body['printers'] = printers
+    body['printer_shares'] = printer_shares
+    body['reports'] = reports
+    body['services'] = services
+    body['shares'] = shares
+    body['task_definitions'] = task_definitions
+    body['settings'] = {}
+    body['settings']['document_conversion_enabled'] = document_conversion_enabled
+    return client.update_print(body=body)
 
 
 def devicescloudprint_print_create_connector(client,
@@ -48,24 +51,29 @@ def devicescloudprint_print_create_connector(client,
                                              operating_system=None,
                                              registered_date_time=None,
                                              last_connection_time=None):
-    return client.create_connector(id=id_,
-                                   app_version=app_version,
-                                   display_name=display_name,
-                                   fully_qualified_domain_name=fully_qualified_domain_name,
-                                   location=location,
-                                   name=name,
-                                   operating_system=operating_system,
-                                   registered_date_time=registered_date_time,
-                                   last_connection_time=last_connection_time)
+    body = {}
+    body['id'] = id_
+    body['app_version'] = app_version
+    body['display_name'] = display_name
+    body['fully_qualified_domain_name'] = fully_qualified_domain_name
+    body['location'] = location
+    body['name'] = name
+    body['operating_system'] = operating_system
+    body['registered_date_time'] = registered_date_time
+    body['device_health'] = {}
+    body['device_health']['last_connection_time'] = last_connection_time
+    return client.create_connectors(body=body)
 
 
 def devicescloudprint_print_create_operation(client,
                                              id_=None,
                                              created_date_time=None,
                                              status=None):
-    return client.create_operation(id=id_,
-                                   created_date_time=created_date_time,
-                                   status=status)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['status'] = status
+    return client.create_operations(body=body)
 
 
 def devicescloudprint_print_create_printer(client,
@@ -127,64 +135,67 @@ def devicescloudprint_print_create_printer(client,
                                            share=None,
                                            shares=None,
                                            task_triggers=None):
-    return client.create_printer(id=id_,
-                                 defaults=defaults,
-                                 display_name=display_name,
-                                 is_accepting_jobs=is_accepting_jobs,
-                                 location=location,
-                                 manufacturer=manufacturer,
-                                 model=model,
-                                 name=name,
-                                 status=status,
-                                 jobs=jobs,
-                                 bottom_margins=bottom_margins,
-                                 collation=collation,
-                                 color_modes=color_modes,
-                                 content_types=content_types,
-                                 copies_per_job=copies_per_job,
-                                 dpis=dpis,
-                                 duplex_modes=duplex_modes,
-                                 feed_directions=feed_directions,
-                                 feed_orientations=feed_orientations,
-                                 finishings=finishings,
-                                 input_bins=input_bins,
-                                 is_color_printing_supported=is_color_printing_supported,
-                                 is_page_range_supported=is_page_range_supported,
-                                 left_margins=left_margins,
-                                 media_colors=media_colors,
-                                 media_sizes=media_sizes,
-                                 media_types=media_types,
-                                 multipage_layouts=multipage_layouts,
-                                 orientations=orientations,
-                                 output_bins=output_bins,
-                                 pages_per_sheet=pages_per_sheet,
-                                 qualities=qualities,
-                                 right_margins=right_margins,
-                                 scalings=scalings,
-                                 supported_color_configurations=supported_color_configurations,
-                                 supported_copies_per_job=supported_copies_per_job,
-                                 supported_document_mime_types=supported_document_mime_types,
-                                 supported_duplex_configurations=supported_duplex_configurations,
-                                 supported_finishings=supported_finishings,
-                                 supported_media_colors=supported_media_colors,
-                                 supported_media_sizes=supported_media_sizes,
-                                 supported_media_types=supported_media_types,
-                                 supported_orientations=supported_orientations,
-                                 supported_output_bins=supported_output_bins,
-                                 supported_pages_per_sheet=supported_pages_per_sheet,
-                                 supported_presentation_directions=supported_presentation_directions,
-                                 supported_print_qualities=supported_print_qualities,
-                                 supports_fit_pdf_to_page=supports_fit_pdf_to_page,
-                                 top_margins=top_margins,
-                                 accepting_jobs=accepting_jobs,
-                                 is_shared=is_shared,
-                                 registered_date_time=registered_date_time,
-                                 allowed_groups=allowed_groups,
-                                 allowed_users=allowed_users,
-                                 connectors=connectors,
-                                 share=share,
-                                 shares=shares,
-                                 task_triggers=task_triggers)
+    body = {}
+    body['id'] = id_
+    body['defaults'] = defaults
+    body['display_name'] = display_name
+    body['is_accepting_jobs'] = is_accepting_jobs
+    body['location'] = location
+    body['manufacturer'] = manufacturer
+    body['model'] = model
+    body['name'] = name
+    body['status'] = status
+    body['jobs'] = jobs
+    body['capabilities'] = {}
+    body['capabilities']['bottom_margins'] = bottom_margins
+    body['capabilities']['collation'] = collation
+    body['capabilities']['color_modes'] = color_modes
+    body['capabilities']['content_types'] = content_types
+    body['capabilities']['copies_per_job'] = copies_per_job
+    body['capabilities']['dpis'] = dpis
+    body['capabilities']['duplex_modes'] = duplex_modes
+    body['capabilities']['feed_directions'] = feed_directions
+    body['capabilities']['feed_orientations'] = feed_orientations
+    body['capabilities']['finishings'] = finishings
+    body['capabilities']['input_bins'] = input_bins
+    body['capabilities']['is_color_printing_supported'] = is_color_printing_supported
+    body['capabilities']['is_page_range_supported'] = is_page_range_supported
+    body['capabilities']['left_margins'] = left_margins
+    body['capabilities']['media_colors'] = media_colors
+    body['capabilities']['media_sizes'] = media_sizes
+    body['capabilities']['media_types'] = media_types
+    body['capabilities']['multipage_layouts'] = multipage_layouts
+    body['capabilities']['orientations'] = orientations
+    body['capabilities']['output_bins'] = output_bins
+    body['capabilities']['pages_per_sheet'] = pages_per_sheet
+    body['capabilities']['qualities'] = qualities
+    body['capabilities']['right_margins'] = right_margins
+    body['capabilities']['scalings'] = scalings
+    body['capabilities']['supported_color_configurations'] = supported_color_configurations
+    body['capabilities']['supported_copies_per_job'] = supported_copies_per_job
+    body['capabilities']['supported_document_mime_types'] = supported_document_mime_types
+    body['capabilities']['supported_duplex_configurations'] = supported_duplex_configurations
+    body['capabilities']['supported_finishings'] = supported_finishings
+    body['capabilities']['supported_media_colors'] = supported_media_colors
+    body['capabilities']['supported_media_sizes'] = supported_media_sizes
+    body['capabilities']['supported_media_types'] = supported_media_types
+    body['capabilities']['supported_orientations'] = supported_orientations
+    body['capabilities']['supported_output_bins'] = supported_output_bins
+    body['capabilities']['supported_pages_per_sheet'] = supported_pages_per_sheet
+    body['capabilities']['supported_presentation_directions'] = supported_presentation_directions
+    body['capabilities']['supported_print_qualities'] = supported_print_qualities
+    body['capabilities']['supports_fit_pdf_to_page'] = supports_fit_pdf_to_page
+    body['capabilities']['top_margins'] = top_margins
+    body['accepting_jobs'] = accepting_jobs
+    body['is_shared'] = is_shared
+    body['registered_date_time'] = registered_date_time
+    body['allowed_groups'] = allowed_groups
+    body['allowed_users'] = allowed_users
+    body['connectors'] = connectors
+    body['share'] = share
+    body['shares'] = shares
+    body['task_triggers'] = task_triggers
+    return client.create_printers(body=body)
 
 
 def devicescloudprint_print_create_printer_share(client,
@@ -242,60 +253,63 @@ def devicescloudprint_print_create_printer_share(client,
                                                  allowed_groups=None,
                                                  allowed_users=None,
                                                  printer=None):
-    return client.create_printer_share(id=id_,
-                                       defaults=defaults,
-                                       display_name=display_name,
-                                       is_accepting_jobs=is_accepting_jobs,
-                                       location=location,
-                                       manufacturer=manufacturer,
-                                       model=model,
-                                       name=name,
-                                       status=status,
-                                       jobs=jobs,
-                                       bottom_margins=bottom_margins,
-                                       collation=collation,
-                                       color_modes=color_modes,
-                                       content_types=content_types,
-                                       copies_per_job=copies_per_job,
-                                       dpis=dpis,
-                                       duplex_modes=duplex_modes,
-                                       feed_directions=feed_directions,
-                                       feed_orientations=feed_orientations,
-                                       finishings=finishings,
-                                       input_bins=input_bins,
-                                       is_color_printing_supported=is_color_printing_supported,
-                                       is_page_range_supported=is_page_range_supported,
-                                       left_margins=left_margins,
-                                       media_colors=media_colors,
-                                       media_sizes=media_sizes,
-                                       media_types=media_types,
-                                       multipage_layouts=multipage_layouts,
-                                       orientations=orientations,
-                                       output_bins=output_bins,
-                                       pages_per_sheet=pages_per_sheet,
-                                       qualities=qualities,
-                                       right_margins=right_margins,
-                                       scalings=scalings,
-                                       supported_color_configurations=supported_color_configurations,
-                                       supported_copies_per_job=supported_copies_per_job,
-                                       supported_document_mime_types=supported_document_mime_types,
-                                       supported_duplex_configurations=supported_duplex_configurations,
-                                       supported_finishings=supported_finishings,
-                                       supported_media_colors=supported_media_colors,
-                                       supported_media_sizes=supported_media_sizes,
-                                       supported_media_types=supported_media_types,
-                                       supported_orientations=supported_orientations,
-                                       supported_output_bins=supported_output_bins,
-                                       supported_pages_per_sheet=supported_pages_per_sheet,
-                                       supported_presentation_directions=supported_presentation_directions,
-                                       supported_print_qualities=supported_print_qualities,
-                                       supports_fit_pdf_to_page=supports_fit_pdf_to_page,
-                                       top_margins=top_margins,
-                                       allow_all_users=allow_all_users,
-                                       created_date_time=created_date_time,
-                                       allowed_groups=allowed_groups,
-                                       allowed_users=allowed_users,
-                                       printer=printer)
+    body = {}
+    body['id'] = id_
+    body['defaults'] = defaults
+    body['display_name'] = display_name
+    body['is_accepting_jobs'] = is_accepting_jobs
+    body['location'] = location
+    body['manufacturer'] = manufacturer
+    body['model'] = model
+    body['name'] = name
+    body['status'] = status
+    body['jobs'] = jobs
+    body['capabilities'] = {}
+    body['capabilities']['bottom_margins'] = bottom_margins
+    body['capabilities']['collation'] = collation
+    body['capabilities']['color_modes'] = color_modes
+    body['capabilities']['content_types'] = content_types
+    body['capabilities']['copies_per_job'] = copies_per_job
+    body['capabilities']['dpis'] = dpis
+    body['capabilities']['duplex_modes'] = duplex_modes
+    body['capabilities']['feed_directions'] = feed_directions
+    body['capabilities']['feed_orientations'] = feed_orientations
+    body['capabilities']['finishings'] = finishings
+    body['capabilities']['input_bins'] = input_bins
+    body['capabilities']['is_color_printing_supported'] = is_color_printing_supported
+    body['capabilities']['is_page_range_supported'] = is_page_range_supported
+    body['capabilities']['left_margins'] = left_margins
+    body['capabilities']['media_colors'] = media_colors
+    body['capabilities']['media_sizes'] = media_sizes
+    body['capabilities']['media_types'] = media_types
+    body['capabilities']['multipage_layouts'] = multipage_layouts
+    body['capabilities']['orientations'] = orientations
+    body['capabilities']['output_bins'] = output_bins
+    body['capabilities']['pages_per_sheet'] = pages_per_sheet
+    body['capabilities']['qualities'] = qualities
+    body['capabilities']['right_margins'] = right_margins
+    body['capabilities']['scalings'] = scalings
+    body['capabilities']['supported_color_configurations'] = supported_color_configurations
+    body['capabilities']['supported_copies_per_job'] = supported_copies_per_job
+    body['capabilities']['supported_document_mime_types'] = supported_document_mime_types
+    body['capabilities']['supported_duplex_configurations'] = supported_duplex_configurations
+    body['capabilities']['supported_finishings'] = supported_finishings
+    body['capabilities']['supported_media_colors'] = supported_media_colors
+    body['capabilities']['supported_media_sizes'] = supported_media_sizes
+    body['capabilities']['supported_media_types'] = supported_media_types
+    body['capabilities']['supported_orientations'] = supported_orientations
+    body['capabilities']['supported_output_bins'] = supported_output_bins
+    body['capabilities']['supported_pages_per_sheet'] = supported_pages_per_sheet
+    body['capabilities']['supported_presentation_directions'] = supported_presentation_directions
+    body['capabilities']['supported_print_qualities'] = supported_print_qualities
+    body['capabilities']['supports_fit_pdf_to_page'] = supports_fit_pdf_to_page
+    body['capabilities']['top_margins'] = top_margins
+    body['allow_all_users'] = allow_all_users
+    body['created_date_time'] = created_date_time
+    body['allowed_groups'] = allowed_groups
+    body['allowed_users'] = allowed_users
+    body['printer'] = printer
+    return client.create_printer_shares(body=body)
 
 
 def devicescloudprint_print_create_report(client,
@@ -307,21 +321,25 @@ def devicescloudprint_print_create_report(client,
                                           daily_print_usage_summaries_by_user=None,
                                           monthly_print_usage_summaries_by_printer=None,
                                           monthly_print_usage_summaries_by_user=None):
-    return client.create_report(id=id_,
-                                application_sign_in_detailed_summary=application_sign_in_detailed_summary,
-                                credential_user_registration_details=credential_user_registration_details,
-                                user_credential_usage_details=user_credential_usage_details,
-                                daily_print_usage_summaries_by_printer=daily_print_usage_summaries_by_printer,
-                                daily_print_usage_summaries_by_user=daily_print_usage_summaries_by_user,
-                                monthly_print_usage_summaries_by_printer=monthly_print_usage_summaries_by_printer,
-                                monthly_print_usage_summaries_by_user=monthly_print_usage_summaries_by_user)
+    body = {}
+    body['id'] = id_
+    body['application_sign_in_detailed_summary'] = application_sign_in_detailed_summary
+    body['credential_user_registration_details'] = credential_user_registration_details
+    body['user_credential_usage_details'] = user_credential_usage_details
+    body['daily_print_usage_summaries_by_printer'] = daily_print_usage_summaries_by_printer
+    body['daily_print_usage_summaries_by_user'] = daily_print_usage_summaries_by_user
+    body['monthly_print_usage_summaries_by_printer'] = monthly_print_usage_summaries_by_printer
+    body['monthly_print_usage_summaries_by_user'] = monthly_print_usage_summaries_by_user
+    return client.create_reports(body=body)
 
 
 def devicescloudprint_print_create_service(client,
                                            id_=None,
                                            endpoints=None):
-    return client.create_service(id=id_,
-                                 endpoints=endpoints)
+    body = {}
+    body['id'] = id_
+    body['endpoints'] = endpoints
+    return client.create_services(body=body)
 
 
 def devicescloudprint_print_create_share(client,
@@ -379,60 +397,63 @@ def devicescloudprint_print_create_share(client,
                                          allowed_groups=None,
                                          allowed_users=None,
                                          printer=None):
-    return client.create_share(id=id_,
-                               defaults=defaults,
-                               display_name=display_name,
-                               is_accepting_jobs=is_accepting_jobs,
-                               location=location,
-                               manufacturer=manufacturer,
-                               model=model,
-                               name=name,
-                               status=status,
-                               jobs=jobs,
-                               bottom_margins=bottom_margins,
-                               collation=collation,
-                               color_modes=color_modes,
-                               content_types=content_types,
-                               copies_per_job=copies_per_job,
-                               dpis=dpis,
-                               duplex_modes=duplex_modes,
-                               feed_directions=feed_directions,
-                               feed_orientations=feed_orientations,
-                               finishings=finishings,
-                               input_bins=input_bins,
-                               is_color_printing_supported=is_color_printing_supported,
-                               is_page_range_supported=is_page_range_supported,
-                               left_margins=left_margins,
-                               media_colors=media_colors,
-                               media_sizes=media_sizes,
-                               media_types=media_types,
-                               multipage_layouts=multipage_layouts,
-                               orientations=orientations,
-                               output_bins=output_bins,
-                               pages_per_sheet=pages_per_sheet,
-                               qualities=qualities,
-                               right_margins=right_margins,
-                               scalings=scalings,
-                               supported_color_configurations=supported_color_configurations,
-                               supported_copies_per_job=supported_copies_per_job,
-                               supported_document_mime_types=supported_document_mime_types,
-                               supported_duplex_configurations=supported_duplex_configurations,
-                               supported_finishings=supported_finishings,
-                               supported_media_colors=supported_media_colors,
-                               supported_media_sizes=supported_media_sizes,
-                               supported_media_types=supported_media_types,
-                               supported_orientations=supported_orientations,
-                               supported_output_bins=supported_output_bins,
-                               supported_pages_per_sheet=supported_pages_per_sheet,
-                               supported_presentation_directions=supported_presentation_directions,
-                               supported_print_qualities=supported_print_qualities,
-                               supports_fit_pdf_to_page=supports_fit_pdf_to_page,
-                               top_margins=top_margins,
-                               allow_all_users=allow_all_users,
-                               created_date_time=created_date_time,
-                               allowed_groups=allowed_groups,
-                               allowed_users=allowed_users,
-                               printer=printer)
+    body = {}
+    body['id'] = id_
+    body['defaults'] = defaults
+    body['display_name'] = display_name
+    body['is_accepting_jobs'] = is_accepting_jobs
+    body['location'] = location
+    body['manufacturer'] = manufacturer
+    body['model'] = model
+    body['name'] = name
+    body['status'] = status
+    body['jobs'] = jobs
+    body['capabilities'] = {}
+    body['capabilities']['bottom_margins'] = bottom_margins
+    body['capabilities']['collation'] = collation
+    body['capabilities']['color_modes'] = color_modes
+    body['capabilities']['content_types'] = content_types
+    body['capabilities']['copies_per_job'] = copies_per_job
+    body['capabilities']['dpis'] = dpis
+    body['capabilities']['duplex_modes'] = duplex_modes
+    body['capabilities']['feed_directions'] = feed_directions
+    body['capabilities']['feed_orientations'] = feed_orientations
+    body['capabilities']['finishings'] = finishings
+    body['capabilities']['input_bins'] = input_bins
+    body['capabilities']['is_color_printing_supported'] = is_color_printing_supported
+    body['capabilities']['is_page_range_supported'] = is_page_range_supported
+    body['capabilities']['left_margins'] = left_margins
+    body['capabilities']['media_colors'] = media_colors
+    body['capabilities']['media_sizes'] = media_sizes
+    body['capabilities']['media_types'] = media_types
+    body['capabilities']['multipage_layouts'] = multipage_layouts
+    body['capabilities']['orientations'] = orientations
+    body['capabilities']['output_bins'] = output_bins
+    body['capabilities']['pages_per_sheet'] = pages_per_sheet
+    body['capabilities']['qualities'] = qualities
+    body['capabilities']['right_margins'] = right_margins
+    body['capabilities']['scalings'] = scalings
+    body['capabilities']['supported_color_configurations'] = supported_color_configurations
+    body['capabilities']['supported_copies_per_job'] = supported_copies_per_job
+    body['capabilities']['supported_document_mime_types'] = supported_document_mime_types
+    body['capabilities']['supported_duplex_configurations'] = supported_duplex_configurations
+    body['capabilities']['supported_finishings'] = supported_finishings
+    body['capabilities']['supported_media_colors'] = supported_media_colors
+    body['capabilities']['supported_media_sizes'] = supported_media_sizes
+    body['capabilities']['supported_media_types'] = supported_media_types
+    body['capabilities']['supported_orientations'] = supported_orientations
+    body['capabilities']['supported_output_bins'] = supported_output_bins
+    body['capabilities']['supported_pages_per_sheet'] = supported_pages_per_sheet
+    body['capabilities']['supported_presentation_directions'] = supported_presentation_directions
+    body['capabilities']['supported_print_qualities'] = supported_print_qualities
+    body['capabilities']['supports_fit_pdf_to_page'] = supports_fit_pdf_to_page
+    body['capabilities']['top_margins'] = top_margins
+    body['allow_all_users'] = allow_all_users
+    body['created_date_time'] = created_date_time
+    body['allowed_groups'] = allowed_groups
+    body['allowed_users'] = allowed_users
+    body['printer'] = printer
+    return client.create_shares(body=body)
 
 
 def devicescloudprint_print_create_task_definition(client,
@@ -440,210 +461,212 @@ def devicescloudprint_print_create_task_definition(client,
                                                    created_by=None,
                                                    display_name=None,
                                                    tasks=None):
-    return client.create_task_definition(id=id_,
-                                         created_by=created_by,
-                                         display_name=display_name,
-                                         tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['created_by'] = created_by
+    body['display_name'] = display_name
+    body['tasks'] = tasks
+    return client.create_task_definitions(body=body)
 
 
 def devicescloudprint_print_delete_connector(client,
                                              print_connector_id,
                                              if_match=None):
-    return client.delete_connector(print_connector_id=print_connector_id,
-                                   if_match=if_match)
+    return client.delete_connectors(print_connector_id=print_connector_id,
+                                    if_match=if_match)
 
 
 def devicescloudprint_print_delete_operation(client,
                                              print_operation_id,
                                              if_match=None):
-    return client.delete_operation(print_operation_id=print_operation_id,
-                                   if_match=if_match)
+    return client.delete_operations(print_operation_id=print_operation_id,
+                                    if_match=if_match)
 
 
 def devicescloudprint_print_delete_printer(client,
                                            printer_id,
                                            if_match=None):
-    return client.delete_printer(printer_id=printer_id,
-                                 if_match=if_match)
+    return client.delete_printers(printer_id=printer_id,
+                                  if_match=if_match)
 
 
 def devicescloudprint_print_delete_printer_share(client,
                                                  printer_share_id,
                                                  if_match=None):
-    return client.delete_printer_share(printer_share_id=printer_share_id,
-                                       if_match=if_match)
+    return client.delete_printer_shares(printer_share_id=printer_share_id,
+                                        if_match=if_match)
 
 
 def devicescloudprint_print_delete_report(client,
                                           report_root_id,
                                           if_match=None):
-    return client.delete_report(report_root_id=report_root_id,
-                                if_match=if_match)
+    return client.delete_reports(report_root_id=report_root_id,
+                                 if_match=if_match)
 
 
 def devicescloudprint_print_delete_service(client,
                                            print_service_id,
                                            if_match=None):
-    return client.delete_service(print_service_id=print_service_id,
-                                 if_match=if_match)
+    return client.delete_services(print_service_id=print_service_id,
+                                  if_match=if_match)
 
 
 def devicescloudprint_print_delete_share(client,
                                          printer_share_id,
                                          if_match=None):
-    return client.delete_share(printer_share_id=printer_share_id,
-                               if_match=if_match)
+    return client.delete_shares(printer_share_id=printer_share_id,
+                                if_match=if_match)
 
 
 def devicescloudprint_print_delete_task_definition(client,
                                                    print_task_definition_id,
                                                    if_match=None):
-    return client.delete_task_definition(print_task_definition_id=print_task_definition_id,
-                                         if_match=if_match)
+    return client.delete_task_definitions(print_task_definition_id=print_task_definition_id,
+                                          if_match=if_match)
 
 
 def devicescloudprint_print_list_connector(client,
                                            orderby=None,
                                            select=None,
                                            expand=None):
-    return client.list_connector(orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_connectors(orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def devicescloudprint_print_list_operation(client,
                                            orderby=None,
                                            select=None,
                                            expand=None):
-    return client.list_operation(orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_operations(orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def devicescloudprint_print_list_printer(client,
                                          orderby=None,
                                          select=None,
                                          expand=None):
-    return client.list_printer(orderby=orderby,
-                               select=select,
-                               expand=expand)
+    return client.list_printers(orderby=orderby,
+                                select=select,
+                                expand=expand)
 
 
 def devicescloudprint_print_list_printer_share(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_printer_share(orderby=orderby,
-                                     select=select,
-                                     expand=expand)
+    return client.list_printer_shares(orderby=orderby,
+                                      select=select,
+                                      expand=expand)
 
 
 def devicescloudprint_print_list_report(client,
                                         orderby=None,
                                         select=None,
                                         expand=None):
-    return client.list_report(orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_reports(orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def devicescloudprint_print_list_service(client,
                                          orderby=None,
                                          select=None,
                                          expand=None):
-    return client.list_service(orderby=orderby,
-                               select=select,
-                               expand=expand)
+    return client.list_services(orderby=orderby,
+                                select=select,
+                                expand=expand)
 
 
 def devicescloudprint_print_list_share(client,
                                        orderby=None,
                                        select=None,
                                        expand=None):
-    return client.list_share(orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_shares(orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def devicescloudprint_print_list_task_definition(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_task_definition(orderby=orderby,
-                                       select=select,
-                                       expand=expand)
+    return client.list_task_definitions(orderby=orderby,
+                                        select=select,
+                                        expand=expand)
 
 
 def devicescloudprint_print_show_connector(client,
                                            print_connector_id,
                                            select=None,
                                            expand=None):
-    return client.get_connector(print_connector_id=print_connector_id,
-                                select=select,
-                                expand=expand)
+    return client.get_connectors(print_connector_id=print_connector_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def devicescloudprint_print_show_operation(client,
                                            print_operation_id,
                                            select=None,
                                            expand=None):
-    return client.get_operation(print_operation_id=print_operation_id,
-                                select=select,
-                                expand=expand)
+    return client.get_operations(print_operation_id=print_operation_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def devicescloudprint_print_show_printer(client,
                                          printer_id,
                                          select=None,
                                          expand=None):
-    return client.get_printer(printer_id=printer_id,
-                              select=select,
-                              expand=expand)
+    return client.get_printers(printer_id=printer_id,
+                               select=select,
+                               expand=expand)
 
 
 def devicescloudprint_print_show_printer_share(client,
                                                printer_share_id,
                                                select=None,
                                                expand=None):
-    return client.get_printer_share(printer_share_id=printer_share_id,
-                                    select=select,
-                                    expand=expand)
+    return client.get_printer_shares(printer_share_id=printer_share_id,
+                                     select=select,
+                                     expand=expand)
 
 
 def devicescloudprint_print_show_report(client,
                                         report_root_id,
                                         select=None,
                                         expand=None):
-    return client.get_report(report_root_id=report_root_id,
-                             select=select,
-                             expand=expand)
+    return client.get_reports(report_root_id=report_root_id,
+                              select=select,
+                              expand=expand)
 
 
 def devicescloudprint_print_show_service(client,
                                          print_service_id,
                                          select=None,
                                          expand=None):
-    return client.get_service(print_service_id=print_service_id,
-                              select=select,
-                              expand=expand)
+    return client.get_services(print_service_id=print_service_id,
+                               select=select,
+                               expand=expand)
 
 
 def devicescloudprint_print_show_share(client,
                                        printer_share_id,
                                        select=None,
                                        expand=None):
-    return client.get_share(printer_share_id=printer_share_id,
-                            select=select,
-                            expand=expand)
+    return client.get_shares(printer_share_id=printer_share_id,
+                             select=select,
+                             expand=expand)
 
 
 def devicescloudprint_print_show_task_definition(client,
                                                  print_task_definition_id,
                                                  select=None,
                                                  expand=None):
-    return client.get_task_definition(print_task_definition_id=print_task_definition_id,
-                                      select=select,
-                                      expand=expand)
+    return client.get_task_definitions(print_task_definition_id=print_task_definition_id,
+                                       select=select,
+                                       expand=expand)
 
 
 def devicescloudprint_print_update_connector(client,
@@ -657,16 +680,19 @@ def devicescloudprint_print_update_connector(client,
                                              operating_system=None,
                                              registered_date_time=None,
                                              last_connection_time=None):
-    return client.update_connector(print_connector_id=print_connector_id,
-                                   id=id_,
-                                   app_version=app_version,
-                                   display_name=display_name,
-                                   fully_qualified_domain_name=fully_qualified_domain_name,
-                                   location=location,
-                                   name=name,
-                                   operating_system=operating_system,
-                                   registered_date_time=registered_date_time,
-                                   last_connection_time=last_connection_time)
+    body = {}
+    body['id'] = id_
+    body['app_version'] = app_version
+    body['display_name'] = display_name
+    body['fully_qualified_domain_name'] = fully_qualified_domain_name
+    body['location'] = location
+    body['name'] = name
+    body['operating_system'] = operating_system
+    body['registered_date_time'] = registered_date_time
+    body['device_health'] = {}
+    body['device_health']['last_connection_time'] = last_connection_time
+    return client.update_connectors(print_connector_id=print_connector_id,
+                                    body=body)
 
 
 def devicescloudprint_print_update_operation(client,
@@ -674,10 +700,12 @@ def devicescloudprint_print_update_operation(client,
                                              id_=None,
                                              created_date_time=None,
                                              status=None):
-    return client.update_operation(print_operation_id=print_operation_id,
-                                   id=id_,
-                                   created_date_time=created_date_time,
-                                   status=status)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['status'] = status
+    return client.update_operations(print_operation_id=print_operation_id,
+                                    body=body)
 
 
 def devicescloudprint_print_update_printer(client,
@@ -740,65 +768,68 @@ def devicescloudprint_print_update_printer(client,
                                            share=None,
                                            shares=None,
                                            task_triggers=None):
-    return client.update_printer(printer_id=printer_id,
-                                 id=id_,
-                                 defaults=defaults,
-                                 display_name=display_name,
-                                 is_accepting_jobs=is_accepting_jobs,
-                                 location=location,
-                                 manufacturer=manufacturer,
-                                 model=model,
-                                 name=name,
-                                 status=status,
-                                 jobs=jobs,
-                                 bottom_margins=bottom_margins,
-                                 collation=collation,
-                                 color_modes=color_modes,
-                                 content_types=content_types,
-                                 copies_per_job=copies_per_job,
-                                 dpis=dpis,
-                                 duplex_modes=duplex_modes,
-                                 feed_directions=feed_directions,
-                                 feed_orientations=feed_orientations,
-                                 finishings=finishings,
-                                 input_bins=input_bins,
-                                 is_color_printing_supported=is_color_printing_supported,
-                                 is_page_range_supported=is_page_range_supported,
-                                 left_margins=left_margins,
-                                 media_colors=media_colors,
-                                 media_sizes=media_sizes,
-                                 media_types=media_types,
-                                 multipage_layouts=multipage_layouts,
-                                 orientations=orientations,
-                                 output_bins=output_bins,
-                                 pages_per_sheet=pages_per_sheet,
-                                 qualities=qualities,
-                                 right_margins=right_margins,
-                                 scalings=scalings,
-                                 supported_color_configurations=supported_color_configurations,
-                                 supported_copies_per_job=supported_copies_per_job,
-                                 supported_document_mime_types=supported_document_mime_types,
-                                 supported_duplex_configurations=supported_duplex_configurations,
-                                 supported_finishings=supported_finishings,
-                                 supported_media_colors=supported_media_colors,
-                                 supported_media_sizes=supported_media_sizes,
-                                 supported_media_types=supported_media_types,
-                                 supported_orientations=supported_orientations,
-                                 supported_output_bins=supported_output_bins,
-                                 supported_pages_per_sheet=supported_pages_per_sheet,
-                                 supported_presentation_directions=supported_presentation_directions,
-                                 supported_print_qualities=supported_print_qualities,
-                                 supports_fit_pdf_to_page=supports_fit_pdf_to_page,
-                                 top_margins=top_margins,
-                                 accepting_jobs=accepting_jobs,
-                                 is_shared=is_shared,
-                                 registered_date_time=registered_date_time,
-                                 allowed_groups=allowed_groups,
-                                 allowed_users=allowed_users,
-                                 connectors=connectors,
-                                 share=share,
-                                 shares=shares,
-                                 task_triggers=task_triggers)
+    body = {}
+    body['id'] = id_
+    body['defaults'] = defaults
+    body['display_name'] = display_name
+    body['is_accepting_jobs'] = is_accepting_jobs
+    body['location'] = location
+    body['manufacturer'] = manufacturer
+    body['model'] = model
+    body['name'] = name
+    body['status'] = status
+    body['jobs'] = jobs
+    body['capabilities'] = {}
+    body['capabilities']['bottom_margins'] = bottom_margins
+    body['capabilities']['collation'] = collation
+    body['capabilities']['color_modes'] = color_modes
+    body['capabilities']['content_types'] = content_types
+    body['capabilities']['copies_per_job'] = copies_per_job
+    body['capabilities']['dpis'] = dpis
+    body['capabilities']['duplex_modes'] = duplex_modes
+    body['capabilities']['feed_directions'] = feed_directions
+    body['capabilities']['feed_orientations'] = feed_orientations
+    body['capabilities']['finishings'] = finishings
+    body['capabilities']['input_bins'] = input_bins
+    body['capabilities']['is_color_printing_supported'] = is_color_printing_supported
+    body['capabilities']['is_page_range_supported'] = is_page_range_supported
+    body['capabilities']['left_margins'] = left_margins
+    body['capabilities']['media_colors'] = media_colors
+    body['capabilities']['media_sizes'] = media_sizes
+    body['capabilities']['media_types'] = media_types
+    body['capabilities']['multipage_layouts'] = multipage_layouts
+    body['capabilities']['orientations'] = orientations
+    body['capabilities']['output_bins'] = output_bins
+    body['capabilities']['pages_per_sheet'] = pages_per_sheet
+    body['capabilities']['qualities'] = qualities
+    body['capabilities']['right_margins'] = right_margins
+    body['capabilities']['scalings'] = scalings
+    body['capabilities']['supported_color_configurations'] = supported_color_configurations
+    body['capabilities']['supported_copies_per_job'] = supported_copies_per_job
+    body['capabilities']['supported_document_mime_types'] = supported_document_mime_types
+    body['capabilities']['supported_duplex_configurations'] = supported_duplex_configurations
+    body['capabilities']['supported_finishings'] = supported_finishings
+    body['capabilities']['supported_media_colors'] = supported_media_colors
+    body['capabilities']['supported_media_sizes'] = supported_media_sizes
+    body['capabilities']['supported_media_types'] = supported_media_types
+    body['capabilities']['supported_orientations'] = supported_orientations
+    body['capabilities']['supported_output_bins'] = supported_output_bins
+    body['capabilities']['supported_pages_per_sheet'] = supported_pages_per_sheet
+    body['capabilities']['supported_presentation_directions'] = supported_presentation_directions
+    body['capabilities']['supported_print_qualities'] = supported_print_qualities
+    body['capabilities']['supports_fit_pdf_to_page'] = supports_fit_pdf_to_page
+    body['capabilities']['top_margins'] = top_margins
+    body['accepting_jobs'] = accepting_jobs
+    body['is_shared'] = is_shared
+    body['registered_date_time'] = registered_date_time
+    body['allowed_groups'] = allowed_groups
+    body['allowed_users'] = allowed_users
+    body['connectors'] = connectors
+    body['share'] = share
+    body['shares'] = shares
+    body['task_triggers'] = task_triggers
+    return client.update_printers(printer_id=printer_id,
+                                  body=body)
 
 
 def devicescloudprint_print_update_printer_share(client,
@@ -857,61 +888,64 @@ def devicescloudprint_print_update_printer_share(client,
                                                  allowed_groups=None,
                                                  allowed_users=None,
                                                  printer=None):
-    return client.update_printer_share(printer_share_id=printer_share_id,
-                                       id=id_,
-                                       defaults=defaults,
-                                       display_name=display_name,
-                                       is_accepting_jobs=is_accepting_jobs,
-                                       location=location,
-                                       manufacturer=manufacturer,
-                                       model=model,
-                                       name=name,
-                                       status=status,
-                                       jobs=jobs,
-                                       bottom_margins=bottom_margins,
-                                       collation=collation,
-                                       color_modes=color_modes,
-                                       content_types=content_types,
-                                       copies_per_job=copies_per_job,
-                                       dpis=dpis,
-                                       duplex_modes=duplex_modes,
-                                       feed_directions=feed_directions,
-                                       feed_orientations=feed_orientations,
-                                       finishings=finishings,
-                                       input_bins=input_bins,
-                                       is_color_printing_supported=is_color_printing_supported,
-                                       is_page_range_supported=is_page_range_supported,
-                                       left_margins=left_margins,
-                                       media_colors=media_colors,
-                                       media_sizes=media_sizes,
-                                       media_types=media_types,
-                                       multipage_layouts=multipage_layouts,
-                                       orientations=orientations,
-                                       output_bins=output_bins,
-                                       pages_per_sheet=pages_per_sheet,
-                                       qualities=qualities,
-                                       right_margins=right_margins,
-                                       scalings=scalings,
-                                       supported_color_configurations=supported_color_configurations,
-                                       supported_copies_per_job=supported_copies_per_job,
-                                       supported_document_mime_types=supported_document_mime_types,
-                                       supported_duplex_configurations=supported_duplex_configurations,
-                                       supported_finishings=supported_finishings,
-                                       supported_media_colors=supported_media_colors,
-                                       supported_media_sizes=supported_media_sizes,
-                                       supported_media_types=supported_media_types,
-                                       supported_orientations=supported_orientations,
-                                       supported_output_bins=supported_output_bins,
-                                       supported_pages_per_sheet=supported_pages_per_sheet,
-                                       supported_presentation_directions=supported_presentation_directions,
-                                       supported_print_qualities=supported_print_qualities,
-                                       supports_fit_pdf_to_page=supports_fit_pdf_to_page,
-                                       top_margins=top_margins,
-                                       allow_all_users=allow_all_users,
-                                       created_date_time=created_date_time,
-                                       allowed_groups=allowed_groups,
-                                       allowed_users=allowed_users,
-                                       printer=printer)
+    body = {}
+    body['id'] = id_
+    body['defaults'] = defaults
+    body['display_name'] = display_name
+    body['is_accepting_jobs'] = is_accepting_jobs
+    body['location'] = location
+    body['manufacturer'] = manufacturer
+    body['model'] = model
+    body['name'] = name
+    body['status'] = status
+    body['jobs'] = jobs
+    body['capabilities'] = {}
+    body['capabilities']['bottom_margins'] = bottom_margins
+    body['capabilities']['collation'] = collation
+    body['capabilities']['color_modes'] = color_modes
+    body['capabilities']['content_types'] = content_types
+    body['capabilities']['copies_per_job'] = copies_per_job
+    body['capabilities']['dpis'] = dpis
+    body['capabilities']['duplex_modes'] = duplex_modes
+    body['capabilities']['feed_directions'] = feed_directions
+    body['capabilities']['feed_orientations'] = feed_orientations
+    body['capabilities']['finishings'] = finishings
+    body['capabilities']['input_bins'] = input_bins
+    body['capabilities']['is_color_printing_supported'] = is_color_printing_supported
+    body['capabilities']['is_page_range_supported'] = is_page_range_supported
+    body['capabilities']['left_margins'] = left_margins
+    body['capabilities']['media_colors'] = media_colors
+    body['capabilities']['media_sizes'] = media_sizes
+    body['capabilities']['media_types'] = media_types
+    body['capabilities']['multipage_layouts'] = multipage_layouts
+    body['capabilities']['orientations'] = orientations
+    body['capabilities']['output_bins'] = output_bins
+    body['capabilities']['pages_per_sheet'] = pages_per_sheet
+    body['capabilities']['qualities'] = qualities
+    body['capabilities']['right_margins'] = right_margins
+    body['capabilities']['scalings'] = scalings
+    body['capabilities']['supported_color_configurations'] = supported_color_configurations
+    body['capabilities']['supported_copies_per_job'] = supported_copies_per_job
+    body['capabilities']['supported_document_mime_types'] = supported_document_mime_types
+    body['capabilities']['supported_duplex_configurations'] = supported_duplex_configurations
+    body['capabilities']['supported_finishings'] = supported_finishings
+    body['capabilities']['supported_media_colors'] = supported_media_colors
+    body['capabilities']['supported_media_sizes'] = supported_media_sizes
+    body['capabilities']['supported_media_types'] = supported_media_types
+    body['capabilities']['supported_orientations'] = supported_orientations
+    body['capabilities']['supported_output_bins'] = supported_output_bins
+    body['capabilities']['supported_pages_per_sheet'] = supported_pages_per_sheet
+    body['capabilities']['supported_presentation_directions'] = supported_presentation_directions
+    body['capabilities']['supported_print_qualities'] = supported_print_qualities
+    body['capabilities']['supports_fit_pdf_to_page'] = supports_fit_pdf_to_page
+    body['capabilities']['top_margins'] = top_margins
+    body['allow_all_users'] = allow_all_users
+    body['created_date_time'] = created_date_time
+    body['allowed_groups'] = allowed_groups
+    body['allowed_users'] = allowed_users
+    body['printer'] = printer
+    return client.update_printer_shares(printer_share_id=printer_share_id,
+                                        body=body)
 
 
 def devicescloudprint_print_update_report(client,
@@ -924,24 +958,28 @@ def devicescloudprint_print_update_report(client,
                                           daily_print_usage_summaries_by_user=None,
                                           monthly_print_usage_summaries_by_printer=None,
                                           monthly_print_usage_summaries_by_user=None):
-    return client.update_report(report_root_id=report_root_id,
-                                id=id_,
-                                application_sign_in_detailed_summary=application_sign_in_detailed_summary,
-                                credential_user_registration_details=credential_user_registration_details,
-                                user_credential_usage_details=user_credential_usage_details,
-                                daily_print_usage_summaries_by_printer=daily_print_usage_summaries_by_printer,
-                                daily_print_usage_summaries_by_user=daily_print_usage_summaries_by_user,
-                                monthly_print_usage_summaries_by_printer=monthly_print_usage_summaries_by_printer,
-                                monthly_print_usage_summaries_by_user=monthly_print_usage_summaries_by_user)
+    body = {}
+    body['id'] = id_
+    body['application_sign_in_detailed_summary'] = application_sign_in_detailed_summary
+    body['credential_user_registration_details'] = credential_user_registration_details
+    body['user_credential_usage_details'] = user_credential_usage_details
+    body['daily_print_usage_summaries_by_printer'] = daily_print_usage_summaries_by_printer
+    body['daily_print_usage_summaries_by_user'] = daily_print_usage_summaries_by_user
+    body['monthly_print_usage_summaries_by_printer'] = monthly_print_usage_summaries_by_printer
+    body['monthly_print_usage_summaries_by_user'] = monthly_print_usage_summaries_by_user
+    return client.update_reports(report_root_id=report_root_id,
+                                 body=body)
 
 
 def devicescloudprint_print_update_service(client,
                                            print_service_id,
                                            id_=None,
                                            endpoints=None):
-    return client.update_service(print_service_id=print_service_id,
-                                 id=id_,
-                                 endpoints=endpoints)
+    body = {}
+    body['id'] = id_
+    body['endpoints'] = endpoints
+    return client.update_services(print_service_id=print_service_id,
+                                  body=body)
 
 
 def devicescloudprint_print_update_share(client,
@@ -1000,61 +1038,64 @@ def devicescloudprint_print_update_share(client,
                                          allowed_groups=None,
                                          allowed_users=None,
                                          printer=None):
-    return client.update_share(printer_share_id=printer_share_id,
-                               id=id_,
-                               defaults=defaults,
-                               display_name=display_name,
-                               is_accepting_jobs=is_accepting_jobs,
-                               location=location,
-                               manufacturer=manufacturer,
-                               model=model,
-                               name=name,
-                               status=status,
-                               jobs=jobs,
-                               bottom_margins=bottom_margins,
-                               collation=collation,
-                               color_modes=color_modes,
-                               content_types=content_types,
-                               copies_per_job=copies_per_job,
-                               dpis=dpis,
-                               duplex_modes=duplex_modes,
-                               feed_directions=feed_directions,
-                               feed_orientations=feed_orientations,
-                               finishings=finishings,
-                               input_bins=input_bins,
-                               is_color_printing_supported=is_color_printing_supported,
-                               is_page_range_supported=is_page_range_supported,
-                               left_margins=left_margins,
-                               media_colors=media_colors,
-                               media_sizes=media_sizes,
-                               media_types=media_types,
-                               multipage_layouts=multipage_layouts,
-                               orientations=orientations,
-                               output_bins=output_bins,
-                               pages_per_sheet=pages_per_sheet,
-                               qualities=qualities,
-                               right_margins=right_margins,
-                               scalings=scalings,
-                               supported_color_configurations=supported_color_configurations,
-                               supported_copies_per_job=supported_copies_per_job,
-                               supported_document_mime_types=supported_document_mime_types,
-                               supported_duplex_configurations=supported_duplex_configurations,
-                               supported_finishings=supported_finishings,
-                               supported_media_colors=supported_media_colors,
-                               supported_media_sizes=supported_media_sizes,
-                               supported_media_types=supported_media_types,
-                               supported_orientations=supported_orientations,
-                               supported_output_bins=supported_output_bins,
-                               supported_pages_per_sheet=supported_pages_per_sheet,
-                               supported_presentation_directions=supported_presentation_directions,
-                               supported_print_qualities=supported_print_qualities,
-                               supports_fit_pdf_to_page=supports_fit_pdf_to_page,
-                               top_margins=top_margins,
-                               allow_all_users=allow_all_users,
-                               created_date_time=created_date_time,
-                               allowed_groups=allowed_groups,
-                               allowed_users=allowed_users,
-                               printer=printer)
+    body = {}
+    body['id'] = id_
+    body['defaults'] = defaults
+    body['display_name'] = display_name
+    body['is_accepting_jobs'] = is_accepting_jobs
+    body['location'] = location
+    body['manufacturer'] = manufacturer
+    body['model'] = model
+    body['name'] = name
+    body['status'] = status
+    body['jobs'] = jobs
+    body['capabilities'] = {}
+    body['capabilities']['bottom_margins'] = bottom_margins
+    body['capabilities']['collation'] = collation
+    body['capabilities']['color_modes'] = color_modes
+    body['capabilities']['content_types'] = content_types
+    body['capabilities']['copies_per_job'] = copies_per_job
+    body['capabilities']['dpis'] = dpis
+    body['capabilities']['duplex_modes'] = duplex_modes
+    body['capabilities']['feed_directions'] = feed_directions
+    body['capabilities']['feed_orientations'] = feed_orientations
+    body['capabilities']['finishings'] = finishings
+    body['capabilities']['input_bins'] = input_bins
+    body['capabilities']['is_color_printing_supported'] = is_color_printing_supported
+    body['capabilities']['is_page_range_supported'] = is_page_range_supported
+    body['capabilities']['left_margins'] = left_margins
+    body['capabilities']['media_colors'] = media_colors
+    body['capabilities']['media_sizes'] = media_sizes
+    body['capabilities']['media_types'] = media_types
+    body['capabilities']['multipage_layouts'] = multipage_layouts
+    body['capabilities']['orientations'] = orientations
+    body['capabilities']['output_bins'] = output_bins
+    body['capabilities']['pages_per_sheet'] = pages_per_sheet
+    body['capabilities']['qualities'] = qualities
+    body['capabilities']['right_margins'] = right_margins
+    body['capabilities']['scalings'] = scalings
+    body['capabilities']['supported_color_configurations'] = supported_color_configurations
+    body['capabilities']['supported_copies_per_job'] = supported_copies_per_job
+    body['capabilities']['supported_document_mime_types'] = supported_document_mime_types
+    body['capabilities']['supported_duplex_configurations'] = supported_duplex_configurations
+    body['capabilities']['supported_finishings'] = supported_finishings
+    body['capabilities']['supported_media_colors'] = supported_media_colors
+    body['capabilities']['supported_media_sizes'] = supported_media_sizes
+    body['capabilities']['supported_media_types'] = supported_media_types
+    body['capabilities']['supported_orientations'] = supported_orientations
+    body['capabilities']['supported_output_bins'] = supported_output_bins
+    body['capabilities']['supported_pages_per_sheet'] = supported_pages_per_sheet
+    body['capabilities']['supported_presentation_directions'] = supported_presentation_directions
+    body['capabilities']['supported_print_qualities'] = supported_print_qualities
+    body['capabilities']['supports_fit_pdf_to_page'] = supports_fit_pdf_to_page
+    body['capabilities']['top_margins'] = top_margins
+    body['allow_all_users'] = allow_all_users
+    body['created_date_time'] = created_date_time
+    body['allowed_groups'] = allowed_groups
+    body['allowed_users'] = allowed_users
+    body['printer'] = printer
+    return client.update_shares(printer_share_id=printer_share_id,
+                                body=body)
 
 
 def devicescloudprint_print_update_task_definition(client,
@@ -1063,11 +1104,13 @@ def devicescloudprint_print_update_task_definition(client,
                                                    created_by=None,
                                                    display_name=None,
                                                    tasks=None):
-    return client.update_task_definition(print_task_definition_id=print_task_definition_id,
-                                         id=id_,
-                                         created_by=created_by,
-                                         display_name=display_name,
-                                         tasks=tasks)
+    body = {}
+    body['id'] = id_
+    body['created_by'] = created_by
+    body['display_name'] = display_name
+    body['tasks'] = tasks
+    return client.update_task_definitions(print_task_definition_id=print_task_definition_id,
+                                          body=body)
 
 
 def devicescloudprint_print_printer_create(client,
@@ -1080,22 +1123,26 @@ def devicescloudprint_print_printer_create(client,
                                            connector_id=None):
     if has_physical_device is None:
         has_physical_device = False
-    return client.create(display_name=display_name,
-                         manufacturer=manufacturer,
-                         model=model,
-                         physical_device_id=physical_device_id,
-                         has_physical_device=has_physical_device,
-                         certificate_signing_request=certificate_signing_request,
-                         connector_id=connector_id)
+    body = {}
+    body['display_name'] = display_name
+    body['manufacturer'] = manufacturer
+    body['model'] = model
+    body['physical_device_id'] = physical_device_id
+    body['has_physical_device'] = False if has_physical_device is None else has_physical_device
+    body['certificate_signing_request'] = certificate_signing_request
+    body['connector_id'] = connector_id
+    return client.create(body=body)
 
 
 def devicescloudprint_print_printer_create_allowed_group(client,
                                                          printer_id,
                                                          id_=None,
                                                          display_name=None):
-    return client.create_allowed_group(printer_id=printer_id,
-                                       id=id_,
-                                       display_name=display_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.create_allowed_groups(printer_id=printer_id,
+                                        body=body)
 
 
 def devicescloudprint_print_printer_create_allowed_user(client,
@@ -1104,25 +1151,27 @@ def devicescloudprint_print_printer_create_allowed_user(client,
                                                         display_name=None,
                                                         ip_address=None,
                                                         user_principal_name=None):
-    return client.create_allowed_user(printer_id=printer_id,
-                                      id=id_,
-                                      display_name=display_name,
-                                      ip_address=ip_address,
-                                      user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['ip_address'] = ip_address
+    body['user_principal_name'] = user_principal_name
+    return client.create_allowed_users(printer_id=printer_id,
+                                       body=body)
 
 
 def devicescloudprint_print_printer_create_ref_connector(client,
                                                          printer_id,
                                                          body):
-    return client.create_ref_connector(printer_id=printer_id,
-                                       body=body)
+    return client.create_ref_connectors(printer_id=printer_id,
+                                        body=body)
 
 
 def devicescloudprint_print_printer_create_ref_share(client,
                                                      printer_id,
                                                      body):
-    return client.create_ref_share(printer_id=printer_id,
-                                   body=body)
+    return client.create_ref_shares(printer_id=printer_id,
+                                    body=body)
 
 
 def devicescloudprint_print_printer_create_task_trigger(client,
@@ -1130,28 +1179,30 @@ def devicescloudprint_print_printer_create_task_trigger(client,
                                                         id_=None,
                                                         event=None,
                                                         definition=None):
-    return client.create_task_trigger(printer_id=printer_id,
-                                      id=id_,
-                                      event=event,
-                                      definition=definition)
+    body = {}
+    body['id'] = id_
+    body['event'] = event
+    body['definition'] = definition
+    return client.create_task_triggers(printer_id=printer_id,
+                                       body=body)
 
 
 def devicescloudprint_print_printer_delete_allowed_group(client,
                                                          printer_id,
                                                          print_identity_id,
                                                          if_match=None):
-    return client.delete_allowed_group(printer_id=printer_id,
-                                       print_identity_id=print_identity_id,
-                                       if_match=if_match)
+    return client.delete_allowed_groups(printer_id=printer_id,
+                                        print_identity_id=print_identity_id,
+                                        if_match=if_match)
 
 
 def devicescloudprint_print_printer_delete_allowed_user(client,
                                                         printer_id,
                                                         print_user_identity_id,
                                                         if_match=None):
-    return client.delete_allowed_user(printer_id=printer_id,
-                                      print_user_identity_id=print_user_identity_id,
-                                      if_match=if_match)
+    return client.delete_allowed_users(printer_id=printer_id,
+                                       print_user_identity_id=print_user_identity_id,
+                                       if_match=if_match)
 
 
 def devicescloudprint_print_printer_delete_ref_share(client,
@@ -1165,9 +1216,9 @@ def devicescloudprint_print_printer_delete_task_trigger(client,
                                                         printer_id,
                                                         print_task_trigger_id,
                                                         if_match=None):
-    return client.delete_task_trigger(printer_id=printer_id,
-                                      print_task_trigger_id=print_task_trigger_id,
-                                      if_match=if_match)
+    return client.delete_task_triggers(printer_id=printer_id,
+                                       print_task_trigger_id=print_task_trigger_id,
+                                       if_match=if_match)
 
 
 def devicescloudprint_print_printer_list_allowed_group(client,
@@ -1175,10 +1226,10 @@ def devicescloudprint_print_printer_list_allowed_group(client,
                                                        orderby=None,
                                                        select=None,
                                                        expand=None):
-    return client.list_allowed_group(printer_id=printer_id,
-                                     orderby=orderby,
-                                     select=select,
-                                     expand=expand)
+    return client.list_allowed_groups(printer_id=printer_id,
+                                      orderby=orderby,
+                                      select=select,
+                                      expand=expand)
 
 
 def devicescloudprint_print_printer_list_allowed_user(client,
@@ -1186,10 +1237,10 @@ def devicescloudprint_print_printer_list_allowed_user(client,
                                                       orderby=None,
                                                       select=None,
                                                       expand=None):
-    return client.list_allowed_user(printer_id=printer_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_allowed_users(printer_id=printer_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def devicescloudprint_print_printer_list_connector(client,
@@ -1197,24 +1248,24 @@ def devicescloudprint_print_printer_list_connector(client,
                                                    orderby=None,
                                                    select=None,
                                                    expand=None):
-    return client.list_connector(printer_id=printer_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_connectors(printer_id=printer_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def devicescloudprint_print_printer_list_ref_connector(client,
                                                        printer_id,
                                                        orderby=None):
-    return client.list_ref_connector(printer_id=printer_id,
-                                     orderby=orderby)
+    return client.list_ref_connectors(printer_id=printer_id,
+                                      orderby=orderby)
 
 
 def devicescloudprint_print_printer_list_ref_share(client,
                                                    printer_id,
                                                    orderby=None):
-    return client.list_ref_share(printer_id=printer_id,
-                                 orderby=orderby)
+    return client.list_ref_shares(printer_id=printer_id,
+                                  orderby=orderby)
 
 
 def devicescloudprint_print_printer_list_share(client,
@@ -1222,10 +1273,10 @@ def devicescloudprint_print_printer_list_share(client,
                                                orderby=None,
                                                select=None,
                                                expand=None):
-    return client.list_share(printer_id=printer_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_shares(printer_id=printer_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def devicescloudprint_print_printer_list_task_trigger(client,
@@ -1233,20 +1284,20 @@ def devicescloudprint_print_printer_list_task_trigger(client,
                                                       orderby=None,
                                                       select=None,
                                                       expand=None):
-    return client.list_task_trigger(printer_id=printer_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_task_triggers(printer_id=printer_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def devicescloudprint_print_printer_reset_default(client,
                                                   printer_id):
-    return client.reset_default(printer_id=printer_id)
+    return client.reset_defaults(printer_id=printer_id)
 
 
 def devicescloudprint_print_printer_restore_factory_default(client,
                                                             printer_id):
-    return client.restore_factory_default(printer_id=printer_id)
+    return client.restore_factory_defaults(printer_id=printer_id)
 
 
 def devicescloudprint_print_printer_set_ref_share(client,
@@ -1261,10 +1312,10 @@ def devicescloudprint_print_printer_show_allowed_group(client,
                                                        print_identity_id,
                                                        select=None,
                                                        expand=None):
-    return client.get_allowed_group(printer_id=printer_id,
-                                    print_identity_id=print_identity_id,
-                                    select=select,
-                                    expand=expand)
+    return client.get_allowed_groups(printer_id=printer_id,
+                                     print_identity_id=print_identity_id,
+                                     select=select,
+                                     expand=expand)
 
 
 def devicescloudprint_print_printer_show_allowed_user(client,
@@ -1272,15 +1323,15 @@ def devicescloudprint_print_printer_show_allowed_user(client,
                                                       print_user_identity_id,
                                                       select=None,
                                                       expand=None):
-    return client.get_allowed_user(printer_id=printer_id,
-                                   print_user_identity_id=print_user_identity_id,
-                                   select=select,
-                                   expand=expand)
+    return client.get_allowed_users(printer_id=printer_id,
+                                    print_user_identity_id=print_user_identity_id,
+                                    select=select,
+                                    expand=expand)
 
 
 def devicescloudprint_print_printer_show_capability(client,
                                                     printer_id):
-    return client.get_capability(printer_id=printer_id)
+    return client.get_capabilities(printer_id=printer_id)
 
 
 def devicescloudprint_print_printer_show_ref_share(client,
@@ -1302,10 +1353,10 @@ def devicescloudprint_print_printer_show_task_trigger(client,
                                                       print_task_trigger_id,
                                                       select=None,
                                                       expand=None):
-    return client.get_task_trigger(printer_id=printer_id,
-                                   print_task_trigger_id=print_task_trigger_id,
-                                   select=select,
-                                   expand=expand)
+    return client.get_task_triggers(printer_id=printer_id,
+                                    print_task_trigger_id=print_task_trigger_id,
+                                    select=select,
+                                    expand=expand)
 
 
 def devicescloudprint_print_printer_update_allowed_group(client,
@@ -1313,10 +1364,12 @@ def devicescloudprint_print_printer_update_allowed_group(client,
                                                          print_identity_id,
                                                          id_=None,
                                                          display_name=None):
-    return client.update_allowed_group(printer_id=printer_id,
-                                       print_identity_id=print_identity_id,
-                                       id=id_,
-                                       display_name=display_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.update_allowed_groups(printer_id=printer_id,
+                                        print_identity_id=print_identity_id,
+                                        body=body)
 
 
 def devicescloudprint_print_printer_update_allowed_user(client,
@@ -1326,12 +1379,14 @@ def devicescloudprint_print_printer_update_allowed_user(client,
                                                         display_name=None,
                                                         ip_address=None,
                                                         user_principal_name=None):
-    return client.update_allowed_user(printer_id=printer_id,
-                                      print_user_identity_id=print_user_identity_id,
-                                      id=id_,
-                                      display_name=display_name,
-                                      ip_address=ip_address,
-                                      user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['ip_address'] = ip_address
+    body['user_principal_name'] = user_principal_name
+    return client.update_allowed_users(printer_id=printer_id,
+                                       print_user_identity_id=print_user_identity_id,
+                                       body=body)
 
 
 def devicescloudprint_print_printer_update_task_trigger(client,
@@ -1340,11 +1395,13 @@ def devicescloudprint_print_printer_update_task_trigger(client,
                                                         id_=None,
                                                         event=None,
                                                         definition=None):
-    return client.update_task_trigger(printer_id=printer_id,
-                                      print_task_trigger_id=print_task_trigger_id,
-                                      id=id_,
-                                      event=event,
-                                      definition=definition)
+    body = {}
+    body['id'] = id_
+    body['event'] = event
+    body['definition'] = definition
+    return client.update_task_triggers(printer_id=printer_id,
+                                       print_task_trigger_id=print_task_trigger_id,
+                                       body=body)
 
 
 def devicescloudprint_print_printer_task_trigger_delete_ref_definition(client,
@@ -1387,9 +1444,11 @@ def devicescloudprint_print_printer_share_create_allowed_group(client,
                                                                printer_share_id,
                                                                id_=None,
                                                                display_name=None):
-    return client.create_allowed_group(printer_share_id=printer_share_id,
-                                       id=id_,
-                                       display_name=display_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.create_allowed_groups(printer_share_id=printer_share_id,
+                                        body=body)
 
 
 def devicescloudprint_print_printer_share_create_allowed_user(client,
@@ -1398,29 +1457,31 @@ def devicescloudprint_print_printer_share_create_allowed_user(client,
                                                               display_name=None,
                                                               ip_address=None,
                                                               user_principal_name=None):
-    return client.create_allowed_user(printer_share_id=printer_share_id,
-                                      id=id_,
-                                      display_name=display_name,
-                                      ip_address=ip_address,
-                                      user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['ip_address'] = ip_address
+    body['user_principal_name'] = user_principal_name
+    return client.create_allowed_users(printer_share_id=printer_share_id,
+                                       body=body)
 
 
 def devicescloudprint_print_printer_share_delete_allowed_group(client,
                                                                printer_share_id,
                                                                print_identity_id,
                                                                if_match=None):
-    return client.delete_allowed_group(printer_share_id=printer_share_id,
-                                       print_identity_id=print_identity_id,
-                                       if_match=if_match)
+    return client.delete_allowed_groups(printer_share_id=printer_share_id,
+                                        print_identity_id=print_identity_id,
+                                        if_match=if_match)
 
 
 def devicescloudprint_print_printer_share_delete_allowed_user(client,
                                                               printer_share_id,
                                                               print_user_identity_id,
                                                               if_match=None):
-    return client.delete_allowed_user(printer_share_id=printer_share_id,
-                                      print_user_identity_id=print_user_identity_id,
-                                      if_match=if_match)
+    return client.delete_allowed_users(printer_share_id=printer_share_id,
+                                       print_user_identity_id=print_user_identity_id,
+                                       if_match=if_match)
 
 
 def devicescloudprint_print_printer_share_delete_ref_printer(client,
@@ -1435,10 +1496,10 @@ def devicescloudprint_print_printer_share_list_allowed_group(client,
                                                              orderby=None,
                                                              select=None,
                                                              expand=None):
-    return client.list_allowed_group(printer_share_id=printer_share_id,
-                                     orderby=orderby,
-                                     select=select,
-                                     expand=expand)
+    return client.list_allowed_groups(printer_share_id=printer_share_id,
+                                      orderby=orderby,
+                                      select=select,
+                                      expand=expand)
 
 
 def devicescloudprint_print_printer_share_list_allowed_user(client,
@@ -1446,10 +1507,10 @@ def devicescloudprint_print_printer_share_list_allowed_user(client,
                                                             orderby=None,
                                                             select=None,
                                                             expand=None):
-    return client.list_allowed_user(printer_share_id=printer_share_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_allowed_users(printer_share_id=printer_share_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def devicescloudprint_print_printer_share_set_ref_printer(client,
@@ -1464,10 +1525,10 @@ def devicescloudprint_print_printer_share_show_allowed_group(client,
                                                              print_identity_id,
                                                              select=None,
                                                              expand=None):
-    return client.get_allowed_group(printer_share_id=printer_share_id,
-                                    print_identity_id=print_identity_id,
-                                    select=select,
-                                    expand=expand)
+    return client.get_allowed_groups(printer_share_id=printer_share_id,
+                                     print_identity_id=print_identity_id,
+                                     select=select,
+                                     expand=expand)
 
 
 def devicescloudprint_print_printer_share_show_allowed_user(client,
@@ -1475,10 +1536,10 @@ def devicescloudprint_print_printer_share_show_allowed_user(client,
                                                             print_user_identity_id,
                                                             select=None,
                                                             expand=None):
-    return client.get_allowed_user(printer_share_id=printer_share_id,
-                                   print_user_identity_id=print_user_identity_id,
-                                   select=select,
-                                   expand=expand)
+    return client.get_allowed_users(printer_share_id=printer_share_id,
+                                    print_user_identity_id=print_user_identity_id,
+                                    select=select,
+                                    expand=expand)
 
 
 def devicescloudprint_print_printer_share_show_printer(client,
@@ -1500,10 +1561,12 @@ def devicescloudprint_print_printer_share_update_allowed_group(client,
                                                                print_identity_id,
                                                                id_=None,
                                                                display_name=None):
-    return client.update_allowed_group(printer_share_id=printer_share_id,
-                                       print_identity_id=print_identity_id,
-                                       id=id_,
-                                       display_name=display_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.update_allowed_groups(printer_share_id=printer_share_id,
+                                        print_identity_id=print_identity_id,
+                                        body=body)
 
 
 def devicescloudprint_print_printer_share_update_allowed_user(client,
@@ -1513,36 +1576,38 @@ def devicescloudprint_print_printer_share_update_allowed_user(client,
                                                               display_name=None,
                                                               ip_address=None,
                                                               user_principal_name=None):
-    return client.update_allowed_user(printer_share_id=printer_share_id,
-                                      print_user_identity_id=print_user_identity_id,
-                                      id=id_,
-                                      display_name=display_name,
-                                      ip_address=ip_address,
-                                      user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['ip_address'] = ip_address
+    body['user_principal_name'] = user_principal_name
+    return client.update_allowed_users(printer_share_id=printer_share_id,
+                                       print_user_identity_id=print_user_identity_id,
+                                       body=body)
 
 
 def devicescloudprint_print_printer_share_printer_reset_default(client,
                                                                 printer_share_id):
-    return client.reset_default(printer_share_id=printer_share_id)
+    return client.reset_defaults(printer_share_id=printer_share_id)
 
 
 def devicescloudprint_print_printer_share_printer_restore_factory_default(client,
                                                                           printer_share_id):
-    return client.restore_factory_default(printer_share_id=printer_share_id)
+    return client.restore_factory_defaults(printer_share_id=printer_share_id)
 
 
 def devicescloudprint_print_printer_share_printer_show_capability(client,
                                                                   printer_share_id):
-    return client.get_capability(printer_share_id=printer_share_id)
+    return client.get_capabilities(printer_share_id=printer_share_id)
 
 
 def devicescloudprint_print_report_show_group_archived_print_job(client,
                                                                  group_id,
                                                                  period_start,
                                                                  period_end):
-    return client.get_group_archived_print_job(group_id=group_id,
-                                               period_start=period_start,
-                                               period_end=period_end)
+    return client.get_group_archived_print_jobs(group_id=group_id,
+                                                period_start=period_start,
+                                                period_end=period_end)
 
 
 def devicescloudprint_print_report_show_group_print_usage_summary(client,
@@ -1568,26 +1633,26 @@ def devicescloudprint_print_report_show_print_usage_summary(client,
                                                             period_end,
                                                             time_span_in_minutes=None):
     if period_start is not None and period_end is not None and time_span_in_minutes is not None:
-        return client.get_print_usage_summary_by_time_span(period_start=period_start,
-                                                           period_end=period_end,
-                                                           time_span_in_minutes=time_span_in_minutes)
+        return client.get_print_usage_summaries_by_time_span(period_start=period_start,
+                                                             period_end=period_end,
+                                                             time_span_in_minutes=time_span_in_minutes)
     elif period_start is not None and period_end is not None:
-        return client.get_print_usage_summary_by_group(period_start=period_start,
-                                                       period_end=period_end)
-    elif period_start is not None and period_end is not None:
-        return client.get_print_usage_summary_by_printer(period_start=period_start,
+        return client.get_print_usage_summaries_by_group(period_start=period_start,
                                                          period_end=period_end)
-    return client.get_print_usage_summary_by_user(period_start=period_start,
-                                                  period_end=period_end)
+    elif period_start is not None and period_end is not None:
+        return client.get_print_usage_summaries_by_printer(period_start=period_start,
+                                                           period_end=period_end)
+    return client.get_print_usage_summaries_by_user(period_start=period_start,
+                                                    period_end=period_end)
 
 
 def devicescloudprint_print_report_show_printer_archived_print_job(client,
                                                                    printer_id,
                                                                    period_start,
                                                                    period_end):
-    return client.get_printer_archived_print_job(printer_id=printer_id,
-                                                 period_start=period_start,
-                                                 period_end=period_end)
+    return client.get_printer_archived_print_jobs(printer_id=printer_id,
+                                                  period_start=period_start,
+                                                  period_end=period_end)
 
 
 def devicescloudprint_print_report_show_printer_usage_summary(client,
@@ -1603,9 +1668,9 @@ def devicescloudprint_print_report_show_user_archived_print_job(client,
                                                                 user_id,
                                                                 period_start,
                                                                 period_end):
-    return client.get_user_archived_print_job(user_id=user_id,
-                                              period_start=period_start,
-                                              period_end=period_end)
+    return client.get_user_archived_print_jobs(user_id=user_id,
+                                               period_start=period_start,
+                                               period_end=period_end)
 
 
 def devicescloudprint_print_report_show_user_print_usage_summary(client,
@@ -1622,19 +1687,21 @@ def devicescloudprint_print_service_create_endpoint(client,
                                                     id_=None,
                                                     display_name=None,
                                                     uri=None):
-    return client.create_endpoint(print_service_id=print_service_id,
-                                  id=id_,
-                                  display_name=display_name,
-                                  uri=uri)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['uri'] = uri
+    return client.create_endpoints(print_service_id=print_service_id,
+                                   body=body)
 
 
 def devicescloudprint_print_service_delete_endpoint(client,
                                                     print_service_id,
                                                     print_service_endpoint_id,
                                                     if_match=None):
-    return client.delete_endpoint(print_service_id=print_service_id,
-                                  print_service_endpoint_id=print_service_endpoint_id,
-                                  if_match=if_match)
+    return client.delete_endpoints(print_service_id=print_service_id,
+                                   print_service_endpoint_id=print_service_endpoint_id,
+                                   if_match=if_match)
 
 
 def devicescloudprint_print_service_list_endpoint(client,
@@ -1642,10 +1709,10 @@ def devicescloudprint_print_service_list_endpoint(client,
                                                   orderby=None,
                                                   select=None,
                                                   expand=None):
-    return client.list_endpoint(print_service_id=print_service_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_endpoints(print_service_id=print_service_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def devicescloudprint_print_service_show_endpoint(client,
@@ -1653,10 +1720,10 @@ def devicescloudprint_print_service_show_endpoint(client,
                                                   print_service_endpoint_id,
                                                   select=None,
                                                   expand=None):
-    return client.get_endpoint(print_service_id=print_service_id,
-                               print_service_endpoint_id=print_service_endpoint_id,
-                               select=select,
-                               expand=expand)
+    return client.get_endpoints(print_service_id=print_service_id,
+                                print_service_endpoint_id=print_service_endpoint_id,
+                                select=select,
+                                expand=expand)
 
 
 def devicescloudprint_print_service_update_endpoint(client,
@@ -1665,20 +1732,24 @@ def devicescloudprint_print_service_update_endpoint(client,
                                                     id_=None,
                                                     display_name=None,
                                                     uri=None):
-    return client.update_endpoint(print_service_id=print_service_id,
-                                  print_service_endpoint_id=print_service_endpoint_id,
-                                  id=id_,
-                                  display_name=display_name,
-                                  uri=uri)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['uri'] = uri
+    return client.update_endpoints(print_service_id=print_service_id,
+                                   print_service_endpoint_id=print_service_endpoint_id,
+                                   body=body)
 
 
 def devicescloudprint_print_share_create_allowed_group(client,
                                                        printer_share_id,
                                                        id_=None,
                                                        display_name=None):
-    return client.create_allowed_group(printer_share_id=printer_share_id,
-                                       id=id_,
-                                       display_name=display_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.create_allowed_groups(printer_share_id=printer_share_id,
+                                        body=body)
 
 
 def devicescloudprint_print_share_create_allowed_user(client,
@@ -1687,29 +1758,31 @@ def devicescloudprint_print_share_create_allowed_user(client,
                                                       display_name=None,
                                                       ip_address=None,
                                                       user_principal_name=None):
-    return client.create_allowed_user(printer_share_id=printer_share_id,
-                                      id=id_,
-                                      display_name=display_name,
-                                      ip_address=ip_address,
-                                      user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['ip_address'] = ip_address
+    body['user_principal_name'] = user_principal_name
+    return client.create_allowed_users(printer_share_id=printer_share_id,
+                                       body=body)
 
 
 def devicescloudprint_print_share_delete_allowed_group(client,
                                                        printer_share_id,
                                                        print_identity_id,
                                                        if_match=None):
-    return client.delete_allowed_group(printer_share_id=printer_share_id,
-                                       print_identity_id=print_identity_id,
-                                       if_match=if_match)
+    return client.delete_allowed_groups(printer_share_id=printer_share_id,
+                                        print_identity_id=print_identity_id,
+                                        if_match=if_match)
 
 
 def devicescloudprint_print_share_delete_allowed_user(client,
                                                       printer_share_id,
                                                       print_user_identity_id,
                                                       if_match=None):
-    return client.delete_allowed_user(printer_share_id=printer_share_id,
-                                      print_user_identity_id=print_user_identity_id,
-                                      if_match=if_match)
+    return client.delete_allowed_users(printer_share_id=printer_share_id,
+                                       print_user_identity_id=print_user_identity_id,
+                                       if_match=if_match)
 
 
 def devicescloudprint_print_share_delete_ref_printer(client,
@@ -1724,10 +1797,10 @@ def devicescloudprint_print_share_list_allowed_group(client,
                                                      orderby=None,
                                                      select=None,
                                                      expand=None):
-    return client.list_allowed_group(printer_share_id=printer_share_id,
-                                     orderby=orderby,
-                                     select=select,
-                                     expand=expand)
+    return client.list_allowed_groups(printer_share_id=printer_share_id,
+                                      orderby=orderby,
+                                      select=select,
+                                      expand=expand)
 
 
 def devicescloudprint_print_share_list_allowed_user(client,
@@ -1735,10 +1808,10 @@ def devicescloudprint_print_share_list_allowed_user(client,
                                                     orderby=None,
                                                     select=None,
                                                     expand=None):
-    return client.list_allowed_user(printer_share_id=printer_share_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_allowed_users(printer_share_id=printer_share_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def devicescloudprint_print_share_set_ref_printer(client,
@@ -1753,10 +1826,10 @@ def devicescloudprint_print_share_show_allowed_group(client,
                                                      print_identity_id,
                                                      select=None,
                                                      expand=None):
-    return client.get_allowed_group(printer_share_id=printer_share_id,
-                                    print_identity_id=print_identity_id,
-                                    select=select,
-                                    expand=expand)
+    return client.get_allowed_groups(printer_share_id=printer_share_id,
+                                     print_identity_id=print_identity_id,
+                                     select=select,
+                                     expand=expand)
 
 
 def devicescloudprint_print_share_show_allowed_user(client,
@@ -1764,10 +1837,10 @@ def devicescloudprint_print_share_show_allowed_user(client,
                                                     print_user_identity_id,
                                                     select=None,
                                                     expand=None):
-    return client.get_allowed_user(printer_share_id=printer_share_id,
-                                   print_user_identity_id=print_user_identity_id,
-                                   select=select,
-                                   expand=expand)
+    return client.get_allowed_users(printer_share_id=printer_share_id,
+                                    print_user_identity_id=print_user_identity_id,
+                                    select=select,
+                                    expand=expand)
 
 
 def devicescloudprint_print_share_show_printer(client,
@@ -1789,10 +1862,12 @@ def devicescloudprint_print_share_update_allowed_group(client,
                                                        print_identity_id,
                                                        id_=None,
                                                        display_name=None):
-    return client.update_allowed_group(printer_share_id=printer_share_id,
-                                       print_identity_id=print_identity_id,
-                                       id=id_,
-                                       display_name=display_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    return client.update_allowed_groups(printer_share_id=printer_share_id,
+                                        print_identity_id=print_identity_id,
+                                        body=body)
 
 
 def devicescloudprint_print_share_update_allowed_user(client,
@@ -1802,27 +1877,29 @@ def devicescloudprint_print_share_update_allowed_user(client,
                                                       display_name=None,
                                                       ip_address=None,
                                                       user_principal_name=None):
-    return client.update_allowed_user(printer_share_id=printer_share_id,
-                                      print_user_identity_id=print_user_identity_id,
-                                      id=id_,
-                                      display_name=display_name,
-                                      ip_address=ip_address,
-                                      user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['ip_address'] = ip_address
+    body['user_principal_name'] = user_principal_name
+    return client.update_allowed_users(printer_share_id=printer_share_id,
+                                       print_user_identity_id=print_user_identity_id,
+                                       body=body)
 
 
 def devicescloudprint_print_share_printer_reset_default(client,
                                                         printer_share_id):
-    return client.reset_default(printer_share_id=printer_share_id)
+    return client.reset_defaults(printer_share_id=printer_share_id)
 
 
 def devicescloudprint_print_share_printer_restore_factory_default(client,
                                                                   printer_share_id):
-    return client.restore_factory_default(printer_share_id=printer_share_id)
+    return client.restore_factory_defaults(printer_share_id=printer_share_id)
 
 
 def devicescloudprint_print_share_printer_show_capability(client,
                                                           printer_share_id):
-    return client.get_capability(printer_share_id=printer_share_id)
+    return client.get_capabilities(printer_share_id=printer_share_id)
 
 
 def devicescloudprint_print_task_definition_create_task(client,
@@ -1834,23 +1911,26 @@ def devicescloudprint_print_task_definition_create_task(client,
                                                         microsoft_graph_entity_id=None,
                                                         event=None,
                                                         microsoft_graph_print_task_definition=None):
-    return client.create_task(print_task_definition_id=print_task_definition_id,
-                              id=id_,
-                              parent_url=parent_url,
-                              status=status,
-                              definition=definition,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              event=event,
-                              microsoft_graph_print_task_definition=microsoft_graph_print_task_definition)
+    body = {}
+    body['id'] = id_
+    body['parent_url'] = parent_url
+    body['status'] = status
+    body['definition'] = definition
+    body['trigger'] = {}
+    body['trigger']['id'] = microsoft_graph_entity_id
+    body['trigger']['event'] = event
+    body['trigger']['definition'] = microsoft_graph_print_task_definition
+    return client.create_tasks(print_task_definition_id=print_task_definition_id,
+                               body=body)
 
 
 def devicescloudprint_print_task_definition_delete_task(client,
                                                         print_task_definition_id,
                                                         print_task_id,
                                                         if_match=None):
-    return client.delete_task(print_task_definition_id=print_task_definition_id,
-                              print_task_id=print_task_id,
-                              if_match=if_match)
+    return client.delete_tasks(print_task_definition_id=print_task_definition_id,
+                               print_task_id=print_task_id,
+                               if_match=if_match)
 
 
 def devicescloudprint_print_task_definition_list_task(client,
@@ -1858,10 +1938,10 @@ def devicescloudprint_print_task_definition_list_task(client,
                                                       orderby=None,
                                                       select=None,
                                                       expand=None):
-    return client.list_task(print_task_definition_id=print_task_definition_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
+    return client.list_tasks(print_task_definition_id=print_task_definition_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
 
 
 def devicescloudprint_print_task_definition_show_task(client,
@@ -1869,10 +1949,10 @@ def devicescloudprint_print_task_definition_show_task(client,
                                                       print_task_id,
                                                       select=None,
                                                       expand=None):
-    return client.get_task(print_task_definition_id=print_task_definition_id,
-                           print_task_id=print_task_id,
-                           select=select,
-                           expand=expand)
+    return client.get_tasks(print_task_definition_id=print_task_definition_id,
+                            print_task_id=print_task_id,
+                            select=select,
+                            expand=expand)
 
 
 def devicescloudprint_print_task_definition_update_task(client,
@@ -1885,15 +1965,18 @@ def devicescloudprint_print_task_definition_update_task(client,
                                                         microsoft_graph_entity_id=None,
                                                         event=None,
                                                         microsoft_graph_print_task_definition=None):
-    return client.update_task(print_task_definition_id=print_task_definition_id,
-                              print_task_id=print_task_id,
-                              id=id_,
-                              parent_url=parent_url,
-                              status=status,
-                              definition=definition,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              event=event,
-                              microsoft_graph_print_task_definition=microsoft_graph_print_task_definition)
+    body = {}
+    body['id'] = id_
+    body['parent_url'] = parent_url
+    body['status'] = status
+    body['definition'] = definition
+    body['trigger'] = {}
+    body['trigger']['id'] = microsoft_graph_entity_id
+    body['trigger']['event'] = event
+    body['trigger']['definition'] = microsoft_graph_print_task_definition
+    return client.update_tasks(print_task_definition_id=print_task_definition_id,
+                               print_task_id=print_task_id,
+                               body=body)
 
 
 def devicescloudprint_print_task_definition_task_delete_ref_definition(client,

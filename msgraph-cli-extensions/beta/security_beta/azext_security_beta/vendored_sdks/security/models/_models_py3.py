@@ -335,21 +335,21 @@ class CollectionOfSecurityAction(msrest.serialization.Model):
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfTIIndicator(msrest.serialization.Model):
+class CollectionOfTiIndicator(msrest.serialization.Model):
     """Collection of tiIndicator.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~security.models.MicrosoftGraphTIIndicator]
+    :type value: list[~security.models.MicrosoftGraphTiIndicator]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphTIIndicator]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTiIndicator]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -357,11 +357,11 @@ class CollectionOfTIIndicator(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphTIIndicator"]] = None,
+        value: Optional[List["MicrosoftGraphTiIndicator"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfTIIndicator, self).__init__(**kwargs)
+        super(CollectionOfTiIndicator, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
@@ -2670,7 +2670,7 @@ class MicrosoftGraphSecurity(MicrosoftGraphEntity):
     :param security_actions:
     :type security_actions: list[~security.models.MicrosoftGraphSecurityAction]
     :param ti_indicators:
-    :type ti_indicators: list[~security.models.MicrosoftGraphTIIndicator]
+    :type ti_indicators: list[~security.models.MicrosoftGraphTiIndicator]
     :param user_security_profiles:
     :type user_security_profiles: list[~security.models.MicrosoftGraphUserSecurityProfile]
     """
@@ -2689,7 +2689,7 @@ class MicrosoftGraphSecurity(MicrosoftGraphEntity):
         'secure_score_control_profiles': {'key': 'secureScoreControlProfiles', 'type': '[MicrosoftGraphSecureScoreControlProfile]'},
         'secure_scores': {'key': 'secureScores', 'type': '[MicrosoftGraphSecureScore]'},
         'security_actions': {'key': 'securityActions', 'type': '[MicrosoftGraphSecurityAction]'},
-        'ti_indicators': {'key': 'tiIndicators', 'type': '[MicrosoftGraphTIIndicator]'},
+        'ti_indicators': {'key': 'tiIndicators', 'type': '[MicrosoftGraphTiIndicator]'},
         'user_security_profiles': {'key': 'userSecurityProfiles', 'type': '[MicrosoftGraphUserSecurityProfile]'},
     }
 
@@ -2709,7 +2709,7 @@ class MicrosoftGraphSecurity(MicrosoftGraphEntity):
         secure_score_control_profiles: Optional[List["MicrosoftGraphSecureScoreControlProfile"]] = None,
         secure_scores: Optional[List["MicrosoftGraphSecureScore"]] = None,
         security_actions: Optional[List["MicrosoftGraphSecurityAction"]] = None,
-        ti_indicators: Optional[List["MicrosoftGraphTIIndicator"]] = None,
+        ti_indicators: Optional[List["MicrosoftGraphTiIndicator"]] = None,
         user_security_profiles: Optional[List["MicrosoftGraphUserSecurityProfile"]] = None,
         **kwargs
     ):
@@ -2993,7 +2993,7 @@ class MicrosoftGraphSecurityVendorInformation(msrest.serialization.Model):
         self.vendor = vendor
 
 
-class MicrosoftGraphTIIndicator(MicrosoftGraphEntity):
+class MicrosoftGraphTiIndicator(MicrosoftGraphEntity):
     """tiIndicator.
 
     :param id: Read-only.
@@ -3003,7 +3003,7 @@ class MicrosoftGraphTIIndicator(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param action:  Possible values include: "unknown", "allow", "block", "alert",
      "unknownFutureValue".
-    :type action: str or ~security.models.MicrosoftGraphTIAction
+    :type action: str or ~security.models.MicrosoftGraphTiAction
     :param activity_group_names:
     :type activity_group_names: list[str]
     :param additional_information:
@@ -3202,7 +3202,7 @@ class MicrosoftGraphTIIndicator(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        action: Optional[Union[str, "MicrosoftGraphTIAction"]] = None,
+        action: Optional[Union[str, "MicrosoftGraphTiAction"]] = None,
         activity_group_names: Optional[List[str]] = None,
         additional_information: Optional[str] = None,
         azure_tenant_id: Optional[str] = None,
@@ -3262,7 +3262,7 @@ class MicrosoftGraphTIIndicator(MicrosoftGraphEntity):
         user_agent: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphTIIndicator, self).__init__(id=id, **kwargs)
+        super(MicrosoftGraphTiIndicator, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.action = action
         self.activity_group_names = activity_group_names
@@ -3761,19 +3761,19 @@ class Paths1I03ShnSecurityTiindicatorsMicrosoftGraphSubmittiindicatorsPostReques
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~security.models.MicrosoftGraphTIIndicator]
+    :type value: list[~security.models.MicrosoftGraphTiIndicator]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphTIIndicator]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTiIndicator]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphTIIndicator"]] = None,
+        value: Optional[List["MicrosoftGraphTiIndicator"]] = None,
         **kwargs
     ):
         super(Paths1I03ShnSecurityTiindicatorsMicrosoftGraphSubmittiindicatorsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
@@ -3842,19 +3842,19 @@ class PathsS86SndSecurityTiindicatorsMicrosoftGraphUpdatetiindicatorsPostRequest
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~security.models.MicrosoftGraphTIIndicator]
+    :type value: list[~security.models.MicrosoftGraphTiIndicator]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphTIIndicator]'},
+        'value': {'key': 'value', 'type': '[MicrosoftGraphTiIndicator]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphTIIndicator"]] = None,
+        value: Optional[List["MicrosoftGraphTiIndicator"]] = None,
         **kwargs
     ):
         super(PathsS86SndSecurityTiindicatorsMicrosoftGraphUpdatetiindicatorsPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)

@@ -16,21 +16,21 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import PeopleConfiguration
-from .operations import UserOperations
-from .operations import UserAnalyticOperations
-from .operations import UserProfileOperations
+from .operations import UsersOperations
+from .operations import UsersAnalyticsOperations
+from .operations import UsersProfileOperations
 from .. import models
 
 
 class People(object):
     """People.
 
-    :ivar user: UserOperations operations
-    :vartype user: people.aio.operations.UserOperations
-    :ivar user_analytic: UserAnalyticOperations operations
-    :vartype user_analytic: people.aio.operations.UserAnalyticOperations
-    :ivar user_profile: UserProfileOperations operations
-    :vartype user_profile: people.aio.operations.UserProfileOperations
+    :ivar users: UsersOperations operations
+    :vartype users: people.aio.operations.UsersOperations
+    :ivar users_analytics: UsersAnalyticsOperations operations
+    :vartype users_analytics: people.aio.operations.UsersAnalyticsOperations
+    :ivar users_profile: UsersProfileOperations operations
+    :vartype users_profile: people.aio.operations.UsersProfileOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -67,11 +67,11 @@ class People(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_analytic = UserAnalyticOperations(
+        self.users_analytics = UsersAnalyticsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_profile = UserProfileOperations(
+        self.users_profile = UsersProfileOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

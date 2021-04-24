@@ -17,9 +17,7 @@ from azext_cloudcommunications_v1_0.generated._client_factory import cf_user
 
 
 cloudcommunications_v1_0_user = CliCommandType(
-    operations_tmpl=(
-        'azext_cloudcommunications_v1_0.vendored_sdks.cloudcommunications.operations._user_operations#UserOperations.{}'
-    ),
+    operations_tmpl='azext_cloudcommunications_v1_0.vendored_sdks.cloudcommunications.operations._users_operations#UsersOperations.{}',
     client_factory=cf_user,
 )
 

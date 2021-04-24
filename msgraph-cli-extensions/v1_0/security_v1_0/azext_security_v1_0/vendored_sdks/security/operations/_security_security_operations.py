@@ -104,10 +104,7 @@ class SecuritySecurityOperations(object):
 
     def update_security(
         self,
-        id=None,  # type: Optional[str]
-        alerts=None,  # type: Optional[List["models.MicrosoftGraphAlert"]]
-        secure_score_control_profiles=None,  # type: Optional[List["models.MicrosoftGraphSecureScoreControlProfile"]]
-        secure_scores=None,  # type: Optional[List["models.MicrosoftGraphSecureScore"]]
+        body,  # type: "models.MicrosoftGraphSecurity"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -115,14 +112,8 @@ class SecuritySecurityOperations(object):
 
         Update Security.
 
-        :param id: Read-only.
-        :type id: str
-        :param alerts: Read-only. Nullable.
-        :type alerts: list[~security.models.MicrosoftGraphAlert]
-        :param secure_score_control_profiles:
-        :type secure_score_control_profiles: list[~security.models.MicrosoftGraphSecureScoreControlProfile]
-        :param secure_scores:
-        :type secure_scores: list[~security.models.MicrosoftGraphSecureScore]
+        :param body: New property values.
+        :type body: ~security.models.MicrosoftGraphSecurity
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -133,8 +124,6 @@ class SecuritySecurityOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphSecurity(id=id, alerts=alerts, secure_score_control_profiles=secure_score_control_profiles, secure_scores=secure_scores)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

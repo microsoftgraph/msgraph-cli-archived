@@ -46,31 +46,31 @@ compliance_beta_compliance_ediscovery = CliCommandType(
 
 
 compliance_beta_compliance_ediscovery_case = CliCommandType(
-    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_operations#ComplianceEdiscoveryCaseOperations.{}',
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_cases_operations#ComplianceEdiscoveryCasesOperations.{}',
     client_factory=cf_compliance_ediscovery_case,
 )
 
 
 compliance_beta_compliance_ediscovery_case_custodian = CliCommandType(
-    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodian_operations#ComplianceEdiscoveryCaseCustodianOperations.{}',
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_cases_custodians_operations#ComplianceEdiscoveryCasesCustodiansOperations.{}',
     client_factory=cf_compliance_ediscovery_case_custodian,
 )
 
 
 compliance_beta_compliance_ediscovery_case_custodian_site_source = CliCommandType(
-    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodian_site_source_operations#ComplianceEdiscoveryCaseCustodianSiteSourceOperations.{}',
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_cases_custodians_site_sources_operations#ComplianceEdiscoveryCasesCustodiansSiteSourcesOperations.{}',
     client_factory=cf_compliance_ediscovery_case_custodian_site_source,
 )
 
 
 compliance_beta_compliance_ediscovery_case_custodian_unified_group_source = CliCommandType(
-    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodian_unified_group_source_operations#ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations.{}',
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_cases_custodians_unified_group_sources_operations#ComplianceEdiscoveryCasesCustodiansUnifiedGroupSourcesOperations.{}',
     client_factory=cf_compliance_ediscovery_case_custodian_unified_group_source,
 )
 
 
 compliance_beta_compliance_ediscovery_case_review_set = CliCommandType(
-    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_review_set_operations#ComplianceEdiscoveryCaseReviewSetOperations.{}',
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_cases_review_sets_operations#ComplianceEdiscoveryCasesReviewSetsOperations.{}',
     client_factory=cf_compliance_ediscovery_case_review_set,
 )
 

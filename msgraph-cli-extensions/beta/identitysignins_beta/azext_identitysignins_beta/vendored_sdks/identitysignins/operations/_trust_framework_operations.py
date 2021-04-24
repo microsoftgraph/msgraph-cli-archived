@@ -45,7 +45,7 @@ class TrustFrameworkOperations(object):
         self._deserialize = deserializer
         self._config = config
 
-    def list_key_set(
+    def list_key_sets(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum273"]]]
         select=None,  # type: Optional[List[Union[str, "models.Enum274"]]]
@@ -82,7 +82,7 @@ class TrustFrameworkOperations(object):
 
             if not next_link:
                 # Construct URL
-                url = self.list_key_set.metadata['url']  # type: ignore
+                url = self.list_key_sets.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -132,12 +132,11 @@ class TrustFrameworkOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_key_set.metadata = {'url': '/trustFramework/keySets'}  # type: ignore
+    list_key_sets.metadata = {'url': '/trustFramework/keySets'}  # type: ignore
 
-    def create_key_set(
+    def create_key_sets(
         self,
-        id=None,  # type: Optional[str]
-        keys=None,  # type: Optional[List["models.MicrosoftGraphTrustFrameworkKey"]]
+        body,  # type: "models.MicrosoftGraphTrustFrameworkKeySet"
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphTrustFrameworkKeySet"
@@ -145,10 +144,8 @@ class TrustFrameworkOperations(object):
 
         Create new navigation property to keySets for trustFramework.
 
-        :param id: Read-only.
-        :type id: str
-        :param keys:
-        :type keys: list[~identity_sign_ins.models.MicrosoftGraphTrustFrameworkKey]
+        :param body: New navigation property.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphTrustFrameworkKeySet
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTrustFrameworkKeySet, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphTrustFrameworkKeySet
@@ -159,13 +156,11 @@ class TrustFrameworkOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphTrustFrameworkKeySet(id=id, keys=keys)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_key_set.metadata['url']  # type: ignore
+        url = self.create_key_sets.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -193,9 +188,9 @@ class TrustFrameworkOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_key_set.metadata = {'url': '/trustFramework/keySets'}  # type: ignore
+    create_key_sets.metadata = {'url': '/trustFramework/keySets'}  # type: ignore
 
-    def get_key_set(
+    def get_key_sets(
         self,
         trust_framework_key_set_id,  # type: str
         select=None,  # type: Optional[List[Union[str, "models.Enum275"]]]
@@ -226,7 +221,7 @@ class TrustFrameworkOperations(object):
         accept = "application/json"
 
         # Construct URL
-        url = self.get_key_set.metadata['url']  # type: ignore
+        url = self.get_key_sets.metadata['url']  # type: ignore
         path_format_arguments = {
             'trustFrameworkKeySet-id': self._serialize.url("trust_framework_key_set_id", trust_framework_key_set_id, 'str'),
         }
@@ -258,13 +253,12 @@ class TrustFrameworkOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_key_set.metadata = {'url': '/trustFramework/keySets/{trustFrameworkKeySet-id}'}  # type: ignore
+    get_key_sets.metadata = {'url': '/trustFramework/keySets/{trustFrameworkKeySet-id}'}  # type: ignore
 
-    def update_key_set(
+    def update_key_sets(
         self,
         trust_framework_key_set_id,  # type: str
-        id=None,  # type: Optional[str]
-        keys=None,  # type: Optional[List["models.MicrosoftGraphTrustFrameworkKey"]]
+        body,  # type: "models.MicrosoftGraphTrustFrameworkKeySet"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -274,10 +268,8 @@ class TrustFrameworkOperations(object):
 
         :param trust_framework_key_set_id: key: id of trustFrameworkKeySet.
         :type trust_framework_key_set_id: str
-        :param id: Read-only.
-        :type id: str
-        :param keys:
-        :type keys: list[~identity_sign_ins.models.MicrosoftGraphTrustFrameworkKey]
+        :param body: New navigation property values.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphTrustFrameworkKeySet
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -288,13 +280,11 @@ class TrustFrameworkOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphTrustFrameworkKeySet(id=id, keys=keys)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.update_key_set.metadata['url']  # type: ignore
+        url = self.update_key_sets.metadata['url']  # type: ignore
         path_format_arguments = {
             'trustFrameworkKeySet-id': self._serialize.url("trust_framework_key_set_id", trust_framework_key_set_id, 'str'),
         }
@@ -323,9 +313,9 @@ class TrustFrameworkOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_key_set.metadata = {'url': '/trustFramework/keySets/{trustFrameworkKeySet-id}'}  # type: ignore
+    update_key_sets.metadata = {'url': '/trustFramework/keySets/{trustFrameworkKeySet-id}'}  # type: ignore
 
-    def delete_key_set(
+    def delete_key_sets(
         self,
         trust_framework_key_set_id,  # type: str
         if_match=None,  # type: Optional[str]
@@ -353,7 +343,7 @@ class TrustFrameworkOperations(object):
         accept = "application/json"
 
         # Construct URL
-        url = self.delete_key_set.metadata['url']  # type: ignore
+        url = self.delete_key_sets.metadata['url']  # type: ignore
         path_format_arguments = {
             'trustFrameworkKeySet-id': self._serialize.url("trust_framework_key_set_id", trust_framework_key_set_id, 'str'),
         }
@@ -380,9 +370,9 @@ class TrustFrameworkOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_key_set.metadata = {'url': '/trustFramework/keySets/{trustFrameworkKeySet-id}'}  # type: ignore
+    delete_key_sets.metadata = {'url': '/trustFramework/keySets/{trustFrameworkKeySet-id}'}  # type: ignore
 
-    def list_policy(
+    def list_policies(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum276"]]]
         select=None,  # type: Optional[List[str]]
@@ -419,7 +409,7 @@ class TrustFrameworkOperations(object):
 
             if not next_link:
                 # Construct URL
-                url = self.list_policy.metadata['url']  # type: ignore
+                url = self.list_policies.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -469,11 +459,11 @@ class TrustFrameworkOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_policy.metadata = {'url': '/trustFramework/policies'}  # type: ignore
+    list_policies.metadata = {'url': '/trustFramework/policies'}  # type: ignore
 
-    def create_policy(
+    def create_policies(
         self,
-        id=None,  # type: Optional[str]
+        body,  # type: "models.MicrosoftGraphTrustFrameworkPolicy"
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphTrustFrameworkPolicy"
@@ -481,8 +471,8 @@ class TrustFrameworkOperations(object):
 
         Create new navigation property to policies for trustFramework.
 
-        :param id: Read-only.
-        :type id: str
+        :param body: New navigation property.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphTrustFrameworkPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphTrustFrameworkPolicy, or the result of cls(response)
         :rtype: ~identity_sign_ins.models.MicrosoftGraphTrustFrameworkPolicy
@@ -493,13 +483,11 @@ class TrustFrameworkOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphTrustFrameworkPolicy(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_policy.metadata['url']  # type: ignore
+        url = self.create_policies.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -527,9 +515,9 @@ class TrustFrameworkOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_policy.metadata = {'url': '/trustFramework/policies'}  # type: ignore
+    create_policies.metadata = {'url': '/trustFramework/policies'}  # type: ignore
 
-    def get_policy(
+    def get_policies(
         self,
         trust_framework_policy_id,  # type: str
         select=None,  # type: Optional[List[str]]
@@ -560,7 +548,7 @@ class TrustFrameworkOperations(object):
         accept = "application/json"
 
         # Construct URL
-        url = self.get_policy.metadata['url']  # type: ignore
+        url = self.get_policies.metadata['url']  # type: ignore
         path_format_arguments = {
             'trustFrameworkPolicy-id': self._serialize.url("trust_framework_policy_id", trust_framework_policy_id, 'str'),
         }
@@ -592,12 +580,12 @@ class TrustFrameworkOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_policy.metadata = {'url': '/trustFramework/policies/{trustFrameworkPolicy-id}'}  # type: ignore
+    get_policies.metadata = {'url': '/trustFramework/policies/{trustFrameworkPolicy-id}'}  # type: ignore
 
-    def update_policy(
+    def update_policies(
         self,
         trust_framework_policy_id,  # type: str
-        id=None,  # type: Optional[str]
+        body,  # type: "models.MicrosoftGraphTrustFrameworkPolicy"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -607,8 +595,8 @@ class TrustFrameworkOperations(object):
 
         :param trust_framework_policy_id: key: id of trustFrameworkPolicy.
         :type trust_framework_policy_id: str
-        :param id: Read-only.
-        :type id: str
+        :param body: New navigation property values.
+        :type body: ~identity_sign_ins.models.MicrosoftGraphTrustFrameworkPolicy
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -619,13 +607,11 @@ class TrustFrameworkOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphTrustFrameworkPolicy(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.update_policy.metadata['url']  # type: ignore
+        url = self.update_policies.metadata['url']  # type: ignore
         path_format_arguments = {
             'trustFrameworkPolicy-id': self._serialize.url("trust_framework_policy_id", trust_framework_policy_id, 'str'),
         }
@@ -654,9 +640,9 @@ class TrustFrameworkOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    update_policy.metadata = {'url': '/trustFramework/policies/{trustFrameworkPolicy-id}'}  # type: ignore
+    update_policies.metadata = {'url': '/trustFramework/policies/{trustFrameworkPolicy-id}'}  # type: ignore
 
-    def delete_policy(
+    def delete_policies(
         self,
         trust_framework_policy_id,  # type: str
         if_match=None,  # type: Optional[str]
@@ -684,7 +670,7 @@ class TrustFrameworkOperations(object):
         accept = "application/json"
 
         # Construct URL
-        url = self.delete_policy.metadata['url']  # type: ignore
+        url = self.delete_policies.metadata['url']  # type: ignore
         path_format_arguments = {
             'trustFrameworkPolicy-id': self._serialize.url("trust_framework_policy_id", trust_framework_policy_id, 'str'),
         }
@@ -711,9 +697,9 @@ class TrustFrameworkOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    delete_policy.metadata = {'url': '/trustFramework/policies/{trustFrameworkPolicy-id}'}  # type: ignore
+    delete_policies.metadata = {'url': '/trustFramework/policies/{trustFrameworkPolicy-id}'}  # type: ignore
 
-    def get_policy_content(
+    def get_policies_content(
         self,
         trust_framework_policy_id,  # type: str
         **kwargs  # type: Any
@@ -738,7 +724,7 @@ class TrustFrameworkOperations(object):
         accept = "application/octet-stream, application/json"
 
         # Construct URL
-        url = self.get_policy_content.metadata['url']  # type: ignore
+        url = self.get_policies_content.metadata['url']  # type: ignore
         path_format_arguments = {
             'trustFrameworkPolicy-id': self._serialize.url("trust_framework_policy_id", trust_framework_policy_id, 'str'),
         }
@@ -766,9 +752,9 @@ class TrustFrameworkOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    get_policy_content.metadata = {'url': '/trustFramework/policies/{trustFrameworkPolicy-id}/$value'}  # type: ignore
+    get_policies_content.metadata = {'url': '/trustFramework/policies/{trustFrameworkPolicy-id}/$value'}  # type: ignore
 
-    def set_policy_content(
+    def set_policies_content(
         self,
         trust_framework_policy_id,  # type: str
         data,  # type: IO
@@ -797,7 +783,7 @@ class TrustFrameworkOperations(object):
         accept = "application/json"
 
         # Construct URL
-        url = self.set_policy_content.metadata['url']  # type: ignore
+        url = self.set_policies_content.metadata['url']  # type: ignore
         path_format_arguments = {
             'trustFrameworkPolicy-id': self._serialize.url("trust_framework_policy_id", trust_framework_policy_id, 'str'),
         }
@@ -825,4 +811,4 @@ class TrustFrameworkOperations(object):
         if cls:
             return cls(pipeline_response, None, {})
 
-    set_policy_content.metadata = {'url': '/trustFramework/policies/{trustFrameworkPolicy-id}/$value'}  # type: ignore
+    set_policies_content.metadata = {'url': '/trustFramework/policies/{trustFrameworkPolicy-id}/$value'}  # type: ignore

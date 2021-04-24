@@ -567,17 +567,17 @@ class AddOfferShiftRequests(argparse._AppendAction):
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -632,17 +632,17 @@ class AddOpenShiftChangeRequests(argparse._AppendAction):
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -684,17 +684,17 @@ class AddSchedulingGroups(argparse._AppendAction):
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -754,17 +754,17 @@ class AddSwapShiftsChangeRequests(argparse._AppendAction):
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -807,17 +807,17 @@ class AddTimeOffReasons(argparse._AppendAction):
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:
@@ -873,17 +873,17 @@ class AddTimeOffRequests(argparse._AppendAction):
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
             else:

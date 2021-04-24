@@ -18,10 +18,10 @@ if TYPE_CHECKING:
 from ._configuration import EducationConfiguration
 from .operations import EducationEducationRootOperations
 from .operations import EducationOperations
-from .operations import EducationClassOperations
+from .operations import EducationClassesOperations
 from .operations import EducationMeOperations
-from .operations import EducationSchoolOperations
-from .operations import EducationUserOperations
+from .operations import EducationSchoolsOperations
+from .operations import EducationUsersOperations
 from .. import models
 
 
@@ -32,14 +32,14 @@ class Education(object):
     :vartype education_education_root: education.aio.operations.EducationEducationRootOperations
     :ivar education: EducationOperations operations
     :vartype education: education.aio.operations.EducationOperations
-    :ivar education_class: EducationClassOperations operations
-    :vartype education_class: education.aio.operations.EducationClassOperations
+    :ivar education_classes: EducationClassesOperations operations
+    :vartype education_classes: education.aio.operations.EducationClassesOperations
     :ivar education_me: EducationMeOperations operations
     :vartype education_me: education.aio.operations.EducationMeOperations
-    :ivar education_school: EducationSchoolOperations operations
-    :vartype education_school: education.aio.operations.EducationSchoolOperations
-    :ivar education_user: EducationUserOperations operations
-    :vartype education_user: education.aio.operations.EducationUserOperations
+    :ivar education_schools: EducationSchoolsOperations operations
+    :vartype education_schools: education.aio.operations.EducationSchoolsOperations
+    :ivar education_users: EducationUsersOperations operations
+    :vartype education_users: education.aio.operations.EducationUsersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -80,13 +80,13 @@ class Education(object):
             self._client, self._config, self._serialize, self._deserialize)
         self.education = EducationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_class = EducationClassOperations(
+        self.education_classes = EducationClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.education_me = EducationMeOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_school = EducationSchoolOperations(
+        self.education_schools = EducationSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_user = EducationUserOperations(
+        self.education_users = EducationUsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

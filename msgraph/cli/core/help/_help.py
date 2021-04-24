@@ -132,14 +132,18 @@ class CLIPrintMixin(CLIHelp):
             _print_indent('{0}'.format(e.command), indent)
             print('')
 
+    # Disabling find message, we do no support finding commands
+    # In azure-cli the find command is powered by an AI service
+    # and we lack a similar service.
     @staticmethod
     def _print_mg_find_message(command, enable_color):
-        from colorama import Style
-        indent = 0
-        message = 'For more specific examples, use: mg find "mg {}"'.format(command)
-        if enable_color:
-            message = Style.BRIGHT + message + Style.RESET_ALL
-        _print_indent(message + '\n', indent)
+        # from colorama import Style
+        # indent = 0
+        # message = 'For more specific examples, use: mg find "mg {}"'.format(command)
+        # if enable_color:
+        #     message = Style.BRIGHT + message + Style.RESET_ALL
+        # _print_indent(message + '\n', indent)
+        pass
 
     @staticmethod
     def _process_value_sources(p):

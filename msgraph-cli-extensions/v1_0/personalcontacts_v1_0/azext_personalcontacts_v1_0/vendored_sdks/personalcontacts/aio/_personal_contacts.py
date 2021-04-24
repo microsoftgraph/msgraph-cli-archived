@@ -16,24 +16,24 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import PersonalContactsConfiguration
-from .operations import UserOperations
-from .operations import UserContactFolderOperations
-from .operations import UserContactFolderContactOperations
-from .operations import UserContactOperations
+from .operations import UsersOperations
+from .operations import UsersContactFoldersOperations
+from .operations import UsersContactFoldersContactsOperations
+from .operations import UsersContactsOperations
 from .. import models
 
 
 class PersonalContacts(object):
     """PersonalContacts.
 
-    :ivar user: UserOperations operations
-    :vartype user: personal_contacts.aio.operations.UserOperations
-    :ivar user_contact_folder: UserContactFolderOperations operations
-    :vartype user_contact_folder: personal_contacts.aio.operations.UserContactFolderOperations
-    :ivar user_contact_folder_contact: UserContactFolderContactOperations operations
-    :vartype user_contact_folder_contact: personal_contacts.aio.operations.UserContactFolderContactOperations
-    :ivar user_contact: UserContactOperations operations
-    :vartype user_contact: personal_contacts.aio.operations.UserContactOperations
+    :ivar users: UsersOperations operations
+    :vartype users: personal_contacts.aio.operations.UsersOperations
+    :ivar users_contact_folders: UsersContactFoldersOperations operations
+    :vartype users_contact_folders: personal_contacts.aio.operations.UsersContactFoldersOperations
+    :ivar users_contact_folders_contacts: UsersContactFoldersContactsOperations operations
+    :vartype users_contact_folders_contacts: personal_contacts.aio.operations.UsersContactFoldersContactsOperations
+    :ivar users_contacts: UsersContactsOperations operations
+    :vartype users_contacts: personal_contacts.aio.operations.UsersContactsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -70,13 +70,13 @@ class PersonalContacts(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_contact_folder = UserContactFolderOperations(
+        self.users_contact_folders = UsersContactFoldersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_contact_folder_contact = UserContactFolderContactOperations(
+        self.users_contact_folders_contacts = UsersContactFoldersContactsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_contact = UserContactOperations(
+        self.users_contacts = UsersContactsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

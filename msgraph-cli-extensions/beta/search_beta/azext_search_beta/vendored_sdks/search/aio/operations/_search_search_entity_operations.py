@@ -99,15 +99,15 @@ class SearchSearchEntityOperations:
 
     async def update_search_entity(
         self,
-        id: Optional[str] = None,
+        body: "models.MicrosoftGraphSearchEntity",
         **kwargs
     ) -> None:
         """Update search.
 
         Update search.
 
-        :param id: Read-only.
-        :type id: str
+        :param body: New property values.
+        :type body: ~search.models.MicrosoftGraphSearchEntity
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -118,8 +118,6 @@ class SearchSearchEntityOperations:
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphSearchEntity(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 

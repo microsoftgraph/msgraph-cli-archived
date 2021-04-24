@@ -8,16 +8,16 @@
 
 from ._education_education_root_operations import EducationEducationRootOperations
 from ._education_operations import EducationOperations
-from ._education_class_operations import EducationClassOperations
+from ._education_classes_operations import EducationClassesOperations
 from ._education_me_operations import EducationMeOperations
-from ._education_school_operations import EducationSchoolOperations
-from ._education_user_operations import EducationUserOperations
+from ._education_schools_operations import EducationSchoolsOperations
+from ._education_users_operations import EducationUsersOperations
 
 __all__ = [
     'EducationEducationRootOperations',
     'EducationOperations',
-    'EducationClassOperations',
+    'EducationClassesOperations',
     'EducationMeOperations',
-    'EducationSchoolOperations',
-    'EducationUserOperations',
+    'EducationSchoolsOperations',
+    'EducationUsersOperations',
 ]

@@ -1366,78 +1366,44 @@ class MicrosoftGraphBaseItem(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~teams.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~teams.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -1446,28 +1412,17 @@ class MicrosoftGraphBaseItem(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphBaseItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.description = kwargs.get('description', None)
         self.e_tag = kwargs.get('e_tag', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.name = kwargs.get('name', None)
+        self.parent_reference = kwargs.get('parent_reference', None)
         self.web_url = kwargs.get('web_url', None)
         self.created_by_user = kwargs.get('created_by_user', None)
         self.last_modified_by_user = kwargs.get('last_modified_by_user', None)
-        self.drive_id = kwargs.get('drive_id', None)
-        self.drive_type = kwargs.get('drive_type', None)
-        self.id_parent_reference_id = kwargs.get('id_parent_reference_id', None)
-        self.name_parent_reference_name = kwargs.get('name_parent_reference_name', None)
-        self.path = kwargs.get('path', None)
-        self.share_id = kwargs.get('share_id', None)
-        self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
-        self.site_id = kwargs.get('site_id', None)
-        self.application_last_modified_by_application = kwargs.get('application_last_modified_by_application', None)
-        self.device_last_modified_by_device = kwargs.get('device_last_modified_by_device', None)
-        self.user_last_modified_by_user = kwargs.get('user_last_modified_by_user', None)
-        self.application_created_by_application = kwargs.get('application_created_by_application', None)
-        self.device_created_by_device = kwargs.get('device_created_by_device', None)
-        self.user_created_by_user = kwargs.get('user_created_by_user', None)
 
 
 class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
@@ -1748,26 +1703,20 @@ class MicrosoftGraphChangeTrackedEntity(MicrosoftGraphEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -1777,10 +1726,8 @@ class MicrosoftGraphChangeTrackedEntity(MicrosoftGraphEntity):
         super(MicrosoftGraphChangeTrackedEntity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.created_date_time = kwargs.get('created_date_time', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphChannel(MicrosoftGraphEntity):
@@ -1920,6 +1867,8 @@ class MicrosoftGraphChatMessage(MicrosoftGraphEntity):
     :type deleted_date_time: ~datetime.datetime
     :param etag: Read-only. Version number of the chat message.
     :type etag: str
+    :param from_property: identitySet.
+    :type from_property: ~teams.models.MicrosoftGraphIdentitySet
     :param importance:  Possible values include: "normal", "high", "urgent", "unknownFutureValue".
     :type importance: str or ~teams.models.MicrosoftGraphChatMessageImportance
     :param last_edited_date_time: Read only. Timestamp when edits to the chat message were made.
@@ -1936,6 +1885,8 @@ class MicrosoftGraphChatMessage(MicrosoftGraphEntity):
     :param message_type:  Possible values include: "message", "chatEvent", "typing",
      "unknownFutureValue".
     :type message_type: str or ~teams.models.MicrosoftGraphChatMessageType
+    :param policy_violation: chatMessagePolicyViolation.
+    :type policy_violation: ~teams.models.MicrosoftGraphChatMessagePolicyViolation
     :param reactions:
     :type reactions: list[~teams.models.MicrosoftGraphChatMessageReaction]
     :param reply_to_id: Read-only. Id of the parent chat message or root chat message of the
@@ -1953,25 +1904,6 @@ class MicrosoftGraphChatMessage(MicrosoftGraphEntity):
     :type hosted_contents: list[~teams.models.MicrosoftGraphChatMessageHostedContent]
     :param replies:
     :type replies: list[~teams.models.MicrosoftGraphChatMessage]
-    :param dlp_action:  Possible values include: "none", "notifySender", "blockAccess",
-     "blockAccessExternal".
-    :type dlp_action: str or ~teams.models.MicrosoftGraphChatMessagePolicyViolationDlpActionTypes
-    :param justification_text:
-    :type justification_text: str
-    :param policy_tip: chatMessagePolicyViolationPolicyTip.
-    :type policy_tip: ~teams.models.MicrosoftGraphChatMessagePolicyViolationPolicyTip
-    :param user_action:  Possible values include: "none", "override", "reportFalsePositive".
-    :type user_action: str or ~teams.models.MicrosoftGraphChatMessagePolicyViolationUserActionTypes
-    :param verdict_details:  Possible values include: "none", "allowFalsePositiveOverride",
-     "allowOverrideWithoutJustification", "allowOverrideWithJustification".
-    :type verdict_details: str or
-     ~teams.models.MicrosoftGraphChatMessagePolicyViolationVerdictDetailsTypes
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -1982,12 +1914,14 @@ class MicrosoftGraphChatMessage(MicrosoftGraphEntity):
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'etag': {'key': 'etag', 'type': 'str'},
+        'from_property': {'key': 'from', 'type': 'MicrosoftGraphIdentitySet'},
         'importance': {'key': 'importance', 'type': 'str'},
         'last_edited_date_time': {'key': 'lastEditedDateTime', 'type': 'iso-8601'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'locale': {'key': 'locale', 'type': 'str'},
         'mentions': {'key': 'mentions', 'type': '[MicrosoftGraphChatMessageMention]'},
         'message_type': {'key': 'messageType', 'type': 'str'},
+        'policy_violation': {'key': 'policyViolation', 'type': 'MicrosoftGraphChatMessagePolicyViolation'},
         'reactions': {'key': 'reactions', 'type': '[MicrosoftGraphChatMessageReaction]'},
         'reply_to_id': {'key': 'replyToId', 'type': 'str'},
         'subject': {'key': 'subject', 'type': 'str'},
@@ -1995,14 +1929,6 @@ class MicrosoftGraphChatMessage(MicrosoftGraphEntity):
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'hosted_contents': {'key': 'hostedContents', 'type': '[MicrosoftGraphChatMessageHostedContent]'},
         'replies': {'key': 'replies', 'type': '[MicrosoftGraphChatMessage]'},
-        'dlp_action': {'key': 'policyViolation.dlpAction', 'type': 'str'},
-        'justification_text': {'key': 'policyViolation.justificationText', 'type': 'str'},
-        'policy_tip': {'key': 'policyViolation.policyTip', 'type': 'MicrosoftGraphChatMessagePolicyViolationPolicyTip'},
-        'user_action': {'key': 'policyViolation.userAction', 'type': 'str'},
-        'verdict_details': {'key': 'policyViolation.verdictDetails', 'type': 'str'},
-        'application': {'key': 'from.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'from.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'from.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -2016,12 +1942,14 @@ class MicrosoftGraphChatMessage(MicrosoftGraphEntity):
         self.created_date_time = kwargs.get('created_date_time', None)
         self.deleted_date_time = kwargs.get('deleted_date_time', None)
         self.etag = kwargs.get('etag', None)
+        self.from_property = kwargs.get('from_property', None)
         self.importance = kwargs.get('importance', None)
         self.last_edited_date_time = kwargs.get('last_edited_date_time', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.locale = kwargs.get('locale', None)
         self.mentions = kwargs.get('mentions', None)
         self.message_type = kwargs.get('message_type', None)
+        self.policy_violation = kwargs.get('policy_violation', None)
         self.reactions = kwargs.get('reactions', None)
         self.reply_to_id = kwargs.get('reply_to_id', None)
         self.subject = kwargs.get('subject', None)
@@ -2029,14 +1957,6 @@ class MicrosoftGraphChatMessage(MicrosoftGraphEntity):
         self.web_url = kwargs.get('web_url', None)
         self.hosted_contents = kwargs.get('hosted_contents', None)
         self.replies = kwargs.get('replies', None)
-        self.dlp_action = kwargs.get('dlp_action', None)
-        self.justification_text = kwargs.get('justification_text', None)
-        self.policy_tip = kwargs.get('policy_tip', None)
-        self.user_action = kwargs.get('user_action', None)
-        self.verdict_details = kwargs.get('verdict_details', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphChatMessageAttachment(msrest.serialization.Model):
@@ -2142,15 +2062,11 @@ class MicrosoftGraphChatMessageMention(msrest.serialization.Model):
     :param id: Index of an entity being mentioned in the specified chatMessage. Matches the {index}
      value in the corresponding :code:`<at id='{index}'>` tag in the message body.
     :type id: int
+    :param mentioned: identitySet.
+    :type mentioned: ~teams.models.MicrosoftGraphIdentitySet
     :param mention_text: String used to represent the mention. For example, a user's display name,
      a team name.
     :type mention_text: str
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     """
 
     _validation = {
@@ -2160,10 +2076,8 @@ class MicrosoftGraphChatMessageMention(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'int'},
+        'mentioned': {'key': 'mentioned', 'type': 'MicrosoftGraphIdentitySet'},
         'mention_text': {'key': 'mentionText', 'type': 'str'},
-        'application': {'key': 'mentioned.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'mentioned.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'mentioned.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -2173,10 +2087,8 @@ class MicrosoftGraphChatMessageMention(msrest.serialization.Model):
         super(MicrosoftGraphChatMessageMention, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
+        self.mentioned = kwargs.get('mentioned', None)
         self.mention_text = kwargs.get('mention_text', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
-        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphChatMessagePolicyViolation(msrest.serialization.Model):
@@ -2264,21 +2176,15 @@ class MicrosoftGraphChatMessageReaction(msrest.serialization.Model):
     :type created_date_time: ~datetime.datetime
     :param reaction_type:
     :type reaction_type: str
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
+    :param user: identitySet.
+    :type user: ~teams.models.MicrosoftGraphIdentitySet
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'reaction_type': {'key': 'reactionType', 'type': 'str'},
-        'application': {'key': 'user.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'user.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'user.user', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentitySet'},
     }
 
     def __init__(
@@ -2289,8 +2195,6 @@ class MicrosoftGraphChatMessageReaction(msrest.serialization.Model):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.reaction_type = kwargs.get('reaction_type', None)
-        self.application = kwargs.get('application', None)
-        self.device = kwargs.get('device', None)
         self.user = kwargs.get('user', None)
 
 
@@ -3724,49 +3628,28 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~teams.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -3796,27 +3679,17 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'drive_type': {'key': 'driveType', 'type': 'str'},
         'owner': {'key': 'owner', 'type': 'MicrosoftGraphIdentitySet'},
@@ -3853,49 +3726,28 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~teams.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -3906,29 +3758,53 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     :param c_tag: An eTag for the content of the item. This eTag is not changed if only the
      metadata is changed. Note This property is not returned if the item is a folder. Read-only.
     :type c_tag: str
+    :param deleted: deleted.
+    :type deleted: ~teams.models.MicrosoftGraphDeleted
+    :param file: file.
+    :type file: ~teams.models.MicrosoftGraphFile
     :param file_system_info: fileSystemInfo.
     :type file_system_info: ~teams.models.MicrosoftGraphFileSystemInfo
+    :param folder: folder.
+    :type folder: ~teams.models.MicrosoftGraphFolder
     :param image: image.
     :type image: ~teams.models.MicrosoftGraphImage
     :param location: geoCoordinates.
     :type location: ~teams.models.MicrosoftGraphGeoCoordinates
+    :param package: package.
+    :type package: ~teams.models.MicrosoftGraphPackage
+    :param pending_operations: pendingOperations.
+    :type pending_operations: ~teams.models.MicrosoftGraphPendingOperations
     :param photo: photo.
     :type photo: ~teams.models.MicrosoftGraphPhoto
     :param publication: publicationFacet.
     :type publication: ~teams.models.MicrosoftGraphPublicationFacet
+    :param remote_item: remoteItem.
+    :type remote_item: ~teams.models.MicrosoftGraphRemoteItem
     :param root: root.
     :type root: dict[str, object]
+    :param search_result: searchResult.
+    :type search_result: ~teams.models.MicrosoftGraphSearchResult
+    :param shared: shared.
+    :type shared: ~teams.models.MicrosoftGraphShared
     :param sharepoint_ids: sharepointIds.
     :type sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
     :param size: Size of the item in bytes. Read-only.
     :type size: long
+    :param special_folder: specialFolder.
+    :type special_folder: ~teams.models.MicrosoftGraphSpecialFolder
     :param video: video.
     :type video: ~teams.models.MicrosoftGraphVideo
     :param web_dav_url: WebDAV compatible URL for the item.
     :type web_dav_url: str
+    :param workbook: workbook.
+    :type workbook: ~teams.models.MicrosoftGraphWorkbook
+    :param analytics: itemAnalytics.
+    :type analytics: ~teams.models.MicrosoftGraphItemAnalytics
     :param children: Collection containing Item objects for the immediate children of Item. Only
      items representing folders have children. Read-only. Nullable.
     :type children: list[~teams.models.MicrosoftGraphDriveItem]
+    :param list_item: listItem.
+    :type list_item: ~teams.models.MicrosoftGraphListItem
     :param permissions: The set of permissions for the item. Read-only. Nullable.
     :type permissions: list[~teams.models.MicrosoftGraphPermission]
     :param subscriptions: The set of subscriptions on the item. Only supported on the root of a
@@ -3940,300 +3816,52 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     :param versions: The list of previous versions of the item. For more info, see [getting
      previous versions][]. Read-only. Nullable.
     :type versions: list[~teams.models.MicrosoftGraphDriveItemVersion]
-    :param id_list_item_id: Read-only.
-    :type id_list_item_id: str
-    :param created_date_time_list_item_created_date_time: Date and time of item creation. Read-
-     only.
-    :type created_date_time_list_item_created_date_time: ~datetime.datetime
-    :param description_list_item_description: Provides a user-visible description of the item.
-     Optional.
-    :type description_list_item_description: str
-    :param e_tag_list_item_e_tag: ETag for the item. Read-only.
-    :type e_tag_list_item_e_tag: str
-    :param last_modified_date_time_list_item_last_modified_date_time: Date and time the item was
-     last modified. Read-only.
-    :type last_modified_date_time_list_item_last_modified_date_time: ~datetime.datetime
-    :param name_list_item_name: The name of the item. Read-write.
-    :type name_list_item_name: str
-    :param web_url_list_item_web_url: URL that displays the resource in the browser. Read-only.
-    :type web_url_list_item_web_url: str
-    :param created_by_user_list_item_created_by_user: Represents an Azure Active Directory user
-     object.
-    :type created_by_user_list_item_created_by_user: ~teams.models.MicrosoftGraphUser
-    :param last_modified_by_user_list_item_last_modified_by_user: Represents an Azure Active
-     Directory user object.
-    :type last_modified_by_user_list_item_last_modified_by_user: ~teams.models.MicrosoftGraphUser
-    :param drive_id_list_item_parent_reference_drive_id: Unique identifier of the drive instance
-     that contains the item. Read-only.
-    :type drive_id_list_item_parent_reference_drive_id: str
-    :param drive_type_list_item_parent_reference_drive_type: Identifies the type of drive. See
-     [drive][] resource for values.
-    :type drive_type_list_item_parent_reference_drive_type: str
-    :param id_list_item_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_list_item_parent_reference_id: str
-    :param name_list_item_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_list_item_parent_reference_name: str
-    :param path_list_item_parent_reference_path: Path that can be used to navigate to the item.
-     Read-only.
-    :type path_list_item_parent_reference_path: str
-    :param share_id_list_item_parent_reference_share_id: A unique identifier for a shared resource
-     that can be accessed via the [Shares][] API.
-    :type share_id_list_item_parent_reference_share_id: str
-    :param sharepoint_ids_list_item_parent_reference_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_list_item_parent_reference_sharepoint_ids:
-     ~teams.models.MicrosoftGraphSharepointIds
-    :param site_id_list_item_parent_reference_site_id:
-    :type site_id_list_item_parent_reference_site_id: str
-    :param application_list_item_last_modified_by_application: identity.
-    :type application_list_item_last_modified_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_list_item_last_modified_by_device: identity.
-    :type device_list_item_last_modified_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_list_item_last_modified_by_user: identity.
-    :type user_list_item_last_modified_by_user: ~teams.models.MicrosoftGraphIdentity
-    :param application_list_item_created_by_application: identity.
-    :type application_list_item_created_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_list_item_created_by_device: identity.
-    :type device_list_item_created_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_list_item_created_by_user: identity.
-    :type user_list_item_created_by_user: ~teams.models.MicrosoftGraphIdentity
-    :param content_type: contentTypeInfo.
-    :type content_type: ~teams.models.MicrosoftGraphContentTypeInfo
-    :param sharepoint_ids_list_item_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_list_item_sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
-    :param analytics: itemAnalytics.
-    :type analytics: ~teams.models.MicrosoftGraphItemAnalytics
-    :param drive_item: driveItem.
-    :type drive_item: ~teams.models.MicrosoftGraphDriveItem
-    :param fields: fieldValueSet.
-    :type fields: ~teams.models.MicrosoftGraphFieldValueSet
-    :param versions_list_item_versions: The list of previous versions of the list item.
-    :type versions_list_item_versions: list[~teams.models.MicrosoftGraphListItemVersion]
-    :param id_analytics_id: Read-only.
-    :type id_analytics_id: str
-    :param all_time: itemActivityStat.
-    :type all_time: ~teams.models.MicrosoftGraphItemActivityStat
-    :param item_activity_stats:
-    :type item_activity_stats: list[~teams.models.MicrosoftGraphItemActivityStat]
-    :param last_seven_days: itemActivityStat.
-    :type last_seven_days: ~teams.models.MicrosoftGraphItemActivityStat
-    :param id_workbook_id: Read-only.
-    :type id_workbook_id: str
-    :param application_workbook_application: workbookApplication.
-    :type application_workbook_application: ~teams.models.MicrosoftGraphWorkbookApplication
-    :param comments:
-    :type comments: list[~teams.models.MicrosoftGraphWorkbookComment]
-    :param functions: workbookFunctions.
-    :type functions: ~teams.models.MicrosoftGraphWorkbookFunctions
-    :param names: Represents a collection of workbook scoped named items (named ranges and
-     constants). Read-only.
-    :type names: list[~teams.models.MicrosoftGraphWorkbookNamedItem]
-    :param operations: The status of workbook operations. Getting an operation collection is not
-     supported, but you can get the status of a long-running operation if the Location header is
-     returned in the response. Read-only.
-    :type operations: list[~teams.models.MicrosoftGraphWorkbookOperation]
-    :param tables: Represents a collection of tables associated with the workbook. Read-only.
-    :type tables: list[~teams.models.MicrosoftGraphWorkbookTable]
-    :param worksheets: Represents a collection of worksheets associated with the workbook. Read-
-     only.
-    :type worksheets: list[~teams.models.MicrosoftGraphWorkbookWorksheet]
-    :param name_special_folder_name: The unique identifier for this item in the /drive/special
-     collection.
-    :type name_special_folder_name: str
-    :param owner: identitySet.
-    :type owner: ~teams.models.MicrosoftGraphIdentitySet
-    :param scope: Indicates the scope of how the item is shared: anonymous, organization, or users.
-     Read-only.
-    :type scope: str
-    :param shared_by: identitySet.
-    :type shared_by: ~teams.models.MicrosoftGraphIdentitySet
-    :param shared_date_time: The UTC date and time when the item was shared. Read-only.
-    :type shared_date_time: ~datetime.datetime
-    :param on_click_telemetry_url: A callback URL that can be used to record telemetry information.
-     The application should issue a GET on this URL if the user interacts with this item to improve
-     the quality of results.
-    :type on_click_telemetry_url: str
-    :param created_by: identitySet.
-    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
-    :param created_date_time_remote_item_created_date_time: Date and time of item creation. Read-
-     only.
-    :type created_date_time_remote_item_created_date_time: ~datetime.datetime
-    :param file: file.
-    :type file: ~teams.models.MicrosoftGraphFile
-    :param file_system_info_remote_item_file_system_info: fileSystemInfo.
-    :type file_system_info_remote_item_file_system_info: ~teams.models.MicrosoftGraphFileSystemInfo
-    :param folder: folder.
-    :type folder: ~teams.models.MicrosoftGraphFolder
-    :param id_remote_item_id: Unique identifier for the remote item in its drive. Read-only.
-    :type id_remote_item_id: str
-    :param image_remote_item_image: image.
-    :type image_remote_item_image: ~teams.models.MicrosoftGraphImage
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
-    :param last_modified_date_time_remote_item_last_modified_date_time: Date and time the item was
-     last modified. Read-only.
-    :type last_modified_date_time_remote_item_last_modified_date_time: ~datetime.datetime
-    :param name_remote_item_name: Optional. Filename of the remote item. Read-only.
-    :type name_remote_item_name: str
-    :param package: package.
-    :type package: ~teams.models.MicrosoftGraphPackage
-    :param parent_reference: itemReference.
-    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
-    :param shared: shared.
-    :type shared: ~teams.models.MicrosoftGraphShared
-    :param sharepoint_ids_remote_item_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_remote_item_sharepoint_ids: ~teams.models.MicrosoftGraphSharepointIds
-    :param size_remote_item_size: Size of the remote item. Read-only.
-    :type size_remote_item_size: long
-    :param special_folder: specialFolder.
-    :type special_folder: ~teams.models.MicrosoftGraphSpecialFolder
-    :param video_remote_item_video: video.
-    :type video_remote_item_video: ~teams.models.MicrosoftGraphVideo
-    :param web_dav_url_remote_item_web_dav_url: DAV compatible URL for the item.
-    :type web_dav_url_remote_item_web_dav_url: str
-    :param web_url_remote_item_web_url: URL that displays the resource in the browser. Read-only.
-    :type web_url_remote_item_web_url: str
-    :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
-     Read-only.
-    :type queued_date_time: ~datetime.datetime
-    :param type: A string indicating the type of package. While oneNote is the only currently
-     defined value, you should expect other package types to be returned and handle them
-     accordingly.
-    :type type: str
-    :param child_count: Number of children contained immediately within this container.
-    :type child_count: int
-    :param view: folderView.
-    :type view: ~teams.models.MicrosoftGraphFolderView
-    :param hashes: hashes.
-    :type hashes: ~teams.models.MicrosoftGraphHashes
-    :param mime_type: The MIME type for the file. This is determined by logic on the server and
-     might not be the value provided when the file was uploaded. Read-only.
-    :type mime_type: str
-    :param processing_metadata:
-    :type processing_metadata: bool
-    :param state: Represents the state of the deleted item.
-    :type state: str
     """
-
-    _validation = {
-        'child_count': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'audio': {'key': 'audio', 'type': 'MicrosoftGraphAudio'},
         'content': {'key': 'content', 'type': 'base64'},
         'c_tag': {'key': 'cTag', 'type': 'str'},
+        'deleted': {'key': 'deleted', 'type': 'MicrosoftGraphDeleted'},
+        'file': {'key': 'file', 'type': 'MicrosoftGraphFile'},
         'file_system_info': {'key': 'fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
+        'folder': {'key': 'folder', 'type': 'MicrosoftGraphFolder'},
         'image': {'key': 'image', 'type': 'MicrosoftGraphImage'},
         'location': {'key': 'location', 'type': 'MicrosoftGraphGeoCoordinates'},
+        'package': {'key': 'package', 'type': 'MicrosoftGraphPackage'},
+        'pending_operations': {'key': 'pendingOperations', 'type': 'MicrosoftGraphPendingOperations'},
         'photo': {'key': 'photo', 'type': 'MicrosoftGraphPhoto'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
+        'remote_item': {'key': 'remoteItem', 'type': 'MicrosoftGraphRemoteItem'},
         'root': {'key': 'root', 'type': '{object}'},
+        'search_result': {'key': 'searchResult', 'type': 'MicrosoftGraphSearchResult'},
+        'shared': {'key': 'shared', 'type': 'MicrosoftGraphShared'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'size': {'key': 'size', 'type': 'long'},
+        'special_folder': {'key': 'specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
         'video': {'key': 'video', 'type': 'MicrosoftGraphVideo'},
         'web_dav_url': {'key': 'webDavUrl', 'type': 'str'},
+        'workbook': {'key': 'workbook', 'type': 'MicrosoftGraphWorkbook'},
+        'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
         'children': {'key': 'children', 'type': '[MicrosoftGraphDriveItem]'},
+        'list_item': {'key': 'listItem', 'type': 'MicrosoftGraphListItem'},
         'permissions': {'key': 'permissions', 'type': '[MicrosoftGraphPermission]'},
         'subscriptions': {'key': 'subscriptions', 'type': '[MicrosoftGraphSubscription]'},
         'thumbnails': {'key': 'thumbnails', 'type': '[MicrosoftGraphThumbnailSet]'},
         'versions': {'key': 'versions', 'type': '[MicrosoftGraphDriveItemVersion]'},
-        'id_list_item_id': {'key': 'listItem.id', 'type': 'str'},
-        'created_date_time_list_item_created_date_time': {'key': 'listItem.createdDateTime', 'type': 'iso-8601'},
-        'description_list_item_description': {'key': 'listItem.description', 'type': 'str'},
-        'e_tag_list_item_e_tag': {'key': 'listItem.eTag', 'type': 'str'},
-        'last_modified_date_time_list_item_last_modified_date_time': {'key': 'listItem.lastModifiedDateTime', 'type': 'iso-8601'},
-        'name_list_item_name': {'key': 'listItem.name', 'type': 'str'},
-        'web_url_list_item_web_url': {'key': 'listItem.webUrl', 'type': 'str'},
-        'created_by_user_list_item_created_by_user': {'key': 'listItem.createdByUser', 'type': 'MicrosoftGraphUser'},
-        'last_modified_by_user_list_item_last_modified_by_user': {'key': 'listItem.lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id_list_item_parent_reference_drive_id': {'key': 'listItem.parentReference.driveId', 'type': 'str'},
-        'drive_type_list_item_parent_reference_drive_type': {'key': 'listItem.parentReference.driveType', 'type': 'str'},
-        'id_list_item_parent_reference_id': {'key': 'listItem.parentReference.id', 'type': 'str'},
-        'name_list_item_parent_reference_name': {'key': 'listItem.parentReference.name', 'type': 'str'},
-        'path_list_item_parent_reference_path': {'key': 'listItem.parentReference.path', 'type': 'str'},
-        'share_id_list_item_parent_reference_share_id': {'key': 'listItem.parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids_list_item_parent_reference_sharepoint_ids': {'key': 'listItem.parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id_list_item_parent_reference_site_id': {'key': 'listItem.parentReference.siteId', 'type': 'str'},
-        'application_list_item_last_modified_by_application': {'key': 'listItem.lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_list_item_last_modified_by_device': {'key': 'listItem.lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_list_item_last_modified_by_user': {'key': 'listItem.lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_list_item_created_by_application': {'key': 'listItem.createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_list_item_created_by_device': {'key': 'listItem.createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_list_item_created_by_user': {'key': 'listItem.createdBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'content_type': {'key': 'listItem.contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
-        'sharepoint_ids_list_item_sharepoint_ids': {'key': 'listItem.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'analytics': {'key': 'listItem.analytics', 'type': 'MicrosoftGraphItemAnalytics'},
-        'drive_item': {'key': 'listItem.driveItem', 'type': 'MicrosoftGraphDriveItem'},
-        'fields': {'key': 'listItem.fields', 'type': 'MicrosoftGraphFieldValueSet'},
-        'versions_list_item_versions': {'key': 'listItem.versions', 'type': '[MicrosoftGraphListItemVersion]'},
-        'id_analytics_id': {'key': 'analytics.id', 'type': 'str'},
-        'all_time': {'key': 'analytics.allTime', 'type': 'MicrosoftGraphItemActivityStat'},
-        'item_activity_stats': {'key': 'analytics.itemActivityStats', 'type': '[MicrosoftGraphItemActivityStat]'},
-        'last_seven_days': {'key': 'analytics.lastSevenDays', 'type': 'MicrosoftGraphItemActivityStat'},
-        'id_workbook_id': {'key': 'workbook.id', 'type': 'str'},
-        'application_workbook_application': {'key': 'workbook.application', 'type': 'MicrosoftGraphWorkbookApplication'},
-        'comments': {'key': 'workbook.comments', 'type': '[MicrosoftGraphWorkbookComment]'},
-        'functions': {'key': 'workbook.functions', 'type': 'MicrosoftGraphWorkbookFunctions'},
-        'names': {'key': 'workbook.names', 'type': '[MicrosoftGraphWorkbookNamedItem]'},
-        'operations': {'key': 'workbook.operations', 'type': '[MicrosoftGraphWorkbookOperation]'},
-        'tables': {'key': 'workbook.tables', 'type': '[MicrosoftGraphWorkbookTable]'},
-        'worksheets': {'key': 'workbook.worksheets', 'type': '[MicrosoftGraphWorkbookWorksheet]'},
-        'name_special_folder_name': {'key': 'specialFolder.name', 'type': 'str'},
-        'owner': {'key': 'shared.owner', 'type': 'MicrosoftGraphIdentitySet'},
-        'scope': {'key': 'shared.scope', 'type': 'str'},
-        'shared_by': {'key': 'shared.sharedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'shared_date_time': {'key': 'shared.sharedDateTime', 'type': 'iso-8601'},
-        'on_click_telemetry_url': {'key': 'searchResult.onClickTelemetryUrl', 'type': 'str'},
-        'created_by': {'key': 'remoteItem.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'created_date_time_remote_item_created_date_time': {'key': 'remoteItem.createdDateTime', 'type': 'iso-8601'},
-        'file': {'key': 'remoteItem.file', 'type': 'MicrosoftGraphFile'},
-        'file_system_info_remote_item_file_system_info': {'key': 'remoteItem.fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
-        'folder': {'key': 'remoteItem.folder', 'type': 'MicrosoftGraphFolder'},
-        'id_remote_item_id': {'key': 'remoteItem.id', 'type': 'str'},
-        'image_remote_item_image': {'key': 'remoteItem.image', 'type': 'MicrosoftGraphImage'},
-        'last_modified_by': {'key': 'remoteItem.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'last_modified_date_time_remote_item_last_modified_date_time': {'key': 'remoteItem.lastModifiedDateTime', 'type': 'iso-8601'},
-        'name_remote_item_name': {'key': 'remoteItem.name', 'type': 'str'},
-        'package': {'key': 'remoteItem.package', 'type': 'MicrosoftGraphPackage'},
-        'parent_reference': {'key': 'remoteItem.parentReference', 'type': 'MicrosoftGraphItemReference'},
-        'shared': {'key': 'remoteItem.shared', 'type': 'MicrosoftGraphShared'},
-        'sharepoint_ids_remote_item_sharepoint_ids': {'key': 'remoteItem.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'size_remote_item_size': {'key': 'remoteItem.size', 'type': 'long'},
-        'special_folder': {'key': 'remoteItem.specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
-        'video_remote_item_video': {'key': 'remoteItem.video', 'type': 'MicrosoftGraphVideo'},
-        'web_dav_url_remote_item_web_dav_url': {'key': 'remoteItem.webDavUrl', 'type': 'str'},
-        'web_url_remote_item_web_url': {'key': 'remoteItem.webUrl', 'type': 'str'},
-        'queued_date_time': {'key': 'pendingOperations.pendingContentUpdate.queuedDateTime', 'type': 'iso-8601'},
-        'type': {'key': 'package.type', 'type': 'str'},
-        'child_count': {'key': 'folder.childCount', 'type': 'int'},
-        'view': {'key': 'folder.view', 'type': 'MicrosoftGraphFolderView'},
-        'hashes': {'key': 'file.hashes', 'type': 'MicrosoftGraphHashes'},
-        'mime_type': {'key': 'file.mimeType', 'type': 'str'},
-        'processing_metadata': {'key': 'file.processingMetadata', 'type': 'bool'},
-        'state': {'key': 'deleted.state', 'type': 'str'},
     }
 
     def __init__(
@@ -4245,95 +3873,33 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         self.audio = kwargs.get('audio', None)
         self.content = kwargs.get('content', None)
         self.c_tag = kwargs.get('c_tag', None)
+        self.deleted = kwargs.get('deleted', None)
+        self.file = kwargs.get('file', None)
         self.file_system_info = kwargs.get('file_system_info', None)
+        self.folder = kwargs.get('folder', None)
         self.image = kwargs.get('image', None)
         self.location = kwargs.get('location', None)
+        self.package = kwargs.get('package', None)
+        self.pending_operations = kwargs.get('pending_operations', None)
         self.photo = kwargs.get('photo', None)
         self.publication = kwargs.get('publication', None)
+        self.remote_item = kwargs.get('remote_item', None)
         self.root = kwargs.get('root', None)
+        self.search_result = kwargs.get('search_result', None)
+        self.shared = kwargs.get('shared', None)
         self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
         self.size = kwargs.get('size', None)
+        self.special_folder = kwargs.get('special_folder', None)
         self.video = kwargs.get('video', None)
         self.web_dav_url = kwargs.get('web_dav_url', None)
+        self.workbook = kwargs.get('workbook', None)
+        self.analytics = kwargs.get('analytics', None)
         self.children = kwargs.get('children', None)
+        self.list_item = kwargs.get('list_item', None)
         self.permissions = kwargs.get('permissions', None)
         self.subscriptions = kwargs.get('subscriptions', None)
         self.thumbnails = kwargs.get('thumbnails', None)
         self.versions = kwargs.get('versions', None)
-        self.id_list_item_id = kwargs.get('id_list_item_id', None)
-        self.created_date_time_list_item_created_date_time = kwargs.get('created_date_time_list_item_created_date_time', None)
-        self.description_list_item_description = kwargs.get('description_list_item_description', None)
-        self.e_tag_list_item_e_tag = kwargs.get('e_tag_list_item_e_tag', None)
-        self.last_modified_date_time_list_item_last_modified_date_time = kwargs.get('last_modified_date_time_list_item_last_modified_date_time', None)
-        self.name_list_item_name = kwargs.get('name_list_item_name', None)
-        self.web_url_list_item_web_url = kwargs.get('web_url_list_item_web_url', None)
-        self.created_by_user_list_item_created_by_user = kwargs.get('created_by_user_list_item_created_by_user', None)
-        self.last_modified_by_user_list_item_last_modified_by_user = kwargs.get('last_modified_by_user_list_item_last_modified_by_user', None)
-        self.drive_id_list_item_parent_reference_drive_id = kwargs.get('drive_id_list_item_parent_reference_drive_id', None)
-        self.drive_type_list_item_parent_reference_drive_type = kwargs.get('drive_type_list_item_parent_reference_drive_type', None)
-        self.id_list_item_parent_reference_id = kwargs.get('id_list_item_parent_reference_id', None)
-        self.name_list_item_parent_reference_name = kwargs.get('name_list_item_parent_reference_name', None)
-        self.path_list_item_parent_reference_path = kwargs.get('path_list_item_parent_reference_path', None)
-        self.share_id_list_item_parent_reference_share_id = kwargs.get('share_id_list_item_parent_reference_share_id', None)
-        self.sharepoint_ids_list_item_parent_reference_sharepoint_ids = kwargs.get('sharepoint_ids_list_item_parent_reference_sharepoint_ids', None)
-        self.site_id_list_item_parent_reference_site_id = kwargs.get('site_id_list_item_parent_reference_site_id', None)
-        self.application_list_item_last_modified_by_application = kwargs.get('application_list_item_last_modified_by_application', None)
-        self.device_list_item_last_modified_by_device = kwargs.get('device_list_item_last_modified_by_device', None)
-        self.user_list_item_last_modified_by_user = kwargs.get('user_list_item_last_modified_by_user', None)
-        self.application_list_item_created_by_application = kwargs.get('application_list_item_created_by_application', None)
-        self.device_list_item_created_by_device = kwargs.get('device_list_item_created_by_device', None)
-        self.user_list_item_created_by_user = kwargs.get('user_list_item_created_by_user', None)
-        self.content_type = kwargs.get('content_type', None)
-        self.sharepoint_ids_list_item_sharepoint_ids = kwargs.get('sharepoint_ids_list_item_sharepoint_ids', None)
-        self.analytics = kwargs.get('analytics', None)
-        self.drive_item = kwargs.get('drive_item', None)
-        self.fields = kwargs.get('fields', None)
-        self.versions_list_item_versions = kwargs.get('versions_list_item_versions', None)
-        self.id_analytics_id = kwargs.get('id_analytics_id', None)
-        self.all_time = kwargs.get('all_time', None)
-        self.item_activity_stats = kwargs.get('item_activity_stats', None)
-        self.last_seven_days = kwargs.get('last_seven_days', None)
-        self.id_workbook_id = kwargs.get('id_workbook_id', None)
-        self.application_workbook_application = kwargs.get('application_workbook_application', None)
-        self.comments = kwargs.get('comments', None)
-        self.functions = kwargs.get('functions', None)
-        self.names = kwargs.get('names', None)
-        self.operations = kwargs.get('operations', None)
-        self.tables = kwargs.get('tables', None)
-        self.worksheets = kwargs.get('worksheets', None)
-        self.name_special_folder_name = kwargs.get('name_special_folder_name', None)
-        self.owner = kwargs.get('owner', None)
-        self.scope = kwargs.get('scope', None)
-        self.shared_by = kwargs.get('shared_by', None)
-        self.shared_date_time = kwargs.get('shared_date_time', None)
-        self.on_click_telemetry_url = kwargs.get('on_click_telemetry_url', None)
-        self.created_by = kwargs.get('created_by', None)
-        self.created_date_time_remote_item_created_date_time = kwargs.get('created_date_time_remote_item_created_date_time', None)
-        self.file = kwargs.get('file', None)
-        self.file_system_info_remote_item_file_system_info = kwargs.get('file_system_info_remote_item_file_system_info', None)
-        self.folder = kwargs.get('folder', None)
-        self.id_remote_item_id = kwargs.get('id_remote_item_id', None)
-        self.image_remote_item_image = kwargs.get('image_remote_item_image', None)
-        self.last_modified_by = kwargs.get('last_modified_by', None)
-        self.last_modified_date_time_remote_item_last_modified_date_time = kwargs.get('last_modified_date_time_remote_item_last_modified_date_time', None)
-        self.name_remote_item_name = kwargs.get('name_remote_item_name', None)
-        self.package = kwargs.get('package', None)
-        self.parent_reference = kwargs.get('parent_reference', None)
-        self.shared = kwargs.get('shared', None)
-        self.sharepoint_ids_remote_item_sharepoint_ids = kwargs.get('sharepoint_ids_remote_item_sharepoint_ids', None)
-        self.size_remote_item_size = kwargs.get('size_remote_item_size', None)
-        self.special_folder = kwargs.get('special_folder', None)
-        self.video_remote_item_video = kwargs.get('video_remote_item_video', None)
-        self.web_dav_url_remote_item_web_dav_url = kwargs.get('web_dav_url_remote_item_web_dav_url', None)
-        self.web_url_remote_item_web_url = kwargs.get('web_url_remote_item_web_url', None)
-        self.queued_date_time = kwargs.get('queued_date_time', None)
-        self.type = kwargs.get('type', None)
-        self.child_count = kwargs.get('child_count', None)
-        self.view = kwargs.get('view', None)
-        self.hashes = kwargs.get('hashes', None)
-        self.mime_type = kwargs.get('mime_type', None)
-        self.processing_metadata = kwargs.get('processing_metadata', None)
-        self.state = kwargs.get('state', None)
 
 
 class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
@@ -6037,49 +5603,28 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~teams.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -6105,27 +5650,17 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'list': {'key': 'list', 'type': 'MicrosoftGraphListInfo'},
@@ -6195,49 +5730,28 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~teams.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -6257,27 +5771,17 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content_type': {'key': 'contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
@@ -7942,16 +7446,12 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -7978,10 +7478,8 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
@@ -8018,16 +7516,12 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
     :type assigned_to: str or ~teams.models.MicrosoftGraphScheduleChangeRequestActor
@@ -8064,10 +7558,8 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
         'manager_action_message': {'key': 'managerActionMessage', 'type': 'str'},
@@ -8734,16 +8226,12 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -8758,10 +8246,8 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'draft_open_shift': {'key': 'draftOpenShift', 'type': 'MicrosoftGraphOpenShiftItem'},
         'scheduling_group_id': {'key': 'schedulingGroupId', 'type': 'str'},
@@ -8788,16 +8274,12 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
     :type assigned_to: str or ~teams.models.MicrosoftGraphScheduleChangeRequestActor
@@ -8826,10 +8308,8 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
         'manager_action_message': {'key': 'managerActionMessage', 'type': 'str'},
@@ -9261,14 +8741,13 @@ class MicrosoftGraphPendingOperations(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
-     Read-only.
-    :type queued_date_time: ~datetime.datetime
+    :param pending_content_update: pendingContentUpdate.
+    :type pending_content_update: ~teams.models.MicrosoftGraphPendingContentUpdate
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'queued_date_time': {'key': 'pendingContentUpdate.queuedDateTime', 'type': 'iso-8601'},
+        'pending_content_update': {'key': 'pendingContentUpdate', 'type': 'MicrosoftGraphPendingContentUpdate'},
     }
 
     def __init__(
@@ -9277,7 +8756,7 @@ class MicrosoftGraphPendingOperations(msrest.serialization.Model):
     ):
         super(MicrosoftGraphPendingOperations, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.queued_date_time = kwargs.get('queued_date_time', None)
+        self.pending_content_update = kwargs.get('pending_content_update', None)
 
 
 class MicrosoftGraphPermission(MicrosoftGraphEntity):
@@ -10946,16 +10425,12 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -10971,10 +10446,8 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'is_active': {'key': 'isActive', 'type': 'bool'},
@@ -11564,79 +11037,35 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param draft_shift: shiftItem.
+    :type draft_shift: ~teams.models.MicrosoftGraphShiftItem
     :param scheduling_group_id: ID of the scheduling group the shift is part of. Required.
     :type scheduling_group_id: str
+    :param shared_shift: shiftItem.
+    :type shared_shift: ~teams.models.MicrosoftGraphShiftItem
     :param user_id: ID of the user assigned to the shift. Required.
     :type user_id: str
-    :param end_date_time_shared_shift_end_date_time:
-    :type end_date_time_shared_shift_end_date_time: ~datetime.datetime
-    :param start_date_time_shared_shift_start_date_time:
-    :type start_date_time_shared_shift_start_date_time: ~datetime.datetime
-    :param theme_shared_shift_theme:  Possible values include: "white", "blue", "green", "purple",
-     "pink", "yellow", "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow",
-     "unknownFutureValue".
-    :type theme_shared_shift_theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
-    :param activities_shared_shift_activities: An incremental part of a shift which can cover
-     details of when and where an employee is during their shift. For example, an assignment or a
-     scheduled break or lunch. Required.
-    :type activities_shared_shift_activities: list[~teams.models.MicrosoftGraphShiftActivity]
-    :param display_name_shared_shift_display_name: The shift label of the shiftItem.
-    :type display_name_shared_shift_display_name: str
-    :param notes_shared_shift_notes: The shift notes for the shiftItem.
-    :type notes_shared_shift_notes: str
-    :param end_date_time_draft_shift_end_date_time:
-    :type end_date_time_draft_shift_end_date_time: ~datetime.datetime
-    :param start_date_time_draft_shift_start_date_time:
-    :type start_date_time_draft_shift_start_date_time: ~datetime.datetime
-    :param theme_draft_shift_theme:  Possible values include: "white", "blue", "green", "purple",
-     "pink", "yellow", "gray", "darkBlue", "darkGreen", "darkPurple", "darkPink", "darkYellow",
-     "unknownFutureValue".
-    :type theme_draft_shift_theme: str or ~teams.models.MicrosoftGraphScheduleEntityTheme
-    :param activities_draft_shift_activities: An incremental part of a shift which can cover
-     details of when and where an employee is during their shift. For example, an assignment or a
-     scheduled break or lunch. Required.
-    :type activities_draft_shift_activities: list[~teams.models.MicrosoftGraphShiftActivity]
-    :param display_name_draft_shift_display_name: The shift label of the shiftItem.
-    :type display_name_draft_shift_display_name: str
-    :param notes_draft_shift_notes: The shift notes for the shiftItem.
-    :type notes_draft_shift_notes: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'draft_shift': {'key': 'draftShift', 'type': 'MicrosoftGraphShiftItem'},
         'scheduling_group_id': {'key': 'schedulingGroupId', 'type': 'str'},
+        'shared_shift': {'key': 'sharedShift', 'type': 'MicrosoftGraphShiftItem'},
         'user_id': {'key': 'userId', 'type': 'str'},
-        'end_date_time_shared_shift_end_date_time': {'key': 'sharedShift.endDateTime', 'type': 'iso-8601'},
-        'start_date_time_shared_shift_start_date_time': {'key': 'sharedShift.startDateTime', 'type': 'iso-8601'},
-        'theme_shared_shift_theme': {'key': 'sharedShift.theme', 'type': 'str'},
-        'activities_shared_shift_activities': {'key': 'sharedShift.activities', 'type': '[MicrosoftGraphShiftActivity]'},
-        'display_name_shared_shift_display_name': {'key': 'sharedShift.displayName', 'type': 'str'},
-        'notes_shared_shift_notes': {'key': 'sharedShift.notes', 'type': 'str'},
-        'end_date_time_draft_shift_end_date_time': {'key': 'draftShift.endDateTime', 'type': 'iso-8601'},
-        'start_date_time_draft_shift_start_date_time': {'key': 'draftShift.startDateTime', 'type': 'iso-8601'},
-        'theme_draft_shift_theme': {'key': 'draftShift.theme', 'type': 'str'},
-        'activities_draft_shift_activities': {'key': 'draftShift.activities', 'type': '[MicrosoftGraphShiftActivity]'},
-        'display_name_draft_shift_display_name': {'key': 'draftShift.displayName', 'type': 'str'},
-        'notes_draft_shift_notes': {'key': 'draftShift.notes', 'type': 'str'},
     }
 
     def __init__(
@@ -11645,20 +11074,10 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     ):
         super(MicrosoftGraphShift, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.draft_shift = kwargs.get('draft_shift', None)
         self.scheduling_group_id = kwargs.get('scheduling_group_id', None)
+        self.shared_shift = kwargs.get('shared_shift', None)
         self.user_id = kwargs.get('user_id', None)
-        self.end_date_time_shared_shift_end_date_time = kwargs.get('end_date_time_shared_shift_end_date_time', None)
-        self.start_date_time_shared_shift_start_date_time = kwargs.get('start_date_time_shared_shift_start_date_time', None)
-        self.theme_shared_shift_theme = kwargs.get('theme_shared_shift_theme', None)
-        self.activities_shared_shift_activities = kwargs.get('activities_shared_shift_activities', None)
-        self.display_name_shared_shift_display_name = kwargs.get('display_name_shared_shift_display_name', None)
-        self.notes_shared_shift_notes = kwargs.get('notes_shared_shift_notes', None)
-        self.end_date_time_draft_shift_end_date_time = kwargs.get('end_date_time_draft_shift_end_date_time', None)
-        self.start_date_time_draft_shift_start_date_time = kwargs.get('start_date_time_draft_shift_start_date_time', None)
-        self.theme_draft_shift_theme = kwargs.get('theme_draft_shift_theme', None)
-        self.activities_draft_shift_activities = kwargs.get('activities_draft_shift_activities', None)
-        self.display_name_draft_shift_display_name = kwargs.get('display_name_draft_shift_display_name', None)
-        self.notes_draft_shift_notes = kwargs.get('notes_draft_shift_notes', None)
 
 
 class MicrosoftGraphShiftActivity(msrest.serialization.Model):
@@ -11752,16 +11171,12 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -11773,10 +11188,8 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'availability': {'key': 'availability', 'type': '[MicrosoftGraphShiftAvailability]'},
     }
@@ -11822,49 +11235,28 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
 
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~teams.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~teams.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~teams.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~teams.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~teams.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~teams.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~teams.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -11901,27 +11293,17 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'error': {'key': 'error', 'type': 'MicrosoftGraphPublicError'},
@@ -12180,32 +11562,24 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
     :type assigned_to: str or ~teams.models.MicrosoftGraphScheduleChangeRequestActor
@@ -12244,16 +11618,12 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
         'manager_action_message': {'key': 'managerActionMessage', 'type': 'str'},
@@ -12318,8 +11688,13 @@ class MicrosoftGraphTeam(MicrosoftGraphEntity):
      URL that you get when you right-click a team in the Microsoft Teams client and select Get link
      to team. This URL should be treated as an opaque blob, and not parsed.
     :type web_url: str
+    :param schedule: schedule.
+    :type schedule: ~teams.models.MicrosoftGraphSchedule
     :param channels: The collection of channels & messages associated with the team.
     :type channels: list[~teams.models.MicrosoftGraphChannel]
+    :param group: Represents an Azure Active Directory object. The directoryObject type is the base
+     type for many other directory entity types.
+    :type group: ~teams.models.MicrosoftGraphGroup
     :param installed_apps: The apps installed in this team.
     :type installed_apps: list[~teams.models.MicrosoftGraphTeamsAppInstallation]
     :param members: Members and owners of the team.
@@ -12328,273 +11703,9 @@ class MicrosoftGraphTeam(MicrosoftGraphEntity):
     :type operations: list[~teams.models.MicrosoftGraphTeamsAsyncOperation]
     :param primary_channel: channel.
     :type primary_channel: ~teams.models.MicrosoftGraphChannel
-    :param id_template_id: Read-only.
-    :type id_template_id: str
-    :param id_group_id: Read-only.
-    :type id_group_id: str
-    :param deleted_date_time:
-    :type deleted_date_time: ~datetime.datetime
-    :param assigned_labels: The list of sensitivity label pairs (label ID, label name) associated
-     with an Microsoft 365 group. Returned only on $select. Read-only.
-    :type assigned_labels: list[~teams.models.MicrosoftGraphAssignedLabel]
-    :param assigned_licenses: The licenses that are assigned to the group. Returned only on
-     $select. Read-only.
-    :type assigned_licenses: list[~teams.models.MicrosoftGraphAssignedLicense]
-    :param classification_group_classification: Describes a classification for the group (such as
-     low, medium or high business impact). Valid values for this property are defined by creating a
-     ClassificationList setting value, based on the template definition.Returned by default.
-    :type classification_group_classification: str
-    :param created_date_time: Timestamp of when the group was created. The value cannot be modified
-     and is automatically populated when the group is created. The Timestamp type represents date
-     and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC
-     on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only.
-    :type created_date_time: ~datetime.datetime
-    :param description_group_description: An optional description for the group. Returned by
-     default.
-    :type description_group_description: str
-    :param display_name_group_display_name: The display name for the group. This property is
-     required when a group is created and cannot be cleared during updates. Returned by default.
-     Supports $filter and $orderby.
-    :type display_name_group_display_name: str
-    :param expiration_date_time: Timestamp of when the group is set to expire. The value cannot be
-     modified and is automatically populated when the group is created. The Timestamp type
-     represents date and time information using ISO 8601 format and is always in UTC time. For
-     example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by
-     default. Read-only.
-    :type expiration_date_time: ~datetime.datetime
-    :param group_types: Specifies the group type and its membership.  If the collection contains
-     Unified, the group is a Microsoft 365 group; otherwise, it's either a security group or
-     distribution group. For details, see groups overview.If the collection includes
-     DynamicMembership, the group has dynamic membership; otherwise, membership is static.  Returned
-     by default. Supports $filter.
-    :type group_types: list[str]
-    :param has_members_with_license_errors: Indicates whether there are members in this group that
-     have license errors from its group-based license assignment. This property is never returned on
-     a GET operation. You can use it as a $filter argument to get groups that have members with
-     license errors (that is, filter for this property being true). See an example.
-    :type has_members_with_license_errors: bool
-    :param license_processing_state: licenseProcessingState.
-    :type license_processing_state: ~teams.models.MicrosoftGraphLicenseProcessingState
-    :param mail: The SMTP address for the group, for example,
-     'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter.
-    :type mail: str
-    :param mail_enabled: Specifies whether the group is mail-enabled. Returned by default.
-    :type mail_enabled: bool
-    :param mail_nickname: The mail alias for the group, unique in the organization. This property
-     must be specified when a group is created. Returned by default. Supports $filter.
-    :type mail_nickname: str
-    :param membership_rule: The rule that determines members for this group if the group is a
-     dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of
-     the membership rule, see Membership Rules syntax. Returned by default.
-    :type membership_rule: str
-    :param membership_rule_processing_state: Indicates whether the dynamic membership processing is
-     on or paused. Possible values are 'On' or 'Paused'. Returned by default.
-    :type membership_rule_processing_state: str
-    :param on_premises_domain_name: Contains the on-premises domain FQDN, also called dnsDomainName
-     synchronized from the on-premises directory. The property is only populated for customers who
-     are synchronizing their on-premises directory to Azure Active Directory via Azure AD
-     Connect.Returned by default. Read-only.
-    :type on_premises_domain_name: str
-    :param on_premises_last_sync_date_time: Indicates the last time at which the group was synced
-     with the on-premises directory.The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.
-    :type on_premises_last_sync_date_time: ~datetime.datetime
-    :param on_premises_net_bios_name: Contains the on-premises netBios name synchronized from the
-     on-premises directory. The property is only populated for customers who are synchronizing their
-     on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-
-     only.
-    :type on_premises_net_bios_name: str
-    :param on_premises_provisioning_errors: Errors when using Microsoft synchronization product
-     during provisioning. Returned by default.
-    :type on_premises_provisioning_errors:
-     list[~teams.models.MicrosoftGraphOnPremisesProvisioningError]
-    :param on_premises_sam_account_name: Contains the on-premises SAM account name synchronized
-     from the on-premises directory. The property is only populated for customers who are
-     synchronizing their on-premises directory to Azure Active Directory via Azure AD
-     Connect.Returned by default. Read-only.
-    :type on_premises_sam_account_name: str
-    :param on_premises_security_identifier: Contains the on-premises security identifier (SID) for
-     the group that was synchronized from on-premises to the cloud. Returned by default. Read-only.
-    :type on_premises_security_identifier: str
-    :param on_premises_sync_enabled: true if this group is synced from an on-premises directory;
-     false if this group was originally synced from an on-premises directory but is no longer
-     synced; null if this object has never been synced from an on-premises directory (default).
-     Returned by default. Read-only. Supports $filter.
-    :type on_premises_sync_enabled: bool
-    :param preferred_data_location: The preferred data location for the group. For more
-     information, see  OneDrive Online Multi-Geo. Returned by default.
-    :type preferred_data_location: str
-    :param preferred_language: The preferred language for an Microsoft 365 group. Should follow ISO
-     639-1 Code; for example 'en-US'. Returned by default.
-    :type preferred_language: str
-    :param proxy_addresses: Email addresses for the group that direct to the same group mailbox.
-     For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is
-     required to filter expressions on multi-valued properties. Returned by default. Read-only. Not
-     nullable. Supports $filter.
-    :type proxy_addresses: list[str]
-    :param renewed_date_time: Timestamp of when the group was last renewed. This cannot be modified
-     directly and is only updated via the renew service action. The Timestamp type represents date
-     and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC
-     on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only.
-    :type renewed_date_time: ~datetime.datetime
-    :param security_enabled: Specifies whether the group is a security group. Returned by default.
-     Supports $filter.
-    :type security_enabled: bool
-    :param security_identifier: Security identifier of the group, used in Windows scenarios.
-     Returned by default.
-    :type security_identifier: str
-    :param theme: Specifies an Microsoft 365 group's color theme. Possible values are Teal, Purple,
-     Green, Blue, Pink, Orange or Red. Returned by default.
-    :type theme: str
-    :param visibility_group_visibility: Specifies the visibility of a Microsoft 365 group. Possible
-     values are: Private, Public, or Hiddenmembership; blank values are treated as public.  See
-     group visibility options to learn more.Visibility can be set only when a group is created; it
-     is not editable.Visibility is supported only for unified groups; it is not supported for
-     security groups. Returned by default.
-    :type visibility_group_visibility: str
-    :param allow_external_senders: Indicates if people external to the organization can send
-     messages to the group. Default value is false. Returned only on $select.
-    :type allow_external_senders: bool
-    :param auto_subscribe_new_members: Indicates if new members added to the group will be auto-
-     subscribed to receive email notifications. You can set this property in a PATCH request for the
-     group; do not set it in the initial POST request that creates the group. Default value is
-     false. Returned only on $select.
-    :type auto_subscribe_new_members: bool
-    :param hide_from_address_lists: True if the group is not displayed in certain parts of the
-     Outlook UI: the Address Book, address lists for selecting message recipients, and the Browse
-     Groups dialog for searching groups; otherwise, false. Default value is false. Returned only on
-     $select.
-    :type hide_from_address_lists: bool
-    :param hide_from_outlook_clients: True if the group is not displayed in Outlook clients, such
-     as Outlook for Windows and Outlook on the web; otherwise, false. Default value is false.
-     Returned only on $select.
-    :type hide_from_outlook_clients: bool
-    :param is_subscribed_by_mail: Indicates whether the signed-in user is subscribed to receive
-     email conversations. Default value is true. Returned only on $select.
-    :type is_subscribed_by_mail: bool
-    :param unseen_count: Count of conversations that have received new posts since the signed-in
-     user last visited the group. Returned only on $select.
-    :type unseen_count: int
-    :param is_archived_group_is_archived:
-    :type is_archived_group_is_archived: bool
-    :param app_role_assignments:
-    :type app_role_assignments: list[~teams.models.MicrosoftGraphAppRoleAssignment]
-    :param created_on_behalf_of: Represents an Azure Active Directory object. The directoryObject
-     type is the base type for many other directory entity types.
-    :type created_on_behalf_of: ~teams.models.MicrosoftGraphDirectoryObject
-    :param member_of: Groups that this group is a member of. HTTP Methods: GET (supported for all
-     groups). Read-only. Nullable.
-    :type member_of: list[~teams.models.MicrosoftGraphDirectoryObject]
-    :param members_group_members: Users and groups that are members of this group. HTTP Methods:
-     GET (supported for all groups), POST (supported for Microsoft 365 groups, security groups and
-     mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security groups)
-     Nullable.
-    :type members_group_members: list[~teams.models.MicrosoftGraphDirectoryObject]
-    :param members_with_license_errors: A list of group members with license errors from this
-     group-based license assignment. Read-only.
-    :type members_with_license_errors: list[~teams.models.MicrosoftGraphDirectoryObject]
-    :param owners: The owners of the group. The owners are a set of non-admin users who are allowed
-     to modify this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups),
-     POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups),
-     DELETE (supported for Microsoft 365 groups and security groups). Nullable.
-    :type owners: list[~teams.models.MicrosoftGraphDirectoryObject]
-    :param settings: Read-only. Nullable.
-    :type settings: list[~teams.models.MicrosoftGraphGroupSetting]
-    :param transitive_member_of:
-    :type transitive_member_of: list[~teams.models.MicrosoftGraphDirectoryObject]
-    :param transitive_members:
-    :type transitive_members: list[~teams.models.MicrosoftGraphDirectoryObject]
-    :param accepted_senders: The list of users or groups that are allowed to create post's or
-     calendar events in this group. If this list is non-empty then only users or groups listed here
-     are allowed to post.
-    :type accepted_senders: list[~teams.models.MicrosoftGraphDirectoryObject]
-    :param calendar: calendar.
-    :type calendar: ~teams.models.MicrosoftGraphCalendar
-    :param calendar_view: The calendar view for the calendar. Read-only.
-    :type calendar_view: list[~teams.models.MicrosoftGraphEvent]
-    :param conversations: The group's conversations.
-    :type conversations: list[~teams.models.MicrosoftGraphConversation]
-    :param events: The group's calendar events.
-    :type events: list[~teams.models.MicrosoftGraphEvent]
-    :param photo: profilePhoto.
-    :type photo: ~teams.models.MicrosoftGraphProfilePhoto
-    :param photos: The profile photos owned by the group. Read-only. Nullable.
-    :type photos: list[~teams.models.MicrosoftGraphProfilePhoto]
-    :param rejected_senders: The list of users or groups that are not allowed to create posts or
-     calendar events in this group. Nullable.
-    :type rejected_senders: list[~teams.models.MicrosoftGraphDirectoryObject]
-    :param threads: The group's conversation threads. Nullable.
-    :type threads: list[~teams.models.MicrosoftGraphConversationThread]
-    :param drive: drive.
-    :type drive: ~teams.models.MicrosoftGraphDrive
-    :param drives: The group's drives. Read-only.
-    :type drives: list[~teams.models.MicrosoftGraphDrive]
-    :param sites: The list of SharePoint sites in this group. Access the default site with
-     /sites/root.
-    :type sites: list[~teams.models.MicrosoftGraphSite]
-    :param extensions: The collection of open extensions defined for the group. Read-only.
-     Nullable.
-    :type extensions: list[~teams.models.MicrosoftGraphExtension]
-    :param group_lifecycle_policies: The collection of lifecycle policies for this group. Read-
-     only. Nullable.
-    :type group_lifecycle_policies: list[~teams.models.MicrosoftGraphGroupLifecyclePolicy]
-    :param planner: plannerGroup.
-    :type planner: ~teams.models.MicrosoftGraphPlannerGroup
-    :param onenote: onenote.
-    :type onenote: ~teams.models.MicrosoftGraphOnenote
-    :param team: team.
-    :type team: ~teams.models.MicrosoftGraphTeam
-    :param id_schedule_id: Read-only.
-    :type id_schedule_id: str
-    :param enabled: Indicates whether the schedule is enabled for the team. Required.
-    :type enabled: bool
-    :param offer_shift_requests_enabled: Indicates whether offer shift requests are enabled for the
-     schedule.
-    :type offer_shift_requests_enabled: bool
-    :param open_shifts_enabled: Indicates whether open shifts are enabled for the schedule.
-    :type open_shifts_enabled: bool
-    :param provision_status:  Possible values include: "NotStarted", "Running", "Completed",
-     "Failed".
-    :type provision_status: str or ~teams.models.MicrosoftGraphOperationStatus
-    :param provision_status_code: Additional information about why schedule provisioning failed.
-    :type provision_status_code: str
-    :param swap_shifts_requests_enabled: Indicates whether swap shifts requests are enabled for the
-     schedule.
-    :type swap_shifts_requests_enabled: bool
-    :param time_clock_enabled: Indicates whether time clock is enabled for the schedule.
-    :type time_clock_enabled: bool
-    :param time_off_requests_enabled: Indicates whether time off requests are enabled for the
-     schedule.
-    :type time_off_requests_enabled: bool
-    :param time_zone: Indicates the time zone of the schedule team using tz database format.
-     Required.
-    :type time_zone: str
-    :param workforce_integration_ids:
-    :type workforce_integration_ids: list[str]
-    :param offer_shift_requests:
-    :type offer_shift_requests: list[~teams.models.MicrosoftGraphOfferShiftRequest]
-    :param open_shift_change_requests:
-    :type open_shift_change_requests: list[~teams.models.MicrosoftGraphOpenShiftChangeRequest]
-    :param open_shifts:
-    :type open_shifts: list[~teams.models.MicrosoftGraphOpenShift]
-    :param scheduling_groups: The logical grouping of users in the schedule (usually by role).
-    :type scheduling_groups: list[~teams.models.MicrosoftGraphSchedulingGroup]
-    :param shifts: The shifts in the schedule.
-    :type shifts: list[~teams.models.MicrosoftGraphShift]
-    :param swap_shifts_change_requests:
-    :type swap_shifts_change_requests: list[~teams.models.MicrosoftGraphSwapShiftsChangeRequest]
-    :param time_off_reasons: The set of reasons for a time off in the schedule.
-    :type time_off_reasons: list[~teams.models.MicrosoftGraphTimeOffReason]
-    :param time_off_requests:
-    :type time_off_requests: list[~teams.models.MicrosoftGraphTimeOffRequest]
-    :param times_off: The instances of times off in the schedule.
-    :type times_off: list[~teams.models.MicrosoftGraphTimeOff]
+    :param template: teamsTemplate.
+    :type template: ~teams.models.MicrosoftGraphTeamsTemplate
     """
-
-    _validation = {
-        'unseen_count': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
@@ -12611,97 +11722,14 @@ class MicrosoftGraphTeam(MicrosoftGraphEntity):
         'specialization': {'key': 'specialization', 'type': 'str'},
         'visibility': {'key': 'visibility', 'type': 'str'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
+        'schedule': {'key': 'schedule', 'type': 'MicrosoftGraphSchedule'},
         'channels': {'key': 'channels', 'type': '[MicrosoftGraphChannel]'},
+        'group': {'key': 'group', 'type': 'MicrosoftGraphGroup'},
         'installed_apps': {'key': 'installedApps', 'type': '[MicrosoftGraphTeamsAppInstallation]'},
         'members': {'key': 'members', 'type': '[MicrosoftGraphConversationMember]'},
         'operations': {'key': 'operations', 'type': '[MicrosoftGraphTeamsAsyncOperation]'},
         'primary_channel': {'key': 'primaryChannel', 'type': 'MicrosoftGraphChannel'},
-        'id_template_id': {'key': 'template.id', 'type': 'str'},
-        'id_group_id': {'key': 'group.id', 'type': 'str'},
-        'deleted_date_time': {'key': 'group.deletedDateTime', 'type': 'iso-8601'},
-        'assigned_labels': {'key': 'group.assignedLabels', 'type': '[MicrosoftGraphAssignedLabel]'},
-        'assigned_licenses': {'key': 'group.assignedLicenses', 'type': '[MicrosoftGraphAssignedLicense]'},
-        'classification_group_classification': {'key': 'group.classification', 'type': 'str'},
-        'created_date_time': {'key': 'group.createdDateTime', 'type': 'iso-8601'},
-        'description_group_description': {'key': 'group.description', 'type': 'str'},
-        'display_name_group_display_name': {'key': 'group.displayName', 'type': 'str'},
-        'expiration_date_time': {'key': 'group.expirationDateTime', 'type': 'iso-8601'},
-        'group_types': {'key': 'group.groupTypes', 'type': '[str]'},
-        'has_members_with_license_errors': {'key': 'group.hasMembersWithLicenseErrors', 'type': 'bool'},
-        'license_processing_state': {'key': 'group.licenseProcessingState', 'type': 'MicrosoftGraphLicenseProcessingState'},
-        'mail': {'key': 'group.mail', 'type': 'str'},
-        'mail_enabled': {'key': 'group.mailEnabled', 'type': 'bool'},
-        'mail_nickname': {'key': 'group.mailNickname', 'type': 'str'},
-        'membership_rule': {'key': 'group.membershipRule', 'type': 'str'},
-        'membership_rule_processing_state': {'key': 'group.membershipRuleProcessingState', 'type': 'str'},
-        'on_premises_domain_name': {'key': 'group.onPremisesDomainName', 'type': 'str'},
-        'on_premises_last_sync_date_time': {'key': 'group.onPremisesLastSyncDateTime', 'type': 'iso-8601'},
-        'on_premises_net_bios_name': {'key': 'group.onPremisesNetBiosName', 'type': 'str'},
-        'on_premises_provisioning_errors': {'key': 'group.onPremisesProvisioningErrors', 'type': '[MicrosoftGraphOnPremisesProvisioningError]'},
-        'on_premises_sam_account_name': {'key': 'group.onPremisesSamAccountName', 'type': 'str'},
-        'on_premises_security_identifier': {'key': 'group.onPremisesSecurityIdentifier', 'type': 'str'},
-        'on_premises_sync_enabled': {'key': 'group.onPremisesSyncEnabled', 'type': 'bool'},
-        'preferred_data_location': {'key': 'group.preferredDataLocation', 'type': 'str'},
-        'preferred_language': {'key': 'group.preferredLanguage', 'type': 'str'},
-        'proxy_addresses': {'key': 'group.proxyAddresses', 'type': '[str]'},
-        'renewed_date_time': {'key': 'group.renewedDateTime', 'type': 'iso-8601'},
-        'security_enabled': {'key': 'group.securityEnabled', 'type': 'bool'},
-        'security_identifier': {'key': 'group.securityIdentifier', 'type': 'str'},
-        'theme': {'key': 'group.theme', 'type': 'str'},
-        'visibility_group_visibility': {'key': 'group.visibility', 'type': 'str'},
-        'allow_external_senders': {'key': 'group.allowExternalSenders', 'type': 'bool'},
-        'auto_subscribe_new_members': {'key': 'group.autoSubscribeNewMembers', 'type': 'bool'},
-        'hide_from_address_lists': {'key': 'group.hideFromAddressLists', 'type': 'bool'},
-        'hide_from_outlook_clients': {'key': 'group.hideFromOutlookClients', 'type': 'bool'},
-        'is_subscribed_by_mail': {'key': 'group.isSubscribedByMail', 'type': 'bool'},
-        'unseen_count': {'key': 'group.unseenCount', 'type': 'int'},
-        'is_archived_group_is_archived': {'key': 'group.isArchived', 'type': 'bool'},
-        'app_role_assignments': {'key': 'group.appRoleAssignments', 'type': '[MicrosoftGraphAppRoleAssignment]'},
-        'created_on_behalf_of': {'key': 'group.createdOnBehalfOf', 'type': 'MicrosoftGraphDirectoryObject'},
-        'member_of': {'key': 'group.memberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'members_group_members': {'key': 'group.members', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'members_with_license_errors': {'key': 'group.membersWithLicenseErrors', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'owners': {'key': 'group.owners', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'settings': {'key': 'group.settings', 'type': '[MicrosoftGraphGroupSetting]'},
-        'transitive_member_of': {'key': 'group.transitiveMemberOf', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'transitive_members': {'key': 'group.transitiveMembers', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'accepted_senders': {'key': 'group.acceptedSenders', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'calendar': {'key': 'group.calendar', 'type': 'MicrosoftGraphCalendar'},
-        'calendar_view': {'key': 'group.calendarView', 'type': '[MicrosoftGraphEvent]'},
-        'conversations': {'key': 'group.conversations', 'type': '[MicrosoftGraphConversation]'},
-        'events': {'key': 'group.events', 'type': '[MicrosoftGraphEvent]'},
-        'photo': {'key': 'group.photo', 'type': 'MicrosoftGraphProfilePhoto'},
-        'photos': {'key': 'group.photos', 'type': '[MicrosoftGraphProfilePhoto]'},
-        'rejected_senders': {'key': 'group.rejectedSenders', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'threads': {'key': 'group.threads', 'type': '[MicrosoftGraphConversationThread]'},
-        'drive': {'key': 'group.drive', 'type': 'MicrosoftGraphDrive'},
-        'drives': {'key': 'group.drives', 'type': '[MicrosoftGraphDrive]'},
-        'sites': {'key': 'group.sites', 'type': '[MicrosoftGraphSite]'},
-        'extensions': {'key': 'group.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'group_lifecycle_policies': {'key': 'group.groupLifecyclePolicies', 'type': '[MicrosoftGraphGroupLifecyclePolicy]'},
-        'planner': {'key': 'group.planner', 'type': 'MicrosoftGraphPlannerGroup'},
-        'onenote': {'key': 'group.onenote', 'type': 'MicrosoftGraphOnenote'},
-        'team': {'key': 'group.team', 'type': 'MicrosoftGraphTeam'},
-        'id_schedule_id': {'key': 'schedule.id', 'type': 'str'},
-        'enabled': {'key': 'schedule.enabled', 'type': 'bool'},
-        'offer_shift_requests_enabled': {'key': 'schedule.offerShiftRequestsEnabled', 'type': 'bool'},
-        'open_shifts_enabled': {'key': 'schedule.openShiftsEnabled', 'type': 'bool'},
-        'provision_status': {'key': 'schedule.provisionStatus', 'type': 'str'},
-        'provision_status_code': {'key': 'schedule.provisionStatusCode', 'type': 'str'},
-        'swap_shifts_requests_enabled': {'key': 'schedule.swapShiftsRequestsEnabled', 'type': 'bool'},
-        'time_clock_enabled': {'key': 'schedule.timeClockEnabled', 'type': 'bool'},
-        'time_off_requests_enabled': {'key': 'schedule.timeOffRequestsEnabled', 'type': 'bool'},
-        'time_zone': {'key': 'schedule.timeZone', 'type': 'str'},
-        'workforce_integration_ids': {'key': 'schedule.workforceIntegrationIds', 'type': '[str]'},
-        'offer_shift_requests': {'key': 'schedule.offerShiftRequests', 'type': '[MicrosoftGraphOfferShiftRequest]'},
-        'open_shift_change_requests': {'key': 'schedule.openShiftChangeRequests', 'type': '[MicrosoftGraphOpenShiftChangeRequest]'},
-        'open_shifts': {'key': 'schedule.openShifts', 'type': '[MicrosoftGraphOpenShift]'},
-        'scheduling_groups': {'key': 'schedule.schedulingGroups', 'type': '[MicrosoftGraphSchedulingGroup]'},
-        'shifts': {'key': 'schedule.shifts', 'type': '[MicrosoftGraphShift]'},
-        'swap_shifts_change_requests': {'key': 'schedule.swapShiftsChangeRequests', 'type': '[MicrosoftGraphSwapShiftsChangeRequest]'},
-        'time_off_reasons': {'key': 'schedule.timeOffReasons', 'type': '[MicrosoftGraphTimeOffReason]'},
-        'time_off_requests': {'key': 'schedule.timeOffRequests', 'type': '[MicrosoftGraphTimeOffRequest]'},
-        'times_off': {'key': 'schedule.timesOff', 'type': '[MicrosoftGraphTimeOff]'},
+        'template': {'key': 'template', 'type': 'MicrosoftGraphTeamsTemplate'},
     }
 
     def __init__(
@@ -12722,97 +11750,14 @@ class MicrosoftGraphTeam(MicrosoftGraphEntity):
         self.specialization = kwargs.get('specialization', None)
         self.visibility = kwargs.get('visibility', None)
         self.web_url = kwargs.get('web_url', None)
+        self.schedule = kwargs.get('schedule', None)
         self.channels = kwargs.get('channels', None)
+        self.group = kwargs.get('group', None)
         self.installed_apps = kwargs.get('installed_apps', None)
         self.members = kwargs.get('members', None)
         self.operations = kwargs.get('operations', None)
         self.primary_channel = kwargs.get('primary_channel', None)
-        self.id_template_id = kwargs.get('id_template_id', None)
-        self.id_group_id = kwargs.get('id_group_id', None)
-        self.deleted_date_time = kwargs.get('deleted_date_time', None)
-        self.assigned_labels = kwargs.get('assigned_labels', None)
-        self.assigned_licenses = kwargs.get('assigned_licenses', None)
-        self.classification_group_classification = kwargs.get('classification_group_classification', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.description_group_description = kwargs.get('description_group_description', None)
-        self.display_name_group_display_name = kwargs.get('display_name_group_display_name', None)
-        self.expiration_date_time = kwargs.get('expiration_date_time', None)
-        self.group_types = kwargs.get('group_types', None)
-        self.has_members_with_license_errors = kwargs.get('has_members_with_license_errors', None)
-        self.license_processing_state = kwargs.get('license_processing_state', None)
-        self.mail = kwargs.get('mail', None)
-        self.mail_enabled = kwargs.get('mail_enabled', None)
-        self.mail_nickname = kwargs.get('mail_nickname', None)
-        self.membership_rule = kwargs.get('membership_rule', None)
-        self.membership_rule_processing_state = kwargs.get('membership_rule_processing_state', None)
-        self.on_premises_domain_name = kwargs.get('on_premises_domain_name', None)
-        self.on_premises_last_sync_date_time = kwargs.get('on_premises_last_sync_date_time', None)
-        self.on_premises_net_bios_name = kwargs.get('on_premises_net_bios_name', None)
-        self.on_premises_provisioning_errors = kwargs.get('on_premises_provisioning_errors', None)
-        self.on_premises_sam_account_name = kwargs.get('on_premises_sam_account_name', None)
-        self.on_premises_security_identifier = kwargs.get('on_premises_security_identifier', None)
-        self.on_premises_sync_enabled = kwargs.get('on_premises_sync_enabled', None)
-        self.preferred_data_location = kwargs.get('preferred_data_location', None)
-        self.preferred_language = kwargs.get('preferred_language', None)
-        self.proxy_addresses = kwargs.get('proxy_addresses', None)
-        self.renewed_date_time = kwargs.get('renewed_date_time', None)
-        self.security_enabled = kwargs.get('security_enabled', None)
-        self.security_identifier = kwargs.get('security_identifier', None)
-        self.theme = kwargs.get('theme', None)
-        self.visibility_group_visibility = kwargs.get('visibility_group_visibility', None)
-        self.allow_external_senders = kwargs.get('allow_external_senders', None)
-        self.auto_subscribe_new_members = kwargs.get('auto_subscribe_new_members', None)
-        self.hide_from_address_lists = kwargs.get('hide_from_address_lists', None)
-        self.hide_from_outlook_clients = kwargs.get('hide_from_outlook_clients', None)
-        self.is_subscribed_by_mail = kwargs.get('is_subscribed_by_mail', None)
-        self.unseen_count = kwargs.get('unseen_count', None)
-        self.is_archived_group_is_archived = kwargs.get('is_archived_group_is_archived', None)
-        self.app_role_assignments = kwargs.get('app_role_assignments', None)
-        self.created_on_behalf_of = kwargs.get('created_on_behalf_of', None)
-        self.member_of = kwargs.get('member_of', None)
-        self.members_group_members = kwargs.get('members_group_members', None)
-        self.members_with_license_errors = kwargs.get('members_with_license_errors', None)
-        self.owners = kwargs.get('owners', None)
-        self.settings = kwargs.get('settings', None)
-        self.transitive_member_of = kwargs.get('transitive_member_of', None)
-        self.transitive_members = kwargs.get('transitive_members', None)
-        self.accepted_senders = kwargs.get('accepted_senders', None)
-        self.calendar = kwargs.get('calendar', None)
-        self.calendar_view = kwargs.get('calendar_view', None)
-        self.conversations = kwargs.get('conversations', None)
-        self.events = kwargs.get('events', None)
-        self.photo = kwargs.get('photo', None)
-        self.photos = kwargs.get('photos', None)
-        self.rejected_senders = kwargs.get('rejected_senders', None)
-        self.threads = kwargs.get('threads', None)
-        self.drive = kwargs.get('drive', None)
-        self.drives = kwargs.get('drives', None)
-        self.sites = kwargs.get('sites', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.group_lifecycle_policies = kwargs.get('group_lifecycle_policies', None)
-        self.planner = kwargs.get('planner', None)
-        self.onenote = kwargs.get('onenote', None)
-        self.team = kwargs.get('team', None)
-        self.id_schedule_id = kwargs.get('id_schedule_id', None)
-        self.enabled = kwargs.get('enabled', None)
-        self.offer_shift_requests_enabled = kwargs.get('offer_shift_requests_enabled', None)
-        self.open_shifts_enabled = kwargs.get('open_shifts_enabled', None)
-        self.provision_status = kwargs.get('provision_status', None)
-        self.provision_status_code = kwargs.get('provision_status_code', None)
-        self.swap_shifts_requests_enabled = kwargs.get('swap_shifts_requests_enabled', None)
-        self.time_clock_enabled = kwargs.get('time_clock_enabled', None)
-        self.time_off_requests_enabled = kwargs.get('time_off_requests_enabled', None)
-        self.time_zone = kwargs.get('time_zone', None)
-        self.workforce_integration_ids = kwargs.get('workforce_integration_ids', None)
-        self.offer_shift_requests = kwargs.get('offer_shift_requests', None)
-        self.open_shift_change_requests = kwargs.get('open_shift_change_requests', None)
-        self.open_shifts = kwargs.get('open_shifts', None)
-        self.scheduling_groups = kwargs.get('scheduling_groups', None)
-        self.shifts = kwargs.get('shifts', None)
-        self.swap_shifts_change_requests = kwargs.get('swap_shifts_change_requests', None)
-        self.time_off_reasons = kwargs.get('time_off_reasons', None)
-        self.time_off_requests = kwargs.get('time_off_requests', None)
-        self.times_off = kwargs.get('times_off', None)
+        self.template = kwargs.get('template', None)
 
 
 class MicrosoftGraphTeamFunSettings(msrest.serialization.Model):
@@ -13052,32 +11997,17 @@ class MicrosoftGraphTeamsAppInstallation(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param teams_app: teamsApp.
+    :type teams_app: ~teams.models.MicrosoftGraphTeamsApp
     :param teams_app_definition: teamsAppDefinition.
     :type teams_app_definition: ~teams.models.MicrosoftGraphTeamsAppDefinition
-    :param id_teams_app_id: Read-only.
-    :type id_teams_app_id: str
-    :param display_name: The name of the catalog app provided by the app developer in the Microsoft
-     Teams zip app package.
-    :type display_name: str
-    :param distribution_method:  Possible values include: "store", "organization", "sideloaded",
-     "unknownFutureValue".
-    :type distribution_method: str or ~teams.models.MicrosoftGraphTeamsAppDistributionMethod
-    :param external_id: The ID of the catalog provided by the app developer in the Microsoft Teams
-     zip app package.
-    :type external_id: str
-    :param app_definitions: The details for each version of the app.
-    :type app_definitions: list[~teams.models.MicrosoftGraphTeamsAppDefinition]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'teams_app': {'key': 'teamsApp', 'type': 'MicrosoftGraphTeamsApp'},
         'teams_app_definition': {'key': 'teamsAppDefinition', 'type': 'MicrosoftGraphTeamsAppDefinition'},
-        'id_teams_app_id': {'key': 'teamsApp.id', 'type': 'str'},
-        'display_name': {'key': 'teamsApp.displayName', 'type': 'str'},
-        'distribution_method': {'key': 'teamsApp.distributionMethod', 'type': 'str'},
-        'external_id': {'key': 'teamsApp.externalId', 'type': 'str'},
-        'app_definitions': {'key': 'teamsApp.appDefinitions', 'type': '[MicrosoftGraphTeamsAppDefinition]'},
     }
 
     def __init__(
@@ -13086,12 +12016,8 @@ class MicrosoftGraphTeamsAppInstallation(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphTeamsAppInstallation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.teams_app = kwargs.get('teams_app', None)
         self.teams_app_definition = kwargs.get('teams_app_definition', None)
-        self.id_teams_app_id = kwargs.get('id_teams_app_id', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.distribution_method = kwargs.get('distribution_method', None)
-        self.external_id = kwargs.get('external_id', None)
-        self.app_definitions = kwargs.get('app_definitions', None)
 
 
 class MicrosoftGraphTeamsAsyncOperation(MicrosoftGraphEntity):
@@ -13173,19 +12099,8 @@ class MicrosoftGraphTeamsTab(MicrosoftGraphEntity):
     :type display_name: str
     :param web_url: Deep link URL of the tab instance. Read only.
     :type web_url: str
-    :param id_teams_app_id: Read-only.
-    :type id_teams_app_id: str
-    :param display_name_teams_app_display_name: The name of the catalog app provided by the app
-     developer in the Microsoft Teams zip app package.
-    :type display_name_teams_app_display_name: str
-    :param distribution_method:  Possible values include: "store", "organization", "sideloaded",
-     "unknownFutureValue".
-    :type distribution_method: str or ~teams.models.MicrosoftGraphTeamsAppDistributionMethod
-    :param external_id: The ID of the catalog provided by the app developer in the Microsoft Teams
-     zip app package.
-    :type external_id: str
-    :param app_definitions: The details for each version of the app.
-    :type app_definitions: list[~teams.models.MicrosoftGraphTeamsAppDefinition]
+    :param teams_app: teamsApp.
+    :type teams_app: ~teams.models.MicrosoftGraphTeamsApp
     """
 
     _attribute_map = {
@@ -13194,11 +12109,7 @@ class MicrosoftGraphTeamsTab(MicrosoftGraphEntity):
         'configuration': {'key': 'configuration', 'type': 'MicrosoftGraphTeamsTabConfiguration'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
-        'id_teams_app_id': {'key': 'teamsApp.id', 'type': 'str'},
-        'display_name_teams_app_display_name': {'key': 'teamsApp.displayName', 'type': 'str'},
-        'distribution_method': {'key': 'teamsApp.distributionMethod', 'type': 'str'},
-        'external_id': {'key': 'teamsApp.externalId', 'type': 'str'},
-        'app_definitions': {'key': 'teamsApp.appDefinitions', 'type': '[MicrosoftGraphTeamsAppDefinition]'},
+        'teams_app': {'key': 'teamsApp', 'type': 'MicrosoftGraphTeamsApp'},
     }
 
     def __init__(
@@ -13210,11 +12121,7 @@ class MicrosoftGraphTeamsTab(MicrosoftGraphEntity):
         self.configuration = kwargs.get('configuration', None)
         self.display_name = kwargs.get('display_name', None)
         self.web_url = kwargs.get('web_url', None)
-        self.id_teams_app_id = kwargs.get('id_teams_app_id', None)
-        self.display_name_teams_app_display_name = kwargs.get('display_name_teams_app_display_name', None)
-        self.distribution_method = kwargs.get('distribution_method', None)
-        self.external_id = kwargs.get('external_id', None)
-        self.app_definitions = kwargs.get('app_definitions', None)
+        self.teams_app = kwargs.get('teams_app', None)
 
 
 class MicrosoftGraphTeamsTabConfiguration(msrest.serialization.Model):
@@ -13443,16 +12350,12 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -13467,10 +12370,8 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'draft_time_off': {'key': 'draftTimeOff', 'type': 'MicrosoftGraphTimeOffItem'},
         'shared_time_off': {'key': 'sharedTimeOff', 'type': 'MicrosoftGraphTimeOffItem'},
@@ -13531,16 +12432,12 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -13558,10 +12455,8 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'icon_type': {'key': 'iconType', 'type': 'str'},
@@ -13588,16 +12483,12 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
     :type assigned_to: str or ~teams.models.MicrosoftGraphScheduleChangeRequestActor
@@ -13634,10 +12525,8 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
         'manager_action_message': {'key': 'managerActionMessage', 'type': 'str'},
@@ -16358,16 +15247,12 @@ class MicrosoftGraphWorkforceIntegration(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~teams.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param application: identity.
-    :type application: ~teams.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~teams.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~teams.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -16396,10 +15281,8 @@ class MicrosoftGraphWorkforceIntegration(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'api_version': {'key': 'apiVersion', 'type': 'int'},
         'display_name': {'key': 'displayName', 'type': 'str'},

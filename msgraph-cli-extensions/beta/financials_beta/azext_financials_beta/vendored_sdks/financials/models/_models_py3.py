@@ -2914,54 +2914,8 @@ class MicrosoftGraphCustomerPayment(MicrosoftGraphEntity):
     :type line_number: int
     :param posting_date:
     :type posting_date: ~datetime.date
-    :param id_customer_id: Read-only.
-    :type id_customer_id: str
-    :param address: postalAddressType.
-    :type address: ~financials.models.MicrosoftGraphPostalAddressType
-    :param blocked:
-    :type blocked: str
-    :param currency_code:
-    :type currency_code: str
-    :param currency_id:
-    :type currency_id: str
-    :param display_name:
-    :type display_name: str
-    :param email:
-    :type email: str
-    :param last_modified_date_time_customer_last_modified_date_time:
-    :type last_modified_date_time_customer_last_modified_date_time: ~datetime.datetime
-    :param number:
-    :type number: str
-    :param payment_method_id:
-    :type payment_method_id: str
-    :param payment_terms_id:
-    :type payment_terms_id: str
-    :param phone_number:
-    :type phone_number: str
-    :param shipment_method_id:
-    :type shipment_method_id: str
-    :param tax_area_display_name:
-    :type tax_area_display_name: str
-    :param tax_area_id:
-    :type tax_area_id: str
-    :param tax_liable:
-    :type tax_liable: bool
-    :param tax_registration_number:
-    :type tax_registration_number: str
-    :param type:
-    :type type: str
-    :param website:
-    :type website: str
-    :param currency: currency.
-    :type currency: ~financials.models.MicrosoftGraphCurrency
-    :param payment_method: paymentMethod.
-    :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
-    :param payment_term: paymentTerm.
-    :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
-    :param shipment_method: shipmentMethod.
-    :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
+    :param customer: customer.
+    :type customer: ~financials.models.MicrosoftGraphCustomer
     """
 
     _validation = {
@@ -2985,30 +2939,7 @@ class MicrosoftGraphCustomerPayment(MicrosoftGraphEntity):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'line_number': {'key': 'lineNumber', 'type': 'int'},
         'posting_date': {'key': 'postingDate', 'type': 'date'},
-        'id_customer_id': {'key': 'customer.id', 'type': 'str'},
-        'address': {'key': 'customer.address', 'type': 'MicrosoftGraphPostalAddressType'},
-        'blocked': {'key': 'customer.blocked', 'type': 'str'},
-        'currency_code': {'key': 'customer.currencyCode', 'type': 'str'},
-        'currency_id': {'key': 'customer.currencyId', 'type': 'str'},
-        'display_name': {'key': 'customer.displayName', 'type': 'str'},
-        'email': {'key': 'customer.email', 'type': 'str'},
-        'last_modified_date_time_customer_last_modified_date_time': {'key': 'customer.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number': {'key': 'customer.number', 'type': 'str'},
-        'payment_method_id': {'key': 'customer.paymentMethodId', 'type': 'str'},
-        'payment_terms_id': {'key': 'customer.paymentTermsId', 'type': 'str'},
-        'phone_number': {'key': 'customer.phoneNumber', 'type': 'str'},
-        'shipment_method_id': {'key': 'customer.shipmentMethodId', 'type': 'str'},
-        'tax_area_display_name': {'key': 'customer.taxAreaDisplayName', 'type': 'str'},
-        'tax_area_id': {'key': 'customer.taxAreaId', 'type': 'str'},
-        'tax_liable': {'key': 'customer.taxLiable', 'type': 'bool'},
-        'tax_registration_number': {'key': 'customer.taxRegistrationNumber', 'type': 'str'},
-        'type': {'key': 'customer.type', 'type': 'str'},
-        'website': {'key': 'customer.website', 'type': 'str'},
-        'currency': {'key': 'customer.currency', 'type': 'MicrosoftGraphCurrency'},
-        'payment_method': {'key': 'customer.paymentMethod', 'type': 'MicrosoftGraphPaymentMethod'},
-        'payment_term': {'key': 'customer.paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
-        'picture': {'key': 'customer.picture', 'type': '[MicrosoftGraphPicture]'},
-        'shipment_method': {'key': 'customer.shipmentMethod', 'type': 'MicrosoftGraphShipmentMethod'},
+        'customer': {'key': 'customer', 'type': 'MicrosoftGraphCustomer'},
     }
 
     def __init__(
@@ -3030,30 +2961,7 @@ class MicrosoftGraphCustomerPayment(MicrosoftGraphEntity):
         last_modified_date_time: Optional[datetime.datetime] = None,
         line_number: Optional[int] = None,
         posting_date: Optional[datetime.date] = None,
-        id_customer_id: Optional[str] = None,
-        address: Optional["MicrosoftGraphPostalAddressType"] = None,
-        blocked: Optional[str] = None,
-        currency_code: Optional[str] = None,
-        currency_id: Optional[str] = None,
-        display_name: Optional[str] = None,
-        email: Optional[str] = None,
-        last_modified_date_time_customer_last_modified_date_time: Optional[datetime.datetime] = None,
-        number: Optional[str] = None,
-        payment_method_id: Optional[str] = None,
-        payment_terms_id: Optional[str] = None,
-        phone_number: Optional[str] = None,
-        shipment_method_id: Optional[str] = None,
-        tax_area_display_name: Optional[str] = None,
-        tax_area_id: Optional[str] = None,
-        tax_liable: Optional[bool] = None,
-        tax_registration_number: Optional[str] = None,
-        type: Optional[str] = None,
-        website: Optional[str] = None,
-        currency: Optional["MicrosoftGraphCurrency"] = None,
-        payment_method: Optional["MicrosoftGraphPaymentMethod"] = None,
-        payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
-        shipment_method: Optional["MicrosoftGraphShipmentMethod"] = None,
+        customer: Optional["MicrosoftGraphCustomer"] = None,
         **kwargs
     ):
         super(MicrosoftGraphCustomerPayment, self).__init__(id=id, **kwargs)
@@ -3072,30 +2980,7 @@ class MicrosoftGraphCustomerPayment(MicrosoftGraphEntity):
         self.last_modified_date_time = last_modified_date_time
         self.line_number = line_number
         self.posting_date = posting_date
-        self.id_customer_id = id_customer_id
-        self.address = address
-        self.blocked = blocked
-        self.currency_code = currency_code
-        self.currency_id = currency_id
-        self.display_name = display_name
-        self.email = email
-        self.last_modified_date_time_customer_last_modified_date_time = last_modified_date_time_customer_last_modified_date_time
-        self.number = number
-        self.payment_method_id = payment_method_id
-        self.payment_terms_id = payment_terms_id
-        self.phone_number = phone_number
-        self.shipment_method_id = shipment_method_id
-        self.tax_area_display_name = tax_area_display_name
-        self.tax_area_id = tax_area_id
-        self.tax_liable = tax_liable
-        self.tax_registration_number = tax_registration_number
-        self.type = type
-        self.website = website
-        self.currency = currency
-        self.payment_method = payment_method
-        self.payment_term = payment_term
-        self.picture = picture
-        self.shipment_method = shipment_method
+        self.customer = customer
 
 
 class MicrosoftGraphCustomerPaymentJournal(MicrosoftGraphEntity):
@@ -4032,46 +3917,8 @@ class MicrosoftGraphPurchaseInvoice(MicrosoftGraphEntity):
     :type currency: ~financials.models.MicrosoftGraphCurrency
     :param purchase_invoice_lines:
     :type purchase_invoice_lines: list[~financials.models.MicrosoftGraphPurchaseInvoiceLine]
-    :param id_vendor_id: Read-only.
-    :type id_vendor_id: str
-    :param address: postalAddressType.
-    :type address: ~financials.models.MicrosoftGraphPostalAddressType
-    :param balance:
-    :type balance: float
-    :param blocked:
-    :type blocked: str
-    :param currency_code_vendor_currency_code:
-    :type currency_code_vendor_currency_code: str
-    :param currency_id_vendor_currency_id:
-    :type currency_id_vendor_currency_id: str
-    :param display_name:
-    :type display_name: str
-    :param email:
-    :type email: str
-    :param last_modified_date_time_vendor_last_modified_date_time:
-    :type last_modified_date_time_vendor_last_modified_date_time: ~datetime.datetime
-    :param number_vendor_number:
-    :type number_vendor_number: str
-    :param payment_method_id:
-    :type payment_method_id: str
-    :param payment_terms_id:
-    :type payment_terms_id: str
-    :param phone_number:
-    :type phone_number: str
-    :param tax_liable:
-    :type tax_liable: bool
-    :param tax_registration_number:
-    :type tax_registration_number: str
-    :param website:
-    :type website: str
-    :param currency_vendor_currency: currency.
-    :type currency_vendor_currency: ~financials.models.MicrosoftGraphCurrency
-    :param payment_method: paymentMethod.
-    :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
-    :param payment_term: paymentTerm.
-    :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
+    :param vendor: vendor.
+    :type vendor: ~financials.models.MicrosoftGraphVendor
     """
 
     _attribute_map = {
@@ -4105,26 +3952,7 @@ class MicrosoftGraphPurchaseInvoice(MicrosoftGraphEntity):
         'vendor_number': {'key': 'vendorNumber', 'type': 'str'},
         'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
         'purchase_invoice_lines': {'key': 'purchaseInvoiceLines', 'type': '[MicrosoftGraphPurchaseInvoiceLine]'},
-        'id_vendor_id': {'key': 'vendor.id', 'type': 'str'},
-        'address': {'key': 'vendor.address', 'type': 'MicrosoftGraphPostalAddressType'},
-        'balance': {'key': 'vendor.balance', 'type': 'float'},
-        'blocked': {'key': 'vendor.blocked', 'type': 'str'},
-        'currency_code_vendor_currency_code': {'key': 'vendor.currencyCode', 'type': 'str'},
-        'currency_id_vendor_currency_id': {'key': 'vendor.currencyId', 'type': 'str'},
-        'display_name': {'key': 'vendor.displayName', 'type': 'str'},
-        'email': {'key': 'vendor.email', 'type': 'str'},
-        'last_modified_date_time_vendor_last_modified_date_time': {'key': 'vendor.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number_vendor_number': {'key': 'vendor.number', 'type': 'str'},
-        'payment_method_id': {'key': 'vendor.paymentMethodId', 'type': 'str'},
-        'payment_terms_id': {'key': 'vendor.paymentTermsId', 'type': 'str'},
-        'phone_number': {'key': 'vendor.phoneNumber', 'type': 'str'},
-        'tax_liable': {'key': 'vendor.taxLiable', 'type': 'bool'},
-        'tax_registration_number': {'key': 'vendor.taxRegistrationNumber', 'type': 'str'},
-        'website': {'key': 'vendor.website', 'type': 'str'},
-        'currency_vendor_currency': {'key': 'vendor.currency', 'type': 'MicrosoftGraphCurrency'},
-        'payment_method': {'key': 'vendor.paymentMethod', 'type': 'MicrosoftGraphPaymentMethod'},
-        'payment_term': {'key': 'vendor.paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
-        'picture': {'key': 'vendor.picture', 'type': '[MicrosoftGraphPicture]'},
+        'vendor': {'key': 'vendor', 'type': 'MicrosoftGraphVendor'},
     }
 
     def __init__(
@@ -4160,26 +3988,7 @@ class MicrosoftGraphPurchaseInvoice(MicrosoftGraphEntity):
         vendor_number: Optional[str] = None,
         currency: Optional["MicrosoftGraphCurrency"] = None,
         purchase_invoice_lines: Optional[List["MicrosoftGraphPurchaseInvoiceLine"]] = None,
-        id_vendor_id: Optional[str] = None,
-        address: Optional["MicrosoftGraphPostalAddressType"] = None,
-        balance: Optional[float] = None,
-        blocked: Optional[str] = None,
-        currency_code_vendor_currency_code: Optional[str] = None,
-        currency_id_vendor_currency_id: Optional[str] = None,
-        display_name: Optional[str] = None,
-        email: Optional[str] = None,
-        last_modified_date_time_vendor_last_modified_date_time: Optional[datetime.datetime] = None,
-        number_vendor_number: Optional[str] = None,
-        payment_method_id: Optional[str] = None,
-        payment_terms_id: Optional[str] = None,
-        phone_number: Optional[str] = None,
-        tax_liable: Optional[bool] = None,
-        tax_registration_number: Optional[str] = None,
-        website: Optional[str] = None,
-        currency_vendor_currency: Optional["MicrosoftGraphCurrency"] = None,
-        payment_method: Optional["MicrosoftGraphPaymentMethod"] = None,
-        payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
+        vendor: Optional["MicrosoftGraphVendor"] = None,
         **kwargs
     ):
         super(MicrosoftGraphPurchaseInvoice, self).__init__(id=id, **kwargs)
@@ -4212,26 +4021,7 @@ class MicrosoftGraphPurchaseInvoice(MicrosoftGraphEntity):
         self.vendor_number = vendor_number
         self.currency = currency
         self.purchase_invoice_lines = purchase_invoice_lines
-        self.id_vendor_id = id_vendor_id
-        self.address = address
-        self.balance = balance
-        self.blocked = blocked
-        self.currency_code_vendor_currency_code = currency_code_vendor_currency_code
-        self.currency_id_vendor_currency_id = currency_id_vendor_currency_id
-        self.display_name = display_name
-        self.email = email
-        self.last_modified_date_time_vendor_last_modified_date_time = last_modified_date_time_vendor_last_modified_date_time
-        self.number_vendor_number = number_vendor_number
-        self.payment_method_id = payment_method_id
-        self.payment_terms_id = payment_terms_id
-        self.phone_number = phone_number
-        self.tax_liable = tax_liable
-        self.tax_registration_number = tax_registration_number
-        self.website = website
-        self.currency_vendor_currency = currency_vendor_currency
-        self.payment_method = payment_method
-        self.payment_term = payment_term
-        self.picture = picture
+        self.vendor = vendor
 
 
 class MicrosoftGraphPurchaseInvoiceLine(MicrosoftGraphEntity):
@@ -4286,42 +4076,8 @@ class MicrosoftGraphPurchaseInvoiceLine(MicrosoftGraphEntity):
     :type unit_cost: float
     :param account: account.
     :type account: ~financials.models.MicrosoftGraphAccount
-    :param id_item_id: Read-only.
-    :type id_item_id: str
-    :param base_unit_of_measure_id:
-    :type base_unit_of_measure_id: str
-    :param blocked:
-    :type blocked: bool
-    :param display_name:
-    :type display_name: str
-    :param gtin:
-    :type gtin: str
-    :param inventory:
-    :type inventory: float
-    :param item_category_code:
-    :type item_category_code: str
-    :param item_category_id:
-    :type item_category_id: str
-    :param last_modified_date_time:
-    :type last_modified_date_time: ~datetime.datetime
-    :param number:
-    :type number: str
-    :param price_includes_tax:
-    :type price_includes_tax: bool
-    :param tax_group_code:
-    :type tax_group_code: str
-    :param tax_group_id:
-    :type tax_group_id: str
-    :param type:
-    :type type: str
-    :param unit_cost_item_unit_cost:
-    :type unit_cost_item_unit_cost: float
-    :param unit_price:
-    :type unit_price: float
-    :param item_category: itemCategory.
-    :type item_category: ~financials.models.MicrosoftGraphItemCategory
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
+    :param item: item.
+    :type item: ~financials.models.MicrosoftGraphItem
     """
 
     _validation = {
@@ -4353,24 +4109,7 @@ class MicrosoftGraphPurchaseInvoiceLine(MicrosoftGraphEntity):
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'unit_cost': {'key': 'unitCost', 'type': 'float'},
         'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
-        'id_item_id': {'key': 'item.id', 'type': 'str'},
-        'base_unit_of_measure_id': {'key': 'item.baseUnitOfMeasureId', 'type': 'str'},
-        'blocked': {'key': 'item.blocked', 'type': 'bool'},
-        'display_name': {'key': 'item.displayName', 'type': 'str'},
-        'gtin': {'key': 'item.gtin', 'type': 'str'},
-        'inventory': {'key': 'item.inventory', 'type': 'float'},
-        'item_category_code': {'key': 'item.itemCategoryCode', 'type': 'str'},
-        'item_category_id': {'key': 'item.itemCategoryId', 'type': 'str'},
-        'last_modified_date_time': {'key': 'item.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number': {'key': 'item.number', 'type': 'str'},
-        'price_includes_tax': {'key': 'item.priceIncludesTax', 'type': 'bool'},
-        'tax_group_code': {'key': 'item.taxGroupCode', 'type': 'str'},
-        'tax_group_id': {'key': 'item.taxGroupId', 'type': 'str'},
-        'type': {'key': 'item.type', 'type': 'str'},
-        'unit_cost_item_unit_cost': {'key': 'item.unitCost', 'type': 'float'},
-        'unit_price': {'key': 'item.unitPrice', 'type': 'float'},
-        'item_category': {'key': 'item.itemCategory', 'type': 'MicrosoftGraphItemCategory'},
-        'picture': {'key': 'item.picture', 'type': '[MicrosoftGraphPicture]'},
+        'item': {'key': 'item', 'type': 'MicrosoftGraphItem'},
     }
 
     def __init__(
@@ -4400,24 +4139,7 @@ class MicrosoftGraphPurchaseInvoiceLine(MicrosoftGraphEntity):
         total_tax_amount: Optional[float] = None,
         unit_cost: Optional[float] = None,
         account: Optional["MicrosoftGraphAccount"] = None,
-        id_item_id: Optional[str] = None,
-        base_unit_of_measure_id: Optional[str] = None,
-        blocked: Optional[bool] = None,
-        display_name: Optional[str] = None,
-        gtin: Optional[str] = None,
-        inventory: Optional[float] = None,
-        item_category_code: Optional[str] = None,
-        item_category_id: Optional[str] = None,
-        last_modified_date_time: Optional[datetime.datetime] = None,
-        number: Optional[str] = None,
-        price_includes_tax: Optional[bool] = None,
-        tax_group_code: Optional[str] = None,
-        tax_group_id: Optional[str] = None,
-        type: Optional[str] = None,
-        unit_cost_item_unit_cost: Optional[float] = None,
-        unit_price: Optional[float] = None,
-        item_category: Optional["MicrosoftGraphItemCategory"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
+        item: Optional["MicrosoftGraphItem"] = None,
         **kwargs
     ):
         super(MicrosoftGraphPurchaseInvoiceLine, self).__init__(id=id, **kwargs)
@@ -4444,24 +4166,7 @@ class MicrosoftGraphPurchaseInvoiceLine(MicrosoftGraphEntity):
         self.total_tax_amount = total_tax_amount
         self.unit_cost = unit_cost
         self.account = account
-        self.id_item_id = id_item_id
-        self.base_unit_of_measure_id = base_unit_of_measure_id
-        self.blocked = blocked
-        self.display_name = display_name
-        self.gtin = gtin
-        self.inventory = inventory
-        self.item_category_code = item_category_code
-        self.item_category_id = item_category_id
-        self.last_modified_date_time = last_modified_date_time
-        self.number = number
-        self.price_includes_tax = price_includes_tax
-        self.tax_group_code = tax_group_code
-        self.tax_group_id = tax_group_id
-        self.type = type
-        self.unit_cost_item_unit_cost = unit_cost_item_unit_cost
-        self.unit_price = unit_price
-        self.item_category = item_category
-        self.picture = picture
+        self.item = item
 
 
 class MicrosoftGraphSalesCreditMemo(MicrosoftGraphEntity):
@@ -4530,58 +4235,12 @@ class MicrosoftGraphSalesCreditMemo(MicrosoftGraphEntity):
     :type total_tax_amount: float
     :param currency: currency.
     :type currency: ~financials.models.MicrosoftGraphCurrency
+    :param customer: customer.
+    :type customer: ~financials.models.MicrosoftGraphCustomer
     :param payment_term: paymentTerm.
     :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
     :param sales_credit_memo_lines:
     :type sales_credit_memo_lines: list[~financials.models.MicrosoftGraphSalesCreditMemoLine]
-    :param id_customer_id: Read-only.
-    :type id_customer_id: str
-    :param address: postalAddressType.
-    :type address: ~financials.models.MicrosoftGraphPostalAddressType
-    :param blocked:
-    :type blocked: str
-    :param currency_code_customer_currency_code:
-    :type currency_code_customer_currency_code: str
-    :param currency_id_customer_currency_id:
-    :type currency_id_customer_currency_id: str
-    :param display_name:
-    :type display_name: str
-    :param email_customer_email:
-    :type email_customer_email: str
-    :param last_modified_date_time_customer_last_modified_date_time:
-    :type last_modified_date_time_customer_last_modified_date_time: ~datetime.datetime
-    :param number_customer_number:
-    :type number_customer_number: str
-    :param payment_method_id:
-    :type payment_method_id: str
-    :param payment_terms_id_customer_payment_terms_id:
-    :type payment_terms_id_customer_payment_terms_id: str
-    :param phone_number_customer_phone_number:
-    :type phone_number_customer_phone_number: str
-    :param shipment_method_id:
-    :type shipment_method_id: str
-    :param tax_area_display_name:
-    :type tax_area_display_name: str
-    :param tax_area_id:
-    :type tax_area_id: str
-    :param tax_liable:
-    :type tax_liable: bool
-    :param tax_registration_number:
-    :type tax_registration_number: str
-    :param type:
-    :type type: str
-    :param website:
-    :type website: str
-    :param currency_customer_currency: currency.
-    :type currency_customer_currency: ~financials.models.MicrosoftGraphCurrency
-    :param payment_method: paymentMethod.
-    :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
-    :param payment_term_customer_payment_term: paymentTerm.
-    :type payment_term_customer_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
-    :param shipment_method: shipmentMethod.
-    :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
     """
 
     _attribute_map = {
@@ -4616,32 +4275,9 @@ class MicrosoftGraphSalesCreditMemo(MicrosoftGraphEntity):
         'total_amount_including_tax': {'key': 'totalAmountIncludingTax', 'type': 'float'},
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'customer': {'key': 'customer', 'type': 'MicrosoftGraphCustomer'},
         'payment_term': {'key': 'paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
         'sales_credit_memo_lines': {'key': 'salesCreditMemoLines', 'type': '[MicrosoftGraphSalesCreditMemoLine]'},
-        'id_customer_id': {'key': 'customer.id', 'type': 'str'},
-        'address': {'key': 'customer.address', 'type': 'MicrosoftGraphPostalAddressType'},
-        'blocked': {'key': 'customer.blocked', 'type': 'str'},
-        'currency_code_customer_currency_code': {'key': 'customer.currencyCode', 'type': 'str'},
-        'currency_id_customer_currency_id': {'key': 'customer.currencyId', 'type': 'str'},
-        'display_name': {'key': 'customer.displayName', 'type': 'str'},
-        'email_customer_email': {'key': 'customer.email', 'type': 'str'},
-        'last_modified_date_time_customer_last_modified_date_time': {'key': 'customer.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number_customer_number': {'key': 'customer.number', 'type': 'str'},
-        'payment_method_id': {'key': 'customer.paymentMethodId', 'type': 'str'},
-        'payment_terms_id_customer_payment_terms_id': {'key': 'customer.paymentTermsId', 'type': 'str'},
-        'phone_number_customer_phone_number': {'key': 'customer.phoneNumber', 'type': 'str'},
-        'shipment_method_id': {'key': 'customer.shipmentMethodId', 'type': 'str'},
-        'tax_area_display_name': {'key': 'customer.taxAreaDisplayName', 'type': 'str'},
-        'tax_area_id': {'key': 'customer.taxAreaId', 'type': 'str'},
-        'tax_liable': {'key': 'customer.taxLiable', 'type': 'bool'},
-        'tax_registration_number': {'key': 'customer.taxRegistrationNumber', 'type': 'str'},
-        'type': {'key': 'customer.type', 'type': 'str'},
-        'website': {'key': 'customer.website', 'type': 'str'},
-        'currency_customer_currency': {'key': 'customer.currency', 'type': 'MicrosoftGraphCurrency'},
-        'payment_method': {'key': 'customer.paymentMethod', 'type': 'MicrosoftGraphPaymentMethod'},
-        'payment_term_customer_payment_term': {'key': 'customer.paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
-        'picture': {'key': 'customer.picture', 'type': '[MicrosoftGraphPicture]'},
-        'shipment_method': {'key': 'customer.shipmentMethod', 'type': 'MicrosoftGraphShipmentMethod'},
     }
 
     def __init__(
@@ -4678,32 +4314,9 @@ class MicrosoftGraphSalesCreditMemo(MicrosoftGraphEntity):
         total_amount_including_tax: Optional[float] = None,
         total_tax_amount: Optional[float] = None,
         currency: Optional["MicrosoftGraphCurrency"] = None,
+        customer: Optional["MicrosoftGraphCustomer"] = None,
         payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
         sales_credit_memo_lines: Optional[List["MicrosoftGraphSalesCreditMemoLine"]] = None,
-        id_customer_id: Optional[str] = None,
-        address: Optional["MicrosoftGraphPostalAddressType"] = None,
-        blocked: Optional[str] = None,
-        currency_code_customer_currency_code: Optional[str] = None,
-        currency_id_customer_currency_id: Optional[str] = None,
-        display_name: Optional[str] = None,
-        email_customer_email: Optional[str] = None,
-        last_modified_date_time_customer_last_modified_date_time: Optional[datetime.datetime] = None,
-        number_customer_number: Optional[str] = None,
-        payment_method_id: Optional[str] = None,
-        payment_terms_id_customer_payment_terms_id: Optional[str] = None,
-        phone_number_customer_phone_number: Optional[str] = None,
-        shipment_method_id: Optional[str] = None,
-        tax_area_display_name: Optional[str] = None,
-        tax_area_id: Optional[str] = None,
-        tax_liable: Optional[bool] = None,
-        tax_registration_number: Optional[str] = None,
-        type: Optional[str] = None,
-        website: Optional[str] = None,
-        currency_customer_currency: Optional["MicrosoftGraphCurrency"] = None,
-        payment_method: Optional["MicrosoftGraphPaymentMethod"] = None,
-        payment_term_customer_payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
-        shipment_method: Optional["MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ):
         super(MicrosoftGraphSalesCreditMemo, self).__init__(id=id, **kwargs)
@@ -4737,32 +4350,9 @@ class MicrosoftGraphSalesCreditMemo(MicrosoftGraphEntity):
         self.total_amount_including_tax = total_amount_including_tax
         self.total_tax_amount = total_tax_amount
         self.currency = currency
+        self.customer = customer
         self.payment_term = payment_term
         self.sales_credit_memo_lines = sales_credit_memo_lines
-        self.id_customer_id = id_customer_id
-        self.address = address
-        self.blocked = blocked
-        self.currency_code_customer_currency_code = currency_code_customer_currency_code
-        self.currency_id_customer_currency_id = currency_id_customer_currency_id
-        self.display_name = display_name
-        self.email_customer_email = email_customer_email
-        self.last_modified_date_time_customer_last_modified_date_time = last_modified_date_time_customer_last_modified_date_time
-        self.number_customer_number = number_customer_number
-        self.payment_method_id = payment_method_id
-        self.payment_terms_id_customer_payment_terms_id = payment_terms_id_customer_payment_terms_id
-        self.phone_number_customer_phone_number = phone_number_customer_phone_number
-        self.shipment_method_id = shipment_method_id
-        self.tax_area_display_name = tax_area_display_name
-        self.tax_area_id = tax_area_id
-        self.tax_liable = tax_liable
-        self.tax_registration_number = tax_registration_number
-        self.type = type
-        self.website = website
-        self.currency_customer_currency = currency_customer_currency
-        self.payment_method = payment_method
-        self.payment_term_customer_payment_term = payment_term_customer_payment_term
-        self.picture = picture
-        self.shipment_method = shipment_method
 
 
 class MicrosoftGraphSalesCreditMemoLine(MicrosoftGraphEntity):
@@ -4819,42 +4409,8 @@ class MicrosoftGraphSalesCreditMemoLine(MicrosoftGraphEntity):
     :type unit_price: float
     :param account: account.
     :type account: ~financials.models.MicrosoftGraphAccount
-    :param id_item_id: Read-only.
-    :type id_item_id: str
-    :param base_unit_of_measure_id:
-    :type base_unit_of_measure_id: str
-    :param blocked:
-    :type blocked: bool
-    :param display_name:
-    :type display_name: str
-    :param gtin:
-    :type gtin: str
-    :param inventory:
-    :type inventory: float
-    :param item_category_code:
-    :type item_category_code: str
-    :param item_category_id:
-    :type item_category_id: str
-    :param last_modified_date_time:
-    :type last_modified_date_time: ~datetime.datetime
-    :param number:
-    :type number: str
-    :param price_includes_tax:
-    :type price_includes_tax: bool
-    :param tax_group_code:
-    :type tax_group_code: str
-    :param tax_group_id:
-    :type tax_group_id: str
-    :param type:
-    :type type: str
-    :param unit_cost:
-    :type unit_cost: float
-    :param unit_price_item_unit_price:
-    :type unit_price_item_unit_price: float
-    :param item_category: itemCategory.
-    :type item_category: ~financials.models.MicrosoftGraphItemCategory
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
+    :param item: item.
+    :type item: ~financials.models.MicrosoftGraphItem
     """
 
     _validation = {
@@ -4887,24 +4443,7 @@ class MicrosoftGraphSalesCreditMemoLine(MicrosoftGraphEntity):
         'unit_of_measure_id': {'key': 'unitOfMeasureId', 'type': 'str'},
         'unit_price': {'key': 'unitPrice', 'type': 'float'},
         'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
-        'id_item_id': {'key': 'item.id', 'type': 'str'},
-        'base_unit_of_measure_id': {'key': 'item.baseUnitOfMeasureId', 'type': 'str'},
-        'blocked': {'key': 'item.blocked', 'type': 'bool'},
-        'display_name': {'key': 'item.displayName', 'type': 'str'},
-        'gtin': {'key': 'item.gtin', 'type': 'str'},
-        'inventory': {'key': 'item.inventory', 'type': 'float'},
-        'item_category_code': {'key': 'item.itemCategoryCode', 'type': 'str'},
-        'item_category_id': {'key': 'item.itemCategoryId', 'type': 'str'},
-        'last_modified_date_time': {'key': 'item.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number': {'key': 'item.number', 'type': 'str'},
-        'price_includes_tax': {'key': 'item.priceIncludesTax', 'type': 'bool'},
-        'tax_group_code': {'key': 'item.taxGroupCode', 'type': 'str'},
-        'tax_group_id': {'key': 'item.taxGroupId', 'type': 'str'},
-        'type': {'key': 'item.type', 'type': 'str'},
-        'unit_cost': {'key': 'item.unitCost', 'type': 'float'},
-        'unit_price_item_unit_price': {'key': 'item.unitPrice', 'type': 'float'},
-        'item_category': {'key': 'item.itemCategory', 'type': 'MicrosoftGraphItemCategory'},
-        'picture': {'key': 'item.picture', 'type': '[MicrosoftGraphPicture]'},
+        'item': {'key': 'item', 'type': 'MicrosoftGraphItem'},
     }
 
     def __init__(
@@ -4935,24 +4474,7 @@ class MicrosoftGraphSalesCreditMemoLine(MicrosoftGraphEntity):
         unit_of_measure_id: Optional[str] = None,
         unit_price: Optional[float] = None,
         account: Optional["MicrosoftGraphAccount"] = None,
-        id_item_id: Optional[str] = None,
-        base_unit_of_measure_id: Optional[str] = None,
-        blocked: Optional[bool] = None,
-        display_name: Optional[str] = None,
-        gtin: Optional[str] = None,
-        inventory: Optional[float] = None,
-        item_category_code: Optional[str] = None,
-        item_category_id: Optional[str] = None,
-        last_modified_date_time: Optional[datetime.datetime] = None,
-        number: Optional[str] = None,
-        price_includes_tax: Optional[bool] = None,
-        tax_group_code: Optional[str] = None,
-        tax_group_id: Optional[str] = None,
-        type: Optional[str] = None,
-        unit_cost: Optional[float] = None,
-        unit_price_item_unit_price: Optional[float] = None,
-        item_category: Optional["MicrosoftGraphItemCategory"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
+        item: Optional["MicrosoftGraphItem"] = None,
         **kwargs
     ):
         super(MicrosoftGraphSalesCreditMemoLine, self).__init__(id=id, **kwargs)
@@ -4980,24 +4502,7 @@ class MicrosoftGraphSalesCreditMemoLine(MicrosoftGraphEntity):
         self.unit_of_measure_id = unit_of_measure_id
         self.unit_price = unit_price
         self.account = account
-        self.id_item_id = id_item_id
-        self.base_unit_of_measure_id = base_unit_of_measure_id
-        self.blocked = blocked
-        self.display_name = display_name
-        self.gtin = gtin
-        self.inventory = inventory
-        self.item_category_code = item_category_code
-        self.item_category_id = item_category_id
-        self.last_modified_date_time = last_modified_date_time
-        self.number = number
-        self.price_includes_tax = price_includes_tax
-        self.tax_group_code = tax_group_code
-        self.tax_group_id = tax_group_id
-        self.type = type
-        self.unit_cost = unit_cost
-        self.unit_price_item_unit_price = unit_price_item_unit_price
-        self.item_category = item_category
-        self.picture = picture
+        self.item = item
 
 
 class MicrosoftGraphSalesInvoice(MicrosoftGraphEntity):
@@ -5076,60 +4581,14 @@ class MicrosoftGraphSalesInvoice(MicrosoftGraphEntity):
     :type total_tax_amount: float
     :param currency: currency.
     :type currency: ~financials.models.MicrosoftGraphCurrency
+    :param customer: customer.
+    :type customer: ~financials.models.MicrosoftGraphCustomer
     :param payment_term: paymentTerm.
     :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
     :param sales_invoice_lines:
     :type sales_invoice_lines: list[~financials.models.MicrosoftGraphSalesInvoiceLine]
     :param shipment_method: shipmentMethod.
     :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
-    :param id_customer_id: Read-only.
-    :type id_customer_id: str
-    :param address: postalAddressType.
-    :type address: ~financials.models.MicrosoftGraphPostalAddressType
-    :param blocked:
-    :type blocked: str
-    :param currency_code_customer_currency_code:
-    :type currency_code_customer_currency_code: str
-    :param currency_id_customer_currency_id:
-    :type currency_id_customer_currency_id: str
-    :param display_name:
-    :type display_name: str
-    :param email_customer_email:
-    :type email_customer_email: str
-    :param last_modified_date_time_customer_last_modified_date_time:
-    :type last_modified_date_time_customer_last_modified_date_time: ~datetime.datetime
-    :param number_customer_number:
-    :type number_customer_number: str
-    :param payment_method_id:
-    :type payment_method_id: str
-    :param payment_terms_id_customer_payment_terms_id:
-    :type payment_terms_id_customer_payment_terms_id: str
-    :param phone_number_customer_phone_number:
-    :type phone_number_customer_phone_number: str
-    :param shipment_method_id_customer_shipment_method_id:
-    :type shipment_method_id_customer_shipment_method_id: str
-    :param tax_area_display_name:
-    :type tax_area_display_name: str
-    :param tax_area_id:
-    :type tax_area_id: str
-    :param tax_liable:
-    :type tax_liable: bool
-    :param tax_registration_number:
-    :type tax_registration_number: str
-    :param type:
-    :type type: str
-    :param website:
-    :type website: str
-    :param currency_customer_currency: currency.
-    :type currency_customer_currency: ~financials.models.MicrosoftGraphCurrency
-    :param payment_method: paymentMethod.
-    :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
-    :param payment_term_customer_payment_term: paymentTerm.
-    :type payment_term_customer_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
-    :param shipment_method_customer_shipment_method: shipmentMethod.
-    :type shipment_method_customer_shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
     """
 
     _attribute_map = {
@@ -5169,33 +4628,10 @@ class MicrosoftGraphSalesInvoice(MicrosoftGraphEntity):
         'total_amount_including_tax': {'key': 'totalAmountIncludingTax', 'type': 'float'},
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'customer': {'key': 'customer', 'type': 'MicrosoftGraphCustomer'},
         'payment_term': {'key': 'paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
         'sales_invoice_lines': {'key': 'salesInvoiceLines', 'type': '[MicrosoftGraphSalesInvoiceLine]'},
         'shipment_method': {'key': 'shipmentMethod', 'type': 'MicrosoftGraphShipmentMethod'},
-        'id_customer_id': {'key': 'customer.id', 'type': 'str'},
-        'address': {'key': 'customer.address', 'type': 'MicrosoftGraphPostalAddressType'},
-        'blocked': {'key': 'customer.blocked', 'type': 'str'},
-        'currency_code_customer_currency_code': {'key': 'customer.currencyCode', 'type': 'str'},
-        'currency_id_customer_currency_id': {'key': 'customer.currencyId', 'type': 'str'},
-        'display_name': {'key': 'customer.displayName', 'type': 'str'},
-        'email_customer_email': {'key': 'customer.email', 'type': 'str'},
-        'last_modified_date_time_customer_last_modified_date_time': {'key': 'customer.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number_customer_number': {'key': 'customer.number', 'type': 'str'},
-        'payment_method_id': {'key': 'customer.paymentMethodId', 'type': 'str'},
-        'payment_terms_id_customer_payment_terms_id': {'key': 'customer.paymentTermsId', 'type': 'str'},
-        'phone_number_customer_phone_number': {'key': 'customer.phoneNumber', 'type': 'str'},
-        'shipment_method_id_customer_shipment_method_id': {'key': 'customer.shipmentMethodId', 'type': 'str'},
-        'tax_area_display_name': {'key': 'customer.taxAreaDisplayName', 'type': 'str'},
-        'tax_area_id': {'key': 'customer.taxAreaId', 'type': 'str'},
-        'tax_liable': {'key': 'customer.taxLiable', 'type': 'bool'},
-        'tax_registration_number': {'key': 'customer.taxRegistrationNumber', 'type': 'str'},
-        'type': {'key': 'customer.type', 'type': 'str'},
-        'website': {'key': 'customer.website', 'type': 'str'},
-        'currency_customer_currency': {'key': 'customer.currency', 'type': 'MicrosoftGraphCurrency'},
-        'payment_method': {'key': 'customer.paymentMethod', 'type': 'MicrosoftGraphPaymentMethod'},
-        'payment_term_customer_payment_term': {'key': 'customer.paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
-        'picture': {'key': 'customer.picture', 'type': '[MicrosoftGraphPicture]'},
-        'shipment_method_customer_shipment_method': {'key': 'customer.shipmentMethod', 'type': 'MicrosoftGraphShipmentMethod'},
     }
 
     def __init__(
@@ -5237,33 +4673,10 @@ class MicrosoftGraphSalesInvoice(MicrosoftGraphEntity):
         total_amount_including_tax: Optional[float] = None,
         total_tax_amount: Optional[float] = None,
         currency: Optional["MicrosoftGraphCurrency"] = None,
+        customer: Optional["MicrosoftGraphCustomer"] = None,
         payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
         sales_invoice_lines: Optional[List["MicrosoftGraphSalesInvoiceLine"]] = None,
         shipment_method: Optional["MicrosoftGraphShipmentMethod"] = None,
-        id_customer_id: Optional[str] = None,
-        address: Optional["MicrosoftGraphPostalAddressType"] = None,
-        blocked: Optional[str] = None,
-        currency_code_customer_currency_code: Optional[str] = None,
-        currency_id_customer_currency_id: Optional[str] = None,
-        display_name: Optional[str] = None,
-        email_customer_email: Optional[str] = None,
-        last_modified_date_time_customer_last_modified_date_time: Optional[datetime.datetime] = None,
-        number_customer_number: Optional[str] = None,
-        payment_method_id: Optional[str] = None,
-        payment_terms_id_customer_payment_terms_id: Optional[str] = None,
-        phone_number_customer_phone_number: Optional[str] = None,
-        shipment_method_id_customer_shipment_method_id: Optional[str] = None,
-        tax_area_display_name: Optional[str] = None,
-        tax_area_id: Optional[str] = None,
-        tax_liable: Optional[bool] = None,
-        tax_registration_number: Optional[str] = None,
-        type: Optional[str] = None,
-        website: Optional[str] = None,
-        currency_customer_currency: Optional["MicrosoftGraphCurrency"] = None,
-        payment_method: Optional["MicrosoftGraphPaymentMethod"] = None,
-        payment_term_customer_payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
-        shipment_method_customer_shipment_method: Optional["MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ):
         super(MicrosoftGraphSalesInvoice, self).__init__(id=id, **kwargs)
@@ -5302,33 +4715,10 @@ class MicrosoftGraphSalesInvoice(MicrosoftGraphEntity):
         self.total_amount_including_tax = total_amount_including_tax
         self.total_tax_amount = total_tax_amount
         self.currency = currency
+        self.customer = customer
         self.payment_term = payment_term
         self.sales_invoice_lines = sales_invoice_lines
         self.shipment_method = shipment_method
-        self.id_customer_id = id_customer_id
-        self.address = address
-        self.blocked = blocked
-        self.currency_code_customer_currency_code = currency_code_customer_currency_code
-        self.currency_id_customer_currency_id = currency_id_customer_currency_id
-        self.display_name = display_name
-        self.email_customer_email = email_customer_email
-        self.last_modified_date_time_customer_last_modified_date_time = last_modified_date_time_customer_last_modified_date_time
-        self.number_customer_number = number_customer_number
-        self.payment_method_id = payment_method_id
-        self.payment_terms_id_customer_payment_terms_id = payment_terms_id_customer_payment_terms_id
-        self.phone_number_customer_phone_number = phone_number_customer_phone_number
-        self.shipment_method_id_customer_shipment_method_id = shipment_method_id_customer_shipment_method_id
-        self.tax_area_display_name = tax_area_display_name
-        self.tax_area_id = tax_area_id
-        self.tax_liable = tax_liable
-        self.tax_registration_number = tax_registration_number
-        self.type = type
-        self.website = website
-        self.currency_customer_currency = currency_customer_currency
-        self.payment_method = payment_method
-        self.payment_term_customer_payment_term = payment_term_customer_payment_term
-        self.picture = picture
-        self.shipment_method_customer_shipment_method = shipment_method_customer_shipment_method
 
 
 class MicrosoftGraphSalesInvoiceLine(MicrosoftGraphEntity):
@@ -5385,42 +4775,8 @@ class MicrosoftGraphSalesInvoiceLine(MicrosoftGraphEntity):
     :type unit_price: float
     :param account: account.
     :type account: ~financials.models.MicrosoftGraphAccount
-    :param id_item_id: Read-only.
-    :type id_item_id: str
-    :param base_unit_of_measure_id:
-    :type base_unit_of_measure_id: str
-    :param blocked:
-    :type blocked: bool
-    :param display_name:
-    :type display_name: str
-    :param gtin:
-    :type gtin: str
-    :param inventory:
-    :type inventory: float
-    :param item_category_code:
-    :type item_category_code: str
-    :param item_category_id:
-    :type item_category_id: str
-    :param last_modified_date_time:
-    :type last_modified_date_time: ~datetime.datetime
-    :param number:
-    :type number: str
-    :param price_includes_tax:
-    :type price_includes_tax: bool
-    :param tax_group_code:
-    :type tax_group_code: str
-    :param tax_group_id:
-    :type tax_group_id: str
-    :param type:
-    :type type: str
-    :param unit_cost:
-    :type unit_cost: float
-    :param unit_price_item_unit_price:
-    :type unit_price_item_unit_price: float
-    :param item_category: itemCategory.
-    :type item_category: ~financials.models.MicrosoftGraphItemCategory
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
+    :param item: item.
+    :type item: ~financials.models.MicrosoftGraphItem
     """
 
     _validation = {
@@ -5453,24 +4809,7 @@ class MicrosoftGraphSalesInvoiceLine(MicrosoftGraphEntity):
         'unit_of_measure_id': {'key': 'unitOfMeasureId', 'type': 'str'},
         'unit_price': {'key': 'unitPrice', 'type': 'float'},
         'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
-        'id_item_id': {'key': 'item.id', 'type': 'str'},
-        'base_unit_of_measure_id': {'key': 'item.baseUnitOfMeasureId', 'type': 'str'},
-        'blocked': {'key': 'item.blocked', 'type': 'bool'},
-        'display_name': {'key': 'item.displayName', 'type': 'str'},
-        'gtin': {'key': 'item.gtin', 'type': 'str'},
-        'inventory': {'key': 'item.inventory', 'type': 'float'},
-        'item_category_code': {'key': 'item.itemCategoryCode', 'type': 'str'},
-        'item_category_id': {'key': 'item.itemCategoryId', 'type': 'str'},
-        'last_modified_date_time': {'key': 'item.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number': {'key': 'item.number', 'type': 'str'},
-        'price_includes_tax': {'key': 'item.priceIncludesTax', 'type': 'bool'},
-        'tax_group_code': {'key': 'item.taxGroupCode', 'type': 'str'},
-        'tax_group_id': {'key': 'item.taxGroupId', 'type': 'str'},
-        'type': {'key': 'item.type', 'type': 'str'},
-        'unit_cost': {'key': 'item.unitCost', 'type': 'float'},
-        'unit_price_item_unit_price': {'key': 'item.unitPrice', 'type': 'float'},
-        'item_category': {'key': 'item.itemCategory', 'type': 'MicrosoftGraphItemCategory'},
-        'picture': {'key': 'item.picture', 'type': '[MicrosoftGraphPicture]'},
+        'item': {'key': 'item', 'type': 'MicrosoftGraphItem'},
     }
 
     def __init__(
@@ -5501,24 +4840,7 @@ class MicrosoftGraphSalesInvoiceLine(MicrosoftGraphEntity):
         unit_of_measure_id: Optional[str] = None,
         unit_price: Optional[float] = None,
         account: Optional["MicrosoftGraphAccount"] = None,
-        id_item_id: Optional[str] = None,
-        base_unit_of_measure_id: Optional[str] = None,
-        blocked: Optional[bool] = None,
-        display_name: Optional[str] = None,
-        gtin: Optional[str] = None,
-        inventory: Optional[float] = None,
-        item_category_code: Optional[str] = None,
-        item_category_id: Optional[str] = None,
-        last_modified_date_time: Optional[datetime.datetime] = None,
-        number: Optional[str] = None,
-        price_includes_tax: Optional[bool] = None,
-        tax_group_code: Optional[str] = None,
-        tax_group_id: Optional[str] = None,
-        type: Optional[str] = None,
-        unit_cost: Optional[float] = None,
-        unit_price_item_unit_price: Optional[float] = None,
-        item_category: Optional["MicrosoftGraphItemCategory"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
+        item: Optional["MicrosoftGraphItem"] = None,
         **kwargs
     ):
         super(MicrosoftGraphSalesInvoiceLine, self).__init__(id=id, **kwargs)
@@ -5546,24 +4868,7 @@ class MicrosoftGraphSalesInvoiceLine(MicrosoftGraphEntity):
         self.unit_of_measure_id = unit_of_measure_id
         self.unit_price = unit_price
         self.account = account
-        self.id_item_id = id_item_id
-        self.base_unit_of_measure_id = base_unit_of_measure_id
-        self.blocked = blocked
-        self.display_name = display_name
-        self.gtin = gtin
-        self.inventory = inventory
-        self.item_category_code = item_category_code
-        self.item_category_id = item_category_id
-        self.last_modified_date_time = last_modified_date_time
-        self.number = number
-        self.price_includes_tax = price_includes_tax
-        self.tax_group_code = tax_group_code
-        self.tax_group_id = tax_group_id
-        self.type = type
-        self.unit_cost = unit_cost
-        self.unit_price_item_unit_price = unit_price_item_unit_price
-        self.item_category = item_category
-        self.picture = picture
+        self.item = item
 
 
 class MicrosoftGraphSalesOrder(MicrosoftGraphEntity):
@@ -5638,58 +4943,12 @@ class MicrosoftGraphSalesOrder(MicrosoftGraphEntity):
     :type total_tax_amount: float
     :param currency: currency.
     :type currency: ~financials.models.MicrosoftGraphCurrency
+    :param customer: customer.
+    :type customer: ~financials.models.MicrosoftGraphCustomer
     :param payment_term: paymentTerm.
     :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
     :param sales_order_lines:
     :type sales_order_lines: list[~financials.models.MicrosoftGraphSalesOrderLine]
-    :param id_customer_id: Read-only.
-    :type id_customer_id: str
-    :param address: postalAddressType.
-    :type address: ~financials.models.MicrosoftGraphPostalAddressType
-    :param blocked:
-    :type blocked: str
-    :param currency_code_customer_currency_code:
-    :type currency_code_customer_currency_code: str
-    :param currency_id_customer_currency_id:
-    :type currency_id_customer_currency_id: str
-    :param display_name:
-    :type display_name: str
-    :param email_customer_email:
-    :type email_customer_email: str
-    :param last_modified_date_time_customer_last_modified_date_time:
-    :type last_modified_date_time_customer_last_modified_date_time: ~datetime.datetime
-    :param number_customer_number:
-    :type number_customer_number: str
-    :param payment_method_id:
-    :type payment_method_id: str
-    :param payment_terms_id_customer_payment_terms_id:
-    :type payment_terms_id_customer_payment_terms_id: str
-    :param phone_number_customer_phone_number:
-    :type phone_number_customer_phone_number: str
-    :param shipment_method_id:
-    :type shipment_method_id: str
-    :param tax_area_display_name:
-    :type tax_area_display_name: str
-    :param tax_area_id:
-    :type tax_area_id: str
-    :param tax_liable:
-    :type tax_liable: bool
-    :param tax_registration_number:
-    :type tax_registration_number: str
-    :param type:
-    :type type: str
-    :param website:
-    :type website: str
-    :param currency_customer_currency: currency.
-    :type currency_customer_currency: ~financials.models.MicrosoftGraphCurrency
-    :param payment_method: paymentMethod.
-    :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
-    :param payment_term_customer_payment_term: paymentTerm.
-    :type payment_term_customer_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
-    :param shipment_method: shipmentMethod.
-    :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
     """
 
     _attribute_map = {
@@ -5727,32 +4986,9 @@ class MicrosoftGraphSalesOrder(MicrosoftGraphEntity):
         'total_amount_including_tax': {'key': 'totalAmountIncludingTax', 'type': 'float'},
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'customer': {'key': 'customer', 'type': 'MicrosoftGraphCustomer'},
         'payment_term': {'key': 'paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
         'sales_order_lines': {'key': 'salesOrderLines', 'type': '[MicrosoftGraphSalesOrderLine]'},
-        'id_customer_id': {'key': 'customer.id', 'type': 'str'},
-        'address': {'key': 'customer.address', 'type': 'MicrosoftGraphPostalAddressType'},
-        'blocked': {'key': 'customer.blocked', 'type': 'str'},
-        'currency_code_customer_currency_code': {'key': 'customer.currencyCode', 'type': 'str'},
-        'currency_id_customer_currency_id': {'key': 'customer.currencyId', 'type': 'str'},
-        'display_name': {'key': 'customer.displayName', 'type': 'str'},
-        'email_customer_email': {'key': 'customer.email', 'type': 'str'},
-        'last_modified_date_time_customer_last_modified_date_time': {'key': 'customer.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number_customer_number': {'key': 'customer.number', 'type': 'str'},
-        'payment_method_id': {'key': 'customer.paymentMethodId', 'type': 'str'},
-        'payment_terms_id_customer_payment_terms_id': {'key': 'customer.paymentTermsId', 'type': 'str'},
-        'phone_number_customer_phone_number': {'key': 'customer.phoneNumber', 'type': 'str'},
-        'shipment_method_id': {'key': 'customer.shipmentMethodId', 'type': 'str'},
-        'tax_area_display_name': {'key': 'customer.taxAreaDisplayName', 'type': 'str'},
-        'tax_area_id': {'key': 'customer.taxAreaId', 'type': 'str'},
-        'tax_liable': {'key': 'customer.taxLiable', 'type': 'bool'},
-        'tax_registration_number': {'key': 'customer.taxRegistrationNumber', 'type': 'str'},
-        'type': {'key': 'customer.type', 'type': 'str'},
-        'website': {'key': 'customer.website', 'type': 'str'},
-        'currency_customer_currency': {'key': 'customer.currency', 'type': 'MicrosoftGraphCurrency'},
-        'payment_method': {'key': 'customer.paymentMethod', 'type': 'MicrosoftGraphPaymentMethod'},
-        'payment_term_customer_payment_term': {'key': 'customer.paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
-        'picture': {'key': 'customer.picture', 'type': '[MicrosoftGraphPicture]'},
-        'shipment_method': {'key': 'customer.shipmentMethod', 'type': 'MicrosoftGraphShipmentMethod'},
     }
 
     def __init__(
@@ -5792,32 +5028,9 @@ class MicrosoftGraphSalesOrder(MicrosoftGraphEntity):
         total_amount_including_tax: Optional[float] = None,
         total_tax_amount: Optional[float] = None,
         currency: Optional["MicrosoftGraphCurrency"] = None,
+        customer: Optional["MicrosoftGraphCustomer"] = None,
         payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
         sales_order_lines: Optional[List["MicrosoftGraphSalesOrderLine"]] = None,
-        id_customer_id: Optional[str] = None,
-        address: Optional["MicrosoftGraphPostalAddressType"] = None,
-        blocked: Optional[str] = None,
-        currency_code_customer_currency_code: Optional[str] = None,
-        currency_id_customer_currency_id: Optional[str] = None,
-        display_name: Optional[str] = None,
-        email_customer_email: Optional[str] = None,
-        last_modified_date_time_customer_last_modified_date_time: Optional[datetime.datetime] = None,
-        number_customer_number: Optional[str] = None,
-        payment_method_id: Optional[str] = None,
-        payment_terms_id_customer_payment_terms_id: Optional[str] = None,
-        phone_number_customer_phone_number: Optional[str] = None,
-        shipment_method_id: Optional[str] = None,
-        tax_area_display_name: Optional[str] = None,
-        tax_area_id: Optional[str] = None,
-        tax_liable: Optional[bool] = None,
-        tax_registration_number: Optional[str] = None,
-        type: Optional[str] = None,
-        website: Optional[str] = None,
-        currency_customer_currency: Optional["MicrosoftGraphCurrency"] = None,
-        payment_method: Optional["MicrosoftGraphPaymentMethod"] = None,
-        payment_term_customer_payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
-        shipment_method: Optional["MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ):
         super(MicrosoftGraphSalesOrder, self).__init__(id=id, **kwargs)
@@ -5854,32 +5067,9 @@ class MicrosoftGraphSalesOrder(MicrosoftGraphEntity):
         self.total_amount_including_tax = total_amount_including_tax
         self.total_tax_amount = total_tax_amount
         self.currency = currency
+        self.customer = customer
         self.payment_term = payment_term
         self.sales_order_lines = sales_order_lines
-        self.id_customer_id = id_customer_id
-        self.address = address
-        self.blocked = blocked
-        self.currency_code_customer_currency_code = currency_code_customer_currency_code
-        self.currency_id_customer_currency_id = currency_id_customer_currency_id
-        self.display_name = display_name
-        self.email_customer_email = email_customer_email
-        self.last_modified_date_time_customer_last_modified_date_time = last_modified_date_time_customer_last_modified_date_time
-        self.number_customer_number = number_customer_number
-        self.payment_method_id = payment_method_id
-        self.payment_terms_id_customer_payment_terms_id = payment_terms_id_customer_payment_terms_id
-        self.phone_number_customer_phone_number = phone_number_customer_phone_number
-        self.shipment_method_id = shipment_method_id
-        self.tax_area_display_name = tax_area_display_name
-        self.tax_area_id = tax_area_id
-        self.tax_liable = tax_liable
-        self.tax_registration_number = tax_registration_number
-        self.type = type
-        self.website = website
-        self.currency_customer_currency = currency_customer_currency
-        self.payment_method = payment_method
-        self.payment_term_customer_payment_term = payment_term_customer_payment_term
-        self.picture = picture
-        self.shipment_method = shipment_method
 
 
 class MicrosoftGraphSalesOrderLine(MicrosoftGraphEntity):
@@ -5944,42 +5134,8 @@ class MicrosoftGraphSalesOrderLine(MicrosoftGraphEntity):
     :type unit_price: float
     :param account: account.
     :type account: ~financials.models.MicrosoftGraphAccount
-    :param id_item_id: Read-only.
-    :type id_item_id: str
-    :param base_unit_of_measure_id:
-    :type base_unit_of_measure_id: str
-    :param blocked:
-    :type blocked: bool
-    :param display_name:
-    :type display_name: str
-    :param gtin:
-    :type gtin: str
-    :param inventory:
-    :type inventory: float
-    :param item_category_code:
-    :type item_category_code: str
-    :param item_category_id:
-    :type item_category_id: str
-    :param last_modified_date_time:
-    :type last_modified_date_time: ~datetime.datetime
-    :param number:
-    :type number: str
-    :param price_includes_tax:
-    :type price_includes_tax: bool
-    :param tax_group_code:
-    :type tax_group_code: str
-    :param tax_group_id:
-    :type tax_group_id: str
-    :param type:
-    :type type: str
-    :param unit_cost:
-    :type unit_cost: float
-    :param unit_price_item_unit_price:
-    :type unit_price_item_unit_price: float
-    :param item_category: itemCategory.
-    :type item_category: ~financials.models.MicrosoftGraphItemCategory
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
+    :param item: item.
+    :type item: ~financials.models.MicrosoftGraphItem
     """
 
     _validation = {
@@ -6016,24 +5172,7 @@ class MicrosoftGraphSalesOrderLine(MicrosoftGraphEntity):
         'unit_of_measure_id': {'key': 'unitOfMeasureId', 'type': 'str'},
         'unit_price': {'key': 'unitPrice', 'type': 'float'},
         'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
-        'id_item_id': {'key': 'item.id', 'type': 'str'},
-        'base_unit_of_measure_id': {'key': 'item.baseUnitOfMeasureId', 'type': 'str'},
-        'blocked': {'key': 'item.blocked', 'type': 'bool'},
-        'display_name': {'key': 'item.displayName', 'type': 'str'},
-        'gtin': {'key': 'item.gtin', 'type': 'str'},
-        'inventory': {'key': 'item.inventory', 'type': 'float'},
-        'item_category_code': {'key': 'item.itemCategoryCode', 'type': 'str'},
-        'item_category_id': {'key': 'item.itemCategoryId', 'type': 'str'},
-        'last_modified_date_time': {'key': 'item.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number': {'key': 'item.number', 'type': 'str'},
-        'price_includes_tax': {'key': 'item.priceIncludesTax', 'type': 'bool'},
-        'tax_group_code': {'key': 'item.taxGroupCode', 'type': 'str'},
-        'tax_group_id': {'key': 'item.taxGroupId', 'type': 'str'},
-        'type': {'key': 'item.type', 'type': 'str'},
-        'unit_cost': {'key': 'item.unitCost', 'type': 'float'},
-        'unit_price_item_unit_price': {'key': 'item.unitPrice', 'type': 'float'},
-        'item_category': {'key': 'item.itemCategory', 'type': 'MicrosoftGraphItemCategory'},
-        'picture': {'key': 'item.picture', 'type': '[MicrosoftGraphPicture]'},
+        'item': {'key': 'item', 'type': 'MicrosoftGraphItem'},
     }
 
     def __init__(
@@ -6068,24 +5207,7 @@ class MicrosoftGraphSalesOrderLine(MicrosoftGraphEntity):
         unit_of_measure_id: Optional[str] = None,
         unit_price: Optional[float] = None,
         account: Optional["MicrosoftGraphAccount"] = None,
-        id_item_id: Optional[str] = None,
-        base_unit_of_measure_id: Optional[str] = None,
-        blocked: Optional[bool] = None,
-        display_name: Optional[str] = None,
-        gtin: Optional[str] = None,
-        inventory: Optional[float] = None,
-        item_category_code: Optional[str] = None,
-        item_category_id: Optional[str] = None,
-        last_modified_date_time: Optional[datetime.datetime] = None,
-        number: Optional[str] = None,
-        price_includes_tax: Optional[bool] = None,
-        tax_group_code: Optional[str] = None,
-        tax_group_id: Optional[str] = None,
-        type: Optional[str] = None,
-        unit_cost: Optional[float] = None,
-        unit_price_item_unit_price: Optional[float] = None,
-        item_category: Optional["MicrosoftGraphItemCategory"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
+        item: Optional["MicrosoftGraphItem"] = None,
         **kwargs
     ):
         super(MicrosoftGraphSalesOrderLine, self).__init__(id=id, **kwargs)
@@ -6117,24 +5239,7 @@ class MicrosoftGraphSalesOrderLine(MicrosoftGraphEntity):
         self.unit_of_measure_id = unit_of_measure_id
         self.unit_price = unit_price
         self.account = account
-        self.id_item_id = id_item_id
-        self.base_unit_of_measure_id = base_unit_of_measure_id
-        self.blocked = blocked
-        self.display_name = display_name
-        self.gtin = gtin
-        self.inventory = inventory
-        self.item_category_code = item_category_code
-        self.item_category_id = item_category_id
-        self.last_modified_date_time = last_modified_date_time
-        self.number = number
-        self.price_includes_tax = price_includes_tax
-        self.tax_group_code = tax_group_code
-        self.tax_group_id = tax_group_id
-        self.type = type
-        self.unit_cost = unit_cost
-        self.unit_price_item_unit_price = unit_price_item_unit_price
-        self.item_category = item_category
-        self.picture = picture
+        self.item = item
 
 
 class MicrosoftGraphSalesQuote(MicrosoftGraphEntity):
@@ -6209,60 +5314,14 @@ class MicrosoftGraphSalesQuote(MicrosoftGraphEntity):
     :type valid_until_date: ~datetime.date
     :param currency: currency.
     :type currency: ~financials.models.MicrosoftGraphCurrency
+    :param customer: customer.
+    :type customer: ~financials.models.MicrosoftGraphCustomer
     :param payment_term: paymentTerm.
     :type payment_term: ~financials.models.MicrosoftGraphPaymentTerm
     :param sales_quote_lines:
     :type sales_quote_lines: list[~financials.models.MicrosoftGraphSalesQuoteLine]
     :param shipment_method: shipmentMethod.
     :type shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
-    :param id_customer_id: Read-only.
-    :type id_customer_id: str
-    :param address: postalAddressType.
-    :type address: ~financials.models.MicrosoftGraphPostalAddressType
-    :param blocked:
-    :type blocked: str
-    :param currency_code_customer_currency_code:
-    :type currency_code_customer_currency_code: str
-    :param currency_id_customer_currency_id:
-    :type currency_id_customer_currency_id: str
-    :param display_name:
-    :type display_name: str
-    :param email_customer_email:
-    :type email_customer_email: str
-    :param last_modified_date_time_customer_last_modified_date_time:
-    :type last_modified_date_time_customer_last_modified_date_time: ~datetime.datetime
-    :param number_customer_number:
-    :type number_customer_number: str
-    :param payment_method_id:
-    :type payment_method_id: str
-    :param payment_terms_id_customer_payment_terms_id:
-    :type payment_terms_id_customer_payment_terms_id: str
-    :param phone_number_customer_phone_number:
-    :type phone_number_customer_phone_number: str
-    :param shipment_method_id_customer_shipment_method_id:
-    :type shipment_method_id_customer_shipment_method_id: str
-    :param tax_area_display_name:
-    :type tax_area_display_name: str
-    :param tax_area_id:
-    :type tax_area_id: str
-    :param tax_liable:
-    :type tax_liable: bool
-    :param tax_registration_number:
-    :type tax_registration_number: str
-    :param type:
-    :type type: str
-    :param website:
-    :type website: str
-    :param currency_customer_currency: currency.
-    :type currency_customer_currency: ~financials.models.MicrosoftGraphCurrency
-    :param payment_method: paymentMethod.
-    :type payment_method: ~financials.models.MicrosoftGraphPaymentMethod
-    :param payment_term_customer_payment_term: paymentTerm.
-    :type payment_term_customer_payment_term: ~financials.models.MicrosoftGraphPaymentTerm
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
-    :param shipment_method_customer_shipment_method: shipmentMethod.
-    :type shipment_method_customer_shipment_method: ~financials.models.MicrosoftGraphShipmentMethod
     """
 
     _attribute_map = {
@@ -6300,33 +5359,10 @@ class MicrosoftGraphSalesQuote(MicrosoftGraphEntity):
         'total_tax_amount': {'key': 'totalTaxAmount', 'type': 'float'},
         'valid_until_date': {'key': 'validUntilDate', 'type': 'date'},
         'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrency'},
+        'customer': {'key': 'customer', 'type': 'MicrosoftGraphCustomer'},
         'payment_term': {'key': 'paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
         'sales_quote_lines': {'key': 'salesQuoteLines', 'type': '[MicrosoftGraphSalesQuoteLine]'},
         'shipment_method': {'key': 'shipmentMethod', 'type': 'MicrosoftGraphShipmentMethod'},
-        'id_customer_id': {'key': 'customer.id', 'type': 'str'},
-        'address': {'key': 'customer.address', 'type': 'MicrosoftGraphPostalAddressType'},
-        'blocked': {'key': 'customer.blocked', 'type': 'str'},
-        'currency_code_customer_currency_code': {'key': 'customer.currencyCode', 'type': 'str'},
-        'currency_id_customer_currency_id': {'key': 'customer.currencyId', 'type': 'str'},
-        'display_name': {'key': 'customer.displayName', 'type': 'str'},
-        'email_customer_email': {'key': 'customer.email', 'type': 'str'},
-        'last_modified_date_time_customer_last_modified_date_time': {'key': 'customer.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number_customer_number': {'key': 'customer.number', 'type': 'str'},
-        'payment_method_id': {'key': 'customer.paymentMethodId', 'type': 'str'},
-        'payment_terms_id_customer_payment_terms_id': {'key': 'customer.paymentTermsId', 'type': 'str'},
-        'phone_number_customer_phone_number': {'key': 'customer.phoneNumber', 'type': 'str'},
-        'shipment_method_id_customer_shipment_method_id': {'key': 'customer.shipmentMethodId', 'type': 'str'},
-        'tax_area_display_name': {'key': 'customer.taxAreaDisplayName', 'type': 'str'},
-        'tax_area_id': {'key': 'customer.taxAreaId', 'type': 'str'},
-        'tax_liable': {'key': 'customer.taxLiable', 'type': 'bool'},
-        'tax_registration_number': {'key': 'customer.taxRegistrationNumber', 'type': 'str'},
-        'type': {'key': 'customer.type', 'type': 'str'},
-        'website': {'key': 'customer.website', 'type': 'str'},
-        'currency_customer_currency': {'key': 'customer.currency', 'type': 'MicrosoftGraphCurrency'},
-        'payment_method': {'key': 'customer.paymentMethod', 'type': 'MicrosoftGraphPaymentMethod'},
-        'payment_term_customer_payment_term': {'key': 'customer.paymentTerm', 'type': 'MicrosoftGraphPaymentTerm'},
-        'picture': {'key': 'customer.picture', 'type': '[MicrosoftGraphPicture]'},
-        'shipment_method_customer_shipment_method': {'key': 'customer.shipmentMethod', 'type': 'MicrosoftGraphShipmentMethod'},
     }
 
     def __init__(
@@ -6366,33 +5402,10 @@ class MicrosoftGraphSalesQuote(MicrosoftGraphEntity):
         total_tax_amount: Optional[float] = None,
         valid_until_date: Optional[datetime.date] = None,
         currency: Optional["MicrosoftGraphCurrency"] = None,
+        customer: Optional["MicrosoftGraphCustomer"] = None,
         payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
         sales_quote_lines: Optional[List["MicrosoftGraphSalesQuoteLine"]] = None,
         shipment_method: Optional["MicrosoftGraphShipmentMethod"] = None,
-        id_customer_id: Optional[str] = None,
-        address: Optional["MicrosoftGraphPostalAddressType"] = None,
-        blocked: Optional[str] = None,
-        currency_code_customer_currency_code: Optional[str] = None,
-        currency_id_customer_currency_id: Optional[str] = None,
-        display_name: Optional[str] = None,
-        email_customer_email: Optional[str] = None,
-        last_modified_date_time_customer_last_modified_date_time: Optional[datetime.datetime] = None,
-        number_customer_number: Optional[str] = None,
-        payment_method_id: Optional[str] = None,
-        payment_terms_id_customer_payment_terms_id: Optional[str] = None,
-        phone_number_customer_phone_number: Optional[str] = None,
-        shipment_method_id_customer_shipment_method_id: Optional[str] = None,
-        tax_area_display_name: Optional[str] = None,
-        tax_area_id: Optional[str] = None,
-        tax_liable: Optional[bool] = None,
-        tax_registration_number: Optional[str] = None,
-        type: Optional[str] = None,
-        website: Optional[str] = None,
-        currency_customer_currency: Optional["MicrosoftGraphCurrency"] = None,
-        payment_method: Optional["MicrosoftGraphPaymentMethod"] = None,
-        payment_term_customer_payment_term: Optional["MicrosoftGraphPaymentTerm"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
-        shipment_method_customer_shipment_method: Optional["MicrosoftGraphShipmentMethod"] = None,
         **kwargs
     ):
         super(MicrosoftGraphSalesQuote, self).__init__(id=id, **kwargs)
@@ -6429,33 +5442,10 @@ class MicrosoftGraphSalesQuote(MicrosoftGraphEntity):
         self.total_tax_amount = total_tax_amount
         self.valid_until_date = valid_until_date
         self.currency = currency
+        self.customer = customer
         self.payment_term = payment_term
         self.sales_quote_lines = sales_quote_lines
         self.shipment_method = shipment_method
-        self.id_customer_id = id_customer_id
-        self.address = address
-        self.blocked = blocked
-        self.currency_code_customer_currency_code = currency_code_customer_currency_code
-        self.currency_id_customer_currency_id = currency_id_customer_currency_id
-        self.display_name = display_name
-        self.email_customer_email = email_customer_email
-        self.last_modified_date_time_customer_last_modified_date_time = last_modified_date_time_customer_last_modified_date_time
-        self.number_customer_number = number_customer_number
-        self.payment_method_id = payment_method_id
-        self.payment_terms_id_customer_payment_terms_id = payment_terms_id_customer_payment_terms_id
-        self.phone_number_customer_phone_number = phone_number_customer_phone_number
-        self.shipment_method_id_customer_shipment_method_id = shipment_method_id_customer_shipment_method_id
-        self.tax_area_display_name = tax_area_display_name
-        self.tax_area_id = tax_area_id
-        self.tax_liable = tax_liable
-        self.tax_registration_number = tax_registration_number
-        self.type = type
-        self.website = website
-        self.currency_customer_currency = currency_customer_currency
-        self.payment_method = payment_method
-        self.payment_term_customer_payment_term = payment_term_customer_payment_term
-        self.picture = picture
-        self.shipment_method_customer_shipment_method = shipment_method_customer_shipment_method
 
 
 class MicrosoftGraphSalesQuoteLine(MicrosoftGraphEntity):
@@ -6508,42 +5498,8 @@ class MicrosoftGraphSalesQuoteLine(MicrosoftGraphEntity):
     :type unit_price: float
     :param account: account.
     :type account: ~financials.models.MicrosoftGraphAccount
-    :param id_item_id: Read-only.
-    :type id_item_id: str
-    :param base_unit_of_measure_id:
-    :type base_unit_of_measure_id: str
-    :param blocked:
-    :type blocked: bool
-    :param display_name:
-    :type display_name: str
-    :param gtin:
-    :type gtin: str
-    :param inventory:
-    :type inventory: float
-    :param item_category_code:
-    :type item_category_code: str
-    :param item_category_id:
-    :type item_category_id: str
-    :param last_modified_date_time:
-    :type last_modified_date_time: ~datetime.datetime
-    :param number:
-    :type number: str
-    :param price_includes_tax:
-    :type price_includes_tax: bool
-    :param tax_group_code:
-    :type tax_group_code: str
-    :param tax_group_id:
-    :type tax_group_id: str
-    :param type:
-    :type type: str
-    :param unit_cost:
-    :type unit_cost: float
-    :param unit_price_item_unit_price:
-    :type unit_price_item_unit_price: float
-    :param item_category: itemCategory.
-    :type item_category: ~financials.models.MicrosoftGraphItemCategory
-    :param picture:
-    :type picture: list[~financials.models.MicrosoftGraphPicture]
+    :param item: item.
+    :type item: ~financials.models.MicrosoftGraphItem
     """
 
     _validation = {
@@ -6574,24 +5530,7 @@ class MicrosoftGraphSalesQuoteLine(MicrosoftGraphEntity):
         'unit_of_measure_id': {'key': 'unitOfMeasureId', 'type': 'str'},
         'unit_price': {'key': 'unitPrice', 'type': 'float'},
         'account': {'key': 'account', 'type': 'MicrosoftGraphAccount'},
-        'id_item_id': {'key': 'item.id', 'type': 'str'},
-        'base_unit_of_measure_id': {'key': 'item.baseUnitOfMeasureId', 'type': 'str'},
-        'blocked': {'key': 'item.blocked', 'type': 'bool'},
-        'display_name': {'key': 'item.displayName', 'type': 'str'},
-        'gtin': {'key': 'item.gtin', 'type': 'str'},
-        'inventory': {'key': 'item.inventory', 'type': 'float'},
-        'item_category_code': {'key': 'item.itemCategoryCode', 'type': 'str'},
-        'item_category_id': {'key': 'item.itemCategoryId', 'type': 'str'},
-        'last_modified_date_time': {'key': 'item.lastModifiedDateTime', 'type': 'iso-8601'},
-        'number': {'key': 'item.number', 'type': 'str'},
-        'price_includes_tax': {'key': 'item.priceIncludesTax', 'type': 'bool'},
-        'tax_group_code': {'key': 'item.taxGroupCode', 'type': 'str'},
-        'tax_group_id': {'key': 'item.taxGroupId', 'type': 'str'},
-        'type': {'key': 'item.type', 'type': 'str'},
-        'unit_cost': {'key': 'item.unitCost', 'type': 'float'},
-        'unit_price_item_unit_price': {'key': 'item.unitPrice', 'type': 'float'},
-        'item_category': {'key': 'item.itemCategory', 'type': 'MicrosoftGraphItemCategory'},
-        'picture': {'key': 'item.picture', 'type': '[MicrosoftGraphPicture]'},
+        'item': {'key': 'item', 'type': 'MicrosoftGraphItem'},
     }
 
     def __init__(
@@ -6620,24 +5559,7 @@ class MicrosoftGraphSalesQuoteLine(MicrosoftGraphEntity):
         unit_of_measure_id: Optional[str] = None,
         unit_price: Optional[float] = None,
         account: Optional["MicrosoftGraphAccount"] = None,
-        id_item_id: Optional[str] = None,
-        base_unit_of_measure_id: Optional[str] = None,
-        blocked: Optional[bool] = None,
-        display_name: Optional[str] = None,
-        gtin: Optional[str] = None,
-        inventory: Optional[float] = None,
-        item_category_code: Optional[str] = None,
-        item_category_id: Optional[str] = None,
-        last_modified_date_time: Optional[datetime.datetime] = None,
-        number: Optional[str] = None,
-        price_includes_tax: Optional[bool] = None,
-        tax_group_code: Optional[str] = None,
-        tax_group_id: Optional[str] = None,
-        type: Optional[str] = None,
-        unit_cost: Optional[float] = None,
-        unit_price_item_unit_price: Optional[float] = None,
-        item_category: Optional["MicrosoftGraphItemCategory"] = None,
-        picture: Optional[List["MicrosoftGraphPicture"]] = None,
+        item: Optional["MicrosoftGraphItem"] = None,
         **kwargs
     ):
         super(MicrosoftGraphSalesQuoteLine, self).__init__(id=id, **kwargs)
@@ -6663,24 +5585,7 @@ class MicrosoftGraphSalesQuoteLine(MicrosoftGraphEntity):
         self.unit_of_measure_id = unit_of_measure_id
         self.unit_price = unit_price
         self.account = account
-        self.id_item_id = id_item_id
-        self.base_unit_of_measure_id = base_unit_of_measure_id
-        self.blocked = blocked
-        self.display_name = display_name
-        self.gtin = gtin
-        self.inventory = inventory
-        self.item_category_code = item_category_code
-        self.item_category_id = item_category_id
-        self.last_modified_date_time = last_modified_date_time
-        self.number = number
-        self.price_includes_tax = price_includes_tax
-        self.tax_group_code = tax_group_code
-        self.tax_group_id = tax_group_id
-        self.type = type
-        self.unit_cost = unit_cost
-        self.unit_price_item_unit_price = unit_price_item_unit_price
-        self.item_category = item_category
-        self.picture = picture
+        self.item = item
 
 
 class MicrosoftGraphShipmentMethod(MicrosoftGraphEntity):
