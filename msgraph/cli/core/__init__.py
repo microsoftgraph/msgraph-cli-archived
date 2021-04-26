@@ -30,10 +30,12 @@ class MgCLI(CLI):
         unique client-side request ID is generated.
         """
         import uuid
-        self.data['headers'] = {'client-request-id': str(uuid.uuid1())}
+        self.data['headers'] = {
+            'client-request-id': str(uuid.uuid1()),
+            'cli-version': __version__,
+        }
 
     def get_cli_version(self):
-        #TODO: Read version from environment variable
         return __version__
 
 
