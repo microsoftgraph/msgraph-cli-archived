@@ -53,7 +53,6 @@ class MgCliLogging(CLILogging):
         # Adding client-request-id and telemetry header to the whitelist so that it does not appear redacted
         # when a user runs a command with the --debug flag
         HttpLoggingPolicy.DEFAULT_HEADERS_WHITELIST.add('client-request-id')
-        HttpLoggingPolicy.DEFAULT_HEADERS_WHITELIST.add('cli-version')
 
         super(MgCliLogging, self).configure(args)
         from knack.log import CliLogLevel
