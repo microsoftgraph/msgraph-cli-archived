@@ -32,7 +32,6 @@ class MgCLI(CLI):
         import uuid
         self.data['headers'] = {
             'client-request-id': str(uuid.uuid1()),
-            'cli-version': __version__,
         }
 
     def get_cli_version(self):

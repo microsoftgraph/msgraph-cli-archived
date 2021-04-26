@@ -50,7 +50,7 @@ class MgCliLogging(CLILogging):
                                     MgCliLogging.deinit_cmd_metadata_logging)
 
     def configure(self, args):
-        # Adding client-request-id and telemetry header to the whitelist so that it does not appear redacted
+        # Adding client-request-id to the whitelist so that it does not appear redacted
         # when a user runs a command with the --debug flag
         HttpLoggingPolicy.DEFAULT_HEADERS_WHITELIST.add('client-request-id')
 
