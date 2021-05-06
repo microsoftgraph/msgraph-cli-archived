@@ -23,7 +23,9 @@ def delete_cloud(name: str):
 
 
 def add_cloud(name: str, graph_endpoint: str, azure_ad_endpoint: str):
-    _validate(graph_endpoint)
+    valid = _validate(graph_endpoint)
+    if not valid:
+        raise CLIError(f'Graph endpoint "{graph_endpoint}" is invalid')
 
     properties = {
         'name': name,
@@ -93,9 +95,16 @@ def show_profile():
 
 
 def _validate(url: str):
-    from urllib import request
+    import re
 
-    try:
-        request.urlopen(url)
-    except IOError as error:
-        raise Exception('Invalid endpoint') from error
+    regex = re.compile(
+        r'^(?:http|ftp)s?://'  # http:// or https://
+        r'(?:(?:[A-Z0-9](?:[A-Z0-9-]{0,61}[A-Z0-9])?\.)+(?:[A-Z]{2,6}\.?|[A-Z0-9-]{2,}\.?)|'  #domain...
+        r'localhost|'  #localhost...
+        r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})'  # ...or ip
+        r'(?::\d+)?'  # optional port
+        r'(?:/?|[/?]\S+)$',
+        re.IGNORECASE)
+
+    match = re.match(regex, url)
+    return match is not None
