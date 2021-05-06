@@ -10,6 +10,7 @@ import platform
 from knack.util import CLIError
 from knack import ArgumentsContext
 from knack.arguments import (CLIArgumentType, CaseInsensitiveList)
+
 from msgraph.cli.core.commands.validators import validate_tags
 
 quotes = '""' if platform.system() == 'Windows' else "''"

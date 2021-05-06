@@ -15,23 +15,23 @@ from msgraph.cli.core.commands.parameters import get_three_state_flag
 
 def load_arguments(self, _):
 
-    with self.argument_context('directoryobjects directory-object-directory-object delete') as c:
-        c.argument('directory_object_id', type=str, help='key: id of directoryObject')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('directoryobjects directory-object-directory-object create-directory-object') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
 
-    with self.argument_context('directoryobjects directory-object-directory-object get-directory-object') as c:
+    with self.argument_context('directoryobjects directory-object-directory-object delete-directory-object') as c:
         c.argument('directory_object_id', type=str, help='key: id of directoryObject')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('directoryobjects directory-object-directory-object list-directory-object') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('directoryobjects directory-object-directory-object show-directory-object') as c:
+        c.argument('directory_object_id', type=str, help='key: id of directoryObject')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('directoryobjects directory-object-directory-object update-directory-object') as c:
         c.argument('directory_object_id', type=str, help='key: id of directoryObject')
@@ -40,15 +40,15 @@ def load_arguments(self, _):
 
     with self.argument_context('directoryobjects directory-object check-member-group') as c:
         c.argument('directory_object_id', type=str, help='key: id of directoryObject')
-        c.argument('group_ids', nargs='*', help='')
+        c.argument('group_ids', nargs='+', help='')
 
     with self.argument_context('directoryobjects directory-object check-member-object') as c:
         c.argument('directory_object_id', type=str, help='key: id of directoryObject')
-        c.argument('ids', nargs='*', help='')
+        c.argument('ids', nargs='+', help='')
 
     with self.argument_context('directoryobjects directory-object get-by-id') as c:
-        c.argument('ids', nargs='*', help='')
-        c.argument('types', nargs='*', help='')
+        c.argument('ids', nargs='+', help='')
+        c.argument('types', nargs='+', help='')
 
     with self.argument_context('directoryobjects directory-object get-member-group') as c:
         c.argument('directory_object_id', type=str, help='key: id of directoryObject')

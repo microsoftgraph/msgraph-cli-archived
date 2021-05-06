@@ -720,42 +720,30 @@ class MicrosoftGraphItemFacet(MicrosoftGraphEntity):
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -765,49 +753,34 @@ class MicrosoftGraphItemFacet(MicrosoftGraphEntity):
         super(MicrosoftGraphItemFacet, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.allowed_audiences = kwargs.get('allowed_audiences', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.inference = kwargs.get('inference', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.source = kwargs.get('source', None)
-        self.application_last_modified_by_application = kwargs.get('application_last_modified_by_application', None)
-        self.device_last_modified_by_device = kwargs.get('device_last_modified_by_device', None)
-        self.user_last_modified_by_user = kwargs.get('user_last_modified_by_user', None)
-        self.application_created_by_application = kwargs.get('application_created_by_application', None)
-        self.device_created_by_device = kwargs.get('device_created_by_device', None)
-        self.user_created_by_user = kwargs.get('user_created_by_user', None)
 
 
 class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     """educationalActivity.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -815,43 +788,29 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     :type completion_month_year: ~datetime.date
     :param end_month_year:
     :type end_month_year: ~datetime.date
+    :param institution: institutionData.
+    :type institution: ~people.models.MicrosoftGraphInstitutionData
     :param program: educationalActivityDetail.
     :type program: ~people.models.MicrosoftGraphEducationalActivityDetail
     :param start_month_year:
     :type start_month_year: ~datetime.date
-    :param description:
-    :type description: str
-    :param display_name:
-    :type display_name: str
-    :param location: physicalAddress.
-    :type location: ~people.models.MicrosoftGraphPhysicalAddress
-    :param web_url:
-    :type web_url: str
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'completion_month_year': {'key': 'completionMonthYear', 'type': 'date'},
         'end_month_year': {'key': 'endMonthYear', 'type': 'date'},
+        'institution': {'key': 'institution', 'type': 'MicrosoftGraphInstitutionData'},
         'program': {'key': 'program', 'type': 'MicrosoftGraphEducationalActivityDetail'},
         'start_month_year': {'key': 'startMonthYear', 'type': 'date'},
-        'description': {'key': 'institution.description', 'type': 'str'},
-        'display_name': {'key': 'institution.displayName', 'type': 'str'},
-        'location': {'key': 'institution.location', 'type': 'MicrosoftGraphPhysicalAddress'},
-        'web_url': {'key': 'institution.webUrl', 'type': 'str'},
     }
 
     def __init__(
@@ -860,15 +819,11 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphEducationalActivity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.completion_month_year = kwargs.get('completion_month_year', None)
         self.end_month_year = kwargs.get('end_month_year', None)
+        self.institution = kwargs.get('institution', None)
         self.program = kwargs.get('program', None)
         self.start_month_year = kwargs.get('start_month_year', None)
-        self.description = kwargs.get('description', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.location = kwargs.get('location', None)
-        self.web_url = kwargs.get('web_url', None)
 
 
 class MicrosoftGraphEducationalActivityDetail(msrest.serialization.Model):
@@ -1090,34 +1045,23 @@ class MicrosoftGraphInstitutionData(msrest.serialization.Model):
 class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     """itemAddress.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1130,19 +1074,14 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'detail': {'key': 'detail', 'type': 'MicrosoftGraphPhysicalAddress'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1154,7 +1093,6 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphItemAddress, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.detail = kwargs.get('detail', None)
         self.display_name = kwargs.get('display_name', None)
@@ -1192,34 +1130,23 @@ class MicrosoftGraphItemBody(msrest.serialization.Model):
 class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     """itemEmail.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1232,19 +1159,14 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'address': {'key': 'address', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1257,7 +1179,6 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemEmail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.display_name = kwargs.get('display_name', None)
         self.type = kwargs.get('type', None)
@@ -1266,34 +1187,23 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
 class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     """itemPatent.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1314,19 +1224,14 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1343,7 +1248,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemPatent, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.is_pending = kwargs.get('is_pending', None)
@@ -1356,34 +1260,23 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
 class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     """itemPhone.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1397,19 +1290,14 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'number': {'key': 'number', 'type': 'str'},
@@ -1422,7 +1310,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemPhone, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.number = kwargs.get('number', None)
         self.type = kwargs.get('type', None)
@@ -1431,34 +1318,23 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
 class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     """itemPublication.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1477,19 +1353,14 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1505,7 +1376,6 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemPublication, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.published_date = kwargs.get('published_date', None)
@@ -1517,34 +1387,23 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
 class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     """languageProficiency.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1567,19 +1426,14 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'proficiency': {'key': 'proficiency', 'type': 'str'},
@@ -1594,7 +1448,6 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphLanguageProficiency, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.proficiency = kwargs.get('proficiency', None)
@@ -1840,34 +1693,23 @@ class MicrosoftGraphPerson(MicrosoftGraphEntity):
 class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     """personAnniversary.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1878,19 +1720,14 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'date': {'key': 'date', 'type': 'date'},
         'type': {'key': 'type', 'type': 'str'},
@@ -1902,7 +1739,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAnniversary, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.date = kwargs.get('date', None)
         self.type = kwargs.get('type', None)
 
@@ -1910,34 +1746,23 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     """personAnnotation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1948,19 +1773,14 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'detail': {'key': 'detail', 'type': 'MicrosoftGraphItemBody'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1972,7 +1792,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAnnotation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.detail = kwargs.get('detail', None)
         self.display_name = kwargs.get('display_name', None)
 
@@ -1980,34 +1799,23 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     """personAward.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2026,19 +1834,14 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -2054,7 +1857,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAward, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.issued_date = kwargs.get('issued_date', None)
@@ -2066,34 +1868,23 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     """personCertification.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2120,19 +1911,14 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'certification_id': {'key': 'certificationId', 'type': 'str'},
         'description': {'key': 'description', 'type': 'str'},
@@ -2151,7 +1937,6 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphPersonCertification, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.certification_id = kwargs.get('certification_id', None)
         self.description = kwargs.get('description', None)
@@ -2216,34 +2001,23 @@ class MicrosoftGraphPersonDataSources(msrest.serialization.Model):
 class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     """personInterest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2260,19 +2034,14 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'collaboration_tags': {'key': 'collaborationTags', 'type': '[str]'},
@@ -2287,7 +2056,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonInterest, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.collaboration_tags = kwargs.get('collaboration_tags', None)
         self.description = kwargs.get('description', None)
@@ -2298,34 +2066,23 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     """personName.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2354,19 +2111,14 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'first': {'key': 'first', 'type': 'str'},
@@ -2387,7 +2139,6 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonName, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.first = kwargs.get('first', None)
         self.initials = kwargs.get('initials', None)
@@ -2404,34 +2155,23 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     """personWebsite.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2446,19 +2186,14 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'description': {'key': 'description', 'type': 'str'},
@@ -2471,7 +2206,6 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphPersonWebsite, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.description = kwargs.get('description', None)
@@ -2707,108 +2441,59 @@ class MicrosoftGraphProfile(MicrosoftGraphEntity):
 class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     """projectParticipation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param categories:
     :type categories: list[str]
+    :param client: companyDetail.
+    :type client: ~people.models.MicrosoftGraphCompanyDetail
     :param collaboration_tags:
     :type collaboration_tags: list[str]
     :param colleagues:
     :type colleagues: list[~people.models.MicrosoftGraphRelatedPerson]
+    :param detail: positionDetail.
+    :type detail: ~people.models.MicrosoftGraphPositionDetail
     :param display_name:
     :type display_name: str
     :param sponsors:
     :type sponsors: list[~people.models.MicrosoftGraphRelatedPerson]
-    :param company: companyDetail.
-    :type company: ~people.models.MicrosoftGraphCompanyDetail
-    :param description:
-    :type description: str
-    :param end_month_year:
-    :type end_month_year: ~datetime.date
-    :param job_title:
-    :type job_title: str
-    :param role:
-    :type role: str
-    :param start_month_year:
-    :type start_month_year: ~datetime.date
-    :param summary:
-    :type summary: str
-    :param address: physicalAddress.
-    :type address: ~people.models.MicrosoftGraphPhysicalAddress
-    :param department:
-    :type department: str
-    :param display_name_client_display_name:
-    :type display_name_client_display_name: str
-    :param office_location:
-    :type office_location: str
-    :param pronunciation:
-    :type pronunciation: str
-    :param web_url:
-    :type web_url: str
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
+        'client': {'key': 'client', 'type': 'MicrosoftGraphCompanyDetail'},
         'collaboration_tags': {'key': 'collaborationTags', 'type': '[str]'},
         'colleagues': {'key': 'colleagues', 'type': '[MicrosoftGraphRelatedPerson]'},
+        'detail': {'key': 'detail', 'type': 'MicrosoftGraphPositionDetail'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'sponsors': {'key': 'sponsors', 'type': '[MicrosoftGraphRelatedPerson]'},
-        'company': {'key': 'detail.company', 'type': 'MicrosoftGraphCompanyDetail'},
-        'description': {'key': 'detail.description', 'type': 'str'},
-        'end_month_year': {'key': 'detail.endMonthYear', 'type': 'date'},
-        'job_title': {'key': 'detail.jobTitle', 'type': 'str'},
-        'role': {'key': 'detail.role', 'type': 'str'},
-        'start_month_year': {'key': 'detail.startMonthYear', 'type': 'date'},
-        'summary': {'key': 'detail.summary', 'type': 'str'},
-        'address': {'key': 'client.address', 'type': 'MicrosoftGraphPhysicalAddress'},
-        'department': {'key': 'client.department', 'type': 'str'},
-        'display_name_client_display_name': {'key': 'client.displayName', 'type': 'str'},
-        'office_location': {'key': 'client.officeLocation', 'type': 'str'},
-        'pronunciation': {'key': 'client.pronunciation', 'type': 'str'},
-        'web_url': {'key': 'client.webUrl', 'type': 'str'},
     }
 
     def __init__(
@@ -2817,25 +2502,13 @@ class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphProjectParticipation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
+        self.client = kwargs.get('client', None)
         self.collaboration_tags = kwargs.get('collaboration_tags', None)
         self.colleagues = kwargs.get('colleagues', None)
+        self.detail = kwargs.get('detail', None)
         self.display_name = kwargs.get('display_name', None)
         self.sponsors = kwargs.get('sponsors', None)
-        self.company = kwargs.get('company', None)
-        self.description = kwargs.get('description', None)
-        self.end_month_year = kwargs.get('end_month_year', None)
-        self.job_title = kwargs.get('job_title', None)
-        self.role = kwargs.get('role', None)
-        self.start_month_year = kwargs.get('start_month_year', None)
-        self.summary = kwargs.get('summary', None)
-        self.address = kwargs.get('address', None)
-        self.department = kwargs.get('department', None)
-        self.display_name_client_display_name = kwargs.get('display_name_client_display_name', None)
-        self.office_location = kwargs.get('office_location', None)
-        self.pronunciation = kwargs.get('pronunciation', None)
-        self.web_url = kwargs.get('web_url', None)
 
 
 class MicrosoftGraphRankedEmailAddress(msrest.serialization.Model):
@@ -2963,34 +2636,23 @@ class MicrosoftGraphSettings(msrest.serialization.Model):
 class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     """skillProficiency.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -3008,19 +2670,14 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'collaboration_tags': {'key': 'collaborationTags', 'type': '[str]'},
@@ -3035,7 +2692,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphSkillProficiency, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.collaboration_tags = kwargs.get('collaboration_tags', None)
         self.display_name = kwargs.get('display_name', None)
@@ -3046,34 +2702,23 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
 class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     """userAccountInformation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -3088,19 +2733,14 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'age_group': {'key': 'ageGroup', 'type': 'str'},
         'country_code': {'key': 'countryCode', 'type': 'str'},
@@ -3113,7 +2753,6 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphUserAccountInformation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.age_group = kwargs.get('age_group', None)
         self.country_code = kwargs.get('country_code', None)
@@ -3155,34 +2794,23 @@ class MicrosoftGraphUserAnalytics(MicrosoftGraphEntity):
 class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     """webAccount.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -3199,19 +2827,14 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'service': {'key': 'service', 'type': 'MicrosoftGraphServiceInformation'},
@@ -3225,7 +2848,6 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphWebAccount, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.service = kwargs.get('service', None)
@@ -3269,34 +2891,23 @@ class MicrosoftGraphWebsite(msrest.serialization.Model):
 class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     """workPosition.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
      "organization", "federatedOrganizations", "everyone", "unknownFutureValue".
     :type allowed_audiences: str or ~people.models.MicrosoftGraphAllowedAudiences
+    :param created_by: identitySet.
+    :type created_by: ~people.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param inference: inferenceData.
     :type inference: ~people.models.MicrosoftGraphInferenceData
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~people.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param source: personDataSources.
     :type source: ~people.models.MicrosoftGraphPersonDataSources
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~people.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~people.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~people.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~people.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -3304,52 +2915,29 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     :type categories: list[str]
     :param colleagues:
     :type colleagues: list[~people.models.MicrosoftGraphRelatedPerson]
+    :param detail: positionDetail.
+    :type detail: ~people.models.MicrosoftGraphPositionDetail
     :param is_current:
     :type is_current: bool
     :param manager: relatedPerson.
     :type manager: ~people.models.MicrosoftGraphRelatedPerson
-    :param company: companyDetail.
-    :type company: ~people.models.MicrosoftGraphCompanyDetail
-    :param description:
-    :type description: str
-    :param end_month_year:
-    :type end_month_year: ~datetime.date
-    :param job_title:
-    :type job_title: str
-    :param role:
-    :type role: str
-    :param start_month_year:
-    :type start_month_year: ~datetime.date
-    :param summary:
-    :type summary: str
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'inference': {'key': 'inference', 'type': 'MicrosoftGraphInferenceData'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'source': {'key': 'source', 'type': 'MicrosoftGraphPersonDataSources'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'colleagues': {'key': 'colleagues', 'type': '[MicrosoftGraphRelatedPerson]'},
+        'detail': {'key': 'detail', 'type': 'MicrosoftGraphPositionDetail'},
         'is_current': {'key': 'isCurrent', 'type': 'bool'},
         'manager': {'key': 'manager', 'type': 'MicrosoftGraphRelatedPerson'},
-        'company': {'key': 'detail.company', 'type': 'MicrosoftGraphCompanyDetail'},
-        'description': {'key': 'detail.description', 'type': 'str'},
-        'end_month_year': {'key': 'detail.endMonthYear', 'type': 'date'},
-        'job_title': {'key': 'detail.jobTitle', 'type': 'str'},
-        'role': {'key': 'detail.role', 'type': 'str'},
-        'start_month_year': {'key': 'detail.startMonthYear', 'type': 'date'},
-        'summary': {'key': 'detail.summary', 'type': 'str'},
     }
 
     def __init__(
@@ -3358,18 +2946,11 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphWorkPosition, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.colleagues = kwargs.get('colleagues', None)
+        self.detail = kwargs.get('detail', None)
         self.is_current = kwargs.get('is_current', None)
         self.manager = kwargs.get('manager', None)
-        self.company = kwargs.get('company', None)
-        self.description = kwargs.get('description', None)
-        self.end_month_year = kwargs.get('end_month_year', None)
-        self.job_title = kwargs.get('job_title', None)
-        self.role = kwargs.get('role', None)
-        self.start_month_year = kwargs.get('start_month_year', None)
-        self.summary = kwargs.get('summary', None)
 
 
 class MicrosoftGraphYomiPersonName(msrest.serialization.Model):

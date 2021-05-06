@@ -14,10 +14,10 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddVisualElementsAttribution(argparse.Action):
+class AddAttribution(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.visual_elements_attribution = action
+        namespace.attribution = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -39,4 +39,7 @@ class AddVisualElementsAttribution(argparse.Action):
                 d['alternative_text'] = v[0]
             elif kl == 'icon-url':
                 d['icon_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter attribution. All possible keys are: '
+                               'add-image-query, alternate-text, alternative-text, icon-url'.format(k))
         return d

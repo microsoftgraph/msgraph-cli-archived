@@ -45,30 +45,9 @@ class AddAddress(argparse.Action):
                 d['street'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
-        return d
-
-
-class AddBusinessHours(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddBusinessHours, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'day':
-                d['day'] = v[0]
-            elif kl == 'time-slots':
-                d['time_slots'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter address. All possible keys are: city, '
+                               'country-or-region, postal-code, post-office-box, state, street, type'.format(k))
         return d
 
 
@@ -99,6 +78,10 @@ class AddSchedulingPolicy(argparse.Action):
                 d['send_confirmations_to_owner'] = v[0]
             elif kl == 'time-slot-interval':
                 d['time_slot_interval'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter scheduling_policy. All possible keys are: '
+                               'allow-staff-selection, maximum-advance, minimum-lead-time, '
+                               'send-confirmations-to-owner, time-slot-interval'.format(k))
         return d
 
 
@@ -125,6 +108,9 @@ class AddCustomers(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter customers. All possible keys are: '
+                               'email-address, display-name, id'.format(k))
         return d
 
 
@@ -149,6 +135,9 @@ class AddEnd(argparse.Action):
                 d['date_time'] = v[0]
             elif kl == 'time-zone':
                 d['time_zone'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter end. All possible keys are: date-time, '
+                               'time-zone'.format(k))
         return d
 
 
@@ -175,13 +164,16 @@ class AddReminders(argparse._AppendAction):
                 d['offset'] = v[0]
             elif kl == 'recipients':
                 d['recipients'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter reminders. All possible keys are: '
+                               'message, offset, recipients'.format(k))
         return d
 
 
-class AddServiceLocationCoordinates(argparse.Action):
+class AddCoordinates(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.service_location_coordinates = action
+        namespace.coordinates = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -205,6 +197,9 @@ class AddServiceLocationCoordinates(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter coordinates. All possible keys are: '
+                               'accuracy, altitude, altitude-accuracy, latitude, longitude'.format(k))
         return d
 
 
@@ -231,28 +226,7 @@ class AddDefaultReminders(argparse._AppendAction):
                 d['offset'] = v[0]
             elif kl == 'recipients':
                 d['recipients'] = v[0]
-        return d
-
-
-class AddWorkingHours(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddWorkingHours, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'day':
-                d['day'] = v[0]
-            elif kl == 'time-slots':
-                d['time_slots'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter default_reminders. All possible keys are: '
+                               'message, offset, recipients'.format(k))
         return d

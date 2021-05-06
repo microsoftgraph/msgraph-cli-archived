@@ -775,19 +775,9 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
     :type app_id: str
     :param sign_in_count:
     :type sign_in_count: long
-    :param additional_details: Provides additional details on the sign-in activity.
-    :type additional_details: str
-    :param error_code: Provides the 5-6digit error code that's generated during a sign-in failure.
-     Check out the list of error codes and messages.
-    :type error_code: int
-    :param failure_reason: Provides the error message or the reason for failure for the
-     corresponding sign-in activity. Check out the list of error codes and messages.
-    :type failure_reason: str
+    :param status: signInStatus.
+    :type status: ~devices_cloud_print.models.MicrosoftGraphSignInStatus
     """
-
-    _validation = {
-        'error_code': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
@@ -796,9 +786,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
         'app_id': {'key': 'appId', 'type': 'str'},
         'sign_in_count': {'key': 'signInCount', 'type': 'long'},
-        'additional_details': {'key': 'status.additionalDetails', 'type': 'str'},
-        'error_code': {'key': 'status.errorCode', 'type': 'int'},
-        'failure_reason': {'key': 'status.failureReason', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphSignInStatus'},
     }
 
     def __init__(
@@ -810,9 +798,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         app_display_name: Optional[str] = None,
         app_id: Optional[str] = None,
         sign_in_count: Optional[int] = None,
-        additional_details: Optional[str] = None,
-        error_code: Optional[int] = None,
-        failure_reason: Optional[str] = None,
+        status: Optional["MicrosoftGraphSignInStatus"] = None,
         **kwargs
     ):
         super(MicrosoftGraphApplicationSignInDetailedSummary, self).__init__(id=id, **kwargs)
@@ -821,9 +807,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         self.app_display_name = app_display_name
         self.app_id = app_id
         self.sign_in_count = sign_in_count
-        self.additional_details = additional_details
-        self.error_code = error_code
-        self.failure_reason = failure_reason
+        self.status = status
 
 
 class MicrosoftGraphArchivedPrintJob(msrest.serialization.Model):
@@ -1249,6 +1233,8 @@ class MicrosoftGraphPrint(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param settings: printSettings.
+    :type settings: ~devices_cloud_print.models.MicrosoftGraphPrintSettings
     :param connectors:
     :type connectors: list[~devices_cloud_print.models.MicrosoftGraphPrintConnector]
     :param operations:
@@ -1265,12 +1251,11 @@ class MicrosoftGraphPrint(msrest.serialization.Model):
     :type shares: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
     :param task_definitions:
     :type task_definitions: list[~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition]
-    :param document_conversion_enabled:
-    :type document_conversion_enabled: bool
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'settings': {'key': 'settings', 'type': 'MicrosoftGraphPrintSettings'},
         'connectors': {'key': 'connectors', 'type': '[MicrosoftGraphPrintConnector]'},
         'operations': {'key': 'operations', 'type': '[MicrosoftGraphPrintOperation]'},
         'printers': {'key': 'printers', 'type': '[MicrosoftGraphPrinter]'},
@@ -1279,13 +1264,13 @@ class MicrosoftGraphPrint(msrest.serialization.Model):
         'services': {'key': 'services', 'type': '[MicrosoftGraphPrintService]'},
         'shares': {'key': 'shares', 'type': '[MicrosoftGraphPrinterShare]'},
         'task_definitions': {'key': 'taskDefinitions', 'type': '[MicrosoftGraphPrintTaskDefinition]'},
-        'document_conversion_enabled': {'key': 'settings.documentConversionEnabled', 'type': 'bool'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
+        settings: Optional["MicrosoftGraphPrintSettings"] = None,
         connectors: Optional[List["MicrosoftGraphPrintConnector"]] = None,
         operations: Optional[List["MicrosoftGraphPrintOperation"]] = None,
         printers: Optional[List["MicrosoftGraphPrinter"]] = None,
@@ -1294,11 +1279,11 @@ class MicrosoftGraphPrint(msrest.serialization.Model):
         services: Optional[List["MicrosoftGraphPrintService"]] = None,
         shares: Optional[List["MicrosoftGraphPrinterShare"]] = None,
         task_definitions: Optional[List["MicrosoftGraphPrintTaskDefinition"]] = None,
-        document_conversion_enabled: Optional[bool] = None,
         **kwargs
     ):
         super(MicrosoftGraphPrint, self).__init__(**kwargs)
         self.additional_properties = additional_properties
+        self.settings = settings
         self.connectors = connectors
         self.operations = operations
         self.printers = printers
@@ -1307,7 +1292,6 @@ class MicrosoftGraphPrint(msrest.serialization.Model):
         self.services = services
         self.shares = shares
         self.task_definitions = task_definitions
-        self.document_conversion_enabled = document_conversion_enabled
 
 
 class MicrosoftGraphPrintCertificateSigningRequest(msrest.serialization.Model):
@@ -1352,6 +1336,8 @@ class MicrosoftGraphPrintConnector(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param app_version:
     :type app_version: str
+    :param device_health: deviceHealth.
+    :type device_health: ~devices_cloud_print.models.MicrosoftGraphDeviceHealth
     :param display_name:
     :type display_name: str
     :param fully_qualified_domain_name:
@@ -1364,21 +1350,19 @@ class MicrosoftGraphPrintConnector(MicrosoftGraphEntity):
     :type operating_system: str
     :param registered_date_time:
     :type registered_date_time: ~datetime.datetime
-    :param last_connection_time:
-    :type last_connection_time: ~datetime.datetime
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'app_version': {'key': 'appVersion', 'type': 'str'},
+        'device_health': {'key': 'deviceHealth', 'type': 'MicrosoftGraphDeviceHealth'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'fully_qualified_domain_name': {'key': 'fullyQualifiedDomainName', 'type': 'str'},
         'location': {'key': 'location', 'type': 'MicrosoftGraphPrinterLocation'},
         'name': {'key': 'name', 'type': 'str'},
         'operating_system': {'key': 'operatingSystem', 'type': 'str'},
         'registered_date_time': {'key': 'registeredDateTime', 'type': 'iso-8601'},
-        'last_connection_time': {'key': 'deviceHealth.lastConnectionTime', 'type': 'iso-8601'},
     }
 
     def __init__(
@@ -1387,25 +1371,25 @@ class MicrosoftGraphPrintConnector(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         app_version: Optional[str] = None,
+        device_health: Optional["MicrosoftGraphDeviceHealth"] = None,
         display_name: Optional[str] = None,
         fully_qualified_domain_name: Optional[str] = None,
         location: Optional["MicrosoftGraphPrinterLocation"] = None,
         name: Optional[str] = None,
         operating_system: Optional[str] = None,
         registered_date_time: Optional[datetime.datetime] = None,
-        last_connection_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
         super(MicrosoftGraphPrintConnector, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.app_version = app_version
+        self.device_health = device_health
         self.display_name = display_name
         self.fully_qualified_domain_name = fully_qualified_domain_name
         self.location = location
         self.name = name
         self.operating_system = operating_system
         self.registered_date_time = registered_date_time
-        self.last_connection_time = last_connection_time
 
 
 class MicrosoftGraphPrintDocument(MicrosoftGraphEntity):
@@ -1462,6 +1446,8 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param capabilities: printerCapabilities.
+    :type capabilities: ~devices_cloud_print.models.MicrosoftGraphPrinterCapabilities
     :param defaults: printerDefaults.
     :type defaults: ~devices_cloud_print.models.MicrosoftGraphPrinterDefaults
     :param display_name:
@@ -1480,99 +1466,12 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
     :type status: ~devices_cloud_print.models.MicrosoftGraphPrinterStatus
     :param jobs:
     :type jobs: list[~devices_cloud_print.models.MicrosoftGraphPrintJob]
-    :param bottom_margins:
-    :type bottom_margins: list[int]
-    :param collation:
-    :type collation: bool
-    :param color_modes:
-    :type color_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintColorMode]
-    :param content_types:
-    :type content_types: list[str]
-    :param copies_per_job: integerRange.
-    :type copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param dpis:
-    :type dpis: list[int]
-    :param duplex_modes:
-    :type duplex_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintDuplexMode]
-    :param feed_directions:
-    :type feed_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedDirection]
-    :param feed_orientations:
-    :type feed_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedOrientation]
-    :param finishings:
-    :type finishings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param input_bins:
-    :type input_bins: list[str]
-    :param is_color_printing_supported:
-    :type is_color_printing_supported: bool
-    :param is_page_range_supported:
-    :type is_page_range_supported: bool
-    :param left_margins:
-    :type left_margins: list[int]
-    :param media_colors:
-    :type media_colors: list[str]
-    :param media_sizes:
-    :type media_sizes: list[str]
-    :param media_types:
-    :type media_types: list[str]
-    :param multipage_layouts:
-    :type multipage_layouts: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMultipageLayout]
-    :param orientations:
-    :type orientations: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param output_bins:
-    :type output_bins: list[str]
-    :param pages_per_sheet:
-    :type pages_per_sheet: list[int]
-    :param qualities:
-    :type qualities: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param right_margins:
-    :type right_margins: list[int]
-    :param scalings:
-    :type scalings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintScaling]
-    :param supported_color_configurations:
-    :type supported_color_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintColorConfiguration]
-    :param supported_copies_per_job: integerRange.
-    :type supported_copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_document_mime_types:
-    :type supported_document_mime_types: list[str]
-    :param supported_duplex_configurations:
-    :type supported_duplex_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintDuplexConfiguration]
-    :param supported_finishings:
-    :type supported_finishings: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param supported_media_colors:
-    :type supported_media_colors: list[str]
-    :param supported_media_sizes:
-    :type supported_media_sizes: list[str]
-    :param supported_media_types:
-    :type supported_media_types: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMediaType]
-    :param supported_orientations:
-    :type supported_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param supported_output_bins:
-    :type supported_output_bins: list[str]
-    :param supported_pages_per_sheet: integerRange.
-    :type supported_pages_per_sheet: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_presentation_directions:
-    :type supported_presentation_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintPresentationDirection]
-    :param supported_print_qualities:
-    :type supported_print_qualities: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param supports_fit_pdf_to_page:
-    :type supports_fit_pdf_to_page: bool
-    :param top_margins:
-    :type top_margins: list[int]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'capabilities': {'key': 'capabilities', 'type': 'MicrosoftGraphPrinterCapabilities'},
         'defaults': {'key': 'defaults', 'type': 'MicrosoftGraphPrinterDefaults'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'is_accepting_jobs': {'key': 'isAcceptingJobs', 'type': 'bool'},
@@ -1582,45 +1481,6 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
         'name': {'key': 'name', 'type': 'str'},
         'status': {'key': 'status', 'type': 'MicrosoftGraphPrinterStatus'},
         'jobs': {'key': 'jobs', 'type': '[MicrosoftGraphPrintJob]'},
-        'bottom_margins': {'key': 'capabilities.bottomMargins', 'type': '[int]'},
-        'collation': {'key': 'capabilities.collation', 'type': 'bool'},
-        'color_modes': {'key': 'capabilities.colorModes', 'type': '[str]'},
-        'content_types': {'key': 'capabilities.contentTypes', 'type': '[str]'},
-        'copies_per_job': {'key': 'capabilities.copiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'dpis': {'key': 'capabilities.dpis', 'type': '[int]'},
-        'duplex_modes': {'key': 'capabilities.duplexModes', 'type': '[str]'},
-        'feed_directions': {'key': 'capabilities.feedDirections', 'type': '[str]'},
-        'feed_orientations': {'key': 'capabilities.feedOrientations', 'type': '[str]'},
-        'finishings': {'key': 'capabilities.finishings', 'type': '[str]'},
-        'input_bins': {'key': 'capabilities.inputBins', 'type': '[str]'},
-        'is_color_printing_supported': {'key': 'capabilities.isColorPrintingSupported', 'type': 'bool'},
-        'is_page_range_supported': {'key': 'capabilities.isPageRangeSupported', 'type': 'bool'},
-        'left_margins': {'key': 'capabilities.leftMargins', 'type': '[int]'},
-        'media_colors': {'key': 'capabilities.mediaColors', 'type': '[str]'},
-        'media_sizes': {'key': 'capabilities.mediaSizes', 'type': '[str]'},
-        'media_types': {'key': 'capabilities.mediaTypes', 'type': '[str]'},
-        'multipage_layouts': {'key': 'capabilities.multipageLayouts', 'type': '[str]'},
-        'orientations': {'key': 'capabilities.orientations', 'type': '[str]'},
-        'output_bins': {'key': 'capabilities.outputBins', 'type': '[str]'},
-        'pages_per_sheet': {'key': 'capabilities.pagesPerSheet', 'type': '[int]'},
-        'qualities': {'key': 'capabilities.qualities', 'type': '[str]'},
-        'right_margins': {'key': 'capabilities.rightMargins', 'type': '[int]'},
-        'scalings': {'key': 'capabilities.scalings', 'type': '[str]'},
-        'supported_color_configurations': {'key': 'capabilities.supportedColorConfigurations', 'type': '[str]'},
-        'supported_copies_per_job': {'key': 'capabilities.supportedCopiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_document_mime_types': {'key': 'capabilities.supportedDocumentMimeTypes', 'type': '[str]'},
-        'supported_duplex_configurations': {'key': 'capabilities.supportedDuplexConfigurations', 'type': '[str]'},
-        'supported_finishings': {'key': 'capabilities.supportedFinishings', 'type': '[str]'},
-        'supported_media_colors': {'key': 'capabilities.supportedMediaColors', 'type': '[str]'},
-        'supported_media_sizes': {'key': 'capabilities.supportedMediaSizes', 'type': '[str]'},
-        'supported_media_types': {'key': 'capabilities.supportedMediaTypes', 'type': '[str]'},
-        'supported_orientations': {'key': 'capabilities.supportedOrientations', 'type': '[str]'},
-        'supported_output_bins': {'key': 'capabilities.supportedOutputBins', 'type': '[str]'},
-        'supported_pages_per_sheet': {'key': 'capabilities.supportedPagesPerSheet', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_presentation_directions': {'key': 'capabilities.supportedPresentationDirections', 'type': '[str]'},
-        'supported_print_qualities': {'key': 'capabilities.supportedPrintQualities', 'type': '[str]'},
-        'supports_fit_pdf_to_page': {'key': 'capabilities.supportsFitPdfToPage', 'type': 'bool'},
-        'top_margins': {'key': 'capabilities.topMargins', 'type': '[int]'},
     }
 
     def __init__(
@@ -1628,6 +1488,7 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
+        capabilities: Optional["MicrosoftGraphPrinterCapabilities"] = None,
         defaults: Optional["MicrosoftGraphPrinterDefaults"] = None,
         display_name: Optional[str] = None,
         is_accepting_jobs: Optional[bool] = None,
@@ -1637,49 +1498,11 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
         name: Optional[str] = None,
         status: Optional["MicrosoftGraphPrinterStatus"] = None,
         jobs: Optional[List["MicrosoftGraphPrintJob"]] = None,
-        bottom_margins: Optional[List[int]] = None,
-        collation: Optional[bool] = None,
-        color_modes: Optional[List[Union[str, "MicrosoftGraphPrintColorMode"]]] = None,
-        content_types: Optional[List[str]] = None,
-        copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        dpis: Optional[List[int]] = None,
-        duplex_modes: Optional[List[Union[str, "MicrosoftGraphPrintDuplexMode"]]] = None,
-        feed_directions: Optional[List[Union[str, "MicrosoftGraphPrinterFeedDirection"]]] = None,
-        feed_orientations: Optional[List[Union[str, "MicrosoftGraphPrinterFeedOrientation"]]] = None,
-        finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        input_bins: Optional[List[str]] = None,
-        is_color_printing_supported: Optional[bool] = None,
-        is_page_range_supported: Optional[bool] = None,
-        left_margins: Optional[List[int]] = None,
-        media_colors: Optional[List[str]] = None,
-        media_sizes: Optional[List[str]] = None,
-        media_types: Optional[List[str]] = None,
-        multipage_layouts: Optional[List[Union[str, "MicrosoftGraphPrintMultipageLayout"]]] = None,
-        orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        output_bins: Optional[List[str]] = None,
-        pages_per_sheet: Optional[List[int]] = None,
-        qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        right_margins: Optional[List[int]] = None,
-        scalings: Optional[List[Union[str, "MicrosoftGraphPrintScaling"]]] = None,
-        supported_color_configurations: Optional[List[Union[str, "MicrosoftGraphPrintColorConfiguration"]]] = None,
-        supported_copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_document_mime_types: Optional[List[str]] = None,
-        supported_duplex_configurations: Optional[List[Union[str, "MicrosoftGraphPrintDuplexConfiguration"]]] = None,
-        supported_finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        supported_media_colors: Optional[List[str]] = None,
-        supported_media_sizes: Optional[List[str]] = None,
-        supported_media_types: Optional[List[Union[str, "MicrosoftGraphPrintMediaType"]]] = None,
-        supported_orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        supported_output_bins: Optional[List[str]] = None,
-        supported_pages_per_sheet: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_presentation_directions: Optional[List[Union[str, "MicrosoftGraphPrintPresentationDirection"]]] = None,
-        supported_print_qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        supports_fit_pdf_to_page: Optional[bool] = None,
-        top_margins: Optional[List[int]] = None,
         **kwargs
     ):
         super(MicrosoftGraphPrinterBase, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
+        self.capabilities = capabilities
         self.defaults = defaults
         self.display_name = display_name
         self.is_accepting_jobs = is_accepting_jobs
@@ -1689,55 +1512,15 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
         self.name = name
         self.status = status
         self.jobs = jobs
-        self.bottom_margins = bottom_margins
-        self.collation = collation
-        self.color_modes = color_modes
-        self.content_types = content_types
-        self.copies_per_job = copies_per_job
-        self.dpis = dpis
-        self.duplex_modes = duplex_modes
-        self.feed_directions = feed_directions
-        self.feed_orientations = feed_orientations
-        self.finishings = finishings
-        self.input_bins = input_bins
-        self.is_color_printing_supported = is_color_printing_supported
-        self.is_page_range_supported = is_page_range_supported
-        self.left_margins = left_margins
-        self.media_colors = media_colors
-        self.media_sizes = media_sizes
-        self.media_types = media_types
-        self.multipage_layouts = multipage_layouts
-        self.orientations = orientations
-        self.output_bins = output_bins
-        self.pages_per_sheet = pages_per_sheet
-        self.qualities = qualities
-        self.right_margins = right_margins
-        self.scalings = scalings
-        self.supported_color_configurations = supported_color_configurations
-        self.supported_copies_per_job = supported_copies_per_job
-        self.supported_document_mime_types = supported_document_mime_types
-        self.supported_duplex_configurations = supported_duplex_configurations
-        self.supported_finishings = supported_finishings
-        self.supported_media_colors = supported_media_colors
-        self.supported_media_sizes = supported_media_sizes
-        self.supported_media_types = supported_media_types
-        self.supported_orientations = supported_orientations
-        self.supported_output_bins = supported_output_bins
-        self.supported_pages_per_sheet = supported_pages_per_sheet
-        self.supported_presentation_directions = supported_presentation_directions
-        self.supported_print_qualities = supported_print_qualities
-        self.supports_fit_pdf_to_page = supports_fit_pdf_to_page
-        self.top_margins = top_margins
 
 
 class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
     """printer.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param capabilities: printerCapabilities.
+    :type capabilities: ~devices_cloud_print.models.MicrosoftGraphPrinterCapabilities
     :param defaults: printerDefaults.
     :type defaults: ~devices_cloud_print.models.MicrosoftGraphPrinterDefaults
     :param display_name:
@@ -1756,94 +1539,6 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
     :type status: ~devices_cloud_print.models.MicrosoftGraphPrinterStatus
     :param jobs:
     :type jobs: list[~devices_cloud_print.models.MicrosoftGraphPrintJob]
-    :param bottom_margins:
-    :type bottom_margins: list[int]
-    :param collation:
-    :type collation: bool
-    :param color_modes:
-    :type color_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintColorMode]
-    :param content_types:
-    :type content_types: list[str]
-    :param copies_per_job: integerRange.
-    :type copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param dpis:
-    :type dpis: list[int]
-    :param duplex_modes:
-    :type duplex_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintDuplexMode]
-    :param feed_directions:
-    :type feed_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedDirection]
-    :param feed_orientations:
-    :type feed_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedOrientation]
-    :param finishings:
-    :type finishings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param input_bins:
-    :type input_bins: list[str]
-    :param is_color_printing_supported:
-    :type is_color_printing_supported: bool
-    :param is_page_range_supported:
-    :type is_page_range_supported: bool
-    :param left_margins:
-    :type left_margins: list[int]
-    :param media_colors:
-    :type media_colors: list[str]
-    :param media_sizes:
-    :type media_sizes: list[str]
-    :param media_types:
-    :type media_types: list[str]
-    :param multipage_layouts:
-    :type multipage_layouts: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMultipageLayout]
-    :param orientations:
-    :type orientations: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param output_bins:
-    :type output_bins: list[str]
-    :param pages_per_sheet:
-    :type pages_per_sheet: list[int]
-    :param qualities:
-    :type qualities: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param right_margins:
-    :type right_margins: list[int]
-    :param scalings:
-    :type scalings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintScaling]
-    :param supported_color_configurations:
-    :type supported_color_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintColorConfiguration]
-    :param supported_copies_per_job: integerRange.
-    :type supported_copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_document_mime_types:
-    :type supported_document_mime_types: list[str]
-    :param supported_duplex_configurations:
-    :type supported_duplex_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintDuplexConfiguration]
-    :param supported_finishings:
-    :type supported_finishings: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param supported_media_colors:
-    :type supported_media_colors: list[str]
-    :param supported_media_sizes:
-    :type supported_media_sizes: list[str]
-    :param supported_media_types:
-    :type supported_media_types: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMediaType]
-    :param supported_orientations:
-    :type supported_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param supported_output_bins:
-    :type supported_output_bins: list[str]
-    :param supported_pages_per_sheet: integerRange.
-    :type supported_pages_per_sheet: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_presentation_directions:
-    :type supported_presentation_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintPresentationDirection]
-    :param supported_print_qualities:
-    :type supported_print_qualities: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param supports_fit_pdf_to_page:
-    :type supports_fit_pdf_to_page: bool
-    :param top_margins:
-    :type top_margins: list[int]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1868,8 +1563,8 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'capabilities': {'key': 'capabilities', 'type': 'MicrosoftGraphPrinterCapabilities'},
         'defaults': {'key': 'defaults', 'type': 'MicrosoftGraphPrinterDefaults'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'is_accepting_jobs': {'key': 'isAcceptingJobs', 'type': 'bool'},
@@ -1879,45 +1574,6 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
         'name': {'key': 'name', 'type': 'str'},
         'status': {'key': 'status', 'type': 'MicrosoftGraphPrinterStatus'},
         'jobs': {'key': 'jobs', 'type': '[MicrosoftGraphPrintJob]'},
-        'bottom_margins': {'key': 'capabilities.bottomMargins', 'type': '[int]'},
-        'collation': {'key': 'capabilities.collation', 'type': 'bool'},
-        'color_modes': {'key': 'capabilities.colorModes', 'type': '[str]'},
-        'content_types': {'key': 'capabilities.contentTypes', 'type': '[str]'},
-        'copies_per_job': {'key': 'capabilities.copiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'dpis': {'key': 'capabilities.dpis', 'type': '[int]'},
-        'duplex_modes': {'key': 'capabilities.duplexModes', 'type': '[str]'},
-        'feed_directions': {'key': 'capabilities.feedDirections', 'type': '[str]'},
-        'feed_orientations': {'key': 'capabilities.feedOrientations', 'type': '[str]'},
-        'finishings': {'key': 'capabilities.finishings', 'type': '[str]'},
-        'input_bins': {'key': 'capabilities.inputBins', 'type': '[str]'},
-        'is_color_printing_supported': {'key': 'capabilities.isColorPrintingSupported', 'type': 'bool'},
-        'is_page_range_supported': {'key': 'capabilities.isPageRangeSupported', 'type': 'bool'},
-        'left_margins': {'key': 'capabilities.leftMargins', 'type': '[int]'},
-        'media_colors': {'key': 'capabilities.mediaColors', 'type': '[str]'},
-        'media_sizes': {'key': 'capabilities.mediaSizes', 'type': '[str]'},
-        'media_types': {'key': 'capabilities.mediaTypes', 'type': '[str]'},
-        'multipage_layouts': {'key': 'capabilities.multipageLayouts', 'type': '[str]'},
-        'orientations': {'key': 'capabilities.orientations', 'type': '[str]'},
-        'output_bins': {'key': 'capabilities.outputBins', 'type': '[str]'},
-        'pages_per_sheet': {'key': 'capabilities.pagesPerSheet', 'type': '[int]'},
-        'qualities': {'key': 'capabilities.qualities', 'type': '[str]'},
-        'right_margins': {'key': 'capabilities.rightMargins', 'type': '[int]'},
-        'scalings': {'key': 'capabilities.scalings', 'type': '[str]'},
-        'supported_color_configurations': {'key': 'capabilities.supportedColorConfigurations', 'type': '[str]'},
-        'supported_copies_per_job': {'key': 'capabilities.supportedCopiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_document_mime_types': {'key': 'capabilities.supportedDocumentMimeTypes', 'type': '[str]'},
-        'supported_duplex_configurations': {'key': 'capabilities.supportedDuplexConfigurations', 'type': '[str]'},
-        'supported_finishings': {'key': 'capabilities.supportedFinishings', 'type': '[str]'},
-        'supported_media_colors': {'key': 'capabilities.supportedMediaColors', 'type': '[str]'},
-        'supported_media_sizes': {'key': 'capabilities.supportedMediaSizes', 'type': '[str]'},
-        'supported_media_types': {'key': 'capabilities.supportedMediaTypes', 'type': '[str]'},
-        'supported_orientations': {'key': 'capabilities.supportedOrientations', 'type': '[str]'},
-        'supported_output_bins': {'key': 'capabilities.supportedOutputBins', 'type': '[str]'},
-        'supported_pages_per_sheet': {'key': 'capabilities.supportedPagesPerSheet', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_presentation_directions': {'key': 'capabilities.supportedPresentationDirections', 'type': '[str]'},
-        'supported_print_qualities': {'key': 'capabilities.supportedPrintQualities', 'type': '[str]'},
-        'supports_fit_pdf_to_page': {'key': 'capabilities.supportsFitPdfToPage', 'type': 'bool'},
-        'top_margins': {'key': 'capabilities.topMargins', 'type': '[int]'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'accepting_jobs': {'key': 'acceptingJobs', 'type': 'bool'},
         'is_shared': {'key': 'isShared', 'type': 'bool'},
@@ -1933,8 +1589,8 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
+        capabilities: Optional["MicrosoftGraphPrinterCapabilities"] = None,
         defaults: Optional["MicrosoftGraphPrinterDefaults"] = None,
         display_name: Optional[str] = None,
         is_accepting_jobs: Optional[bool] = None,
@@ -1944,45 +1600,6 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
         name: Optional[str] = None,
         status: Optional["MicrosoftGraphPrinterStatus"] = None,
         jobs: Optional[List["MicrosoftGraphPrintJob"]] = None,
-        bottom_margins: Optional[List[int]] = None,
-        collation: Optional[bool] = None,
-        color_modes: Optional[List[Union[str, "MicrosoftGraphPrintColorMode"]]] = None,
-        content_types: Optional[List[str]] = None,
-        copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        dpis: Optional[List[int]] = None,
-        duplex_modes: Optional[List[Union[str, "MicrosoftGraphPrintDuplexMode"]]] = None,
-        feed_directions: Optional[List[Union[str, "MicrosoftGraphPrinterFeedDirection"]]] = None,
-        feed_orientations: Optional[List[Union[str, "MicrosoftGraphPrinterFeedOrientation"]]] = None,
-        finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        input_bins: Optional[List[str]] = None,
-        is_color_printing_supported: Optional[bool] = None,
-        is_page_range_supported: Optional[bool] = None,
-        left_margins: Optional[List[int]] = None,
-        media_colors: Optional[List[str]] = None,
-        media_sizes: Optional[List[str]] = None,
-        media_types: Optional[List[str]] = None,
-        multipage_layouts: Optional[List[Union[str, "MicrosoftGraphPrintMultipageLayout"]]] = None,
-        orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        output_bins: Optional[List[str]] = None,
-        pages_per_sheet: Optional[List[int]] = None,
-        qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        right_margins: Optional[List[int]] = None,
-        scalings: Optional[List[Union[str, "MicrosoftGraphPrintScaling"]]] = None,
-        supported_color_configurations: Optional[List[Union[str, "MicrosoftGraphPrintColorConfiguration"]]] = None,
-        supported_copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_document_mime_types: Optional[List[str]] = None,
-        supported_duplex_configurations: Optional[List[Union[str, "MicrosoftGraphPrintDuplexConfiguration"]]] = None,
-        supported_finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        supported_media_colors: Optional[List[str]] = None,
-        supported_media_sizes: Optional[List[str]] = None,
-        supported_media_types: Optional[List[Union[str, "MicrosoftGraphPrintMediaType"]]] = None,
-        supported_orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        supported_output_bins: Optional[List[str]] = None,
-        supported_pages_per_sheet: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_presentation_directions: Optional[List[Union[str, "MicrosoftGraphPrintPresentationDirection"]]] = None,
-        supported_print_qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        supports_fit_pdf_to_page: Optional[bool] = None,
-        top_margins: Optional[List[int]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         accepting_jobs: Optional[bool] = None,
         is_shared: Optional[bool] = None,
@@ -1995,8 +1612,7 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
         task_triggers: Optional[List["MicrosoftGraphPrintTaskTrigger"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinter, self).__init__(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, **kwargs)
-        self.additional_properties = additional_properties
+        super(MicrosoftGraphPrinter, self).__init__(id=id, capabilities=capabilities, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, **kwargs)
         self.additional_properties = additional_properties
         self.accepting_jobs = accepting_jobs
         self.is_shared = is_shared
@@ -2636,11 +2252,10 @@ class MicrosoftGraphPrinterLocation(msrest.serialization.Model):
 class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
     """printerShare.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param capabilities: printerCapabilities.
+    :type capabilities: ~devices_cloud_print.models.MicrosoftGraphPrinterCapabilities
     :param defaults: printerDefaults.
     :type defaults: ~devices_cloud_print.models.MicrosoftGraphPrinterDefaults
     :param display_name:
@@ -2659,94 +2274,6 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
     :type status: ~devices_cloud_print.models.MicrosoftGraphPrinterStatus
     :param jobs:
     :type jobs: list[~devices_cloud_print.models.MicrosoftGraphPrintJob]
-    :param bottom_margins:
-    :type bottom_margins: list[int]
-    :param collation:
-    :type collation: bool
-    :param color_modes:
-    :type color_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintColorMode]
-    :param content_types:
-    :type content_types: list[str]
-    :param copies_per_job: integerRange.
-    :type copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param dpis:
-    :type dpis: list[int]
-    :param duplex_modes:
-    :type duplex_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintDuplexMode]
-    :param feed_directions:
-    :type feed_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedDirection]
-    :param feed_orientations:
-    :type feed_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedOrientation]
-    :param finishings:
-    :type finishings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param input_bins:
-    :type input_bins: list[str]
-    :param is_color_printing_supported:
-    :type is_color_printing_supported: bool
-    :param is_page_range_supported:
-    :type is_page_range_supported: bool
-    :param left_margins:
-    :type left_margins: list[int]
-    :param media_colors:
-    :type media_colors: list[str]
-    :param media_sizes:
-    :type media_sizes: list[str]
-    :param media_types:
-    :type media_types: list[str]
-    :param multipage_layouts:
-    :type multipage_layouts: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMultipageLayout]
-    :param orientations:
-    :type orientations: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param output_bins:
-    :type output_bins: list[str]
-    :param pages_per_sheet:
-    :type pages_per_sheet: list[int]
-    :param qualities:
-    :type qualities: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param right_margins:
-    :type right_margins: list[int]
-    :param scalings:
-    :type scalings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintScaling]
-    :param supported_color_configurations:
-    :type supported_color_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintColorConfiguration]
-    :param supported_copies_per_job: integerRange.
-    :type supported_copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_document_mime_types:
-    :type supported_document_mime_types: list[str]
-    :param supported_duplex_configurations:
-    :type supported_duplex_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintDuplexConfiguration]
-    :param supported_finishings:
-    :type supported_finishings: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param supported_media_colors:
-    :type supported_media_colors: list[str]
-    :param supported_media_sizes:
-    :type supported_media_sizes: list[str]
-    :param supported_media_types:
-    :type supported_media_types: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMediaType]
-    :param supported_orientations:
-    :type supported_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param supported_output_bins:
-    :type supported_output_bins: list[str]
-    :param supported_pages_per_sheet: integerRange.
-    :type supported_pages_per_sheet: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_presentation_directions:
-    :type supported_presentation_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintPresentationDirection]
-    :param supported_print_qualities:
-    :type supported_print_qualities: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param supports_fit_pdf_to_page:
-    :type supports_fit_pdf_to_page: bool
-    :param top_margins:
-    :type top_margins: list[int]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2763,8 +2290,8 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'capabilities': {'key': 'capabilities', 'type': 'MicrosoftGraphPrinterCapabilities'},
         'defaults': {'key': 'defaults', 'type': 'MicrosoftGraphPrinterDefaults'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'is_accepting_jobs': {'key': 'isAcceptingJobs', 'type': 'bool'},
@@ -2774,45 +2301,6 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
         'name': {'key': 'name', 'type': 'str'},
         'status': {'key': 'status', 'type': 'MicrosoftGraphPrinterStatus'},
         'jobs': {'key': 'jobs', 'type': '[MicrosoftGraphPrintJob]'},
-        'bottom_margins': {'key': 'capabilities.bottomMargins', 'type': '[int]'},
-        'collation': {'key': 'capabilities.collation', 'type': 'bool'},
-        'color_modes': {'key': 'capabilities.colorModes', 'type': '[str]'},
-        'content_types': {'key': 'capabilities.contentTypes', 'type': '[str]'},
-        'copies_per_job': {'key': 'capabilities.copiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'dpis': {'key': 'capabilities.dpis', 'type': '[int]'},
-        'duplex_modes': {'key': 'capabilities.duplexModes', 'type': '[str]'},
-        'feed_directions': {'key': 'capabilities.feedDirections', 'type': '[str]'},
-        'feed_orientations': {'key': 'capabilities.feedOrientations', 'type': '[str]'},
-        'finishings': {'key': 'capabilities.finishings', 'type': '[str]'},
-        'input_bins': {'key': 'capabilities.inputBins', 'type': '[str]'},
-        'is_color_printing_supported': {'key': 'capabilities.isColorPrintingSupported', 'type': 'bool'},
-        'is_page_range_supported': {'key': 'capabilities.isPageRangeSupported', 'type': 'bool'},
-        'left_margins': {'key': 'capabilities.leftMargins', 'type': '[int]'},
-        'media_colors': {'key': 'capabilities.mediaColors', 'type': '[str]'},
-        'media_sizes': {'key': 'capabilities.mediaSizes', 'type': '[str]'},
-        'media_types': {'key': 'capabilities.mediaTypes', 'type': '[str]'},
-        'multipage_layouts': {'key': 'capabilities.multipageLayouts', 'type': '[str]'},
-        'orientations': {'key': 'capabilities.orientations', 'type': '[str]'},
-        'output_bins': {'key': 'capabilities.outputBins', 'type': '[str]'},
-        'pages_per_sheet': {'key': 'capabilities.pagesPerSheet', 'type': '[int]'},
-        'qualities': {'key': 'capabilities.qualities', 'type': '[str]'},
-        'right_margins': {'key': 'capabilities.rightMargins', 'type': '[int]'},
-        'scalings': {'key': 'capabilities.scalings', 'type': '[str]'},
-        'supported_color_configurations': {'key': 'capabilities.supportedColorConfigurations', 'type': '[str]'},
-        'supported_copies_per_job': {'key': 'capabilities.supportedCopiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_document_mime_types': {'key': 'capabilities.supportedDocumentMimeTypes', 'type': '[str]'},
-        'supported_duplex_configurations': {'key': 'capabilities.supportedDuplexConfigurations', 'type': '[str]'},
-        'supported_finishings': {'key': 'capabilities.supportedFinishings', 'type': '[str]'},
-        'supported_media_colors': {'key': 'capabilities.supportedMediaColors', 'type': '[str]'},
-        'supported_media_sizes': {'key': 'capabilities.supportedMediaSizes', 'type': '[str]'},
-        'supported_media_types': {'key': 'capabilities.supportedMediaTypes', 'type': '[str]'},
-        'supported_orientations': {'key': 'capabilities.supportedOrientations', 'type': '[str]'},
-        'supported_output_bins': {'key': 'capabilities.supportedOutputBins', 'type': '[str]'},
-        'supported_pages_per_sheet': {'key': 'capabilities.supportedPagesPerSheet', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_presentation_directions': {'key': 'capabilities.supportedPresentationDirections', 'type': '[str]'},
-        'supported_print_qualities': {'key': 'capabilities.supportedPrintQualities', 'type': '[str]'},
-        'supports_fit_pdf_to_page': {'key': 'capabilities.supportsFitPdfToPage', 'type': 'bool'},
-        'top_margins': {'key': 'capabilities.topMargins', 'type': '[int]'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'allow_all_users': {'key': 'allowAllUsers', 'type': 'bool'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -2824,8 +2312,8 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
+        capabilities: Optional["MicrosoftGraphPrinterCapabilities"] = None,
         defaults: Optional["MicrosoftGraphPrinterDefaults"] = None,
         display_name: Optional[str] = None,
         is_accepting_jobs: Optional[bool] = None,
@@ -2835,45 +2323,6 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
         name: Optional[str] = None,
         status: Optional["MicrosoftGraphPrinterStatus"] = None,
         jobs: Optional[List["MicrosoftGraphPrintJob"]] = None,
-        bottom_margins: Optional[List[int]] = None,
-        collation: Optional[bool] = None,
-        color_modes: Optional[List[Union[str, "MicrosoftGraphPrintColorMode"]]] = None,
-        content_types: Optional[List[str]] = None,
-        copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        dpis: Optional[List[int]] = None,
-        duplex_modes: Optional[List[Union[str, "MicrosoftGraphPrintDuplexMode"]]] = None,
-        feed_directions: Optional[List[Union[str, "MicrosoftGraphPrinterFeedDirection"]]] = None,
-        feed_orientations: Optional[List[Union[str, "MicrosoftGraphPrinterFeedOrientation"]]] = None,
-        finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        input_bins: Optional[List[str]] = None,
-        is_color_printing_supported: Optional[bool] = None,
-        is_page_range_supported: Optional[bool] = None,
-        left_margins: Optional[List[int]] = None,
-        media_colors: Optional[List[str]] = None,
-        media_sizes: Optional[List[str]] = None,
-        media_types: Optional[List[str]] = None,
-        multipage_layouts: Optional[List[Union[str, "MicrosoftGraphPrintMultipageLayout"]]] = None,
-        orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        output_bins: Optional[List[str]] = None,
-        pages_per_sheet: Optional[List[int]] = None,
-        qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        right_margins: Optional[List[int]] = None,
-        scalings: Optional[List[Union[str, "MicrosoftGraphPrintScaling"]]] = None,
-        supported_color_configurations: Optional[List[Union[str, "MicrosoftGraphPrintColorConfiguration"]]] = None,
-        supported_copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_document_mime_types: Optional[List[str]] = None,
-        supported_duplex_configurations: Optional[List[Union[str, "MicrosoftGraphPrintDuplexConfiguration"]]] = None,
-        supported_finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        supported_media_colors: Optional[List[str]] = None,
-        supported_media_sizes: Optional[List[str]] = None,
-        supported_media_types: Optional[List[Union[str, "MicrosoftGraphPrintMediaType"]]] = None,
-        supported_orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        supported_output_bins: Optional[List[str]] = None,
-        supported_pages_per_sheet: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_presentation_directions: Optional[List[Union[str, "MicrosoftGraphPrintPresentationDirection"]]] = None,
-        supported_print_qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        supports_fit_pdf_to_page: Optional[bool] = None,
-        top_margins: Optional[List[int]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         allow_all_users: Optional[bool] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -2882,8 +2331,7 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
         printer: Optional["MicrosoftGraphPrinter"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinterShare, self).__init__(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, **kwargs)
-        self.additional_properties = additional_properties
+        super(MicrosoftGraphPrinterShare, self).__init__(id=id, capabilities=capabilities, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, **kwargs)
         self.additional_properties = additional_properties
         self.allow_all_users = allow_all_users
         self.created_date_time = created_date_time
@@ -3360,19 +2808,15 @@ class MicrosoftGraphPrintOperation(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
-    :param description:
-    :type description: str
-    :param state:  Possible values include: "notStarted", "running", "succeeded", "failed",
-     "unknownFutureValue".
-    :type state: str or ~devices_cloud_print.models.MicrosoftGraphPrintOperationProcessingState
+    :param status: printOperationStatus.
+    :type status: ~devices_cloud_print.models.MicrosoftGraphPrintOperationStatus
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'description': {'key': 'status.description', 'type': 'str'},
-        'state': {'key': 'status.state', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphPrintOperationStatus'},
     }
 
     def __init__(
@@ -3381,15 +2825,13 @@ class MicrosoftGraphPrintOperation(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        description: Optional[str] = None,
-        state: Optional[Union[str, "MicrosoftGraphPrintOperationProcessingState"]] = None,
+        status: Optional["MicrosoftGraphPrintOperationStatus"] = None,
         **kwargs
     ):
         super(MicrosoftGraphPrintOperation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
-        self.description = description
-        self.state = state
+        self.status = status
 
 
 class MicrosoftGraphPrintOperationStatus(msrest.serialization.Model):
@@ -3533,13 +2975,8 @@ class MicrosoftGraphPrintTask(MicrosoftGraphEntity):
     :type status: ~devices_cloud_print.models.MicrosoftGraphPrintTaskStatus
     :param definition: printTaskDefinition.
     :type definition: ~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition
-    :param id_trigger_id: Read-only.
-    :type id_trigger_id: str
-    :param event:  Possible values include: "jobStarted", "unknownFutureValue".
-    :type event: str or ~devices_cloud_print.models.MicrosoftGraphPrintEvent
-    :param definition_trigger_definition: printTaskDefinition.
-    :type definition_trigger_definition:
-     ~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition
+    :param trigger: printTaskTrigger.
+    :type trigger: ~devices_cloud_print.models.MicrosoftGraphPrintTaskTrigger
     """
 
     _attribute_map = {
@@ -3548,9 +2985,7 @@ class MicrosoftGraphPrintTask(MicrosoftGraphEntity):
         'parent_url': {'key': 'parentUrl', 'type': 'str'},
         'status': {'key': 'status', 'type': 'MicrosoftGraphPrintTaskStatus'},
         'definition': {'key': 'definition', 'type': 'MicrosoftGraphPrintTaskDefinition'},
-        'id_trigger_id': {'key': 'trigger.id', 'type': 'str'},
-        'event': {'key': 'trigger.event', 'type': 'str'},
-        'definition_trigger_definition': {'key': 'trigger.definition', 'type': 'MicrosoftGraphPrintTaskDefinition'},
+        'trigger': {'key': 'trigger', 'type': 'MicrosoftGraphPrintTaskTrigger'},
     }
 
     def __init__(
@@ -3561,9 +2996,7 @@ class MicrosoftGraphPrintTask(MicrosoftGraphEntity):
         parent_url: Optional[str] = None,
         status: Optional["MicrosoftGraphPrintTaskStatus"] = None,
         definition: Optional["MicrosoftGraphPrintTaskDefinition"] = None,
-        id_trigger_id: Optional[str] = None,
-        event: Optional[Union[str, "MicrosoftGraphPrintEvent"]] = None,
-        definition_trigger_definition: Optional["MicrosoftGraphPrintTaskDefinition"] = None,
+        trigger: Optional["MicrosoftGraphPrintTaskTrigger"] = None,
         **kwargs
     ):
         super(MicrosoftGraphPrintTask, self).__init__(id=id, **kwargs)
@@ -3571,9 +3004,7 @@ class MicrosoftGraphPrintTask(MicrosoftGraphEntity):
         self.parent_url = parent_url
         self.status = status
         self.definition = definition
-        self.id_trigger_id = id_trigger_id
-        self.event = event
-        self.definition_trigger_definition = definition_trigger_definition
+        self.trigger = trigger
 
 
 class MicrosoftGraphPrintTaskDefinition(MicrosoftGraphEntity):

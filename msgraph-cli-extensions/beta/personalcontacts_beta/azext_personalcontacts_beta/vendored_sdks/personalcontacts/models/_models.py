@@ -418,9 +418,6 @@ class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
 class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     """contact.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -461,6 +458,8 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     :type email_addresses: list[~personal_contacts.models.MicrosoftGraphTypedEmailAddress]
     :param file_as: The name the contact is filed under.
     :type file_as: str
+    :param flag: followupFlag.
+    :type flag: ~personal_contacts.models.MicrosoftGraphFollowupFlag
     :param gender:
     :type gender: str
     :param generation: The contact's generation.
@@ -522,18 +521,9 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
      defined for the contact. Read-only. Nullable.
     :type single_value_extended_properties:
      list[~personal_contacts.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
-    :param completed_date_time: dateTimeTimeZone.
-    :type completed_date_time: ~personal_contacts.models.MicrosoftGraphDateTimeZone
-    :param due_date_time: dateTimeTimeZone.
-    :type due_date_time: ~personal_contacts.models.MicrosoftGraphDateTimeZone
-    :param flag_status:  Possible values include: "notFlagged", "complete", "flagged".
-    :type flag_status: str or ~personal_contacts.models.MicrosoftGraphFollowupFlagStatus
-    :param start_date_time: dateTimeTimeZone.
-    :type start_date_time: ~personal_contacts.models.MicrosoftGraphDateTimeZone
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -548,6 +538,7 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'email_addresses': {'key': 'emailAddresses', 'type': '[MicrosoftGraphTypedEmailAddress]'},
         'file_as': {'key': 'fileAs', 'type': 'str'},
+        'flag': {'key': 'flag', 'type': 'MicrosoftGraphFollowupFlag'},
         'gender': {'key': 'gender', 'type': 'str'},
         'generation': {'key': 'generation', 'type': 'str'},
         'given_name': {'key': 'givenName', 'type': 'str'},
@@ -576,10 +567,6 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'photo': {'key': 'photo', 'type': 'MicrosoftGraphProfilePhoto'},
         'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
-        'completed_date_time': {'key': 'flag.completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
-        'due_date_time': {'key': 'flag.dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
-        'flag_status': {'key': 'flag.flagStatus', 'type': 'str'},
-        'start_date_time': {'key': 'flag.startDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
     }
 
     def __init__(
@@ -587,7 +574,6 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphContact, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assistant_name = kwargs.get('assistant_name', None)
         self.birthday = kwargs.get('birthday', None)
@@ -597,6 +583,7 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         self.display_name = kwargs.get('display_name', None)
         self.email_addresses = kwargs.get('email_addresses', None)
         self.file_as = kwargs.get('file_as', None)
+        self.flag = kwargs.get('flag', None)
         self.gender = kwargs.get('gender', None)
         self.generation = kwargs.get('generation', None)
         self.given_name = kwargs.get('given_name', None)
@@ -625,10 +612,6 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
         self.photo = kwargs.get('photo', None)
         self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
-        self.completed_date_time = kwargs.get('completed_date_time', None)
-        self.due_date_time = kwargs.get('due_date_time', None)
-        self.flag_status = kwargs.get('flag_status', None)
-        self.start_date_time = kwargs.get('start_date_time', None)
 
 
 class MicrosoftGraphContactFolder(MicrosoftGraphEntity):

@@ -11,7 +11,7 @@
 
 def cf_people_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.people import People
+    from azext_people_beta.vendored_sdks.people import People
     return get_mgmt_service_client(cli_ctx,
                                    People,
                                    subscription_bound=False,
@@ -19,12 +19,12 @@ def cf_people_beta_cl(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_people_beta_cl(cli_ctx).user
+    return cf_people_beta_cl(cli_ctx).users
 
 
 def cf_user_analytic(cli_ctx, *_):
-    return cf_people_beta_cl(cli_ctx).user_analytic
+    return cf_people_beta_cl(cli_ctx).users_analytics
 
 
 def cf_user_profile(cli_ctx, *_):
-    return cf_people_beta_cl(cli_ctx).user_profile
+    return cf_people_beta_cl(cli_ctx).users_profile

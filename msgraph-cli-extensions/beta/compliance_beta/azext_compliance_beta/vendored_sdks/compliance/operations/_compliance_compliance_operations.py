@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -65,7 +65,9 @@ class ComplianceComplianceOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCompliance"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -82,7 +84,6 @@ class ComplianceComplianceOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -103,8 +104,7 @@ class ComplianceComplianceOperations(object):
 
     def update_compliance(
         self,
-        id=None,  # type: Optional[str]
-        cases=None,  # type: Optional[List["models.MicrosoftGraphEdiscoveryCase"]]
+        body,  # type: "models.MicrosoftGraphCompliance"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -112,20 +112,18 @@ class ComplianceComplianceOperations(object):
 
         Update compliance.
 
-        :param id: Read-only.
-        :type id: str
-        :param cases:
-        :type cases: list[~compliance.models.MicrosoftGraphEdiscoveryCase]
+        :param body: New property values.
+        :type body: ~compliance.models.MicrosoftGraphCompliance
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphCompliance(id=id, cases=cases)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -141,10 +139,9 @@ class ComplianceComplianceOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCompliance')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCompliance')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 

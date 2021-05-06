@@ -5359,9 +5359,6 @@ class MicrosoftGraphOnenoteEntityBaseModel(MicrosoftGraphEntity):
 class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBaseModel):
     """onenoteEntitySchemaObjectModel.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -5376,7 +5373,6 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -5386,7 +5382,6 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         self_property: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
@@ -5394,7 +5389,6 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
         **kwargs
     ):
         super(MicrosoftGraphOnenoteEntitySchemaObjectModel, self).__init__(id=id, self_property=self_property, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
 
@@ -5404,11 +5398,6 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
-    :param id: Read-only.
-    :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
     :param created_date_time: The date and time when the page was created. The timestamp represents
@@ -5418,112 +5407,73 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~notes.models.MicrosoftGraphIdentitySet
     :param display_name: The name of the notebook.
     :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~notes.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
      only.
     :type last_modified_date_time: ~datetime.datetime
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~notes.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~notes.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
-        'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
-        id: Optional[str] = None,
         self_property: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         display_name: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphOnenoteEntityHierarchyModel, self).__init__(id=id, id=id, self_property=self_property, created_date_time=created_date_time, **kwargs)
+        super(MicrosoftGraphOnenoteEntityHierarchyModel, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
+        self.created_by = created_by
         self.display_name = display_name
+        self.last_modified_by = last_modified_by
         self.last_modified_date_time = last_modified_date_time
-        self.application_last_modified_by_application = application_last_modified_by_application
-        self.device_last_modified_by_device = device_last_modified_by_device
-        self.user_last_modified_by_user = user_last_modified_by_user
-        self.application_created_by_application = application_created_by_application
-        self.device_created_by_device = device_created_by_device
-        self.user_created_by_user = user_created_by_user
 
 
 class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     """notebook.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
     :type created_date_time: ~datetime.datetime
+    :param created_by: identitySet.
+    :type created_by: ~notes.models.MicrosoftGraphIdentitySet
     :param display_name: The name of the notebook.
     :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~notes.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
      only.
     :type last_modified_date_time: ~datetime.datetime
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~notes.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~notes.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -5532,6 +5482,8 @@ class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     :param is_shared: Indicates whether the notebook is shared. If true, the contents of the
      notebook can be seen by people other than the owner. Read-only.
     :type is_shared: bool
+    :param links: notebookLinks.
+    :type links: ~notes.models.MicrosoftGraphNotebookLinks
     :param section_groups_url: The URL for the sectionGroups navigation property, which returns all
      the section groups in the notebook. Read-only.
     :type section_groups_url: str
@@ -5544,79 +5496,58 @@ class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     :type section_groups: list[~notes.models.MicrosoftGraphSectionGroup]
     :param sections: The sections in the notebook. Read-only. Nullable.
     :type sections: list[~notes.models.MicrosoftGraphOnenoteSection]
-    :param one_note_client_url: externalLink.
-    :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
-    :param one_note_web_url: externalLink.
-    :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'is_default': {'key': 'isDefault', 'type': 'bool'},
         'is_shared': {'key': 'isShared', 'type': 'bool'},
+        'links': {'key': 'links', 'type': 'MicrosoftGraphNotebookLinks'},
         'section_groups_url': {'key': 'sectionGroupsUrl', 'type': 'str'},
         'sections_url': {'key': 'sectionsUrl', 'type': 'str'},
         'user_role': {'key': 'userRole', 'type': 'str'},
         'section_groups': {'key': 'sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
         'sections': {'key': 'sections', 'type': '[MicrosoftGraphOnenoteSection]'},
-        'one_note_client_url': {'key': 'links.oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
-        'one_note_web_url': {'key': 'links.oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         self_property: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         display_name: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         is_default: Optional[bool] = None,
         is_shared: Optional[bool] = None,
+        links: Optional["MicrosoftGraphNotebookLinks"] = None,
         section_groups_url: Optional[str] = None,
         sections_url: Optional[str] = None,
         user_role: Optional[Union[str, "MicrosoftGraphOnenoteUserRole"]] = None,
         section_groups: Optional[List["MicrosoftGraphSectionGroup"]] = None,
         sections: Optional[List["MicrosoftGraphOnenoteSection"]] = None,
-        one_note_client_url: Optional["MicrosoftGraphExternalLink"] = None,
-        one_note_web_url: Optional["MicrosoftGraphExternalLink"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphNotebook, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, display_name=display_name, last_modified_date_time=last_modified_date_time, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
+        super(MicrosoftGraphNotebook, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, created_by=created_by, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.is_default = is_default
         self.is_shared = is_shared
+        self.links = links
         self.section_groups_url = section_groups_url
         self.sections_url = sections_url
         self.user_role = user_role
         self.section_groups = section_groups
         self.sections = sections
-        self.one_note_client_url = one_note_client_url
-        self.one_note_web_url = one_note_web_url
 
 
 class MicrosoftGraphNotebookLinks(msrest.serialization.Model):
@@ -5759,9 +5690,6 @@ class MicrosoftGraphOperation(MicrosoftGraphEntity):
 class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     """onenoteOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The start time of the operation.
@@ -5786,7 +5714,6 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_action_date_time': {'key': 'lastActionDateTime', 'type': 'iso-8601'},
@@ -5801,7 +5728,6 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         last_action_date_time: Optional[datetime.datetime] = None,
@@ -5814,7 +5740,6 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
         **kwargs
     ):
         super(MicrosoftGraphOnenoteOperation, self).__init__(id=id, created_date_time=created_date_time, last_action_date_time=last_action_date_time, status=status, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.error = error
         self.percent_complete = percent_complete
@@ -5859,9 +5784,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
     :param created_date_time: The date and time when the page was created. The timestamp represents
@@ -5885,6 +5807,8 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     :type last_modified_date_time: ~datetime.datetime
     :param level: The indentation level of the page. Read-only.
     :type level: int
+    :param links: pageLinks.
+    :type links: ~notes.models.MicrosoftGraphPageLinks
     :param order: The order of the page within its parent section. Read-only.
     :type order: int
     :param title: The title of the page.
@@ -5895,10 +5819,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
     :param parent_section: onenoteSection.
     :type parent_section: ~notes.models.MicrosoftGraphOnenoteSection
-    :param one_note_client_url: externalLink.
-    :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
-    :param one_note_web_url: externalLink.
-    :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
     """
 
     _validation = {
@@ -5908,7 +5828,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -5917,20 +5836,18 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
         'created_by_app_id': {'key': 'createdByAppId', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'level': {'key': 'level', 'type': 'int'},
+        'links': {'key': 'links', 'type': 'MicrosoftGraphPageLinks'},
         'order': {'key': 'order', 'type': 'int'},
         'title': {'key': 'title', 'type': 'str'},
         'user_tags': {'key': 'userTags', 'type': '[str]'},
         'parent_notebook': {'key': 'parentNotebook', 'type': 'MicrosoftGraphNotebook'},
         'parent_section': {'key': 'parentSection', 'type': 'MicrosoftGraphOnenoteSection'},
-        'one_note_client_url': {'key': 'links.oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
-        'one_note_web_url': {'key': 'links.oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         self_property: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         additional_properties: Optional[Dict[str, object]] = None,
@@ -5939,38 +5856,32 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
         created_by_app_id: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         level: Optional[int] = None,
+        links: Optional["MicrosoftGraphPageLinks"] = None,
         order: Optional[int] = None,
         title: Optional[str] = None,
         user_tags: Optional[List[str]] = None,
         parent_notebook: Optional["MicrosoftGraphNotebook"] = None,
         parent_section: Optional["MicrosoftGraphOnenoteSection"] = None,
-        one_note_client_url: Optional["MicrosoftGraphExternalLink"] = None,
-        one_note_web_url: Optional["MicrosoftGraphExternalLink"] = None,
         **kwargs
     ):
         super(MicrosoftGraphOnenotePage, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.content = content
         self.content_url = content_url
         self.created_by_app_id = created_by_app_id
         self.last_modified_date_time = last_modified_date_time
         self.level = level
+        self.links = links
         self.order = order
         self.title = title
         self.user_tags = user_tags
         self.parent_notebook = parent_notebook
         self.parent_section = parent_section
-        self.one_note_client_url = one_note_client_url
-        self.one_note_web_url = one_note_web_url
 
 
 class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     """onenoteResource.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -5985,7 +5896,6 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -5996,7 +5906,6 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         self_property: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
@@ -6006,7 +5915,6 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     ):
         super(MicrosoftGraphOnenoteResource, self).__init__(id=id, self_property=self_property, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.content = content
         self.content_url = content_url
 
@@ -6014,44 +5922,32 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
 class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     """onenoteSection.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
     :type created_date_time: ~datetime.datetime
+    :param created_by: identitySet.
+    :type created_by: ~notes.models.MicrosoftGraphIdentitySet
     :param display_name: The name of the notebook.
     :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~notes.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
      only.
     :type last_modified_date_time: ~datetime.datetime
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~notes.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~notes.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param is_default: Indicates whether this is the user's default section. Read-only.
     :type is_default: bool
+    :param links: sectionLinks.
+    :type links: ~notes.models.MicrosoftGraphSectionLinks
     :param pages_url: The pages endpoint where you can get details for all the pages in the
      section. Read-only.
     :type pages_url: str
@@ -6061,73 +5957,52 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     :type parent_notebook: ~notes.models.MicrosoftGraphNotebook
     :param parent_section_group: sectionGroup.
     :type parent_section_group: ~notes.models.MicrosoftGraphSectionGroup
-    :param one_note_client_url: externalLink.
-    :type one_note_client_url: ~notes.models.MicrosoftGraphExternalLink
-    :param one_note_web_url: externalLink.
-    :type one_note_web_url: ~notes.models.MicrosoftGraphExternalLink
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'is_default': {'key': 'isDefault', 'type': 'bool'},
+        'links': {'key': 'links', 'type': 'MicrosoftGraphSectionLinks'},
         'pages_url': {'key': 'pagesUrl', 'type': 'str'},
         'pages': {'key': 'pages', 'type': '[MicrosoftGraphOnenotePage]'},
         'parent_notebook': {'key': 'parentNotebook', 'type': 'MicrosoftGraphNotebook'},
         'parent_section_group': {'key': 'parentSectionGroup', 'type': 'MicrosoftGraphSectionGroup'},
-        'one_note_client_url': {'key': 'links.oneNoteClientUrl', 'type': 'MicrosoftGraphExternalLink'},
-        'one_note_web_url': {'key': 'links.oneNoteWebUrl', 'type': 'MicrosoftGraphExternalLink'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         self_property: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         display_name: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         is_default: Optional[bool] = None,
+        links: Optional["MicrosoftGraphSectionLinks"] = None,
         pages_url: Optional[str] = None,
         pages: Optional[List["MicrosoftGraphOnenotePage"]] = None,
         parent_notebook: Optional["MicrosoftGraphNotebook"] = None,
         parent_section_group: Optional["MicrosoftGraphSectionGroup"] = None,
-        one_note_client_url: Optional["MicrosoftGraphExternalLink"] = None,
-        one_note_web_url: Optional["MicrosoftGraphExternalLink"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphOnenoteSection, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, display_name=display_name, last_modified_date_time=last_modified_date_time, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
+        super(MicrosoftGraphOnenoteSection, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, created_by=created_by, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.is_default = is_default
+        self.links = links
         self.pages_url = pages_url
         self.pages = pages
         self.parent_notebook = parent_notebook
         self.parent_section_group = parent_section_group
-        self.one_note_client_url = one_note_client_url
-        self.one_note_web_url = one_note_web_url
 
 
 class MicrosoftGraphPageLinks(msrest.serialization.Model):
@@ -6165,39 +6040,25 @@ class MicrosoftGraphPageLinks(msrest.serialization.Model):
 class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
     """sectionGroup.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
     :type created_date_time: ~datetime.datetime
+    :param created_by: identitySet.
+    :type created_by: ~notes.models.MicrosoftGraphIdentitySet
     :param display_name: The name of the notebook.
     :type display_name: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~notes.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The date and time when the notebook was last modified. The
      timestamp represents date and time information using ISO 8601 format and is always in UTC time.
      For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-
      only.
     :type last_modified_date_time: ~datetime.datetime
-    :param application_last_modified_by_application: identity.
-    :type application_last_modified_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_last_modified_by_device: identity.
-    :type device_last_modified_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_last_modified_by_user: identity.
-    :type user_last_modified_by_user: ~notes.models.MicrosoftGraphIdentity
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~notes.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~notes.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~notes.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -6218,19 +6079,13 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'application_last_modified_by_application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_last_modified_by_device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_last_modified_by_user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'section_groups_url': {'key': 'sectionGroupsUrl', 'type': 'str'},
         'sections_url': {'key': 'sectionsUrl', 'type': 'str'},
@@ -6243,19 +6098,13 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         self_property: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         display_name: Optional[str] = None,
+        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
-        application_last_modified_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_last_modified_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_last_modified_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         section_groups_url: Optional[str] = None,
         sections_url: Optional[str] = None,
@@ -6265,9 +6114,7 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
         sections: Optional[List["MicrosoftGraphOnenoteSection"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphSectionGroup, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, display_name=display_name, last_modified_date_time=last_modified_date_time, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
+        super(MicrosoftGraphSectionGroup, self).__init__(id=id, self_property=self_property, created_date_time=created_date_time, created_by=created_by, display_name=display_name, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
         self.additional_properties = additional_properties
         self.section_groups_url = section_groups_url
         self.sections_url = sections_url

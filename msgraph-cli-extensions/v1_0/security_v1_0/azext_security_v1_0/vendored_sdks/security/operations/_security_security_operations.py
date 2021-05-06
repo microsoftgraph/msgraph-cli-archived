@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -65,7 +65,9 @@ class SecuritySecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecurity"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -82,7 +84,6 @@ class SecuritySecurityOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -103,10 +104,7 @@ class SecuritySecurityOperations(object):
 
     def update_security(
         self,
-        id=None,  # type: Optional[str]
-        alerts=None,  # type: Optional[List["models.MicrosoftGraphAlert"]]
-        secure_score_control_profiles=None,  # type: Optional[List["models.MicrosoftGraphSecureScoreControlProfile"]]
-        secure_scores=None,  # type: Optional[List["models.MicrosoftGraphSecureScore"]]
+        body,  # type: "models.MicrosoftGraphSecurity"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -114,24 +112,18 @@ class SecuritySecurityOperations(object):
 
         Update Security.
 
-        :param id: Read-only.
-        :type id: str
-        :param alerts: Read-only. Nullable.
-        :type alerts: list[~security.models.MicrosoftGraphAlert]
-        :param secure_score_control_profiles:
-        :type secure_score_control_profiles: list[~security.models.MicrosoftGraphSecureScoreControlProfile]
-        :param secure_scores:
-        :type secure_scores: list[~security.models.MicrosoftGraphSecureScore]
+        :param body: New property values.
+        :type body: ~security.models.MicrosoftGraphSecurity
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphSecurity(id=id, alerts=alerts, secure_score_control_profiles=secure_score_control_profiles, secure_scores=secure_scores)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -147,10 +139,9 @@ class SecuritySecurityOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSecurity')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecurity')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 

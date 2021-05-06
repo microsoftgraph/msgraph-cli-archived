@@ -50,6 +50,10 @@ def get_mgmt_service_client(cli_ctx, client_type, **kwargs):
     return client
 
 
+def get_subscription_service_client(cli_ctx):
+    pass
+
+
 def _get_base_url():
     return _get_endpoint() + '/' + _get_version()
 

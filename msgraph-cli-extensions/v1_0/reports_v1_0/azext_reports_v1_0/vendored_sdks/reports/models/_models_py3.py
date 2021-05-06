@@ -388,6 +388,8 @@ class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
     :param correlation_id: Indicates a unique ID that helps correlate activities that span across
      various services. Can be used to trace logs across services.
     :type correlation_id: str
+    :param initiated_by: auditActivityInitiator.
+    :type initiated_by: ~reports.models.MicrosoftGraphAuditActivityInitiator
     :param logged_by_service: Indicates information on which service initiated the activity (For
      example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft
      Identity Manager, Privileged Identity Management.
@@ -402,10 +404,6 @@ class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
      activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or
      Other.
     :type target_resources: list[~reports.models.MicrosoftGraphTargetResource]
-    :param app: appIdentity.
-    :type app: ~reports.models.MicrosoftGraphAppIdentity
-    :param user: userIdentity.
-    :type user: ~reports.models.MicrosoftGraphUserIdentity
     """
 
     _attribute_map = {
@@ -416,13 +414,12 @@ class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
         'additional_details': {'key': 'additionalDetails', 'type': '[MicrosoftGraphKeyValue]'},
         'category': {'key': 'category', 'type': 'str'},
         'correlation_id': {'key': 'correlationId', 'type': 'str'},
+        'initiated_by': {'key': 'initiatedBy', 'type': 'MicrosoftGraphAuditActivityInitiator'},
         'logged_by_service': {'key': 'loggedByService', 'type': 'str'},
         'operation_type': {'key': 'operationType', 'type': 'str'},
         'result': {'key': 'result', 'type': 'str'},
         'result_reason': {'key': 'resultReason', 'type': 'str'},
         'target_resources': {'key': 'targetResources', 'type': '[MicrosoftGraphTargetResource]'},
-        'app': {'key': 'initiatedBy.app', 'type': 'MicrosoftGraphAppIdentity'},
-        'user': {'key': 'initiatedBy.user', 'type': 'MicrosoftGraphUserIdentity'},
     }
 
     def __init__(
@@ -435,13 +432,12 @@ class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
         additional_details: Optional[List["MicrosoftGraphKeyValue"]] = None,
         category: Optional[str] = None,
         correlation_id: Optional[str] = None,
+        initiated_by: Optional["MicrosoftGraphAuditActivityInitiator"] = None,
         logged_by_service: Optional[str] = None,
         operation_type: Optional[str] = None,
         result: Optional[Union[str, "MicrosoftGraphOperationResult"]] = None,
         result_reason: Optional[str] = None,
         target_resources: Optional[List["MicrosoftGraphTargetResource"]] = None,
-        app: Optional["MicrosoftGraphAppIdentity"] = None,
-        user: Optional["MicrosoftGraphUserIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphDirectoryAudit, self).__init__(id=id, **kwargs)
@@ -451,13 +447,12 @@ class MicrosoftGraphDirectoryAudit(MicrosoftGraphEntity):
         self.additional_details = additional_details
         self.category = category
         self.correlation_id = correlation_id
+        self.initiated_by = initiated_by
         self.logged_by_service = logged_by_service
         self.operation_type = operation_type
         self.result = result
         self.result_reason = result_reason
         self.target_resources = target_resources
-        self.app = app
-        self.user = user
 
 
 class MicrosoftGraphGeoCoordinates(msrest.serialization.Model):
@@ -653,6 +648,8 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
     :type ip_address: str
     :param is_interactive: Indicates if a sign-in is interactive or not.
     :type is_interactive: bool
+    :param location: signInLocation.
+    :type location: ~reports.models.MicrosoftGraphSignInLocation
     :param resource_display_name: Name of the resource the user signed into.
     :type resource_display_name: str
     :param resource_id: ID of the resource that the user signed into.
@@ -690,17 +687,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
     :type user_id: str
     :param user_principal_name: User principal name of the user that initiated the sign-in.
     :type user_principal_name: str
-    :param city: Provides the city where the sign-in originated. This is calculated using
-     latitude/longitude information from the sign-in activity.
-    :type city: str
-    :param country_or_region: Provides the country code info (2 letter code) where the sign-in
-     originated.  This is calculated using latitude/longitude information from the sign-in activity.
-    :type country_or_region: str
-    :param geo_coordinates: geoCoordinates.
-    :type geo_coordinates: ~reports.models.MicrosoftGraphGeoCoordinates
-    :param state: Provides the State where the sign-in originated. This is calculated using
-     latitude/longitude information from the sign-in activity.
-    :type state: str
     """
 
     _attribute_map = {
@@ -716,6 +702,7 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         'device_detail': {'key': 'deviceDetail', 'type': 'MicrosoftGraphDeviceDetail'},
         'ip_address': {'key': 'ipAddress', 'type': 'str'},
         'is_interactive': {'key': 'isInteractive', 'type': 'bool'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphSignInLocation'},
         'resource_display_name': {'key': 'resourceDisplayName', 'type': 'str'},
         'resource_id': {'key': 'resourceId', 'type': 'str'},
         'risk_detail': {'key': 'riskDetail', 'type': 'str'},
@@ -728,10 +715,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'city': {'key': 'location.city', 'type': 'str'},
-        'country_or_region': {'key': 'location.countryOrRegion', 'type': 'str'},
-        'geo_coordinates': {'key': 'location.geoCoordinates', 'type': 'MicrosoftGraphGeoCoordinates'},
-        'state': {'key': 'location.state', 'type': 'str'},
     }
 
     def __init__(
@@ -749,6 +732,7 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         device_detail: Optional["MicrosoftGraphDeviceDetail"] = None,
         ip_address: Optional[str] = None,
         is_interactive: Optional[bool] = None,
+        location: Optional["MicrosoftGraphSignInLocation"] = None,
         resource_display_name: Optional[str] = None,
         resource_id: Optional[str] = None,
         risk_detail: Optional[Union[str, "MicrosoftGraphRiskDetail"]] = None,
@@ -761,10 +745,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         user_display_name: Optional[str] = None,
         user_id: Optional[str] = None,
         user_principal_name: Optional[str] = None,
-        city: Optional[str] = None,
-        country_or_region: Optional[str] = None,
-        geo_coordinates: Optional["MicrosoftGraphGeoCoordinates"] = None,
-        state: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphSignIn, self).__init__(id=id, **kwargs)
@@ -779,6 +759,7 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         self.device_detail = device_detail
         self.ip_address = ip_address
         self.is_interactive = is_interactive
+        self.location = location
         self.resource_display_name = resource_display_name
         self.resource_id = resource_id
         self.risk_detail = risk_detail
@@ -791,18 +772,11 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
         self.user_display_name = user_display_name
         self.user_id = user_id
         self.user_principal_name = user_principal_name
-        self.city = city
-        self.country_or_region = country_or_region
-        self.geo_coordinates = geo_coordinates
-        self.state = state
 
 
 class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     """restrictedSignIn.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param app_display_name: App name displayed in the Azure Portal.
@@ -830,6 +804,8 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     :type ip_address: str
     :param is_interactive: Indicates if a sign-in is interactive or not.
     :type is_interactive: bool
+    :param location: signInLocation.
+    :type location: ~reports.models.MicrosoftGraphSignInLocation
     :param resource_display_name: Name of the resource the user signed into.
     :type resource_display_name: str
     :param resource_id: ID of the resource that the user signed into.
@@ -867,17 +843,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     :type user_id: str
     :param user_principal_name: User principal name of the user that initiated the sign-in.
     :type user_principal_name: str
-    :param city: Provides the city where the sign-in originated. This is calculated using
-     latitude/longitude information from the sign-in activity.
-    :type city: str
-    :param country_or_region: Provides the country code info (2 letter code) where the sign-in
-     originated.  This is calculated using latitude/longitude information from the sign-in activity.
-    :type country_or_region: str
-    :param geo_coordinates: geoCoordinates.
-    :type geo_coordinates: ~reports.models.MicrosoftGraphGeoCoordinates
-    :param state: Provides the State where the sign-in originated. This is calculated using
-     latitude/longitude information from the sign-in activity.
-    :type state: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -886,7 +851,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
         'app_id': {'key': 'appId', 'type': 'str'},
@@ -898,6 +862,7 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         'device_detail': {'key': 'deviceDetail', 'type': 'MicrosoftGraphDeviceDetail'},
         'ip_address': {'key': 'ipAddress', 'type': 'str'},
         'is_interactive': {'key': 'isInteractive', 'type': 'bool'},
+        'location': {'key': 'location', 'type': 'MicrosoftGraphSignInLocation'},
         'resource_display_name': {'key': 'resourceDisplayName', 'type': 'str'},
         'resource_id': {'key': 'resourceId', 'type': 'str'},
         'risk_detail': {'key': 'riskDetail', 'type': 'str'},
@@ -910,10 +875,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
         'user_id': {'key': 'userId', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
-        'city': {'key': 'location.city', 'type': 'str'},
-        'country_or_region': {'key': 'location.countryOrRegion', 'type': 'str'},
-        'geo_coordinates': {'key': 'location.geoCoordinates', 'type': 'MicrosoftGraphGeoCoordinates'},
-        'state': {'key': 'location.state', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'target_tenant_id': {'key': 'targetTenantId', 'type': 'str'},
     }
@@ -921,7 +882,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         app_display_name: Optional[str] = None,
         app_id: Optional[str] = None,
@@ -933,6 +893,7 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         device_detail: Optional["MicrosoftGraphDeviceDetail"] = None,
         ip_address: Optional[str] = None,
         is_interactive: Optional[bool] = None,
+        location: Optional["MicrosoftGraphSignInLocation"] = None,
         resource_display_name: Optional[str] = None,
         resource_id: Optional[str] = None,
         risk_detail: Optional[Union[str, "MicrosoftGraphRiskDetail"]] = None,
@@ -945,16 +906,11 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         user_display_name: Optional[str] = None,
         user_id: Optional[str] = None,
         user_principal_name: Optional[str] = None,
-        city: Optional[str] = None,
-        country_or_region: Optional[str] = None,
-        geo_coordinates: Optional["MicrosoftGraphGeoCoordinates"] = None,
-        state: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         target_tenant_id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphRestrictedSignIn, self).__init__(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state, **kwargs)
-        self.additional_properties = additional_properties
+        super(MicrosoftGraphRestrictedSignIn, self).__init__(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, location=location, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, **kwargs)
         self.additional_properties = additional_properties
         self.target_tenant_id = target_tenant_id
 

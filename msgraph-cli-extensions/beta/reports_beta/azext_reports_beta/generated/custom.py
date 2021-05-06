@@ -11,9 +11,9 @@
 # pylint: disable=too-many-lines
 
 
-def reports_audit_log_audit_log_root_get_audit_log_root(client,
-                                                        select=None,
-                                                        expand=None):
+def reports_audit_log_audit_log_root_show_audit_log_root(client,
+                                                         select=None,
+                                                         expand=None):
     return client.get_audit_log_root(select=select,
                                      expand=expand)
 
@@ -25,34 +25,14 @@ def reports_audit_log_audit_log_root_update_audit_log_root(client,
                                                            provisioning=None,
                                                            restricted_sign_ins=None,
                                                            sign_ins=None):
-    return client.update_audit_log_root(id=id_,
-                                        directory_audits=directory_audits,
-                                        directory_provisioning=directory_provisioning,
-                                        provisioning=provisioning,
-                                        restricted_sign_ins=restricted_sign_ins,
-                                        sign_ins=sign_ins)
-
-
-def reports_audit_log_delete(client,
-                             directory_audit_id=None,
-                             if_match=None,
-                             provisioning_object_summary_id=None,
-                             restricted_sign_in_id=None,
-                             sign_in_id=None):
-    if directory_audit_id is not None:
-        return client.delete_directory_audit(directory_audit_id=directory_audit_id,
-                                             if_match=if_match)
-    elif provisioning_object_summary_id is not None:
-        return client.delete_directory_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
-                                                    if_match=if_match)
-    elif provisioning_object_summary_id is not None:
-        return client.delete_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
-                                          if_match=if_match)
-    elif restricted_sign_in_id is not None:
-        return client.delete_restricted_sign_in(restricted_sign_in_id=restricted_sign_in_id,
-                                                if_match=if_match)
-    return client.delete_sign_in(sign_in_id=sign_in_id,
-                                 if_match=if_match)
+    body = {}
+    body['id'] = id_
+    body['directory_audits'] = directory_audits
+    body['directory_provisioning'] = directory_provisioning
+    body['provisioning'] = provisioning
+    body['restricted_sign_ins'] = restricted_sign_ins
+    body['sign_ins'] = sign_ins
+    return client.update_audit_log_root(body=body)
 
 
 def reports_audit_log_create_directory_audit(client,
@@ -67,21 +47,24 @@ def reports_audit_log_create_directory_audit(client,
                                              result=None,
                                              result_reason=None,
                                              target_resources=None,
-                                             initiated_by_app=None,
-                                             initiated_by_user=None):
-    return client.create_directory_audit(id=id_,
-                                         activity_date_time=activity_date_time,
-                                         activity_display_name=activity_display_name,
-                                         additional_details=additional_details,
-                                         category=category,
-                                         correlation_id=correlation_id,
-                                         logged_by_service=logged_by_service,
-                                         operation_type=operation_type,
-                                         result=result,
-                                         result_reason=result_reason,
-                                         target_resources=target_resources,
-                                         app=initiated_by_app,
-                                         user=initiated_by_user)
+                                             app=None,
+                                             user=None):
+    body = {}
+    body['id'] = id_
+    body['activity_date_time'] = activity_date_time
+    body['activity_display_name'] = activity_display_name
+    body['additional_details'] = additional_details
+    body['category'] = category
+    body['correlation_id'] = correlation_id
+    body['logged_by_service'] = logged_by_service
+    body['operation_type'] = operation_type
+    body['result'] = result
+    body['result_reason'] = result_reason
+    body['target_resources'] = target_resources
+    body['initiated_by'] = {}
+    body['initiated_by']['app'] = app
+    body['initiated_by']['user'] = user
+    return client.create_directory_audits(body=body)
 
 
 def reports_audit_log_create_directory_provisioning(client,
@@ -97,48 +80,55 @@ def reports_audit_log_create_directory_provisioning(client,
                                                     provisioning_steps=None,
                                                     service_principal=None,
                                                     tenant_id=None,
-                                                    target_system_details=None,
-                                                    target_system_display_name=None,
-                                                    target_system_id=None,
-                                                    target_identity_details=None,
-                                                    target_identity_display_name=None,
-                                                    target_identity_id=None,
-                                                    target_identity_identity_type=None,
-                                                    status_info_status=None,
-                                                    source_system_details=None,
-                                                    source_system_display_name=None,
-                                                    source_system_id=None,
-                                                    source_identity_details=None,
-                                                    source_identity_display_name=None,
-                                                    source_identity_id=None,
-                                                    source_identity_identity_type=None):
-    return client.create_directory_provisioning(id=id_,
-                                                action=action,
-                                                activity_date_time=activity_date_time,
-                                                change_id=change_id,
-                                                cycle_id=cycle_id,
-                                                duration_in_milliseconds=duration_in_milliseconds,
-                                                initiated_by=initiated_by,
-                                                job_id=job_id,
-                                                modified_properties=modified_properties,
-                                                provisioning_steps=provisioning_steps,
-                                                service_principal=service_principal,
-                                                tenant_id=tenant_id,
-                                                details=target_system_details,
-                                                display_name=target_system_display_name,
-                                                microsoft_graph_provisioning_system_details_id=target_system_id,
-                                                microsoft_graph_details_info_details=target_identity_details,
-                                                microsoft_graph_provisioned_identity_display_name=target_identity_display_name,
-                                                microsoft_graph_provisioned_identity_id=target_identity_id,
-                                                identity_type=target_identity_identity_type,
-                                                status=status_info_status,
-                                                details1=source_system_details,
-                                                microsoft_graph_provisioning_system_details_display_name=source_system_display_name,
-                                                id1=source_system_id,
-                                                details2=source_identity_details,
-                                                display_name1=source_identity_display_name,
-                                                id2=source_identity_id,
-                                                microsoft_graph_provisioned_identity_type=source_identity_identity_type)
+                                                    details=None,
+                                                    display_name=None,
+                                                    microsoft_graph_provisioning_system_details_id=None,
+                                                    microsoft_graph_details_info_details=None,
+                                                    microsoft_graph_provisioned_identity_display_name=None,
+                                                    microsoft_graph_provisioned_identity_id=None,
+                                                    identity_type=None,
+                                                    status=None,
+                                                    details1=None,
+                                                    microsoft_graph_provisioning_system_details_display_name=None,
+                                                    id1=None,
+                                                    details2=None,
+                                                    display_name1=None,
+                                                    id2=None,
+                                                    microsoft_graph_provisioned_identity_type=None):
+    body = {}
+    body['id'] = id_
+    body['action'] = action
+    body['activity_date_time'] = activity_date_time
+    body['change_id'] = change_id
+    body['cycle_id'] = cycle_id
+    body['duration_in_milliseconds'] = duration_in_milliseconds
+    body['initiated_by'] = initiated_by
+    body['job_id'] = job_id
+    body['modified_properties'] = modified_properties
+    body['provisioning_steps'] = provisioning_steps
+    body['service_principal'] = service_principal
+    body['tenant_id'] = tenant_id
+    body['target_system'] = {}
+    body['target_system']['details'] = details
+    body['target_system']['display_name'] = display_name
+    body['target_system']['id'] = microsoft_graph_provisioning_system_details_id
+    body['target_identity'] = {}
+    body['target_identity']['details'] = microsoft_graph_details_info_details
+    body['target_identity']['display_name'] = microsoft_graph_provisioned_identity_display_name
+    body['target_identity']['id'] = microsoft_graph_provisioned_identity_id
+    body['target_identity']['identity_type'] = identity_type
+    body['status_info'] = {}
+    body['status_info']['status'] = status
+    body['source_system'] = {}
+    body['source_system']['details'] = details1
+    body['source_system']['display_name'] = microsoft_graph_provisioning_system_details_display_name
+    body['source_system']['id'] = id1
+    body['source_identity'] = {}
+    body['source_identity']['details'] = details2
+    body['source_identity']['display_name'] = display_name1
+    body['source_identity']['id'] = id2
+    body['source_identity']['identity_type'] = microsoft_graph_provisioned_identity_type
+    return client.create_directory_provisioning(body=body)
 
 
 def reports_audit_log_create_provisioning(client,
@@ -154,48 +144,55 @@ def reports_audit_log_create_provisioning(client,
                                           provisioning_steps=None,
                                           service_principal=None,
                                           tenant_id=None,
-                                          target_system_details=None,
-                                          target_system_display_name=None,
-                                          target_system_id=None,
-                                          target_identity_details=None,
-                                          target_identity_display_name=None,
-                                          target_identity_id=None,
-                                          target_identity_identity_type=None,
-                                          status_info_status=None,
-                                          source_system_details=None,
-                                          source_system_display_name=None,
-                                          source_system_id=None,
-                                          source_identity_details=None,
-                                          source_identity_display_name=None,
-                                          source_identity_id=None,
-                                          source_identity_identity_type=None):
-    return client.create_provisioning(id=id_,
-                                      action=action,
-                                      activity_date_time=activity_date_time,
-                                      change_id=change_id,
-                                      cycle_id=cycle_id,
-                                      duration_in_milliseconds=duration_in_milliseconds,
-                                      initiated_by=initiated_by,
-                                      job_id=job_id,
-                                      modified_properties=modified_properties,
-                                      provisioning_steps=provisioning_steps,
-                                      service_principal=service_principal,
-                                      tenant_id=tenant_id,
-                                      details=target_system_details,
-                                      display_name=target_system_display_name,
-                                      microsoft_graph_provisioning_system_details_id=target_system_id,
-                                      microsoft_graph_details_info_details=target_identity_details,
-                                      microsoft_graph_provisioned_identity_display_name=target_identity_display_name,
-                                      microsoft_graph_provisioned_identity_id=target_identity_id,
-                                      identity_type=target_identity_identity_type,
-                                      status=status_info_status,
-                                      details1=source_system_details,
-                                      microsoft_graph_provisioning_system_details_display_name=source_system_display_name,
-                                      id1=source_system_id,
-                                      details2=source_identity_details,
-                                      display_name1=source_identity_display_name,
-                                      id2=source_identity_id,
-                                      microsoft_graph_provisioned_identity_type=source_identity_identity_type)
+                                          details=None,
+                                          display_name=None,
+                                          microsoft_graph_provisioning_system_details_id=None,
+                                          microsoft_graph_details_info_details=None,
+                                          microsoft_graph_provisioned_identity_display_name=None,
+                                          microsoft_graph_provisioned_identity_id=None,
+                                          identity_type=None,
+                                          status=None,
+                                          details1=None,
+                                          microsoft_graph_provisioning_system_details_display_name=None,
+                                          id1=None,
+                                          details2=None,
+                                          display_name1=None,
+                                          id2=None,
+                                          microsoft_graph_provisioned_identity_type=None):
+    body = {}
+    body['id'] = id_
+    body['action'] = action
+    body['activity_date_time'] = activity_date_time
+    body['change_id'] = change_id
+    body['cycle_id'] = cycle_id
+    body['duration_in_milliseconds'] = duration_in_milliseconds
+    body['initiated_by'] = initiated_by
+    body['job_id'] = job_id
+    body['modified_properties'] = modified_properties
+    body['provisioning_steps'] = provisioning_steps
+    body['service_principal'] = service_principal
+    body['tenant_id'] = tenant_id
+    body['target_system'] = {}
+    body['target_system']['details'] = details
+    body['target_system']['display_name'] = display_name
+    body['target_system']['id'] = microsoft_graph_provisioning_system_details_id
+    body['target_identity'] = {}
+    body['target_identity']['details'] = microsoft_graph_details_info_details
+    body['target_identity']['display_name'] = microsoft_graph_provisioned_identity_display_name
+    body['target_identity']['id'] = microsoft_graph_provisioned_identity_id
+    body['target_identity']['identity_type'] = identity_type
+    body['status_info'] = {}
+    body['status_info']['status'] = status
+    body['source_system'] = {}
+    body['source_system']['details'] = details1
+    body['source_system']['display_name'] = microsoft_graph_provisioning_system_details_display_name
+    body['source_system']['id'] = id1
+    body['source_identity'] = {}
+    body['source_identity']['details'] = details2
+    body['source_identity']['display_name'] = display_name1
+    body['source_identity']['id'] = id2
+    body['source_identity']['identity_type'] = microsoft_graph_provisioned_identity_type
+    return client.create_provisioning(body=body)
 
 
 def reports_audit_log_create_restricted_sign_in(client,
@@ -239,56 +236,59 @@ def reports_audit_log_create_restricted_sign_in(client,
                                                 user_display_name=None,
                                                 user_id=None,
                                                 user_principal_name=None,
-                                                location_city=None,
-                                                location_country_or_region=None,
-                                                location_geo_coordinates=None,
-                                                location_state=None,
+                                                city=None,
+                                                country_or_region=None,
+                                                geo_coordinates=None,
+                                                state=None,
                                                 target_tenant_id=None):
-    return client.create_restricted_sign_in(id=id_,
-                                            alternate_sign_in_name=alternate_sign_in_name,
-                                            app_display_name=app_display_name,
-                                            app_id=app_id,
-                                            applied_conditional_access_policies=applied_conditional_access_policies,
-                                            authentication_details=authentication_details,
-                                            authentication_methods_used=authentication_methods_used,
-                                            authentication_processing_details=authentication_processing_details,
-                                            authentication_requirement=authentication_requirement,
-                                            authentication_requirement_policies=authentication_requirement_policies,
-                                            client_app_used=client_app_used,
-                                            conditional_access_status=conditional_access_status,
-                                            correlation_id=correlation_id,
-                                            created_date_time=created_date_time,
-                                            device_detail=device_detail,
-                                            ip_address=ip_address,
-                                            is_interactive=is_interactive,
-                                            mfa_detail=mfa_detail,
-                                            network_location_details=network_location_details,
-                                            original_request_id=original_request_id,
-                                            processing_time_in_milliseconds=processing_time_in_milliseconds,
-                                            resource_display_name=resource_display_name,
-                                            resource_id=resource_id,
-                                            resource_tenant_id=resource_tenant_id,
-                                            risk_detail=risk_detail,
-                                            risk_event_types=risk_event_types,
-                                            risk_event_types_v2=risk_event_types_v2,
-                                            risk_level_aggregated=risk_level_aggregated,
-                                            risk_level_during_sign_in=risk_level_during_sign_in,
-                                            risk_state=risk_state,
-                                            service_principal_id=service_principal_id,
-                                            service_principal_name=service_principal_name,
-                                            sign_in_event_types=sign_in_event_types,
-                                            status=status,
-                                            token_issuer_name=token_issuer_name,
-                                            token_issuer_type=token_issuer_type,
-                                            user_agent_parameter=user_agent,
-                                            user_display_name=user_display_name,
-                                            user_id=user_id,
-                                            user_principal_name=user_principal_name,
-                                            city=location_city,
-                                            country_or_region=location_country_or_region,
-                                            geo_coordinates=location_geo_coordinates,
-                                            state=location_state,
-                                            target_tenant_id=target_tenant_id)
+    body = {}
+    body['id'] = id_
+    body['alternate_sign_in_name'] = alternate_sign_in_name
+    body['app_display_name'] = app_display_name
+    body['app_id'] = app_id
+    body['applied_conditional_access_policies'] = applied_conditional_access_policies
+    body['authentication_details'] = authentication_details
+    body['authentication_methods_used'] = authentication_methods_used
+    body['authentication_processing_details'] = authentication_processing_details
+    body['authentication_requirement'] = authentication_requirement
+    body['authentication_requirement_policies'] = authentication_requirement_policies
+    body['client_app_used'] = client_app_used
+    body['conditional_access_status'] = conditional_access_status
+    body['correlation_id'] = correlation_id
+    body['created_date_time'] = created_date_time
+    body['device_detail'] = device_detail
+    body['ip_address'] = ip_address
+    body['is_interactive'] = is_interactive
+    body['mfa_detail'] = mfa_detail
+    body['network_location_details'] = network_location_details
+    body['original_request_id'] = original_request_id
+    body['processing_time_in_milliseconds'] = processing_time_in_milliseconds
+    body['resource_display_name'] = resource_display_name
+    body['resource_id'] = resource_id
+    body['resource_tenant_id'] = resource_tenant_id
+    body['risk_detail'] = risk_detail
+    body['risk_event_types'] = risk_event_types
+    body['risk_event_types_v2'] = risk_event_types_v2
+    body['risk_level_aggregated'] = risk_level_aggregated
+    body['risk_level_during_sign_in'] = risk_level_during_sign_in
+    body['risk_state'] = risk_state
+    body['service_principal_id'] = service_principal_id
+    body['service_principal_name'] = service_principal_name
+    body['sign_in_event_types'] = sign_in_event_types
+    body['status'] = status
+    body['token_issuer_name'] = token_issuer_name
+    body['token_issuer_type'] = token_issuer_type
+    body['user_agent'] = user_agent
+    body['user_display_name'] = user_display_name
+    body['user_id'] = user_id
+    body['user_principal_name'] = user_principal_name
+    body['location'] = {}
+    body['location']['city'] = city
+    body['location']['country_or_region'] = country_or_region
+    body['location']['geo_coordinates'] = geo_coordinates
+    body['location']['state'] = state
+    body['target_tenant_id'] = target_tenant_id
+    return client.create_restricted_sign_ins(body=body)
 
 
 def reports_audit_log_create_sign_in(client,
@@ -332,108 +332,101 @@ def reports_audit_log_create_sign_in(client,
                                      user_display_name=None,
                                      user_id=None,
                                      user_principal_name=None,
-                                     location_city=None,
-                                     location_country_or_region=None,
-                                     location_geo_coordinates=None,
-                                     location_state=None):
-    return client.create_sign_in(id=id_,
-                                 alternate_sign_in_name=alternate_sign_in_name,
-                                 app_display_name=app_display_name,
-                                 app_id=app_id,
-                                 applied_conditional_access_policies=applied_conditional_access_policies,
-                                 authentication_details=authentication_details,
-                                 authentication_methods_used=authentication_methods_used,
-                                 authentication_processing_details=authentication_processing_details,
-                                 authentication_requirement=authentication_requirement,
-                                 authentication_requirement_policies=authentication_requirement_policies,
-                                 client_app_used=client_app_used,
-                                 conditional_access_status=conditional_access_status,
-                                 correlation_id=correlation_id,
-                                 created_date_time=created_date_time,
-                                 device_detail=device_detail,
-                                 ip_address=ip_address,
-                                 is_interactive=is_interactive,
-                                 mfa_detail=mfa_detail,
-                                 network_location_details=network_location_details,
-                                 original_request_id=original_request_id,
-                                 processing_time_in_milliseconds=processing_time_in_milliseconds,
-                                 resource_display_name=resource_display_name,
-                                 resource_id=resource_id,
-                                 resource_tenant_id=resource_tenant_id,
-                                 risk_detail=risk_detail,
-                                 risk_event_types=risk_event_types,
-                                 risk_event_types_v2=risk_event_types_v2,
-                                 risk_level_aggregated=risk_level_aggregated,
-                                 risk_level_during_sign_in=risk_level_during_sign_in,
-                                 risk_state=risk_state,
-                                 service_principal_id=service_principal_id,
-                                 service_principal_name=service_principal_name,
-                                 sign_in_event_types=sign_in_event_types,
-                                 status=status,
-                                 token_issuer_name=token_issuer_name,
-                                 token_issuer_type=token_issuer_type,
-                                 user_agent_parameter=user_agent,
-                                 user_display_name=user_display_name,
-                                 user_id=user_id,
-                                 user_principal_name=user_principal_name,
-                                 city=location_city,
-                                 country_or_region=location_country_or_region,
-                                 geo_coordinates=location_geo_coordinates,
-                                 state=location_state)
+                                     city=None,
+                                     country_or_region=None,
+                                     geo_coordinates=None,
+                                     state=None):
+    body = {}
+    body['id'] = id_
+    body['alternate_sign_in_name'] = alternate_sign_in_name
+    body['app_display_name'] = app_display_name
+    body['app_id'] = app_id
+    body['applied_conditional_access_policies'] = applied_conditional_access_policies
+    body['authentication_details'] = authentication_details
+    body['authentication_methods_used'] = authentication_methods_used
+    body['authentication_processing_details'] = authentication_processing_details
+    body['authentication_requirement'] = authentication_requirement
+    body['authentication_requirement_policies'] = authentication_requirement_policies
+    body['client_app_used'] = client_app_used
+    body['conditional_access_status'] = conditional_access_status
+    body['correlation_id'] = correlation_id
+    body['created_date_time'] = created_date_time
+    body['device_detail'] = device_detail
+    body['ip_address'] = ip_address
+    body['is_interactive'] = is_interactive
+    body['mfa_detail'] = mfa_detail
+    body['network_location_details'] = network_location_details
+    body['original_request_id'] = original_request_id
+    body['processing_time_in_milliseconds'] = processing_time_in_milliseconds
+    body['resource_display_name'] = resource_display_name
+    body['resource_id'] = resource_id
+    body['resource_tenant_id'] = resource_tenant_id
+    body['risk_detail'] = risk_detail
+    body['risk_event_types'] = risk_event_types
+    body['risk_event_types_v2'] = risk_event_types_v2
+    body['risk_level_aggregated'] = risk_level_aggregated
+    body['risk_level_during_sign_in'] = risk_level_during_sign_in
+    body['risk_state'] = risk_state
+    body['service_principal_id'] = service_principal_id
+    body['service_principal_name'] = service_principal_name
+    body['sign_in_event_types'] = sign_in_event_types
+    body['status'] = status
+    body['token_issuer_name'] = token_issuer_name
+    body['token_issuer_type'] = token_issuer_type
+    body['user_agent'] = user_agent
+    body['user_display_name'] = user_display_name
+    body['user_id'] = user_id
+    body['user_principal_name'] = user_principal_name
+    body['location'] = {}
+    body['location']['city'] = city
+    body['location']['country_or_region'] = country_or_region
+    body['location']['geo_coordinates'] = geo_coordinates
+    body['location']['state'] = state
+    return client.create_sign_ins(body=body)
 
 
-def reports_audit_log_get_directory_audit(client,
-                                          directory_audit_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_directory_audit(directory_audit_id=directory_audit_id,
-                                      select=select,
-                                      expand=expand)
+def reports_audit_log_delete_directory_audit(client,
+                                             directory_audit_id,
+                                             if_match=None):
+    return client.delete_directory_audits(directory_audit_id=directory_audit_id,
+                                          if_match=if_match)
 
 
-def reports_audit_log_get_directory_provisioning(client,
-                                                 provisioning_object_summary_id,
-                                                 select=None,
-                                                 expand=None):
-    return client.get_directory_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
-                                             select=select,
-                                             expand=expand)
+def reports_audit_log_delete_directory_provisioning(client,
+                                                    provisioning_object_summary_id,
+                                                    if_match=None):
+    return client.delete_directory_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
+                                                if_match=if_match)
 
 
-def reports_audit_log_get_provisioning(client,
-                                       provisioning_object_summary_id,
-                                       select=None,
-                                       expand=None):
-    return client.get_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
-                                   select=select,
-                                   expand=expand)
+def reports_audit_log_delete_provisioning(client,
+                                          provisioning_object_summary_id,
+                                          if_match=None):
+    return client.delete_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
+                                      if_match=if_match)
 
 
-def reports_audit_log_get_restricted_sign_in(client,
-                                             restricted_sign_in_id,
-                                             select=None,
-                                             expand=None):
-    return client.get_restricted_sign_in(restricted_sign_in_id=restricted_sign_in_id,
-                                         select=select,
-                                         expand=expand)
+def reports_audit_log_delete_restricted_sign_in(client,
+                                                restricted_sign_in_id,
+                                                if_match=None):
+    return client.delete_restricted_sign_ins(restricted_sign_in_id=restricted_sign_in_id,
+                                             if_match=if_match)
 
 
-def reports_audit_log_get_sign_in(client,
-                                  sign_in_id,
-                                  select=None,
-                                  expand=None):
-    return client.get_sign_in(sign_in_id=sign_in_id,
-                              select=select,
-                              expand=expand)
+def reports_audit_log_delete_sign_in(client,
+                                     sign_in_id,
+                                     if_match=None):
+    return client.delete_sign_ins(sign_in_id=sign_in_id,
+                                  if_match=if_match)
 
 
 def reports_audit_log_list_directory_audit(client,
                                            orderby=None,
                                            select=None,
                                            expand=None):
-    return client.list_directory_audit(orderby=orderby,
-                                       select=select,
-                                       expand=expand)
+    return client.list_directory_audits(orderby=orderby,
+                                        select=select,
+                                        expand=expand)
 
 
 def reports_audit_log_list_directory_provisioning(client,
@@ -458,16 +451,61 @@ def reports_audit_log_list_restricted_sign_in(client,
                                               orderby=None,
                                               select=None,
                                               expand=None):
-    return client.list_restricted_sign_in(orderby=orderby,
-                                          select=select,
-                                          expand=expand)
+    return client.list_restricted_sign_ins(orderby=orderby,
+                                           select=select,
+                                           expand=expand)
 
 
 def reports_audit_log_list_sign_in(client,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_sign_in(orderby=orderby,
+    return client.list_sign_ins(orderby=orderby,
+                                select=select,
+                                expand=expand)
+
+
+def reports_audit_log_show_directory_audit(client,
+                                           directory_audit_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_directory_audits(directory_audit_id=directory_audit_id,
+                                       select=select,
+                                       expand=expand)
+
+
+def reports_audit_log_show_directory_provisioning(client,
+                                                  provisioning_object_summary_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_directory_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
+                                             select=select,
+                                             expand=expand)
+
+
+def reports_audit_log_show_provisioning(client,
+                                        provisioning_object_summary_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def reports_audit_log_show_restricted_sign_in(client,
+                                              restricted_sign_in_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_restricted_sign_ins(restricted_sign_in_id=restricted_sign_in_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def reports_audit_log_show_sign_in(client,
+                                   sign_in_id,
+                                   select=None,
+                                   expand=None):
+    return client.get_sign_ins(sign_in_id=sign_in_id,
                                select=select,
                                expand=expand)
 
@@ -485,22 +523,25 @@ def reports_audit_log_update_directory_audit(client,
                                              result=None,
                                              result_reason=None,
                                              target_resources=None,
-                                             initiated_by_app=None,
-                                             initiated_by_user=None):
-    return client.update_directory_audit(directory_audit_id=directory_audit_id,
-                                         id=id_,
-                                         activity_date_time=activity_date_time,
-                                         activity_display_name=activity_display_name,
-                                         additional_details=additional_details,
-                                         category=category,
-                                         correlation_id=correlation_id,
-                                         logged_by_service=logged_by_service,
-                                         operation_type=operation_type,
-                                         result=result,
-                                         result_reason=result_reason,
-                                         target_resources=target_resources,
-                                         app=initiated_by_app,
-                                         user=initiated_by_user)
+                                             app=None,
+                                             user=None):
+    body = {}
+    body['id'] = id_
+    body['activity_date_time'] = activity_date_time
+    body['activity_display_name'] = activity_display_name
+    body['additional_details'] = additional_details
+    body['category'] = category
+    body['correlation_id'] = correlation_id
+    body['logged_by_service'] = logged_by_service
+    body['operation_type'] = operation_type
+    body['result'] = result
+    body['result_reason'] = result_reason
+    body['target_resources'] = target_resources
+    body['initiated_by'] = {}
+    body['initiated_by']['app'] = app
+    body['initiated_by']['user'] = user
+    return client.update_directory_audits(directory_audit_id=directory_audit_id,
+                                          body=body)
 
 
 def reports_audit_log_update_directory_provisioning(client,
@@ -517,49 +558,56 @@ def reports_audit_log_update_directory_provisioning(client,
                                                     provisioning_steps=None,
                                                     service_principal=None,
                                                     tenant_id=None,
-                                                    target_system_details=None,
-                                                    target_system_display_name=None,
-                                                    target_system_id=None,
-                                                    target_identity_details=None,
-                                                    target_identity_display_name=None,
-                                                    target_identity_id=None,
-                                                    target_identity_identity_type=None,
-                                                    status_info_status=None,
-                                                    source_system_details=None,
-                                                    source_system_display_name=None,
-                                                    source_system_id=None,
-                                                    source_identity_details=None,
-                                                    source_identity_display_name=None,
-                                                    source_identity_id=None,
-                                                    source_identity_identity_type=None):
+                                                    details=None,
+                                                    display_name=None,
+                                                    microsoft_graph_provisioning_system_details_id=None,
+                                                    microsoft_graph_details_info_details=None,
+                                                    microsoft_graph_provisioned_identity_display_name=None,
+                                                    microsoft_graph_provisioned_identity_id=None,
+                                                    identity_type=None,
+                                                    status=None,
+                                                    details1=None,
+                                                    microsoft_graph_provisioning_system_details_display_name=None,
+                                                    id1=None,
+                                                    details2=None,
+                                                    display_name1=None,
+                                                    id2=None,
+                                                    microsoft_graph_provisioned_identity_type=None):
+    body = {}
+    body['id'] = id_
+    body['action'] = action
+    body['activity_date_time'] = activity_date_time
+    body['change_id'] = change_id
+    body['cycle_id'] = cycle_id
+    body['duration_in_milliseconds'] = duration_in_milliseconds
+    body['initiated_by'] = initiated_by
+    body['job_id'] = job_id
+    body['modified_properties'] = modified_properties
+    body['provisioning_steps'] = provisioning_steps
+    body['service_principal'] = service_principal
+    body['tenant_id'] = tenant_id
+    body['target_system'] = {}
+    body['target_system']['details'] = details
+    body['target_system']['display_name'] = display_name
+    body['target_system']['id'] = microsoft_graph_provisioning_system_details_id
+    body['target_identity'] = {}
+    body['target_identity']['details'] = microsoft_graph_details_info_details
+    body['target_identity']['display_name'] = microsoft_graph_provisioned_identity_display_name
+    body['target_identity']['id'] = microsoft_graph_provisioned_identity_id
+    body['target_identity']['identity_type'] = identity_type
+    body['status_info'] = {}
+    body['status_info']['status'] = status
+    body['source_system'] = {}
+    body['source_system']['details'] = details1
+    body['source_system']['display_name'] = microsoft_graph_provisioning_system_details_display_name
+    body['source_system']['id'] = id1
+    body['source_identity'] = {}
+    body['source_identity']['details'] = details2
+    body['source_identity']['display_name'] = display_name1
+    body['source_identity']['id'] = id2
+    body['source_identity']['identity_type'] = microsoft_graph_provisioned_identity_type
     return client.update_directory_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
-                                                id=id_,
-                                                action=action,
-                                                activity_date_time=activity_date_time,
-                                                change_id=change_id,
-                                                cycle_id=cycle_id,
-                                                duration_in_milliseconds=duration_in_milliseconds,
-                                                initiated_by=initiated_by,
-                                                job_id=job_id,
-                                                modified_properties=modified_properties,
-                                                provisioning_steps=provisioning_steps,
-                                                service_principal=service_principal,
-                                                tenant_id=tenant_id,
-                                                details=target_system_details,
-                                                display_name=target_system_display_name,
-                                                microsoft_graph_provisioning_system_details_id=target_system_id,
-                                                microsoft_graph_details_info_details=target_identity_details,
-                                                microsoft_graph_provisioned_identity_display_name=target_identity_display_name,
-                                                microsoft_graph_provisioned_identity_id=target_identity_id,
-                                                identity_type=target_identity_identity_type,
-                                                status=status_info_status,
-                                                details1=source_system_details,
-                                                microsoft_graph_provisioning_system_details_display_name=source_system_display_name,
-                                                id1=source_system_id,
-                                                details2=source_identity_details,
-                                                display_name1=source_identity_display_name,
-                                                id2=source_identity_id,
-                                                microsoft_graph_provisioned_identity_type=source_identity_identity_type)
+                                                body=body)
 
 
 def reports_audit_log_update_provisioning(client,
@@ -576,49 +624,56 @@ def reports_audit_log_update_provisioning(client,
                                           provisioning_steps=None,
                                           service_principal=None,
                                           tenant_id=None,
-                                          target_system_details=None,
-                                          target_system_display_name=None,
-                                          target_system_id=None,
-                                          target_identity_details=None,
-                                          target_identity_display_name=None,
-                                          target_identity_id=None,
-                                          target_identity_identity_type=None,
-                                          status_info_status=None,
-                                          source_system_details=None,
-                                          source_system_display_name=None,
-                                          source_system_id=None,
-                                          source_identity_details=None,
-                                          source_identity_display_name=None,
-                                          source_identity_id=None,
-                                          source_identity_identity_type=None):
+                                          details=None,
+                                          display_name=None,
+                                          microsoft_graph_provisioning_system_details_id=None,
+                                          microsoft_graph_details_info_details=None,
+                                          microsoft_graph_provisioned_identity_display_name=None,
+                                          microsoft_graph_provisioned_identity_id=None,
+                                          identity_type=None,
+                                          status=None,
+                                          details1=None,
+                                          microsoft_graph_provisioning_system_details_display_name=None,
+                                          id1=None,
+                                          details2=None,
+                                          display_name1=None,
+                                          id2=None,
+                                          microsoft_graph_provisioned_identity_type=None):
+    body = {}
+    body['id'] = id_
+    body['action'] = action
+    body['activity_date_time'] = activity_date_time
+    body['change_id'] = change_id
+    body['cycle_id'] = cycle_id
+    body['duration_in_milliseconds'] = duration_in_milliseconds
+    body['initiated_by'] = initiated_by
+    body['job_id'] = job_id
+    body['modified_properties'] = modified_properties
+    body['provisioning_steps'] = provisioning_steps
+    body['service_principal'] = service_principal
+    body['tenant_id'] = tenant_id
+    body['target_system'] = {}
+    body['target_system']['details'] = details
+    body['target_system']['display_name'] = display_name
+    body['target_system']['id'] = microsoft_graph_provisioning_system_details_id
+    body['target_identity'] = {}
+    body['target_identity']['details'] = microsoft_graph_details_info_details
+    body['target_identity']['display_name'] = microsoft_graph_provisioned_identity_display_name
+    body['target_identity']['id'] = microsoft_graph_provisioned_identity_id
+    body['target_identity']['identity_type'] = identity_type
+    body['status_info'] = {}
+    body['status_info']['status'] = status
+    body['source_system'] = {}
+    body['source_system']['details'] = details1
+    body['source_system']['display_name'] = microsoft_graph_provisioning_system_details_display_name
+    body['source_system']['id'] = id1
+    body['source_identity'] = {}
+    body['source_identity']['details'] = details2
+    body['source_identity']['display_name'] = display_name1
+    body['source_identity']['id'] = id2
+    body['source_identity']['identity_type'] = microsoft_graph_provisioned_identity_type
     return client.update_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
-                                      id=id_,
-                                      action=action,
-                                      activity_date_time=activity_date_time,
-                                      change_id=change_id,
-                                      cycle_id=cycle_id,
-                                      duration_in_milliseconds=duration_in_milliseconds,
-                                      initiated_by=initiated_by,
-                                      job_id=job_id,
-                                      modified_properties=modified_properties,
-                                      provisioning_steps=provisioning_steps,
-                                      service_principal=service_principal,
-                                      tenant_id=tenant_id,
-                                      details=target_system_details,
-                                      display_name=target_system_display_name,
-                                      microsoft_graph_provisioning_system_details_id=target_system_id,
-                                      microsoft_graph_details_info_details=target_identity_details,
-                                      microsoft_graph_provisioned_identity_display_name=target_identity_display_name,
-                                      microsoft_graph_provisioned_identity_id=target_identity_id,
-                                      identity_type=target_identity_identity_type,
-                                      status=status_info_status,
-                                      details1=source_system_details,
-                                      microsoft_graph_provisioning_system_details_display_name=source_system_display_name,
-                                      id1=source_system_id,
-                                      details2=source_identity_details,
-                                      display_name1=source_identity_display_name,
-                                      id2=source_identity_id,
-                                      microsoft_graph_provisioned_identity_type=source_identity_identity_type)
+                                      body=body)
 
 
 def reports_audit_log_update_restricted_sign_in(client,
@@ -663,57 +718,60 @@ def reports_audit_log_update_restricted_sign_in(client,
                                                 user_display_name=None,
                                                 user_id=None,
                                                 user_principal_name=None,
-                                                location_city=None,
-                                                location_country_or_region=None,
-                                                location_geo_coordinates=None,
-                                                location_state=None,
+                                                city=None,
+                                                country_or_region=None,
+                                                geo_coordinates=None,
+                                                state=None,
                                                 target_tenant_id=None):
-    return client.update_restricted_sign_in(restricted_sign_in_id=restricted_sign_in_id,
-                                            id=id_,
-                                            alternate_sign_in_name=alternate_sign_in_name,
-                                            app_display_name=app_display_name,
-                                            app_id=app_id,
-                                            applied_conditional_access_policies=applied_conditional_access_policies,
-                                            authentication_details=authentication_details,
-                                            authentication_methods_used=authentication_methods_used,
-                                            authentication_processing_details=authentication_processing_details,
-                                            authentication_requirement=authentication_requirement,
-                                            authentication_requirement_policies=authentication_requirement_policies,
-                                            client_app_used=client_app_used,
-                                            conditional_access_status=conditional_access_status,
-                                            correlation_id=correlation_id,
-                                            created_date_time=created_date_time,
-                                            device_detail=device_detail,
-                                            ip_address=ip_address,
-                                            is_interactive=is_interactive,
-                                            mfa_detail=mfa_detail,
-                                            network_location_details=network_location_details,
-                                            original_request_id=original_request_id,
-                                            processing_time_in_milliseconds=processing_time_in_milliseconds,
-                                            resource_display_name=resource_display_name,
-                                            resource_id=resource_id,
-                                            resource_tenant_id=resource_tenant_id,
-                                            risk_detail=risk_detail,
-                                            risk_event_types=risk_event_types,
-                                            risk_event_types_v2=risk_event_types_v2,
-                                            risk_level_aggregated=risk_level_aggregated,
-                                            risk_level_during_sign_in=risk_level_during_sign_in,
-                                            risk_state=risk_state,
-                                            service_principal_id=service_principal_id,
-                                            service_principal_name=service_principal_name,
-                                            sign_in_event_types=sign_in_event_types,
-                                            status=status,
-                                            token_issuer_name=token_issuer_name,
-                                            token_issuer_type=token_issuer_type,
-                                            user_agent_parameter=user_agent,
-                                            user_display_name=user_display_name,
-                                            user_id=user_id,
-                                            user_principal_name=user_principal_name,
-                                            city=location_city,
-                                            country_or_region=location_country_or_region,
-                                            geo_coordinates=location_geo_coordinates,
-                                            state=location_state,
-                                            target_tenant_id=target_tenant_id)
+    body = {}
+    body['id'] = id_
+    body['alternate_sign_in_name'] = alternate_sign_in_name
+    body['app_display_name'] = app_display_name
+    body['app_id'] = app_id
+    body['applied_conditional_access_policies'] = applied_conditional_access_policies
+    body['authentication_details'] = authentication_details
+    body['authentication_methods_used'] = authentication_methods_used
+    body['authentication_processing_details'] = authentication_processing_details
+    body['authentication_requirement'] = authentication_requirement
+    body['authentication_requirement_policies'] = authentication_requirement_policies
+    body['client_app_used'] = client_app_used
+    body['conditional_access_status'] = conditional_access_status
+    body['correlation_id'] = correlation_id
+    body['created_date_time'] = created_date_time
+    body['device_detail'] = device_detail
+    body['ip_address'] = ip_address
+    body['is_interactive'] = is_interactive
+    body['mfa_detail'] = mfa_detail
+    body['network_location_details'] = network_location_details
+    body['original_request_id'] = original_request_id
+    body['processing_time_in_milliseconds'] = processing_time_in_milliseconds
+    body['resource_display_name'] = resource_display_name
+    body['resource_id'] = resource_id
+    body['resource_tenant_id'] = resource_tenant_id
+    body['risk_detail'] = risk_detail
+    body['risk_event_types'] = risk_event_types
+    body['risk_event_types_v2'] = risk_event_types_v2
+    body['risk_level_aggregated'] = risk_level_aggregated
+    body['risk_level_during_sign_in'] = risk_level_during_sign_in
+    body['risk_state'] = risk_state
+    body['service_principal_id'] = service_principal_id
+    body['service_principal_name'] = service_principal_name
+    body['sign_in_event_types'] = sign_in_event_types
+    body['status'] = status
+    body['token_issuer_name'] = token_issuer_name
+    body['token_issuer_type'] = token_issuer_type
+    body['user_agent'] = user_agent
+    body['user_display_name'] = user_display_name
+    body['user_id'] = user_id
+    body['user_principal_name'] = user_principal_name
+    body['location'] = {}
+    body['location']['city'] = city
+    body['location']['country_or_region'] = country_or_region
+    body['location']['geo_coordinates'] = geo_coordinates
+    body['location']['state'] = state
+    body['target_tenant_id'] = target_tenant_id
+    return client.update_restricted_sign_ins(restricted_sign_in_id=restricted_sign_in_id,
+                                             body=body)
 
 
 def reports_audit_log_update_sign_in(client,
@@ -758,110 +816,86 @@ def reports_audit_log_update_sign_in(client,
                                      user_display_name=None,
                                      user_id=None,
                                      user_principal_name=None,
-                                     location_city=None,
-                                     location_country_or_region=None,
-                                     location_geo_coordinates=None,
-                                     location_state=None):
-    return client.update_sign_in(sign_in_id=sign_in_id,
-                                 id=id_,
-                                 alternate_sign_in_name=alternate_sign_in_name,
-                                 app_display_name=app_display_name,
-                                 app_id=app_id,
-                                 applied_conditional_access_policies=applied_conditional_access_policies,
-                                 authentication_details=authentication_details,
-                                 authentication_methods_used=authentication_methods_used,
-                                 authentication_processing_details=authentication_processing_details,
-                                 authentication_requirement=authentication_requirement,
-                                 authentication_requirement_policies=authentication_requirement_policies,
-                                 client_app_used=client_app_used,
-                                 conditional_access_status=conditional_access_status,
-                                 correlation_id=correlation_id,
-                                 created_date_time=created_date_time,
-                                 device_detail=device_detail,
-                                 ip_address=ip_address,
-                                 is_interactive=is_interactive,
-                                 mfa_detail=mfa_detail,
-                                 network_location_details=network_location_details,
-                                 original_request_id=original_request_id,
-                                 processing_time_in_milliseconds=processing_time_in_milliseconds,
-                                 resource_display_name=resource_display_name,
-                                 resource_id=resource_id,
-                                 resource_tenant_id=resource_tenant_id,
-                                 risk_detail=risk_detail,
-                                 risk_event_types=risk_event_types,
-                                 risk_event_types_v2=risk_event_types_v2,
-                                 risk_level_aggregated=risk_level_aggregated,
-                                 risk_level_during_sign_in=risk_level_during_sign_in,
-                                 risk_state=risk_state,
-                                 service_principal_id=service_principal_id,
-                                 service_principal_name=service_principal_name,
-                                 sign_in_event_types=sign_in_event_types,
-                                 status=status,
-                                 token_issuer_name=token_issuer_name,
-                                 token_issuer_type=token_issuer_type,
-                                 user_agent_parameter=user_agent,
-                                 user_display_name=user_display_name,
-                                 user_id=user_id,
-                                 user_principal_name=user_principal_name,
-                                 city=location_city,
-                                 country_or_region=location_country_or_region,
-                                 geo_coordinates=location_geo_coordinates,
-                                 state=location_state)
+                                     city=None,
+                                     country_or_region=None,
+                                     geo_coordinates=None,
+                                     state=None):
+    body = {}
+    body['id'] = id_
+    body['alternate_sign_in_name'] = alternate_sign_in_name
+    body['app_display_name'] = app_display_name
+    body['app_id'] = app_id
+    body['applied_conditional_access_policies'] = applied_conditional_access_policies
+    body['authentication_details'] = authentication_details
+    body['authentication_methods_used'] = authentication_methods_used
+    body['authentication_processing_details'] = authentication_processing_details
+    body['authentication_requirement'] = authentication_requirement
+    body['authentication_requirement_policies'] = authentication_requirement_policies
+    body['client_app_used'] = client_app_used
+    body['conditional_access_status'] = conditional_access_status
+    body['correlation_id'] = correlation_id
+    body['created_date_time'] = created_date_time
+    body['device_detail'] = device_detail
+    body['ip_address'] = ip_address
+    body['is_interactive'] = is_interactive
+    body['mfa_detail'] = mfa_detail
+    body['network_location_details'] = network_location_details
+    body['original_request_id'] = original_request_id
+    body['processing_time_in_milliseconds'] = processing_time_in_milliseconds
+    body['resource_display_name'] = resource_display_name
+    body['resource_id'] = resource_id
+    body['resource_tenant_id'] = resource_tenant_id
+    body['risk_detail'] = risk_detail
+    body['risk_event_types'] = risk_event_types
+    body['risk_event_types_v2'] = risk_event_types_v2
+    body['risk_level_aggregated'] = risk_level_aggregated
+    body['risk_level_during_sign_in'] = risk_level_during_sign_in
+    body['risk_state'] = risk_state
+    body['service_principal_id'] = service_principal_id
+    body['service_principal_name'] = service_principal_name
+    body['sign_in_event_types'] = sign_in_event_types
+    body['status'] = status
+    body['token_issuer_name'] = token_issuer_name
+    body['token_issuer_type'] = token_issuer_type
+    body['user_agent'] = user_agent
+    body['user_display_name'] = user_display_name
+    body['user_id'] = user_id
+    body['user_principal_name'] = user_principal_name
+    body['location'] = {}
+    body['location']['city'] = city
+    body['location']['country_or_region'] = country_or_region
+    body['location']['geo_coordinates'] = geo_coordinates
+    body['location']['state'] = state
+    return client.update_sign_ins(sign_in_id=sign_in_id,
+                                  body=body)
 
 
-def reports_report_root_get_root(client,
-                                 select=None,
-                                 expand=None):
+def reports_report_root_show_report_root(client,
+                                         select=None,
+                                         expand=None):
     return client.get_report_root(select=select,
                                   expand=expand)
 
 
-def reports_report_root_update_root(client,
-                                    id_=None,
-                                    application_sign_in_detailed_summary=None,
-                                    credential_user_registration_details=None,
-                                    user_credential_usage_details=None,
-                                    daily_print_usage_summaries_by_printer=None,
-                                    daily_print_usage_summaries_by_user=None,
-                                    monthly_print_usage_summaries_by_printer=None,
-                                    monthly_print_usage_summaries_by_user=None):
-    return client.update_report_root(id=id_,
-                                     application_sign_in_detailed_summary=application_sign_in_detailed_summary,
-                                     credential_user_registration_details=credential_user_registration_details,
-                                     user_credential_usage_details=user_credential_usage_details,
-                                     daily_print_usage_summaries_by_printer=daily_print_usage_summaries_by_printer,
-                                     daily_print_usage_summaries_by_user=daily_print_usage_summaries_by_user,
-                                     monthly_print_usage_summaries_by_printer=monthly_print_usage_summaries_by_printer,
-                                     monthly_print_usage_summaries_by_user=monthly_print_usage_summaries_by_user)
-
-
-def reports_report_delete(client,
-                          application_sign_in_detailed_summary_id=None,
-                          if_match=None,
-                          credential_user_registration_details_id=None,
-                          print_usage_summary_by_printer_id=None,
-                          print_usage_summary_by_user_id=None,
-                          user_credential_usage_details_id=None):
-    if application_sign_in_detailed_summary_id is not None:
-        return client.delete_application_sign_in_detailed_summary(application_sign_in_detailed_summary_id=application_sign_in_detailed_summary_id,
-                                                                  if_match=if_match)
-    elif credential_user_registration_details_id is not None:
-        return client.delete_credential_user_registration_detail(credential_user_registration_details_id=credential_user_registration_details_id,
-                                                                 if_match=if_match)
-    elif print_usage_summary_by_printer_id is not None:
-        return client.delete_daily_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
-                                                                  if_match=if_match)
-    elif print_usage_summary_by_user_id is not None:
-        return client.delete_daily_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
-                                                               if_match=if_match)
-    elif print_usage_summary_by_printer_id is not None:
-        return client.delete_monthly_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
-                                                                    if_match=if_match)
-    elif print_usage_summary_by_user_id is not None:
-        return client.delete_monthly_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
-                                                                 if_match=if_match)
-    return client.delete_user_credential_usage_detail(user_credential_usage_details_id=user_credential_usage_details_id,
-                                                      if_match=if_match)
+def reports_report_root_update_report_root(client,
+                                           id_=None,
+                                           application_sign_in_detailed_summary=None,
+                                           credential_user_registration_details=None,
+                                           user_credential_usage_details=None,
+                                           daily_print_usage_summaries_by_printer=None,
+                                           daily_print_usage_summaries_by_user=None,
+                                           monthly_print_usage_summaries_by_printer=None,
+                                           monthly_print_usage_summaries_by_user=None):
+    body = {}
+    body['id'] = id_
+    body['application_sign_in_detailed_summary'] = application_sign_in_detailed_summary
+    body['credential_user_registration_details'] = credential_user_registration_details
+    body['user_credential_usage_details'] = user_credential_usage_details
+    body['daily_print_usage_summaries_by_printer'] = daily_print_usage_summaries_by_printer
+    body['daily_print_usage_summaries_by_user'] = daily_print_usage_summaries_by_user
+    body['monthly_print_usage_summaries_by_printer'] = monthly_print_usage_summaries_by_printer
+    body['monthly_print_usage_summaries_by_user'] = monthly_print_usage_summaries_by_user
+    return client.update_report_root(body=body)
 
 
 def reports_report_create_application_sign_in_detailed_summary(client,
@@ -870,17 +904,15 @@ def reports_report_create_application_sign_in_detailed_summary(client,
                                                                app_display_name=None,
                                                                app_id=None,
                                                                sign_in_count=None,
-                                                               status_additional_details=None,
-                                                               status_error_code=None,
-                                                               status_failure_reason=None):
-    return client.create_application_sign_in_detailed_summary(id=id_,
-                                                              aggregated_event_date_time=aggregated_event_date_time,
-                                                              app_display_name=app_display_name,
-                                                              app_id=app_id,
-                                                              sign_in_count=sign_in_count,
-                                                              additional_details=status_additional_details,
-                                                              error_code=status_error_code,
-                                                              failure_reason=status_failure_reason)
+                                                               status=None):
+    body = {}
+    body['id'] = id_
+    body['aggregated_event_date_time'] = aggregated_event_date_time
+    body['app_display_name'] = app_display_name
+    body['app_id'] = app_id
+    body['sign_in_count'] = sign_in_count
+    body['status'] = status
+    return client.create_application_sign_in_detailed_summary(body=body)
 
 
 def reports_report_create_credential_user_registration_detail(client,
@@ -892,14 +924,16 @@ def reports_report_create_credential_user_registration_detail(client,
                                                               is_registered=None,
                                                               user_display_name=None,
                                                               user_principal_name=None):
-    return client.create_credential_user_registration_detail(id=id_,
-                                                             auth_methods=auth_methods,
-                                                             is_capable=is_capable,
-                                                             is_enabled=is_enabled,
-                                                             is_mfa_registered=is_mfa_registered,
-                                                             is_registered=is_registered,
-                                                             user_display_name=user_display_name,
-                                                             user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['auth_methods'] = auth_methods
+    body['is_capable'] = is_capable
+    body['is_enabled'] = is_enabled
+    body['is_mfa_registered'] = is_mfa_registered
+    body['is_registered'] = is_registered
+    body['user_display_name'] = user_display_name
+    body['user_principal_name'] = user_principal_name
+    return client.create_credential_user_registration_details(body=body)
 
 
 def reports_report_create_daily_print_usage_summary_by_printer(client,
@@ -909,12 +943,14 @@ def reports_report_create_daily_print_usage_summary_by_printer(client,
                                                                incomplete_job_count=None,
                                                                printer_id=None,
                                                                usage_date=None):
-    return client.create_daily_print_usage_summary_by_printer(id=id_,
-                                                              completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                              completed_color_job_count=completed_color_job_count,
-                                                              incomplete_job_count=incomplete_job_count,
-                                                              printer_id=printer_id,
-                                                              usage_date=usage_date)
+    body = {}
+    body['id'] = id_
+    body['completed_black_and_white_job_count'] = completed_black_and_white_job_count
+    body['completed_color_job_count'] = completed_color_job_count
+    body['incomplete_job_count'] = incomplete_job_count
+    body['printer_id'] = printer_id
+    body['usage_date'] = usage_date
+    return client.create_daily_print_usage_summaries_by_printer(body=body)
 
 
 def reports_report_create_daily_print_usage_summary_by_user(client,
@@ -924,12 +960,14 @@ def reports_report_create_daily_print_usage_summary_by_user(client,
                                                             incomplete_job_count=None,
                                                             usage_date=None,
                                                             user_principal_name=None):
-    return client.create_daily_print_usage_summary_by_user(id=id_,
-                                                           completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                           completed_color_job_count=completed_color_job_count,
-                                                           incomplete_job_count=incomplete_job_count,
-                                                           usage_date=usage_date,
-                                                           user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['completed_black_and_white_job_count'] = completed_black_and_white_job_count
+    body['completed_color_job_count'] = completed_color_job_count
+    body['incomplete_job_count'] = incomplete_job_count
+    body['usage_date'] = usage_date
+    body['user_principal_name'] = user_principal_name
+    return client.create_daily_print_usage_summaries_by_user(body=body)
 
 
 def reports_report_create_monthly_print_usage_summary_by_printer(client,
@@ -939,12 +977,14 @@ def reports_report_create_monthly_print_usage_summary_by_printer(client,
                                                                  incomplete_job_count=None,
                                                                  printer_id=None,
                                                                  usage_date=None):
-    return client.create_monthly_print_usage_summary_by_printer(id=id_,
-                                                                completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                                completed_color_job_count=completed_color_job_count,
-                                                                incomplete_job_count=incomplete_job_count,
-                                                                printer_id=printer_id,
-                                                                usage_date=usage_date)
+    body = {}
+    body['id'] = id_
+    body['completed_black_and_white_job_count'] = completed_black_and_white_job_count
+    body['completed_color_job_count'] = completed_color_job_count
+    body['incomplete_job_count'] = incomplete_job_count
+    body['printer_id'] = printer_id
+    body['usage_date'] = usage_date
+    return client.create_monthly_print_usage_summaries_by_printer(body=body)
 
 
 def reports_report_create_monthly_print_usage_summary_by_user(client,
@@ -954,12 +994,14 @@ def reports_report_create_monthly_print_usage_summary_by_user(client,
                                                               incomplete_job_count=None,
                                                               usage_date=None,
                                                               user_principal_name=None):
-    return client.create_monthly_print_usage_summary_by_user(id=id_,
-                                                             completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                             completed_color_job_count=completed_color_job_count,
-                                                             incomplete_job_count=incomplete_job_count,
-                                                             usage_date=usage_date,
-                                                             user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['completed_black_and_white_job_count'] = completed_black_and_white_job_count
+    body['completed_color_job_count'] = completed_color_job_count
+    body['incomplete_job_count'] = incomplete_job_count
+    body['usage_date'] = usage_date
+    body['user_principal_name'] = user_principal_name
+    return client.create_monthly_print_usage_summaries_by_user(body=body)
 
 
 def reports_report_create_user_credential_usage_detail(client,
@@ -971,14 +1013,59 @@ def reports_report_create_user_credential_usage_detail(client,
                                                        is_success=None,
                                                        user_display_name=None,
                                                        user_principal_name=None):
-    return client.create_user_credential_usage_detail(id=id_,
-                                                      auth_method=auth_method,
-                                                      event_date_time=event_date_time,
-                                                      failure_reason=failure_reason,
-                                                      feature=feature,
-                                                      is_success=is_success,
-                                                      user_display_name=user_display_name,
-                                                      user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['auth_method'] = auth_method
+    body['event_date_time'] = event_date_time
+    body['failure_reason'] = failure_reason
+    body['feature'] = feature
+    body['is_success'] = is_success
+    body['user_display_name'] = user_display_name
+    body['user_principal_name'] = user_principal_name
+    return client.create_user_credential_usage_details(body=body)
+
+
+def reports_report_delete_application_sign_in_detailed_summary(client,
+                                                               application_sign_in_detailed_summary_id,
+                                                               if_match=None):
+    return client.delete_application_sign_in_detailed_summary(application_sign_in_detailed_summary_id=application_sign_in_detailed_summary_id,
+                                                              if_match=if_match)
+
+
+def reports_report_delete_credential_user_registration_detail(client,
+                                                              credential_user_registration_details_id,
+                                                              if_match=None):
+    return client.delete_credential_user_registration_details(credential_user_registration_details_id=credential_user_registration_details_id,
+                                                              if_match=if_match)
+
+
+def reports_report_delete_daily_print_usage_summary(client,
+                                                    print_usage_summary_by_printer_id=None,
+                                                    if_match=None,
+                                                    print_usage_summary_by_user_id=None):
+    if print_usage_summary_by_printer_id is not None:
+        return client.delete_daily_print_usage_summaries_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
+                                                                    if_match=if_match)
+    return client.delete_daily_print_usage_summaries_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
+                                                             if_match=if_match)
+
+
+def reports_report_delete_monthly_print_usage_summary(client,
+                                                      print_usage_summary_by_printer_id=None,
+                                                      if_match=None,
+                                                      print_usage_summary_by_user_id=None):
+    if print_usage_summary_by_printer_id is not None:
+        return client.delete_monthly_print_usage_summaries_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
+                                                                      if_match=if_match)
+    return client.delete_monthly_print_usage_summaries_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
+                                                               if_match=if_match)
+
+
+def reports_report_delete_user_credential_usage_detail(client,
+                                                       user_credential_usage_details_id,
+                                                       if_match=None):
+    return client.delete_user_credential_usage_details(user_credential_usage_details_id=user_credential_usage_details_id,
+                                                       if_match=if_match)
 
 
 def reports_report_device_configuration_device_activity(client):
@@ -987,539 +1074,6 @@ def reports_report_device_configuration_device_activity(client):
 
 def reports_report_device_configuration_user_activity(client):
     return client.device_configuration_user_activity()
-
-
-def reports_report_get_application_sign_in_detailed_summary(client,
-                                                            application_sign_in_detailed_summary_id,
-                                                            select=None,
-                                                            expand=None):
-    return client.get_application_sign_in_detailed_summary(application_sign_in_detailed_summary_id=application_sign_in_detailed_summary_id,
-                                                           select=select,
-                                                           expand=expand)
-
-
-def reports_report_get_azure_ad_application_sign_in_summary(client,
-                                                            period):
-    return client.get_azure_ad_application_sign_in_summary(period=period)
-
-
-def reports_report_get_azure_ad_feature_usage(client,
-                                              period):
-    return client.get_azure_ad_feature_usage(period=period)
-
-
-def reports_report_get_azure_ad_license_usage(client,
-                                              period):
-    return client.get_azure_ad_license_usage(period=period)
-
-
-def reports_report_get_azure_ad_user_feature_usage(client):
-    return client.get_azure_ad_user_feature_usage()
-
-
-def reports_report_get_credential_usage_summary(client,
-                                                period):
-    return client.get_credential_usage_summary(period=period)
-
-
-def reports_report_get_credential_user_registration_count(client):
-    return client.get_credential_user_registration_count()
-
-
-def reports_report_get_credential_user_registration_detail(client,
-                                                           credential_user_registration_details_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_credential_user_registration_detail(credential_user_registration_details_id=credential_user_registration_details_id,
-                                                          select=select,
-                                                          expand=expand)
-
-
-def reports_report_get_daily_print_usage_summary_by_printer(client,
-                                                            print_usage_summary_by_printer_id,
-                                                            select=None,
-                                                            expand=None):
-    return client.get_daily_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
-                                                           select=select,
-                                                           expand=expand)
-
-
-def reports_report_get_daily_print_usage_summary_by_user(client,
-                                                         print_usage_summary_by_user_id,
-                                                         select=None,
-                                                         expand=None):
-    return client.get_daily_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
-                                                        select=select,
-                                                        expand=expand)
-
-
-def reports_report_get_email_activity_count(client,
-                                            period):
-    return client.get_email_activity_count(period=period)
-
-
-def reports_report_get_email_activity_user_count(client,
-                                                 period):
-    return client.get_email_activity_user_count(period=period)
-
-
-def reports_report_get_email_activity_user_detail_ddb2(client,
-                                                       period):
-    return client.get_email_activity_user_detail_ddb2(period=period)
-
-
-def reports_report_get_email_activity_user_detail_fe32(client,
-                                                       date):
-    return client.get_email_activity_user_detail_fe32(date=date)
-
-
-def reports_report_get_email_app_usage_app_user_count(client,
-                                                      period):
-    return client.get_email_app_usage_app_user_count(period=period)
-
-
-def reports_report_get_email_app_usage_user_count(client,
-                                                  period):
-    return client.get_email_app_usage_user_count(period=period)
-
-
-def reports_report_get_email_app_usage_user_detail546_b(client,
-                                                        period):
-    return client.get_email_app_usage_user_detail546_b(period=period)
-
-
-def reports_report_get_email_app_usage_user_detail62_ec(client,
-                                                        date):
-    return client.get_email_app_usage_user_detail62_ec(date=date)
-
-
-def reports_report_get_email_app_usage_version_user_count(client,
-                                                          period):
-    return client.get_email_app_usage_version_user_count(period=period)
-
-
-def reports_report_get_m365_app_platform_user_count(client,
-                                                    period):
-    return client.get_m365_app_platform_user_count(period=period)
-
-
-def reports_report_get_m365_app_user_count(client,
-                                           period):
-    return client.get_m365_app_user_count(period=period)
-
-
-def reports_report_get_m365_app_user_detail_c8_df(client,
-                                                  period):
-    return client.get_m365_app_user_detail_c8_df(period=period)
-
-
-def reports_report_get_m365_app_user_detail2_b20(client,
-                                                 date):
-    return client.get_m365_app_user_detail2_b20(date=date)
-
-
-def reports_report_get_mailbox_usage_detail(client,
-                                            period):
-    return client.get_mailbox_usage_detail(period=period)
-
-
-def reports_report_get_mailbox_usage_mailbox_count(client,
-                                                   period):
-    return client.get_mailbox_usage_mailbox_count(period=period)
-
-
-def reports_report_get_mailbox_usage_quota_status_mailbox_count(client,
-                                                                period):
-    return client.get_mailbox_usage_quota_status_mailbox_count(period=period)
-
-
-def reports_report_get_mailbox_usage_storage(client,
-                                             period):
-    return client.get_mailbox_usage_storage(period=period)
-
-
-def reports_report_get_monthly_print_usage_summary_by_printer(client,
-                                                              print_usage_summary_by_printer_id,
-                                                              select=None,
-                                                              expand=None):
-    return client.get_monthly_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
-                                                             select=select,
-                                                             expand=expand)
-
-
-def reports_report_get_monthly_print_usage_summary_by_user(client,
-                                                           print_usage_summary_by_user_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_monthly_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
-                                                          select=select,
-                                                          expand=expand)
-
-
-def reports_report_get_office365_activation_count(client):
-    return client.get_office365_activation_count()
-
-
-def reports_report_get_office365_activation_user_count(client):
-    return client.get_office365_activation_user_count()
-
-
-def reports_report_get_office365_activation_user_detail(client):
-    return client.get_office365_activation_user_detail()
-
-
-def reports_report_get_office365_active_user_count(client,
-                                                   period):
-    return client.get_office365_active_user_count(period=period)
-
-
-def reports_report_get_office365_active_user_detail_d389(client,
-                                                         date):
-    return client.get_office365_active_user_detail_d389(date=date)
-
-
-def reports_report_get_office365_active_user_detail68_ad(client,
-                                                         period):
-    return client.get_office365_active_user_detail68_ad(period=period)
-
-
-def reports_report_get_office365_group_activity_count(client,
-                                                      period):
-    return client.get_office365_group_activity_count(period=period)
-
-
-def reports_report_get_office365_group_activity_detail38_f6(client,
-                                                            period):
-    return client.get_office365_group_activity_detail38_f6(period=period)
-
-
-def reports_report_get_office365_group_activity_detail81_cc(client,
-                                                            date):
-    return client.get_office365_group_activity_detail81_cc(date=date)
-
-
-def reports_report_get_office365_group_activity_file_count(client,
-                                                           period):
-    return client.get_office365_group_activity_file_count(period=period)
-
-
-def reports_report_get_office365_group_activity_group_count(client,
-                                                            period):
-    return client.get_office365_group_activity_group_count(period=period)
-
-
-def reports_report_get_office365_group_activity_storage(client,
-                                                        period):
-    return client.get_office365_group_activity_storage(period=period)
-
-
-def reports_report_get_office365_service_user_count(client,
-                                                    period):
-    return client.get_office365_service_user_count(period=period)
-
-
-def reports_report_get_one_drive_activity_file_count(client,
-                                                     period):
-    return client.get_one_drive_activity_file_count(period=period)
-
-
-def reports_report_get_one_drive_activity_user_count(client,
-                                                     period):
-    return client.get_one_drive_activity_user_count(period=period)
-
-
-def reports_report_get_one_drive_activity_user_detail_c424(client,
-                                                           period):
-    return client.get_one_drive_activity_user_detail_c424(period=period)
-
-
-def reports_report_get_one_drive_activity_user_detail05_f1(client,
-                                                           date):
-    return client.get_one_drive_activity_user_detail05_f1(date=date)
-
-
-def reports_report_get_one_drive_usage_account_count(client,
-                                                     period):
-    return client.get_one_drive_usage_account_count(period=period)
-
-
-def reports_report_get_one_drive_usage_account_detail_dd7_f(client,
-                                                            period):
-    return client.get_one_drive_usage_account_detail_dd7_f(period=period)
-
-
-def reports_report_get_one_drive_usage_account_detail_e827(client,
-                                                           date):
-    return client.get_one_drive_usage_account_detail_e827(date=date)
-
-
-def reports_report_get_one_drive_usage_file_count(client,
-                                                  period):
-    return client.get_one_drive_usage_file_count(period=period)
-
-
-def reports_report_get_one_drive_usage_storage(client,
-                                               period):
-    return client.get_one_drive_usage_storage(period=period)
-
-
-def reports_report_get_relying_party_detailed_summary(client,
-                                                      period):
-    return client.get_relying_party_detailed_summary(period=period)
-
-
-def reports_report_get_share_point_activity_file_count(client,
-                                                       period):
-    return client.get_share_point_activity_file_count(period=period)
-
-
-def reports_report_get_share_point_activity_page(client,
-                                                 period):
-    return client.get_share_point_activity_page(period=period)
-
-
-def reports_report_get_share_point_activity_user_count(client,
-                                                       period):
-    return client.get_share_point_activity_user_count(period=period)
-
-
-def reports_report_get_share_point_activity_user_detail_b778(client,
-                                                             period):
-    return client.get_share_point_activity_user_detail_b778(period=period)
-
-
-def reports_report_get_share_point_activity_user_detail_f3_be(client,
-                                                              date):
-    return client.get_share_point_activity_user_detail_f3_be(date=date)
-
-
-def reports_report_get_share_point_site_usage_detail_d27_a(client,
-                                                           date):
-    return client.get_share_point_site_usage_detail_d27_a(date=date)
-
-
-def reports_report_get_share_point_site_usage_detail204_b(client,
-                                                          period):
-    return client.get_share_point_site_usage_detail204_b(period=period)
-
-
-def reports_report_get_share_point_site_usage_file_count(client,
-                                                         period):
-    return client.get_share_point_site_usage_file_count(period=period)
-
-
-def reports_report_get_share_point_site_usage_page(client,
-                                                   period):
-    return client.get_share_point_site_usage_page(period=period)
-
-
-def reports_report_get_share_point_site_usage_site_count(client,
-                                                         period):
-    return client.get_share_point_site_usage_site_count(period=period)
-
-
-def reports_report_get_share_point_site_usage_storage(client,
-                                                      period):
-    return client.get_share_point_site_usage_storage(period=period)
-
-
-def reports_report_get_skype_for_business_activity_count(client,
-                                                         period):
-    return client.get_skype_for_business_activity_count(period=period)
-
-
-def reports_report_get_skype_for_business_activity_user_count(client,
-                                                              period):
-    return client.get_skype_for_business_activity_user_count(period=period)
-
-
-def reports_report_get_skype_for_business_activity_user_detail_e4_c9(client,
-                                                                     date):
-    return client.get_skype_for_business_activity_user_detail_e4_c9(date=date)
-
-
-def reports_report_get_skype_for_business_activity_user_detail744_e(client,
-                                                                    period):
-    return client.get_skype_for_business_activity_user_detail744_e(period=period)
-
-
-def reports_report_get_skype_for_business_device_usage_distribution_user_count(client,
-                                                                               period):
-    return client.get_skype_for_business_device_usage_distribution_user_count(period=period)
-
-
-def reports_report_get_skype_for_business_device_usage_user_count(client,
-                                                                  period):
-    return client.get_skype_for_business_device_usage_user_count(period=period)
-
-
-def reports_report_get_skype_for_business_device_usage_user_detail_a692(client,
-                                                                        date):
-    return client.get_skype_for_business_device_usage_user_detail_a692(date=date)
-
-
-def reports_report_get_skype_for_business_device_usage_user_detail_e753(client,
-                                                                        period):
-    return client.get_skype_for_business_device_usage_user_detail_e753(period=period)
-
-
-def reports_report_get_skype_for_business_organizer_activity_count(client,
-                                                                   period):
-    return client.get_skype_for_business_organizer_activity_count(period=period)
-
-
-def reports_report_get_skype_for_business_organizer_activity_minute_count(client,
-                                                                          period):
-    return client.get_skype_for_business_organizer_activity_minute_count(period=period)
-
-
-def reports_report_get_skype_for_business_organizer_activity_user_count(client,
-                                                                        period):
-    return client.get_skype_for_business_organizer_activity_user_count(period=period)
-
-
-def reports_report_get_skype_for_business_participant_activity_count(client,
-                                                                     period):
-    return client.get_skype_for_business_participant_activity_count(period=period)
-
-
-def reports_report_get_skype_for_business_participant_activity_minute_count(client,
-                                                                            period):
-    return client.get_skype_for_business_participant_activity_minute_count(period=period)
-
-
-def reports_report_get_skype_for_business_participant_activity_user_count(client,
-                                                                          period):
-    return client.get_skype_for_business_participant_activity_user_count(period=period)
-
-
-def reports_report_get_skype_for_business_peer_to_peer_activity_count(client,
-                                                                      period):
-    return client.get_skype_for_business_peer_to_peer_activity_count(period=period)
-
-
-def reports_report_get_skype_for_business_peer_to_peer_activity_minute_count(client,
-                                                                             period):
-    return client.get_skype_for_business_peer_to_peer_activity_minute_count(period=period)
-
-
-def reports_report_get_skype_for_business_peer_to_peer_activity_user_count(client,
-                                                                           period):
-    return client.get_skype_for_business_peer_to_peer_activity_user_count(period=period)
-
-
-def reports_report_get_team_device_usage_distribution_user_count(client,
-                                                                 period):
-    return client.get_team_device_usage_distribution_user_count(period=period)
-
-
-def reports_report_get_team_device_usage_user_count(client,
-                                                    period):
-    return client.get_team_device_usage_user_count(period=period)
-
-
-def reports_report_get_team_device_usage_user_detail7148(client,
-                                                         date):
-    return client.get_team_device_usage_user_detail7148(date=date)
-
-
-def reports_report_get_team_device_usage_user_detail7565(client,
-                                                         period):
-    return client.get_team_device_usage_user_detail7565(period=period)
-
-
-def reports_report_get_team_user_activity_count(client,
-                                                period):
-    return client.get_team_user_activity_count(period=period)
-
-
-def reports_report_get_team_user_activity_user_count(client,
-                                                     period):
-    return client.get_team_user_activity_user_count(period=period)
-
-
-def reports_report_get_team_user_activity_user_detail_a3_f1(client,
-                                                            date):
-    return client.get_team_user_activity_user_detail_a3_f1(date=date)
-
-
-def reports_report_get_team_user_activity_user_detail_eb13(client,
-                                                           period):
-    return client.get_team_user_activity_user_detail_eb13(period=period)
-
-
-def reports_report_get_tenant_secure_score(client,
-                                           period):
-    return client.get_tenant_secure_score(period=period)
-
-
-def reports_report_get_user_credential_usage_detail(client,
-                                                    user_credential_usage_details_id,
-                                                    select=None,
-                                                    expand=None):
-    return client.get_user_credential_usage_detail(user_credential_usage_details_id=user_credential_usage_details_id,
-                                                   select=select,
-                                                   expand=expand)
-
-
-def reports_report_get_yammer_activity_count(client,
-                                             period):
-    return client.get_yammer_activity_count(period=period)
-
-
-def reports_report_get_yammer_activity_user_count(client,
-                                                  period):
-    return client.get_yammer_activity_user_count(period=period)
-
-
-def reports_report_get_yammer_activity_user_detail_ac30(client,
-                                                        date):
-    return client.get_yammer_activity_user_detail_ac30(date=date)
-
-
-def reports_report_get_yammer_activity_user_detail15_a5(client,
-                                                        period):
-    return client.get_yammer_activity_user_detail15_a5(period=period)
-
-
-def reports_report_get_yammer_device_usage_distribution_user_count(client,
-                                                                   period):
-    return client.get_yammer_device_usage_distribution_user_count(period=period)
-
-
-def reports_report_get_yammer_device_usage_user_count(client,
-                                                      period):
-    return client.get_yammer_device_usage_user_count(period=period)
-
-
-def reports_report_get_yammer_device_usage_user_detail_cfad(client,
-                                                            period):
-    return client.get_yammer_device_usage_user_detail_cfad(period=period)
-
-
-def reports_report_get_yammer_device_usage_user_detail_d0_ac(client,
-                                                             date):
-    return client.get_yammer_device_usage_user_detail_d0_ac(date=date)
-
-
-def reports_report_get_yammer_group_activity_count(client,
-                                                   period):
-    return client.get_yammer_group_activity_count(period=period)
-
-
-def reports_report_get_yammer_group_activity_detail_da9_a(client,
-                                                          date):
-    return client.get_yammer_group_activity_detail_da9_a(date=date)
-
-
-def reports_report_get_yammer_group_activity_detail0_d7_d(client,
-                                                          period):
-    return client.get_yammer_group_activity_detail0_d7_d(period=period)
-
-
-def reports_report_get_yammer_group_activity_group_count(client,
-                                                         period):
-    return client.get_yammer_group_activity_group_count(period=period)
 
 
 def reports_report_list_application_sign_in_detailed_summary(client,
@@ -1535,9 +1089,9 @@ def reports_report_list_credential_user_registration_detail(client,
                                                             orderby=None,
                                                             select=None,
                                                             expand=None):
-    return client.list_credential_user_registration_detail(orderby=orderby,
-                                                           select=select,
-                                                           expand=expand)
+    return client.list_credential_user_registration_details(orderby=orderby,
+                                                            select=select,
+                                                            expand=expand)
 
 
 def reports_report_list_daily_print_usage_summary(client,
@@ -1545,12 +1099,12 @@ def reports_report_list_daily_print_usage_summary(client,
                                                   select=None,
                                                   expand=None):
     if:
-        return client.list_daily_print_usage_summary_by_printer(orderby=orderby,
-                                                                select=select,
-                                                                expand=expand)
-    return client.list_daily_print_usage_summary_by_user(orderby=orderby,
-                                                         select=select,
-                                                         expand=expand)
+        return client.list_daily_print_usage_summaries_by_printer(orderby=orderby,
+                                                                  select=select,
+                                                                  expand=expand)
+    return client.list_daily_print_usage_summaries_by_user(orderby=orderby,
+                                                           select=select,
+                                                           expand=expand)
 
 
 def reports_report_list_monthly_print_usage_summary(client,
@@ -1558,21 +1112,21 @@ def reports_report_list_monthly_print_usage_summary(client,
                                                     select=None,
                                                     expand=None):
     if:
-        return client.list_monthly_print_usage_summary_by_printer(orderby=orderby,
-                                                                  select=select,
-                                                                  expand=expand)
-    return client.list_monthly_print_usage_summary_by_user(orderby=orderby,
-                                                           select=select,
-                                                           expand=expand)
+        return client.list_monthly_print_usage_summaries_by_printer(orderby=orderby,
+                                                                    select=select,
+                                                                    expand=expand)
+    return client.list_monthly_print_usage_summaries_by_user(orderby=orderby,
+                                                             select=select,
+                                                             expand=expand)
 
 
 def reports_report_list_user_credential_usage_detail(client,
                                                      orderby=None,
                                                      select=None,
                                                      expand=None):
-    return client.list_user_credential_usage_detail(orderby=orderby,
-                                                    select=select,
-                                                    expand=expand)
+    return client.list_user_credential_usage_details(orderby=orderby,
+                                                     select=select,
+                                                     expand=expand)
 
 
 def reports_report_managed_device_enrollment_abandonment_detail(client,
@@ -1580,10 +1134,10 @@ def reports_report_managed_device_enrollment_abandonment_detail(client,
                                                                 top,
                                                                 filter_,
                                                                 skip_token):
-    return client.managed_device_enrollment_abandonment_detail(skip=skip,
-                                                               top=top,
-                                                               filter=filter_,
-                                                               skip_token=skip_token)
+    return client.managed_device_enrollment_abandonment_details(skip=skip,
+                                                                top=top,
+                                                                filter=filter_,
+                                                                skip_token=skip_token)
 
 
 def reports_report_managed_device_enrollment_abandonment_summary(client,
@@ -1613,16 +1167,541 @@ def reports_report_managed_device_enrollment_failure_details2_b3_d(client,
 
 
 def reports_report_managed_device_enrollment_failure_trend(client):
-    return client.managed_device_enrollment_failure_trend()
+    return client.managed_device_enrollment_failure_trends()
 
 
 def reports_report_managed_device_enrollment_top_failure_afd1(client,
                                                               period):
-    return client.managed_device_enrollment_top_failure_afd1(period=period)
+    return client.managed_device_enrollment_top_failures_afd1(period=period)
 
 
 def reports_report_managed_device_enrollment_top_failures4669(client):
     return client.managed_device_enrollment_top_failures4669()
+
+
+def reports_report_show_application_sign_in_detailed_summary(client,
+                                                             application_sign_in_detailed_summary_id,
+                                                             select=None,
+                                                             expand=None):
+    return client.get_application_sign_in_detailed_summary(application_sign_in_detailed_summary_id=application_sign_in_detailed_summary_id,
+                                                           select=select,
+                                                           expand=expand)
+
+
+def reports_report_show_azure_ad_application_sign_in_summary(client,
+                                                             period):
+    return client.get_azure_ad_application_sign_in_summary(period=period)
+
+
+def reports_report_show_azure_ad_feature_usage(client,
+                                               period):
+    return client.get_azure_ad_feature_usage(period=period)
+
+
+def reports_report_show_azure_ad_license_usage(client,
+                                               period):
+    return client.get_azure_ad_license_usage(period=period)
+
+
+def reports_report_show_azure_ad_user_feature_usage(client):
+    return client.get_azure_ad_user_feature_usage()
+
+
+def reports_report_show_credential_usage_summary(client,
+                                                 period):
+    return client.get_credential_usage_summary(period=period)
+
+
+def reports_report_show_credential_user_registration_count(client):
+    return client.get_credential_user_registration_count()
+
+
+def reports_report_show_credential_user_registration_detail(client,
+                                                            credential_user_registration_details_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_credential_user_registration_details(credential_user_registration_details_id=credential_user_registration_details_id,
+                                                           select=select,
+                                                           expand=expand)
+
+
+def reports_report_show_daily_print_usage_summary(client,
+                                                  print_usage_summary_by_printer_id=None,
+                                                  select=None,
+                                                  expand=None,
+                                                  print_usage_summary_by_user_id=None):
+    if print_usage_summary_by_printer_id is not None:
+        return client.get_daily_print_usage_summaries_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
+                                                                 select=select,
+                                                                 expand=expand)
+    return client.get_daily_print_usage_summaries_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
+                                                          select=select,
+                                                          expand=expand)
+
+
+def reports_report_show_email_activity_count(client,
+                                             period):
+    return client.get_email_activity_counts(period=period)
+
+
+def reports_report_show_email_activity_user_count(client,
+                                                  period):
+    return client.get_email_activity_user_counts(period=period)
+
+
+def reports_report_show_email_activity_user_detail_ddb2(client,
+                                                        period):
+    return client.get_email_activity_user_detail_ddb2(period=period)
+
+
+def reports_report_show_email_activity_user_detail_fe32(client,
+                                                        date):
+    return client.get_email_activity_user_detail_fe32(date=date)
+
+
+def reports_report_show_email_app_usage_app_user_count(client,
+                                                       period):
+    return client.get_email_app_usage_apps_user_counts(period=period)
+
+
+def reports_report_show_email_app_usage_user_count(client,
+                                                   period):
+    return client.get_email_app_usage_user_counts(period=period)
+
+
+def reports_report_show_email_app_usage_user_detail546_b(client,
+                                                         period):
+    return client.get_email_app_usage_user_detail546_b(period=period)
+
+
+def reports_report_show_email_app_usage_user_detail62_ec(client,
+                                                         date):
+    return client.get_email_app_usage_user_detail62_ec(date=date)
+
+
+def reports_report_show_email_app_usage_version_user_count(client,
+                                                           period):
+    return client.get_email_app_usage_versions_user_counts(period=period)
+
+
+def reports_report_show_m365_app_platform_user_count(client,
+                                                     period):
+    return client.get_m365_app_platform_user_counts(period=period)
+
+
+def reports_report_show_m365_app_user_count(client,
+                                            period):
+    return client.get_m365_app_user_counts(period=period)
+
+
+def reports_report_show_m365_app_user_detail_c8_df(client,
+                                                   period):
+    return client.get_m365_app_user_detail_c8_df(period=period)
+
+
+def reports_report_show_m365_app_user_detail2_b20(client,
+                                                  date):
+    return client.get_m365_app_user_detail2_b20(date=date)
+
+
+def reports_report_show_mailbox_usage_detail(client,
+                                             period):
+    return client.get_mailbox_usage_detail(period=period)
+
+
+def reports_report_show_mailbox_usage_mailbox_count(client,
+                                                    period):
+    return client.get_mailbox_usage_mailbox_counts(period=period)
+
+
+def reports_report_show_mailbox_usage_quota_status_mailbox_count(client,
+                                                                 period):
+    return client.get_mailbox_usage_quota_status_mailbox_counts(period=period)
+
+
+def reports_report_show_mailbox_usage_storage(client,
+                                              period):
+    return client.get_mailbox_usage_storage(period=period)
+
+
+def reports_report_show_monthly_print_usage_summary(client,
+                                                    print_usage_summary_by_printer_id=None,
+                                                    select=None,
+                                                    expand=None,
+                                                    print_usage_summary_by_user_id=None):
+    if print_usage_summary_by_printer_id is not None:
+        return client.get_monthly_print_usage_summaries_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
+                                                                   select=select,
+                                                                   expand=expand)
+    return client.get_monthly_print_usage_summaries_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
+                                                            select=select,
+                                                            expand=expand)
+
+
+def reports_report_show_office365_activation_count(client):
+    return client.get_office365_activation_counts()
+
+
+def reports_report_show_office365_activation_user_count(client):
+    return client.get_office365_activations_user_counts()
+
+
+def reports_report_show_office365_activation_user_detail(client):
+    return client.get_office365_activations_user_detail()
+
+
+def reports_report_show_office365_active_user_count(client,
+                                                    period):
+    return client.get_office365_active_user_counts(period=period)
+
+
+def reports_report_show_office365_active_user_detail_d389(client,
+                                                          date):
+    return client.get_office365_active_user_detail_d389(date=date)
+
+
+def reports_report_show_office365_active_user_detail68_ad(client,
+                                                          period):
+    return client.get_office365_active_user_detail68_ad(period=period)
+
+
+def reports_report_show_office365_group_activity_count(client,
+                                                       period):
+    return client.get_office365_groups_activity_counts(period=period)
+
+
+def reports_report_show_office365_group_activity_detail38_f6(client,
+                                                             period):
+    return client.get_office365_groups_activity_detail38_f6(period=period)
+
+
+def reports_report_show_office365_group_activity_detail81_cc(client,
+                                                             date):
+    return client.get_office365_groups_activity_detail81_cc(date=date)
+
+
+def reports_report_show_office365_group_activity_file_count(client,
+                                                            period):
+    return client.get_office365_groups_activity_file_counts(period=period)
+
+
+def reports_report_show_office365_group_activity_group_count(client,
+                                                             period):
+    return client.get_office365_groups_activity_group_counts(period=period)
+
+
+def reports_report_show_office365_group_activity_storage(client,
+                                                         period):
+    return client.get_office365_groups_activity_storage(period=period)
+
+
+def reports_report_show_office365_service_user_count(client,
+                                                     period):
+    return client.get_office365_services_user_counts(period=period)
+
+
+def reports_report_show_one_drive_activity_file_count(client,
+                                                      period):
+    return client.get_one_drive_activity_file_counts(period=period)
+
+
+def reports_report_show_one_drive_activity_user_count(client,
+                                                      period):
+    return client.get_one_drive_activity_user_counts(period=period)
+
+
+def reports_report_show_one_drive_activity_user_detail_c424(client,
+                                                            period):
+    return client.get_one_drive_activity_user_detail_c424(period=period)
+
+
+def reports_report_show_one_drive_activity_user_detail05_f1(client,
+                                                            date):
+    return client.get_one_drive_activity_user_detail05_f1(date=date)
+
+
+def reports_report_show_one_drive_usage_account_count(client,
+                                                      period):
+    return client.get_one_drive_usage_account_counts(period=period)
+
+
+def reports_report_show_one_drive_usage_account_detail_dd7_f(client,
+                                                             period):
+    return client.get_one_drive_usage_account_detail_dd7_f(period=period)
+
+
+def reports_report_show_one_drive_usage_account_detail_e827(client,
+                                                            date):
+    return client.get_one_drive_usage_account_detail_e827(date=date)
+
+
+def reports_report_show_one_drive_usage_file_count(client,
+                                                   period):
+    return client.get_one_drive_usage_file_counts(period=period)
+
+
+def reports_report_show_one_drive_usage_storage(client,
+                                                period):
+    return client.get_one_drive_usage_storage(period=period)
+
+
+def reports_report_show_relying_party_detailed_summary(client,
+                                                       period):
+    return client.get_relying_party_detailed_summary(period=period)
+
+
+def reports_report_show_share_point_activity_file_count(client,
+                                                        period):
+    return client.get_share_point_activity_file_counts(period=period)
+
+
+def reports_report_show_share_point_activity_page(client,
+                                                  period):
+    return client.get_share_point_activity_pages(period=period)
+
+
+def reports_report_show_share_point_activity_user_count(client,
+                                                        period):
+    return client.get_share_point_activity_user_counts(period=period)
+
+
+def reports_report_show_share_point_activity_user_detail_b778(client,
+                                                              period):
+    return client.get_share_point_activity_user_detail_b778(period=period)
+
+
+def reports_report_show_share_point_activity_user_detail_f3_be(client,
+                                                               date):
+    return client.get_share_point_activity_user_detail_f3_be(date=date)
+
+
+def reports_report_show_share_point_site_usage_detail_d27_a(client,
+                                                            date):
+    return client.get_share_point_site_usage_detail_d27_a(date=date)
+
+
+def reports_report_show_share_point_site_usage_detail204_b(client,
+                                                           period):
+    return client.get_share_point_site_usage_detail204_b(period=period)
+
+
+def reports_report_show_share_point_site_usage_file_count(client,
+                                                          period):
+    return client.get_share_point_site_usage_file_counts(period=period)
+
+
+def reports_report_show_share_point_site_usage_page(client,
+                                                    period):
+    return client.get_share_point_site_usage_pages(period=period)
+
+
+def reports_report_show_share_point_site_usage_site_count(client,
+                                                          period):
+    return client.get_share_point_site_usage_site_counts(period=period)
+
+
+def reports_report_show_share_point_site_usage_storage(client,
+                                                       period):
+    return client.get_share_point_site_usage_storage(period=period)
+
+
+def reports_report_show_skype_for_business_activity_count(client,
+                                                          period):
+    return client.get_skype_for_business_activity_counts(period=period)
+
+
+def reports_report_show_skype_for_business_activity_user_count(client,
+                                                               period):
+    return client.get_skype_for_business_activity_user_counts(period=period)
+
+
+def reports_report_show_skype_for_business_activity_user_detail_e4_c9(client,
+                                                                      date):
+    return client.get_skype_for_business_activity_user_detail_e4_c9(date=date)
+
+
+def reports_report_show_skype_for_business_activity_user_detail744_e(client,
+                                                                     period):
+    return client.get_skype_for_business_activity_user_detail744_e(period=period)
+
+
+def reports_report_show_skype_for_business_device_usage_distribution_user_count(client,
+                                                                                period):
+    return client.get_skype_for_business_device_usage_distribution_user_counts(period=period)
+
+
+def reports_report_show_skype_for_business_device_usage_user_count(client,
+                                                                   period):
+    return client.get_skype_for_business_device_usage_user_counts(period=period)
+
+
+def reports_report_show_skype_for_business_device_usage_user_detail_a692(client,
+                                                                         date):
+    return client.get_skype_for_business_device_usage_user_detail_a692(date=date)
+
+
+def reports_report_show_skype_for_business_device_usage_user_detail_e753(client,
+                                                                         period):
+    return client.get_skype_for_business_device_usage_user_detail_e753(period=period)
+
+
+def reports_report_show_skype_for_business_organizer_activity_count(client,
+                                                                    period):
+    return client.get_skype_for_business_organizer_activity_counts(period=period)
+
+
+def reports_report_show_skype_for_business_organizer_activity_minute_count(client,
+                                                                           period):
+    return client.get_skype_for_business_organizer_activity_minute_counts(period=period)
+
+
+def reports_report_show_skype_for_business_organizer_activity_user_count(client,
+                                                                         period):
+    return client.get_skype_for_business_organizer_activity_user_counts(period=period)
+
+
+def reports_report_show_skype_for_business_participant_activity_count(client,
+                                                                      period):
+    return client.get_skype_for_business_participant_activity_counts(period=period)
+
+
+def reports_report_show_skype_for_business_participant_activity_minute_count(client,
+                                                                             period):
+    return client.get_skype_for_business_participant_activity_minute_counts(period=period)
+
+
+def reports_report_show_skype_for_business_participant_activity_user_count(client,
+                                                                           period):
+    return client.get_skype_for_business_participant_activity_user_counts(period=period)
+
+
+def reports_report_show_skype_for_business_peer_to_peer_activity_count(client,
+                                                                       period):
+    return client.get_skype_for_business_peer_to_peer_activity_counts(period=period)
+
+
+def reports_report_show_skype_for_business_peer_to_peer_activity_minute_count(client,
+                                                                              period):
+    return client.get_skype_for_business_peer_to_peer_activity_minute_counts(period=period)
+
+
+def reports_report_show_skype_for_business_peer_to_peer_activity_user_count(client,
+                                                                            period):
+    return client.get_skype_for_business_peer_to_peer_activity_user_counts(period=period)
+
+
+def reports_report_show_team_device_usage_distribution_user_count(client,
+                                                                  period):
+    return client.get_teams_device_usage_distribution_user_counts(period=period)
+
+
+def reports_report_show_team_device_usage_user_count(client,
+                                                     period):
+    return client.get_teams_device_usage_user_counts(period=period)
+
+
+def reports_report_show_team_device_usage_user_detail7148(client,
+                                                          date):
+    return client.get_teams_device_usage_user_detail7148(date=date)
+
+
+def reports_report_show_team_device_usage_user_detail7565(client,
+                                                          period):
+    return client.get_teams_device_usage_user_detail7565(period=period)
+
+
+def reports_report_show_team_user_activity_count(client,
+                                                 period):
+    return client.get_teams_user_activity_counts(period=period)
+
+
+def reports_report_show_team_user_activity_user_count(client,
+                                                      period):
+    return client.get_teams_user_activity_user_counts(period=period)
+
+
+def reports_report_show_team_user_activity_user_detail_a3_f1(client,
+                                                             date):
+    return client.get_teams_user_activity_user_detail_a3_f1(date=date)
+
+
+def reports_report_show_team_user_activity_user_detail_eb13(client,
+                                                            period):
+    return client.get_teams_user_activity_user_detail_eb13(period=period)
+
+
+def reports_report_show_tenant_secure_score(client,
+                                            period):
+    return client.get_tenant_secure_scores(period=period)
+
+
+def reports_report_show_user_credential_usage_detail(client,
+                                                     user_credential_usage_details_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_user_credential_usage_details(user_credential_usage_details_id=user_credential_usage_details_id,
+                                                    select=select,
+                                                    expand=expand)
+
+
+def reports_report_show_yammer_activity_count(client,
+                                              period):
+    return client.get_yammer_activity_counts(period=period)
+
+
+def reports_report_show_yammer_activity_user_count(client,
+                                                   period):
+    return client.get_yammer_activity_user_counts(period=period)
+
+
+def reports_report_show_yammer_activity_user_detail_ac30(client,
+                                                         date):
+    return client.get_yammer_activity_user_detail_ac30(date=date)
+
+
+def reports_report_show_yammer_activity_user_detail15_a5(client,
+                                                         period):
+    return client.get_yammer_activity_user_detail15_a5(period=period)
+
+
+def reports_report_show_yammer_device_usage_distribution_user_count(client,
+                                                                    period):
+    return client.get_yammer_device_usage_distribution_user_counts(period=period)
+
+
+def reports_report_show_yammer_device_usage_user_count(client,
+                                                       period):
+    return client.get_yammer_device_usage_user_counts(period=period)
+
+
+def reports_report_show_yammer_device_usage_user_detail_cfad(client,
+                                                             period):
+    return client.get_yammer_device_usage_user_detail_cfad(period=period)
+
+
+def reports_report_show_yammer_device_usage_user_detail_d0_ac(client,
+                                                              date):
+    return client.get_yammer_device_usage_user_detail_d0_ac(date=date)
+
+
+def reports_report_show_yammer_group_activity_count(client,
+                                                    period):
+    return client.get_yammer_groups_activity_counts(period=period)
+
+
+def reports_report_show_yammer_group_activity_detail_da9_a(client,
+                                                           date):
+    return client.get_yammer_groups_activity_detail_da9_a(date=date)
+
+
+def reports_report_show_yammer_group_activity_detail0_d7_d(client,
+                                                           period):
+    return client.get_yammer_groups_activity_detail0_d7_d(period=period)
+
+
+def reports_report_show_yammer_group_activity_group_count(client,
+                                                          period):
+    return client.get_yammer_groups_activity_group_counts(period=period)
 
 
 def reports_report_update_application_sign_in_detailed_summary(client,
@@ -1632,18 +1711,16 @@ def reports_report_update_application_sign_in_detailed_summary(client,
                                                                app_display_name=None,
                                                                app_id=None,
                                                                sign_in_count=None,
-                                                               status_additional_details=None,
-                                                               status_error_code=None,
-                                                               status_failure_reason=None):
+                                                               status=None):
+    body = {}
+    body['id'] = id_
+    body['aggregated_event_date_time'] = aggregated_event_date_time
+    body['app_display_name'] = app_display_name
+    body['app_id'] = app_id
+    body['sign_in_count'] = sign_in_count
+    body['status'] = status
     return client.update_application_sign_in_detailed_summary(application_sign_in_detailed_summary_id=application_sign_in_detailed_summary_id,
-                                                              id=id_,
-                                                              aggregated_event_date_time=aggregated_event_date_time,
-                                                              app_display_name=app_display_name,
-                                                              app_id=app_id,
-                                                              sign_in_count=sign_in_count,
-                                                              additional_details=status_additional_details,
-                                                              error_code=status_error_code,
-                                                              failure_reason=status_failure_reason)
+                                                              body=body)
 
 
 def reports_report_update_credential_user_registration_detail(client,
@@ -1656,15 +1733,17 @@ def reports_report_update_credential_user_registration_detail(client,
                                                               is_registered=None,
                                                               user_display_name=None,
                                                               user_principal_name=None):
-    return client.update_credential_user_registration_detail(credential_user_registration_details_id=credential_user_registration_details_id,
-                                                             id=id_,
-                                                             auth_methods=auth_methods,
-                                                             is_capable=is_capable,
-                                                             is_enabled=is_enabled,
-                                                             is_mfa_registered=is_mfa_registered,
-                                                             is_registered=is_registered,
-                                                             user_display_name=user_display_name,
-                                                             user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['auth_methods'] = auth_methods
+    body['is_capable'] = is_capable
+    body['is_enabled'] = is_enabled
+    body['is_mfa_registered'] = is_mfa_registered
+    body['is_registered'] = is_registered
+    body['user_display_name'] = user_display_name
+    body['user_principal_name'] = user_principal_name
+    return client.update_credential_user_registration_details(credential_user_registration_details_id=credential_user_registration_details_id,
+                                                              body=body)
 
 
 def reports_report_update_daily_print_usage_summary_by_printer(client,
@@ -1675,13 +1754,15 @@ def reports_report_update_daily_print_usage_summary_by_printer(client,
                                                                incomplete_job_count=None,
                                                                printer_id=None,
                                                                usage_date=None):
-    return client.update_daily_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
-                                                              id=id_,
-                                                              completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                              completed_color_job_count=completed_color_job_count,
-                                                              incomplete_job_count=incomplete_job_count,
-                                                              printer_id=printer_id,
-                                                              usage_date=usage_date)
+    body = {}
+    body['id'] = id_
+    body['completed_black_and_white_job_count'] = completed_black_and_white_job_count
+    body['completed_color_job_count'] = completed_color_job_count
+    body['incomplete_job_count'] = incomplete_job_count
+    body['printer_id'] = printer_id
+    body['usage_date'] = usage_date
+    return client.update_daily_print_usage_summaries_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
+                                                                body=body)
 
 
 def reports_report_update_daily_print_usage_summary_by_user(client,
@@ -1692,13 +1773,15 @@ def reports_report_update_daily_print_usage_summary_by_user(client,
                                                             incomplete_job_count=None,
                                                             usage_date=None,
                                                             user_principal_name=None):
-    return client.update_daily_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
-                                                           id=id_,
-                                                           completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                           completed_color_job_count=completed_color_job_count,
-                                                           incomplete_job_count=incomplete_job_count,
-                                                           usage_date=usage_date,
-                                                           user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['completed_black_and_white_job_count'] = completed_black_and_white_job_count
+    body['completed_color_job_count'] = completed_color_job_count
+    body['incomplete_job_count'] = incomplete_job_count
+    body['usage_date'] = usage_date
+    body['user_principal_name'] = user_principal_name
+    return client.update_daily_print_usage_summaries_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
+                                                             body=body)
 
 
 def reports_report_update_monthly_print_usage_summary_by_printer(client,
@@ -1709,13 +1792,15 @@ def reports_report_update_monthly_print_usage_summary_by_printer(client,
                                                                  incomplete_job_count=None,
                                                                  printer_id=None,
                                                                  usage_date=None):
-    return client.update_monthly_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
-                                                                id=id_,
-                                                                completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                                completed_color_job_count=completed_color_job_count,
-                                                                incomplete_job_count=incomplete_job_count,
-                                                                printer_id=printer_id,
-                                                                usage_date=usage_date)
+    body = {}
+    body['id'] = id_
+    body['completed_black_and_white_job_count'] = completed_black_and_white_job_count
+    body['completed_color_job_count'] = completed_color_job_count
+    body['incomplete_job_count'] = incomplete_job_count
+    body['printer_id'] = printer_id
+    body['usage_date'] = usage_date
+    return client.update_monthly_print_usage_summaries_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
+                                                                  body=body)
 
 
 def reports_report_update_monthly_print_usage_summary_by_user(client,
@@ -1726,13 +1811,15 @@ def reports_report_update_monthly_print_usage_summary_by_user(client,
                                                               incomplete_job_count=None,
                                                               usage_date=None,
                                                               user_principal_name=None):
-    return client.update_monthly_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
-                                                             id=id_,
-                                                             completed_black_and_white_job_count=completed_black_and_white_job_count,
-                                                             completed_color_job_count=completed_color_job_count,
-                                                             incomplete_job_count=incomplete_job_count,
-                                                             usage_date=usage_date,
-                                                             user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['completed_black_and_white_job_count'] = completed_black_and_white_job_count
+    body['completed_color_job_count'] = completed_color_job_count
+    body['incomplete_job_count'] = incomplete_job_count
+    body['usage_date'] = usage_date
+    body['user_principal_name'] = user_principal_name
+    return client.update_monthly_print_usage_summaries_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
+                                                               body=body)
 
 
 def reports_report_update_user_credential_usage_detail(client,
@@ -1745,12 +1832,14 @@ def reports_report_update_user_credential_usage_detail(client,
                                                        is_success=None,
                                                        user_display_name=None,
                                                        user_principal_name=None):
-    return client.update_user_credential_usage_detail(user_credential_usage_details_id=user_credential_usage_details_id,
-                                                      id=id_,
-                                                      auth_method=auth_method,
-                                                      event_date_time=event_date_time,
-                                                      failure_reason=failure_reason,
-                                                      feature=feature,
-                                                      is_success=is_success,
-                                                      user_display_name=user_display_name,
-                                                      user_principal_name=user_principal_name)
+    body = {}
+    body['id'] = id_
+    body['auth_method'] = auth_method
+    body['event_date_time'] = event_date_time
+    body['failure_reason'] = failure_reason
+    body['feature'] = feature
+    body['is_success'] = is_success
+    body['user_display_name'] = user_display_name
+    body['user_principal_name'] = user_principal_name
+    return client.update_user_credential_usage_details(user_credential_usage_details_id=user_credential_usage_details_id,
+                                                       body=body)

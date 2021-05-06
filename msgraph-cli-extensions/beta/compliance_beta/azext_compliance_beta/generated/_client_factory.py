@@ -11,7 +11,7 @@
 
 def cf_compliance_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.compliance import Compliance
+    from azext_compliance_beta.vendored_sdks.compliance import Compliance
     return get_mgmt_service_client(cli_ctx,
                                    Compliance,
                                    subscription_bound=False,
@@ -31,20 +31,20 @@ def cf_compliance_ediscovery(cli_ctx, *_):
 
 
 def cf_compliance_ediscovery_case(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_case
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases
 
 
 def cf_compliance_ediscovery_case_custodian(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_case_custodian
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_custodians
 
 
 def cf_compliance_ediscovery_case_custodian_site_source(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_case_custodian_site_source
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_custodians_site_sources
 
 
 def cf_compliance_ediscovery_case_custodian_unified_group_source(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_case_custodian_unified_group_source
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_custodians_unified_group_sources
 
 
 def cf_compliance_ediscovery_case_review_set(cli_ctx, *_):
-    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_case_review_set
+    return cf_compliance_beta_cl(cli_ctx).compliance_ediscovery_cases_review_sets

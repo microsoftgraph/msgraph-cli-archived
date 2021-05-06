@@ -7,520 +7,1165 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
-# pylint: disable=line-too-long
-# pylint: disable=too-many-lines
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_usersactions_v1_0.generated._client_factory import (
+    cf_user_calendar_calendar_view_attachment,
+    cf_user_calendar_calendar_view_calendar,
+    cf_user_calendar_calendar_view_instance,
+    cf_user_calendar_calendar_view,
+    cf_user_calendar_event_attachment,
+    cf_user_calendar_event_calendar,
+    cf_user_calendar_event_instance,
+    cf_user_calendar_event,
+    cf_user_calendar,
+    cf_user_calendar_group_calendar_calendar_view_attachment,
+    cf_user_calendar_group_calendar_calendar_view_calendar,
+    cf_user_calendar_group_calendar_calendar_view_instance,
+    cf_user_calendar_group_calendar_calendar_view,
+    cf_user_calendar_group_calendar_event_attachment,
+    cf_user_calendar_group_calendar_event_calendar,
+    cf_user_calendar_group_calendar_event_instance,
+    cf_user_calendar_group_calendar_event,
+    cf_user_calendar_group_calendar,
+    cf_user_calendar_calendar_view_attachment,
+    cf_user_calendar_calendar_view_calendar,
+    cf_user_calendar_calendar_view_instance,
+    cf_user_calendar_calendar_view,
+    cf_user_calendar_event_attachment,
+    cf_user_calendar_event_calendar,
+    cf_user_calendar_event_instance,
+    cf_user_calendar_event,
+    cf_user_calendar,
+    cf_user_calendar_view_attachment,
+    cf_user_calendar_view_calendar_calendar_view,
+    cf_user_calendar_view_calendar_event,
+    cf_user_calendar_view_calendar,
+    cf_user_calendar_view_instance,
+    cf_user_calendar_view,
+    cf_user_event_attachment,
+    cf_user_event_calendar_calendar_view,
+    cf_user_event_calendar_event,
+    cf_user_event_calendar,
+    cf_user_event_instance,
+    cf_user_event,
+    cf_user_mail_folder_child_folder,
+    cf_user_mail_folder_message_attachment,
+    cf_user_mail_folder_message,
+    cf_user_mail_folder,
+    cf_user_managed_device,
+    cf_user_message_attachment,
+    cf_user_message,
+    cf_user,
+    cf_user_onenote_notebook,
+    cf_user_onenote_notebook_section_group_parent_notebook,
+    cf_user_onenote_notebook_section_group_section,
+    cf_user_onenote_notebook_section_group_section_page,
+    cf_user_onenote_notebook_section_group_section_page_parent_notebook,
+    cf_user_onenote_notebook_section_group_section_page_parent_section,
+    cf_user_onenote_notebook_section_group_section_parent_notebook,
+    cf_user_onenote_notebook_section,
+    cf_user_onenote_notebook_section_page,
+    cf_user_onenote_notebook_section_page_parent_notebook,
+    cf_user_onenote_notebook_section_page_parent_section,
+    cf_user_onenote_notebook_section_parent_notebook,
+    cf_user_onenote_notebook_section_parent_section_group_parent_notebook,
+    cf_user_onenote_notebook_section_parent_section_group_section,
+    cf_user_onenote_page,
+    cf_user_onenote_page_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section_group_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section_group_section,
+    cf_user_onenote_page_parent_notebook_section_group_section_page,
+    cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section,
+    cf_user_onenote_page_parent_notebook_section_page,
+    cf_user_onenote_page_parent_notebook_section_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section_parent_section_group_section,
+    cf_user_onenote_page_parent_section,
+    cf_user_onenote_page_parent_section_page,
+    cf_user_onenote_page_parent_section_parent_notebook,
+    cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
+    cf_user_onenote_page_parent_section_parent_notebook_section_group_section,
+    cf_user_onenote_page_parent_section_parent_notebook_section,
+    cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
+    cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
+    cf_user_onenote_page_parent_section_parent_section_group_section,
+    cf_user_onenote_section_group_parent_notebook,
+    cf_user_onenote_section_group_parent_notebook_section,
+    cf_user_onenote_section_group_parent_notebook_section_page,
+    cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
+    cf_user_onenote_section_group_parent_notebook_section_page_parent_section,
+    cf_user_onenote_section_group_parent_notebook_section_parent_notebook,
+    cf_user_onenote_section_group_section,
+    cf_user_onenote_section_group_section_page,
+    cf_user_onenote_section_group_section_page_parent_notebook,
+    cf_user_onenote_section_group_section_page_parent_notebook_section,
+    cf_user_onenote_section_group_section_page_parent_section,
+    cf_user_onenote_section_group_section_parent_notebook,
+    cf_user_onenote_section_group_section_parent_notebook_section,
+    cf_user_onenote_section,
+    cf_user_onenote_section_page,
+    cf_user_onenote_section_page_parent_notebook,
+    cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
+    cf_user_onenote_section_page_parent_notebook_section_group_section,
+    cf_user_onenote_section_page_parent_notebook_section,
+    cf_user_onenote_section_page_parent_section,
+    cf_user_onenote_section_parent_notebook,
+    cf_user_onenote_section_parent_notebook_section_group_parent_notebook,
+    cf_user_onenote_section_parent_notebook_section_group_section,
+    cf_user_onenote_section_parent_notebook_section,
+    cf_user_onenote_section_parent_section_group_parent_notebook,
+    cf_user_onenote_section_parent_section_group_parent_notebook_section,
+    cf_user_onenote_section_parent_section_group_section,
+    cf_user_online_meeting,
+)
+
+
+usersactions_v1_0_user_calendar_calendar_view_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_calendar_view_attachments_operations#UsersCalendarCalendarViewAttachmentsOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_attachment,
+)
+
+
+usersactions_v1_0_user_calendar_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_calendar_view_calendar_operations#UsersCalendarCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_calendar,
+)
+
+
+usersactions_v1_0_user_calendar_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_calendar_view_instances_operations#UsersCalendarCalendarViewInstancesOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_instance,
+)
+
+
+usersactions_v1_0_user_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_calendar_view_operations#UsersCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_calendar_view,
+)
+
+
+usersactions_v1_0_user_calendar_event_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_events_attachments_operations#UsersCalendarEventsAttachmentsOperations.{}',
+    client_factory=cf_user_calendar_event_attachment,
+)
+
+
+usersactions_v1_0_user_calendar_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_events_calendar_operations#UsersCalendarEventsCalendarOperations.{}',
+    client_factory=cf_user_calendar_event_calendar,
+)
+
+
+usersactions_v1_0_user_calendar_event_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_events_instances_operations#UsersCalendarEventsInstancesOperations.{}',
+    client_factory=cf_user_calendar_event_instance,
+)
+
+
+usersactions_v1_0_user_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_events_operations#UsersCalendarEventsOperations.{}',
+    client_factory=cf_user_calendar_event,
+)
+
+
+usersactions_v1_0_user_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_operations#UsersCalendarOperations.{}',
+    client_factory=cf_user_calendar,
+)
+
+
+usersactions_v1_0_user_calendar_group_calendar_calendar_view_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_groups_calendars_calendar_view_attachments_operations#UsersCalendarGroupsCalendarsCalendarViewAttachmentsOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view_attachment,
+)
+
+
+usersactions_v1_0_user_calendar_group_calendar_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_groups_calendars_calendar_view_calendar_operations#UsersCalendarGroupsCalendarsCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view_calendar,
+)
+
+
+usersactions_v1_0_user_calendar_group_calendar_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_groups_calendars_calendar_view_instances_operations#UsersCalendarGroupsCalendarsCalendarViewInstancesOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view_instance,
+)
+
+
+usersactions_v1_0_user_calendar_group_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_groups_calendars_calendar_view_operations#UsersCalendarGroupsCalendarsCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view,
+)
+
+
+usersactions_v1_0_user_calendar_group_calendar_event_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_groups_calendars_events_attachments_operations#UsersCalendarGroupsCalendarsEventsAttachmentsOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event_attachment,
+)
+
+
+usersactions_v1_0_user_calendar_group_calendar_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_groups_calendars_events_calendar_operations#UsersCalendarGroupsCalendarsEventsCalendarOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event_calendar,
+)
+
+
+usersactions_v1_0_user_calendar_group_calendar_event_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_groups_calendars_events_instances_operations#UsersCalendarGroupsCalendarsEventsInstancesOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event_instance,
+)
+
+
+usersactions_v1_0_user_calendar_group_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_groups_calendars_events_operations#UsersCalendarGroupsCalendarsEventsOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event,
+)
+
+
+usersactions_v1_0_user_calendar_group_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_groups_calendars_operations#UsersCalendarGroupsCalendarsOperations.{}',
+    client_factory=cf_user_calendar_group_calendar,
+)
+
+
+usersactions_v1_0_user_calendar_calendar_view_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendars_calendar_view_attachments_operations#UsersCalendarsCalendarViewAttachmentsOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_attachment,
+)
+
+
+usersactions_v1_0_user_calendar_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendars_calendar_view_calendar_operations#UsersCalendarsCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_calendar,
+)
+
+
+usersactions_v1_0_user_calendar_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendars_calendar_view_instances_operations#UsersCalendarsCalendarViewInstancesOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_instance,
+)
+
+
+usersactions_v1_0_user_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendars_calendar_view_operations#UsersCalendarsCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_calendar_view,
+)
+
+
+usersactions_v1_0_user_calendar_event_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendars_events_attachments_operations#UsersCalendarsEventsAttachmentsOperations.{}',
+    client_factory=cf_user_calendar_event_attachment,
+)
+
+
+usersactions_v1_0_user_calendar_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendars_events_calendar_operations#UsersCalendarsEventsCalendarOperations.{}',
+    client_factory=cf_user_calendar_event_calendar,
+)
+
+
+usersactions_v1_0_user_calendar_event_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendars_events_instances_operations#UsersCalendarsEventsInstancesOperations.{}',
+    client_factory=cf_user_calendar_event_instance,
+)
+
+
+usersactions_v1_0_user_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendars_events_operations#UsersCalendarsEventsOperations.{}',
+    client_factory=cf_user_calendar_event,
+)
+
+
+usersactions_v1_0_user_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendars_operations#UsersCalendarsOperations.{}',
+    client_factory=cf_user_calendar,
+)
+
+
+usersactions_v1_0_user_calendar_view_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_view_attachments_operations#UsersCalendarViewAttachmentsOperations.{}',
+    client_factory=cf_user_calendar_view_attachment,
+)
+
+
+usersactions_v1_0_user_calendar_view_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_view_calendar_calendar_view_operations#UsersCalendarViewCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_view_calendar_calendar_view,
+)
+
+
+usersactions_v1_0_user_calendar_view_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_view_calendar_events_operations#UsersCalendarViewCalendarEventsOperations.{}',
+    client_factory=cf_user_calendar_view_calendar_event,
+)
+
+
+usersactions_v1_0_user_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_view_calendar_operations#UsersCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_view_calendar,
+)
+
+
+usersactions_v1_0_user_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_view_instances_operations#UsersCalendarViewInstancesOperations.{}',
+    client_factory=cf_user_calendar_view_instance,
+)
+
+
+usersactions_v1_0_user_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_calendar_view_operations#UsersCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_view,
+)
+
+
+usersactions_v1_0_user_event_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_events_attachments_operations#UsersEventsAttachmentsOperations.{}',
+    client_factory=cf_user_event_attachment,
+)
+
+
+usersactions_v1_0_user_event_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_events_calendar_calendar_view_operations#UsersEventsCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_event_calendar_calendar_view,
+)
+
+
+usersactions_v1_0_user_event_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_events_calendar_events_operations#UsersEventsCalendarEventsOperations.{}',
+    client_factory=cf_user_event_calendar_event,
+)
+
+
+usersactions_v1_0_user_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_events_calendar_operations#UsersEventsCalendarOperations.{}',
+    client_factory=cf_user_event_calendar,
+)
+
+
+usersactions_v1_0_user_event_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_events_instances_operations#UsersEventsInstancesOperations.{}',
+    client_factory=cf_user_event_instance,
+)
+
+
+usersactions_v1_0_user_event = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_events_operations#UsersEventsOperations.{}',
+    client_factory=cf_user_event,
+)
+
+
+usersactions_v1_0_user_mail_folder_child_folder = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_mail_folders_child_folders_operations#UsersMailFoldersChildFoldersOperations.{}',
+    client_factory=cf_user_mail_folder_child_folder,
+)
+
+
+usersactions_v1_0_user_mail_folder_message_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_mail_folders_messages_attachments_operations#UsersMailFoldersMessagesAttachmentsOperations.{}',
+    client_factory=cf_user_mail_folder_message_attachment,
+)
+
+
+usersactions_v1_0_user_mail_folder_message = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_mail_folders_messages_operations#UsersMailFoldersMessagesOperations.{}',
+    client_factory=cf_user_mail_folder_message,
+)
+
+
+usersactions_v1_0_user_mail_folder = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_mail_folders_operations#UsersMailFoldersOperations.{}',
+    client_factory=cf_user_mail_folder,
+)
+
+
+usersactions_v1_0_user_managed_device = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_managed_devices_operations#UsersManagedDevicesOperations.{}',
+    client_factory=cf_user_managed_device,
+)
+
+
+usersactions_v1_0_user_message_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_messages_attachments_operations#UsersMessagesAttachmentsOperations.{}',
+    client_factory=cf_user_message_attachment,
+)
+
+
+usersactions_v1_0_user_message = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_messages_operations#UsersMessagesOperations.{}',
+    client_factory=cf_user_message,
+)
+
+
+usersactions_v1_0_user = CliCommandType(
+    operations_tmpl=(
+        'azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_operations#UsersOperations.{}'
+    ),
+    client_factory=cf_user,
+)
+
+
+usersactions_v1_0_user_onenote_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_operations#UsersOnenoteNotebooksOperations.{}',
+    client_factory=cf_user_onenote_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_section_groups_parent_notebook_operations#UsersOnenoteNotebooksSectionGroupsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_section_groups_sections_operations#UsersOnenoteNotebooksSectionGroupsSectionsOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_section_groups_sections_pages_operations#UsersOnenoteNotebooksSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_page,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_section_groups_sections_pages_parent_notebook_operations#UsersOnenoteNotebooksSectionGroupsSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_page_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_group_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_section_groups_sections_pages_parent_section_operations#UsersOnenoteNotebooksSectionGroupsSectionsPagesParentSectionOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_page_parent_section,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_section_groups_sections_parent_notebook_operations#UsersOnenoteNotebooksSectionGroupsSectionsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_sections_operations#UsersOnenoteNotebooksSectionsOperations.{}',
+    client_factory=cf_user_onenote_notebook_section,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_sections_pages_operations#UsersOnenoteNotebooksSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_page,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_sections_pages_parent_notebook_operations#UsersOnenoteNotebooksSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_page_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_sections_pages_parent_section_operations#UsersOnenoteNotebooksSectionsPagesParentSectionOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_page_parent_section,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_sections_parent_notebook_operations#UsersOnenoteNotebooksSectionsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_sections_parent_section_group_parent_notebook_operations#UsersOnenoteNotebooksSectionsParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_parent_section_group_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_notebook_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_notebooks_sections_parent_section_group_sections_operations#UsersOnenoteNotebooksSectionsParentSectionGroupSectionsOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_parent_section_group_section,
+)
+
+
+usersactions_v1_0_user_onenote_page = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_operations#UsersOnenotePagesOperations.{}',
+    client_factory=cf_user_onenote_page,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_notebook_operations#UsersOnenotePagesParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_notebook_section_groups_parent_notebook_operations#UsersOnenotePagesParentNotebookSectionGroupsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_notebook_section_groups_sections_operations#UsersOnenotePagesParentNotebookSectionGroupsSectionsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_section,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_notebook_section_groups_sections_pages_operations#UsersOnenotePagesParentNotebookSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_section_page,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_notebook_section_groups_sections_parent_notebook_operations#UsersOnenotePagesParentNotebookSectionGroupsSectionsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_notebook_sections_operations#UsersOnenotePagesParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_notebook_sections_pages_operations#UsersOnenotePagesParentNotebookSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_page,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_notebook_sections_parent_notebook_operations#UsersOnenotePagesParentNotebookSectionsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_notebook_sections_parent_section_group_parent_notebook_operations#UsersOnenotePagesParentNotebookSectionsParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_notebook_sections_parent_section_group_sections_operations#UsersOnenotePagesParentNotebookSectionsParentSectionGroupSectionsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_section,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_section_operations#UsersOnenotePagesParentSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_section_pages_operations#UsersOnenotePagesParentSectionPagesOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_page,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_section_parent_notebook_operations#UsersOnenotePagesParentSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_section_parent_notebook_section_groups_parent_notebook_operations#UsersOnenotePagesParentSectionParentNotebookSectionGroupsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_section_parent_notebook_section_groups_sections_operations#UsersOnenotePagesParentSectionParentNotebookSectionGroupsSectionsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_section,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_section_parent_notebook_sections_operations#UsersOnenotePagesParentSectionParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook_section,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_section_parent_section_group_parent_notebook_operations#UsersOnenotePagesParentSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_section_parent_section_group_parent_notebook_sections_operations#UsersOnenotePagesParentSectionParentSectionGroupParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
+)
+
+
+usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_pages_parent_section_parent_section_group_sections_operations#UsersOnenotePagesParentSectionParentSectionGroupSectionsOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_section_group_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_parent_notebook_operations#UsersOnenoteSectionGroupsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_parent_notebook_sections_operations#UsersOnenoteSectionGroupsParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_parent_notebook_sections_pages_operations#UsersOnenoteSectionGroupsParentNotebookSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_parent_notebook_sections_pages_parent_notebook_operations#UsersOnenoteSectionGroupsParentNotebookSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_parent_notebook_sections_pages_parent_section_operations#UsersOnenoteSectionGroupsParentNotebookSectionsPagesParentSectionOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_parent_notebook_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_parent_notebook_sections_parent_notebook_operations#UsersOnenoteSectionGroupsParentNotebookSectionsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_sections_operations#UsersOnenoteSectionGroupsSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_group_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_sections_pages_operations#UsersOnenoteSectionGroupsSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_sections_pages_parent_notebook_operations#UsersOnenoteSectionGroupsSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_section_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_sections_pages_parent_notebook_sections_operations#UsersOnenoteSectionGroupsSectionsPagesParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page_parent_notebook_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_sections_pages_parent_section_operations#UsersOnenoteSectionGroupsSectionsPagesParentSectionOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page_parent_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_sections_parent_notebook_operations#UsersOnenoteSectionGroupsSectionsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_section_group_section_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_section_groups_sections_parent_notebook_sections_operations#UsersOnenoteSectionGroupsSectionsParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_parent_notebook_section,
+)
+
+
+usersactions_v1_0_user_onenote_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_operations#UsersOnenoteSectionsOperations.{}',
+    client_factory=cf_user_onenote_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_pages_operations#UsersOnenoteSectionsPagesOperations.{}',
+    client_factory=cf_user_onenote_section_page,
+)
+
+
+usersactions_v1_0_user_onenote_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_pages_parent_notebook_operations#UsersOnenoteSectionsPagesParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_section_page_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_pages_parent_notebook_section_groups_parent_notebook_operations#UsersOnenoteSectionsPagesParentNotebookSectionGroupsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_section_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_pages_parent_notebook_section_groups_sections_operations#UsersOnenoteSectionsPagesParentNotebookSectionGroupsSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook_section_group_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_pages_parent_notebook_sections_operations#UsersOnenoteSectionsPagesParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_pages_parent_section_operations#UsersOnenoteSectionsPagesParentSectionOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_parent_notebook_operations#UsersOnenoteSectionsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_section_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_parent_notebook_section_groups_parent_notebook_operations#UsersOnenoteSectionsParentNotebookSectionGroupsParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook_section_group_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_section_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_parent_notebook_section_groups_sections_operations#UsersOnenoteSectionsParentNotebookSectionGroupsSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook_section_group_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_parent_notebook_sections_operations#UsersOnenoteSectionsParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_parent_section_group_parent_notebook_operations#UsersOnenoteSectionsParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_parent_section_group_parent_notebook,
+)
+
+
+usersactions_v1_0_user_onenote_section_parent_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_parent_section_group_parent_notebook_sections_operations#UsersOnenoteSectionsParentSectionGroupParentNotebookSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_parent_section_group_parent_notebook_section,
+)
+
+
+usersactions_v1_0_user_onenote_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_onenote_sections_parent_section_group_sections_operations#UsersOnenoteSectionsParentSectionGroupSectionsOperations.{}',
+    client_factory=cf_user_onenote_section_parent_section_group_section,
+)
+
+
+usersactions_v1_0_user_online_meeting = CliCommandType(
+    operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._users_online_meetings_operations#UsersOnlineMeetingsOperations.{}',
+    client_factory=cf_user_online_meeting,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_calendar_view_attachment
-    usersactions_v1_0_user_calendar_calendar_view_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_calendar_view_att'
-        'achment_operations#UserCalendarCalendarViewAttachmentOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_attachment)
-    with self.command_group('usersactions user-calendar-calendar-view-attachment',
-                            usersactions_v1_0_user_calendar_calendar_view_attachment,
-                            client_factory=cf_user_calendar_calendar_view_attachment, is_experimental=True) as g:
-        g.custom_command('create-upload-session', 'usersactions_user_calendar_calendar_view_attachment_create_upload_se'
-                         'ssion')
+    with self.command_group(
+        'usersactions user-calendar-calendar-view-attachment',
+        usersactions_v1_0_user_calendar_calendar_view_attachment,
+        client_factory=cf_user_calendar_calendar_view_attachment,
+    ) as g:
+        g.custom_command(
+            'create-upload-session', 'usersactions_user_calendar_calendar_view_attachment_create_upload_session'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_calendar_view_calendar
-    usersactions_v1_0_user_calendar_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_calendar_view_cal'
-        'endar_operations#UserCalendarCalendarViewCalendarOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_calendar)
-    with self.command_group('usersactions user-calendar-calendar-view-calendar',
-                            usersactions_v1_0_user_calendar_calendar_view_calendar,
-                            client_factory=cf_user_calendar_calendar_view_calendar, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-calendar-view-calendar',
+        usersactions_v1_0_user_calendar_calendar_view_calendar,
+        client_factory=cf_user_calendar_calendar_view_calendar,
+    ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_calendar_view_calendar_get_schedule')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_calendar_view_instance
-    usersactions_v1_0_user_calendar_calendar_view_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_calendar_view_ins'
-        'tance_operations#UserCalendarCalendarViewInstanceOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_instance)
-    with self.command_group('usersactions user-calendar-calendar-view-instance',
-                            usersactions_v1_0_user_calendar_calendar_view_instance,
-                            client_factory=cf_user_calendar_calendar_view_instance, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-calendar-view-instance',
+        usersactions_v1_0_user_calendar_calendar_view_instance,
+        client_factory=cf_user_calendar_calendar_view_instance,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_calendar_view_instance_accept')
         g.custom_command('decline', 'usersactions_user_calendar_calendar_view_instance_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_calendar_view_instance_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_calendar_view_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_calendar_view_instance_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_calendar_view
-    usersactions_v1_0_user_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_calendar_view_ope'
-        'rations#UserCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_calendar_view)
-    with self.command_group('usersactions user-calendar-calendar-view', usersactions_v1_0_user_calendar_calendar_view,
-                            client_factory=cf_user_calendar_calendar_view, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-calendar-view',
+        usersactions_v1_0_user_calendar_calendar_view,
+        client_factory=cf_user_calendar_calendar_view,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_calendar_view_accept')
         g.custom_command('decline', 'usersactions_user_calendar_calendar_view_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_calendar_view_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_calendar_view_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_calendar_view_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_event_attachment
-    usersactions_v1_0_user_calendar_event_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_event_attachment_'
-        'operations#UserCalendarEventAttachmentOperations.{}',
-        client_factory=cf_user_calendar_event_attachment)
-    with self.command_group('usersactions user-calendar-event-attachment',
-                            usersactions_v1_0_user_calendar_event_attachment,
-                            client_factory=cf_user_calendar_event_attachment, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-event-attachment',
+        usersactions_v1_0_user_calendar_event_attachment,
+        client_factory=cf_user_calendar_event_attachment,
+    ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_calendar_event_attachment_create_upload_session')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_event_calendar
-    usersactions_v1_0_user_calendar_event_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_event_calendar_op'
-        'erations#UserCalendarEventCalendarOperations.{}',
-        client_factory=cf_user_calendar_event_calendar)
-    with self.command_group('usersactions user-calendar-event-calendar',
-                            usersactions_v1_0_user_calendar_event_calendar,
-                            client_factory=cf_user_calendar_event_calendar, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-event-calendar',
+        usersactions_v1_0_user_calendar_event_calendar,
+        client_factory=cf_user_calendar_event_calendar,
+    ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_event_calendar_get_schedule')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_event_instance
-    usersactions_v1_0_user_calendar_event_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_event_instance_op'
-        'erations#UserCalendarEventInstanceOperations.{}',
-        client_factory=cf_user_calendar_event_instance)
-    with self.command_group('usersactions user-calendar-event-instance',
-                            usersactions_v1_0_user_calendar_event_instance,
-                            client_factory=cf_user_calendar_event_instance, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-event-instance',
+        usersactions_v1_0_user_calendar_event_instance,
+        client_factory=cf_user_calendar_event_instance,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_event_instance_accept')
         g.custom_command('decline', 'usersactions_user_calendar_event_instance_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_event_instance_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_event_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_event_instance_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_event
-    usersactions_v1_0_user_calendar_event = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_event_operations#'
-        'UserCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_event)
-    with self.command_group('usersactions user-calendar-event', usersactions_v1_0_user_calendar_event,
-                            client_factory=cf_user_calendar_event, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-event', usersactions_v1_0_user_calendar_event, client_factory=cf_user_calendar_event
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_event_accept')
         g.custom_command('decline', 'usersactions_user_calendar_event_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_event_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_event_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar
-    usersactions_v1_0_user_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_operations#UserCa'
-        'lendarOperations.{}',
-        client_factory=cf_user_calendar)
-    with self.command_group('usersactions user-calendar', usersactions_v1_0_user_calendar,
-                            client_factory=cf_user_calendar, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar', usersactions_v1_0_user_calendar, client_factory=cf_user_calendar
+    ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_get_schedule')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_group_calendar_calendar_view_attachment
-    usersactions_v1_0_user_calendar_group_calendar_calendar_view_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_group_calendar_ca'
-        'lendar_view_attachment_operations#UserCalendarGroupCalendarCalendarViewAttachmentOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view_attachment)
-    with self.command_group('usersactions user-calendar-group-calendar-calendar-view-attachment',
-                            usersactions_v1_0_user_calendar_group_calendar_calendar_view_attachment,
-                            client_factory=cf_user_calendar_group_calendar_calendar_view_attachment,
-                            is_experimental=True) as g:
-        g.custom_command('create-upload-session', 'usersactions_user_calendar_group_calendar_calendar_view_attachment_c'
-                         'reate_upload_session')
+    with self.command_group(
+        'usersactions user-calendar-group-calendar-calendar-view-attachment',
+        usersactions_v1_0_user_calendar_group_calendar_calendar_view_attachment,
+        client_factory=cf_user_calendar_group_calendar_calendar_view_attachment,
+    ) as g:
+        g.custom_command(
+            'create-upload-session',
+            'usersactions_user_calendar_group_calendar_calendar_view_attachment_create_upload_session',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_group_calendar_calendar_view_calendar
-    usersactions_v1_0_user_calendar_group_calendar_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_group_calendar_ca'
-        'lendar_view_calendar_operations#UserCalendarGroupCalendarCalendarViewCalendarOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view_calendar)
-    with self.command_group('usersactions user-calendar-group-calendar-calendar-view-calendar',
-                            usersactions_v1_0_user_calendar_group_calendar_calendar_view_calendar,
-                            client_factory=cf_user_calendar_group_calendar_calendar_view_calendar,
-                            is_experimental=True) as g:
-        g.custom_command('get-schedule', 'usersactions_user_calendar_group_calendar_calendar_view_calendar_get_schedule'
-                         '')
+    with self.command_group(
+        'usersactions user-calendar-group-calendar-calendar-view-calendar',
+        usersactions_v1_0_user_calendar_group_calendar_calendar_view_calendar,
+        client_factory=cf_user_calendar_group_calendar_calendar_view_calendar,
+    ) as g:
+        g.custom_command(
+            'get-schedule', 'usersactions_user_calendar_group_calendar_calendar_view_calendar_get_schedule'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_group_calendar_calendar_view_instance
-    usersactions_v1_0_user_calendar_group_calendar_calendar_view_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_group_calendar_ca'
-        'lendar_view_instance_operations#UserCalendarGroupCalendarCalendarViewInstanceOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view_instance)
-    with self.command_group('usersactions user-calendar-group-calendar-calendar-view-instance',
-                            usersactions_v1_0_user_calendar_group_calendar_calendar_view_instance,
-                            client_factory=cf_user_calendar_group_calendar_calendar_view_instance,
-                            is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-group-calendar-calendar-view-instance',
+        usersactions_v1_0_user_calendar_group_calendar_calendar_view_instance,
+        client_factory=cf_user_calendar_group_calendar_calendar_view_instance,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_group_calendar_calendar_view_instance_accept')
         g.custom_command('decline', 'usersactions_user_calendar_group_calendar_calendar_view_instance_decline')
-        g.custom_command('dismiss-reminder', 'usersactions_user_calendar_group_calendar_calendar_view_instance_dismiss_'
-                         'reminder')
-        g.custom_command('snooze-reminder', 'usersactions_user_calendar_group_calendar_calendar_view_instance_snooze_re'
-                         'minder')
-        g.custom_command('tentatively-accept', 'usersactions_user_calendar_group_calendar_calendar_view_instance_tentat'
-                         'ively_accept')
+        g.custom_command(
+            'dismiss-reminder', 'usersactions_user_calendar_group_calendar_calendar_view_instance_dismiss_reminder'
+        )
+        g.custom_command(
+            'snooze-reminder', 'usersactions_user_calendar_group_calendar_calendar_view_instance_snooze_reminder'
+        )
+        g.custom_command(
+            'tentatively-accept', 'usersactions_user_calendar_group_calendar_calendar_view_instance_tentatively_accept'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_group_calendar_calendar_view
-    usersactions_v1_0_user_calendar_group_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_group_calendar_ca'
-        'lendar_view_operations#UserCalendarGroupCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view)
-    with self.command_group('usersactions user-calendar-group-calendar-calendar-view',
-                            usersactions_v1_0_user_calendar_group_calendar_calendar_view,
-                            client_factory=cf_user_calendar_group_calendar_calendar_view, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-group-calendar-calendar-view',
+        usersactions_v1_0_user_calendar_group_calendar_calendar_view,
+        client_factory=cf_user_calendar_group_calendar_calendar_view,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_group_calendar_calendar_view_accept')
         g.custom_command('decline', 'usersactions_user_calendar_group_calendar_calendar_view_decline')
-        g.custom_command('dismiss-reminder',
-                         'usersactions_user_calendar_group_calendar_calendar_view_dismiss_reminder')
+        g.custom_command('dismiss-reminder', 'usersactions_user_calendar_group_calendar_calendar_view_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_group_calendar_calendar_view_snooze_reminder')
-        g.custom_command('tentatively-accept', 'usersactions_user_calendar_group_calendar_calendar_view_tentatively_acc'
-                         'ept')
+        g.custom_command(
+            'tentatively-accept', 'usersactions_user_calendar_group_calendar_calendar_view_tentatively_accept'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_group_calendar_event_attachment
-    usersactions_v1_0_user_calendar_group_calendar_event_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_group_calendar_ev'
-        'ent_attachment_operations#UserCalendarGroupCalendarEventAttachmentOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event_attachment)
-    with self.command_group('usersactions user-calendar-group-calendar-event-attachment',
-                            usersactions_v1_0_user_calendar_group_calendar_event_attachment,
-                            client_factory=cf_user_calendar_group_calendar_event_attachment,
-                            is_experimental=True) as g:
-        g.custom_command('create-upload-session', 'usersactions_user_calendar_group_calendar_event_attachment_create_up'
-                         'load_session')
+    with self.command_group(
+        'usersactions user-calendar-group-calendar-event-attachment',
+        usersactions_v1_0_user_calendar_group_calendar_event_attachment,
+        client_factory=cf_user_calendar_group_calendar_event_attachment,
+    ) as g:
+        g.custom_command(
+            'create-upload-session', 'usersactions_user_calendar_group_calendar_event_attachment_create_upload_session'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_group_calendar_event_calendar
-    usersactions_v1_0_user_calendar_group_calendar_event_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_group_calendar_ev'
-        'ent_calendar_operations#UserCalendarGroupCalendarEventCalendarOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event_calendar)
-    with self.command_group('usersactions user-calendar-group-calendar-event-calendar',
-                            usersactions_v1_0_user_calendar_group_calendar_event_calendar,
-                            client_factory=cf_user_calendar_group_calendar_event_calendar, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-group-calendar-event-calendar',
+        usersactions_v1_0_user_calendar_group_calendar_event_calendar,
+        client_factory=cf_user_calendar_group_calendar_event_calendar,
+    ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_group_calendar_event_calendar_get_schedule')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_group_calendar_event_instance
-    usersactions_v1_0_user_calendar_group_calendar_event_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_group_calendar_ev'
-        'ent_instance_operations#UserCalendarGroupCalendarEventInstanceOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event_instance)
-    with self.command_group('usersactions user-calendar-group-calendar-event-instance',
-                            usersactions_v1_0_user_calendar_group_calendar_event_instance,
-                            client_factory=cf_user_calendar_group_calendar_event_instance, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-group-calendar-event-instance',
+        usersactions_v1_0_user_calendar_group_calendar_event_instance,
+        client_factory=cf_user_calendar_group_calendar_event_instance,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_group_calendar_event_instance_accept')
         g.custom_command('decline', 'usersactions_user_calendar_group_calendar_event_instance_decline')
-        g.custom_command('dismiss-reminder', 'usersactions_user_calendar_group_calendar_event_instance_dismiss_reminder'
-                         '')
-        g.custom_command('snooze-reminder',
-                         'usersactions_user_calendar_group_calendar_event_instance_snooze_reminder')
-        g.custom_command('tentatively-accept', 'usersactions_user_calendar_group_calendar_event_instance_tentatively_ac'
-                         'cept')
+        g.custom_command(
+            'dismiss-reminder', 'usersactions_user_calendar_group_calendar_event_instance_dismiss_reminder'
+        )
+        g.custom_command('snooze-reminder', 'usersactions_user_calendar_group_calendar_event_instance_snooze_reminder')
+        g.custom_command(
+            'tentatively-accept', 'usersactions_user_calendar_group_calendar_event_instance_tentatively_accept'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_group_calendar_event
-    usersactions_v1_0_user_calendar_group_calendar_event = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_group_calendar_ev'
-        'ent_operations#UserCalendarGroupCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event)
-    with self.command_group('usersactions user-calendar-group-calendar-event',
-                            usersactions_v1_0_user_calendar_group_calendar_event,
-                            client_factory=cf_user_calendar_group_calendar_event, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-group-calendar-event',
+        usersactions_v1_0_user_calendar_group_calendar_event,
+        client_factory=cf_user_calendar_group_calendar_event,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_group_calendar_event_accept')
         g.custom_command('decline', 'usersactions_user_calendar_group_calendar_event_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_group_calendar_event_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_group_calendar_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_group_calendar_event_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_group_calendar
-    usersactions_v1_0_user_calendar_group_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_group_calendar_op'
-        'erations#UserCalendarGroupCalendarOperations.{}',
-        client_factory=cf_user_calendar_group_calendar)
-    with self.command_group('usersactions user-calendar-group-calendar',
-                            usersactions_v1_0_user_calendar_group_calendar,
-                            client_factory=cf_user_calendar_group_calendar, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-group-calendar',
+        usersactions_v1_0_user_calendar_group_calendar,
+        client_factory=cf_user_calendar_group_calendar,
+    ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_group_calendar_get_schedule')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_calendar_view_attachment
-    usersactions_v1_0_user_calendar_calendar_view_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_calendar_view_att'
-        'achment_operations#UserCalendarCalendarViewAttachmentOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_attachment)
-    with self.command_group('usersactions user-calendar-calendar-view-attachment',
-                            usersactions_v1_0_user_calendar_calendar_view_attachment,
-                            client_factory=cf_user_calendar_calendar_view_attachment, is_experimental=True) as g:
-        g.custom_command('create-upload-session', 'usersactions_user_calendar_calendar_view_attachment_create_upload_se'
-                         'ssion')
+    with self.command_group(
+        'usersactions user-calendar-calendar-view-attachment',
+        usersactions_v1_0_user_calendar_calendar_view_attachment,
+        client_factory=cf_user_calendar_calendar_view_attachment,
+    ) as g:
+        g.custom_command(
+            'create-upload-session', 'usersactions_user_calendar_calendar_view_attachment_create_upload_session'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_calendar_view_calendar
-    usersactions_v1_0_user_calendar_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_calendar_view_cal'
-        'endar_operations#UserCalendarCalendarViewCalendarOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_calendar)
-    with self.command_group('usersactions user-calendar-calendar-view-calendar',
-                            usersactions_v1_0_user_calendar_calendar_view_calendar,
-                            client_factory=cf_user_calendar_calendar_view_calendar, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-calendar-view-calendar',
+        usersactions_v1_0_user_calendar_calendar_view_calendar,
+        client_factory=cf_user_calendar_calendar_view_calendar,
+    ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_calendar_view_calendar_get_schedule')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_calendar_view_instance
-    usersactions_v1_0_user_calendar_calendar_view_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_calendar_view_ins'
-        'tance_operations#UserCalendarCalendarViewInstanceOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_instance)
-    with self.command_group('usersactions user-calendar-calendar-view-instance',
-                            usersactions_v1_0_user_calendar_calendar_view_instance,
-                            client_factory=cf_user_calendar_calendar_view_instance, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-calendar-view-instance',
+        usersactions_v1_0_user_calendar_calendar_view_instance,
+        client_factory=cf_user_calendar_calendar_view_instance,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_calendar_view_instance_accept')
         g.custom_command('decline', 'usersactions_user_calendar_calendar_view_instance_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_calendar_view_instance_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_calendar_view_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_calendar_view_instance_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_calendar_view
-    usersactions_v1_0_user_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_calendar_view_ope'
-        'rations#UserCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_calendar_view)
-    with self.command_group('usersactions user-calendar-calendar-view', usersactions_v1_0_user_calendar_calendar_view,
-                            client_factory=cf_user_calendar_calendar_view, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-calendar-view',
+        usersactions_v1_0_user_calendar_calendar_view,
+        client_factory=cf_user_calendar_calendar_view,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_calendar_view_accept')
         g.custom_command('decline', 'usersactions_user_calendar_calendar_view_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_calendar_view_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_calendar_view_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_calendar_view_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_event_attachment
-    usersactions_v1_0_user_calendar_event_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_event_attachment_'
-        'operations#UserCalendarEventAttachmentOperations.{}',
-        client_factory=cf_user_calendar_event_attachment)
-    with self.command_group('usersactions user-calendar-event-attachment',
-                            usersactions_v1_0_user_calendar_event_attachment,
-                            client_factory=cf_user_calendar_event_attachment, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-event-attachment',
+        usersactions_v1_0_user_calendar_event_attachment,
+        client_factory=cf_user_calendar_event_attachment,
+    ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_calendar_event_attachment_create_upload_session')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_event_calendar
-    usersactions_v1_0_user_calendar_event_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_event_calendar_op'
-        'erations#UserCalendarEventCalendarOperations.{}',
-        client_factory=cf_user_calendar_event_calendar)
-    with self.command_group('usersactions user-calendar-event-calendar',
-                            usersactions_v1_0_user_calendar_event_calendar,
-                            client_factory=cf_user_calendar_event_calendar, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-event-calendar',
+        usersactions_v1_0_user_calendar_event_calendar,
+        client_factory=cf_user_calendar_event_calendar,
+    ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_event_calendar_get_schedule')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_event_instance
-    usersactions_v1_0_user_calendar_event_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_event_instance_op'
-        'erations#UserCalendarEventInstanceOperations.{}',
-        client_factory=cf_user_calendar_event_instance)
-    with self.command_group('usersactions user-calendar-event-instance',
-                            usersactions_v1_0_user_calendar_event_instance,
-                            client_factory=cf_user_calendar_event_instance, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-event-instance',
+        usersactions_v1_0_user_calendar_event_instance,
+        client_factory=cf_user_calendar_event_instance,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_event_instance_accept')
         g.custom_command('decline', 'usersactions_user_calendar_event_instance_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_event_instance_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_event_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_event_instance_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_event
-    usersactions_v1_0_user_calendar_event = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_event_operations#'
-        'UserCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_event)
-    with self.command_group('usersactions user-calendar-event', usersactions_v1_0_user_calendar_event,
-                            client_factory=cf_user_calendar_event, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-event', usersactions_v1_0_user_calendar_event, client_factory=cf_user_calendar_event
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_event_accept')
         g.custom_command('decline', 'usersactions_user_calendar_event_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_event_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_event_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar
-    usersactions_v1_0_user_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_operations#UserCa'
-        'lendarOperations.{}',
-        client_factory=cf_user_calendar)
-    with self.command_group('usersactions user-calendar', usersactions_v1_0_user_calendar,
-                            client_factory=cf_user_calendar, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar', usersactions_v1_0_user_calendar, client_factory=cf_user_calendar
+    ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_get_schedule')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_view_attachment
-    usersactions_v1_0_user_calendar_view_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_view_attachment_o'
-        'perations#UserCalendarViewAttachmentOperations.{}',
-        client_factory=cf_user_calendar_view_attachment)
-    with self.command_group('usersactions user-calendar-view-attachment',
-                            usersactions_v1_0_user_calendar_view_attachment,
-                            client_factory=cf_user_calendar_view_attachment, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-view-attachment',
+        usersactions_v1_0_user_calendar_view_attachment,
+        client_factory=cf_user_calendar_view_attachment,
+    ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_calendar_view_attachment_create_upload_session')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_view_calendar_calendar_view
-    usersactions_v1_0_user_calendar_view_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_view_calendar_cal'
-        'endar_view_operations#UserCalendarViewCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_view_calendar_calendar_view)
-    with self.command_group('usersactions user-calendar-view-calendar-calendar-view',
-                            usersactions_v1_0_user_calendar_view_calendar_calendar_view,
-                            client_factory=cf_user_calendar_view_calendar_calendar_view, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-view-calendar-calendar-view',
+        usersactions_v1_0_user_calendar_view_calendar_calendar_view,
+        client_factory=cf_user_calendar_view_calendar_calendar_view,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_view_calendar_calendar_view_accept')
         g.custom_command('decline', 'usersactions_user_calendar_view_calendar_calendar_view_decline')
-        g.custom_command('dismiss-reminder',
-                         'usersactions_user_calendar_view_calendar_calendar_view_dismiss_reminder')
+        g.custom_command('dismiss-reminder', 'usersactions_user_calendar_view_calendar_calendar_view_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_view_calendar_calendar_view_snooze_reminder')
-        g.custom_command('tentatively-accept', 'usersactions_user_calendar_view_calendar_calendar_view_tentatively_acce'
-                         'pt')
+        g.custom_command(
+            'tentatively-accept', 'usersactions_user_calendar_view_calendar_calendar_view_tentatively_accept'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_view_calendar_event
-    usersactions_v1_0_user_calendar_view_calendar_event = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_view_calendar_eve'
-        'nt_operations#UserCalendarViewCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_view_calendar_event)
-    with self.command_group('usersactions user-calendar-view-calendar-event',
-                            usersactions_v1_0_user_calendar_view_calendar_event,
-                            client_factory=cf_user_calendar_view_calendar_event, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-view-calendar-event',
+        usersactions_v1_0_user_calendar_view_calendar_event,
+        client_factory=cf_user_calendar_view_calendar_event,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_view_calendar_event_accept')
         g.custom_command('decline', 'usersactions_user_calendar_view_calendar_event_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_view_calendar_event_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_view_calendar_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_view_calendar_event_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_view_calendar
-    usersactions_v1_0_user_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_view_calendar_ope'
-        'rations#UserCalendarViewCalendarOperations.{}',
-        client_factory=cf_user_calendar_view_calendar)
-    with self.command_group('usersactions user-calendar-view-calendar', usersactions_v1_0_user_calendar_view_calendar,
-                            client_factory=cf_user_calendar_view_calendar, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-view-calendar',
+        usersactions_v1_0_user_calendar_view_calendar,
+        client_factory=cf_user_calendar_view_calendar,
+    ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_view_calendar_get_schedule')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_view_instance
-    usersactions_v1_0_user_calendar_view_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_view_instance_ope'
-        'rations#UserCalendarViewInstanceOperations.{}',
-        client_factory=cf_user_calendar_view_instance)
-    with self.command_group('usersactions user-calendar-view-instance', usersactions_v1_0_user_calendar_view_instance,
-                            client_factory=cf_user_calendar_view_instance, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-view-instance',
+        usersactions_v1_0_user_calendar_view_instance,
+        client_factory=cf_user_calendar_view_instance,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_view_instance_accept')
         g.custom_command('decline', 'usersactions_user_calendar_view_instance_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_view_instance_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_view_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_view_instance_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_calendar_view
-    usersactions_v1_0_user_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_calendar_view_operations#U'
-        'serCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_view)
-    with self.command_group('usersactions user-calendar-view', usersactions_v1_0_user_calendar_view,
-                            client_factory=cf_user_calendar_view, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-calendar-view', usersactions_v1_0_user_calendar_view, client_factory=cf_user_calendar_view
+    ) as g:
         g.custom_command('accept', 'usersactions_user_calendar_view_accept')
         g.custom_command('decline', 'usersactions_user_calendar_view_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_calendar_view_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_view_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_view_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_event_attachment
-    usersactions_v1_0_user_event_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_event_attachment_operation'
-        's#UserEventAttachmentOperations.{}',
-        client_factory=cf_user_event_attachment)
-    with self.command_group('usersactions user-event-attachment', usersactions_v1_0_user_event_attachment,
-                            client_factory=cf_user_event_attachment, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-event-attachment',
+        usersactions_v1_0_user_event_attachment,
+        client_factory=cf_user_event_attachment,
+    ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_event_attachment_create_upload_session')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_event_calendar_calendar_view
-    usersactions_v1_0_user_event_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_event_calendar_calendar_vi'
-        'ew_operations#UserEventCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_event_calendar_calendar_view)
-    with self.command_group('usersactions user-event-calendar-calendar-view',
-                            usersactions_v1_0_user_event_calendar_calendar_view,
-                            client_factory=cf_user_event_calendar_calendar_view, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-event-calendar-calendar-view',
+        usersactions_v1_0_user_event_calendar_calendar_view,
+        client_factory=cf_user_event_calendar_calendar_view,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_event_calendar_calendar_view_accept')
         g.custom_command('decline', 'usersactions_user_event_calendar_calendar_view_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_event_calendar_calendar_view_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_event_calendar_calendar_view_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_event_calendar_calendar_view_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_event_calendar_event
-    usersactions_v1_0_user_event_calendar_event = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_event_calendar_event_opera'
-        'tions#UserEventCalendarEventOperations.{}',
-        client_factory=cf_user_event_calendar_event)
-    with self.command_group('usersactions user-event-calendar-event', usersactions_v1_0_user_event_calendar_event,
-                            client_factory=cf_user_event_calendar_event, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-event-calendar-event',
+        usersactions_v1_0_user_event_calendar_event,
+        client_factory=cf_user_event_calendar_event,
+    ) as g:
         g.custom_command('accept', 'usersactions_user_event_calendar_event_accept')
         g.custom_command('decline', 'usersactions_user_event_calendar_event_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_event_calendar_event_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_event_calendar_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_event_calendar_event_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_event_calendar
-    usersactions_v1_0_user_event_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_event_calendar_operations#'
-        'UserEventCalendarOperations.{}',
-        client_factory=cf_user_event_calendar)
-    with self.command_group('usersactions user-event-calendar', usersactions_v1_0_user_event_calendar,
-                            client_factory=cf_user_event_calendar, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-event-calendar', usersactions_v1_0_user_event_calendar, client_factory=cf_user_event_calendar
+    ) as g:
         g.custom_command('get-schedule', 'usersactions_user_event_calendar_get_schedule')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_event_instance
-    usersactions_v1_0_user_event_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_event_instance_operations#'
-        'UserEventInstanceOperations.{}',
-        client_factory=cf_user_event_instance)
-    with self.command_group('usersactions user-event-instance', usersactions_v1_0_user_event_instance,
-                            client_factory=cf_user_event_instance, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-event-instance', usersactions_v1_0_user_event_instance, client_factory=cf_user_event_instance
+    ) as g:
         g.custom_command('accept', 'usersactions_user_event_instance_accept')
         g.custom_command('decline', 'usersactions_user_event_instance_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_event_instance_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_event_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_event_instance_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_event
-    usersactions_v1_0_user_event = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_event_operations#UserEvent'
-        'Operations.{}',
-        client_factory=cf_user_event)
-    with self.command_group('usersactions user-event', usersactions_v1_0_user_event, client_factory=cf_user_event,
-                            is_experimental=True) as g:
+    with self.command_group('usersactions user-event', usersactions_v1_0_user_event, client_factory=cf_user_event) as g:
         g.custom_command('accept', 'usersactions_user_event_accept')
         g.custom_command('decline', 'usersactions_user_event_decline')
         g.custom_command('dismiss-reminder', 'usersactions_user_event_dismiss_reminder')
         g.custom_command('snooze-reminder', 'usersactions_user_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_event_tentatively_accept')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_mail_folder_child_folder
-    usersactions_v1_0_user_mail_folder_child_folder = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_mail_folder_child_folder_o'
-        'perations#UserMailFolderChildFolderOperations.{}',
-        client_factory=cf_user_mail_folder_child_folder)
-    with self.command_group('usersactions user-mail-folder-child-folder',
-                            usersactions_v1_0_user_mail_folder_child_folder,
-                            client_factory=cf_user_mail_folder_child_folder, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-mail-folder-child-folder',
+        usersactions_v1_0_user_mail_folder_child_folder,
+        client_factory=cf_user_mail_folder_child_folder,
+    ) as g:
         g.custom_command('copy', 'usersactions_user_mail_folder_child_folder_copy')
         g.custom_command('move', 'usersactions_user_mail_folder_child_folder_move')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_mail_folder_message_attachment
-    usersactions_v1_0_user_mail_folder_message_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_mail_folder_message_attach'
-        'ment_operations#UserMailFolderMessageAttachmentOperations.{}',
-        client_factory=cf_user_mail_folder_message_attachment)
-    with self.command_group('usersactions user-mail-folder-message-attachment',
-                            usersactions_v1_0_user_mail_folder_message_attachment,
-                            client_factory=cf_user_mail_folder_message_attachment, is_experimental=True) as g:
-        g.custom_command('create-upload-session', 'usersactions_user_mail_folder_message_attachment_create_upload_sessi'
-                         'on')
+    with self.command_group(
+        'usersactions user-mail-folder-message-attachment',
+        usersactions_v1_0_user_mail_folder_message_attachment,
+        client_factory=cf_user_mail_folder_message_attachment,
+    ) as g:
+        g.custom_command(
+            'create-upload-session', 'usersactions_user_mail_folder_message_attachment_create_upload_session'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_mail_folder_message
-    usersactions_v1_0_user_mail_folder_message = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_mail_folder_message_operat'
-        'ions#UserMailFolderMessageOperations.{}',
-        client_factory=cf_user_mail_folder_message)
-    with self.command_group('usersactions user-mail-folder-message', usersactions_v1_0_user_mail_folder_message,
-                            client_factory=cf_user_mail_folder_message, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-mail-folder-message',
+        usersactions_v1_0_user_mail_folder_message,
+        client_factory=cf_user_mail_folder_message,
+    ) as g:
         g.custom_command('copy', 'usersactions_user_mail_folder_message_copy')
         g.custom_command('create-forward', 'usersactions_user_mail_folder_message_create_forward')
         g.custom_command('create-reply', 'usersactions_user_mail_folder_message_create_reply')
@@ -531,31 +1176,27 @@ def load_command_table(self, _):
         g.custom_command('reply-all', 'usersactions_user_mail_folder_message_reply_all')
         g.custom_command('send', 'usersactions_user_mail_folder_message_send')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_mail_folder
-    usersactions_v1_0_user_mail_folder = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_mail_folder_operations#Use'
-        'rMailFolderOperations.{}',
-        client_factory=cf_user_mail_folder)
-    with self.command_group('usersactions user-mail-folder', usersactions_v1_0_user_mail_folder,
-                            client_factory=cf_user_mail_folder, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-mail-folder', usersactions_v1_0_user_mail_folder, client_factory=cf_user_mail_folder
+    ) as g:
         g.custom_command('copy', 'usersactions_user_mail_folder_copy')
         g.custom_command('move', 'usersactions_user_mail_folder_move')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_managed_device
-    usersactions_v1_0_user_managed_device = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_managed_device_operations#'
-        'UserManagedDeviceOperations.{}',
-        client_factory=cf_user_managed_device)
-    with self.command_group('usersactions user-managed-device', usersactions_v1_0_user_managed_device,
-                            client_factory=cf_user_managed_device, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-managed-device', usersactions_v1_0_user_managed_device, client_factory=cf_user_managed_device
+    ) as g:
         g.custom_command('bypass-activation-lock', 'usersactions_user_managed_device_bypass_activation_lock')
         g.custom_command('clean-window-device', 'usersactions_user_managed_device_clean_window_device')
-        g.custom_command('delete-user-from-shared-apple-device', 'usersactions_user_managed_device_delete_user_from_sha'
-                         'red_apple_device')
+        g.custom_command(
+            'delete-user-from-shared-apple-device',
+            'usersactions_user_managed_device_delete_user_from_shared_apple_device',
+        )
         g.custom_command('disable-lost-mode', 'usersactions_user_managed_device_disable_lost_mode')
         g.custom_command('locate-device', 'usersactions_user_managed_device_locate_device')
-        g.custom_command('logout-shared-apple-device-active-user', 'usersactions_user_managed_device_logout_shared_appl'
-                         'e_device_active_user')
+        g.custom_command(
+            'logout-shared-apple-device-active-user',
+            'usersactions_user_managed_device_logout_shared_apple_device_active_user',
+        )
         g.custom_command('reboot-now', 'usersactions_user_managed_device_reboot_now')
         g.custom_command('recover-passcode', 'usersactions_user_managed_device_recover_passcode')
         g.custom_command('remote-lock', 'usersactions_user_managed_device_remote_lock')
@@ -564,29 +1205,25 @@ def load_command_table(self, _):
         g.custom_command('retire', 'usersactions_user_managed_device_retire')
         g.custom_command('shut-down', 'usersactions_user_managed_device_shut_down')
         g.custom_command('sync-device', 'usersactions_user_managed_device_sync_device')
-        g.custom_command('update-window-device-account', 'usersactions_user_managed_device_update_window_device_account'
-                         '')
+        g.custom_command(
+            'update-window-device-account', 'usersactions_user_managed_device_update_window_device_account'
+        )
         g.custom_command('window-defender-scan', 'usersactions_user_managed_device_window_defender_scan')
-        g.custom_command('window-defender-update-signature', 'usersactions_user_managed_device_window_defender_update_s'
-                         'ignature')
+        g.custom_command(
+            'window-defender-update-signature', 'usersactions_user_managed_device_window_defender_update_signature'
+        )
         g.custom_command('wipe', 'usersactions_user_managed_device_wipe')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_message_attachment
-    usersactions_v1_0_user_message_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_message_attachment_operati'
-        'ons#UserMessageAttachmentOperations.{}',
-        client_factory=cf_user_message_attachment)
-    with self.command_group('usersactions user-message-attachment', usersactions_v1_0_user_message_attachment,
-                            client_factory=cf_user_message_attachment, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-message-attachment',
+        usersactions_v1_0_user_message_attachment,
+        client_factory=cf_user_message_attachment,
+    ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_message_attachment_create_upload_session')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_message
-    usersactions_v1_0_user_message = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_message_operations#UserMes'
-        'sageOperations.{}',
-        client_factory=cf_user_message)
-    with self.command_group('usersactions user-message', usersactions_v1_0_user_message,
-                            client_factory=cf_user_message, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-message', usersactions_v1_0_user_message, client_factory=cf_user_message
+    ) as g:
         g.custom_command('copy', 'usersactions_user_message_copy')
         g.custom_command('create-forward', 'usersactions_user_message_create_forward')
         g.custom_command('create-reply', 'usersactions_user_message_create_reply')
@@ -597,13 +1234,7 @@ def load_command_table(self, _):
         g.custom_command('reply-all', 'usersactions_user_message_reply_all')
         g.custom_command('send', 'usersactions_user_message_send')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user
-    usersactions_v1_0_user = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_operations#UserOperations.'
-        '{}',
-        client_factory=cf_user)
-    with self.command_group('usersactions user', usersactions_v1_0_user, client_factory=cf_user,
-                            is_experimental=True) as g:
+    with self.command_group('usersactions user', usersactions_v1_0_user, client_factory=cf_user) as g:
         g.custom_command('assign-license', 'usersactions_user_assign_license')
         g.custom_command('change-password', 'usersactions_user_change_password')
         g.custom_command('check-member-group', 'usersactions_user_check_member_group')
@@ -622,803 +1253,671 @@ def load_command_table(self, _):
         g.custom_command('send-mail', 'usersactions_user_send_mail')
         g.custom_command('translate-exchange-id', 'usersactions_user_translate_exchange_id')
         g.custom_command('validate-property', 'usersactions_user_validate_property')
-        g.custom_command('wipe-managed-app-registration-by-device-tag', 'usersactions_user_wipe_managed_app_registratio'
-                         'n_by_device_tag')
+        g.custom_command(
+            'wipe-managed-app-registration-by-device-tag',
+            'usersactions_user_wipe_managed_app_registration_by_device_tag',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook
-    usersactions_v1_0_user_onenote_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_operation'
-        's#UserOnenoteNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook)
-    with self.command_group('usersactions user-onenote-notebook', usersactions_v1_0_user_onenote_notebook,
-                            client_factory=cf_user_onenote_notebook, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-notebook',
+        usersactions_v1_0_user_onenote_notebook,
+        client_factory=cf_user_onenote_notebook,
+    ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_notebook_copy_notebook')
         g.custom_command('get-notebook-from-web-url', 'usersactions_user_onenote_notebook_get_notebook_from_web_url')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group_parent_notebook
-    usersactions_v1_0_user_onenote_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_g'
-        'roup_parent_notebook_operations#UserOnenoteNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_parent_notebook)
-    with self.command_group('usersactions user-onenote-notebook-section-group-parent-notebook',
-                            usersactions_v1_0_user_onenote_notebook_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_notebook_section_group_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_notebook_section_group_parent_notebook_copy_notebo'
-                         'ok')
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-group-parent-notebook',
+        usersactions_v1_0_user_onenote_notebook_section_group_parent_notebook,
+        client_factory=cf_user_onenote_notebook_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook', 'usersactions_user_onenote_notebook_section_group_parent_notebook_copy_notebook'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group_section
-    usersactions_v1_0_user_onenote_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_g'
-        'roup_section_operations#UserOnenoteNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section)
-    with self.command_group('usersactions user-onenote-notebook-section-group-section',
-                            usersactions_v1_0_user_onenote_notebook_section_group_section,
-                            client_factory=cf_user_onenote_notebook_section_group_section, is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_notebook_section_group_section_copy_to_notebook'
-                         '')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_notebook_section_group_section_copy_to_sec'
-                         'tion_group')
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-group-section',
+        usersactions_v1_0_user_onenote_notebook_section_group_section,
+        client_factory=cf_user_onenote_notebook_section_group_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook', 'usersactions_user_onenote_notebook_section_group_section_copy_to_notebook'
+        )
+        g.custom_command(
+            'copy-to-section-group', 'usersactions_user_onenote_notebook_section_group_section_copy_to_section_group'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group_section_page
-    usersactions_v1_0_user_onenote_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_g'
-        'roup_section_page_operations#UserOnenoteNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section_page)
-    with self.command_group('usersactions user-onenote-notebook-section-group-section-page',
-                            usersactions_v1_0_user_onenote_notebook_section_group_section_page,
-                            client_factory=cf_user_onenote_notebook_section_group_section_page,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-section', 'usersactions_user_onenote_notebook_section_group_section_page_copy_to_sect'
-                         'ion')
-        g.custom_command('onenote-patch-content', 'usersactions_user_onenote_notebook_section_group_section_page_onenot'
-                         'e_patch_content')
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-group-section-page',
+        usersactions_v1_0_user_onenote_notebook_section_group_section_page,
+        client_factory=cf_user_onenote_notebook_section_group_section_page,
+    ) as g:
+        g.custom_command(
+            'copy-to-section', 'usersactions_user_onenote_notebook_section_group_section_page_copy_to_section'
+        )
+        g.custom_command(
+            'onenote-patch-content',
+            'usersactions_user_onenote_notebook_section_group_section_page_onenote_patch_content',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group_section_page_parent_notebook
-    usersactions_v1_0_user_onenote_notebook_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_g'
-        'roup_section_page_parent_notebook_operations#UserOnenoteNotebookSectionGroupSectionPageParentNotebookOperation'
-        's.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section_page_parent_notebook)
-    with self.command_group('usersactions user-onenote-notebook-section-group-section-page-parent-notebook',
-                            usersactions_v1_0_user_onenote_notebook_section_group_section_page_parent_notebook,
-                            client_factory=cf_user_onenote_notebook_section_group_section_page_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_notebook_section_group_section_page_parent_noteboo'
-                         'k_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-group-section-page-parent-notebook',
+        usersactions_v1_0_user_onenote_notebook_section_group_section_page_parent_notebook,
+        client_factory=cf_user_onenote_notebook_section_group_section_page_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_notebook_section_group_section_page_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group_section_page_parent_section
-    usersactions_v1_0_user_onenote_notebook_section_group_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_g'
-        'roup_section_page_parent_section_operations#UserOnenoteNotebookSectionGroupSectionPageParentSectionOperations.'
-        '{}',
-        client_factory=cf_user_onenote_notebook_section_group_section_page_parent_section)
-    with self.command_group('usersactions user-onenote-notebook-section-group-section-page-parent-section',
-                            usersactions_v1_0_user_onenote_notebook_section_group_section_page_parent_section,
-                            client_factory=cf_user_onenote_notebook_section_group_section_page_parent_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_notebook_section_group_section_page_parent_sect'
-                         'ion_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_notebook_section_group_section_page_parent'
-                         '_section_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-group-section-page-parent-section',
+        usersactions_v1_0_user_onenote_notebook_section_group_section_page_parent_section,
+        client_factory=cf_user_onenote_notebook_section_group_section_page_parent_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_notebook_section_group_section_page_parent_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_notebook_section_group_section_page_parent_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group_section_parent_notebook
-    usersactions_v1_0_user_onenote_notebook_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_g'
-        'roup_section_parent_notebook_operations#UserOnenoteNotebookSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section_parent_notebook)
-    with self.command_group('usersactions user-onenote-notebook-section-group-section-parent-notebook',
-                            usersactions_v1_0_user_onenote_notebook_section_group_section_parent_notebook,
-                            client_factory=cf_user_onenote_notebook_section_group_section_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_notebook_section_group_section_parent_notebook_cop'
-                         'y_notebook')
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-group-section-parent-notebook',
+        usersactions_v1_0_user_onenote_notebook_section_group_section_parent_notebook,
+        client_factory=cf_user_onenote_notebook_section_group_section_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook', 'usersactions_user_onenote_notebook_section_group_section_parent_notebook_copy_notebook'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section
-    usersactions_v1_0_user_onenote_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_o'
-        'perations#UserOnenoteNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section)
-    with self.command_group('usersactions user-onenote-notebook-section',
-                            usersactions_v1_0_user_onenote_notebook_section,
-                            client_factory=cf_user_onenote_notebook_section, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-notebook-section',
+        usersactions_v1_0_user_onenote_notebook_section,
+        client_factory=cf_user_onenote_notebook_section,
+    ) as g:
         g.custom_command('copy-to-notebook', 'usersactions_user_onenote_notebook_section_copy_to_notebook')
         g.custom_command('copy-to-section-group', 'usersactions_user_onenote_notebook_section_copy_to_section_group')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_page
-    usersactions_v1_0_user_onenote_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_p'
-        'age_operations#UserOnenoteNotebookSectionPageOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_page)
-    with self.command_group('usersactions user-onenote-notebook-section-page',
-                            usersactions_v1_0_user_onenote_notebook_section_page,
-                            client_factory=cf_user_onenote_notebook_section_page, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-page',
+        usersactions_v1_0_user_onenote_notebook_section_page,
+        client_factory=cf_user_onenote_notebook_section_page,
+    ) as g:
         g.custom_command('copy-to-section', 'usersactions_user_onenote_notebook_section_page_copy_to_section')
-        g.custom_command('onenote-patch-content', 'usersactions_user_onenote_notebook_section_page_onenote_patch_conten'
-                         't')
+        g.custom_command(
+            'onenote-patch-content', 'usersactions_user_onenote_notebook_section_page_onenote_patch_content'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_page_parent_notebook
-    usersactions_v1_0_user_onenote_notebook_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_p'
-        'age_parent_notebook_operations#UserOnenoteNotebookSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_page_parent_notebook)
-    with self.command_group('usersactions user-onenote-notebook-section-page-parent-notebook',
-                            usersactions_v1_0_user_onenote_notebook_section_page_parent_notebook,
-                            client_factory=cf_user_onenote_notebook_section_page_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_notebook_section_page_parent_notebook_copy_noteboo'
-                         'k')
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-page-parent-notebook',
+        usersactions_v1_0_user_onenote_notebook_section_page_parent_notebook,
+        client_factory=cf_user_onenote_notebook_section_page_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook', 'usersactions_user_onenote_notebook_section_page_parent_notebook_copy_notebook'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_page_parent_section
-    usersactions_v1_0_user_onenote_notebook_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_p'
-        'age_parent_section_operations#UserOnenoteNotebookSectionPageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_page_parent_section)
-    with self.command_group('usersactions user-onenote-notebook-section-page-parent-section',
-                            usersactions_v1_0_user_onenote_notebook_section_page_parent_section,
-                            client_factory=cf_user_onenote_notebook_section_page_parent_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_notebook_section_page_parent_section_copy_to_no'
-                         'tebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_notebook_section_page_parent_section_copy_'
-                         'to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-page-parent-section',
+        usersactions_v1_0_user_onenote_notebook_section_page_parent_section,
+        client_factory=cf_user_onenote_notebook_section_page_parent_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook', 'usersactions_user_onenote_notebook_section_page_parent_section_copy_to_notebook'
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_notebook_section_page_parent_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_parent_notebook
-    usersactions_v1_0_user_onenote_notebook_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_p'
-        'arent_notebook_operations#UserOnenoteNotebookSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_parent_notebook)
-    with self.command_group('usersactions user-onenote-notebook-section-parent-notebook',
-                            usersactions_v1_0_user_onenote_notebook_section_parent_notebook,
-                            client_factory=cf_user_onenote_notebook_section_parent_notebook,
-                            is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-parent-notebook',
+        usersactions_v1_0_user_onenote_notebook_section_parent_notebook,
+        client_factory=cf_user_onenote_notebook_section_parent_notebook,
+    ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_notebook_section_parent_notebook_copy_notebook')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_parent_section_group_parent_notebook
-    usersactions_v1_0_user_onenote_notebook_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_p'
-        'arent_section_group_parent_notebook_operations#UserOnenoteNotebookSectionParentSectionGroupParentNotebookOpera'
-        'tions.{}',
-        client_factory=cf_user_onenote_notebook_section_parent_section_group_parent_notebook)
-    with self.command_group('usersactions user-onenote-notebook-section-parent-section-group-parent-notebook',
-                            usersactions_v1_0_user_onenote_notebook_section_parent_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_notebook_section_parent_section_group_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_notebook_section_parent_section_group_parent_noteb'
-                         'ook_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-parent-section-group-parent-notebook',
+        usersactions_v1_0_user_onenote_notebook_section_parent_section_group_parent_notebook,
+        client_factory=cf_user_onenote_notebook_section_parent_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_notebook_section_parent_section_group_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_notebook_section_parent_section_group_section
-    usersactions_v1_0_user_onenote_notebook_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_notebook_section_p'
-        'arent_section_group_section_operations#UserOnenoteNotebookSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_parent_section_group_section)
-    with self.command_group('usersactions user-onenote-notebook-section-parent-section-group-section',
-                            usersactions_v1_0_user_onenote_notebook_section_parent_section_group_section,
-                            client_factory=cf_user_onenote_notebook_section_parent_section_group_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_notebook_section_parent_section_group_section_c'
-                         'opy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_notebook_section_parent_section_group_sect'
-                         'ion_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-notebook-section-parent-section-group-section',
+        usersactions_v1_0_user_onenote_notebook_section_parent_section_group_section,
+        client_factory=cf_user_onenote_notebook_section_parent_section_group_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_notebook_section_parent_section_group_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_notebook_section_parent_section_group_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page
-    usersactions_v1_0_user_onenote_page = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_operations#Us'
-        'erOnenotePageOperations.{}',
-        client_factory=cf_user_onenote_page)
-    with self.command_group('usersactions user-onenote-page', usersactions_v1_0_user_onenote_page,
-                            client_factory=cf_user_onenote_page, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-page', usersactions_v1_0_user_onenote_page, client_factory=cf_user_onenote_page
+    ) as g:
         g.custom_command('copy-to-section', 'usersactions_user_onenote_page_copy_to_section')
         g.custom_command('onenote-patch-content', 'usersactions_user_onenote_page_onenote_patch_content')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook
-    usersactions_v1_0_user_onenote_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebo'
-        'ok_operations#UserOnenotePageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook)
-    with self.command_group('usersactions user-onenote-page-parent-notebook',
-                            usersactions_v1_0_user_onenote_page_parent_notebook,
-                            client_factory=cf_user_onenote_page_parent_notebook, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-page-parent-notebook',
+        usersactions_v1_0_user_onenote_page_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_notebook,
+    ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_page_parent_notebook_copy_notebook')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_group_parent_notebook
-    usersactions_v1_0_user_onenote_page_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebo'
-        'ok_section_group_parent_notebook_operations#UserOnenotePageParentNotebookSectionGroupParentNotebookOperations.'
-        '{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group_parent_notebook)
-    with self.command_group('usersactions user-onenote-page-parent-notebook-section-group-parent-notebook',
-                            usersactions_v1_0_user_onenote_page_parent_notebook_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_page_parent_notebook_section_group_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_page_parent_notebook_section_group_parent_notebook'
-                         '_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-notebook-section-group-parent-notebook',
+        usersactions_v1_0_user_onenote_page_parent_notebook_section_group_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_notebook_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_page_parent_notebook_section_group_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_group_section
-    usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebo'
-        'ok_section_group_section_operations#UserOnenotePageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group_section)
-    with self.command_group('usersactions user-onenote-page-parent-notebook-section-group-section',
-                            usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section,
-                            client_factory=cf_user_onenote_page_parent_notebook_section_group_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_page_parent_notebook_section_group_section_copy'
-                         '_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_page_parent_notebook_section_group_section'
-                         '_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-notebook-section-group-section',
+        usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section,
+        client_factory=cf_user_onenote_page_parent_notebook_section_group_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook', 'usersactions_user_onenote_page_parent_notebook_section_group_section_copy_to_notebook'
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_page_parent_notebook_section_group_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_group_section_page
-    usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebo'
-        'ok_section_group_section_page_operations#UserOnenotePageParentNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group_section_page)
-    with self.command_group('usersactions user-onenote-page-parent-notebook-section-group-section-page',
-                            usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section_page,
-                            client_factory=cf_user_onenote_page_parent_notebook_section_group_section_page,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-section', 'usersactions_user_onenote_page_parent_notebook_section_group_section_page_'
-                         'copy_to_section')
-        g.custom_command('onenote-patch-content', 'usersactions_user_onenote_page_parent_notebook_section_group_section'
-                         '_page_onenote_patch_content')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-notebook-section-group-section-page',
+        usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section_page,
+        client_factory=cf_user_onenote_page_parent_notebook_section_group_section_page,
+    ) as g:
+        g.custom_command(
+            'copy-to-section',
+            'usersactions_user_onenote_page_parent_notebook_section_group_section_page_copy_to_section',
+        )
+        g.custom_command(
+            'onenote-patch-content',
+            'usersactions_user_onenote_page_parent_notebook_section_group_section_page_onenote_patch_content',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook
-    usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebo'
-        'ok_section_group_section_parent_notebook_operations#UserOnenotePageParentNotebookSectionGroupSectionParentNote'
-        'bookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook)
-    with self.command_group('usersactions user-onenote-page-parent-notebook-section-group-section-parent-notebook',
-                            usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
-                            client_factory=cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_page_parent_notebook_section_group_section_parent_'
-                         'notebook_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-notebook-section-group-section-parent-notebook',
+        usersactions_v1_0_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_page_parent_notebook_section_group_section_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section
-    usersactions_v1_0_user_onenote_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebo'
-        'ok_section_operations#UserOnenotePageParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section)
-    with self.command_group('usersactions user-onenote-page-parent-notebook-section',
-                            usersactions_v1_0_user_onenote_page_parent_notebook_section,
-                            client_factory=cf_user_onenote_page_parent_notebook_section, is_experimental=True) as g:
-        g.custom_command('copy-to-notebook',
-                         'usersactions_user_onenote_page_parent_notebook_section_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_page_parent_notebook_section_copy_to_secti'
-                         'on_group')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-notebook-section',
+        usersactions_v1_0_user_onenote_page_parent_notebook_section,
+        client_factory=cf_user_onenote_page_parent_notebook_section,
+    ) as g:
+        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_page_parent_notebook_section_copy_to_notebook')
+        g.custom_command(
+            'copy-to-section-group', 'usersactions_user_onenote_page_parent_notebook_section_copy_to_section_group'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_page
-    usersactions_v1_0_user_onenote_page_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebo'
-        'ok_section_page_operations#UserOnenotePageParentNotebookSectionPageOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_page)
-    with self.command_group('usersactions user-onenote-page-parent-notebook-section-page',
-                            usersactions_v1_0_user_onenote_page_parent_notebook_section_page,
-                            client_factory=cf_user_onenote_page_parent_notebook_section_page,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-section', 'usersactions_user_onenote_page_parent_notebook_section_page_copy_to_sectio'
-                         'n')
-        g.custom_command('onenote-patch-content', 'usersactions_user_onenote_page_parent_notebook_section_page_onenote_'
-                         'patch_content')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-notebook-section-page',
+        usersactions_v1_0_user_onenote_page_parent_notebook_section_page,
+        client_factory=cf_user_onenote_page_parent_notebook_section_page,
+    ) as g:
+        g.custom_command(
+            'copy-to-section', 'usersactions_user_onenote_page_parent_notebook_section_page_copy_to_section'
+        )
+        g.custom_command(
+            'onenote-patch-content', 'usersactions_user_onenote_page_parent_notebook_section_page_onenote_patch_content'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_parent_notebook
-    usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebo'
-        'ok_section_parent_notebook_operations#UserOnenotePageParentNotebookSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_parent_notebook)
-    with self.command_group('usersactions user-onenote-page-parent-notebook-section-parent-notebook',
-                            usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_notebook,
-                            client_factory=cf_user_onenote_page_parent_notebook_section_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_page_parent_notebook_section_parent_notebook_copy_'
-                         'notebook')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-notebook-section-parent-notebook',
+        usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_notebook_section_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook', 'usersactions_user_onenote_page_parent_notebook_section_parent_notebook_copy_notebook'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook
-    usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebo'
-        'ok_section_parent_section_group_parent_notebook_operations#UserOnenotePageParentNotebookSectionParentSectionGr'
-        'oupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook)
-    with self.command_group('usersactions user-onenote-page-parent-notebook-section-parent-section-group-parent-noteboo'
-                            'k',
-                            usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
-                            client_factory=\
-                            cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_page_parent_notebook_section_parent_section_group_'
-                         'parent_notebook_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-notebook-section-parent-section-group-parent-notebook',
+        usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_parent_section_group_section
-    usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebo'
-        'ok_section_parent_section_group_section_operations#UserOnenotePageParentNotebookSectionParentSectionGroupSecti'
-        'onOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_section)
-    with self.command_group('usersactions user-onenote-page-parent-notebook-section-parent-section-group-section',
-                            usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_section_group_section,
-                            client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_page_parent_notebook_section_parent_section_gro'
-                         'up_section_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_page_parent_notebook_section_parent_sectio'
-                         'n_group_section_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-notebook-section-parent-section-group-section',
+        usersactions_v1_0_user_onenote_page_parent_notebook_section_parent_section_group_section,
+        client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_page_parent_notebook_section_parent_section_group_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_page_parent_notebook_section_parent_section_group_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_section
-    usersactions_v1_0_user_onenote_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_sectio'
-        'n_operations#UserOnenotePageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section)
-    with self.command_group('usersactions user-onenote-page-parent-section',
-                            usersactions_v1_0_user_onenote_page_parent_section,
-                            client_factory=cf_user_onenote_page_parent_section, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-page-parent-section',
+        usersactions_v1_0_user_onenote_page_parent_section,
+        client_factory=cf_user_onenote_page_parent_section,
+    ) as g:
         g.custom_command('copy-to-notebook', 'usersactions_user_onenote_page_parent_section_copy_to_notebook')
-        g.custom_command('copy-to-section-group',
-                         'usersactions_user_onenote_page_parent_section_copy_to_section_group')
+        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_page_parent_section_copy_to_section_group')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_page
-    usersactions_v1_0_user_onenote_page_parent_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_sectio'
-        'n_page_operations#UserOnenotePageParentSectionPageOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_page)
-    with self.command_group('usersactions user-onenote-page-parent-section-page',
-                            usersactions_v1_0_user_onenote_page_parent_section_page,
-                            client_factory=cf_user_onenote_page_parent_section_page, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-page-parent-section-page',
+        usersactions_v1_0_user_onenote_page_parent_section_page,
+        client_factory=cf_user_onenote_page_parent_section_page,
+    ) as g:
         g.custom_command('copy-to-section', 'usersactions_user_onenote_page_parent_section_page_copy_to_section')
-        g.custom_command('onenote-patch-content', 'usersactions_user_onenote_page_parent_section_page_onenote_patch_con'
-                         'tent')
+        g.custom_command(
+            'onenote-patch-content', 'usersactions_user_onenote_page_parent_section_page_onenote_patch_content'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_notebook
-    usersactions_v1_0_user_onenote_page_parent_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_sectio'
-        'n_parent_notebook_operations#UserOnenotePageParentSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook)
-    with self.command_group('usersactions user-onenote-page-parent-section-parent-notebook',
-                            usersactions_v1_0_user_onenote_page_parent_section_parent_notebook,
-                            client_factory=cf_user_onenote_page_parent_section_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook',
-                         'usersactions_user_onenote_page_parent_section_parent_notebook_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-section-parent-notebook',
+        usersactions_v1_0_user_onenote_page_parent_section_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_section_parent_notebook,
+    ) as g:
+        g.custom_command('copy-notebook', 'usersactions_user_onenote_page_parent_section_parent_notebook_copy_notebook')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook
-    usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_sectio'
-        'n_parent_notebook_section_group_parent_notebook_operations#UserOnenotePageParentSectionParentNotebookSectionGr'
-        'oupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook)
-    with self.command_group('usersactions user-onenote-page-parent-section-parent-notebook-section-group-parent-noteboo'
-                            'k',
-                            usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
-                            client_factory=\
-                            cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_page_parent_section_parent_notebook_section_group_'
-                         'parent_notebook_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-section-parent-notebook-section-group-parent-notebook',
+        usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_notebook_section_group_section
-    usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_sectio'
-        'n_parent_notebook_section_group_section_operations#UserOnenotePageParentSectionParentNotebookSectionGroupSecti'
-        'onOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_section)
-    with self.command_group('usersactions user-onenote-page-parent-section-parent-notebook-section-group-section',
-                            usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section_group_section,
-                            client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_page_parent_section_parent_notebook_section_gro'
-                         'up_section_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_page_parent_section_parent_notebook_sectio'
-                         'n_group_section_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-section-parent-notebook-section-group-section',
+        usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section_group_section,
+        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_page_parent_section_parent_notebook_section_group_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_page_parent_section_parent_notebook_section_group_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_notebook_section
-    usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_sectio'
-        'n_parent_notebook_section_operations#UserOnenotePageParentSectionParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section)
-    with self.command_group('usersactions user-onenote-page-parent-section-parent-notebook-section',
-                            usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section,
-                            client_factory=cf_user_onenote_page_parent_section_parent_notebook_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_page_parent_section_parent_notebook_section_cop'
-                         'y_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_page_parent_section_parent_notebook_sectio'
-                         'n_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-section-parent-notebook-section',
+        usersactions_v1_0_user_onenote_page_parent_section_parent_notebook_section,
+        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook', 'usersactions_user_onenote_page_parent_section_parent_notebook_section_copy_to_notebook'
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_page_parent_section_parent_notebook_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_section_group_parent_notebook
-    usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_sectio'
-        'n_parent_section_group_parent_notebook_operations#UserOnenotePageParentSectionParentSectionGroupParentNotebook'
-        'Operations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook)
-    with self.command_group('usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook',
-                            usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_page_parent_section_parent_section_group_parent_no'
-                         'tebook_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook',
+        usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook,
+        client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_page_parent_section_parent_section_group_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section
-    usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_sectio'
-        'n_parent_section_group_parent_notebook_section_operations#UserOnenotePageParentSectionParentSectionGroupParent'
-        'NotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section)
-    with self.command_group('usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section'
-                            '',
-                            usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
-                            client_factory=\
-                            cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_page_parent_section_parent_section_group_parent'
-                         '_notebook_section_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_page_parent_section_parent_section_group_p'
-                         'arent_notebook_section_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section',
+        usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
+        client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_page_parent_section_parent_section_group_parent_notebook_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_page_parent_section_parent_section_group_parent_notebook_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_section_group_section
-    usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_page_parent_sectio'
-        'n_parent_section_group_section_operations#UserOnenotePageParentSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_section_group_section)
-    with self.command_group('usersactions user-onenote-page-parent-section-parent-section-group-section',
-                            usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_section,
-                            client_factory=cf_user_onenote_page_parent_section_parent_section_group_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_page_parent_section_parent_section_group_sectio'
-                         'n_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_page_parent_section_parent_section_group_s'
-                         'ection_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-page-parent-section-parent-section-group-section',
+        usersactions_v1_0_user_onenote_page_parent_section_parent_section_group_section,
+        client_factory=cf_user_onenote_page_parent_section_parent_section_group_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_page_parent_section_parent_section_group_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_page_parent_section_parent_section_group_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook
-    usersactions_v1_0_user_onenote_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_pare'
-        'nt_notebook_operations#UserOnenoteSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook)
-    with self.command_group('usersactions user-onenote-section-group-parent-notebook',
-                            usersactions_v1_0_user_onenote_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_section_group_parent_notebook, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-section-group-parent-notebook',
+        usersactions_v1_0_user_onenote_section_group_parent_notebook,
+        client_factory=cf_user_onenote_section_group_parent_notebook,
+    ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_section_group_parent_notebook_copy_notebook')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook_section
-    usersactions_v1_0_user_onenote_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_pare'
-        'nt_notebook_section_operations#UserOnenoteSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section)
-    with self.command_group('usersactions user-onenote-section-group-parent-notebook-section',
-                            usersactions_v1_0_user_onenote_section_group_parent_notebook_section,
-                            client_factory=cf_user_onenote_section_group_parent_notebook_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_group_parent_notebook_section_copy_to_n'
-                         'otebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_group_parent_notebook_section_copy'
-                         '_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-section-group-parent-notebook-section',
+        usersactions_v1_0_user_onenote_section_group_parent_notebook_section,
+        client_factory=cf_user_onenote_section_group_parent_notebook_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook', 'usersactions_user_onenote_section_group_parent_notebook_section_copy_to_notebook'
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_section_group_parent_notebook_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook_section_page
-    usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_pare'
-        'nt_notebook_section_page_operations#UserOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section_page)
-    with self.command_group('usersactions user-onenote-section-group-parent-notebook-section-page',
-                            usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page,
-                            client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-section', 'usersactions_user_onenote_section_group_parent_notebook_section_page_copy_'
-                         'to_section')
-        g.custom_command('onenote-patch-content', 'usersactions_user_onenote_section_group_parent_notebook_section_page'
-                         '_onenote_patch_content')
+    with self.command_group(
+        'usersactions user-onenote-section-group-parent-notebook-section-page',
+        usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page,
+        client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
+    ) as g:
+        g.custom_command(
+            'copy-to-section', 'usersactions_user_onenote_section_group_parent_notebook_section_page_copy_to_section'
+        )
+        g.custom_command(
+            'onenote-patch-content',
+            'usersactions_user_onenote_section_group_parent_notebook_section_page_onenote_patch_content',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook
-    usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_pare'
-        'nt_notebook_section_page_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookSectionPageParentNote'
-        'bookOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook)
-    with self.command_group('usersactions user-onenote-section-group-parent-notebook-section-page-parent-notebook',
-                            usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
-                            client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_section_group_parent_notebook_section_page_parent_'
-                         'notebook_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-section-group-parent-notebook-section-page-parent-notebook',
+        usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
+        client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_section_group_parent_notebook_section_page_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook_section_page_parent_section
-    usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_pare'
-        'nt_notebook_section_page_parent_section_operations#UserOnenoteSectionGroupParentNotebookSectionPageParentSecti'
-        'onOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_section)
-    with self.command_group('usersactions user-onenote-section-group-parent-notebook-section-page-parent-section',
-                            usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page_parent_section,
-                            client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_group_parent_notebook_section_page_pare'
-                         'nt_section_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_group_parent_notebook_section_page'
-                         '_parent_section_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-section-group-parent-notebook-section-page-parent-section',
+        usersactions_v1_0_user_onenote_section_group_parent_notebook_section_page_parent_section,
+        client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_section_group_parent_notebook_section_page_parent_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_section_group_parent_notebook_section_page_parent_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook_section_parent_notebook
-    usersactions_v1_0_user_onenote_section_group_parent_notebook_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_pare'
-        'nt_notebook_section_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookSectionParentNotebookOpera'
-        'tions.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section_parent_notebook)
-    with self.command_group('usersactions user-onenote-section-group-parent-notebook-section-parent-notebook',
-                            usersactions_v1_0_user_onenote_section_group_parent_notebook_section_parent_notebook,
-                            client_factory=cf_user_onenote_section_group_parent_notebook_section_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_section_group_parent_notebook_section_parent_noteb'
-                         'ook_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-section-group-parent-notebook-section-parent-notebook',
+        usersactions_v1_0_user_onenote_section_group_parent_notebook_section_parent_notebook,
+        client_factory=cf_user_onenote_section_group_parent_notebook_section_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_section_group_parent_notebook_section_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_section
-    usersactions_v1_0_user_onenote_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_sect'
-        'ion_operations#UserOnenoteSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_section)
-    with self.command_group('usersactions user-onenote-section-group-section',
-                            usersactions_v1_0_user_onenote_section_group_section,
-                            client_factory=cf_user_onenote_section_group_section, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-section-group-section',
+        usersactions_v1_0_user_onenote_section_group_section,
+        client_factory=cf_user_onenote_section_group_section,
+    ) as g:
         g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_group_section_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_group_section_copy_to_section_grou'
-                         'p')
+        g.custom_command(
+            'copy-to-section-group', 'usersactions_user_onenote_section_group_section_copy_to_section_group'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_section_page
-    usersactions_v1_0_user_onenote_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_sect'
-        'ion_page_operations#UserOnenoteSectionGroupSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page)
-    with self.command_group('usersactions user-onenote-section-group-section-page',
-                            usersactions_v1_0_user_onenote_section_group_section_page,
-                            client_factory=cf_user_onenote_section_group_section_page, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-section-group-section-page',
+        usersactions_v1_0_user_onenote_section_group_section_page,
+        client_factory=cf_user_onenote_section_group_section_page,
+    ) as g:
         g.custom_command('copy-to-section', 'usersactions_user_onenote_section_group_section_page_copy_to_section')
-        g.custom_command('onenote-patch-content', 'usersactions_user_onenote_section_group_section_page_onenote_patch_c'
-                         'ontent')
+        g.custom_command(
+            'onenote-patch-content', 'usersactions_user_onenote_section_group_section_page_onenote_patch_content'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_section_page_parent_notebook
-    usersactions_v1_0_user_onenote_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_sect'
-        'ion_page_parent_notebook_operations#UserOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page_parent_notebook)
-    with self.command_group('usersactions user-onenote-section-group-section-page-parent-notebook',
-                            usersactions_v1_0_user_onenote_section_group_section_page_parent_notebook,
-                            client_factory=cf_user_onenote_section_group_section_page_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_section_group_section_page_parent_notebook_copy_no'
-                         'tebook')
+    with self.command_group(
+        'usersactions user-onenote-section-group-section-page-parent-notebook',
+        usersactions_v1_0_user_onenote_section_group_section_page_parent_notebook,
+        client_factory=cf_user_onenote_section_group_section_page_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook', 'usersactions_user_onenote_section_group_section_page_parent_notebook_copy_notebook'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_section_page_parent_notebook_section
-    usersactions_v1_0_user_onenote_section_group_section_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_sect'
-        'ion_page_parent_notebook_section_operations#UserOnenoteSectionGroupSectionPageParentNotebookSectionOperations.'
-        '{}',
-        client_factory=cf_user_onenote_section_group_section_page_parent_notebook_section)
-    with self.command_group('usersactions user-onenote-section-group-section-page-parent-notebook-section',
-                            usersactions_v1_0_user_onenote_section_group_section_page_parent_notebook_section,
-                            client_factory=cf_user_onenote_section_group_section_page_parent_notebook_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_group_section_page_parent_notebook_sect'
-                         'ion_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_group_section_page_parent_notebook'
-                         '_section_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-section-group-section-page-parent-notebook-section',
+        usersactions_v1_0_user_onenote_section_group_section_page_parent_notebook_section,
+        client_factory=cf_user_onenote_section_group_section_page_parent_notebook_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_section_group_section_page_parent_notebook_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_section_group_section_page_parent_notebook_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_section_page_parent_section
-    usersactions_v1_0_user_onenote_section_group_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_sect'
-        'ion_page_parent_section_operations#UserOnenoteSectionGroupSectionPageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page_parent_section)
-    with self.command_group('usersactions user-onenote-section-group-section-page-parent-section',
-                            usersactions_v1_0_user_onenote_section_group_section_page_parent_section,
-                            client_factory=cf_user_onenote_section_group_section_page_parent_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_group_section_page_parent_section_copy_'
-                         'to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_group_section_page_parent_section_'
-                         'copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-section-group-section-page-parent-section',
+        usersactions_v1_0_user_onenote_section_group_section_page_parent_section,
+        client_factory=cf_user_onenote_section_group_section_page_parent_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook', 'usersactions_user_onenote_section_group_section_page_parent_section_copy_to_notebook'
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_section_group_section_page_parent_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_section_parent_notebook
-    usersactions_v1_0_user_onenote_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_sect'
-        'ion_parent_notebook_operations#UserOnenoteSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_parent_notebook)
-    with self.command_group('usersactions user-onenote-section-group-section-parent-notebook',
-                            usersactions_v1_0_user_onenote_section_group_section_parent_notebook,
-                            client_factory=cf_user_onenote_section_group_section_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_section_group_section_parent_notebook_copy_noteboo'
-                         'k')
+    with self.command_group(
+        'usersactions user-onenote-section-group-section-parent-notebook',
+        usersactions_v1_0_user_onenote_section_group_section_parent_notebook,
+        client_factory=cf_user_onenote_section_group_section_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook', 'usersactions_user_onenote_section_group_section_parent_notebook_copy_notebook'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_group_section_parent_notebook_section
-    usersactions_v1_0_user_onenote_section_group_section_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_group_sect'
-        'ion_parent_notebook_section_operations#UserOnenoteSectionGroupSectionParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_parent_notebook_section)
-    with self.command_group('usersactions user-onenote-section-group-section-parent-notebook-section',
-                            usersactions_v1_0_user_onenote_section_group_section_parent_notebook_section,
-                            client_factory=cf_user_onenote_section_group_section_parent_notebook_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_group_section_parent_notebook_section_c'
-                         'opy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_group_section_parent_notebook_sect'
-                         'ion_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-section-group-section-parent-notebook-section',
+        usersactions_v1_0_user_onenote_section_group_section_parent_notebook_section,
+        client_factory=cf_user_onenote_section_group_section_parent_notebook_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_section_group_section_parent_notebook_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_section_group_section_parent_notebook_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section
-    usersactions_v1_0_user_onenote_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_operations'
-        '#UserOnenoteSectionOperations.{}',
-        client_factory=cf_user_onenote_section)
-    with self.command_group('usersactions user-onenote-section', usersactions_v1_0_user_onenote_section,
-                            client_factory=cf_user_onenote_section, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-section',
+        usersactions_v1_0_user_onenote_section,
+        client_factory=cf_user_onenote_section,
+    ) as g:
         g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_copy_to_notebook')
         g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_copy_to_section_group')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_page
-    usersactions_v1_0_user_onenote_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_page_opera'
-        'tions#UserOnenoteSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_page)
-    with self.command_group('usersactions user-onenote-section-page', usersactions_v1_0_user_onenote_section_page,
-                            client_factory=cf_user_onenote_section_page, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-section-page',
+        usersactions_v1_0_user_onenote_section_page,
+        client_factory=cf_user_onenote_section_page,
+    ) as g:
         g.custom_command('copy-to-section', 'usersactions_user_onenote_section_page_copy_to_section')
         g.custom_command('onenote-patch-content', 'usersactions_user_onenote_section_page_onenote_patch_content')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_page_parent_notebook
-    usersactions_v1_0_user_onenote_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_page_paren'
-        't_notebook_operations#UserOnenoteSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook)
-    with self.command_group('usersactions user-onenote-section-page-parent-notebook',
-                            usersactions_v1_0_user_onenote_section_page_parent_notebook,
-                            client_factory=cf_user_onenote_section_page_parent_notebook, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-section-page-parent-notebook',
+        usersactions_v1_0_user_onenote_section_page_parent_notebook,
+        client_factory=cf_user_onenote_section_page_parent_notebook,
+    ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_section_page_parent_notebook_copy_notebook')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook
-    usersactions_v1_0_user_onenote_section_page_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_page_paren'
-        't_notebook_section_group_parent_notebook_operations#UserOnenoteSectionPageParentNotebookSectionGroupParentNote'
-        'bookOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook)
-    with self.command_group('usersactions user-onenote-section-page-parent-notebook-section-group-parent-notebook',
-                            usersactions_v1_0_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_section_page_parent_notebook_section_group_parent_'
-                         'notebook_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-section-page-parent-notebook-section-group-parent-notebook',
+        usersactions_v1_0_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
+        client_factory=cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_section_page_parent_notebook_section_group_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_page_parent_notebook_section_group_section
-    usersactions_v1_0_user_onenote_section_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_page_paren'
-        't_notebook_section_group_section_operations#UserOnenoteSectionPageParentNotebookSectionGroupSectionOperations.'
-        '{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook_section_group_section)
-    with self.command_group('usersactions user-onenote-section-page-parent-notebook-section-group-section',
-                            usersactions_v1_0_user_onenote_section_page_parent_notebook_section_group_section,
-                            client_factory=cf_user_onenote_section_page_parent_notebook_section_group_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_page_parent_notebook_section_group_sect'
-                         'ion_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_page_parent_notebook_section_group'
-                         '_section_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-section-page-parent-notebook-section-group-section',
+        usersactions_v1_0_user_onenote_section_page_parent_notebook_section_group_section,
+        client_factory=cf_user_onenote_section_page_parent_notebook_section_group_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_section_page_parent_notebook_section_group_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_section_page_parent_notebook_section_group_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_page_parent_notebook_section
-    usersactions_v1_0_user_onenote_section_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_page_paren'
-        't_notebook_section_operations#UserOnenoteSectionPageParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook_section)
-    with self.command_group('usersactions user-onenote-section-page-parent-notebook-section',
-                            usersactions_v1_0_user_onenote_section_page_parent_notebook_section,
-                            client_factory=cf_user_onenote_section_page_parent_notebook_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_page_parent_notebook_section_copy_to_no'
-                         'tebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_page_parent_notebook_section_copy_'
-                         'to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-section-page-parent-notebook-section',
+        usersactions_v1_0_user_onenote_section_page_parent_notebook_section,
+        client_factory=cf_user_onenote_section_page_parent_notebook_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook', 'usersactions_user_onenote_section_page_parent_notebook_section_copy_to_notebook'
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_section_page_parent_notebook_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_page_parent_section
-    usersactions_v1_0_user_onenote_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_page_paren'
-        't_section_operations#UserOnenoteSectionPageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_section)
-    with self.command_group('usersactions user-onenote-section-page-parent-section',
-                            usersactions_v1_0_user_onenote_section_page_parent_section,
-                            client_factory=cf_user_onenote_section_page_parent_section, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-section-page-parent-section',
+        usersactions_v1_0_user_onenote_section_page_parent_section,
+        client_factory=cf_user_onenote_section_page_parent_section,
+    ) as g:
         g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_page_parent_section_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_page_parent_section_copy_to_sectio'
-                         'n_group')
+        g.custom_command(
+            'copy-to-section-group', 'usersactions_user_onenote_section_page_parent_section_copy_to_section_group'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_parent_notebook
-    usersactions_v1_0_user_onenote_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_parent_not'
-        'ebook_operations#UserOnenoteSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook)
-    with self.command_group('usersactions user-onenote-section-parent-notebook',
-                            usersactions_v1_0_user_onenote_section_parent_notebook,
-                            client_factory=cf_user_onenote_section_parent_notebook, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-onenote-section-parent-notebook',
+        usersactions_v1_0_user_onenote_section_parent_notebook,
+        client_factory=cf_user_onenote_section_parent_notebook,
+    ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_section_parent_notebook_copy_notebook')
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_parent_notebook_section_group_parent_notebook
-    usersactions_v1_0_user_onenote_section_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_parent_not'
-        'ebook_section_group_parent_notebook_operations#UserOnenoteSectionParentNotebookSectionGroupParentNotebookOpera'
-        'tions.{}',
-        client_factory=cf_user_onenote_section_parent_notebook_section_group_parent_notebook)
-    with self.command_group('usersactions user-onenote-section-parent-notebook-section-group-parent-notebook',
-                            usersactions_v1_0_user_onenote_section_parent_notebook_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_section_parent_notebook_section_group_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_section_parent_notebook_section_group_parent_noteb'
-                         'ook_copy_notebook')
+    with self.command_group(
+        'usersactions user-onenote-section-parent-notebook-section-group-parent-notebook',
+        usersactions_v1_0_user_onenote_section_parent_notebook_section_group_parent_notebook,
+        client_factory=cf_user_onenote_section_parent_notebook_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook',
+            'usersactions_user_onenote_section_parent_notebook_section_group_parent_notebook_copy_notebook',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_parent_notebook_section_group_section
-    usersactions_v1_0_user_onenote_section_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_parent_not'
-        'ebook_section_group_section_operations#UserOnenoteSectionParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook_section_group_section)
-    with self.command_group('usersactions user-onenote-section-parent-notebook-section-group-section',
-                            usersactions_v1_0_user_onenote_section_parent_notebook_section_group_section,
-                            client_factory=cf_user_onenote_section_parent_notebook_section_group_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_parent_notebook_section_group_section_c'
-                         'opy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_parent_notebook_section_group_sect'
-                         'ion_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-section-parent-notebook-section-group-section',
+        usersactions_v1_0_user_onenote_section_parent_notebook_section_group_section,
+        client_factory=cf_user_onenote_section_parent_notebook_section_group_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_section_parent_notebook_section_group_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_section_parent_notebook_section_group_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_parent_notebook_section
-    usersactions_v1_0_user_onenote_section_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_parent_not'
-        'ebook_section_operations#UserOnenoteSectionParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook_section)
-    with self.command_group('usersactions user-onenote-section-parent-notebook-section',
-                            usersactions_v1_0_user_onenote_section_parent_notebook_section,
-                            client_factory=cf_user_onenote_section_parent_notebook_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_parent_notebook_section_copy_to_noteboo'
-                         'k')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_parent_notebook_section_copy_to_se'
-                         'ction_group')
+    with self.command_group(
+        'usersactions user-onenote-section-parent-notebook-section',
+        usersactions_v1_0_user_onenote_section_parent_notebook_section,
+        client_factory=cf_user_onenote_section_parent_notebook_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook', 'usersactions_user_onenote_section_parent_notebook_section_copy_to_notebook'
+        )
+        g.custom_command(
+            'copy-to-section-group', 'usersactions_user_onenote_section_parent_notebook_section_copy_to_section_group'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_parent_section_group_parent_notebook
-    usersactions_v1_0_user_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_parent_sec'
-        'tion_group_parent_notebook_operations#UserOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_parent_section_group_parent_notebook)
-    with self.command_group('usersactions user-onenote-section-parent-section-group-parent-notebook',
-                            usersactions_v1_0_user_onenote_section_parent_section_group_parent_notebook,
-                            client_factory=cf_user_onenote_section_parent_section_group_parent_notebook,
-                            is_experimental=True) as g:
-        g.custom_command('copy-notebook', 'usersactions_user_onenote_section_parent_section_group_parent_notebook_copy_'
-                         'notebook')
+    with self.command_group(
+        'usersactions user-onenote-section-parent-section-group-parent-notebook',
+        usersactions_v1_0_user_onenote_section_parent_section_group_parent_notebook,
+        client_factory=cf_user_onenote_section_parent_section_group_parent_notebook,
+    ) as g:
+        g.custom_command(
+            'copy-notebook', 'usersactions_user_onenote_section_parent_section_group_parent_notebook_copy_notebook'
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_parent_section_group_parent_notebook_section
-    usersactions_v1_0_user_onenote_section_parent_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_parent_sec'
-        'tion_group_parent_notebook_section_operations#UserOnenoteSectionParentSectionGroupParentNotebookSectionOperati'
-        'ons.{}',
-        client_factory=cf_user_onenote_section_parent_section_group_parent_notebook_section)
-    with self.command_group('usersactions user-onenote-section-parent-section-group-parent-notebook-section',
-                            usersactions_v1_0_user_onenote_section_parent_section_group_parent_notebook_section,
-                            client_factory=cf_user_onenote_section_parent_section_group_parent_notebook_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_parent_section_group_parent_notebook_se'
-                         'ction_copy_to_notebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_parent_section_group_parent_notebo'
-                         'ok_section_copy_to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-section-parent-section-group-parent-notebook-section',
+        usersactions_v1_0_user_onenote_section_parent_section_group_parent_notebook_section,
+        client_factory=cf_user_onenote_section_parent_section_group_parent_notebook_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook',
+            'usersactions_user_onenote_section_parent_section_group_parent_notebook_section_copy_to_notebook',
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_section_parent_section_group_parent_notebook_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_onenote_section_parent_section_group_section
-    usersactions_v1_0_user_onenote_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_onenote_section_parent_sec'
-        'tion_group_section_operations#UserOnenoteSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_section_parent_section_group_section)
-    with self.command_group('usersactions user-onenote-section-parent-section-group-section',
-                            usersactions_v1_0_user_onenote_section_parent_section_group_section,
-                            client_factory=cf_user_onenote_section_parent_section_group_section,
-                            is_experimental=True) as g:
-        g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_parent_section_group_section_copy_to_no'
-                         'tebook')
-        g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_parent_section_group_section_copy_'
-                         'to_section_group')
+    with self.command_group(
+        'usersactions user-onenote-section-parent-section-group-section',
+        usersactions_v1_0_user_onenote_section_parent_section_group_section,
+        client_factory=cf_user_onenote_section_parent_section_group_section,
+    ) as g:
+        g.custom_command(
+            'copy-to-notebook', 'usersactions_user_onenote_section_parent_section_group_section_copy_to_notebook'
+        )
+        g.custom_command(
+            'copy-to-section-group',
+            'usersactions_user_onenote_section_parent_section_group_section_copy_to_section_group',
+        )
 
-    from azext_usersactions_v1_0.generated._client_factory import cf_user_online_meeting
-    usersactions_v1_0_user_online_meeting = CliCommandType(
-        operations_tmpl='azext_usersactions_v1_0.vendored_sdks.usersactions.operations._user_online_meeting_operations#'
-        'UserOnlineMeetingOperations.{}',
-        client_factory=cf_user_online_meeting)
-    with self.command_group('usersactions user-online-meeting', usersactions_v1_0_user_online_meeting,
-                            client_factory=cf_user_online_meeting, is_experimental=True) as g:
+    with self.command_group(
+        'usersactions user-online-meeting', usersactions_v1_0_user_online_meeting, client_factory=cf_user_online_meeting
+    ) as g:
         g.custom_command('create-or-get', 'usersactions_user_online_meeting_create_or_get')
+
+    with self.command_group('usersactions_v1_0', is_experimental=True):
+        pass

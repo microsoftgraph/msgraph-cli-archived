@@ -11,25 +11,18 @@
 # pylint: disable=too-many-lines
 
 
-def teams_chat_chat_delete(client,
-                           chat_id,
-                           if_match=None):
-    return client.delete_chat(chat_id=chat_id,
-                              if_match=if_match)
-
-
 def teams_chat_chat_create_chat(client,
                                 id_=None):
-    return client.create_chat(id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_chat(body=body)
 
 
-def teams_chat_chat_get_chat(client,
-                             chat_id,
-                             select=None,
-                             expand=None):
-    return client.get_chat(chat_id=chat_id,
-                           select=select,
-                           expand=expand)
+def teams_chat_chat_delete_chat(client,
+                                chat_id,
+                                if_match=None):
+    return client.delete_chat(chat_id=chat_id,
+                              if_match=if_match)
 
 
 def teams_chat_chat_list_chat(client,
@@ -41,244 +34,260 @@ def teams_chat_chat_list_chat(client,
                             expand=expand)
 
 
+def teams_chat_chat_show_chat(client,
+                              chat_id,
+                              select=None,
+                              expand=None):
+    return client.get_chat(chat_id=chat_id,
+                           select=select,
+                           expand=expand)
+
+
 def teams_chat_chat_update_chat(client,
                                 chat_id,
                                 id_=None):
+    body = {}
+    body['id'] = id_
     return client.update_chat(chat_id=chat_id,
-                              id=id_)
+                              body=body)
 
 
-def teams_chat_get_all_message(client):
-    return client.get_all_message()
+def teams_chat_show_all_message(client):
+    return client.get_all_messages()
 
 
-def teams_group_update(client,
-                       group_id,
-                       id_=None,
-                       classification=None,
-                       description=None,
-                       display_name=None,
-                       fun_settings=None,
-                       guest_settings=None,
-                       internal_id=None,
-                       is_archived=None,
-                       member_settings=None,
-                       messaging_settings=None,
-                       specialization=None,
-                       visibility=None,
-                       web_url=None,
-                       channels=None,
-                       installed_apps=None,
-                       members=None,
-                       operations=None,
-                       primary_channel=None,
-                       template_id=None,
-                       id1=None,
-                       group_deleted_date_time=None,
-                       group_assigned_labels=None,
-                       group_assigned_licenses=None,
-                       group_classification=None,
-                       group_created_date_time=None,
-                       group_description=None,
-                       group_display_name=None,
-                       group_expiration_date_time=None,
-                       group_group_types=None,
-                       group_has_members_with_license_errors=None,
-                       group_license_processing_state=None,
-                       group_mail=None,
-                       group_mail_enabled=None,
-                       group_mail_nickname=None,
-                       group_membership_rule=None,
-                       group_membership_rule_processing_state=None,
-                       group_on_premises_domain_name=None,
-                       group_on_premises_last_sync_date_time=None,
-                       group_on_premises_net_bios_name=None,
-                       group_on_premises_provisioning_errors=None,
-                       group_on_premises_sam_account_name=None,
-                       group_on_premises_security_identifier=None,
-                       group_on_premises_sync_enabled=None,
-                       group_preferred_data_location=None,
-                       group_preferred_language=None,
-                       group_proxy_addresses=None,
-                       group_renewed_date_time=None,
-                       group_security_enabled=None,
-                       group_security_identifier=None,
-                       group_theme=None,
-                       group_visibility=None,
-                       group_allow_external_senders=None,
-                       group_auto_subscribe_new_members=None,
-                       group_hide_from_address_lists=None,
-                       group_hide_from_outlook_clients=None,
-                       group_is_subscribed_by_mail=None,
-                       group_unseen_count=None,
-                       group_is_archived=None,
-                       group_app_role_assignments=None,
-                       group_created_on_behalf_of=None,
-                       group_member_of=None,
-                       group_members=None,
-                       group_members_with_license_errors=None,
-                       group_owners=None,
-                       group_settings=None,
-                       group_transitive_member_of=None,
-                       group_transitive_members=None,
-                       group_accepted_senders=None,
-                       group_calendar=None,
-                       group_calendar_view=None,
-                       group_conversations=None,
-                       group_events=None,
-                       group_photo=None,
-                       group_photos=None,
-                       group_rejected_senders=None,
-                       group_threads=None,
-                       group_drive=None,
-                       group_drives=None,
-                       group_sites=None,
-                       group_extensions=None,
-                       group_group_lifecycle_policies=None,
-                       group_planner=None,
-                       group_onenote=None,
-                       group_team=None,
-                       schedule_id=None,
-                       schedule_enabled=None,
-                       schedule_offer_shift_requests_enabled=None,
-                       schedule_open_shifts_enabled=None,
-                       schedule_provision_status=None,
-                       schedule_provision_status_code=None,
-                       schedule_swap_shifts_requests_enabled=None,
-                       schedule_time_clock_enabled=None,
-                       schedule_time_off_requests_enabled=None,
-                       schedule_time_zone=None,
-                       schedule_workforce_integration_ids=None,
-                       schedule_offer_shift_requests=None,
-                       schedule_open_shift_change_requests=None,
-                       schedule_open_shifts=None,
-                       schedule_scheduling_groups=None,
-                       schedule_shifts=None,
-                       schedule_swap_shifts_change_requests=None,
-                       schedule_time_off_reasons=None,
-                       schedule_time_off_requests=None,
-                       schedule_times_off=None):
-    return client.update_team(group_id=group_id,
-                              id=id_,
-                              classification=classification,
-                              description=description,
-                              display_name=display_name,
-                              fun_settings=fun_settings,
-                              guest_settings=guest_settings,
-                              internal_id=internal_id,
-                              is_archived=is_archived,
-                              member_settings=member_settings,
-                              messaging_settings=messaging_settings,
-                              specialization=specialization,
-                              visibility=visibility,
-                              web_url=web_url,
-                              channels=channels,
-                              installed_apps=installed_apps,
-                              members=members,
-                              operations=operations,
-                              primary_channel=primary_channel,
-                              microsoft_graph_entity_id=template_id,
-                              id1=id1,
-                              deleted_date_time=group_deleted_date_time,
-                              assigned_labels=group_assigned_labels,
-                              assigned_licenses=group_assigned_licenses,
-                              microsoft_graph_group_classification=group_classification,
-                              created_date_time=group_created_date_time,
-                              microsoft_graph_group_description=group_description,
-                              microsoft_graph_group_display_name=group_display_name,
-                              expiration_date_time=group_expiration_date_time,
-                              group_types=group_group_types,
-                              has_members_with_license_errors=group_has_members_with_license_errors,
-                              license_processing_state=group_license_processing_state,
-                              mail=group_mail,
-                              mail_enabled=group_mail_enabled,
-                              mail_nickname=group_mail_nickname,
-                              membership_rule=group_membership_rule,
-                              membership_rule_processing_state=group_membership_rule_processing_state,
-                              on_premises_domain_name=group_on_premises_domain_name,
-                              on_premises_last_sync_date_time=group_on_premises_last_sync_date_time,
-                              on_premises_net_bios_name=group_on_premises_net_bios_name,
-                              on_premises_provisioning_errors=group_on_premises_provisioning_errors,
-                              on_premises_sam_account_name=group_on_premises_sam_account_name,
-                              on_premises_security_identifier=group_on_premises_security_identifier,
-                              on_premises_sync_enabled=group_on_premises_sync_enabled,
-                              preferred_data_location=group_preferred_data_location,
-                              preferred_language=group_preferred_language,
-                              proxy_addresses=group_proxy_addresses,
-                              renewed_date_time=group_renewed_date_time,
-                              security_enabled=group_security_enabled,
-                              security_identifier=group_security_identifier,
-                              theme=group_theme,
-                              microsoft_graph_group_visibility=group_visibility,
-                              allow_external_senders=group_allow_external_senders,
-                              auto_subscribe_new_members=group_auto_subscribe_new_members,
-                              hide_from_address_lists=group_hide_from_address_lists,
-                              hide_from_outlook_clients=group_hide_from_outlook_clients,
-                              is_subscribed_by_mail=group_is_subscribed_by_mail,
-                              unseen_count=group_unseen_count,
-                              is_archived=group_is_archived,
-                              app_role_assignments=group_app_role_assignments,
-                              created_on_behalf_of=group_created_on_behalf_of,
-                              member_of=group_member_of,
-                              microsoft_graph_group_members=group_members,
-                              members_with_license_errors=group_members_with_license_errors,
-                              owners=group_owners,
-                              settings=group_settings,
-                              transitive_member_of=group_transitive_member_of,
-                              transitive_members=group_transitive_members,
-                              accepted_senders=group_accepted_senders,
-                              calendar=group_calendar,
-                              calendar_view=group_calendar_view,
-                              conversations=group_conversations,
-                              events=group_events,
-                              photo=group_photo,
-                              photos=group_photos,
-                              rejected_senders=group_rejected_senders,
-                              threads=group_threads,
-                              drive=group_drive,
-                              drives=group_drives,
-                              sites=group_sites,
-                              extensions=group_extensions,
-                              group_lifecycle_policies=group_group_lifecycle_policies,
-                              planner=group_planner,
-                              onenote=group_onenote,
-                              team=group_team,
-                              id2=schedule_id,
-                              enabled=schedule_enabled,
-                              offer_shift_requests_enabled=schedule_offer_shift_requests_enabled,
-                              open_shifts_enabled=schedule_open_shifts_enabled,
-                              provision_status=schedule_provision_status,
-                              provision_status_code=schedule_provision_status_code,
-                              swap_shifts_requests_enabled=schedule_swap_shifts_requests_enabled,
-                              time_clock_enabled=schedule_time_clock_enabled,
-                              time_off_requests_enabled=schedule_time_off_requests_enabled,
-                              time_zone=schedule_time_zone,
-                              workforce_integration_ids=schedule_workforce_integration_ids,
-                              offer_shift_requests=schedule_offer_shift_requests,
-                              open_shift_change_requests=schedule_open_shift_change_requests,
-                              open_shifts=schedule_open_shifts,
-                              scheduling_groups=schedule_scheduling_groups,
-                              shifts=schedule_shifts,
-                              swap_shifts_change_requests=schedule_swap_shifts_change_requests,
-                              time_off_reasons=schedule_time_off_reasons,
-                              time_off_requests=schedule_time_off_requests,
-                              times_off=schedule_times_off)
-
-
-def teams_group_delete(client,
-                       group_id,
-                       if_match=None):
+def teams_group_delete_team(client,
+                            group_id,
+                            if_match=None):
     return client.delete_team(group_id=group_id,
                               if_match=if_match)
 
 
-def teams_group_get(client,
-                    group_id,
-                    select=None,
-                    expand=None):
+def teams_group_show_team(client,
+                          group_id,
+                          select=None,
+                          expand=None):
     return client.get_team(group_id=group_id,
                            select=select,
                            expand=expand)
+
+
+def teams_group_update_team(client,
+                            group_id,
+                            id_=None,
+                            classification=None,
+                            description=None,
+                            display_name=None,
+                            fun_settings=None,
+                            guest_settings=None,
+                            internal_id=None,
+                            is_archived=None,
+                            member_settings=None,
+                            messaging_settings=None,
+                            specialization=None,
+                            visibility=None,
+                            web_url=None,
+                            channels=None,
+                            installed_apps=None,
+                            members=None,
+                            operations=None,
+                            primary_channel=None,
+                            microsoft_graph_entity_id=None,
+                            id1=None,
+                            deleted_date_time=None,
+                            assigned_labels=None,
+                            assigned_licenses=None,
+                            microsoft_graph_group_classification=None,
+                            created_date_time=None,
+                            microsoft_graph_group_description=None,
+                            microsoft_graph_group_display_name=None,
+                            expiration_date_time=None,
+                            group_types=None,
+                            has_members_with_license_errors=None,
+                            license_processing_state=None,
+                            mail=None,
+                            mail_enabled=None,
+                            mail_nickname=None,
+                            membership_rule=None,
+                            membership_rule_processing_state=None,
+                            on_premises_domain_name=None,
+                            on_premises_last_sync_date_time=None,
+                            on_premises_net_bios_name=None,
+                            on_premises_provisioning_errors=None,
+                            on_premises_sam_account_name=None,
+                            on_premises_security_identifier=None,
+                            on_premises_sync_enabled=None,
+                            preferred_data_location=None,
+                            preferred_language=None,
+                            proxy_addresses=None,
+                            renewed_date_time=None,
+                            security_enabled=None,
+                            security_identifier=None,
+                            theme=None,
+                            microsoft_graph_group_visibility=None,
+                            allow_external_senders=None,
+                            auto_subscribe_new_members=None,
+                            hide_from_address_lists=None,
+                            hide_from_outlook_clients=None,
+                            is_subscribed_by_mail=None,
+                            unseen_count=None,
+                            group_is_archived=None,
+                            app_role_assignments=None,
+                            created_on_behalf_of=None,
+                            member_of=None,
+                            microsoft_graph_group_members=None,
+                            members_with_license_errors=None,
+                            owners=None,
+                            settings=None,
+                            transitive_member_of=None,
+                            transitive_members=None,
+                            accepted_senders=None,
+                            calendar=None,
+                            calendar_view=None,
+                            conversations=None,
+                            events=None,
+                            photo=None,
+                            photos=None,
+                            rejected_senders=None,
+                            threads=None,
+                            drive=None,
+                            drives=None,
+                            sites=None,
+                            extensions=None,
+                            group_lifecycle_policies=None,
+                            planner=None,
+                            onenote=None,
+                            team=None,
+                            id2=None,
+                            enabled=None,
+                            offer_shift_requests_enabled=None,
+                            open_shifts_enabled=None,
+                            provision_status=None,
+                            provision_status_code=None,
+                            swap_shifts_requests_enabled=None,
+                            time_clock_enabled=None,
+                            time_off_requests_enabled=None,
+                            time_zone=None,
+                            workforce_integration_ids=None,
+                            offer_shift_requests=None,
+                            open_shift_change_requests=None,
+                            open_shifts=None,
+                            scheduling_groups=None,
+                            shifts=None,
+                            swap_shifts_change_requests=None,
+                            time_off_reasons=None,
+                            time_off_requests=None,
+                            times_off=None):
+    body = {}
+    body['id'] = id_
+    body['classification'] = classification
+    body['description'] = description
+    body['display_name'] = display_name
+    body['fun_settings'] = fun_settings
+    body['guest_settings'] = guest_settings
+    body['internal_id'] = internal_id
+    body['is_archived'] = is_archived
+    body['member_settings'] = member_settings
+    body['messaging_settings'] = messaging_settings
+    body['specialization'] = specialization
+    body['visibility'] = visibility
+    body['web_url'] = web_url
+    body['channels'] = channels
+    body['installed_apps'] = installed_apps
+    body['members'] = members
+    body['operations'] = operations
+    body['primary_channel'] = primary_channel
+    body['template'] = {}
+    body['template']['id'] = microsoft_graph_entity_id
+    body['group'] = {}
+    body['group']['id'] = id1
+    body['group']['deleted_date_time'] = deleted_date_time
+    body['group']['assigned_labels'] = assigned_labels
+    body['group']['assigned_licenses'] = assigned_licenses
+    body['group']['classification'] = microsoft_graph_group_classification
+    body['group']['created_date_time'] = created_date_time
+    body['group']['description'] = microsoft_graph_group_description
+    body['group']['display_name'] = microsoft_graph_group_display_name
+    body['group']['expiration_date_time'] = expiration_date_time
+    body['group']['group_types'] = group_types
+    body['group']['has_members_with_license_errors'] = has_members_with_license_errors
+    body['group']['license_processing_state'] = license_processing_state
+    body['group']['mail'] = mail
+    body['group']['mail_enabled'] = mail_enabled
+    body['group']['mail_nickname'] = mail_nickname
+    body['group']['membership_rule'] = membership_rule
+    body['group']['membership_rule_processing_state'] = membership_rule_processing_state
+    body['group']['on_premises_domain_name'] = on_premises_domain_name
+    body['group']['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['group']['on_premises_net_bios_name'] = on_premises_net_bios_name
+    body['group']['on_premises_provisioning_errors'] = on_premises_provisioning_errors
+    body['group']['on_premises_sam_account_name'] = on_premises_sam_account_name
+    body['group']['on_premises_security_identifier'] = on_premises_security_identifier
+    body['group']['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['group']['preferred_data_location'] = preferred_data_location
+    body['group']['preferred_language'] = preferred_language
+    body['group']['proxy_addresses'] = proxy_addresses
+    body['group']['renewed_date_time'] = renewed_date_time
+    body['group']['security_enabled'] = security_enabled
+    body['group']['security_identifier'] = security_identifier
+    body['group']['theme'] = theme
+    body['group']['visibility'] = microsoft_graph_group_visibility
+    body['group']['allow_external_senders'] = allow_external_senders
+    body['group']['auto_subscribe_new_members'] = auto_subscribe_new_members
+    body['group']['hide_from_address_lists'] = hide_from_address_lists
+    body['group']['hide_from_outlook_clients'] = hide_from_outlook_clients
+    body['group']['is_subscribed_by_mail'] = is_subscribed_by_mail
+    body['group']['unseen_count'] = unseen_count
+    body['group']['is_archived'] = group_is_archived
+    body['group']['app_role_assignments'] = app_role_assignments
+    body['group']['created_on_behalf_of'] = created_on_behalf_of
+    body['group']['member_of'] = member_of
+    body['group']['members'] = microsoft_graph_group_members
+    body['group']['members_with_license_errors'] = members_with_license_errors
+    body['group']['owners'] = owners
+    body['group']['settings'] = settings
+    body['group']['transitive_member_of'] = transitive_member_of
+    body['group']['transitive_members'] = transitive_members
+    body['group']['accepted_senders'] = accepted_senders
+    body['group']['calendar'] = calendar
+    body['group']['calendar_view'] = calendar_view
+    body['group']['conversations'] = conversations
+    body['group']['events'] = events
+    body['group']['photo'] = photo
+    body['group']['photos'] = photos
+    body['group']['rejected_senders'] = rejected_senders
+    body['group']['threads'] = threads
+    body['group']['drive'] = drive
+    body['group']['drives'] = drives
+    body['group']['sites'] = sites
+    body['group']['extensions'] = extensions
+    body['group']['group_lifecycle_policies'] = group_lifecycle_policies
+    body['group']['planner'] = planner
+    body['group']['onenote'] = onenote
+    body['group']['team'] = team
+    body['schedule'] = {}
+    body['schedule']['id'] = id2
+    body['schedule']['enabled'] = enabled
+    body['schedule']['offer_shift_requests_enabled'] = offer_shift_requests_enabled
+    body['schedule']['open_shifts_enabled'] = open_shifts_enabled
+    body['schedule']['provision_status'] = provision_status
+    body['schedule']['provision_status_code'] = provision_status_code
+    body['schedule']['swap_shifts_requests_enabled'] = swap_shifts_requests_enabled
+    body['schedule']['time_clock_enabled'] = time_clock_enabled
+    body['schedule']['time_off_requests_enabled'] = time_off_requests_enabled
+    body['schedule']['time_zone'] = time_zone
+    body['schedule']['workforce_integration_ids'] = workforce_integration_ids
+    body['schedule']['offer_shift_requests'] = offer_shift_requests
+    body['schedule']['open_shift_change_requests'] = open_shift_change_requests
+    body['schedule']['open_shifts'] = open_shifts
+    body['schedule']['scheduling_groups'] = scheduling_groups
+    body['schedule']['shifts'] = shifts
+    body['schedule']['swap_shifts_change_requests'] = swap_shifts_change_requests
+    body['schedule']['time_off_reasons'] = time_off_reasons
+    body['schedule']['time_off_requests'] = time_off_requests
+    body['schedule']['times_off'] = times_off
+    return client.update_team(group_id=group_id,
+                              body=body)
 
 
 def teams_team_list(client,
@@ -291,6 +300,7 @@ def teams_team_list(client,
 
 
 def teams_team_create(client,
+                      team_id=None,
                       id_=None,
                       classification=None,
                       description=None,
@@ -309,461 +319,220 @@ def teams_team_create(client,
                       members=None,
                       operations=None,
                       primary_channel=None,
-                      template_id=None,
-                      group_id=None,
-                      group_deleted_date_time=None,
-                      group_assigned_labels=None,
-                      group_assigned_licenses=None,
-                      group_classification=None,
-                      group_created_date_time=None,
-                      group_description=None,
-                      group_display_name=None,
-                      group_expiration_date_time=None,
-                      group_group_types=None,
-                      group_has_members_with_license_errors=None,
-                      group_license_processing_state=None,
-                      group_mail=None,
-                      group_mail_enabled=None,
-                      group_mail_nickname=None,
-                      group_membership_rule=None,
-                      group_membership_rule_processing_state=None,
-                      group_on_premises_domain_name=None,
-                      group_on_premises_last_sync_date_time=None,
-                      group_on_premises_net_bios_name=None,
-                      group_on_premises_provisioning_errors=None,
-                      group_on_premises_sam_account_name=None,
-                      group_on_premises_security_identifier=None,
-                      group_on_premises_sync_enabled=None,
-                      group_preferred_data_location=None,
-                      group_preferred_language=None,
-                      group_proxy_addresses=None,
-                      group_renewed_date_time=None,
-                      group_security_enabled=None,
-                      group_security_identifier=None,
-                      group_theme=None,
-                      group_visibility=None,
-                      group_allow_external_senders=None,
-                      group_auto_subscribe_new_members=None,
-                      group_hide_from_address_lists=None,
-                      group_hide_from_outlook_clients=None,
-                      group_is_subscribed_by_mail=None,
-                      group_unseen_count=None,
+                      microsoft_graph_entity_id=None,
+                      id1=None,
+                      deleted_date_time=None,
+                      assigned_labels=None,
+                      assigned_licenses=None,
+                      microsoft_graph_group_classification=None,
+                      created_date_time=None,
+                      microsoft_graph_group_description=None,
+                      microsoft_graph_group_display_name=None,
+                      expiration_date_time=None,
+                      group_types=None,
+                      has_members_with_license_errors=None,
+                      license_processing_state=None,
+                      mail=None,
+                      mail_enabled=None,
+                      mail_nickname=None,
+                      membership_rule=None,
+                      membership_rule_processing_state=None,
+                      on_premises_domain_name=None,
+                      on_premises_last_sync_date_time=None,
+                      on_premises_net_bios_name=None,
+                      on_premises_provisioning_errors=None,
+                      on_premises_sam_account_name=None,
+                      on_premises_security_identifier=None,
+                      on_premises_sync_enabled=None,
+                      preferred_data_location=None,
+                      preferred_language=None,
+                      proxy_addresses=None,
+                      renewed_date_time=None,
+                      security_enabled=None,
+                      security_identifier=None,
+                      theme=None,
+                      microsoft_graph_group_visibility=None,
+                      allow_external_senders=None,
+                      auto_subscribe_new_members=None,
+                      hide_from_address_lists=None,
+                      hide_from_outlook_clients=None,
+                      is_subscribed_by_mail=None,
+                      unseen_count=None,
                       group_is_archived=None,
-                      group_app_role_assignments=None,
-                      group_created_on_behalf_of=None,
-                      group_member_of=None,
-                      group_members=None,
-                      group_members_with_license_errors=None,
-                      group_owners=None,
-                      group_settings=None,
-                      group_transitive_member_of=None,
-                      group_transitive_members=None,
-                      group_accepted_senders=None,
-                      group_calendar=None,
-                      group_calendar_view=None,
-                      group_conversations=None,
-                      group_events=None,
-                      group_photo=None,
-                      group_photos=None,
-                      group_rejected_senders=None,
-                      group_threads=None,
-                      group_drive=None,
-                      group_drives=None,
-                      group_sites=None,
-                      group_extensions=None,
-                      group_group_lifecycle_policies=None,
-                      group_planner=None,
-                      group_onenote=None,
-                      group_team=None,
-                      schedule_id=None,
-                      schedule_enabled=None,
-                      schedule_offer_shift_requests_enabled=None,
-                      schedule_open_shifts_enabled=None,
-                      schedule_provision_status=None,
-                      schedule_provision_status_code=None,
-                      schedule_swap_shifts_requests_enabled=None,
-                      schedule_time_clock_enabled=None,
-                      schedule_time_off_requests_enabled=None,
-                      schedule_time_zone=None,
-                      schedule_workforce_integration_ids=None,
-                      schedule_offer_shift_requests=None,
-                      schedule_open_shift_change_requests=None,
-                      schedule_open_shifts=None,
-                      schedule_scheduling_groups=None,
-                      schedule_shifts=None,
-                      schedule_swap_shifts_change_requests=None,
-                      schedule_time_off_reasons=None,
-                      schedule_time_off_requests=None,
-                      schedule_times_off=None):
-    return client.create_team(id=id_,
-                              classification=classification,
-                              description=description,
-                              display_name=display_name,
-                              fun_settings=fun_settings,
-                              guest_settings=guest_settings,
-                              internal_id=internal_id,
-                              is_archived=is_archived,
-                              member_settings=member_settings,
-                              messaging_settings=messaging_settings,
-                              specialization=specialization,
-                              visibility=visibility,
-                              web_url=web_url,
-                              channels=channels,
-                              installed_apps=installed_apps,
-                              members=members,
-                              operations=operations,
-                              primary_channel=primary_channel,
-                              microsoft_graph_entity_id=template_id,
-                              id1=group_id,
-                              deleted_date_time=group_deleted_date_time,
-                              assigned_labels=group_assigned_labels,
-                              assigned_licenses=group_assigned_licenses,
-                              microsoft_graph_group_classification=group_classification,
-                              created_date_time=group_created_date_time,
-                              microsoft_graph_group_description=group_description,
-                              microsoft_graph_group_display_name=group_display_name,
-                              expiration_date_time=group_expiration_date_time,
-                              group_types=group_group_types,
-                              has_members_with_license_errors=group_has_members_with_license_errors,
-                              license_processing_state=group_license_processing_state,
-                              mail=group_mail,
-                              mail_enabled=group_mail_enabled,
-                              mail_nickname=group_mail_nickname,
-                              membership_rule=group_membership_rule,
-                              membership_rule_processing_state=group_membership_rule_processing_state,
-                              on_premises_domain_name=group_on_premises_domain_name,
-                              on_premises_last_sync_date_time=group_on_premises_last_sync_date_time,
-                              on_premises_net_bios_name=group_on_premises_net_bios_name,
-                              on_premises_provisioning_errors=group_on_premises_provisioning_errors,
-                              on_premises_sam_account_name=group_on_premises_sam_account_name,
-                              on_premises_security_identifier=group_on_premises_security_identifier,
-                              on_premises_sync_enabled=group_on_premises_sync_enabled,
-                              preferred_data_location=group_preferred_data_location,
-                              preferred_language=group_preferred_language,
-                              proxy_addresses=group_proxy_addresses,
-                              renewed_date_time=group_renewed_date_time,
-                              security_enabled=group_security_enabled,
-                              security_identifier=group_security_identifier,
-                              theme=group_theme,
-                              microsoft_graph_group_visibility=group_visibility,
-                              allow_external_senders=group_allow_external_senders,
-                              auto_subscribe_new_members=group_auto_subscribe_new_members,
-                              hide_from_address_lists=group_hide_from_address_lists,
-                              hide_from_outlook_clients=group_hide_from_outlook_clients,
-                              is_subscribed_by_mail=group_is_subscribed_by_mail,
-                              unseen_count=group_unseen_count,
-                              is_archived=group_is_archived,
-                              app_role_assignments=group_app_role_assignments,
-                              created_on_behalf_of=group_created_on_behalf_of,
-                              member_of=group_member_of,
-                              microsoft_graph_group_members=group_members,
-                              members_with_license_errors=group_members_with_license_errors,
-                              owners=group_owners,
-                              settings=group_settings,
-                              transitive_member_of=group_transitive_member_of,
-                              transitive_members=group_transitive_members,
-                              accepted_senders=group_accepted_senders,
-                              calendar=group_calendar,
-                              calendar_view=group_calendar_view,
-                              conversations=group_conversations,
-                              events=group_events,
-                              photo=group_photo,
-                              photos=group_photos,
-                              rejected_senders=group_rejected_senders,
-                              threads=group_threads,
-                              drive=group_drive,
-                              drives=group_drives,
-                              sites=group_sites,
-                              extensions=group_extensions,
-                              group_lifecycle_policies=group_group_lifecycle_policies,
-                              planner=group_planner,
-                              onenote=group_onenote,
-                              team=group_team,
-                              id2=schedule_id,
-                              enabled=schedule_enabled,
-                              offer_shift_requests_enabled=schedule_offer_shift_requests_enabled,
-                              open_shifts_enabled=schedule_open_shifts_enabled,
-                              provision_status=schedule_provision_status,
-                              provision_status_code=schedule_provision_status_code,
-                              swap_shifts_requests_enabled=schedule_swap_shifts_requests_enabled,
-                              time_clock_enabled=schedule_time_clock_enabled,
-                              time_off_requests_enabled=schedule_time_off_requests_enabled,
-                              time_zone=schedule_time_zone,
-                              workforce_integration_ids=schedule_workforce_integration_ids,
-                              offer_shift_requests=schedule_offer_shift_requests,
-                              open_shift_change_requests=schedule_open_shift_change_requests,
-                              open_shifts=schedule_open_shifts,
-                              scheduling_groups=schedule_scheduling_groups,
-                              shifts=schedule_shifts,
-                              swap_shifts_change_requests=schedule_swap_shifts_change_requests,
-                              time_off_reasons=schedule_time_off_reasons,
-                              time_off_requests=schedule_time_off_requests,
-                              times_off=schedule_times_off)
+                      app_role_assignments=None,
+                      created_on_behalf_of=None,
+                      member_of=None,
+                      microsoft_graph_group_members=None,
+                      members_with_license_errors=None,
+                      owners=None,
+                      settings=None,
+                      transitive_member_of=None,
+                      transitive_members=None,
+                      accepted_senders=None,
+                      calendar=None,
+                      calendar_view=None,
+                      conversations=None,
+                      events=None,
+                      photo=None,
+                      photos=None,
+                      rejected_senders=None,
+                      threads=None,
+                      drive=None,
+                      drives=None,
+                      sites=None,
+                      extensions=None,
+                      group_lifecycle_policies=None,
+                      planner=None,
+                      onenote=None,
+                      team=None,
+                      id2=None,
+                      enabled=None,
+                      offer_shift_requests_enabled=None,
+                      open_shifts_enabled=None,
+                      provision_status=None,
+                      provision_status_code=None,
+                      swap_shifts_requests_enabled=None,
+                      time_clock_enabled=None,
+                      time_off_requests_enabled=None,
+                      time_zone=None,
+                      workforce_integration_ids=None,
+                      offer_shift_requests=None,
+                      open_shift_change_requests=None,
+                      open_shifts=None,
+                      scheduling_groups=None,
+                      shifts=None,
+                      swap_shifts_change_requests=None,
+                      time_off_reasons=None,
+                      time_off_requests=None,
+                      times_off=None):
+    body = {}
+    body['id'] = id_
+    body['classification'] = classification
+    body['description'] = description
+    body['display_name'] = display_name
+    body['fun_settings'] = fun_settings
+    body['guest_settings'] = guest_settings
+    body['internal_id'] = internal_id
+    body['is_archived'] = is_archived
+    body['member_settings'] = member_settings
+    body['messaging_settings'] = messaging_settings
+    body['specialization'] = specialization
+    body['visibility'] = visibility
+    body['web_url'] = web_url
+    body['channels'] = channels
+    body['installed_apps'] = installed_apps
+    body['members'] = members
+    body['operations'] = operations
+    body['primary_channel'] = primary_channel
+    body['template'] = {}
+    body['template']['id'] = microsoft_graph_entity_id
+    body['group'] = {}
+    body['group']['id'] = id1
+    body['group']['deleted_date_time'] = deleted_date_time
+    body['group']['assigned_labels'] = assigned_labels
+    body['group']['assigned_licenses'] = assigned_licenses
+    body['group']['classification'] = microsoft_graph_group_classification
+    body['group']['created_date_time'] = created_date_time
+    body['group']['description'] = microsoft_graph_group_description
+    body['group']['display_name'] = microsoft_graph_group_display_name
+    body['group']['expiration_date_time'] = expiration_date_time
+    body['group']['group_types'] = group_types
+    body['group']['has_members_with_license_errors'] = has_members_with_license_errors
+    body['group']['license_processing_state'] = license_processing_state
+    body['group']['mail'] = mail
+    body['group']['mail_enabled'] = mail_enabled
+    body['group']['mail_nickname'] = mail_nickname
+    body['group']['membership_rule'] = membership_rule
+    body['group']['membership_rule_processing_state'] = membership_rule_processing_state
+    body['group']['on_premises_domain_name'] = on_premises_domain_name
+    body['group']['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['group']['on_premises_net_bios_name'] = on_premises_net_bios_name
+    body['group']['on_premises_provisioning_errors'] = on_premises_provisioning_errors
+    body['group']['on_premises_sam_account_name'] = on_premises_sam_account_name
+    body['group']['on_premises_security_identifier'] = on_premises_security_identifier
+    body['group']['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['group']['preferred_data_location'] = preferred_data_location
+    body['group']['preferred_language'] = preferred_language
+    body['group']['proxy_addresses'] = proxy_addresses
+    body['group']['renewed_date_time'] = renewed_date_time
+    body['group']['security_enabled'] = security_enabled
+    body['group']['security_identifier'] = security_identifier
+    body['group']['theme'] = theme
+    body['group']['visibility'] = microsoft_graph_group_visibility
+    body['group']['allow_external_senders'] = allow_external_senders
+    body['group']['auto_subscribe_new_members'] = auto_subscribe_new_members
+    body['group']['hide_from_address_lists'] = hide_from_address_lists
+    body['group']['hide_from_outlook_clients'] = hide_from_outlook_clients
+    body['group']['is_subscribed_by_mail'] = is_subscribed_by_mail
+    body['group']['unseen_count'] = unseen_count
+    body['group']['is_archived'] = group_is_archived
+    body['group']['app_role_assignments'] = app_role_assignments
+    body['group']['created_on_behalf_of'] = created_on_behalf_of
+    body['group']['member_of'] = member_of
+    body['group']['members'] = microsoft_graph_group_members
+    body['group']['members_with_license_errors'] = members_with_license_errors
+    body['group']['owners'] = owners
+    body['group']['settings'] = settings
+    body['group']['transitive_member_of'] = transitive_member_of
+    body['group']['transitive_members'] = transitive_members
+    body['group']['accepted_senders'] = accepted_senders
+    body['group']['calendar'] = calendar
+    body['group']['calendar_view'] = calendar_view
+    body['group']['conversations'] = conversations
+    body['group']['events'] = events
+    body['group']['photo'] = photo
+    body['group']['photos'] = photos
+    body['group']['rejected_senders'] = rejected_senders
+    body['group']['threads'] = threads
+    body['group']['drive'] = drive
+    body['group']['drives'] = drives
+    body['group']['sites'] = sites
+    body['group']['extensions'] = extensions
+    body['group']['group_lifecycle_policies'] = group_lifecycle_policies
+    body['group']['planner'] = planner
+    body['group']['onenote'] = onenote
+    body['group']['team'] = team
+    body['schedule'] = {}
+    body['schedule']['id'] = id2
+    body['schedule']['enabled'] = enabled
+    body['schedule']['offer_shift_requests_enabled'] = offer_shift_requests_enabled
+    body['schedule']['open_shifts_enabled'] = open_shifts_enabled
+    body['schedule']['provision_status'] = provision_status
+    body['schedule']['provision_status_code'] = provision_status_code
+    body['schedule']['swap_shifts_requests_enabled'] = swap_shifts_requests_enabled
+    body['schedule']['time_clock_enabled'] = time_clock_enabled
+    body['schedule']['time_off_requests_enabled'] = time_off_requests_enabled
+    body['schedule']['time_zone'] = time_zone
+    body['schedule']['workforce_integration_ids'] = workforce_integration_ids
+    body['schedule']['offer_shift_requests'] = offer_shift_requests
+    body['schedule']['open_shift_change_requests'] = open_shift_change_requests
+    body['schedule']['open_shifts'] = open_shifts
+    body['schedule']['scheduling_groups'] = scheduling_groups
+    body['schedule']['shifts'] = shifts
+    body['schedule']['swap_shifts_change_requests'] = swap_shifts_change_requests
+    body['schedule']['time_off_reasons'] = time_off_reasons
+    body['schedule']['time_off_requests'] = time_off_requests
+    body['schedule']['times_off'] = times_off
+    if team_id is not None:
+        return client.update_team(team_id=team_id,
+                                  body=body)
+    return client.create_team(body=body)
 
 
-def teams_team_update(client,
-                      team_id,
-                      id_=None,
-                      classification=None,
-                      description=None,
-                      display_name=None,
-                      fun_settings=None,
-                      guest_settings=None,
-                      internal_id=None,
-                      is_archived=None,
-                      member_settings=None,
-                      messaging_settings=None,
-                      specialization=None,
-                      visibility=None,
-                      web_url=None,
-                      channels=None,
-                      installed_apps=None,
-                      members=None,
-                      operations=None,
-                      primary_channel=None,
-                      template_id=None,
-                      group_id=None,
-                      group_deleted_date_time=None,
-                      group_assigned_labels=None,
-                      group_assigned_licenses=None,
-                      group_classification=None,
-                      group_created_date_time=None,
-                      group_description=None,
-                      group_display_name=None,
-                      group_expiration_date_time=None,
-                      group_group_types=None,
-                      group_has_members_with_license_errors=None,
-                      group_license_processing_state=None,
-                      group_mail=None,
-                      group_mail_enabled=None,
-                      group_mail_nickname=None,
-                      group_membership_rule=None,
-                      group_membership_rule_processing_state=None,
-                      group_on_premises_domain_name=None,
-                      group_on_premises_last_sync_date_time=None,
-                      group_on_premises_net_bios_name=None,
-                      group_on_premises_provisioning_errors=None,
-                      group_on_premises_sam_account_name=None,
-                      group_on_premises_security_identifier=None,
-                      group_on_premises_sync_enabled=None,
-                      group_preferred_data_location=None,
-                      group_preferred_language=None,
-                      group_proxy_addresses=None,
-                      group_renewed_date_time=None,
-                      group_security_enabled=None,
-                      group_security_identifier=None,
-                      group_theme=None,
-                      group_visibility=None,
-                      group_allow_external_senders=None,
-                      group_auto_subscribe_new_members=None,
-                      group_hide_from_address_lists=None,
-                      group_hide_from_outlook_clients=None,
-                      group_is_subscribed_by_mail=None,
-                      group_unseen_count=None,
-                      group_is_archived=None,
-                      group_app_role_assignments=None,
-                      group_created_on_behalf_of=None,
-                      group_member_of=None,
-                      group_members=None,
-                      group_members_with_license_errors=None,
-                      group_owners=None,
-                      group_settings=None,
-                      group_transitive_member_of=None,
-                      group_transitive_members=None,
-                      group_accepted_senders=None,
-                      group_calendar=None,
-                      group_calendar_view=None,
-                      group_conversations=None,
-                      group_events=None,
-                      group_photo=None,
-                      group_photos=None,
-                      group_rejected_senders=None,
-                      group_threads=None,
-                      group_drive=None,
-                      group_drives=None,
-                      group_sites=None,
-                      group_extensions=None,
-                      group_group_lifecycle_policies=None,
-                      group_planner=None,
-                      group_onenote=None,
-                      group_team=None,
-                      schedule_id=None,
-                      schedule_enabled=None,
-                      schedule_offer_shift_requests_enabled=None,
-                      schedule_open_shifts_enabled=None,
-                      schedule_provision_status=None,
-                      schedule_provision_status_code=None,
-                      schedule_swap_shifts_requests_enabled=None,
-                      schedule_time_clock_enabled=None,
-                      schedule_time_off_requests_enabled=None,
-                      schedule_time_zone=None,
-                      schedule_workforce_integration_ids=None,
-                      schedule_offer_shift_requests=None,
-                      schedule_open_shift_change_requests=None,
-                      schedule_open_shifts=None,
-                      schedule_scheduling_groups=None,
-                      schedule_shifts=None,
-                      schedule_swap_shifts_change_requests=None,
-                      schedule_time_off_reasons=None,
-                      schedule_time_off_requests=None,
-                      schedule_times_off=None):
-    return client.update_team(team_id=team_id,
-                              id=id_,
-                              classification=classification,
-                              description=description,
-                              display_name=display_name,
-                              fun_settings=fun_settings,
-                              guest_settings=guest_settings,
-                              internal_id=internal_id,
-                              is_archived=is_archived,
-                              member_settings=member_settings,
-                              messaging_settings=messaging_settings,
-                              specialization=specialization,
-                              visibility=visibility,
-                              web_url=web_url,
-                              channels=channels,
-                              installed_apps=installed_apps,
-                              members=members,
-                              operations=operations,
-                              primary_channel=primary_channel,
-                              microsoft_graph_entity_id=template_id,
-                              id1=group_id,
-                              deleted_date_time=group_deleted_date_time,
-                              assigned_labels=group_assigned_labels,
-                              assigned_licenses=group_assigned_licenses,
-                              microsoft_graph_group_classification=group_classification,
-                              created_date_time=group_created_date_time,
-                              microsoft_graph_group_description=group_description,
-                              microsoft_graph_group_display_name=group_display_name,
-                              expiration_date_time=group_expiration_date_time,
-                              group_types=group_group_types,
-                              has_members_with_license_errors=group_has_members_with_license_errors,
-                              license_processing_state=group_license_processing_state,
-                              mail=group_mail,
-                              mail_enabled=group_mail_enabled,
-                              mail_nickname=group_mail_nickname,
-                              membership_rule=group_membership_rule,
-                              membership_rule_processing_state=group_membership_rule_processing_state,
-                              on_premises_domain_name=group_on_premises_domain_name,
-                              on_premises_last_sync_date_time=group_on_premises_last_sync_date_time,
-                              on_premises_net_bios_name=group_on_premises_net_bios_name,
-                              on_premises_provisioning_errors=group_on_premises_provisioning_errors,
-                              on_premises_sam_account_name=group_on_premises_sam_account_name,
-                              on_premises_security_identifier=group_on_premises_security_identifier,
-                              on_premises_sync_enabled=group_on_premises_sync_enabled,
-                              preferred_data_location=group_preferred_data_location,
-                              preferred_language=group_preferred_language,
-                              proxy_addresses=group_proxy_addresses,
-                              renewed_date_time=group_renewed_date_time,
-                              security_enabled=group_security_enabled,
-                              security_identifier=group_security_identifier,
-                              theme=group_theme,
-                              microsoft_graph_group_visibility=group_visibility,
-                              allow_external_senders=group_allow_external_senders,
-                              auto_subscribe_new_members=group_auto_subscribe_new_members,
-                              hide_from_address_lists=group_hide_from_address_lists,
-                              hide_from_outlook_clients=group_hide_from_outlook_clients,
-                              is_subscribed_by_mail=group_is_subscribed_by_mail,
-                              unseen_count=group_unseen_count,
-                              is_archived=group_is_archived,
-                              app_role_assignments=group_app_role_assignments,
-                              created_on_behalf_of=group_created_on_behalf_of,
-                              member_of=group_member_of,
-                              microsoft_graph_group_members=group_members,
-                              members_with_license_errors=group_members_with_license_errors,
-                              owners=group_owners,
-                              settings=group_settings,
-                              transitive_member_of=group_transitive_member_of,
-                              transitive_members=group_transitive_members,
-                              accepted_senders=group_accepted_senders,
-                              calendar=group_calendar,
-                              calendar_view=group_calendar_view,
-                              conversations=group_conversations,
-                              events=group_events,
-                              photo=group_photo,
-                              photos=group_photos,
-                              rejected_senders=group_rejected_senders,
-                              threads=group_threads,
-                              drive=group_drive,
-                              drives=group_drives,
-                              sites=group_sites,
-                              extensions=group_extensions,
-                              group_lifecycle_policies=group_group_lifecycle_policies,
-                              planner=group_planner,
-                              onenote=group_onenote,
-                              team=group_team,
-                              id2=schedule_id,
-                              enabled=schedule_enabled,
-                              offer_shift_requests_enabled=schedule_offer_shift_requests_enabled,
-                              open_shifts_enabled=schedule_open_shifts_enabled,
-                              provision_status=schedule_provision_status,
-                              provision_status_code=schedule_provision_status_code,
-                              swap_shifts_requests_enabled=schedule_swap_shifts_requests_enabled,
-                              time_clock_enabled=schedule_time_clock_enabled,
-                              time_off_requests_enabled=schedule_time_off_requests_enabled,
-                              time_zone=schedule_time_zone,
-                              workforce_integration_ids=schedule_workforce_integration_ids,
-                              offer_shift_requests=schedule_offer_shift_requests,
-                              open_shift_change_requests=schedule_open_shift_change_requests,
-                              open_shifts=schedule_open_shifts,
-                              scheduling_groups=schedule_scheduling_groups,
-                              shifts=schedule_shifts,
-                              swap_shifts_change_requests=schedule_swap_shifts_change_requests,
-                              time_off_reasons=schedule_time_off_reasons,
-                              time_off_requests=schedule_time_off_requests,
-                              times_off=schedule_times_off)
-
-
-def teams_team_delete(client,
-                      team_id,
-                      if_match=None):
+def teams_team_delete_team(client,
+                           team_id,
+                           if_match=None):
     return client.delete_team(team_id=team_id,
                               if_match=if_match)
 
 
-def teams_team_get(client,
-                   team_id,
-                   select=None,
-                   expand=None):
+def teams_team_show_team(client,
+                         team_id,
+                         select=None,
+                         expand=None):
     return client.get_team(team_id=team_id,
                            select=select,
                            expand=expand)
-
-
-def teams_team_delete(client,
-                      team_id,
-                      channel_id=None,
-                      if_match=None,
-                      teams_app_installation_id=None,
-                      conversation_member_id=None,
-                      teams_async_operation_id=None):
-    if team_id is not None and channel_id is not None:
-        return client.delete_channel(team_id=team_id,
-                                     channel_id=channel_id,
-                                     if_match=if_match)
-    elif team_id is not None and teams_app_installation_id is not None:
-        return client.delete_installed_app(team_id=team_id,
-                                           teams_app_installation_id=teams_app_installation_id,
-                                           if_match=if_match)
-    elif team_id is not None and conversation_member_id is not None:
-        return client.delete_member(team_id=team_id,
-                                    conversation_member_id=conversation_member_id,
-                                    if_match=if_match)
-    elif team_id is not None and teams_async_operation_id is not None:
-        return client.delete_operation(team_id=team_id,
-                                       teams_async_operation_id=teams_async_operation_id,
-                                       if_match=if_match)
-    elif team_id is not None:
-        return client.delete_ref_group(team_id=team_id,
-                                       if_match=if_match)
-    elif team_id is not None:
-        return client.delete_primary_channel(team_id=team_id,
-                                             if_match=if_match)
-    elif team_id is not None:
-        return client.delete_schedule(team_id=team_id,
-                                      if_match=if_match)
-    return client.delete_ref_template(team_id=team_id,
-                                      if_match=if_match)
 
 
 def teams_team_archive(client,
@@ -771,8 +540,10 @@ def teams_team_archive(client,
                        should_set_spo_site_read_only_for_members=None):
     if should_set_spo_site_read_only_for_members is None:
         should_set_spo_site_read_only_for_members = False
+    body = {}
+    body['should_set_spo_site_read_only_for_members'] = False if should_set_spo_site_read_only_for_members is None else should_set_spo_site_read_only_for_members
     return client.archive(team_id=team_id,
-                          should_set_spo_site_read_only_for_members=should_set_spo_site_read_only_for_members)
+                          body=body)
 
 
 def teams_team_clone(client,
@@ -783,13 +554,15 @@ def teams_team_clone(client,
                      classification=None,
                      visibility=None,
                      parts_to_clone=None):
+    body = {}
+    body['display_name'] = display_name
+    body['description'] = description
+    body['mail_nickname'] = mail_nickname
+    body['classification'] = classification
+    body['visibility'] = visibility
+    body['parts_to_clone'] = parts_to_clone
     return client.clone(team_id=team_id,
-                        display_name=display_name,
-                        description=description,
-                        mail_nickname=mail_nickname,
-                        classification=classification,
-                        visibility=visibility,
-                        parts_to_clone=parts_to_clone)
+                        body=body)
 
 
 def teams_team_create_channel(client,
@@ -804,36 +577,41 @@ def teams_team_create_channel(client,
                               members=None,
                               messages=None,
                               tabs=None):
-    return client.create_channel(team_id=team_id,
-                                 id=id_,
-                                 description=description,
-                                 display_name=display_name,
-                                 email=email,
-                                 membership_type=membership_type,
-                                 web_url=web_url,
-                                 files_folder=files_folder,
-                                 members=members,
-                                 messages=messages,
-                                 tabs=tabs)
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['display_name'] = display_name
+    body['email'] = email
+    body['membership_type'] = membership_type
+    body['web_url'] = web_url
+    body['files_folder'] = files_folder
+    body['members'] = members
+    body['messages'] = messages
+    body['tabs'] = tabs
+    return client.create_channels(team_id=team_id,
+                                  body=body)
 
 
 def teams_team_create_installed_app(client,
                                     team_id,
                                     id_=None,
                                     teams_app_definition=None,
-                                    teams_app_id=None,
-                                    teams_app_display_name=None,
-                                    teams_app_distribution_method=None,
-                                    teams_app_external_id=None,
-                                    teams_app_app_definitions=None):
-    return client.create_installed_app(team_id=team_id,
-                                       id=id_,
-                                       teams_app_definition=teams_app_definition,
-                                       microsoft_graph_entity_id=teams_app_id,
-                                       display_name=teams_app_display_name,
-                                       distribution_method=teams_app_distribution_method,
-                                       external_id=teams_app_external_id,
-                                       app_definitions=teams_app_app_definitions)
+                                    microsoft_graph_entity_id=None,
+                                    display_name=None,
+                                    distribution_method=None,
+                                    external_id=None,
+                                    app_definitions=None):
+    body = {}
+    body['id'] = id_
+    body['teams_app_definition'] = teams_app_definition
+    body['teams_app'] = {}
+    body['teams_app']['id'] = microsoft_graph_entity_id
+    body['teams_app']['display_name'] = display_name
+    body['teams_app']['distribution_method'] = distribution_method
+    body['teams_app']['external_id'] = external_id
+    body['teams_app']['app_definitions'] = app_definitions
+    return client.create_installed_apps(team_id=team_id,
+                                        body=body)
 
 
 def teams_team_create_member(client,
@@ -841,10 +619,12 @@ def teams_team_create_member(client,
                              id_=None,
                              display_name=None,
                              roles=None):
-    return client.create_member(team_id=team_id,
-                                id=id_,
-                                display_name=display_name,
-                                roles=roles)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['roles'] = roles
+    return client.create_members(team_id=team_id,
+                                 body=body)
 
 
 def teams_team_create_operation(client,
@@ -858,110 +638,82 @@ def teams_team_create_operation(client,
                                 status=None,
                                 target_resource_id=None,
                                 target_resource_location=None):
-    return client.create_operation(team_id=team_id,
-                                   id=id_,
-                                   attempts_count=attempts_count,
-                                   created_date_time=created_date_time,
-                                   error=error,
-                                   last_action_date_time=last_action_date_time,
-                                   operation_type=operation_type,
-                                   status=status,
-                                   target_resource_id=target_resource_id,
-                                   target_resource_location=target_resource_location)
+    body = {}
+    body['id'] = id_
+    body['attempts_count'] = attempts_count
+    body['created_date_time'] = created_date_time
+    body['error'] = error
+    body['last_action_date_time'] = last_action_date_time
+    body['operation_type'] = operation_type
+    body['status'] = status
+    body['target_resource_id'] = target_resource_id
+    body['target_resource_location'] = target_resource_location
+    return client.create_operations(team_id=team_id,
+                                    body=body)
 
 
-def teams_team_get_all_message(client):
-    return client.get_all_message()
+def teams_team_delete_channel(client,
+                              team_id,
+                              channel_id,
+                              if_match=None):
+    return client.delete_channels(team_id=team_id,
+                                  channel_id=channel_id,
+                                  if_match=if_match)
 
 
-def teams_team_get_channel(client,
-                           team_id,
-                           channel_id,
-                           select=None,
-                           expand=None):
-    return client.get_channel(team_id=team_id,
-                              channel_id=channel_id,
-                              select=select,
-                              expand=expand)
+def teams_team_delete_installed_app(client,
+                                    team_id,
+                                    teams_app_installation_id,
+                                    if_match=None):
+    return client.delete_installed_apps(team_id=team_id,
+                                        teams_app_installation_id=teams_app_installation_id,
+                                        if_match=if_match)
 
 
-def teams_team_get_group(client,
-                         team_id,
-                         select=None,
-                         expand=None):
-    return client.get_group(team_id=team_id,
-                            select=select,
-                            expand=expand)
-
-
-def teams_team_get_installed_app(client,
-                                 team_id,
-                                 teams_app_installation_id,
-                                 select=None,
-                                 expand=None):
-    return client.get_installed_app(team_id=team_id,
-                                    teams_app_installation_id=teams_app_installation_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def teams_team_get_member(client,
-                          team_id,
-                          conversation_member_id,
-                          select=None,
-                          expand=None):
-    return client.get_member(team_id=team_id,
-                             conversation_member_id=conversation_member_id,
-                             select=select,
-                             expand=expand)
-
-
-def teams_team_get_operation(client,
+def teams_team_delete_member(client,
                              team_id,
-                             teams_async_operation_id,
-                             select=None,
-                             expand=None):
-    return client.get_operation(team_id=team_id,
-                                teams_async_operation_id=teams_async_operation_id,
-                                select=select,
-                                expand=expand)
+                             conversation_member_id,
+                             if_match=None):
+    return client.delete_members(team_id=team_id,
+                                 conversation_member_id=conversation_member_id,
+                                 if_match=if_match)
 
 
-def teams_team_get_primary_channel(client,
+def teams_team_delete_operation(client,
+                                team_id,
+                                teams_async_operation_id,
+                                if_match=None):
+    return client.delete_operations(team_id=team_id,
+                                    teams_async_operation_id=teams_async_operation_id,
+                                    if_match=if_match)
+
+
+def teams_team_delete_primary_channel(client,
+                                      team_id,
+                                      if_match=None):
+    return client.delete_primary_channel(team_id=team_id,
+                                         if_match=if_match)
+
+
+def teams_team_delete_ref_group(client,
+                                team_id,
+                                if_match=None):
+    return client.delete_ref_group(team_id=team_id,
+                                   if_match=if_match)
+
+
+def teams_team_delete_ref_template(client,
                                    team_id,
-                                   select=None,
-                                   expand=None):
-    return client.get_primary_channel(team_id=team_id,
-                                      select=select,
-                                      expand=expand)
+                                   if_match=None):
+    return client.delete_ref_template(team_id=team_id,
+                                      if_match=if_match)
 
 
-def teams_team_get_ref_group(client,
-                             team_id):
-    return client.get_ref_group(team_id=team_id)
-
-
-def teams_team_get_ref_template(client,
-                                team_id):
-    return client.get_ref_template(team_id=team_id)
-
-
-def teams_team_get_schedule(client,
-                            team_id,
-                            select=None,
-                            expand=None):
-    return client.get_schedule(team_id=team_id,
-                               select=select,
-                               expand=expand)
-
-
-def teams_team_get_template(client,
-                            team_id,
-                            select=None,
-                            expand=None):
-    return client.get_template(team_id=team_id,
-                               select=select,
-                               expand=expand)
+def teams_team_delete_schedule(client,
+                               team_id,
+                               if_match=None):
+    return client.delete_schedule(team_id=team_id,
+                                  if_match=if_match)
 
 
 def teams_team_list_channel(client,
@@ -969,10 +721,10 @@ def teams_team_list_channel(client,
                             orderby=None,
                             select=None,
                             expand=None):
-    return client.list_channel(team_id=team_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
+    return client.list_channels(team_id=team_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
 
 
 def teams_team_list_installed_app(client,
@@ -980,10 +732,10 @@ def teams_team_list_installed_app(client,
                                   orderby=None,
                                   select=None,
                                   expand=None):
-    return client.list_installed_app(team_id=team_id,
-                                     orderby=orderby,
-                                     select=select,
-                                     expand=expand)
+    return client.list_installed_apps(team_id=team_id,
+                                      orderby=orderby,
+                                      select=select,
+                                      expand=expand)
 
 
 def teams_team_list_member(client,
@@ -991,10 +743,10 @@ def teams_team_list_member(client,
                            orderby=None,
                            select=None,
                            expand=None):
-    return client.list_member(team_id=team_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_members(team_id=team_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def teams_team_list_operation(client,
@@ -1002,10 +754,10 @@ def teams_team_list_operation(client,
                               orderby=None,
                               select=None,
                               expand=None):
-    return client.list_operation(team_id=team_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_operations(team_id=team_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def teams_team_set_ref_group(client,
@@ -1020,6 +772,100 @@ def teams_team_set_ref_template(client,
                                 body):
     return client.set_ref_template(team_id=team_id,
                                    body=body)
+
+
+def teams_team_show_all_message(client):
+    return client.get_all_messages()
+
+
+def teams_team_show_channel(client,
+                            team_id,
+                            channel_id,
+                            select=None,
+                            expand=None):
+    return client.get_channels(team_id=team_id,
+                               channel_id=channel_id,
+                               select=select,
+                               expand=expand)
+
+
+def teams_team_show_group(client,
+                          team_id,
+                          select=None,
+                          expand=None):
+    return client.get_group(team_id=team_id,
+                            select=select,
+                            expand=expand)
+
+
+def teams_team_show_installed_app(client,
+                                  team_id,
+                                  teams_app_installation_id,
+                                  select=None,
+                                  expand=None):
+    return client.get_installed_apps(team_id=team_id,
+                                     teams_app_installation_id=teams_app_installation_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def teams_team_show_member(client,
+                           team_id,
+                           conversation_member_id,
+                           select=None,
+                           expand=None):
+    return client.get_members(team_id=team_id,
+                              conversation_member_id=conversation_member_id,
+                              select=select,
+                              expand=expand)
+
+
+def teams_team_show_operation(client,
+                              team_id,
+                              teams_async_operation_id,
+                              select=None,
+                              expand=None):
+    return client.get_operations(team_id=team_id,
+                                 teams_async_operation_id=teams_async_operation_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def teams_team_show_primary_channel(client,
+                                    team_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_primary_channel(team_id=team_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def teams_team_show_ref_group(client,
+                              team_id):
+    return client.get_ref_group(team_id=team_id)
+
+
+def teams_team_show_ref_template(client,
+                                 team_id):
+    return client.get_ref_template(team_id=team_id)
+
+
+def teams_team_show_schedule(client,
+                             team_id,
+                             select=None,
+                             expand=None):
+    return client.get_schedule(team_id=team_id,
+                               select=select,
+                               expand=expand)
+
+
+def teams_team_show_template(client,
+                             team_id,
+                             select=None,
+                             expand=None):
+    return client.get_template(team_id=team_id,
+                               select=select,
+                               expand=expand)
 
 
 def teams_team_unarchive(client,
@@ -1040,18 +886,20 @@ def teams_team_update_channel(client,
                               members=None,
                               messages=None,
                               tabs=None):
-    return client.update_channel(team_id=team_id,
-                                 channel_id=channel_id,
-                                 id=id_,
-                                 description=description,
-                                 display_name=display_name,
-                                 email=email,
-                                 membership_type=membership_type,
-                                 web_url=web_url,
-                                 files_folder=files_folder,
-                                 members=members,
-                                 messages=messages,
-                                 tabs=tabs)
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['display_name'] = display_name
+    body['email'] = email
+    body['membership_type'] = membership_type
+    body['web_url'] = web_url
+    body['files_folder'] = files_folder
+    body['members'] = members
+    body['messages'] = messages
+    body['tabs'] = tabs
+    return client.update_channels(team_id=team_id,
+                                  channel_id=channel_id,
+                                  body=body)
 
 
 def teams_team_update_installed_app(client,
@@ -1059,20 +907,23 @@ def teams_team_update_installed_app(client,
                                     teams_app_installation_id,
                                     id_=None,
                                     teams_app_definition=None,
-                                    teams_app_id=None,
-                                    teams_app_display_name=None,
-                                    teams_app_distribution_method=None,
-                                    teams_app_external_id=None,
-                                    teams_app_app_definitions=None):
-    return client.update_installed_app(team_id=team_id,
-                                       teams_app_installation_id=teams_app_installation_id,
-                                       id=id_,
-                                       teams_app_definition=teams_app_definition,
-                                       microsoft_graph_entity_id=teams_app_id,
-                                       display_name=teams_app_display_name,
-                                       distribution_method=teams_app_distribution_method,
-                                       external_id=teams_app_external_id,
-                                       app_definitions=teams_app_app_definitions)
+                                    microsoft_graph_entity_id=None,
+                                    display_name=None,
+                                    distribution_method=None,
+                                    external_id=None,
+                                    app_definitions=None):
+    body = {}
+    body['id'] = id_
+    body['teams_app_definition'] = teams_app_definition
+    body['teams_app'] = {}
+    body['teams_app']['id'] = microsoft_graph_entity_id
+    body['teams_app']['display_name'] = display_name
+    body['teams_app']['distribution_method'] = distribution_method
+    body['teams_app']['external_id'] = external_id
+    body['teams_app']['app_definitions'] = app_definitions
+    return client.update_installed_apps(team_id=team_id,
+                                        teams_app_installation_id=teams_app_installation_id,
+                                        body=body)
 
 
 def teams_team_update_member(client,
@@ -1081,11 +932,13 @@ def teams_team_update_member(client,
                              id_=None,
                              display_name=None,
                              roles=None):
-    return client.update_member(team_id=team_id,
-                                conversation_member_id=conversation_member_id,
-                                id=id_,
-                                display_name=display_name,
-                                roles=roles)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['roles'] = roles
+    return client.update_members(team_id=team_id,
+                                 conversation_member_id=conversation_member_id,
+                                 body=body)
 
 
 def teams_team_update_operation(client,
@@ -1100,17 +953,19 @@ def teams_team_update_operation(client,
                                 status=None,
                                 target_resource_id=None,
                                 target_resource_location=None):
-    return client.update_operation(team_id=team_id,
-                                   teams_async_operation_id=teams_async_operation_id,
-                                   id=id_,
-                                   attempts_count=attempts_count,
-                                   created_date_time=created_date_time,
-                                   error=error,
-                                   last_action_date_time=last_action_date_time,
-                                   operation_type=operation_type,
-                                   status=status,
-                                   target_resource_id=target_resource_id,
-                                   target_resource_location=target_resource_location)
+    body = {}
+    body['id'] = id_
+    body['attempts_count'] = attempts_count
+    body['created_date_time'] = created_date_time
+    body['error'] = error
+    body['last_action_date_time'] = last_action_date_time
+    body['operation_type'] = operation_type
+    body['status'] = status
+    body['target_resource_id'] = target_resource_id
+    body['target_resource_location'] = target_resource_location
+    return client.update_operations(team_id=team_id,
+                                    teams_async_operation_id=teams_async_operation_id,
+                                    body=body)
 
 
 def teams_team_update_primary_channel(client,
@@ -1125,17 +980,19 @@ def teams_team_update_primary_channel(client,
                                       members=None,
                                       messages=None,
                                       tabs=None):
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['display_name'] = display_name
+    body['email'] = email
+    body['membership_type'] = membership_type
+    body['web_url'] = web_url
+    body['files_folder'] = files_folder
+    body['members'] = members
+    body['messages'] = messages
+    body['tabs'] = tabs
     return client.update_primary_channel(team_id=team_id,
-                                         id=id_,
-                                         description=description,
-                                         display_name=display_name,
-                                         email=email,
-                                         membership_type=membership_type,
-                                         web_url=web_url,
-                                         files_folder=files_folder,
-                                         members=members,
-                                         messages=messages,
-                                         tabs=tabs)
+                                         body=body)
 
 
 def teams_team_update_schedule(client,
@@ -1160,54 +1017,29 @@ def teams_team_update_schedule(client,
                                time_off_reasons=None,
                                time_off_requests=None,
                                times_off=None):
+    body = {}
+    body['id'] = id_
+    body['enabled'] = enabled
+    body['offer_shift_requests_enabled'] = offer_shift_requests_enabled
+    body['open_shifts_enabled'] = open_shifts_enabled
+    body['provision_status'] = provision_status
+    body['provision_status_code'] = provision_status_code
+    body['swap_shifts_requests_enabled'] = swap_shifts_requests_enabled
+    body['time_clock_enabled'] = time_clock_enabled
+    body['time_off_requests_enabled'] = time_off_requests_enabled
+    body['time_zone'] = time_zone
+    body['workforce_integration_ids'] = workforce_integration_ids
+    body['offer_shift_requests'] = offer_shift_requests
+    body['open_shift_change_requests'] = open_shift_change_requests
+    body['open_shifts'] = open_shifts
+    body['scheduling_groups'] = scheduling_groups
+    body['shifts'] = shifts
+    body['swap_shifts_change_requests'] = swap_shifts_change_requests
+    body['time_off_reasons'] = time_off_reasons
+    body['time_off_requests'] = time_off_requests
+    body['times_off'] = times_off
     return client.update_schedule(team_id=team_id,
-                                  id=id_,
-                                  enabled=enabled,
-                                  offer_shift_requests_enabled=offer_shift_requests_enabled,
-                                  open_shifts_enabled=open_shifts_enabled,
-                                  provision_status=provision_status,
-                                  provision_status_code=provision_status_code,
-                                  swap_shifts_requests_enabled=swap_shifts_requests_enabled,
-                                  time_clock_enabled=time_clock_enabled,
-                                  time_off_requests_enabled=time_off_requests_enabled,
-                                  time_zone=time_zone,
-                                  workforce_integration_ids=workforce_integration_ids,
-                                  offer_shift_requests=offer_shift_requests,
-                                  open_shift_change_requests=open_shift_change_requests,
-                                  open_shifts=open_shifts,
-                                  scheduling_groups=scheduling_groups,
-                                  shifts=shifts,
-                                  swap_shifts_change_requests=swap_shifts_change_requests,
-                                  time_off_reasons=time_off_reasons,
-                                  time_off_requests=time_off_requests,
-                                  times_off=times_off)
-
-
-def teams_team_channel_delete(client,
-                              team_id,
-                              channel_id,
-                              conversation_member_id=None,
-                              if_match=None,
-                              chat_message_id=None,
-                              teams_tab_id=None):
-    if team_id is not None and channel_id is not None and conversation_member_id is not None:
-        return client.delete_member(team_id=team_id,
-                                    channel_id=channel_id,
-                                    conversation_member_id=conversation_member_id,
-                                    if_match=if_match)
-    elif team_id is not None and channel_id is not None and chat_message_id is not None:
-        return client.delete_message(team_id=team_id,
-                                     channel_id=channel_id,
-                                     chat_message_id=chat_message_id,
-                                     if_match=if_match)
-    elif team_id is not None and channel_id is not None and teams_tab_id is not None:
-        return client.delete_tab(team_id=team_id,
-                                 channel_id=channel_id,
-                                 teams_tab_id=teams_tab_id,
-                                 if_match=if_match)
-    return client.delete_file_folder(team_id=team_id,
-                                     channel_id=channel_id,
-                                     if_match=if_match)
+                                  body=body)
 
 
 def teams_team_channel_create_member(client,
@@ -1216,19 +1048,21 @@ def teams_team_channel_create_member(client,
                                      id_=None,
                                      display_name=None,
                                      roles=None):
-    return client.create_member(team_id=team_id,
-                                channel_id=channel_id,
-                                id=id_,
-                                display_name=display_name,
-                                roles=roles)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['roles'] = roles
+    return client.create_members(team_id=team_id,
+                                 channel_id=channel_id,
+                                 body=body)
 
 
 def teams_team_channel_create_message(client,
                                       team_id,
                                       channel_id,
+                                      body,
                                       id_=None,
                                       attachments=None,
-                                      body=None,
                                       created_date_time=None,
                                       deleted_date_time=None,
                                       etag=None,
@@ -1245,49 +1079,47 @@ def teams_team_channel_create_message(client,
                                       web_url=None,
                                       hosted_contents=None,
                                       replies=None,
-                                      policy_violation_dlp_action=None,
-                                      policy_violation_justification_text=None,
-                                      policy_violation_policy_tip=None,
-                                      policy_violation_user_action=None,
-                                      policy_violation_verdict_details=None,
-                                      from_user_display_name=None,
-                                      from_user_id=None,
-                                      from_device_display_name=None,
-                                      from_device_id=None,
-                                      from_application_display_name=None,
-                                      from_application_id=None):
-    return client.create_message(team_id=team_id,
-                                 channel_id=channel_id,
-                                 id=id_,
-                                 attachments=attachments,
-                                 body=body,
-                                 created_date_time=created_date_time,
-                                 deleted_date_time=deleted_date_time,
-                                 etag=etag,
-                                 importance=importance,
-                                 last_edited_date_time=last_edited_date_time,
-                                 last_modified_date_time=last_modified_date_time,
-                                 locale=locale,
-                                 mentions=mentions,
-                                 message_type=message_type,
-                                 reactions=reactions,
-                                 reply_to_id=reply_to_id,
-                                 subject=subject,
-                                 summary=summary,
-                                 web_url=web_url,
-                                 hosted_contents=hosted_contents,
-                                 replies=replies,
-                                 dlp_action=policy_violation_dlp_action,
-                                 justification_text=policy_violation_justification_text,
-                                 policy_tip=policy_violation_policy_tip,
-                                 user_action=policy_violation_user_action,
-                                 verdict_details=policy_violation_verdict_details,
-                                 display_name=from_user_display_name,
-                                 microsoft_graph_identity_id=from_user_id,
-                                 microsoft_graph_identity_display_name=from_device_display_name,
-                                 id1=from_device_id,
-                                 display_name1=from_application_display_name,
-                                 id2=from_application_id)
+                                      dlp_action=None,
+                                      justification_text=None,
+                                      policy_tip=None,
+                                      user_action=None,
+                                      verdict_details=None,
+                                      application=None,
+                                      device=None,
+                                      user=None):
+    body = {}
+    body['id'] = id_
+    body['attachments'] = attachments
+    body['body'] = body
+    body['created_date_time'] = created_date_time
+    body['deleted_date_time'] = deleted_date_time
+    body['etag'] = etag
+    body['importance'] = importance
+    body['last_edited_date_time'] = last_edited_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['locale'] = locale
+    body['mentions'] = mentions
+    body['message_type'] = message_type
+    body['reactions'] = reactions
+    body['reply_to_id'] = reply_to_id
+    body['subject'] = subject
+    body['summary'] = summary
+    body['web_url'] = web_url
+    body['hosted_contents'] = hosted_contents
+    body['replies'] = replies
+    body['policy_violation'] = {}
+    body['policy_violation']['dlp_action'] = dlp_action
+    body['policy_violation']['justification_text'] = justification_text
+    body['policy_violation']['policy_tip'] = policy_tip
+    body['policy_violation']['user_action'] = user_action
+    body['policy_violation']['verdict_details'] = verdict_details
+    body['from_property'] = {}
+    body['from_property']['application'] = application
+    body['from_property']['device'] = device
+    body['from_property']['user'] = user
+    return client.create_messages(team_id=team_id,
+                                  channel_id=channel_id,
+                                  body=body)
 
 
 def teams_team_channel_create_tab(client,
@@ -1297,72 +1129,67 @@ def teams_team_channel_create_tab(client,
                                   configuration=None,
                                   display_name=None,
                                   web_url=None,
-                                  teams_app_id=None,
-                                  teams_app_display_name=None,
-                                  teams_app_distribution_method=None,
-                                  teams_app_external_id=None,
-                                  teams_app_app_definitions=None):
-    return client.create_tab(team_id=team_id,
-                             channel_id=channel_id,
-                             id=id_,
-                             configuration=configuration,
-                             display_name=display_name,
-                             web_url=web_url,
-                             microsoft_graph_entity_id=teams_app_id,
-                             microsoft_graph_teams_app_display_name=teams_app_display_name,
-                             distribution_method=teams_app_distribution_method,
-                             external_id=teams_app_external_id,
-                             app_definitions=teams_app_app_definitions)
+                                  microsoft_graph_entity_id=None,
+                                  microsoft_graph_teams_app_display_name=None,
+                                  distribution_method=None,
+                                  external_id=None,
+                                  app_definitions=None):
+    body = {}
+    body['id'] = id_
+    body['configuration'] = configuration
+    body['display_name'] = display_name
+    body['web_url'] = web_url
+    body['teams_app'] = {}
+    body['teams_app']['id'] = microsoft_graph_entity_id
+    body['teams_app']['display_name'] = microsoft_graph_teams_app_display_name
+    body['teams_app']['distribution_method'] = distribution_method
+    body['teams_app']['external_id'] = external_id
+    body['teams_app']['app_definitions'] = app_definitions
+    return client.create_tabs(team_id=team_id,
+                              channel_id=channel_id,
+                              body=body)
 
 
-def teams_team_channel_get_file_folder(client,
-                                       team_id,
-                                       channel_id,
-                                       select=None,
-                                       expand=None):
-    return client.get_file_folder(team_id=team_id,
+def teams_team_channel_delete_file_folder(client,
+                                          team_id,
+                                          channel_id,
+                                          if_match=None):
+    return client.delete_files_folder(team_id=team_id,
+                                      channel_id=channel_id,
+                                      if_match=if_match)
+
+
+def teams_team_channel_delete_member(client,
+                                     team_id,
+                                     channel_id,
+                                     conversation_member_id,
+                                     if_match=None):
+    return client.delete_members(team_id=team_id,
+                                 channel_id=channel_id,
+                                 conversation_member_id=conversation_member_id,
+                                 if_match=if_match)
+
+
+def teams_team_channel_delete_message(client,
+                                      team_id,
+                                      channel_id,
+                                      chat_message_id,
+                                      if_match=None):
+    return client.delete_messages(team_id=team_id,
                                   channel_id=channel_id,
-                                  select=select,
-                                  expand=expand)
+                                  chat_message_id=chat_message_id,
+                                  if_match=if_match)
 
 
-def teams_team_channel_get_member(client,
+def teams_team_channel_delete_tab(client,
                                   team_id,
                                   channel_id,
-                                  conversation_member_id,
-                                  select=None,
-                                  expand=None):
-    return client.get_member(team_id=team_id,
-                             channel_id=channel_id,
-                             conversation_member_id=conversation_member_id,
-                             select=select,
-                             expand=expand)
-
-
-def teams_team_channel_get_message(client,
-                                   team_id,
-                                   channel_id,
-                                   chat_message_id,
-                                   select=None,
-                                   expand=None):
-    return client.get_message(team_id=team_id,
+                                  teams_tab_id,
+                                  if_match=None):
+    return client.delete_tabs(team_id=team_id,
                               channel_id=channel_id,
-                              chat_message_id=chat_message_id,
-                              select=select,
-                              expand=expand)
-
-
-def teams_team_channel_get_tab(client,
-                               team_id,
-                               channel_id,
-                               teams_tab_id,
-                               select=None,
-                               expand=None):
-    return client.get_tab(team_id=team_id,
-                          channel_id=channel_id,
-                          teams_tab_id=teams_tab_id,
-                          select=select,
-                          expand=expand)
+                              teams_tab_id=teams_tab_id,
+                              if_match=if_match)
 
 
 def teams_team_channel_list_member(client,
@@ -1371,11 +1198,11 @@ def teams_team_channel_list_member(client,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_member(team_id=team_id,
-                              channel_id=channel_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_members(team_id=team_id,
+                               channel_id=channel_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def teams_team_channel_list_message(client,
@@ -1384,11 +1211,11 @@ def teams_team_channel_list_message(client,
                                     orderby=None,
                                     select=None,
                                     expand=None):
-    return client.list_message(team_id=team_id,
-                               channel_id=channel_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
+    return client.list_messages(team_id=team_id,
+                                channel_id=channel_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
 
 
 def teams_team_channel_list_tab(client,
@@ -1397,9 +1224,59 @@ def teams_team_channel_list_tab(client,
                                 orderby=None,
                                 select=None,
                                 expand=None):
-    return client.list_tab(team_id=team_id,
+    return client.list_tabs(team_id=team_id,
+                            channel_id=channel_id,
+                            orderby=orderby,
+                            select=select,
+                            expand=expand)
+
+
+def teams_team_channel_show_file_folder(client,
+                                        team_id,
+                                        channel_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_files_folder(team_id=team_id,
+                                   channel_id=channel_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def teams_team_channel_show_member(client,
+                                   team_id,
+                                   channel_id,
+                                   conversation_member_id,
+                                   select=None,
+                                   expand=None):
+    return client.get_members(team_id=team_id,
+                              channel_id=channel_id,
+                              conversation_member_id=conversation_member_id,
+                              select=select,
+                              expand=expand)
+
+
+def teams_team_channel_show_message(client,
+                                    team_id,
+                                    channel_id,
+                                    chat_message_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_messages(team_id=team_id,
+                               channel_id=channel_id,
+                               chat_message_id=chat_message_id,
+                               select=select,
+                               expand=expand)
+
+
+def teams_team_channel_show_tab(client,
+                                team_id,
+                                channel_id,
+                                teams_tab_id,
+                                select=None,
+                                expand=None):
+    return client.get_tabs(team_id=team_id,
                            channel_id=channel_id,
-                           orderby=orderby,
+                           teams_tab_id=teams_tab_id,
                            select=select,
                            expand=expand)
 
@@ -1407,7 +1284,7 @@ def teams_team_channel_list_tab(client,
 def teams_team_channel_update_file_folder(client,
                                           team_id,
                                           channel_id,
-                                          list_item_content_type,
+                                          content_type,
                                           id_=None,
                                           created_date_time=None,
                                           description=None,
@@ -1417,26 +1294,20 @@ def teams_team_channel_update_file_folder(client,
                                           web_url=None,
                                           created_by_user=None,
                                           last_modified_by_user=None,
-                                          parent_reference_drive_id=None,
-                                          parent_reference_drive_type=None,
-                                          parent_reference_id=None,
-                                          parent_reference_name=None,
-                                          parent_reference_path=None,
-                                          parent_reference_share_id=None,
-                                          parent_reference_sharepoint_ids=None,
-                                          parent_reference_site_id=None,
-                                          last_modified_by_user_display_name=None,
-                                          last_modified_by_user_id=None,
-                                          last_modified_by_device_display_name=None,
-                                          last_modified_by_device_id=None,
-                                          last_modified_by_application_display_name=None,
-                                          last_modified_by_application_id=None,
-                                          created_by_user_display_name=None,
-                                          created_by_user_id=None,
-                                          created_by_device_display_name=None,
-                                          created_by_device_id=None,
-                                          created_by_application_display_name=None,
-                                          created_by_application_id=None,
+                                          drive_id=None,
+                                          drive_type=None,
+                                          microsoft_graph_item_reference_id=None,
+                                          microsoft_graph_item_reference_name=None,
+                                          path=None,
+                                          share_id=None,
+                                          sharepoint_ids=None,
+                                          site_id=None,
+                                          application=None,
+                                          device=None,
+                                          user=None,
+                                          microsoft_graph_identity_application=None,
+                                          microsoft_graph_identity_device=None,
+                                          microsoft_graph_identity_user=None,
                                           audio=None,
                                           content=None,
                                           c_tag=None,
@@ -1455,214 +1326,216 @@ def teams_team_channel_update_file_folder(client,
                                           subscriptions=None,
                                           thumbnails=None,
                                           versions=None,
-                                          list_item_id=None,
-                                          list_item_created_date_time=None,
-                                          list_item_description=None,
-                                          list_item_e_tag=None,
-                                          list_item_last_modified_date_time=None,
-                                          list_item_name=None,
-                                          list_item_web_url=None,
-                                          list_item_created_by_user=None,
-                                          list_item_last_modified_by_user=None,
-                                          list_item_parent_reference_drive_id=None,
-                                          list_item_parent_reference_drive_type=None,
-                                          list_item_parent_reference_id=None,
-                                          list_item_parent_reference_name=None,
-                                          list_item_parent_reference_path=None,
-                                          list_item_parent_reference_share_id=None,
-                                          list_item_parent_reference_sharepoint_ids=None,
-                                          list_item_parent_reference_site_id=None,
-                                          list_item_last_modified_by_user_display_name=None,
-                                          list_item_last_modified_by_user_id=None,
-                                          list_item_last_modified_by_device_display_name=None,
-                                          list_item_last_modified_by_device_id=None,
-                                          list_item_last_modified_by_application_display_name=None,
-                                          list_item_last_modified_by_application_id=None,
-                                          list_item_created_by_user_display_name=None,
-                                          list_item_created_by_user_id=None,
-                                          list_item_created_by_device_display_name=None,
-                                          list_item_created_by_device_id=None,
-                                          list_item_created_by_application_display_name=None,
-                                          list_item_created_by_application_id=None,
-                                          list_item_sharepoint_ids=None,
-                                          list_item_analytics=None,
-                                          list_item_drive_item=None,
-                                          list_item_fields=None,
-                                          list_item_versions=None,
-                                          analytics_id=None,
-                                          analytics_all_time=None,
-                                          analytics_item_activity_stats=None,
-                                          analytics_last_seven_days=None,
-                                          workbook_id=None,
-                                          workbook_application=None,
-                                          workbook_comments=None,
-                                          workbook_functions=None,
-                                          workbook_names=None,
-                                          workbook_operations=None,
-                                          workbook_tables=None,
-                                          workbook_worksheets=None,
-                                          special_folder_name=None,
-                                          shared_owner=None,
-                                          shared_scope=None,
-                                          shared_shared_by=None,
-                                          shared_shared_date_time=None,
-                                          search_result_on_click_telemetry_url=None,
-                                          remote_item_created_by=None,
-                                          remote_item_created_date_time=None,
-                                          remote_item_file=None,
-                                          remote_item_file_system_info=None,
-                                          remote_item_folder=None,
-                                          remote_item_id=None,
-                                          remote_item_image=None,
-                                          remote_item_last_modified_by=None,
-                                          remote_item_last_modified_date_time=None,
-                                          remote_item_name=None,
-                                          remote_item_package=None,
-                                          remote_item_parent_reference=None,
-                                          remote_item_shared=None,
-                                          remote_item_sharepoint_ids=None,
-                                          remote_item_size=None,
-                                          remote_item_special_folder=None,
-                                          remote_item_video=None,
-                                          remote_item_web_dav_url=None,
-                                          remote_item_web_url=None,
-                                          pending_operations_pending_content_update_queued_date_time=None,
-                                          package_type=None,
-                                          folder_child_count=None,
-                                          folder_view=None,
-                                          file_hashes=None,
-                                          file_mime_type=None,
-                                          file_processing_metadata=None,
-                                          deleted_state=None):
-    return client.update_file_folder(team_id=team_id,
-                                     channel_id=channel_id,
-                                     id=id_,
-                                     created_date_time=created_date_time,
-                                     description=description,
-                                     e_tag=e_tag,
-                                     last_modified_date_time=last_modified_date_time,
-                                     name=name,
-                                     web_url=web_url,
-                                     created_by_user=created_by_user,
-                                     last_modified_by_user=last_modified_by_user,
-                                     drive_id=parent_reference_drive_id,
-                                     drive_type=parent_reference_drive_type,
-                                     microsoft_graph_item_reference_id=parent_reference_id,
-                                     microsoft_graph_item_reference_name=parent_reference_name,
-                                     path=parent_reference_path,
-                                     share_id=parent_reference_share_id,
-                                     sharepoint_ids=parent_reference_sharepoint_ids,
-                                     site_id=parent_reference_site_id,
-                                     display_name=last_modified_by_user_display_name,
-                                     microsoft_graph_identity_id=last_modified_by_user_id,
-                                     microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                     id1=last_modified_by_device_id,
-                                     display_name1=last_modified_by_application_display_name,
-                                     id2=last_modified_by_application_id,
-                                     display_name2=created_by_user_display_name,
-                                     id3=created_by_user_id,
-                                     display_name3=created_by_device_display_name,
-                                     id4=created_by_device_id,
-                                     display_name4=created_by_application_display_name,
-                                     id5=created_by_application_id,
-                                     audio=audio,
-                                     content=content,
-                                     c_tag=c_tag,
-                                     file_system_info=file_system_info,
-                                     image=image,
-                                     location=location,
-                                     photo=photo,
-                                     publication=publication,
-                                     root=root,
-                                     microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                                     size=size,
-                                     video=video,
-                                     web_dav_url=web_dav_url,
-                                     children=children,
-                                     permissions=permissions,
-                                     subscriptions=subscriptions,
-                                     thumbnails=thumbnails,
-                                     versions=versions,
-                                     microsoft_graph_entity_id=list_item_id,
-                                     microsoft_graph_base_item_created_date_time_created_date_time=list_item_created_date_time,
-                                     microsoft_graph_base_item_description=list_item_description,
-                                     microsoft_graph_base_item_e_tag=list_item_e_tag,
-                                     microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_item_last_modified_date_time,
-                                     microsoft_graph_base_item_name=list_item_name,
-                                     microsoft_graph_base_item_web_url=list_item_web_url,
-                                     microsoft_graph_user_created_by_user=list_item_created_by_user,
-                                     microsoft_graph_user_last_modified_by_user=list_item_last_modified_by_user,
-                                     microsoft_graph_item_reference_drive_id=list_item_parent_reference_drive_id,
-                                     microsoft_graph_item_reference_drive_type=list_item_parent_reference_drive_type,
-                                     id6=list_item_parent_reference_id,
-                                     name1=list_item_parent_reference_name,
-                                     microsoft_graph_item_reference_path=list_item_parent_reference_path,
-                                     microsoft_graph_item_reference_share_id=list_item_parent_reference_share_id,
-                                     sharepoint_ids1=list_item_parent_reference_sharepoint_ids,
-                                     microsoft_graph_item_reference_site_id=list_item_parent_reference_site_id,
-                                     display_name5=list_item_last_modified_by_user_display_name,
-                                     id7=list_item_last_modified_by_user_id,
-                                     display_name6=list_item_last_modified_by_device_display_name,
-                                     id8=list_item_last_modified_by_device_id,
-                                     display_name7=list_item_last_modified_by_application_display_name,
-                                     id9=list_item_last_modified_by_application_id,
-                                     display_name8=list_item_created_by_user_display_name,
-                                     id10=list_item_created_by_user_id,
-                                     display_name9=list_item_created_by_device_display_name,
-                                     id11=list_item_created_by_device_id,
-                                     display_name10=list_item_created_by_application_display_name,
-                                     id12=list_item_created_by_application_id,
-                                     content_type_parameter=list_item_content_type,
-                                     sharepoint_ids2=list_item_sharepoint_ids,
-                                     analytics=list_item_analytics,
-                                     drive_item=list_item_drive_item,
-                                     fields=list_item_fields,
-                                     microsoft_graph_list_item_versions=list_item_versions,
-                                     id13=analytics_id,
-                                     all_time=analytics_all_time,
-                                     item_activity_stats=analytics_item_activity_stats,
-                                     last_seven_days=analytics_last_seven_days,
-                                     id14=workbook_id,
-                                     application=workbook_application,
-                                     comments=workbook_comments,
-                                     functions=workbook_functions,
-                                     names=workbook_names,
-                                     operations=workbook_operations,
-                                     tables=workbook_tables,
-                                     worksheets=workbook_worksheets,
-                                     microsoft_graph_special_folder_name=special_folder_name,
-                                     owner=shared_owner,
-                                     scope=shared_scope,
-                                     shared_by=shared_shared_by,
-                                     shared_date_time=shared_shared_date_time,
-                                     on_click_telemetry_url=search_result_on_click_telemetry_url,
-                                     created_by=remote_item_created_by,
-                                     microsoft_graph_remote_item_created_date_time_created_date_time=remote_item_created_date_time,
-                                     file=remote_item_file,
-                                     microsoft_graph_file_system_info_file_system_info=remote_item_file_system_info,
-                                     folder=remote_item_folder,
-                                     microsoft_graph_remote_item_id=remote_item_id,
-                                     microsoft_graph_image=remote_item_image,
-                                     last_modified_by=remote_item_last_modified_by,
-                                     microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=remote_item_last_modified_date_time,
-                                     microsoft_graph_remote_item_name=remote_item_name,
-                                     package=remote_item_package,
-                                     parent_reference=remote_item_parent_reference,
-                                     shared=remote_item_shared,
-                                     sharepoint_ids3=remote_item_sharepoint_ids,
-                                     integer_size=remote_item_size,
-                                     special_folder=remote_item_special_folder,
-                                     microsoft_graph_video=remote_item_video,
-                                     microsoft_graph_remote_item_web_dav_url_web_dav_url=remote_item_web_dav_url,
-                                     microsoft_graph_remote_item_web_url=remote_item_web_url,
-                                     queued_date_time=pending_operations_pending_content_update_queued_date_time,
-                                     type=package_type,
-                                     child_count=folder_child_count,
-                                     view=folder_view,
-                                     hashes=file_hashes,
-                                     mime_type=file_mime_type,
-                                     processing_metadata=file_processing_metadata,
-                                     state=deleted_state)
+                                          microsoft_graph_entity_id=None,
+                                          microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                          microsoft_graph_base_item_description=None,
+                                          microsoft_graph_base_item_e_tag=None,
+                                          microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                          microsoft_graph_base_item_name=None,
+                                          microsoft_graph_base_item_web_url=None,
+                                          microsoft_graph_user_created_by_user=None,
+                                          microsoft_graph_user_last_modified_by_user=None,
+                                          microsoft_graph_item_reference_drive_id=None,
+                                          microsoft_graph_item_reference_drive_type=None,
+                                          id1=None,
+                                          name1=None,
+                                          microsoft_graph_item_reference_path=None,
+                                          microsoft_graph_item_reference_share_id=None,
+                                          sharepoint_ids1=None,
+                                          microsoft_graph_item_reference_site_id=None,
+                                          application1=None,
+                                          device1=None,
+                                          user1=None,
+                                          application2=None,
+                                          device2=None,
+                                          user2=None,
+                                          sharepoint_ids2=None,
+                                          analytics=None,
+                                          drive_item=None,
+                                          fields=None,
+                                          microsoft_graph_list_item_versions=None,
+                                          id2=None,
+                                          all_time=None,
+                                          item_activity_stats=None,
+                                          last_seven_days=None,
+                                          id3=None,
+                                          microsoft_graph_workbook_application=None,
+                                          comments=None,
+                                          functions=None,
+                                          names=None,
+                                          operations=None,
+                                          tables=None,
+                                          worksheets=None,
+                                          microsoft_graph_special_folder_name=None,
+                                          owner=None,
+                                          scope=None,
+                                          shared_by=None,
+                                          shared_date_time=None,
+                                          on_click_telemetry_url=None,
+                                          created_by=None,
+                                          microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                                          file=None,
+                                          microsoft_graph_file_system_info_file_system_info=None,
+                                          folder=None,
+                                          microsoft_graph_remote_item_id=None,
+                                          microsoft_graph_image=None,
+                                          last_modified_by=None,
+                                          microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                                          microsoft_graph_remote_item_name=None,
+                                          package=None,
+                                          parent_reference=None,
+                                          shared=None,
+                                          sharepoint_ids3=None,
+                                          integer_size=None,
+                                          special_folder=None,
+                                          microsoft_graph_video=None,
+                                          microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                                          microsoft_graph_remote_item_web_url=None,
+                                          queued_date_time=None,
+                                          type_=None,
+                                          child_count=None,
+                                          view=None,
+                                          hashes=None,
+                                          mime_type=None,
+                                          processing_metadata=None,
+                                          state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['fields'] = fields
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['analytics'] = {}
+    body['analytics']['id'] = id2
+    body['analytics']['all_time'] = all_time
+    body['analytics']['item_activity_stats'] = item_activity_stats
+    body['analytics']['last_seven_days'] = last_seven_days
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
+    return client.update_files_folder(team_id=team_id,
+                                      channel_id=channel_id,
+                                      body=body)
 
 
 def teams_team_channel_update_member(client,
@@ -1672,21 +1545,23 @@ def teams_team_channel_update_member(client,
                                      id_=None,
                                      display_name=None,
                                      roles=None):
-    return client.update_member(team_id=team_id,
-                                channel_id=channel_id,
-                                conversation_member_id=conversation_member_id,
-                                id=id_,
-                                display_name=display_name,
-                                roles=roles)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['roles'] = roles
+    return client.update_members(team_id=team_id,
+                                 channel_id=channel_id,
+                                 conversation_member_id=conversation_member_id,
+                                 body=body)
 
 
 def teams_team_channel_update_message(client,
                                       team_id,
                                       channel_id,
                                       chat_message_id,
+                                      body,
                                       id_=None,
                                       attachments=None,
-                                      body=None,
                                       created_date_time=None,
                                       deleted_date_time=None,
                                       etag=None,
@@ -1703,50 +1578,48 @@ def teams_team_channel_update_message(client,
                                       web_url=None,
                                       hosted_contents=None,
                                       replies=None,
-                                      policy_violation_dlp_action=None,
-                                      policy_violation_justification_text=None,
-                                      policy_violation_policy_tip=None,
-                                      policy_violation_user_action=None,
-                                      policy_violation_verdict_details=None,
-                                      from_user_display_name=None,
-                                      from_user_id=None,
-                                      from_device_display_name=None,
-                                      from_device_id=None,
-                                      from_application_display_name=None,
-                                      from_application_id=None):
-    return client.update_message(team_id=team_id,
-                                 channel_id=channel_id,
-                                 chat_message_id=chat_message_id,
-                                 id=id_,
-                                 attachments=attachments,
-                                 body=body,
-                                 created_date_time=created_date_time,
-                                 deleted_date_time=deleted_date_time,
-                                 etag=etag,
-                                 importance=importance,
-                                 last_edited_date_time=last_edited_date_time,
-                                 last_modified_date_time=last_modified_date_time,
-                                 locale=locale,
-                                 mentions=mentions,
-                                 message_type=message_type,
-                                 reactions=reactions,
-                                 reply_to_id=reply_to_id,
-                                 subject=subject,
-                                 summary=summary,
-                                 web_url=web_url,
-                                 hosted_contents=hosted_contents,
-                                 replies=replies,
-                                 dlp_action=policy_violation_dlp_action,
-                                 justification_text=policy_violation_justification_text,
-                                 policy_tip=policy_violation_policy_tip,
-                                 user_action=policy_violation_user_action,
-                                 verdict_details=policy_violation_verdict_details,
-                                 display_name=from_user_display_name,
-                                 microsoft_graph_identity_id=from_user_id,
-                                 microsoft_graph_identity_display_name=from_device_display_name,
-                                 id1=from_device_id,
-                                 display_name1=from_application_display_name,
-                                 id2=from_application_id)
+                                      dlp_action=None,
+                                      justification_text=None,
+                                      policy_tip=None,
+                                      user_action=None,
+                                      verdict_details=None,
+                                      application=None,
+                                      device=None,
+                                      user=None):
+    body = {}
+    body['id'] = id_
+    body['attachments'] = attachments
+    body['body'] = body
+    body['created_date_time'] = created_date_time
+    body['deleted_date_time'] = deleted_date_time
+    body['etag'] = etag
+    body['importance'] = importance
+    body['last_edited_date_time'] = last_edited_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['locale'] = locale
+    body['mentions'] = mentions
+    body['message_type'] = message_type
+    body['reactions'] = reactions
+    body['reply_to_id'] = reply_to_id
+    body['subject'] = subject
+    body['summary'] = summary
+    body['web_url'] = web_url
+    body['hosted_contents'] = hosted_contents
+    body['replies'] = replies
+    body['policy_violation'] = {}
+    body['policy_violation']['dlp_action'] = dlp_action
+    body['policy_violation']['justification_text'] = justification_text
+    body['policy_violation']['policy_tip'] = policy_tip
+    body['policy_violation']['user_action'] = user_action
+    body['policy_violation']['verdict_details'] = verdict_details
+    body['from_property'] = {}
+    body['from_property']['application'] = application
+    body['from_property']['device'] = device
+    body['from_property']['user'] = user
+    return client.update_messages(team_id=team_id,
+                                  channel_id=channel_id,
+                                  chat_message_id=chat_message_id,
+                                  body=body)
 
 
 def teams_team_channel_update_tab(client,
@@ -1757,43 +1630,26 @@ def teams_team_channel_update_tab(client,
                                   configuration=None,
                                   display_name=None,
                                   web_url=None,
-                                  teams_app_id=None,
-                                  teams_app_display_name=None,
-                                  teams_app_distribution_method=None,
-                                  teams_app_external_id=None,
-                                  teams_app_app_definitions=None):
-    return client.update_tab(team_id=team_id,
-                             channel_id=channel_id,
-                             teams_tab_id=teams_tab_id,
-                             id=id_,
-                             configuration=configuration,
-                             display_name=display_name,
-                             web_url=web_url,
-                             microsoft_graph_entity_id=teams_app_id,
-                             microsoft_graph_teams_app_display_name=teams_app_display_name,
-                             distribution_method=teams_app_distribution_method,
-                             external_id=teams_app_external_id,
-                             app_definitions=teams_app_app_definitions)
-
-
-def teams_team_channel_message_delete(client,
-                                      team_id,
-                                      channel_id,
-                                      chat_message_id,
-                                      chat_message_hosted_content_id=None,
-                                      if_match=None,
-                                      chat_message_id1=None):
-    if team_id is not None and channel_id is not None and chat_message_id is not None and chat_message_hosted_content_id is not None:
-        return client.delete_hosted_content(team_id=team_id,
-                                            channel_id=channel_id,
-                                            chat_message_id=chat_message_id,
-                                            chat_message_hosted_content_id=chat_message_hosted_content_id,
-                                            if_match=if_match)
-    return client.delete_reply(team_id=team_id,
-                               channel_id=channel_id,
-                               chat_message_id=chat_message_id,
-                               chat_message_id1=chat_message_id1,
-                               if_match=if_match)
+                                  microsoft_graph_entity_id=None,
+                                  microsoft_graph_teams_app_display_name=None,
+                                  distribution_method=None,
+                                  external_id=None,
+                                  app_definitions=None):
+    body = {}
+    body['id'] = id_
+    body['configuration'] = configuration
+    body['display_name'] = display_name
+    body['web_url'] = web_url
+    body['teams_app'] = {}
+    body['teams_app']['id'] = microsoft_graph_entity_id
+    body['teams_app']['display_name'] = microsoft_graph_teams_app_display_name
+    body['teams_app']['distribution_method'] = distribution_method
+    body['teams_app']['external_id'] = external_id
+    body['teams_app']['app_definitions'] = app_definitions
+    return client.update_tabs(team_id=team_id,
+                              channel_id=channel_id,
+                              teams_tab_id=teams_tab_id,
+                              body=body)
 
 
 def teams_team_channel_message_create_hosted_content(client,
@@ -1801,19 +1657,21 @@ def teams_team_channel_message_create_hosted_content(client,
                                                      channel_id,
                                                      chat_message_id,
                                                      id_=None):
-    return client.create_hosted_content(team_id=team_id,
-                                        channel_id=channel_id,
-                                        chat_message_id=chat_message_id,
-                                        id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_hosted_contents(team_id=team_id,
+                                         channel_id=channel_id,
+                                         chat_message_id=chat_message_id,
+                                         body=body)
 
 
 def teams_team_channel_message_create_reply(client,
                                             team_id,
                                             channel_id,
                                             chat_message_id,
+                                            body,
                                             id_=None,
                                             attachments=None,
-                                            body=None,
                                             created_date_time=None,
                                             deleted_date_time=None,
                                             etag=None,
@@ -1830,80 +1688,74 @@ def teams_team_channel_message_create_reply(client,
                                             web_url=None,
                                             hosted_contents=None,
                                             replies=None,
-                                            policy_violation_dlp_action=None,
-                                            policy_violation_justification_text=None,
-                                            policy_violation_policy_tip=None,
-                                            policy_violation_user_action=None,
-                                            policy_violation_verdict_details=None,
-                                            from_user_display_name=None,
-                                            from_user_id=None,
-                                            from_device_display_name=None,
-                                            from_device_id=None,
-                                            from_application_display_name=None,
-                                            from_application_id=None):
-    return client.create_reply(team_id=team_id,
-                               channel_id=channel_id,
-                               chat_message_id=chat_message_id,
-                               id=id_,
-                               attachments=attachments,
-                               body=body,
-                               created_date_time=created_date_time,
-                               deleted_date_time=deleted_date_time,
-                               etag=etag,
-                               importance=importance,
-                               last_edited_date_time=last_edited_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               locale=locale,
-                               mentions=mentions,
-                               message_type=message_type,
-                               reactions=reactions,
-                               reply_to_id=reply_to_id,
-                               subject=subject,
-                               summary=summary,
-                               web_url=web_url,
-                               hosted_contents=hosted_contents,
-                               replies=replies,
-                               dlp_action=policy_violation_dlp_action,
-                               justification_text=policy_violation_justification_text,
-                               policy_tip=policy_violation_policy_tip,
-                               user_action=policy_violation_user_action,
-                               verdict_details=policy_violation_verdict_details,
-                               display_name=from_user_display_name,
-                               microsoft_graph_identity_id=from_user_id,
-                               microsoft_graph_identity_display_name=from_device_display_name,
-                               id1=from_device_id,
-                               display_name1=from_application_display_name,
-                               id2=from_application_id)
+                                            dlp_action=None,
+                                            justification_text=None,
+                                            policy_tip=None,
+                                            user_action=None,
+                                            verdict_details=None,
+                                            application=None,
+                                            device=None,
+                                            user=None):
+    body = {}
+    body['id'] = id_
+    body['attachments'] = attachments
+    body['body'] = body
+    body['created_date_time'] = created_date_time
+    body['deleted_date_time'] = deleted_date_time
+    body['etag'] = etag
+    body['importance'] = importance
+    body['last_edited_date_time'] = last_edited_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['locale'] = locale
+    body['mentions'] = mentions
+    body['message_type'] = message_type
+    body['reactions'] = reactions
+    body['reply_to_id'] = reply_to_id
+    body['subject'] = subject
+    body['summary'] = summary
+    body['web_url'] = web_url
+    body['hosted_contents'] = hosted_contents
+    body['replies'] = replies
+    body['policy_violation'] = {}
+    body['policy_violation']['dlp_action'] = dlp_action
+    body['policy_violation']['justification_text'] = justification_text
+    body['policy_violation']['policy_tip'] = policy_tip
+    body['policy_violation']['user_action'] = user_action
+    body['policy_violation']['verdict_details'] = verdict_details
+    body['from_property'] = {}
+    body['from_property']['application'] = application
+    body['from_property']['device'] = device
+    body['from_property']['user'] = user
+    return client.create_replies(team_id=team_id,
+                                 channel_id=channel_id,
+                                 chat_message_id=chat_message_id,
+                                 body=body)
 
 
-def teams_team_channel_message_get_hosted_content(client,
-                                                  team_id,
-                                                  channel_id,
-                                                  chat_message_id,
-                                                  chat_message_hosted_content_id,
-                                                  select=None,
-                                                  expand=None):
-    return client.get_hosted_content(team_id=team_id,
-                                     channel_id=channel_id,
-                                     chat_message_id=chat_message_id,
-                                     chat_message_hosted_content_id=chat_message_hosted_content_id,
-                                     select=select,
-                                     expand=expand)
+def teams_team_channel_message_delete_hosted_content(client,
+                                                     team_id,
+                                                     channel_id,
+                                                     chat_message_id,
+                                                     chat_message_hosted_content_id,
+                                                     if_match=None):
+    return client.delete_hosted_contents(team_id=team_id,
+                                         channel_id=channel_id,
+                                         chat_message_id=chat_message_id,
+                                         chat_message_hosted_content_id=chat_message_hosted_content_id,
+                                         if_match=if_match)
 
 
-def teams_team_channel_message_get_reply(client,
-                                         team_id,
-                                         channel_id,
-                                         chat_message_id,
-                                         chat_message_id1,
-                                         select=None,
-                                         expand=None):
-    return client.get_reply(team_id=team_id,
-                            channel_id=channel_id,
-                            chat_message_id=chat_message_id,
-                            chat_message_id1=chat_message_id1,
-                            select=select,
-                            expand=expand)
+def teams_team_channel_message_delete_reply(client,
+                                            team_id,
+                                            channel_id,
+                                            chat_message_id,
+                                            chat_message_id1,
+                                            if_match=None):
+    return client.delete_replies(team_id=team_id,
+                                 channel_id=channel_id,
+                                 chat_message_id=chat_message_id,
+                                 chat_message_id1=chat_message_id1,
+                                 if_match=if_match)
 
 
 def teams_team_channel_message_list_hosted_content(client,
@@ -1913,12 +1765,12 @@ def teams_team_channel_message_list_hosted_content(client,
                                                    orderby=None,
                                                    select=None,
                                                    expand=None):
-    return client.list_hosted_content(team_id=team_id,
-                                      channel_id=channel_id,
-                                      chat_message_id=chat_message_id,
-                                      orderby=orderby,
-                                      select=select,
-                                      expand=expand)
+    return client.list_hosted_contents(team_id=team_id,
+                                       channel_id=channel_id,
+                                       chat_message_id=chat_message_id,
+                                       orderby=orderby,
+                                       select=select,
+                                       expand=expand)
 
 
 def teams_team_channel_message_list_reply(client,
@@ -1928,12 +1780,42 @@ def teams_team_channel_message_list_reply(client,
                                           orderby=None,
                                           select=None,
                                           expand=None):
-    return client.list_reply(team_id=team_id,
-                             channel_id=channel_id,
-                             chat_message_id=chat_message_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_replies(team_id=team_id,
+                               channel_id=channel_id,
+                               chat_message_id=chat_message_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def teams_team_channel_message_show_hosted_content(client,
+                                                   team_id,
+                                                   channel_id,
+                                                   chat_message_id,
+                                                   chat_message_hosted_content_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_hosted_contents(team_id=team_id,
+                                      channel_id=channel_id,
+                                      chat_message_id=chat_message_id,
+                                      chat_message_hosted_content_id=chat_message_hosted_content_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def teams_team_channel_message_show_reply(client,
+                                          team_id,
+                                          channel_id,
+                                          chat_message_id,
+                                          chat_message_id1,
+                                          select=None,
+                                          expand=None):
+    return client.get_replies(team_id=team_id,
+                              channel_id=channel_id,
+                              chat_message_id=chat_message_id,
+                              chat_message_id1=chat_message_id1,
+                              select=select,
+                              expand=expand)
 
 
 def teams_team_channel_message_update_hosted_content(client,
@@ -1942,11 +1824,13 @@ def teams_team_channel_message_update_hosted_content(client,
                                                      chat_message_id,
                                                      chat_message_hosted_content_id,
                                                      id_=None):
-    return client.update_hosted_content(team_id=team_id,
-                                        channel_id=channel_id,
-                                        chat_message_id=chat_message_id,
-                                        chat_message_hosted_content_id=chat_message_hosted_content_id,
-                                        id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_hosted_contents(team_id=team_id,
+                                         channel_id=channel_id,
+                                         chat_message_id=chat_message_id,
+                                         chat_message_hosted_content_id=chat_message_hosted_content_id,
+                                         body=body)
 
 
 def teams_team_channel_message_update_reply(client,
@@ -1954,9 +1838,9 @@ def teams_team_channel_message_update_reply(client,
                                             channel_id,
                                             chat_message_id,
                                             chat_message_id1,
+                                            body,
                                             id_=None,
                                             attachments=None,
-                                            body=None,
                                             created_date_time=None,
                                             deleted_date_time=None,
                                             etag=None,
@@ -1973,84 +1857,60 @@ def teams_team_channel_message_update_reply(client,
                                             web_url=None,
                                             hosted_contents=None,
                                             replies=None,
-                                            policy_violation_dlp_action=None,
-                                            policy_violation_justification_text=None,
-                                            policy_violation_policy_tip=None,
-                                            policy_violation_user_action=None,
-                                            policy_violation_verdict_details=None,
-                                            from_user_display_name=None,
-                                            from_user_id=None,
-                                            from_device_display_name=None,
-                                            from_device_id=None,
-                                            from_application_display_name=None,
-                                            from_application_id=None):
-    return client.update_reply(team_id=team_id,
-                               channel_id=channel_id,
-                               chat_message_id=chat_message_id,
-                               chat_message_id1=chat_message_id1,
-                               id=id_,
-                               attachments=attachments,
-                               body=body,
-                               created_date_time=created_date_time,
-                               deleted_date_time=deleted_date_time,
-                               etag=etag,
-                               importance=importance,
-                               last_edited_date_time=last_edited_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               locale=locale,
-                               mentions=mentions,
-                               message_type=message_type,
-                               reactions=reactions,
-                               reply_to_id=reply_to_id,
-                               subject=subject,
-                               summary=summary,
-                               web_url=web_url,
-                               hosted_contents=hosted_contents,
-                               replies=replies,
-                               dlp_action=policy_violation_dlp_action,
-                               justification_text=policy_violation_justification_text,
-                               policy_tip=policy_violation_policy_tip,
-                               user_action=policy_violation_user_action,
-                               verdict_details=policy_violation_verdict_details,
-                               display_name=from_user_display_name,
-                               microsoft_graph_identity_id=from_user_id,
-                               microsoft_graph_identity_display_name=from_device_display_name,
-                               id1=from_device_id,
-                               display_name1=from_application_display_name,
-                               id2=from_application_id)
+                                            dlp_action=None,
+                                            justification_text=None,
+                                            policy_tip=None,
+                                            user_action=None,
+                                            verdict_details=None,
+                                            application=None,
+                                            device=None,
+                                            user=None):
+    body = {}
+    body['id'] = id_
+    body['attachments'] = attachments
+    body['body'] = body
+    body['created_date_time'] = created_date_time
+    body['deleted_date_time'] = deleted_date_time
+    body['etag'] = etag
+    body['importance'] = importance
+    body['last_edited_date_time'] = last_edited_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['locale'] = locale
+    body['mentions'] = mentions
+    body['message_type'] = message_type
+    body['reactions'] = reactions
+    body['reply_to_id'] = reply_to_id
+    body['subject'] = subject
+    body['summary'] = summary
+    body['web_url'] = web_url
+    body['hosted_contents'] = hosted_contents
+    body['replies'] = replies
+    body['policy_violation'] = {}
+    body['policy_violation']['dlp_action'] = dlp_action
+    body['policy_violation']['justification_text'] = justification_text
+    body['policy_violation']['policy_tip'] = policy_tip
+    body['policy_violation']['user_action'] = user_action
+    body['policy_violation']['verdict_details'] = verdict_details
+    body['from_property'] = {}
+    body['from_property']['application'] = application
+    body['from_property']['device'] = device
+    body['from_property']['user'] = user
+    return client.update_replies(team_id=team_id,
+                                 channel_id=channel_id,
+                                 chat_message_id=chat_message_id,
+                                 chat_message_id1=chat_message_id1,
+                                 body=body)
 
 
-def teams_team_channel_tab_delete(client,
-                                  team_id,
-                                  channel_id,
-                                  teams_tab_id,
-                                  if_match=None):
-    return client.delete_ref_team_app(team_id=team_id,
-                                      channel_id=channel_id,
-                                      teams_tab_id=teams_tab_id,
-                                      if_match=if_match)
-
-
-def teams_team_channel_tab_get_app(client,
-                                   team_id,
-                                   channel_id,
-                                   teams_tab_id,
-                                   select=None,
-                                   expand=None):
-    return client.get_team_app(team_id=team_id,
-                               channel_id=channel_id,
-                               teams_tab_id=teams_tab_id,
-                               select=select,
-                               expand=expand)
-
-
-def teams_team_channel_tab_get_ref_team_app(client,
-                                            team_id,
-                                            channel_id,
-                                            teams_tab_id):
-    return client.get_ref_team_app(team_id=team_id,
-                                   channel_id=channel_id,
-                                   teams_tab_id=teams_tab_id)
+def teams_team_channel_tab_delete_ref_team_app(client,
+                                               team_id,
+                                               channel_id,
+                                               teams_tab_id,
+                                               if_match=None):
+    return client.delete_ref_teams_app(team_id=team_id,
+                                       channel_id=channel_id,
+                                       teams_tab_id=teams_tab_id,
+                                       if_match=if_match)
 
 
 def teams_team_channel_tab_set_ref_team_app(client,
@@ -2058,77 +1918,104 @@ def teams_team_channel_tab_set_ref_team_app(client,
                                             channel_id,
                                             teams_tab_id,
                                             body):
-    return client.set_ref_team_app(team_id=team_id,
-                                   channel_id=channel_id,
-                                   teams_tab_id=teams_tab_id,
-                                   body=body)
+    return client.set_ref_teams_app(team_id=team_id,
+                                    channel_id=channel_id,
+                                    teams_tab_id=teams_tab_id,
+                                    body=body)
 
 
-def teams_team_installed_app_delete(client,
-                                    team_id,
-                                    teams_app_installation_id,
-                                    if_match=None):
-    if team_id is not None and teams_app_installation_id is not None:
-        return client.delete_ref_team_app(team_id=team_id,
-                                          teams_app_installation_id=teams_app_installation_id,
-                                          if_match=if_match)
-    return client.delete_ref_team_app_definition(team_id=team_id,
-                                                 teams_app_installation_id=teams_app_installation_id,
-                                                 if_match=if_match)
+def teams_team_channel_tab_show_ref_team_app(client,
+                                             team_id,
+                                             channel_id,
+                                             teams_tab_id):
+    return client.get_ref_teams_app(team_id=team_id,
+                                    channel_id=channel_id,
+                                    teams_tab_id=teams_tab_id)
 
 
-def teams_team_installed_app_get_app(client,
-                                     team_id,
-                                     teams_app_installation_id,
-                                     select=None,
-                                     expand=None):
-    return client.get_team_app(team_id=team_id,
-                               teams_app_installation_id=teams_app_installation_id,
-                               select=select,
-                               expand=expand)
+def teams_team_channel_tab_show_team_app(client,
+                                         team_id,
+                                         channel_id,
+                                         teams_tab_id,
+                                         select=None,
+                                         expand=None):
+    return client.get_teams_app(team_id=team_id,
+                                channel_id=channel_id,
+                                teams_tab_id=teams_tab_id,
+                                select=select,
+                                expand=expand)
 
 
-def teams_team_installed_app_get_app_definition(client,
-                                                team_id,
-                                                teams_app_installation_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_team_app_definition(team_id=team_id,
-                                          teams_app_installation_id=teams_app_installation_id,
-                                          select=select,
-                                          expand=expand)
+def teams_team_installed_app_delete_ref_team_app(client,
+                                                 team_id,
+                                                 teams_app_installation_id,
+                                                 if_match=None):
+    return client.delete_ref_teams_app(team_id=team_id,
+                                       teams_app_installation_id=teams_app_installation_id,
+                                       if_match=if_match)
 
 
-def teams_team_installed_app_get_ref_team_app(client,
-                                              team_id,
-                                              teams_app_installation_id):
-    return client.get_ref_team_app(team_id=team_id,
-                                   teams_app_installation_id=teams_app_installation_id)
-
-
-def teams_team_installed_app_get_ref_team_app_definition(client,
-                                                         team_id,
-                                                         teams_app_installation_id):
-    return client.get_ref_team_app_definition(team_id=team_id,
-                                              teams_app_installation_id=teams_app_installation_id)
+def teams_team_installed_app_delete_ref_team_app_definition(client,
+                                                            team_id,
+                                                            teams_app_installation_id,
+                                                            if_match=None):
+    return client.delete_ref_teams_app_definition(team_id=team_id,
+                                                  teams_app_installation_id=teams_app_installation_id,
+                                                  if_match=if_match)
 
 
 def teams_team_installed_app_set_ref_team_app(client,
                                               team_id,
                                               teams_app_installation_id,
                                               body):
-    return client.set_ref_team_app(team_id=team_id,
-                                   teams_app_installation_id=teams_app_installation_id,
-                                   body=body)
+    return client.set_ref_teams_app(team_id=team_id,
+                                    teams_app_installation_id=teams_app_installation_id,
+                                    body=body)
 
 
 def teams_team_installed_app_set_ref_team_app_definition(client,
                                                          team_id,
                                                          teams_app_installation_id,
                                                          body):
-    return client.set_ref_team_app_definition(team_id=team_id,
-                                              teams_app_installation_id=teams_app_installation_id,
-                                              body=body)
+    return client.set_ref_teams_app_definition(team_id=team_id,
+                                               teams_app_installation_id=teams_app_installation_id,
+                                               body=body)
+
+
+def teams_team_installed_app_show_ref_team_app(client,
+                                               team_id,
+                                               teams_app_installation_id):
+    return client.get_ref_teams_app(team_id=team_id,
+                                    teams_app_installation_id=teams_app_installation_id)
+
+
+def teams_team_installed_app_show_ref_team_app_definition(client,
+                                                          team_id,
+                                                          teams_app_installation_id):
+    return client.get_ref_teams_app_definition(team_id=team_id,
+                                               teams_app_installation_id=teams_app_installation_id)
+
+
+def teams_team_installed_app_show_team_app(client,
+                                           team_id,
+                                           teams_app_installation_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_teams_app(team_id=team_id,
+                                teams_app_installation_id=teams_app_installation_id,
+                                select=select,
+                                expand=expand)
+
+
+def teams_team_installed_app_show_team_app_definition(client,
+                                                      team_id,
+                                                      teams_app_installation_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_teams_app_definition(team_id=team_id,
+                                           teams_app_installation_id=teams_app_installation_id,
+                                           select=select,
+                                           expand=expand)
 
 
 def teams_team_installed_app_upgrade(client,
@@ -2138,44 +2025,24 @@ def teams_team_installed_app_upgrade(client,
                           teams_app_installation_id=teams_app_installation_id)
 
 
-def teams_team_primary_channel_delete(client,
-                                      team_id,
-                                      conversation_member_id=None,
-                                      if_match=None,
-                                      chat_message_id=None,
-                                      teams_tab_id=None):
-    if team_id is not None and conversation_member_id is not None:
-        return client.delete_member(team_id=team_id,
-                                    conversation_member_id=conversation_member_id,
-                                    if_match=if_match)
-    elif team_id is not None and chat_message_id is not None:
-        return client.delete_message(team_id=team_id,
-                                     chat_message_id=chat_message_id,
-                                     if_match=if_match)
-    elif team_id is not None and teams_tab_id is not None:
-        return client.delete_tab(team_id=team_id,
-                                 teams_tab_id=teams_tab_id,
-                                 if_match=if_match)
-    return client.delete_file_folder(team_id=team_id,
-                                     if_match=if_match)
-
-
 def teams_team_primary_channel_create_member(client,
                                              team_id,
                                              id_=None,
                                              display_name=None,
                                              roles=None):
-    return client.create_member(team_id=team_id,
-                                id=id_,
-                                display_name=display_name,
-                                roles=roles)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['roles'] = roles
+    return client.create_members(team_id=team_id,
+                                 body=body)
 
 
 def teams_team_primary_channel_create_message(client,
                                               team_id,
+                                              body,
                                               id_=None,
                                               attachments=None,
-                                              body=None,
                                               created_date_time=None,
                                               deleted_date_time=None,
                                               etag=None,
@@ -2192,48 +2059,46 @@ def teams_team_primary_channel_create_message(client,
                                               web_url=None,
                                               hosted_contents=None,
                                               replies=None,
-                                              policy_violation_dlp_action=None,
-                                              policy_violation_justification_text=None,
-                                              policy_violation_policy_tip=None,
-                                              policy_violation_user_action=None,
-                                              policy_violation_verdict_details=None,
-                                              from_user_display_name=None,
-                                              from_user_id=None,
-                                              from_device_display_name=None,
-                                              from_device_id=None,
-                                              from_application_display_name=None,
-                                              from_application_id=None):
-    return client.create_message(team_id=team_id,
-                                 id=id_,
-                                 attachments=attachments,
-                                 body=body,
-                                 created_date_time=created_date_time,
-                                 deleted_date_time=deleted_date_time,
-                                 etag=etag,
-                                 importance=importance,
-                                 last_edited_date_time=last_edited_date_time,
-                                 last_modified_date_time=last_modified_date_time,
-                                 locale=locale,
-                                 mentions=mentions,
-                                 message_type=message_type,
-                                 reactions=reactions,
-                                 reply_to_id=reply_to_id,
-                                 subject=subject,
-                                 summary=summary,
-                                 web_url=web_url,
-                                 hosted_contents=hosted_contents,
-                                 replies=replies,
-                                 dlp_action=policy_violation_dlp_action,
-                                 justification_text=policy_violation_justification_text,
-                                 policy_tip=policy_violation_policy_tip,
-                                 user_action=policy_violation_user_action,
-                                 verdict_details=policy_violation_verdict_details,
-                                 display_name=from_user_display_name,
-                                 microsoft_graph_identity_id=from_user_id,
-                                 microsoft_graph_identity_display_name=from_device_display_name,
-                                 id1=from_device_id,
-                                 display_name1=from_application_display_name,
-                                 id2=from_application_id)
+                                              dlp_action=None,
+                                              justification_text=None,
+                                              policy_tip=None,
+                                              user_action=None,
+                                              verdict_details=None,
+                                              application=None,
+                                              device=None,
+                                              user=None):
+    body = {}
+    body['id'] = id_
+    body['attachments'] = attachments
+    body['body'] = body
+    body['created_date_time'] = created_date_time
+    body['deleted_date_time'] = deleted_date_time
+    body['etag'] = etag
+    body['importance'] = importance
+    body['last_edited_date_time'] = last_edited_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['locale'] = locale
+    body['mentions'] = mentions
+    body['message_type'] = message_type
+    body['reactions'] = reactions
+    body['reply_to_id'] = reply_to_id
+    body['subject'] = subject
+    body['summary'] = summary
+    body['web_url'] = web_url
+    body['hosted_contents'] = hosted_contents
+    body['replies'] = replies
+    body['policy_violation'] = {}
+    body['policy_violation']['dlp_action'] = dlp_action
+    body['policy_violation']['justification_text'] = justification_text
+    body['policy_violation']['policy_tip'] = policy_tip
+    body['policy_violation']['user_action'] = user_action
+    body['policy_violation']['verdict_details'] = verdict_details
+    body['from_property'] = {}
+    body['from_property']['application'] = application
+    body['from_property']['device'] = device
+    body['from_property']['user'] = user
+    return client.create_messages(team_id=team_id,
+                                  body=body)
 
 
 def teams_team_primary_channel_create_tab(client,
@@ -2242,63 +2107,58 @@ def teams_team_primary_channel_create_tab(client,
                                           configuration=None,
                                           display_name=None,
                                           web_url=None,
-                                          teams_app_id=None,
-                                          teams_app_display_name=None,
-                                          teams_app_distribution_method=None,
-                                          teams_app_external_id=None,
-                                          teams_app_app_definitions=None):
-    return client.create_tab(team_id=team_id,
-                             id=id_,
-                             configuration=configuration,
-                             display_name=display_name,
-                             web_url=web_url,
-                             microsoft_graph_entity_id=teams_app_id,
-                             microsoft_graph_teams_app_display_name=teams_app_display_name,
-                             distribution_method=teams_app_distribution_method,
-                             external_id=teams_app_external_id,
-                             app_definitions=teams_app_app_definitions)
+                                          microsoft_graph_entity_id=None,
+                                          microsoft_graph_teams_app_display_name=None,
+                                          distribution_method=None,
+                                          external_id=None,
+                                          app_definitions=None):
+    body = {}
+    body['id'] = id_
+    body['configuration'] = configuration
+    body['display_name'] = display_name
+    body['web_url'] = web_url
+    body['teams_app'] = {}
+    body['teams_app']['id'] = microsoft_graph_entity_id
+    body['teams_app']['display_name'] = microsoft_graph_teams_app_display_name
+    body['teams_app']['distribution_method'] = distribution_method
+    body['teams_app']['external_id'] = external_id
+    body['teams_app']['app_definitions'] = app_definitions
+    return client.create_tabs(team_id=team_id,
+                              body=body)
 
 
-def teams_team_primary_channel_get_file_folder(client,
-                                               team_id,
-                                               select=None,
-                                               expand=None):
-    return client.get_file_folder(team_id=team_id,
-                                  select=select,
-                                  expand=expand)
+def teams_team_primary_channel_delete_file_folder(client,
+                                                  team_id,
+                                                  if_match=None):
+    return client.delete_files_folder(team_id=team_id,
+                                      if_match=if_match)
 
 
-def teams_team_primary_channel_get_member(client,
+def teams_team_primary_channel_delete_member(client,
+                                             team_id,
+                                             conversation_member_id,
+                                             if_match=None):
+    return client.delete_members(team_id=team_id,
+                                 conversation_member_id=conversation_member_id,
+                                 if_match=if_match)
+
+
+def teams_team_primary_channel_delete_message(client,
+                                              team_id,
+                                              chat_message_id,
+                                              if_match=None):
+    return client.delete_messages(team_id=team_id,
+                                  chat_message_id=chat_message_id,
+                                  if_match=if_match)
+
+
+def teams_team_primary_channel_delete_tab(client,
                                           team_id,
-                                          conversation_member_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_member(team_id=team_id,
-                             conversation_member_id=conversation_member_id,
-                             select=select,
-                             expand=expand)
-
-
-def teams_team_primary_channel_get_message(client,
-                                           team_id,
-                                           chat_message_id,
-                                           select=None,
-                                           expand=None):
-    return client.get_message(team_id=team_id,
-                              chat_message_id=chat_message_id,
-                              select=select,
-                              expand=expand)
-
-
-def teams_team_primary_channel_get_tab(client,
-                                       team_id,
-                                       teams_tab_id,
-                                       select=None,
-                                       expand=None):
-    return client.get_tab(team_id=team_id,
-                          teams_tab_id=teams_tab_id,
-                          select=select,
-                          expand=expand)
+                                          teams_tab_id,
+                                          if_match=None):
+    return client.delete_tabs(team_id=team_id,
+                              teams_tab_id=teams_tab_id,
+                              if_match=if_match)
 
 
 def teams_team_primary_channel_list_member(client,
@@ -2306,10 +2166,10 @@ def teams_team_primary_channel_list_member(client,
                                            orderby=None,
                                            select=None,
                                            expand=None):
-    return client.list_member(team_id=team_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_members(team_id=team_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def teams_team_primary_channel_list_message(client,
@@ -2317,10 +2177,10 @@ def teams_team_primary_channel_list_message(client,
                                             orderby=None,
                                             select=None,
                                             expand=None):
-    return client.list_message(team_id=team_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
+    return client.list_messages(team_id=team_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
 
 
 def teams_team_primary_channel_list_tab(client,
@@ -2328,15 +2188,57 @@ def teams_team_primary_channel_list_tab(client,
                                         orderby=None,
                                         select=None,
                                         expand=None):
-    return client.list_tab(team_id=team_id,
-                           orderby=orderby,
+    return client.list_tabs(team_id=team_id,
+                            orderby=orderby,
+                            select=select,
+                            expand=expand)
+
+
+def teams_team_primary_channel_show_file_folder(client,
+                                                team_id,
+                                                select=None,
+                                                expand=None):
+    return client.get_files_folder(team_id=team_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def teams_team_primary_channel_show_member(client,
+                                           team_id,
+                                           conversation_member_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_members(team_id=team_id,
+                              conversation_member_id=conversation_member_id,
+                              select=select,
+                              expand=expand)
+
+
+def teams_team_primary_channel_show_message(client,
+                                            team_id,
+                                            chat_message_id,
+                                            select=None,
+                                            expand=None):
+    return client.get_messages(team_id=team_id,
+                               chat_message_id=chat_message_id,
+                               select=select,
+                               expand=expand)
+
+
+def teams_team_primary_channel_show_tab(client,
+                                        team_id,
+                                        teams_tab_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_tabs(team_id=team_id,
+                           teams_tab_id=teams_tab_id,
                            select=select,
                            expand=expand)
 
 
 def teams_team_primary_channel_update_file_folder(client,
                                                   team_id,
-                                                  list_item_content_type,
+                                                  content_type,
                                                   id_=None,
                                                   created_date_time=None,
                                                   description=None,
@@ -2346,26 +2248,20 @@ def teams_team_primary_channel_update_file_folder(client,
                                                   web_url=None,
                                                   created_by_user=None,
                                                   last_modified_by_user=None,
-                                                  parent_reference_drive_id=None,
-                                                  parent_reference_drive_type=None,
-                                                  parent_reference_id=None,
-                                                  parent_reference_name=None,
-                                                  parent_reference_path=None,
-                                                  parent_reference_share_id=None,
-                                                  parent_reference_sharepoint_ids=None,
-                                                  parent_reference_site_id=None,
-                                                  last_modified_by_user_display_name=None,
-                                                  last_modified_by_user_id=None,
-                                                  last_modified_by_device_display_name=None,
-                                                  last_modified_by_device_id=None,
-                                                  last_modified_by_application_display_name=None,
-                                                  last_modified_by_application_id=None,
-                                                  created_by_user_display_name=None,
-                                                  created_by_user_id=None,
-                                                  created_by_device_display_name=None,
-                                                  created_by_device_id=None,
-                                                  created_by_application_display_name=None,
-                                                  created_by_application_id=None,
+                                                  drive_id=None,
+                                                  drive_type=None,
+                                                  microsoft_graph_item_reference_id=None,
+                                                  microsoft_graph_item_reference_name=None,
+                                                  path=None,
+                                                  share_id=None,
+                                                  sharepoint_ids=None,
+                                                  site_id=None,
+                                                  application=None,
+                                                  device=None,
+                                                  user=None,
+                                                  microsoft_graph_identity_application=None,
+                                                  microsoft_graph_identity_device=None,
+                                                  microsoft_graph_identity_user=None,
                                                   audio=None,
                                                   content=None,
                                                   c_tag=None,
@@ -2384,213 +2280,215 @@ def teams_team_primary_channel_update_file_folder(client,
                                                   subscriptions=None,
                                                   thumbnails=None,
                                                   versions=None,
-                                                  list_item_id=None,
-                                                  list_item_created_date_time=None,
-                                                  list_item_description=None,
-                                                  list_item_e_tag=None,
-                                                  list_item_last_modified_date_time=None,
-                                                  list_item_name=None,
-                                                  list_item_web_url=None,
-                                                  list_item_created_by_user=None,
-                                                  list_item_last_modified_by_user=None,
-                                                  list_item_parent_reference_drive_id=None,
-                                                  list_item_parent_reference_drive_type=None,
-                                                  list_item_parent_reference_id=None,
-                                                  list_item_parent_reference_name=None,
-                                                  list_item_parent_reference_path=None,
-                                                  list_item_parent_reference_share_id=None,
-                                                  list_item_parent_reference_sharepoint_ids=None,
-                                                  list_item_parent_reference_site_id=None,
-                                                  list_item_last_modified_by_user_display_name=None,
-                                                  list_item_last_modified_by_user_id=None,
-                                                  list_item_last_modified_by_device_display_name=None,
-                                                  list_item_last_modified_by_device_id=None,
-                                                  list_item_last_modified_by_application_display_name=None,
-                                                  list_item_last_modified_by_application_id=None,
-                                                  list_item_created_by_user_display_name=None,
-                                                  list_item_created_by_user_id=None,
-                                                  list_item_created_by_device_display_name=None,
-                                                  list_item_created_by_device_id=None,
-                                                  list_item_created_by_application_display_name=None,
-                                                  list_item_created_by_application_id=None,
-                                                  list_item_sharepoint_ids=None,
-                                                  list_item_analytics=None,
-                                                  list_item_drive_item=None,
-                                                  list_item_fields=None,
-                                                  list_item_versions=None,
-                                                  analytics_id=None,
-                                                  analytics_all_time=None,
-                                                  analytics_item_activity_stats=None,
-                                                  analytics_last_seven_days=None,
-                                                  workbook_id=None,
-                                                  workbook_application=None,
-                                                  workbook_comments=None,
-                                                  workbook_functions=None,
-                                                  workbook_names=None,
-                                                  workbook_operations=None,
-                                                  workbook_tables=None,
-                                                  workbook_worksheets=None,
-                                                  special_folder_name=None,
-                                                  shared_owner=None,
-                                                  shared_scope=None,
-                                                  shared_shared_by=None,
-                                                  shared_shared_date_time=None,
-                                                  search_result_on_click_telemetry_url=None,
-                                                  remote_item_created_by=None,
-                                                  remote_item_created_date_time=None,
-                                                  remote_item_file=None,
-                                                  remote_item_file_system_info=None,
-                                                  remote_item_folder=None,
-                                                  remote_item_id=None,
-                                                  remote_item_image=None,
-                                                  remote_item_last_modified_by=None,
-                                                  remote_item_last_modified_date_time=None,
-                                                  remote_item_name=None,
-                                                  remote_item_package=None,
-                                                  remote_item_parent_reference=None,
-                                                  remote_item_shared=None,
-                                                  remote_item_sharepoint_ids=None,
-                                                  remote_item_size=None,
-                                                  remote_item_special_folder=None,
-                                                  remote_item_video=None,
-                                                  remote_item_web_dav_url=None,
-                                                  remote_item_web_url=None,
-                                                  pending_operations_pending_content_update_queued_date_time=None,
-                                                  package_type=None,
-                                                  folder_child_count=None,
-                                                  folder_view=None,
-                                                  file_hashes=None,
-                                                  file_mime_type=None,
-                                                  file_processing_metadata=None,
-                                                  deleted_state=None):
-    return client.update_file_folder(team_id=team_id,
-                                     id=id_,
-                                     created_date_time=created_date_time,
-                                     description=description,
-                                     e_tag=e_tag,
-                                     last_modified_date_time=last_modified_date_time,
-                                     name=name,
-                                     web_url=web_url,
-                                     created_by_user=created_by_user,
-                                     last_modified_by_user=last_modified_by_user,
-                                     drive_id=parent_reference_drive_id,
-                                     drive_type=parent_reference_drive_type,
-                                     microsoft_graph_item_reference_id=parent_reference_id,
-                                     microsoft_graph_item_reference_name=parent_reference_name,
-                                     path=parent_reference_path,
-                                     share_id=parent_reference_share_id,
-                                     sharepoint_ids=parent_reference_sharepoint_ids,
-                                     site_id=parent_reference_site_id,
-                                     display_name=last_modified_by_user_display_name,
-                                     microsoft_graph_identity_id=last_modified_by_user_id,
-                                     microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                     id1=last_modified_by_device_id,
-                                     display_name1=last_modified_by_application_display_name,
-                                     id2=last_modified_by_application_id,
-                                     display_name2=created_by_user_display_name,
-                                     id3=created_by_user_id,
-                                     display_name3=created_by_device_display_name,
-                                     id4=created_by_device_id,
-                                     display_name4=created_by_application_display_name,
-                                     id5=created_by_application_id,
-                                     audio=audio,
-                                     content=content,
-                                     c_tag=c_tag,
-                                     file_system_info=file_system_info,
-                                     image=image,
-                                     location=location,
-                                     photo=photo,
-                                     publication=publication,
-                                     root=root,
-                                     microsoft_graph_sharepoint_ids=microsoft_graph_sharepoint_ids,
-                                     size=size,
-                                     video=video,
-                                     web_dav_url=web_dav_url,
-                                     children=children,
-                                     permissions=permissions,
-                                     subscriptions=subscriptions,
-                                     thumbnails=thumbnails,
-                                     versions=versions,
-                                     microsoft_graph_entity_id=list_item_id,
-                                     microsoft_graph_base_item_created_date_time_created_date_time=list_item_created_date_time,
-                                     microsoft_graph_base_item_description=list_item_description,
-                                     microsoft_graph_base_item_e_tag=list_item_e_tag,
-                                     microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=list_item_last_modified_date_time,
-                                     microsoft_graph_base_item_name=list_item_name,
-                                     microsoft_graph_base_item_web_url=list_item_web_url,
-                                     microsoft_graph_user_created_by_user=list_item_created_by_user,
-                                     microsoft_graph_user_last_modified_by_user=list_item_last_modified_by_user,
-                                     microsoft_graph_item_reference_drive_id=list_item_parent_reference_drive_id,
-                                     microsoft_graph_item_reference_drive_type=list_item_parent_reference_drive_type,
-                                     id6=list_item_parent_reference_id,
-                                     name1=list_item_parent_reference_name,
-                                     microsoft_graph_item_reference_path=list_item_parent_reference_path,
-                                     microsoft_graph_item_reference_share_id=list_item_parent_reference_share_id,
-                                     sharepoint_ids1=list_item_parent_reference_sharepoint_ids,
-                                     microsoft_graph_item_reference_site_id=list_item_parent_reference_site_id,
-                                     display_name5=list_item_last_modified_by_user_display_name,
-                                     id7=list_item_last_modified_by_user_id,
-                                     display_name6=list_item_last_modified_by_device_display_name,
-                                     id8=list_item_last_modified_by_device_id,
-                                     display_name7=list_item_last_modified_by_application_display_name,
-                                     id9=list_item_last_modified_by_application_id,
-                                     display_name8=list_item_created_by_user_display_name,
-                                     id10=list_item_created_by_user_id,
-                                     display_name9=list_item_created_by_device_display_name,
-                                     id11=list_item_created_by_device_id,
-                                     display_name10=list_item_created_by_application_display_name,
-                                     id12=list_item_created_by_application_id,
-                                     content_type_parameter=list_item_content_type,
-                                     sharepoint_ids2=list_item_sharepoint_ids,
-                                     analytics=list_item_analytics,
-                                     drive_item=list_item_drive_item,
-                                     fields=list_item_fields,
-                                     microsoft_graph_list_item_versions=list_item_versions,
-                                     id13=analytics_id,
-                                     all_time=analytics_all_time,
-                                     item_activity_stats=analytics_item_activity_stats,
-                                     last_seven_days=analytics_last_seven_days,
-                                     id14=workbook_id,
-                                     application=workbook_application,
-                                     comments=workbook_comments,
-                                     functions=workbook_functions,
-                                     names=workbook_names,
-                                     operations=workbook_operations,
-                                     tables=workbook_tables,
-                                     worksheets=workbook_worksheets,
-                                     microsoft_graph_special_folder_name=special_folder_name,
-                                     owner=shared_owner,
-                                     scope=shared_scope,
-                                     shared_by=shared_shared_by,
-                                     shared_date_time=shared_shared_date_time,
-                                     on_click_telemetry_url=search_result_on_click_telemetry_url,
-                                     created_by=remote_item_created_by,
-                                     microsoft_graph_remote_item_created_date_time_created_date_time=remote_item_created_date_time,
-                                     file=remote_item_file,
-                                     microsoft_graph_file_system_info_file_system_info=remote_item_file_system_info,
-                                     folder=remote_item_folder,
-                                     microsoft_graph_remote_item_id=remote_item_id,
-                                     microsoft_graph_image=remote_item_image,
-                                     last_modified_by=remote_item_last_modified_by,
-                                     microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=remote_item_last_modified_date_time,
-                                     microsoft_graph_remote_item_name=remote_item_name,
-                                     package=remote_item_package,
-                                     parent_reference=remote_item_parent_reference,
-                                     shared=remote_item_shared,
-                                     sharepoint_ids3=remote_item_sharepoint_ids,
-                                     integer_size=remote_item_size,
-                                     special_folder=remote_item_special_folder,
-                                     microsoft_graph_video=remote_item_video,
-                                     microsoft_graph_remote_item_web_dav_url_web_dav_url=remote_item_web_dav_url,
-                                     microsoft_graph_remote_item_web_url=remote_item_web_url,
-                                     queued_date_time=pending_operations_pending_content_update_queued_date_time,
-                                     type=package_type,
-                                     child_count=folder_child_count,
-                                     view=folder_view,
-                                     hashes=file_hashes,
-                                     mime_type=file_mime_type,
-                                     processing_metadata=file_processing_metadata,
-                                     state=deleted_state)
+                                                  microsoft_graph_entity_id=None,
+                                                  microsoft_graph_base_item_created_date_time_created_date_time=None,
+                                                  microsoft_graph_base_item_description=None,
+                                                  microsoft_graph_base_item_e_tag=None,
+                                                  microsoft_graph_base_item_last_modified_date_time_last_modified_date_time=None,
+                                                  microsoft_graph_base_item_name=None,
+                                                  microsoft_graph_base_item_web_url=None,
+                                                  microsoft_graph_user_created_by_user=None,
+                                                  microsoft_graph_user_last_modified_by_user=None,
+                                                  microsoft_graph_item_reference_drive_id=None,
+                                                  microsoft_graph_item_reference_drive_type=None,
+                                                  id1=None,
+                                                  name1=None,
+                                                  microsoft_graph_item_reference_path=None,
+                                                  microsoft_graph_item_reference_share_id=None,
+                                                  sharepoint_ids1=None,
+                                                  microsoft_graph_item_reference_site_id=None,
+                                                  application1=None,
+                                                  device1=None,
+                                                  user1=None,
+                                                  application2=None,
+                                                  device2=None,
+                                                  user2=None,
+                                                  sharepoint_ids2=None,
+                                                  analytics=None,
+                                                  drive_item=None,
+                                                  fields=None,
+                                                  microsoft_graph_list_item_versions=None,
+                                                  id2=None,
+                                                  all_time=None,
+                                                  item_activity_stats=None,
+                                                  last_seven_days=None,
+                                                  id3=None,
+                                                  microsoft_graph_workbook_application=None,
+                                                  comments=None,
+                                                  functions=None,
+                                                  names=None,
+                                                  operations=None,
+                                                  tables=None,
+                                                  worksheets=None,
+                                                  microsoft_graph_special_folder_name=None,
+                                                  owner=None,
+                                                  scope=None,
+                                                  shared_by=None,
+                                                  shared_date_time=None,
+                                                  on_click_telemetry_url=None,
+                                                  created_by=None,
+                                                  microsoft_graph_remote_item_created_date_time_created_date_time=None,
+                                                  file=None,
+                                                  microsoft_graph_file_system_info_file_system_info=None,
+                                                  folder=None,
+                                                  microsoft_graph_remote_item_id=None,
+                                                  microsoft_graph_image=None,
+                                                  last_modified_by=None,
+                                                  microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time=None,
+                                                  microsoft_graph_remote_item_name=None,
+                                                  package=None,
+                                                  parent_reference=None,
+                                                  shared=None,
+                                                  sharepoint_ids3=None,
+                                                  integer_size=None,
+                                                  special_folder=None,
+                                                  microsoft_graph_video=None,
+                                                  microsoft_graph_remote_item_web_dav_url_web_dav_url=None,
+                                                  microsoft_graph_remote_item_web_url=None,
+                                                  queued_date_time=None,
+                                                  type_=None,
+                                                  child_count=None,
+                                                  view=None,
+                                                  hashes=None,
+                                                  mime_type=None,
+                                                  processing_metadata=None,
+                                                  state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['audio'] = audio
+    body['content'] = content
+    body['c_tag'] = c_tag
+    body['file_system_info'] = file_system_info
+    body['image'] = image
+    body['location'] = location
+    body['photo'] = photo
+    body['publication'] = publication
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['size'] = size
+    body['video'] = video
+    body['web_dav_url'] = web_dav_url
+    body['children'] = children
+    body['permissions'] = permissions
+    body['subscriptions'] = subscriptions
+    body['thumbnails'] = thumbnails
+    body['versions'] = versions
+    body['list_item'] = {}
+    body['list_item']['id'] = microsoft_graph_entity_id
+    body['list_item']['created_date_time'] = microsoft_graph_base_item_created_date_time_created_date_time
+    body['list_item']['description'] = microsoft_graph_base_item_description
+    body['list_item']['e_tag'] = microsoft_graph_base_item_e_tag
+    body['list_item']['last_modified_date_time'] = microsoft_graph_base_item_last_modified_date_time_last_modified_date_time
+    body['list_item']['name'] = microsoft_graph_base_item_name
+    body['list_item']['web_url'] = microsoft_graph_base_item_web_url
+    body['list_item']['created_by_user'] = microsoft_graph_user_created_by_user
+    body['list_item']['last_modified_by_user'] = microsoft_graph_user_last_modified_by_user
+    body['list_item']['parent_reference'] = {}
+    body['list_item']['parent_reference']['drive_id'] = microsoft_graph_item_reference_drive_id
+    body['list_item']['parent_reference']['drive_type'] = microsoft_graph_item_reference_drive_type
+    body['list_item']['parent_reference']['id'] = id1
+    body['list_item']['parent_reference']['name'] = name1
+    body['list_item']['parent_reference']['path'] = microsoft_graph_item_reference_path
+    body['list_item']['parent_reference']['share_id'] = microsoft_graph_item_reference_share_id
+    body['list_item']['parent_reference']['sharepoint_ids'] = sharepoint_ids1
+    body['list_item']['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['list_item']['last_modified_by'] = {}
+    body['list_item']['last_modified_by']['application'] = application1
+    body['list_item']['last_modified_by']['device'] = device1
+    body['list_item']['last_modified_by']['user'] = user1
+    body['list_item']['created_by'] = {}
+    body['list_item']['created_by']['application'] = application2
+    body['list_item']['created_by']['device'] = device2
+    body['list_item']['created_by']['user'] = user2
+    body['list_item']['content_type'] = content_type
+    body['list_item']['sharepoint_ids'] = sharepoint_ids2
+    body['list_item']['analytics'] = analytics
+    body['list_item']['drive_item'] = drive_item
+    body['list_item']['fields'] = fields
+    body['list_item']['versions'] = microsoft_graph_list_item_versions
+    body['analytics'] = {}
+    body['analytics']['id'] = id2
+    body['analytics']['all_time'] = all_time
+    body['analytics']['item_activity_stats'] = item_activity_stats
+    body['analytics']['last_seven_days'] = last_seven_days
+    body['workbook'] = {}
+    body['workbook']['id'] = id3
+    body['workbook']['application'] = microsoft_graph_workbook_application
+    body['workbook']['comments'] = comments
+    body['workbook']['functions'] = functions
+    body['workbook']['names'] = names
+    body['workbook']['operations'] = operations
+    body['workbook']['tables'] = tables
+    body['workbook']['worksheets'] = worksheets
+    body['special_folder'] = {}
+    body['special_folder']['name'] = microsoft_graph_special_folder_name
+    body['shared'] = {}
+    body['shared']['owner'] = owner
+    body['shared']['scope'] = scope
+    body['shared']['shared_by'] = shared_by
+    body['shared']['shared_date_time'] = shared_date_time
+    body['search_result'] = {}
+    body['search_result']['on_click_telemetry_url'] = on_click_telemetry_url
+    body['remote_item'] = {}
+    body['remote_item']['created_by'] = created_by
+    body['remote_item']['created_date_time'] = microsoft_graph_remote_item_created_date_time_created_date_time
+    body['remote_item']['file'] = file
+    body['remote_item']['file_system_info'] = microsoft_graph_file_system_info_file_system_info
+    body['remote_item']['folder'] = folder
+    body['remote_item']['id'] = microsoft_graph_remote_item_id
+    body['remote_item']['image'] = microsoft_graph_image
+    body['remote_item']['last_modified_by'] = last_modified_by
+    body['remote_item']['last_modified_date_time'] = microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time
+    body['remote_item']['name'] = microsoft_graph_remote_item_name
+    body['remote_item']['package'] = package
+    body['remote_item']['parent_reference'] = parent_reference
+    body['remote_item']['shared'] = shared
+    body['remote_item']['sharepoint_ids'] = sharepoint_ids3
+    body['remote_item']['size'] = integer_size
+    body['remote_item']['special_folder'] = special_folder
+    body['remote_item']['video'] = microsoft_graph_video
+    body['remote_item']['web_dav_url'] = microsoft_graph_remote_item_web_dav_url_web_dav_url
+    body['remote_item']['web_url'] = microsoft_graph_remote_item_web_url
+    body['pending_content_update'] = {}
+    body['pending_content_update']['queued_date_time'] = queued_date_time
+    body['package'] = {}
+    body['package']['type'] = type_
+    body['folder'] = {}
+    body['folder']['child_count'] = child_count
+    body['folder']['view'] = view
+    body['file'] = {}
+    body['file']['hashes'] = hashes
+    body['file']['mime_type'] = mime_type
+    body['file']['processing_metadata'] = processing_metadata
+    body['deleted'] = {}
+    body['deleted']['state'] = state
+    return client.update_files_folder(team_id=team_id,
+                                      body=body)
 
 
 def teams_team_primary_channel_update_member(client,
@@ -2599,19 +2497,21 @@ def teams_team_primary_channel_update_member(client,
                                              id_=None,
                                              display_name=None,
                                              roles=None):
-    return client.update_member(team_id=team_id,
-                                conversation_member_id=conversation_member_id,
-                                id=id_,
-                                display_name=display_name,
-                                roles=roles)
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['roles'] = roles
+    return client.update_members(team_id=team_id,
+                                 conversation_member_id=conversation_member_id,
+                                 body=body)
 
 
 def teams_team_primary_channel_update_message(client,
                                               team_id,
                                               chat_message_id,
+                                              body,
                                               id_=None,
                                               attachments=None,
-                                              body=None,
                                               created_date_time=None,
                                               deleted_date_time=None,
                                               etag=None,
@@ -2628,49 +2528,47 @@ def teams_team_primary_channel_update_message(client,
                                               web_url=None,
                                               hosted_contents=None,
                                               replies=None,
-                                              policy_violation_dlp_action=None,
-                                              policy_violation_justification_text=None,
-                                              policy_violation_policy_tip=None,
-                                              policy_violation_user_action=None,
-                                              policy_violation_verdict_details=None,
-                                              from_user_display_name=None,
-                                              from_user_id=None,
-                                              from_device_display_name=None,
-                                              from_device_id=None,
-                                              from_application_display_name=None,
-                                              from_application_id=None):
-    return client.update_message(team_id=team_id,
-                                 chat_message_id=chat_message_id,
-                                 id=id_,
-                                 attachments=attachments,
-                                 body=body,
-                                 created_date_time=created_date_time,
-                                 deleted_date_time=deleted_date_time,
-                                 etag=etag,
-                                 importance=importance,
-                                 last_edited_date_time=last_edited_date_time,
-                                 last_modified_date_time=last_modified_date_time,
-                                 locale=locale,
-                                 mentions=mentions,
-                                 message_type=message_type,
-                                 reactions=reactions,
-                                 reply_to_id=reply_to_id,
-                                 subject=subject,
-                                 summary=summary,
-                                 web_url=web_url,
-                                 hosted_contents=hosted_contents,
-                                 replies=replies,
-                                 dlp_action=policy_violation_dlp_action,
-                                 justification_text=policy_violation_justification_text,
-                                 policy_tip=policy_violation_policy_tip,
-                                 user_action=policy_violation_user_action,
-                                 verdict_details=policy_violation_verdict_details,
-                                 display_name=from_user_display_name,
-                                 microsoft_graph_identity_id=from_user_id,
-                                 microsoft_graph_identity_display_name=from_device_display_name,
-                                 id1=from_device_id,
-                                 display_name1=from_application_display_name,
-                                 id2=from_application_id)
+                                              dlp_action=None,
+                                              justification_text=None,
+                                              policy_tip=None,
+                                              user_action=None,
+                                              verdict_details=None,
+                                              application=None,
+                                              device=None,
+                                              user=None):
+    body = {}
+    body['id'] = id_
+    body['attachments'] = attachments
+    body['body'] = body
+    body['created_date_time'] = created_date_time
+    body['deleted_date_time'] = deleted_date_time
+    body['etag'] = etag
+    body['importance'] = importance
+    body['last_edited_date_time'] = last_edited_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['locale'] = locale
+    body['mentions'] = mentions
+    body['message_type'] = message_type
+    body['reactions'] = reactions
+    body['reply_to_id'] = reply_to_id
+    body['subject'] = subject
+    body['summary'] = summary
+    body['web_url'] = web_url
+    body['hosted_contents'] = hosted_contents
+    body['replies'] = replies
+    body['policy_violation'] = {}
+    body['policy_violation']['dlp_action'] = dlp_action
+    body['policy_violation']['justification_text'] = justification_text
+    body['policy_violation']['policy_tip'] = policy_tip
+    body['policy_violation']['user_action'] = user_action
+    body['policy_violation']['verdict_details'] = verdict_details
+    body['from_property'] = {}
+    body['from_property']['application'] = application
+    body['from_property']['device'] = device
+    body['from_property']['user'] = user
+    return client.update_messages(team_id=team_id,
+                                  chat_message_id=chat_message_id,
+                                  body=body)
 
 
 def teams_team_primary_channel_update_tab(client,
@@ -2680,56 +2578,44 @@ def teams_team_primary_channel_update_tab(client,
                                           configuration=None,
                                           display_name=None,
                                           web_url=None,
-                                          teams_app_id=None,
-                                          teams_app_display_name=None,
-                                          teams_app_distribution_method=None,
-                                          teams_app_external_id=None,
-                                          teams_app_app_definitions=None):
-    return client.update_tab(team_id=team_id,
-                             teams_tab_id=teams_tab_id,
-                             id=id_,
-                             configuration=configuration,
-                             display_name=display_name,
-                             web_url=web_url,
-                             microsoft_graph_entity_id=teams_app_id,
-                             microsoft_graph_teams_app_display_name=teams_app_display_name,
-                             distribution_method=teams_app_distribution_method,
-                             external_id=teams_app_external_id,
-                             app_definitions=teams_app_app_definitions)
-
-
-def teams_team_primary_channel_message_delete(client,
-                                              team_id,
-                                              chat_message_id,
-                                              chat_message_hosted_content_id=None,
-                                              if_match=None,
-                                              chat_message_id1=None):
-    if team_id is not None and chat_message_id is not None and chat_message_hosted_content_id is not None:
-        return client.delete_hosted_content(team_id=team_id,
-                                            chat_message_id=chat_message_id,
-                                            chat_message_hosted_content_id=chat_message_hosted_content_id,
-                                            if_match=if_match)
-    return client.delete_reply(team_id=team_id,
-                               chat_message_id=chat_message_id,
-                               chat_message_id1=chat_message_id1,
-                               if_match=if_match)
+                                          microsoft_graph_entity_id=None,
+                                          microsoft_graph_teams_app_display_name=None,
+                                          distribution_method=None,
+                                          external_id=None,
+                                          app_definitions=None):
+    body = {}
+    body['id'] = id_
+    body['configuration'] = configuration
+    body['display_name'] = display_name
+    body['web_url'] = web_url
+    body['teams_app'] = {}
+    body['teams_app']['id'] = microsoft_graph_entity_id
+    body['teams_app']['display_name'] = microsoft_graph_teams_app_display_name
+    body['teams_app']['distribution_method'] = distribution_method
+    body['teams_app']['external_id'] = external_id
+    body['teams_app']['app_definitions'] = app_definitions
+    return client.update_tabs(team_id=team_id,
+                              teams_tab_id=teams_tab_id,
+                              body=body)
 
 
 def teams_team_primary_channel_message_create_hosted_content(client,
                                                              team_id,
                                                              chat_message_id,
                                                              id_=None):
-    return client.create_hosted_content(team_id=team_id,
-                                        chat_message_id=chat_message_id,
-                                        id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_hosted_contents(team_id=team_id,
+                                         chat_message_id=chat_message_id,
+                                         body=body)
 
 
 def teams_team_primary_channel_message_create_reply(client,
                                                     team_id,
                                                     chat_message_id,
+                                                    body,
                                                     id_=None,
                                                     attachments=None,
-                                                    body=None,
                                                     created_date_time=None,
                                                     deleted_date_time=None,
                                                     etag=None,
@@ -2746,75 +2632,69 @@ def teams_team_primary_channel_message_create_reply(client,
                                                     web_url=None,
                                                     hosted_contents=None,
                                                     replies=None,
-                                                    policy_violation_dlp_action=None,
-                                                    policy_violation_justification_text=None,
-                                                    policy_violation_policy_tip=None,
-                                                    policy_violation_user_action=None,
-                                                    policy_violation_verdict_details=None,
-                                                    from_user_display_name=None,
-                                                    from_user_id=None,
-                                                    from_device_display_name=None,
-                                                    from_device_id=None,
-                                                    from_application_display_name=None,
-                                                    from_application_id=None):
-    return client.create_reply(team_id=team_id,
-                               chat_message_id=chat_message_id,
-                               id=id_,
-                               attachments=attachments,
-                               body=body,
-                               created_date_time=created_date_time,
-                               deleted_date_time=deleted_date_time,
-                               etag=etag,
-                               importance=importance,
-                               last_edited_date_time=last_edited_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               locale=locale,
-                               mentions=mentions,
-                               message_type=message_type,
-                               reactions=reactions,
-                               reply_to_id=reply_to_id,
-                               subject=subject,
-                               summary=summary,
-                               web_url=web_url,
-                               hosted_contents=hosted_contents,
-                               replies=replies,
-                               dlp_action=policy_violation_dlp_action,
-                               justification_text=policy_violation_justification_text,
-                               policy_tip=policy_violation_policy_tip,
-                               user_action=policy_violation_user_action,
-                               verdict_details=policy_violation_verdict_details,
-                               display_name=from_user_display_name,
-                               microsoft_graph_identity_id=from_user_id,
-                               microsoft_graph_identity_display_name=from_device_display_name,
-                               id1=from_device_id,
-                               display_name1=from_application_display_name,
-                               id2=from_application_id)
+                                                    dlp_action=None,
+                                                    justification_text=None,
+                                                    policy_tip=None,
+                                                    user_action=None,
+                                                    verdict_details=None,
+                                                    application=None,
+                                                    device=None,
+                                                    user=None):
+    body = {}
+    body['id'] = id_
+    body['attachments'] = attachments
+    body['body'] = body
+    body['created_date_time'] = created_date_time
+    body['deleted_date_time'] = deleted_date_time
+    body['etag'] = etag
+    body['importance'] = importance
+    body['last_edited_date_time'] = last_edited_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['locale'] = locale
+    body['mentions'] = mentions
+    body['message_type'] = message_type
+    body['reactions'] = reactions
+    body['reply_to_id'] = reply_to_id
+    body['subject'] = subject
+    body['summary'] = summary
+    body['web_url'] = web_url
+    body['hosted_contents'] = hosted_contents
+    body['replies'] = replies
+    body['policy_violation'] = {}
+    body['policy_violation']['dlp_action'] = dlp_action
+    body['policy_violation']['justification_text'] = justification_text
+    body['policy_violation']['policy_tip'] = policy_tip
+    body['policy_violation']['user_action'] = user_action
+    body['policy_violation']['verdict_details'] = verdict_details
+    body['from_property'] = {}
+    body['from_property']['application'] = application
+    body['from_property']['device'] = device
+    body['from_property']['user'] = user
+    return client.create_replies(team_id=team_id,
+                                 chat_message_id=chat_message_id,
+                                 body=body)
 
 
-def teams_team_primary_channel_message_get_hosted_content(client,
-                                                          team_id,
-                                                          chat_message_id,
-                                                          chat_message_hosted_content_id,
-                                                          select=None,
-                                                          expand=None):
-    return client.get_hosted_content(team_id=team_id,
-                                     chat_message_id=chat_message_id,
-                                     chat_message_hosted_content_id=chat_message_hosted_content_id,
-                                     select=select,
-                                     expand=expand)
+def teams_team_primary_channel_message_delete_hosted_content(client,
+                                                             team_id,
+                                                             chat_message_id,
+                                                             chat_message_hosted_content_id,
+                                                             if_match=None):
+    return client.delete_hosted_contents(team_id=team_id,
+                                         chat_message_id=chat_message_id,
+                                         chat_message_hosted_content_id=chat_message_hosted_content_id,
+                                         if_match=if_match)
 
 
-def teams_team_primary_channel_message_get_reply(client,
-                                                 team_id,
-                                                 chat_message_id,
-                                                 chat_message_id1,
-                                                 select=None,
-                                                 expand=None):
-    return client.get_reply(team_id=team_id,
-                            chat_message_id=chat_message_id,
-                            chat_message_id1=chat_message_id1,
-                            select=select,
-                            expand=expand)
+def teams_team_primary_channel_message_delete_reply(client,
+                                                    team_id,
+                                                    chat_message_id,
+                                                    chat_message_id1,
+                                                    if_match=None):
+    return client.delete_replies(team_id=team_id,
+                                 chat_message_id=chat_message_id,
+                                 chat_message_id1=chat_message_id1,
+                                 if_match=if_match)
 
 
 def teams_team_primary_channel_message_list_hosted_content(client,
@@ -2823,11 +2703,11 @@ def teams_team_primary_channel_message_list_hosted_content(client,
                                                            orderby=None,
                                                            select=None,
                                                            expand=None):
-    return client.list_hosted_content(team_id=team_id,
-                                      chat_message_id=chat_message_id,
-                                      orderby=orderby,
-                                      select=select,
-                                      expand=expand)
+    return client.list_hosted_contents(team_id=team_id,
+                                       chat_message_id=chat_message_id,
+                                       orderby=orderby,
+                                       select=select,
+                                       expand=expand)
 
 
 def teams_team_primary_channel_message_list_reply(client,
@@ -2836,11 +2716,37 @@ def teams_team_primary_channel_message_list_reply(client,
                                                   orderby=None,
                                                   select=None,
                                                   expand=None):
-    return client.list_reply(team_id=team_id,
-                             chat_message_id=chat_message_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_replies(team_id=team_id,
+                               chat_message_id=chat_message_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def teams_team_primary_channel_message_show_hosted_content(client,
+                                                           team_id,
+                                                           chat_message_id,
+                                                           chat_message_hosted_content_id,
+                                                           select=None,
+                                                           expand=None):
+    return client.get_hosted_contents(team_id=team_id,
+                                      chat_message_id=chat_message_id,
+                                      chat_message_hosted_content_id=chat_message_hosted_content_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def teams_team_primary_channel_message_show_reply(client,
+                                                  team_id,
+                                                  chat_message_id,
+                                                  chat_message_id1,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_replies(team_id=team_id,
+                              chat_message_id=chat_message_id,
+                              chat_message_id1=chat_message_id1,
+                              select=select,
+                              expand=expand)
 
 
 def teams_team_primary_channel_message_update_hosted_content(client,
@@ -2848,19 +2754,21 @@ def teams_team_primary_channel_message_update_hosted_content(client,
                                                              chat_message_id,
                                                              chat_message_hosted_content_id,
                                                              id_=None):
-    return client.update_hosted_content(team_id=team_id,
-                                        chat_message_id=chat_message_id,
-                                        chat_message_hosted_content_id=chat_message_hosted_content_id,
-                                        id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_hosted_contents(team_id=team_id,
+                                         chat_message_id=chat_message_id,
+                                         chat_message_hosted_content_id=chat_message_hosted_content_id,
+                                         body=body)
 
 
 def teams_team_primary_channel_message_update_reply(client,
                                                     team_id,
                                                     chat_message_id,
                                                     chat_message_id1,
+                                                    body,
                                                     id_=None,
                                                     attachments=None,
-                                                    body=None,
                                                     created_date_time=None,
                                                     deleted_date_time=None,
                                                     etag=None,
@@ -2877,135 +2785,84 @@ def teams_team_primary_channel_message_update_reply(client,
                                                     web_url=None,
                                                     hosted_contents=None,
                                                     replies=None,
-                                                    policy_violation_dlp_action=None,
-                                                    policy_violation_justification_text=None,
-                                                    policy_violation_policy_tip=None,
-                                                    policy_violation_user_action=None,
-                                                    policy_violation_verdict_details=None,
-                                                    from_user_display_name=None,
-                                                    from_user_id=None,
-                                                    from_device_display_name=None,
-                                                    from_device_id=None,
-                                                    from_application_display_name=None,
-                                                    from_application_id=None):
-    return client.update_reply(team_id=team_id,
-                               chat_message_id=chat_message_id,
-                               chat_message_id1=chat_message_id1,
-                               id=id_,
-                               attachments=attachments,
-                               body=body,
-                               created_date_time=created_date_time,
-                               deleted_date_time=deleted_date_time,
-                               etag=etag,
-                               importance=importance,
-                               last_edited_date_time=last_edited_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               locale=locale,
-                               mentions=mentions,
-                               message_type=message_type,
-                               reactions=reactions,
-                               reply_to_id=reply_to_id,
-                               subject=subject,
-                               summary=summary,
-                               web_url=web_url,
-                               hosted_contents=hosted_contents,
-                               replies=replies,
-                               dlp_action=policy_violation_dlp_action,
-                               justification_text=policy_violation_justification_text,
-                               policy_tip=policy_violation_policy_tip,
-                               user_action=policy_violation_user_action,
-                               verdict_details=policy_violation_verdict_details,
-                               display_name=from_user_display_name,
-                               microsoft_graph_identity_id=from_user_id,
-                               microsoft_graph_identity_display_name=from_device_display_name,
-                               id1=from_device_id,
-                               display_name1=from_application_display_name,
-                               id2=from_application_id)
+                                                    dlp_action=None,
+                                                    justification_text=None,
+                                                    policy_tip=None,
+                                                    user_action=None,
+                                                    verdict_details=None,
+                                                    application=None,
+                                                    device=None,
+                                                    user=None):
+    body = {}
+    body['id'] = id_
+    body['attachments'] = attachments
+    body['body'] = body
+    body['created_date_time'] = created_date_time
+    body['deleted_date_time'] = deleted_date_time
+    body['etag'] = etag
+    body['importance'] = importance
+    body['last_edited_date_time'] = last_edited_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['locale'] = locale
+    body['mentions'] = mentions
+    body['message_type'] = message_type
+    body['reactions'] = reactions
+    body['reply_to_id'] = reply_to_id
+    body['subject'] = subject
+    body['summary'] = summary
+    body['web_url'] = web_url
+    body['hosted_contents'] = hosted_contents
+    body['replies'] = replies
+    body['policy_violation'] = {}
+    body['policy_violation']['dlp_action'] = dlp_action
+    body['policy_violation']['justification_text'] = justification_text
+    body['policy_violation']['policy_tip'] = policy_tip
+    body['policy_violation']['user_action'] = user_action
+    body['policy_violation']['verdict_details'] = verdict_details
+    body['from_property'] = {}
+    body['from_property']['application'] = application
+    body['from_property']['device'] = device
+    body['from_property']['user'] = user
+    return client.update_replies(team_id=team_id,
+                                 chat_message_id=chat_message_id,
+                                 chat_message_id1=chat_message_id1,
+                                 body=body)
 
 
-def teams_team_primary_channel_tab_delete(client,
-                                          team_id,
-                                          teams_tab_id,
-                                          if_match=None):
-    return client.delete_ref_team_app(team_id=team_id,
-                                      teams_tab_id=teams_tab_id,
-                                      if_match=if_match)
-
-
-def teams_team_primary_channel_tab_get_app(client,
-                                           team_id,
-                                           teams_tab_id,
-                                           select=None,
-                                           expand=None):
-    return client.get_team_app(team_id=team_id,
-                               teams_tab_id=teams_tab_id,
-                               select=select,
-                               expand=expand)
-
-
-def teams_team_primary_channel_tab_get_ref_team_app(client,
-                                                    team_id,
-                                                    teams_tab_id):
-    return client.get_ref_team_app(team_id=team_id,
-                                   teams_tab_id=teams_tab_id)
+def teams_team_primary_channel_tab_delete_ref_team_app(client,
+                                                       team_id,
+                                                       teams_tab_id,
+                                                       if_match=None):
+    return client.delete_ref_teams_app(team_id=team_id,
+                                       teams_tab_id=teams_tab_id,
+                                       if_match=if_match)
 
 
 def teams_team_primary_channel_tab_set_ref_team_app(client,
                                                     team_id,
                                                     teams_tab_id,
                                                     body):
-    return client.set_ref_team_app(team_id=team_id,
-                                   teams_tab_id=teams_tab_id,
-                                   body=body)
+    return client.set_ref_teams_app(team_id=team_id,
+                                    teams_tab_id=teams_tab_id,
+                                    body=body)
 
 
-def teams_team_schedule_delete(client,
-                               team_id,
-                               offer_shift_request_id=None,
-                               if_match=None,
-                               open_shift_change_request_id=None,
-                               open_shift_id=None,
-                               scheduling_group_id=None,
-                               shift_id=None,
-                               swap_shifts_change_request_id=None,
-                               time_off_reason_id=None,
-                               time_off_request_id=None,
-                               time_off_id=None):
-    if team_id is not None and offer_shift_request_id is not None:
-        return client.delete_offer_shift_request(team_id=team_id,
-                                                 offer_shift_request_id=offer_shift_request_id,
-                                                 if_match=if_match)
-    elif team_id is not None and open_shift_change_request_id is not None:
-        return client.delete_open_shift_change_request(team_id=team_id,
-                                                       open_shift_change_request_id=open_shift_change_request_id,
-                                                       if_match=if_match)
-    elif team_id is not None and open_shift_id is not None:
-        return client.delete_open_shift(team_id=team_id,
-                                        open_shift_id=open_shift_id,
-                                        if_match=if_match)
-    elif team_id is not None and scheduling_group_id is not None:
-        return client.delete_scheduling_group(team_id=team_id,
-                                              scheduling_group_id=scheduling_group_id,
-                                              if_match=if_match)
-    elif team_id is not None and shift_id is not None:
-        return client.delete_shift(team_id=team_id,
-                                   shift_id=shift_id,
-                                   if_match=if_match)
-    elif team_id is not None and swap_shifts_change_request_id is not None:
-        return client.delete_swap_shift_change_request(team_id=team_id,
-                                                       swap_shifts_change_request_id=swap_shifts_change_request_id,
-                                                       if_match=if_match)
-    elif team_id is not None and time_off_reason_id is not None:
-        return client.delete_time_off_reason(team_id=team_id,
-                                             time_off_reason_id=time_off_reason_id,
-                                             if_match=if_match)
-    elif team_id is not None and time_off_request_id is not None:
-        return client.delete_time_off_request(team_id=team_id,
-                                              time_off_request_id=time_off_request_id,
-                                              if_match=if_match)
-    return client.delete_time_off(team_id=team_id,
-                                  time_off_id=time_off_id,
-                                  if_match=if_match)
+def teams_team_primary_channel_tab_show_ref_team_app(client,
+                                                     team_id,
+                                                     teams_tab_id):
+    return client.get_ref_teams_app(team_id=team_id,
+                                    teams_tab_id=teams_tab_id)
+
+
+def teams_team_primary_channel_tab_show_team_app(client,
+                                                 team_id,
+                                                 teams_tab_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_teams_app(team_id=team_id,
+                                teams_tab_id=teams_tab_id,
+                                select=select,
+                                expand=expand)
 
 
 def teams_team_schedule_create_offer_shift_request(client,
@@ -3013,12 +2870,9 @@ def teams_team_schedule_create_offer_shift_request(client,
                                                    id_=None,
                                                    created_date_time=None,
                                                    last_modified_date_time=None,
-                                                   last_modified_by_user_display_name=None,
-                                                   last_modified_by_user_id=None,
-                                                   last_modified_by_device_display_name=None,
-                                                   last_modified_by_device_id=None,
-                                                   last_modified_by_application_display_name=None,
-                                                   last_modified_by_application_id=None,
+                                                   application=None,
+                                                   device=None,
+                                                   user=None,
                                                    assigned_to=None,
                                                    manager_action_date_time=None,
                                                    manager_action_message=None,
@@ -3031,28 +2885,28 @@ def teams_team_schedule_create_offer_shift_request(client,
                                                    recipient_action_message=None,
                                                    recipient_user_id=None,
                                                    sender_shift_id=None):
-    return client.create_offer_shift_request(team_id=team_id,
-                                             id=id_,
-                                             created_date_time=created_date_time,
-                                             last_modified_date_time=last_modified_date_time,
-                                             display_name=last_modified_by_user_display_name,
-                                             microsoft_graph_identity_id=last_modified_by_user_id,
-                                             microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                             id1=last_modified_by_device_id,
-                                             display_name1=last_modified_by_application_display_name,
-                                             id2=last_modified_by_application_id,
-                                             assigned_to=assigned_to,
-                                             manager_action_date_time=manager_action_date_time,
-                                             manager_action_message=manager_action_message,
-                                             manager_user_id=manager_user_id,
-                                             sender_date_time=sender_date_time,
-                                             sender_message=sender_message,
-                                             sender_user_id=sender_user_id,
-                                             state=state,
-                                             recipient_action_date_time=recipient_action_date_time,
-                                             recipient_action_message=recipient_action_message,
-                                             recipient_user_id=recipient_user_id,
-                                             sender_shift_id=sender_shift_id)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['assigned_to'] = assigned_to
+    body['manager_action_date_time'] = manager_action_date_time
+    body['manager_action_message'] = manager_action_message
+    body['manager_user_id'] = manager_user_id
+    body['sender_date_time'] = sender_date_time
+    body['sender_message'] = sender_message
+    body['sender_user_id'] = sender_user_id
+    body['state'] = state
+    body['recipient_action_date_time'] = recipient_action_date_time
+    body['recipient_action_message'] = recipient_action_message
+    body['recipient_user_id'] = recipient_user_id
+    body['sender_shift_id'] = sender_shift_id
+    return client.create_offer_shift_requests(team_id=team_id,
+                                              body=body)
 
 
 def teams_team_schedule_create_open_shift(client,
@@ -3060,28 +2914,25 @@ def teams_team_schedule_create_open_shift(client,
                                           id_=None,
                                           created_date_time=None,
                                           last_modified_date_time=None,
-                                          last_modified_by_user_display_name=None,
-                                          last_modified_by_user_id=None,
-                                          last_modified_by_device_display_name=None,
-                                          last_modified_by_device_id=None,
-                                          last_modified_by_application_display_name=None,
-                                          last_modified_by_application_id=None,
+                                          application=None,
+                                          device=None,
+                                          user=None,
                                           draft_open_shift=None,
                                           scheduling_group_id=None,
                                           shared_open_shift=None):
-    return client.create_open_shift(team_id=team_id,
-                                    id=id_,
-                                    created_date_time=created_date_time,
-                                    last_modified_date_time=last_modified_date_time,
-                                    display_name=last_modified_by_user_display_name,
-                                    microsoft_graph_identity_id=last_modified_by_user_id,
-                                    microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                    id1=last_modified_by_device_id,
-                                    display_name1=last_modified_by_application_display_name,
-                                    id2=last_modified_by_application_id,
-                                    draft_open_shift=draft_open_shift,
-                                    scheduling_group_id=scheduling_group_id,
-                                    shared_open_shift=shared_open_shift)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['draft_open_shift'] = draft_open_shift
+    body['scheduling_group_id'] = scheduling_group_id
+    body['shared_open_shift'] = shared_open_shift
+    return client.create_open_shifts(team_id=team_id,
+                                     body=body)
 
 
 def teams_team_schedule_create_open_shift_change_request(client,
@@ -3089,12 +2940,9 @@ def teams_team_schedule_create_open_shift_change_request(client,
                                                          id_=None,
                                                          created_date_time=None,
                                                          last_modified_date_time=None,
-                                                         last_modified_by_user_display_name=None,
-                                                         last_modified_by_user_id=None,
-                                                         last_modified_by_device_display_name=None,
-                                                         last_modified_by_device_id=None,
-                                                         last_modified_by_application_display_name=None,
-                                                         last_modified_by_application_id=None,
+                                                         application=None,
+                                                         device=None,
+                                                         user=None,
                                                          assigned_to=None,
                                                          manager_action_date_time=None,
                                                          manager_action_message=None,
@@ -3104,25 +2952,25 @@ def teams_team_schedule_create_open_shift_change_request(client,
                                                          sender_user_id=None,
                                                          state=None,
                                                          open_shift_id=None):
-    return client.create_open_shift_change_request(team_id=team_id,
-                                                   id=id_,
-                                                   created_date_time=created_date_time,
-                                                   last_modified_date_time=last_modified_date_time,
-                                                   display_name=last_modified_by_user_display_name,
-                                                   microsoft_graph_identity_id=last_modified_by_user_id,
-                                                   microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                                   id1=last_modified_by_device_id,
-                                                   display_name1=last_modified_by_application_display_name,
-                                                   id2=last_modified_by_application_id,
-                                                   assigned_to=assigned_to,
-                                                   manager_action_date_time=manager_action_date_time,
-                                                   manager_action_message=manager_action_message,
-                                                   manager_user_id=manager_user_id,
-                                                   sender_date_time=sender_date_time,
-                                                   sender_message=sender_message,
-                                                   sender_user_id=sender_user_id,
-                                                   state=state,
-                                                   open_shift_id=open_shift_id)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['assigned_to'] = assigned_to
+    body['manager_action_date_time'] = manager_action_date_time
+    body['manager_action_message'] = manager_action_message
+    body['manager_user_id'] = manager_user_id
+    body['sender_date_time'] = sender_date_time
+    body['sender_message'] = sender_message
+    body['sender_user_id'] = sender_user_id
+    body['state'] = state
+    body['open_shift_id'] = open_shift_id
+    return client.create_open_shift_change_requests(team_id=team_id,
+                                                    body=body)
 
 
 def teams_team_schedule_create_scheduling_group(client,
@@ -3130,28 +2978,25 @@ def teams_team_schedule_create_scheduling_group(client,
                                                 id_=None,
                                                 created_date_time=None,
                                                 last_modified_date_time=None,
-                                                last_modified_by_user_display_name=None,
-                                                last_modified_by_user_id=None,
-                                                last_modified_by_device_display_name=None,
-                                                last_modified_by_device_id=None,
-                                                last_modified_by_application_display_name=None,
-                                                last_modified_by_application_id=None,
-                                                microsoft_graph_scheduling_group_display_name=None,
+                                                application=None,
+                                                device=None,
+                                                user=None,
+                                                display_name=None,
                                                 is_active=None,
                                                 user_ids=None):
-    return client.create_scheduling_group(team_id=team_id,
-                                          id=id_,
-                                          created_date_time=created_date_time,
-                                          last_modified_date_time=last_modified_date_time,
-                                          display_name=last_modified_by_user_display_name,
-                                          microsoft_graph_identity_id=last_modified_by_user_id,
-                                          microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                          id1=last_modified_by_device_id,
-                                          display_name1=last_modified_by_application_display_name,
-                                          id2=last_modified_by_application_id,
-                                          microsoft_graph_scheduling_group_display_name=microsoft_graph_scheduling_group_display_name,
-                                          is_active=is_active,
-                                          user_ids=user_ids)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['display_name'] = display_name
+    body['is_active'] = is_active
+    body['user_ids'] = user_ids
+    return client.create_scheduling_groups(team_id=team_id,
+                                           body=body)
 
 
 def teams_team_schedule_create_shift(client,
@@ -3159,50 +3004,49 @@ def teams_team_schedule_create_shift(client,
                                      id_=None,
                                      created_date_time=None,
                                      last_modified_date_time=None,
-                                     last_modified_by_user_display_name=None,
-                                     last_modified_by_user_id=None,
-                                     last_modified_by_device_display_name=None,
-                                     last_modified_by_device_id=None,
-                                     last_modified_by_application_display_name=None,
-                                     last_modified_by_application_id=None,
+                                     application=None,
+                                     device=None,
+                                     user=None,
                                      scheduling_group_id=None,
                                      user_id=None,
-                                     shared_shift_end_date_time=None,
-                                     shared_shift_start_date_time=None,
-                                     shared_shift_theme=None,
-                                     shared_shift_activities=None,
-                                     shared_shift_display_name=None,
-                                     shared_shift_notes=None,
-                                     draft_shift_end_date_time=None,
-                                     draft_shift_start_date_time=None,
-                                     draft_shift_theme=None,
-                                     draft_shift_activities=None,
-                                     draft_shift_display_name=None,
-                                     draft_shift_notes=None):
-    return client.create_shift(team_id=team_id,
-                               id=id_,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               display_name=last_modified_by_user_display_name,
-                               microsoft_graph_identity_id=last_modified_by_user_id,
-                               microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                               id1=last_modified_by_device_id,
-                               display_name1=last_modified_by_application_display_name,
-                               id2=last_modified_by_application_id,
-                               scheduling_group_id=scheduling_group_id,
-                               user_id=user_id,
-                               end_date_time=shared_shift_end_date_time,
-                               start_date_time=shared_shift_start_date_time,
-                               theme=shared_shift_theme,
-                               activities=shared_shift_activities,
-                               microsoft_graph_shift_item_display_name=shared_shift_display_name,
-                               notes=shared_shift_notes,
-                               microsoft_graph_schedule_entity_end_date_time_end_date_time=draft_shift_end_date_time,
-                               microsoft_graph_schedule_entity_start_date_time_start_date_time=draft_shift_start_date_time,
-                               microsoft_graph_schedule_entity_theme=draft_shift_theme,
-                               microsoft_graph_shift_item_activities=draft_shift_activities,
-                               display_name2=draft_shift_display_name,
-                               microsoft_graph_shift_item_notes=draft_shift_notes)
+                                     end_date_time=None,
+                                     start_date_time=None,
+                                     theme=None,
+                                     activities=None,
+                                     display_name=None,
+                                     notes=None,
+                                     microsoft_graph_schedule_entity_end_date_time_end_date_time=None,
+                                     microsoft_graph_schedule_entity_start_date_time_start_date_time=None,
+                                     microsoft_graph_schedule_entity_theme=None,
+                                     microsoft_graph_shift_item_activities=None,
+                                     microsoft_graph_shift_item_display_name=None,
+                                     microsoft_graph_shift_item_notes=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['scheduling_group_id'] = scheduling_group_id
+    body['user_id'] = user_id
+    body['shared_shift'] = {}
+    body['shared_shift']['end_date_time'] = end_date_time
+    body['shared_shift']['start_date_time'] = start_date_time
+    body['shared_shift']['theme'] = theme
+    body['shared_shift']['activities'] = activities
+    body['shared_shift']['display_name'] = display_name
+    body['shared_shift']['notes'] = notes
+    body['draft_shift'] = {}
+    body['draft_shift']['end_date_time'] = microsoft_graph_schedule_entity_end_date_time_end_date_time
+    body['draft_shift']['start_date_time'] = microsoft_graph_schedule_entity_start_date_time_start_date_time
+    body['draft_shift']['theme'] = microsoft_graph_schedule_entity_theme
+    body['draft_shift']['activities'] = microsoft_graph_shift_item_activities
+    body['draft_shift']['display_name'] = microsoft_graph_shift_item_display_name
+    body['draft_shift']['notes'] = microsoft_graph_shift_item_notes
+    return client.create_shifts(team_id=team_id,
+                                body=body)
 
 
 def teams_team_schedule_create_swap_shift_change_request(client,
@@ -3210,12 +3054,9 @@ def teams_team_schedule_create_swap_shift_change_request(client,
                                                          id_=None,
                                                          created_date_time=None,
                                                          last_modified_date_time=None,
-                                                         last_modified_by_user_display_name=None,
-                                                         last_modified_by_user_id=None,
-                                                         last_modified_by_device_display_name=None,
-                                                         last_modified_by_device_id=None,
-                                                         last_modified_by_application_display_name=None,
-                                                         last_modified_by_application_id=None,
+                                                         application=None,
+                                                         device=None,
+                                                         user=None,
                                                          assigned_to=None,
                                                          manager_action_date_time=None,
                                                          manager_action_message=None,
@@ -3229,29 +3070,29 @@ def teams_team_schedule_create_swap_shift_change_request(client,
                                                          recipient_user_id=None,
                                                          sender_shift_id=None,
                                                          recipient_shift_id=None):
-    return client.create_swap_shift_change_request(team_id=team_id,
-                                                   id=id_,
-                                                   created_date_time=created_date_time,
-                                                   last_modified_date_time=last_modified_date_time,
-                                                   display_name=last_modified_by_user_display_name,
-                                                   microsoft_graph_identity_id=last_modified_by_user_id,
-                                                   microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                                   id1=last_modified_by_device_id,
-                                                   display_name1=last_modified_by_application_display_name,
-                                                   id2=last_modified_by_application_id,
-                                                   assigned_to=assigned_to,
-                                                   manager_action_date_time=manager_action_date_time,
-                                                   manager_action_message=manager_action_message,
-                                                   manager_user_id=manager_user_id,
-                                                   sender_date_time=sender_date_time,
-                                                   sender_message=sender_message,
-                                                   sender_user_id=sender_user_id,
-                                                   state=state,
-                                                   recipient_action_date_time=recipient_action_date_time,
-                                                   recipient_action_message=recipient_action_message,
-                                                   recipient_user_id=recipient_user_id,
-                                                   sender_shift_id=sender_shift_id,
-                                                   recipient_shift_id=recipient_shift_id)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['assigned_to'] = assigned_to
+    body['manager_action_date_time'] = manager_action_date_time
+    body['manager_action_message'] = manager_action_message
+    body['manager_user_id'] = manager_user_id
+    body['sender_date_time'] = sender_date_time
+    body['sender_message'] = sender_message
+    body['sender_user_id'] = sender_user_id
+    body['state'] = state
+    body['recipient_action_date_time'] = recipient_action_date_time
+    body['recipient_action_message'] = recipient_action_message
+    body['recipient_user_id'] = recipient_user_id
+    body['sender_shift_id'] = sender_shift_id
+    body['recipient_shift_id'] = recipient_shift_id
+    return client.create_swap_shifts_change_requests(team_id=team_id,
+                                                     body=body)
 
 
 def teams_team_schedule_create_time_off(client,
@@ -3259,28 +3100,25 @@ def teams_team_schedule_create_time_off(client,
                                         id_=None,
                                         created_date_time=None,
                                         last_modified_date_time=None,
-                                        last_modified_by_user_display_name=None,
-                                        last_modified_by_user_id=None,
-                                        last_modified_by_device_display_name=None,
-                                        last_modified_by_device_id=None,
-                                        last_modified_by_application_display_name=None,
-                                        last_modified_by_application_id=None,
+                                        application=None,
+                                        device=None,
+                                        user=None,
                                         draft_time_off=None,
                                         shared_time_off=None,
                                         user_id=None):
-    return client.create_time_off(team_id=team_id,
-                                  id=id_,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  display_name=last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=last_modified_by_user_id,
-                                  microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                  id1=last_modified_by_device_id,
-                                  display_name1=last_modified_by_application_display_name,
-                                  id2=last_modified_by_application_id,
-                                  draft_time_off=draft_time_off,
-                                  shared_time_off=shared_time_off,
-                                  user_id=user_id)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['draft_time_off'] = draft_time_off
+    body['shared_time_off'] = shared_time_off
+    body['user_id'] = user_id
+    return client.create_times_off(team_id=team_id,
+                                   body=body)
 
 
 def teams_team_schedule_create_time_off_reason(client,
@@ -3288,28 +3126,25 @@ def teams_team_schedule_create_time_off_reason(client,
                                                id_=None,
                                                created_date_time=None,
                                                last_modified_date_time=None,
-                                               last_modified_by_user_display_name=None,
-                                               last_modified_by_user_id=None,
-                                               last_modified_by_device_display_name=None,
-                                               last_modified_by_device_id=None,
-                                               last_modified_by_application_display_name=None,
-                                               last_modified_by_application_id=None,
-                                               microsoft_graph_time_off_reason_display_name=None,
+                                               application=None,
+                                               device=None,
+                                               user=None,
+                                               display_name=None,
                                                icon_type=None,
                                                is_active=None):
-    return client.create_time_off_reason(team_id=team_id,
-                                         id=id_,
-                                         created_date_time=created_date_time,
-                                         last_modified_date_time=last_modified_date_time,
-                                         display_name=last_modified_by_user_display_name,
-                                         microsoft_graph_identity_id=last_modified_by_user_id,
-                                         microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                         id1=last_modified_by_device_id,
-                                         display_name1=last_modified_by_application_display_name,
-                                         id2=last_modified_by_application_id,
-                                         microsoft_graph_time_off_reason_display_name=microsoft_graph_time_off_reason_display_name,
-                                         icon_type=icon_type,
-                                         is_active=is_active)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['display_name'] = display_name
+    body['icon_type'] = icon_type
+    body['is_active'] = is_active
+    return client.create_time_off_reasons(team_id=team_id,
+                                          body=body)
 
 
 def teams_team_schedule_create_time_off_request(client,
@@ -3317,12 +3152,9 @@ def teams_team_schedule_create_time_off_request(client,
                                                 id_=None,
                                                 created_date_time=None,
                                                 last_modified_date_time=None,
-                                                last_modified_by_user_display_name=None,
-                                                last_modified_by_user_id=None,
-                                                last_modified_by_device_display_name=None,
-                                                last_modified_by_device_id=None,
-                                                last_modified_by_application_display_name=None,
-                                                last_modified_by_application_id=None,
+                                                application=None,
+                                                device=None,
+                                                user=None,
                                                 assigned_to=None,
                                                 manager_action_date_time=None,
                                                 manager_action_message=None,
@@ -3334,126 +3166,108 @@ def teams_team_schedule_create_time_off_request(client,
                                                 end_date_time=None,
                                                 start_date_time=None,
                                                 time_off_reason_id=None):
-    return client.create_time_off_request(team_id=team_id,
-                                          id=id_,
-                                          created_date_time=created_date_time,
-                                          last_modified_date_time=last_modified_date_time,
-                                          display_name=last_modified_by_user_display_name,
-                                          microsoft_graph_identity_id=last_modified_by_user_id,
-                                          microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                          id1=last_modified_by_device_id,
-                                          display_name1=last_modified_by_application_display_name,
-                                          id2=last_modified_by_application_id,
-                                          assigned_to=assigned_to,
-                                          manager_action_date_time=manager_action_date_time,
-                                          manager_action_message=manager_action_message,
-                                          manager_user_id=manager_user_id,
-                                          sender_date_time=sender_date_time,
-                                          sender_message=sender_message,
-                                          sender_user_id=sender_user_id,
-                                          state=state,
-                                          end_date_time=end_date_time,
-                                          start_date_time=start_date_time,
-                                          time_off_reason_id=time_off_reason_id)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['assigned_to'] = assigned_to
+    body['manager_action_date_time'] = manager_action_date_time
+    body['manager_action_message'] = manager_action_message
+    body['manager_user_id'] = manager_user_id
+    body['sender_date_time'] = sender_date_time
+    body['sender_message'] = sender_message
+    body['sender_user_id'] = sender_user_id
+    body['state'] = state
+    body['end_date_time'] = end_date_time
+    body['start_date_time'] = start_date_time
+    body['time_off_reason_id'] = time_off_reason_id
+    return client.create_time_off_requests(team_id=team_id,
+                                           body=body)
 
 
-def teams_team_schedule_get_offer_shift_request(client,
+def teams_team_schedule_delete_offer_shift_request(client,
+                                                   team_id,
+                                                   offer_shift_request_id,
+                                                   if_match=None):
+    return client.delete_offer_shift_requests(team_id=team_id,
+                                              offer_shift_request_id=offer_shift_request_id,
+                                              if_match=if_match)
+
+
+def teams_team_schedule_delete_open_shift(client,
+                                          team_id,
+                                          open_shift_id,
+                                          if_match=None):
+    return client.delete_open_shifts(team_id=team_id,
+                                     open_shift_id=open_shift_id,
+                                     if_match=if_match)
+
+
+def teams_team_schedule_delete_open_shift_change_request(client,
+                                                         team_id,
+                                                         open_shift_change_request_id,
+                                                         if_match=None):
+    return client.delete_open_shift_change_requests(team_id=team_id,
+                                                    open_shift_change_request_id=open_shift_change_request_id,
+                                                    if_match=if_match)
+
+
+def teams_team_schedule_delete_scheduling_group(client,
                                                 team_id,
-                                                offer_shift_request_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_offer_shift_request(team_id=team_id,
-                                          offer_shift_request_id=offer_shift_request_id,
-                                          select=select,
-                                          expand=expand)
+                                                scheduling_group_id,
+                                                if_match=None):
+    return client.delete_scheduling_groups(team_id=team_id,
+                                           scheduling_group_id=scheduling_group_id,
+                                           if_match=if_match)
 
 
-def teams_team_schedule_get_open_shift(client,
-                                       team_id,
-                                       open_shift_id,
-                                       select=None,
-                                       expand=None):
-    return client.get_open_shift(team_id=team_id,
-                                 open_shift_id=open_shift_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def teams_team_schedule_get_open_shift_change_request(client,
-                                                      team_id,
-                                                      open_shift_change_request_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_open_shift_change_request(team_id=team_id,
-                                                open_shift_change_request_id=open_shift_change_request_id,
-                                                select=select,
-                                                expand=expand)
-
-
-def teams_team_schedule_get_scheduling_group(client,
-                                             team_id,
-                                             scheduling_group_id,
-                                             select=None,
-                                             expand=None):
-    return client.get_scheduling_group(team_id=team_id,
-                                       scheduling_group_id=scheduling_group_id,
-                                       select=select,
-                                       expand=expand)
-
-
-def teams_team_schedule_get_shift(client,
-                                  team_id,
-                                  shift_id,
-                                  select=None,
-                                  expand=None):
-    return client.get_shift(team_id=team_id,
-                            shift_id=shift_id,
-                            select=select,
-                            expand=expand)
-
-
-def teams_team_schedule_get_swap_shift_change_request(client,
-                                                      team_id,
-                                                      swap_shifts_change_request_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_swap_shift_change_request(team_id=team_id,
-                                                swap_shifts_change_request_id=swap_shifts_change_request_id,
-                                                select=select,
-                                                expand=expand)
-
-
-def teams_team_schedule_get_time_off(client,
+def teams_team_schedule_delete_shift(client,
                                      team_id,
-                                     time_off_id,
-                                     select=None,
-                                     expand=None):
-    return client.get_time_off(team_id=team_id,
-                               time_off_id=time_off_id,
-                               select=select,
-                               expand=expand)
+                                     shift_id,
+                                     if_match=None):
+    return client.delete_shifts(team_id=team_id,
+                                shift_id=shift_id,
+                                if_match=if_match)
 
 
-def teams_team_schedule_get_time_off_reason(client,
-                                            team_id,
-                                            time_off_reason_id,
-                                            select=None,
-                                            expand=None):
-    return client.get_time_off_reason(team_id=team_id,
-                                      time_off_reason_id=time_off_reason_id,
-                                      select=select,
-                                      expand=expand)
+def teams_team_schedule_delete_swap_shift_change_request(client,
+                                                         team_id,
+                                                         swap_shifts_change_request_id,
+                                                         if_match=None):
+    return client.delete_swap_shifts_change_requests(team_id=team_id,
+                                                     swap_shifts_change_request_id=swap_shifts_change_request_id,
+                                                     if_match=if_match)
 
 
-def teams_team_schedule_get_time_off_request(client,
-                                             team_id,
-                                             time_off_request_id,
-                                             select=None,
-                                             expand=None):
-    return client.get_time_off_request(team_id=team_id,
-                                       time_off_request_id=time_off_request_id,
-                                       select=select,
-                                       expand=expand)
+def teams_team_schedule_delete_time_off(client,
+                                        team_id,
+                                        time_off_id,
+                                        if_match=None):
+    return client.delete_times_off(team_id=team_id,
+                                   time_off_id=time_off_id,
+                                   if_match=if_match)
+
+
+def teams_team_schedule_delete_time_off_reason(client,
+                                               team_id,
+                                               time_off_reason_id,
+                                               if_match=None):
+    return client.delete_time_off_reasons(team_id=team_id,
+                                          time_off_reason_id=time_off_reason_id,
+                                          if_match=if_match)
+
+
+def teams_team_schedule_delete_time_off_request(client,
+                                                team_id,
+                                                time_off_request_id,
+                                                if_match=None):
+    return client.delete_time_off_requests(team_id=team_id,
+                                           time_off_request_id=time_off_request_id,
+                                           if_match=if_match)
 
 
 def teams_team_schedule_list_offer_shift_request(client,
@@ -3461,10 +3275,10 @@ def teams_team_schedule_list_offer_shift_request(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_offer_shift_request(team_id=team_id,
-                                           orderby=orderby,
-                                           select=select,
-                                           expand=expand)
+    return client.list_offer_shift_requests(team_id=team_id,
+                                            orderby=orderby,
+                                            select=select,
+                                            expand=expand)
 
 
 def teams_team_schedule_list_open_shift(client,
@@ -3472,10 +3286,10 @@ def teams_team_schedule_list_open_shift(client,
                                         orderby=None,
                                         select=None,
                                         expand=None):
-    return client.list_open_shift(team_id=team_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_open_shifts(team_id=team_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def teams_team_schedule_list_open_shift_change_request(client,
@@ -3483,10 +3297,10 @@ def teams_team_schedule_list_open_shift_change_request(client,
                                                        orderby=None,
                                                        select=None,
                                                        expand=None):
-    return client.list_open_shift_change_request(team_id=team_id,
-                                                 orderby=orderby,
-                                                 select=select,
-                                                 expand=expand)
+    return client.list_open_shift_change_requests(team_id=team_id,
+                                                  orderby=orderby,
+                                                  select=select,
+                                                  expand=expand)
 
 
 def teams_team_schedule_list_scheduling_group(client,
@@ -3494,10 +3308,10 @@ def teams_team_schedule_list_scheduling_group(client,
                                               orderby=None,
                                               select=None,
                                               expand=None):
-    return client.list_scheduling_group(team_id=team_id,
-                                        orderby=orderby,
-                                        select=select,
-                                        expand=expand)
+    return client.list_scheduling_groups(team_id=team_id,
+                                         orderby=orderby,
+                                         select=select,
+                                         expand=expand)
 
 
 def teams_team_schedule_list_shift(client,
@@ -3505,10 +3319,10 @@ def teams_team_schedule_list_shift(client,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_shift(team_id=team_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_shifts(team_id=team_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def teams_team_schedule_list_swap_shift_change_request(client,
@@ -3516,10 +3330,10 @@ def teams_team_schedule_list_swap_shift_change_request(client,
                                                        orderby=None,
                                                        select=None,
                                                        expand=None):
-    return client.list_swap_shift_change_request(team_id=team_id,
-                                                 orderby=orderby,
-                                                 select=select,
-                                                 expand=expand)
+    return client.list_swap_shifts_change_requests(team_id=team_id,
+                                                   orderby=orderby,
+                                                   select=select,
+                                                   expand=expand)
 
 
 def teams_team_schedule_list_time_off(client,
@@ -3527,10 +3341,10 @@ def teams_team_schedule_list_time_off(client,
                                       orderby=None,
                                       select=None,
                                       expand=None):
-    return client.list_time_off(team_id=team_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_times_off(team_id=team_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
 def teams_team_schedule_list_time_off_reason(client,
@@ -3538,10 +3352,10 @@ def teams_team_schedule_list_time_off_reason(client,
                                              orderby=None,
                                              select=None,
                                              expand=None):
-    return client.list_time_off_reason(team_id=team_id,
-                                       orderby=orderby,
-                                       select=select,
-                                       expand=expand)
+    return client.list_time_off_reasons(team_id=team_id,
+                                        orderby=orderby,
+                                        select=select,
+                                        expand=expand)
 
 
 def teams_team_schedule_list_time_off_request(client,
@@ -3549,10 +3363,10 @@ def teams_team_schedule_list_time_off_request(client,
                                               orderby=None,
                                               select=None,
                                               expand=None):
-    return client.list_time_off_request(team_id=team_id,
-                                        orderby=orderby,
-                                        select=select,
-                                        expand=expand)
+    return client.list_time_off_requests(team_id=team_id,
+                                         orderby=orderby,
+                                         select=select,
+                                         expand=expand)
 
 
 def teams_team_schedule_share(client,
@@ -3562,10 +3376,111 @@ def teams_team_schedule_share(client,
                               end_date_time=None):
     if notify_team is None:
         notify_team = False
+    body = {}
+    body['notify_team'] = False if notify_team is None else notify_team
+    body['start_date_time'] = start_date_time
+    body['end_date_time'] = end_date_time
     return client.share(team_id=team_id,
-                        notify_team=notify_team,
-                        start_date_time=start_date_time,
-                        end_date_time=end_date_time)
+                        body=body)
+
+
+def teams_team_schedule_show_offer_shift_request(client,
+                                                 team_id,
+                                                 offer_shift_request_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_offer_shift_requests(team_id=team_id,
+                                           offer_shift_request_id=offer_shift_request_id,
+                                           select=select,
+                                           expand=expand)
+
+
+def teams_team_schedule_show_open_shift(client,
+                                        team_id,
+                                        open_shift_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_open_shifts(team_id=team_id,
+                                  open_shift_id=open_shift_id,
+                                  select=select,
+                                  expand=expand)
+
+
+def teams_team_schedule_show_open_shift_change_request(client,
+                                                       team_id,
+                                                       open_shift_change_request_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_open_shift_change_requests(team_id=team_id,
+                                                 open_shift_change_request_id=open_shift_change_request_id,
+                                                 select=select,
+                                                 expand=expand)
+
+
+def teams_team_schedule_show_scheduling_group(client,
+                                              team_id,
+                                              scheduling_group_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_scheduling_groups(team_id=team_id,
+                                        scheduling_group_id=scheduling_group_id,
+                                        select=select,
+                                        expand=expand)
+
+
+def teams_team_schedule_show_shift(client,
+                                   team_id,
+                                   shift_id,
+                                   select=None,
+                                   expand=None):
+    return client.get_shifts(team_id=team_id,
+                             shift_id=shift_id,
+                             select=select,
+                             expand=expand)
+
+
+def teams_team_schedule_show_swap_shift_change_request(client,
+                                                       team_id,
+                                                       swap_shifts_change_request_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_swap_shifts_change_requests(team_id=team_id,
+                                                  swap_shifts_change_request_id=swap_shifts_change_request_id,
+                                                  select=select,
+                                                  expand=expand)
+
+
+def teams_team_schedule_show_time_off(client,
+                                      team_id,
+                                      time_off_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_times_off(team_id=team_id,
+                                time_off_id=time_off_id,
+                                select=select,
+                                expand=expand)
+
+
+def teams_team_schedule_show_time_off_reason(client,
+                                             team_id,
+                                             time_off_reason_id,
+                                             select=None,
+                                             expand=None):
+    return client.get_time_off_reasons(team_id=team_id,
+                                       time_off_reason_id=time_off_reason_id,
+                                       select=select,
+                                       expand=expand)
+
+
+def teams_team_schedule_show_time_off_request(client,
+                                              team_id,
+                                              time_off_request_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_time_off_requests(team_id=team_id,
+                                        time_off_request_id=time_off_request_id,
+                                        select=select,
+                                        expand=expand)
 
 
 def teams_team_schedule_update_offer_shift_request(client,
@@ -3574,12 +3489,9 @@ def teams_team_schedule_update_offer_shift_request(client,
                                                    id_=None,
                                                    created_date_time=None,
                                                    last_modified_date_time=None,
-                                                   last_modified_by_user_display_name=None,
-                                                   last_modified_by_user_id=None,
-                                                   last_modified_by_device_display_name=None,
-                                                   last_modified_by_device_id=None,
-                                                   last_modified_by_application_display_name=None,
-                                                   last_modified_by_application_id=None,
+                                                   application=None,
+                                                   device=None,
+                                                   user=None,
                                                    assigned_to=None,
                                                    manager_action_date_time=None,
                                                    manager_action_message=None,
@@ -3592,29 +3504,29 @@ def teams_team_schedule_update_offer_shift_request(client,
                                                    recipient_action_message=None,
                                                    recipient_user_id=None,
                                                    sender_shift_id=None):
-    return client.update_offer_shift_request(team_id=team_id,
-                                             offer_shift_request_id=offer_shift_request_id,
-                                             id=id_,
-                                             created_date_time=created_date_time,
-                                             last_modified_date_time=last_modified_date_time,
-                                             display_name=last_modified_by_user_display_name,
-                                             microsoft_graph_identity_id=last_modified_by_user_id,
-                                             microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                             id1=last_modified_by_device_id,
-                                             display_name1=last_modified_by_application_display_name,
-                                             id2=last_modified_by_application_id,
-                                             assigned_to=assigned_to,
-                                             manager_action_date_time=manager_action_date_time,
-                                             manager_action_message=manager_action_message,
-                                             manager_user_id=manager_user_id,
-                                             sender_date_time=sender_date_time,
-                                             sender_message=sender_message,
-                                             sender_user_id=sender_user_id,
-                                             state=state,
-                                             recipient_action_date_time=recipient_action_date_time,
-                                             recipient_action_message=recipient_action_message,
-                                             recipient_user_id=recipient_user_id,
-                                             sender_shift_id=sender_shift_id)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['assigned_to'] = assigned_to
+    body['manager_action_date_time'] = manager_action_date_time
+    body['manager_action_message'] = manager_action_message
+    body['manager_user_id'] = manager_user_id
+    body['sender_date_time'] = sender_date_time
+    body['sender_message'] = sender_message
+    body['sender_user_id'] = sender_user_id
+    body['state'] = state
+    body['recipient_action_date_time'] = recipient_action_date_time
+    body['recipient_action_message'] = recipient_action_message
+    body['recipient_user_id'] = recipient_user_id
+    body['sender_shift_id'] = sender_shift_id
+    return client.update_offer_shift_requests(team_id=team_id,
+                                              offer_shift_request_id=offer_shift_request_id,
+                                              body=body)
 
 
 def teams_team_schedule_update_open_shift(client,
@@ -3623,29 +3535,26 @@ def teams_team_schedule_update_open_shift(client,
                                           id_=None,
                                           created_date_time=None,
                                           last_modified_date_time=None,
-                                          last_modified_by_user_display_name=None,
-                                          last_modified_by_user_id=None,
-                                          last_modified_by_device_display_name=None,
-                                          last_modified_by_device_id=None,
-                                          last_modified_by_application_display_name=None,
-                                          last_modified_by_application_id=None,
+                                          application=None,
+                                          device=None,
+                                          user=None,
                                           draft_open_shift=None,
                                           scheduling_group_id=None,
                                           shared_open_shift=None):
-    return client.update_open_shift(team_id=team_id,
-                                    open_shift_id=open_shift_id,
-                                    id=id_,
-                                    created_date_time=created_date_time,
-                                    last_modified_date_time=last_modified_date_time,
-                                    display_name=last_modified_by_user_display_name,
-                                    microsoft_graph_identity_id=last_modified_by_user_id,
-                                    microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                    id1=last_modified_by_device_id,
-                                    display_name1=last_modified_by_application_display_name,
-                                    id2=last_modified_by_application_id,
-                                    draft_open_shift=draft_open_shift,
-                                    scheduling_group_id=scheduling_group_id,
-                                    shared_open_shift=shared_open_shift)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['draft_open_shift'] = draft_open_shift
+    body['scheduling_group_id'] = scheduling_group_id
+    body['shared_open_shift'] = shared_open_shift
+    return client.update_open_shifts(team_id=team_id,
+                                     open_shift_id=open_shift_id,
+                                     body=body)
 
 
 def teams_team_schedule_update_open_shift_change_request(client,
@@ -3654,12 +3563,9 @@ def teams_team_schedule_update_open_shift_change_request(client,
                                                          id_=None,
                                                          created_date_time=None,
                                                          last_modified_date_time=None,
-                                                         last_modified_by_user_display_name=None,
-                                                         last_modified_by_user_id=None,
-                                                         last_modified_by_device_display_name=None,
-                                                         last_modified_by_device_id=None,
-                                                         last_modified_by_application_display_name=None,
-                                                         last_modified_by_application_id=None,
+                                                         application=None,
+                                                         device=None,
+                                                         user=None,
                                                          assigned_to=None,
                                                          manager_action_date_time=None,
                                                          manager_action_message=None,
@@ -3669,26 +3575,26 @@ def teams_team_schedule_update_open_shift_change_request(client,
                                                          sender_user_id=None,
                                                          state=None,
                                                          open_shift_id=None):
-    return client.update_open_shift_change_request(team_id=team_id,
-                                                   open_shift_change_request_id=open_shift_change_request_id,
-                                                   id=id_,
-                                                   created_date_time=created_date_time,
-                                                   last_modified_date_time=last_modified_date_time,
-                                                   display_name=last_modified_by_user_display_name,
-                                                   microsoft_graph_identity_id=last_modified_by_user_id,
-                                                   microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                                   id1=last_modified_by_device_id,
-                                                   display_name1=last_modified_by_application_display_name,
-                                                   id2=last_modified_by_application_id,
-                                                   assigned_to=assigned_to,
-                                                   manager_action_date_time=manager_action_date_time,
-                                                   manager_action_message=manager_action_message,
-                                                   manager_user_id=manager_user_id,
-                                                   sender_date_time=sender_date_time,
-                                                   sender_message=sender_message,
-                                                   sender_user_id=sender_user_id,
-                                                   state=state,
-                                                   open_shift_id=open_shift_id)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['assigned_to'] = assigned_to
+    body['manager_action_date_time'] = manager_action_date_time
+    body['manager_action_message'] = manager_action_message
+    body['manager_user_id'] = manager_user_id
+    body['sender_date_time'] = sender_date_time
+    body['sender_message'] = sender_message
+    body['sender_user_id'] = sender_user_id
+    body['state'] = state
+    body['open_shift_id'] = open_shift_id
+    return client.update_open_shift_change_requests(team_id=team_id,
+                                                    open_shift_change_request_id=open_shift_change_request_id,
+                                                    body=body)
 
 
 def teams_team_schedule_update_scheduling_group(client,
@@ -3697,29 +3603,26 @@ def teams_team_schedule_update_scheduling_group(client,
                                                 id_=None,
                                                 created_date_time=None,
                                                 last_modified_date_time=None,
-                                                last_modified_by_user_display_name=None,
-                                                last_modified_by_user_id=None,
-                                                last_modified_by_device_display_name=None,
-                                                last_modified_by_device_id=None,
-                                                last_modified_by_application_display_name=None,
-                                                last_modified_by_application_id=None,
-                                                microsoft_graph_scheduling_group_display_name=None,
+                                                application=None,
+                                                device=None,
+                                                user=None,
+                                                display_name=None,
                                                 is_active=None,
                                                 user_ids=None):
-    return client.update_scheduling_group(team_id=team_id,
-                                          scheduling_group_id=scheduling_group_id,
-                                          id=id_,
-                                          created_date_time=created_date_time,
-                                          last_modified_date_time=last_modified_date_time,
-                                          display_name=last_modified_by_user_display_name,
-                                          microsoft_graph_identity_id=last_modified_by_user_id,
-                                          microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                          id1=last_modified_by_device_id,
-                                          display_name1=last_modified_by_application_display_name,
-                                          id2=last_modified_by_application_id,
-                                          microsoft_graph_scheduling_group_display_name=microsoft_graph_scheduling_group_display_name,
-                                          is_active=is_active,
-                                          user_ids=user_ids)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['display_name'] = display_name
+    body['is_active'] = is_active
+    body['user_ids'] = user_ids
+    return client.update_scheduling_groups(team_id=team_id,
+                                           scheduling_group_id=scheduling_group_id,
+                                           body=body)
 
 
 def teams_team_schedule_update_shift(client,
@@ -3728,51 +3631,50 @@ def teams_team_schedule_update_shift(client,
                                      id_=None,
                                      created_date_time=None,
                                      last_modified_date_time=None,
-                                     last_modified_by_user_display_name=None,
-                                     last_modified_by_user_id=None,
-                                     last_modified_by_device_display_name=None,
-                                     last_modified_by_device_id=None,
-                                     last_modified_by_application_display_name=None,
-                                     last_modified_by_application_id=None,
+                                     application=None,
+                                     device=None,
+                                     user=None,
                                      scheduling_group_id=None,
                                      user_id=None,
-                                     shared_shift_end_date_time=None,
-                                     shared_shift_start_date_time=None,
-                                     shared_shift_theme=None,
-                                     shared_shift_activities=None,
-                                     shared_shift_display_name=None,
-                                     shared_shift_notes=None,
-                                     draft_shift_end_date_time=None,
-                                     draft_shift_start_date_time=None,
-                                     draft_shift_theme=None,
-                                     draft_shift_activities=None,
-                                     draft_shift_display_name=None,
-                                     draft_shift_notes=None):
-    return client.update_shift(team_id=team_id,
-                               shift_id=shift_id,
-                               id=id_,
-                               created_date_time=created_date_time,
-                               last_modified_date_time=last_modified_date_time,
-                               display_name=last_modified_by_user_display_name,
-                               microsoft_graph_identity_id=last_modified_by_user_id,
-                               microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                               id1=last_modified_by_device_id,
-                               display_name1=last_modified_by_application_display_name,
-                               id2=last_modified_by_application_id,
-                               scheduling_group_id=scheduling_group_id,
-                               user_id=user_id,
-                               end_date_time=shared_shift_end_date_time,
-                               start_date_time=shared_shift_start_date_time,
-                               theme=shared_shift_theme,
-                               activities=shared_shift_activities,
-                               microsoft_graph_shift_item_display_name=shared_shift_display_name,
-                               notes=shared_shift_notes,
-                               microsoft_graph_schedule_entity_end_date_time_end_date_time=draft_shift_end_date_time,
-                               microsoft_graph_schedule_entity_start_date_time_start_date_time=draft_shift_start_date_time,
-                               microsoft_graph_schedule_entity_theme=draft_shift_theme,
-                               microsoft_graph_shift_item_activities=draft_shift_activities,
-                               display_name2=draft_shift_display_name,
-                               microsoft_graph_shift_item_notes=draft_shift_notes)
+                                     end_date_time=None,
+                                     start_date_time=None,
+                                     theme=None,
+                                     activities=None,
+                                     display_name=None,
+                                     notes=None,
+                                     microsoft_graph_schedule_entity_end_date_time_end_date_time=None,
+                                     microsoft_graph_schedule_entity_start_date_time_start_date_time=None,
+                                     microsoft_graph_schedule_entity_theme=None,
+                                     microsoft_graph_shift_item_activities=None,
+                                     microsoft_graph_shift_item_display_name=None,
+                                     microsoft_graph_shift_item_notes=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['scheduling_group_id'] = scheduling_group_id
+    body['user_id'] = user_id
+    body['shared_shift'] = {}
+    body['shared_shift']['end_date_time'] = end_date_time
+    body['shared_shift']['start_date_time'] = start_date_time
+    body['shared_shift']['theme'] = theme
+    body['shared_shift']['activities'] = activities
+    body['shared_shift']['display_name'] = display_name
+    body['shared_shift']['notes'] = notes
+    body['draft_shift'] = {}
+    body['draft_shift']['end_date_time'] = microsoft_graph_schedule_entity_end_date_time_end_date_time
+    body['draft_shift']['start_date_time'] = microsoft_graph_schedule_entity_start_date_time_start_date_time
+    body['draft_shift']['theme'] = microsoft_graph_schedule_entity_theme
+    body['draft_shift']['activities'] = microsoft_graph_shift_item_activities
+    body['draft_shift']['display_name'] = microsoft_graph_shift_item_display_name
+    body['draft_shift']['notes'] = microsoft_graph_shift_item_notes
+    return client.update_shifts(team_id=team_id,
+                                shift_id=shift_id,
+                                body=body)
 
 
 def teams_team_schedule_update_swap_shift_change_request(client,
@@ -3781,12 +3683,9 @@ def teams_team_schedule_update_swap_shift_change_request(client,
                                                          id_=None,
                                                          created_date_time=None,
                                                          last_modified_date_time=None,
-                                                         last_modified_by_user_display_name=None,
-                                                         last_modified_by_user_id=None,
-                                                         last_modified_by_device_display_name=None,
-                                                         last_modified_by_device_id=None,
-                                                         last_modified_by_application_display_name=None,
-                                                         last_modified_by_application_id=None,
+                                                         application=None,
+                                                         device=None,
+                                                         user=None,
                                                          assigned_to=None,
                                                          manager_action_date_time=None,
                                                          manager_action_message=None,
@@ -3800,30 +3699,30 @@ def teams_team_schedule_update_swap_shift_change_request(client,
                                                          recipient_user_id=None,
                                                          sender_shift_id=None,
                                                          recipient_shift_id=None):
-    return client.update_swap_shift_change_request(team_id=team_id,
-                                                   swap_shifts_change_request_id=swap_shifts_change_request_id,
-                                                   id=id_,
-                                                   created_date_time=created_date_time,
-                                                   last_modified_date_time=last_modified_date_time,
-                                                   display_name=last_modified_by_user_display_name,
-                                                   microsoft_graph_identity_id=last_modified_by_user_id,
-                                                   microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                                   id1=last_modified_by_device_id,
-                                                   display_name1=last_modified_by_application_display_name,
-                                                   id2=last_modified_by_application_id,
-                                                   assigned_to=assigned_to,
-                                                   manager_action_date_time=manager_action_date_time,
-                                                   manager_action_message=manager_action_message,
-                                                   manager_user_id=manager_user_id,
-                                                   sender_date_time=sender_date_time,
-                                                   sender_message=sender_message,
-                                                   sender_user_id=sender_user_id,
-                                                   state=state,
-                                                   recipient_action_date_time=recipient_action_date_time,
-                                                   recipient_action_message=recipient_action_message,
-                                                   recipient_user_id=recipient_user_id,
-                                                   sender_shift_id=sender_shift_id,
-                                                   recipient_shift_id=recipient_shift_id)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['assigned_to'] = assigned_to
+    body['manager_action_date_time'] = manager_action_date_time
+    body['manager_action_message'] = manager_action_message
+    body['manager_user_id'] = manager_user_id
+    body['sender_date_time'] = sender_date_time
+    body['sender_message'] = sender_message
+    body['sender_user_id'] = sender_user_id
+    body['state'] = state
+    body['recipient_action_date_time'] = recipient_action_date_time
+    body['recipient_action_message'] = recipient_action_message
+    body['recipient_user_id'] = recipient_user_id
+    body['sender_shift_id'] = sender_shift_id
+    body['recipient_shift_id'] = recipient_shift_id
+    return client.update_swap_shifts_change_requests(team_id=team_id,
+                                                     swap_shifts_change_request_id=swap_shifts_change_request_id,
+                                                     body=body)
 
 
 def teams_team_schedule_update_time_off(client,
@@ -3832,29 +3731,26 @@ def teams_team_schedule_update_time_off(client,
                                         id_=None,
                                         created_date_time=None,
                                         last_modified_date_time=None,
-                                        last_modified_by_user_display_name=None,
-                                        last_modified_by_user_id=None,
-                                        last_modified_by_device_display_name=None,
-                                        last_modified_by_device_id=None,
-                                        last_modified_by_application_display_name=None,
-                                        last_modified_by_application_id=None,
+                                        application=None,
+                                        device=None,
+                                        user=None,
                                         draft_time_off=None,
                                         shared_time_off=None,
                                         user_id=None):
-    return client.update_time_off(team_id=team_id,
-                                  time_off_id=time_off_id,
-                                  id=id_,
-                                  created_date_time=created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  display_name=last_modified_by_user_display_name,
-                                  microsoft_graph_identity_id=last_modified_by_user_id,
-                                  microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                  id1=last_modified_by_device_id,
-                                  display_name1=last_modified_by_application_display_name,
-                                  id2=last_modified_by_application_id,
-                                  draft_time_off=draft_time_off,
-                                  shared_time_off=shared_time_off,
-                                  user_id=user_id)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['draft_time_off'] = draft_time_off
+    body['shared_time_off'] = shared_time_off
+    body['user_id'] = user_id
+    return client.update_times_off(team_id=team_id,
+                                   time_off_id=time_off_id,
+                                   body=body)
 
 
 def teams_team_schedule_update_time_off_reason(client,
@@ -3863,29 +3759,26 @@ def teams_team_schedule_update_time_off_reason(client,
                                                id_=None,
                                                created_date_time=None,
                                                last_modified_date_time=None,
-                                               last_modified_by_user_display_name=None,
-                                               last_modified_by_user_id=None,
-                                               last_modified_by_device_display_name=None,
-                                               last_modified_by_device_id=None,
-                                               last_modified_by_application_display_name=None,
-                                               last_modified_by_application_id=None,
-                                               microsoft_graph_time_off_reason_display_name=None,
+                                               application=None,
+                                               device=None,
+                                               user=None,
+                                               display_name=None,
                                                icon_type=None,
                                                is_active=None):
-    return client.update_time_off_reason(team_id=team_id,
-                                         time_off_reason_id=time_off_reason_id,
-                                         id=id_,
-                                         created_date_time=created_date_time,
-                                         last_modified_date_time=last_modified_date_time,
-                                         display_name=last_modified_by_user_display_name,
-                                         microsoft_graph_identity_id=last_modified_by_user_id,
-                                         microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                         id1=last_modified_by_device_id,
-                                         display_name1=last_modified_by_application_display_name,
-                                         id2=last_modified_by_application_id,
-                                         microsoft_graph_time_off_reason_display_name=microsoft_graph_time_off_reason_display_name,
-                                         icon_type=icon_type,
-                                         is_active=is_active)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['display_name'] = display_name
+    body['icon_type'] = icon_type
+    body['is_active'] = is_active
+    return client.update_time_off_reasons(team_id=team_id,
+                                          time_off_reason_id=time_off_reason_id,
+                                          body=body)
 
 
 def teams_team_schedule_update_time_off_request(client,
@@ -3894,12 +3787,9 @@ def teams_team_schedule_update_time_off_request(client,
                                                 id_=None,
                                                 created_date_time=None,
                                                 last_modified_date_time=None,
-                                                last_modified_by_user_display_name=None,
-                                                last_modified_by_user_id=None,
-                                                last_modified_by_device_display_name=None,
-                                                last_modified_by_device_id=None,
-                                                last_modified_by_application_display_name=None,
-                                                last_modified_by_application_id=None,
+                                                application=None,
+                                                device=None,
+                                                user=None,
                                                 assigned_to=None,
                                                 manager_action_date_time=None,
                                                 manager_action_message=None,
@@ -3911,98 +3801,97 @@ def teams_team_schedule_update_time_off_request(client,
                                                 end_date_time=None,
                                                 start_date_time=None,
                                                 time_off_reason_id=None):
-    return client.update_time_off_request(team_id=team_id,
-                                          time_off_request_id=time_off_request_id,
-                                          id=id_,
-                                          created_date_time=created_date_time,
-                                          last_modified_date_time=last_modified_date_time,
-                                          display_name=last_modified_by_user_display_name,
-                                          microsoft_graph_identity_id=last_modified_by_user_id,
-                                          microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                          id1=last_modified_by_device_id,
-                                          display_name1=last_modified_by_application_display_name,
-                                          id2=last_modified_by_application_id,
-                                          assigned_to=assigned_to,
-                                          manager_action_date_time=manager_action_date_time,
-                                          manager_action_message=manager_action_message,
-                                          manager_user_id=manager_user_id,
-                                          sender_date_time=sender_date_time,
-                                          sender_message=sender_message,
-                                          sender_user_id=sender_user_id,
-                                          state=state,
-                                          end_date_time=end_date_time,
-                                          start_date_time=start_date_time,
-                                          time_off_reason_id=time_off_reason_id)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['assigned_to'] = assigned_to
+    body['manager_action_date_time'] = manager_action_date_time
+    body['manager_action_message'] = manager_action_message
+    body['manager_user_id'] = manager_user_id
+    body['sender_date_time'] = sender_date_time
+    body['sender_message'] = sender_message
+    body['sender_user_id'] = sender_user_id
+    body['state'] = state
+    body['end_date_time'] = end_date_time
+    body['start_date_time'] = start_date_time
+    body['time_off_reason_id'] = time_off_reason_id
+    return client.update_time_off_requests(team_id=team_id,
+                                           time_off_request_id=time_off_request_id,
+                                           body=body)
 
 
-def teams_teamwork_teamwork_getwork(client,
-                                    select=None,
-                                    expand=None):
+def teams_teamwork_teamwork_show_teamwork(client,
+                                          select=None,
+                                          expand=None):
     return client.get_teamwork(select=select,
                                expand=expand)
 
 
-def teams_teamwork_teamwork_updatework(client,
-                                       id_=None,
-                                       workforce_integrations=None):
-    return client.update_teamwork(id=id_,
-                                  workforce_integrations=workforce_integrations)
-
-
-def teams_teamwork_delete(client,
-                          workforce_integration_id,
-                          if_match=None):
-    return client.delete_workforce_integration(workforce_integration_id=workforce_integration_id,
-                                               if_match=if_match)
+def teams_teamwork_teamwork_update_teamwork(client,
+                                            id_=None,
+                                            workforce_integrations=None):
+    body = {}
+    body['id'] = id_
+    body['workforce_integrations'] = workforce_integrations
+    return client.update_teamwork(body=body)
 
 
 def teams_teamwork_create_workforce_integration(client,
                                                 id_=None,
                                                 created_date_time=None,
                                                 last_modified_date_time=None,
-                                                last_modified_by_user_display_name=None,
-                                                last_modified_by_user_id=None,
-                                                last_modified_by_device_display_name=None,
-                                                last_modified_by_device_id=None,
-                                                last_modified_by_application_display_name=None,
-                                                last_modified_by_application_id=None,
+                                                application=None,
+                                                device=None,
+                                                user=None,
                                                 api_version=None,
-                                                microsoft_graph_workforce_integration_display_name=None,
+                                                display_name=None,
                                                 encryption=None,
                                                 is_active=None,
                                                 supported_entities=None,
                                                 url=None):
-    return client.create_workforce_integration(id=id_,
-                                               created_date_time=created_date_time,
-                                               last_modified_date_time=last_modified_date_time,
-                                               display_name=last_modified_by_user_display_name,
-                                               microsoft_graph_identity_id=last_modified_by_user_id,
-                                               microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                               id1=last_modified_by_device_id,
-                                               display_name1=last_modified_by_application_display_name,
-                                               id2=last_modified_by_application_id,
-                                               api_version=api_version,
-                                               microsoft_graph_workforce_integration_display_name=microsoft_graph_workforce_integration_display_name,
-                                               encryption=encryption,
-                                               is_active=is_active,
-                                               supported_entities=supported_entities,
-                                               url=url)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['api_version'] = api_version
+    body['display_name'] = display_name
+    body['encryption'] = encryption
+    body['is_active'] = is_active
+    body['supported_entities'] = supported_entities
+    body['url'] = url
+    return client.create_workforce_integrations(body=body)
 
 
-def teams_teamwork_get_workforce_integration(client,
-                                             workforce_integration_id,
-                                             select=None,
-                                             expand=None):
-    return client.get_workforce_integration(workforce_integration_id=workforce_integration_id,
-                                            select=select,
-                                            expand=expand)
+def teams_teamwork_delete_workforce_integration(client,
+                                                workforce_integration_id,
+                                                if_match=None):
+    return client.delete_workforce_integrations(workforce_integration_id=workforce_integration_id,
+                                                if_match=if_match)
 
 
 def teams_teamwork_list_workforce_integration(client,
                                               orderby=None,
                                               select=None,
                                               expand=None):
-    return client.list_workforce_integration(orderby=orderby,
+    return client.list_workforce_integrations(orderby=orderby,
+                                              select=select,
+                                              expand=expand)
+
+
+def teams_teamwork_show_workforce_integration(client,
+                                              workforce_integration_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_workforce_integrations(workforce_integration_id=workforce_integration_id,
                                              select=select,
                                              expand=expand)
 
@@ -4012,43 +3901,31 @@ def teams_teamwork_update_workforce_integration(client,
                                                 id_=None,
                                                 created_date_time=None,
                                                 last_modified_date_time=None,
-                                                last_modified_by_user_display_name=None,
-                                                last_modified_by_user_id=None,
-                                                last_modified_by_device_display_name=None,
-                                                last_modified_by_device_id=None,
-                                                last_modified_by_application_display_name=None,
-                                                last_modified_by_application_id=None,
+                                                application=None,
+                                                device=None,
+                                                user=None,
                                                 api_version=None,
-                                                microsoft_graph_workforce_integration_display_name=None,
+                                                display_name=None,
                                                 encryption=None,
                                                 is_active=None,
                                                 supported_entities=None,
                                                 url=None):
-    return client.update_workforce_integration(workforce_integration_id=workforce_integration_id,
-                                               id=id_,
-                                               created_date_time=created_date_time,
-                                               last_modified_date_time=last_modified_date_time,
-                                               display_name=last_modified_by_user_display_name,
-                                               microsoft_graph_identity_id=last_modified_by_user_id,
-                                               microsoft_graph_identity_display_name=last_modified_by_device_display_name,
-                                               id1=last_modified_by_device_id,
-                                               display_name1=last_modified_by_application_display_name,
-                                               id2=last_modified_by_application_id,
-                                               api_version=api_version,
-                                               microsoft_graph_workforce_integration_display_name=microsoft_graph_workforce_integration_display_name,
-                                               encryption=encryption,
-                                               is_active=is_active,
-                                               supported_entities=supported_entities,
-                                               url=url)
-
-
-def teams_user_delete(client,
-                      user_id,
-                      team_id,
-                      if_match=None):
-    return client.delete_joined_team(user_id=user_id,
-                                     team_id=team_id,
-                                     if_match=if_match)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['api_version'] = api_version
+    body['display_name'] = display_name
+    body['encryption'] = encryption
+    body['is_active'] = is_active
+    body['supported_entities'] = supported_entities
+    body['url'] = url
+    return client.update_workforce_integrations(workforce_integration_id=workforce_integration_id,
+                                                body=body)
 
 
 def teams_user_create_joined_team(client,
@@ -4071,208 +3948,211 @@ def teams_user_create_joined_team(client,
                                   members=None,
                                   operations=None,
                                   primary_channel=None,
-                                  template_id=None,
-                                  group_id=None,
-                                  group_deleted_date_time=None,
-                                  group_assigned_labels=None,
-                                  group_assigned_licenses=None,
-                                  group_classification=None,
-                                  group_created_date_time=None,
-                                  group_description=None,
-                                  group_display_name=None,
-                                  group_expiration_date_time=None,
-                                  group_group_types=None,
-                                  group_has_members_with_license_errors=None,
-                                  group_license_processing_state=None,
-                                  group_mail=None,
-                                  group_mail_enabled=None,
-                                  group_mail_nickname=None,
-                                  group_membership_rule=None,
-                                  group_membership_rule_processing_state=None,
-                                  group_on_premises_domain_name=None,
-                                  group_on_premises_last_sync_date_time=None,
-                                  group_on_premises_net_bios_name=None,
-                                  group_on_premises_provisioning_errors=None,
-                                  group_on_premises_sam_account_name=None,
-                                  group_on_premises_security_identifier=None,
-                                  group_on_premises_sync_enabled=None,
-                                  group_preferred_data_location=None,
-                                  group_preferred_language=None,
-                                  group_proxy_addresses=None,
-                                  group_renewed_date_time=None,
-                                  group_security_enabled=None,
-                                  group_security_identifier=None,
-                                  group_theme=None,
-                                  group_visibility=None,
-                                  group_allow_external_senders=None,
-                                  group_auto_subscribe_new_members=None,
-                                  group_hide_from_address_lists=None,
-                                  group_hide_from_outlook_clients=None,
-                                  group_is_subscribed_by_mail=None,
-                                  group_unseen_count=None,
+                                  microsoft_graph_entity_id=None,
+                                  id1=None,
+                                  deleted_date_time=None,
+                                  assigned_labels=None,
+                                  assigned_licenses=None,
+                                  microsoft_graph_group_classification=None,
+                                  created_date_time=None,
+                                  microsoft_graph_group_description=None,
+                                  microsoft_graph_group_display_name=None,
+                                  expiration_date_time=None,
+                                  group_types=None,
+                                  has_members_with_license_errors=None,
+                                  license_processing_state=None,
+                                  mail=None,
+                                  mail_enabled=None,
+                                  mail_nickname=None,
+                                  membership_rule=None,
+                                  membership_rule_processing_state=None,
+                                  on_premises_domain_name=None,
+                                  on_premises_last_sync_date_time=None,
+                                  on_premises_net_bios_name=None,
+                                  on_premises_provisioning_errors=None,
+                                  on_premises_sam_account_name=None,
+                                  on_premises_security_identifier=None,
+                                  on_premises_sync_enabled=None,
+                                  preferred_data_location=None,
+                                  preferred_language=None,
+                                  proxy_addresses=None,
+                                  renewed_date_time=None,
+                                  security_enabled=None,
+                                  security_identifier=None,
+                                  theme=None,
+                                  microsoft_graph_group_visibility=None,
+                                  allow_external_senders=None,
+                                  auto_subscribe_new_members=None,
+                                  hide_from_address_lists=None,
+                                  hide_from_outlook_clients=None,
+                                  is_subscribed_by_mail=None,
+                                  unseen_count=None,
                                   group_is_archived=None,
-                                  group_app_role_assignments=None,
-                                  group_created_on_behalf_of=None,
-                                  group_member_of=None,
-                                  group_members=None,
-                                  group_members_with_license_errors=None,
-                                  group_owners=None,
-                                  group_settings=None,
-                                  group_transitive_member_of=None,
-                                  group_transitive_members=None,
-                                  group_accepted_senders=None,
-                                  group_calendar=None,
-                                  group_calendar_view=None,
-                                  group_conversations=None,
-                                  group_events=None,
-                                  group_photo=None,
-                                  group_photos=None,
-                                  group_rejected_senders=None,
-                                  group_threads=None,
-                                  group_drive=None,
-                                  group_drives=None,
-                                  group_sites=None,
-                                  group_extensions=None,
-                                  group_group_lifecycle_policies=None,
-                                  group_planner=None,
-                                  group_onenote=None,
-                                  group_team=None,
-                                  schedule_id=None,
-                                  schedule_enabled=None,
-                                  schedule_offer_shift_requests_enabled=None,
-                                  schedule_open_shifts_enabled=None,
-                                  schedule_provision_status=None,
-                                  schedule_provision_status_code=None,
-                                  schedule_swap_shifts_requests_enabled=None,
-                                  schedule_time_clock_enabled=None,
-                                  schedule_time_off_requests_enabled=None,
-                                  schedule_time_zone=None,
-                                  schedule_workforce_integration_ids=None,
-                                  schedule_offer_shift_requests=None,
-                                  schedule_open_shift_change_requests=None,
-                                  schedule_open_shifts=None,
-                                  schedule_scheduling_groups=None,
-                                  schedule_shifts=None,
-                                  schedule_swap_shifts_change_requests=None,
-                                  schedule_time_off_reasons=None,
-                                  schedule_time_off_requests=None,
-                                  schedule_times_off=None):
-    return client.create_joined_team(user_id=user_id,
-                                     id=id_,
-                                     classification=classification,
-                                     description=description,
-                                     display_name=display_name,
-                                     fun_settings=fun_settings,
-                                     guest_settings=guest_settings,
-                                     internal_id=internal_id,
-                                     is_archived=is_archived,
-                                     member_settings=member_settings,
-                                     messaging_settings=messaging_settings,
-                                     specialization=specialization,
-                                     visibility=visibility,
-                                     web_url=web_url,
-                                     channels=channels,
-                                     installed_apps=installed_apps,
-                                     members=members,
-                                     operations=operations,
-                                     primary_channel=primary_channel,
-                                     microsoft_graph_entity_id=template_id,
-                                     id1=group_id,
-                                     deleted_date_time=group_deleted_date_time,
-                                     assigned_labels=group_assigned_labels,
-                                     assigned_licenses=group_assigned_licenses,
-                                     microsoft_graph_group_classification=group_classification,
-                                     created_date_time=group_created_date_time,
-                                     microsoft_graph_group_description=group_description,
-                                     microsoft_graph_group_display_name=group_display_name,
-                                     expiration_date_time=group_expiration_date_time,
-                                     group_types=group_group_types,
-                                     has_members_with_license_errors=group_has_members_with_license_errors,
-                                     license_processing_state=group_license_processing_state,
-                                     mail=group_mail,
-                                     mail_enabled=group_mail_enabled,
-                                     mail_nickname=group_mail_nickname,
-                                     membership_rule=group_membership_rule,
-                                     membership_rule_processing_state=group_membership_rule_processing_state,
-                                     on_premises_domain_name=group_on_premises_domain_name,
-                                     on_premises_last_sync_date_time=group_on_premises_last_sync_date_time,
-                                     on_premises_net_bios_name=group_on_premises_net_bios_name,
-                                     on_premises_provisioning_errors=group_on_premises_provisioning_errors,
-                                     on_premises_sam_account_name=group_on_premises_sam_account_name,
-                                     on_premises_security_identifier=group_on_premises_security_identifier,
-                                     on_premises_sync_enabled=group_on_premises_sync_enabled,
-                                     preferred_data_location=group_preferred_data_location,
-                                     preferred_language=group_preferred_language,
-                                     proxy_addresses=group_proxy_addresses,
-                                     renewed_date_time=group_renewed_date_time,
-                                     security_enabled=group_security_enabled,
-                                     security_identifier=group_security_identifier,
-                                     theme=group_theme,
-                                     microsoft_graph_group_visibility=group_visibility,
-                                     allow_external_senders=group_allow_external_senders,
-                                     auto_subscribe_new_members=group_auto_subscribe_new_members,
-                                     hide_from_address_lists=group_hide_from_address_lists,
-                                     hide_from_outlook_clients=group_hide_from_outlook_clients,
-                                     is_subscribed_by_mail=group_is_subscribed_by_mail,
-                                     unseen_count=group_unseen_count,
-                                     is_archived=group_is_archived,
-                                     app_role_assignments=group_app_role_assignments,
-                                     created_on_behalf_of=group_created_on_behalf_of,
-                                     member_of=group_member_of,
-                                     microsoft_graph_group_members=group_members,
-                                     members_with_license_errors=group_members_with_license_errors,
-                                     owners=group_owners,
-                                     settings=group_settings,
-                                     transitive_member_of=group_transitive_member_of,
-                                     transitive_members=group_transitive_members,
-                                     accepted_senders=group_accepted_senders,
-                                     calendar=group_calendar,
-                                     calendar_view=group_calendar_view,
-                                     conversations=group_conversations,
-                                     events=group_events,
-                                     photo=group_photo,
-                                     photos=group_photos,
-                                     rejected_senders=group_rejected_senders,
-                                     threads=group_threads,
-                                     drive=group_drive,
-                                     drives=group_drives,
-                                     sites=group_sites,
-                                     extensions=group_extensions,
-                                     group_lifecycle_policies=group_group_lifecycle_policies,
-                                     planner=group_planner,
-                                     onenote=group_onenote,
-                                     team=group_team,
-                                     id2=schedule_id,
-                                     enabled=schedule_enabled,
-                                     offer_shift_requests_enabled=schedule_offer_shift_requests_enabled,
-                                     open_shifts_enabled=schedule_open_shifts_enabled,
-                                     provision_status=schedule_provision_status,
-                                     provision_status_code=schedule_provision_status_code,
-                                     swap_shifts_requests_enabled=schedule_swap_shifts_requests_enabled,
-                                     time_clock_enabled=schedule_time_clock_enabled,
-                                     time_off_requests_enabled=schedule_time_off_requests_enabled,
-                                     time_zone=schedule_time_zone,
-                                     workforce_integration_ids=schedule_workforce_integration_ids,
-                                     offer_shift_requests=schedule_offer_shift_requests,
-                                     open_shift_change_requests=schedule_open_shift_change_requests,
-                                     open_shifts=schedule_open_shifts,
-                                     scheduling_groups=schedule_scheduling_groups,
-                                     shifts=schedule_shifts,
-                                     swap_shifts_change_requests=schedule_swap_shifts_change_requests,
-                                     time_off_reasons=schedule_time_off_reasons,
-                                     time_off_requests=schedule_time_off_requests,
-                                     times_off=schedule_times_off)
+                                  app_role_assignments=None,
+                                  created_on_behalf_of=None,
+                                  member_of=None,
+                                  microsoft_graph_group_members=None,
+                                  members_with_license_errors=None,
+                                  owners=None,
+                                  settings=None,
+                                  transitive_member_of=None,
+                                  transitive_members=None,
+                                  accepted_senders=None,
+                                  calendar=None,
+                                  calendar_view=None,
+                                  conversations=None,
+                                  events=None,
+                                  photo=None,
+                                  photos=None,
+                                  rejected_senders=None,
+                                  threads=None,
+                                  drive=None,
+                                  drives=None,
+                                  sites=None,
+                                  extensions=None,
+                                  group_lifecycle_policies=None,
+                                  planner=None,
+                                  onenote=None,
+                                  team=None,
+                                  id2=None,
+                                  enabled=None,
+                                  offer_shift_requests_enabled=None,
+                                  open_shifts_enabled=None,
+                                  provision_status=None,
+                                  provision_status_code=None,
+                                  swap_shifts_requests_enabled=None,
+                                  time_clock_enabled=None,
+                                  time_off_requests_enabled=None,
+                                  time_zone=None,
+                                  workforce_integration_ids=None,
+                                  offer_shift_requests=None,
+                                  open_shift_change_requests=None,
+                                  open_shifts=None,
+                                  scheduling_groups=None,
+                                  shifts=None,
+                                  swap_shifts_change_requests=None,
+                                  time_off_reasons=None,
+                                  time_off_requests=None,
+                                  times_off=None):
+    body = {}
+    body['id'] = id_
+    body['classification'] = classification
+    body['description'] = description
+    body['display_name'] = display_name
+    body['fun_settings'] = fun_settings
+    body['guest_settings'] = guest_settings
+    body['internal_id'] = internal_id
+    body['is_archived'] = is_archived
+    body['member_settings'] = member_settings
+    body['messaging_settings'] = messaging_settings
+    body['specialization'] = specialization
+    body['visibility'] = visibility
+    body['web_url'] = web_url
+    body['channels'] = channels
+    body['installed_apps'] = installed_apps
+    body['members'] = members
+    body['operations'] = operations
+    body['primary_channel'] = primary_channel
+    body['template'] = {}
+    body['template']['id'] = microsoft_graph_entity_id
+    body['group'] = {}
+    body['group']['id'] = id1
+    body['group']['deleted_date_time'] = deleted_date_time
+    body['group']['assigned_labels'] = assigned_labels
+    body['group']['assigned_licenses'] = assigned_licenses
+    body['group']['classification'] = microsoft_graph_group_classification
+    body['group']['created_date_time'] = created_date_time
+    body['group']['description'] = microsoft_graph_group_description
+    body['group']['display_name'] = microsoft_graph_group_display_name
+    body['group']['expiration_date_time'] = expiration_date_time
+    body['group']['group_types'] = group_types
+    body['group']['has_members_with_license_errors'] = has_members_with_license_errors
+    body['group']['license_processing_state'] = license_processing_state
+    body['group']['mail'] = mail
+    body['group']['mail_enabled'] = mail_enabled
+    body['group']['mail_nickname'] = mail_nickname
+    body['group']['membership_rule'] = membership_rule
+    body['group']['membership_rule_processing_state'] = membership_rule_processing_state
+    body['group']['on_premises_domain_name'] = on_premises_domain_name
+    body['group']['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['group']['on_premises_net_bios_name'] = on_premises_net_bios_name
+    body['group']['on_premises_provisioning_errors'] = on_premises_provisioning_errors
+    body['group']['on_premises_sam_account_name'] = on_premises_sam_account_name
+    body['group']['on_premises_security_identifier'] = on_premises_security_identifier
+    body['group']['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['group']['preferred_data_location'] = preferred_data_location
+    body['group']['preferred_language'] = preferred_language
+    body['group']['proxy_addresses'] = proxy_addresses
+    body['group']['renewed_date_time'] = renewed_date_time
+    body['group']['security_enabled'] = security_enabled
+    body['group']['security_identifier'] = security_identifier
+    body['group']['theme'] = theme
+    body['group']['visibility'] = microsoft_graph_group_visibility
+    body['group']['allow_external_senders'] = allow_external_senders
+    body['group']['auto_subscribe_new_members'] = auto_subscribe_new_members
+    body['group']['hide_from_address_lists'] = hide_from_address_lists
+    body['group']['hide_from_outlook_clients'] = hide_from_outlook_clients
+    body['group']['is_subscribed_by_mail'] = is_subscribed_by_mail
+    body['group']['unseen_count'] = unseen_count
+    body['group']['is_archived'] = group_is_archived
+    body['group']['app_role_assignments'] = app_role_assignments
+    body['group']['created_on_behalf_of'] = created_on_behalf_of
+    body['group']['member_of'] = member_of
+    body['group']['members'] = microsoft_graph_group_members
+    body['group']['members_with_license_errors'] = members_with_license_errors
+    body['group']['owners'] = owners
+    body['group']['settings'] = settings
+    body['group']['transitive_member_of'] = transitive_member_of
+    body['group']['transitive_members'] = transitive_members
+    body['group']['accepted_senders'] = accepted_senders
+    body['group']['calendar'] = calendar
+    body['group']['calendar_view'] = calendar_view
+    body['group']['conversations'] = conversations
+    body['group']['events'] = events
+    body['group']['photo'] = photo
+    body['group']['photos'] = photos
+    body['group']['rejected_senders'] = rejected_senders
+    body['group']['threads'] = threads
+    body['group']['drive'] = drive
+    body['group']['drives'] = drives
+    body['group']['sites'] = sites
+    body['group']['extensions'] = extensions
+    body['group']['group_lifecycle_policies'] = group_lifecycle_policies
+    body['group']['planner'] = planner
+    body['group']['onenote'] = onenote
+    body['group']['team'] = team
+    body['schedule'] = {}
+    body['schedule']['id'] = id2
+    body['schedule']['enabled'] = enabled
+    body['schedule']['offer_shift_requests_enabled'] = offer_shift_requests_enabled
+    body['schedule']['open_shifts_enabled'] = open_shifts_enabled
+    body['schedule']['provision_status'] = provision_status
+    body['schedule']['provision_status_code'] = provision_status_code
+    body['schedule']['swap_shifts_requests_enabled'] = swap_shifts_requests_enabled
+    body['schedule']['time_clock_enabled'] = time_clock_enabled
+    body['schedule']['time_off_requests_enabled'] = time_off_requests_enabled
+    body['schedule']['time_zone'] = time_zone
+    body['schedule']['workforce_integration_ids'] = workforce_integration_ids
+    body['schedule']['offer_shift_requests'] = offer_shift_requests
+    body['schedule']['open_shift_change_requests'] = open_shift_change_requests
+    body['schedule']['open_shifts'] = open_shifts
+    body['schedule']['scheduling_groups'] = scheduling_groups
+    body['schedule']['shifts'] = shifts
+    body['schedule']['swap_shifts_change_requests'] = swap_shifts_change_requests
+    body['schedule']['time_off_reasons'] = time_off_reasons
+    body['schedule']['time_off_requests'] = time_off_requests
+    body['schedule']['times_off'] = times_off
+    return client.create_joined_teams(user_id=user_id,
+                                      body=body)
 
 
-def teams_user_get_joined_team(client,
-                               user_id,
-                               team_id,
-                               select=None,
-                               expand=None):
-    return client.get_joined_team(user_id=user_id,
-                                  team_id=team_id,
-                                  select=select,
-                                  expand=expand)
+def teams_user_delete_joined_team(client,
+                                  user_id,
+                                  team_id,
+                                  if_match=None):
+    return client.delete_joined_teams(user_id=user_id,
+                                      team_id=team_id,
+                                      if_match=if_match)
 
 
 def teams_user_list_joined_team(client,
@@ -4280,8 +4160,19 @@ def teams_user_list_joined_team(client,
                                 orderby=None,
                                 select=None,
                                 expand=None):
-    return client.list_joined_team(user_id=user_id,
-                                   orderby=orderby,
+    return client.list_joined_teams(user_id=user_id,
+                                    orderby=orderby,
+                                    select=select,
+                                    expand=expand)
+
+
+def teams_user_show_joined_team(client,
+                                user_id,
+                                team_id,
+                                select=None,
+                                expand=None):
+    return client.get_joined_teams(user_id=user_id,
+                                   team_id=team_id,
                                    select=select,
                                    expand=expand)
 
@@ -4307,195 +4198,200 @@ def teams_user_update_joined_team(client,
                                   members=None,
                                   operations=None,
                                   primary_channel=None,
-                                  template_id=None,
-                                  group_id=None,
-                                  group_deleted_date_time=None,
-                                  group_assigned_labels=None,
-                                  group_assigned_licenses=None,
-                                  group_classification=None,
-                                  group_created_date_time=None,
-                                  group_description=None,
-                                  group_display_name=None,
-                                  group_expiration_date_time=None,
-                                  group_group_types=None,
-                                  group_has_members_with_license_errors=None,
-                                  group_license_processing_state=None,
-                                  group_mail=None,
-                                  group_mail_enabled=None,
-                                  group_mail_nickname=None,
-                                  group_membership_rule=None,
-                                  group_membership_rule_processing_state=None,
-                                  group_on_premises_domain_name=None,
-                                  group_on_premises_last_sync_date_time=None,
-                                  group_on_premises_net_bios_name=None,
-                                  group_on_premises_provisioning_errors=None,
-                                  group_on_premises_sam_account_name=None,
-                                  group_on_premises_security_identifier=None,
-                                  group_on_premises_sync_enabled=None,
-                                  group_preferred_data_location=None,
-                                  group_preferred_language=None,
-                                  group_proxy_addresses=None,
-                                  group_renewed_date_time=None,
-                                  group_security_enabled=None,
-                                  group_security_identifier=None,
-                                  group_theme=None,
-                                  group_visibility=None,
-                                  group_allow_external_senders=None,
-                                  group_auto_subscribe_new_members=None,
-                                  group_hide_from_address_lists=None,
-                                  group_hide_from_outlook_clients=None,
-                                  group_is_subscribed_by_mail=None,
-                                  group_unseen_count=None,
+                                  microsoft_graph_entity_id=None,
+                                  id1=None,
+                                  deleted_date_time=None,
+                                  assigned_labels=None,
+                                  assigned_licenses=None,
+                                  microsoft_graph_group_classification=None,
+                                  created_date_time=None,
+                                  microsoft_graph_group_description=None,
+                                  microsoft_graph_group_display_name=None,
+                                  expiration_date_time=None,
+                                  group_types=None,
+                                  has_members_with_license_errors=None,
+                                  license_processing_state=None,
+                                  mail=None,
+                                  mail_enabled=None,
+                                  mail_nickname=None,
+                                  membership_rule=None,
+                                  membership_rule_processing_state=None,
+                                  on_premises_domain_name=None,
+                                  on_premises_last_sync_date_time=None,
+                                  on_premises_net_bios_name=None,
+                                  on_premises_provisioning_errors=None,
+                                  on_premises_sam_account_name=None,
+                                  on_premises_security_identifier=None,
+                                  on_premises_sync_enabled=None,
+                                  preferred_data_location=None,
+                                  preferred_language=None,
+                                  proxy_addresses=None,
+                                  renewed_date_time=None,
+                                  security_enabled=None,
+                                  security_identifier=None,
+                                  theme=None,
+                                  microsoft_graph_group_visibility=None,
+                                  allow_external_senders=None,
+                                  auto_subscribe_new_members=None,
+                                  hide_from_address_lists=None,
+                                  hide_from_outlook_clients=None,
+                                  is_subscribed_by_mail=None,
+                                  unseen_count=None,
                                   group_is_archived=None,
-                                  group_app_role_assignments=None,
-                                  group_created_on_behalf_of=None,
-                                  group_member_of=None,
-                                  group_members=None,
-                                  group_members_with_license_errors=None,
-                                  group_owners=None,
-                                  group_settings=None,
-                                  group_transitive_member_of=None,
-                                  group_transitive_members=None,
-                                  group_accepted_senders=None,
-                                  group_calendar=None,
-                                  group_calendar_view=None,
-                                  group_conversations=None,
-                                  group_events=None,
-                                  group_photo=None,
-                                  group_photos=None,
-                                  group_rejected_senders=None,
-                                  group_threads=None,
-                                  group_drive=None,
-                                  group_drives=None,
-                                  group_sites=None,
-                                  group_extensions=None,
-                                  group_group_lifecycle_policies=None,
-                                  group_planner=None,
-                                  group_onenote=None,
-                                  group_team=None,
-                                  schedule_id=None,
-                                  schedule_enabled=None,
-                                  schedule_offer_shift_requests_enabled=None,
-                                  schedule_open_shifts_enabled=None,
-                                  schedule_provision_status=None,
-                                  schedule_provision_status_code=None,
-                                  schedule_swap_shifts_requests_enabled=None,
-                                  schedule_time_clock_enabled=None,
-                                  schedule_time_off_requests_enabled=None,
-                                  schedule_time_zone=None,
-                                  schedule_workforce_integration_ids=None,
-                                  schedule_offer_shift_requests=None,
-                                  schedule_open_shift_change_requests=None,
-                                  schedule_open_shifts=None,
-                                  schedule_scheduling_groups=None,
-                                  schedule_shifts=None,
-                                  schedule_swap_shifts_change_requests=None,
-                                  schedule_time_off_reasons=None,
-                                  schedule_time_off_requests=None,
-                                  schedule_times_off=None):
-    return client.update_joined_team(user_id=user_id,
-                                     team_id=team_id,
-                                     id=id_,
-                                     classification=classification,
-                                     description=description,
-                                     display_name=display_name,
-                                     fun_settings=fun_settings,
-                                     guest_settings=guest_settings,
-                                     internal_id=internal_id,
-                                     is_archived=is_archived,
-                                     member_settings=member_settings,
-                                     messaging_settings=messaging_settings,
-                                     specialization=specialization,
-                                     visibility=visibility,
-                                     web_url=web_url,
-                                     channels=channels,
-                                     installed_apps=installed_apps,
-                                     members=members,
-                                     operations=operations,
-                                     primary_channel=primary_channel,
-                                     microsoft_graph_entity_id=template_id,
-                                     id1=group_id,
-                                     deleted_date_time=group_deleted_date_time,
-                                     assigned_labels=group_assigned_labels,
-                                     assigned_licenses=group_assigned_licenses,
-                                     microsoft_graph_group_classification=group_classification,
-                                     created_date_time=group_created_date_time,
-                                     microsoft_graph_group_description=group_description,
-                                     microsoft_graph_group_display_name=group_display_name,
-                                     expiration_date_time=group_expiration_date_time,
-                                     group_types=group_group_types,
-                                     has_members_with_license_errors=group_has_members_with_license_errors,
-                                     license_processing_state=group_license_processing_state,
-                                     mail=group_mail,
-                                     mail_enabled=group_mail_enabled,
-                                     mail_nickname=group_mail_nickname,
-                                     membership_rule=group_membership_rule,
-                                     membership_rule_processing_state=group_membership_rule_processing_state,
-                                     on_premises_domain_name=group_on_premises_domain_name,
-                                     on_premises_last_sync_date_time=group_on_premises_last_sync_date_time,
-                                     on_premises_net_bios_name=group_on_premises_net_bios_name,
-                                     on_premises_provisioning_errors=group_on_premises_provisioning_errors,
-                                     on_premises_sam_account_name=group_on_premises_sam_account_name,
-                                     on_premises_security_identifier=group_on_premises_security_identifier,
-                                     on_premises_sync_enabled=group_on_premises_sync_enabled,
-                                     preferred_data_location=group_preferred_data_location,
-                                     preferred_language=group_preferred_language,
-                                     proxy_addresses=group_proxy_addresses,
-                                     renewed_date_time=group_renewed_date_time,
-                                     security_enabled=group_security_enabled,
-                                     security_identifier=group_security_identifier,
-                                     theme=group_theme,
-                                     microsoft_graph_group_visibility=group_visibility,
-                                     allow_external_senders=group_allow_external_senders,
-                                     auto_subscribe_new_members=group_auto_subscribe_new_members,
-                                     hide_from_address_lists=group_hide_from_address_lists,
-                                     hide_from_outlook_clients=group_hide_from_outlook_clients,
-                                     is_subscribed_by_mail=group_is_subscribed_by_mail,
-                                     unseen_count=group_unseen_count,
-                                     is_archived=group_is_archived,
-                                     app_role_assignments=group_app_role_assignments,
-                                     created_on_behalf_of=group_created_on_behalf_of,
-                                     member_of=group_member_of,
-                                     microsoft_graph_group_members=group_members,
-                                     members_with_license_errors=group_members_with_license_errors,
-                                     owners=group_owners,
-                                     settings=group_settings,
-                                     transitive_member_of=group_transitive_member_of,
-                                     transitive_members=group_transitive_members,
-                                     accepted_senders=group_accepted_senders,
-                                     calendar=group_calendar,
-                                     calendar_view=group_calendar_view,
-                                     conversations=group_conversations,
-                                     events=group_events,
-                                     photo=group_photo,
-                                     photos=group_photos,
-                                     rejected_senders=group_rejected_senders,
-                                     threads=group_threads,
-                                     drive=group_drive,
-                                     drives=group_drives,
-                                     sites=group_sites,
-                                     extensions=group_extensions,
-                                     group_lifecycle_policies=group_group_lifecycle_policies,
-                                     planner=group_planner,
-                                     onenote=group_onenote,
-                                     team=group_team,
-                                     id2=schedule_id,
-                                     enabled=schedule_enabled,
-                                     offer_shift_requests_enabled=schedule_offer_shift_requests_enabled,
-                                     open_shifts_enabled=schedule_open_shifts_enabled,
-                                     provision_status=schedule_provision_status,
-                                     provision_status_code=schedule_provision_status_code,
-                                     swap_shifts_requests_enabled=schedule_swap_shifts_requests_enabled,
-                                     time_clock_enabled=schedule_time_clock_enabled,
-                                     time_off_requests_enabled=schedule_time_off_requests_enabled,
-                                     time_zone=schedule_time_zone,
-                                     workforce_integration_ids=schedule_workforce_integration_ids,
-                                     offer_shift_requests=schedule_offer_shift_requests,
-                                     open_shift_change_requests=schedule_open_shift_change_requests,
-                                     open_shifts=schedule_open_shifts,
-                                     scheduling_groups=schedule_scheduling_groups,
-                                     shifts=schedule_shifts,
-                                     swap_shifts_change_requests=schedule_swap_shifts_change_requests,
-                                     time_off_reasons=schedule_time_off_reasons,
-                                     time_off_requests=schedule_time_off_requests,
-                                     times_off=schedule_times_off)
+                                  app_role_assignments=None,
+                                  created_on_behalf_of=None,
+                                  member_of=None,
+                                  microsoft_graph_group_members=None,
+                                  members_with_license_errors=None,
+                                  owners=None,
+                                  settings=None,
+                                  transitive_member_of=None,
+                                  transitive_members=None,
+                                  accepted_senders=None,
+                                  calendar=None,
+                                  calendar_view=None,
+                                  conversations=None,
+                                  events=None,
+                                  photo=None,
+                                  photos=None,
+                                  rejected_senders=None,
+                                  threads=None,
+                                  drive=None,
+                                  drives=None,
+                                  sites=None,
+                                  extensions=None,
+                                  group_lifecycle_policies=None,
+                                  planner=None,
+                                  onenote=None,
+                                  team=None,
+                                  id2=None,
+                                  enabled=None,
+                                  offer_shift_requests_enabled=None,
+                                  open_shifts_enabled=None,
+                                  provision_status=None,
+                                  provision_status_code=None,
+                                  swap_shifts_requests_enabled=None,
+                                  time_clock_enabled=None,
+                                  time_off_requests_enabled=None,
+                                  time_zone=None,
+                                  workforce_integration_ids=None,
+                                  offer_shift_requests=None,
+                                  open_shift_change_requests=None,
+                                  open_shifts=None,
+                                  scheduling_groups=None,
+                                  shifts=None,
+                                  swap_shifts_change_requests=None,
+                                  time_off_reasons=None,
+                                  time_off_requests=None,
+                                  times_off=None):
+    body = {}
+    body['id'] = id_
+    body['classification'] = classification
+    body['description'] = description
+    body['display_name'] = display_name
+    body['fun_settings'] = fun_settings
+    body['guest_settings'] = guest_settings
+    body['internal_id'] = internal_id
+    body['is_archived'] = is_archived
+    body['member_settings'] = member_settings
+    body['messaging_settings'] = messaging_settings
+    body['specialization'] = specialization
+    body['visibility'] = visibility
+    body['web_url'] = web_url
+    body['channels'] = channels
+    body['installed_apps'] = installed_apps
+    body['members'] = members
+    body['operations'] = operations
+    body['primary_channel'] = primary_channel
+    body['template'] = {}
+    body['template']['id'] = microsoft_graph_entity_id
+    body['group'] = {}
+    body['group']['id'] = id1
+    body['group']['deleted_date_time'] = deleted_date_time
+    body['group']['assigned_labels'] = assigned_labels
+    body['group']['assigned_licenses'] = assigned_licenses
+    body['group']['classification'] = microsoft_graph_group_classification
+    body['group']['created_date_time'] = created_date_time
+    body['group']['description'] = microsoft_graph_group_description
+    body['group']['display_name'] = microsoft_graph_group_display_name
+    body['group']['expiration_date_time'] = expiration_date_time
+    body['group']['group_types'] = group_types
+    body['group']['has_members_with_license_errors'] = has_members_with_license_errors
+    body['group']['license_processing_state'] = license_processing_state
+    body['group']['mail'] = mail
+    body['group']['mail_enabled'] = mail_enabled
+    body['group']['mail_nickname'] = mail_nickname
+    body['group']['membership_rule'] = membership_rule
+    body['group']['membership_rule_processing_state'] = membership_rule_processing_state
+    body['group']['on_premises_domain_name'] = on_premises_domain_name
+    body['group']['on_premises_last_sync_date_time'] = on_premises_last_sync_date_time
+    body['group']['on_premises_net_bios_name'] = on_premises_net_bios_name
+    body['group']['on_premises_provisioning_errors'] = on_premises_provisioning_errors
+    body['group']['on_premises_sam_account_name'] = on_premises_sam_account_name
+    body['group']['on_premises_security_identifier'] = on_premises_security_identifier
+    body['group']['on_premises_sync_enabled'] = on_premises_sync_enabled
+    body['group']['preferred_data_location'] = preferred_data_location
+    body['group']['preferred_language'] = preferred_language
+    body['group']['proxy_addresses'] = proxy_addresses
+    body['group']['renewed_date_time'] = renewed_date_time
+    body['group']['security_enabled'] = security_enabled
+    body['group']['security_identifier'] = security_identifier
+    body['group']['theme'] = theme
+    body['group']['visibility'] = microsoft_graph_group_visibility
+    body['group']['allow_external_senders'] = allow_external_senders
+    body['group']['auto_subscribe_new_members'] = auto_subscribe_new_members
+    body['group']['hide_from_address_lists'] = hide_from_address_lists
+    body['group']['hide_from_outlook_clients'] = hide_from_outlook_clients
+    body['group']['is_subscribed_by_mail'] = is_subscribed_by_mail
+    body['group']['unseen_count'] = unseen_count
+    body['group']['is_archived'] = group_is_archived
+    body['group']['app_role_assignments'] = app_role_assignments
+    body['group']['created_on_behalf_of'] = created_on_behalf_of
+    body['group']['member_of'] = member_of
+    body['group']['members'] = microsoft_graph_group_members
+    body['group']['members_with_license_errors'] = members_with_license_errors
+    body['group']['owners'] = owners
+    body['group']['settings'] = settings
+    body['group']['transitive_member_of'] = transitive_member_of
+    body['group']['transitive_members'] = transitive_members
+    body['group']['accepted_senders'] = accepted_senders
+    body['group']['calendar'] = calendar
+    body['group']['calendar_view'] = calendar_view
+    body['group']['conversations'] = conversations
+    body['group']['events'] = events
+    body['group']['photo'] = photo
+    body['group']['photos'] = photos
+    body['group']['rejected_senders'] = rejected_senders
+    body['group']['threads'] = threads
+    body['group']['drive'] = drive
+    body['group']['drives'] = drives
+    body['group']['sites'] = sites
+    body['group']['extensions'] = extensions
+    body['group']['group_lifecycle_policies'] = group_lifecycle_policies
+    body['group']['planner'] = planner
+    body['group']['onenote'] = onenote
+    body['group']['team'] = team
+    body['schedule'] = {}
+    body['schedule']['id'] = id2
+    body['schedule']['enabled'] = enabled
+    body['schedule']['offer_shift_requests_enabled'] = offer_shift_requests_enabled
+    body['schedule']['open_shifts_enabled'] = open_shifts_enabled
+    body['schedule']['provision_status'] = provision_status
+    body['schedule']['provision_status_code'] = provision_status_code
+    body['schedule']['swap_shifts_requests_enabled'] = swap_shifts_requests_enabled
+    body['schedule']['time_clock_enabled'] = time_clock_enabled
+    body['schedule']['time_off_requests_enabled'] = time_off_requests_enabled
+    body['schedule']['time_zone'] = time_zone
+    body['schedule']['workforce_integration_ids'] = workforce_integration_ids
+    body['schedule']['offer_shift_requests'] = offer_shift_requests
+    body['schedule']['open_shift_change_requests'] = open_shift_change_requests
+    body['schedule']['open_shifts'] = open_shifts
+    body['schedule']['scheduling_groups'] = scheduling_groups
+    body['schedule']['shifts'] = shifts
+    body['schedule']['swap_shifts_change_requests'] = swap_shifts_change_requests
+    body['schedule']['time_off_reasons'] = time_off_reasons
+    body['schedule']['time_off_requests'] = time_off_requests
+    body['schedule']['times_off'] = times_off
+    return client.update_joined_teams(user_id=user_id,
+                                      team_id=team_id,
+                                      body=body)

@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._cross_device_experiences_async import CrossDeviceExperiences
+from ._cross_device_experiences import CrossDeviceExperiences
 __all__ = ['CrossDeviceExperiences']

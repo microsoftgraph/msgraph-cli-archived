@@ -481,9 +481,6 @@ class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
 class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     """contact.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -524,6 +521,8 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     :type email_addresses: list[~personal_contacts.models.MicrosoftGraphTypedEmailAddress]
     :param file_as: The name the contact is filed under.
     :type file_as: str
+    :param flag: followupFlag.
+    :type flag: ~personal_contacts.models.MicrosoftGraphFollowupFlag
     :param gender:
     :type gender: str
     :param generation: The contact's generation.
@@ -585,18 +584,9 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
      defined for the contact. Read-only. Nullable.
     :type single_value_extended_properties:
      list[~personal_contacts.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
-    :param completed_date_time: dateTimeTimeZone.
-    :type completed_date_time: ~personal_contacts.models.MicrosoftGraphDateTimeZone
-    :param due_date_time: dateTimeTimeZone.
-    :type due_date_time: ~personal_contacts.models.MicrosoftGraphDateTimeZone
-    :param flag_status:  Possible values include: "notFlagged", "complete", "flagged".
-    :type flag_status: str or ~personal_contacts.models.MicrosoftGraphFollowupFlagStatus
-    :param start_date_time: dateTimeTimeZone.
-    :type start_date_time: ~personal_contacts.models.MicrosoftGraphDateTimeZone
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -611,6 +601,7 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         'display_name': {'key': 'displayName', 'type': 'str'},
         'email_addresses': {'key': 'emailAddresses', 'type': '[MicrosoftGraphTypedEmailAddress]'},
         'file_as': {'key': 'fileAs', 'type': 'str'},
+        'flag': {'key': 'flag', 'type': 'MicrosoftGraphFollowupFlag'},
         'gender': {'key': 'gender', 'type': 'str'},
         'generation': {'key': 'generation', 'type': 'str'},
         'given_name': {'key': 'givenName', 'type': 'str'},
@@ -639,16 +630,11 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'photo': {'key': 'photo', 'type': 'MicrosoftGraphProfilePhoto'},
         'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
-        'completed_date_time': {'key': 'flag.completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
-        'due_date_time': {'key': 'flag.dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
-        'flag_status': {'key': 'flag.flagStatus', 'type': 'str'},
-        'start_date_time': {'key': 'flag.startDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         categories: Optional[List[str]] = None,
         change_key: Optional[str] = None,
@@ -663,6 +649,7 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         display_name: Optional[str] = None,
         email_addresses: Optional[List["MicrosoftGraphTypedEmailAddress"]] = None,
         file_as: Optional[str] = None,
+        flag: Optional["MicrosoftGraphFollowupFlag"] = None,
         gender: Optional[str] = None,
         generation: Optional[str] = None,
         given_name: Optional[str] = None,
@@ -691,14 +678,9 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         photo: Optional["MicrosoftGraphProfilePhoto"] = None,
         single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
-        completed_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
-        due_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
-        flag_status: Optional[Union[str, "MicrosoftGraphFollowupFlagStatus"]] = None,
-        start_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
         **kwargs
     ):
         super(MicrosoftGraphContact, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.assistant_name = assistant_name
         self.birthday = birthday
@@ -708,6 +690,7 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         self.display_name = display_name
         self.email_addresses = email_addresses
         self.file_as = file_as
+        self.flag = flag
         self.gender = gender
         self.generation = generation
         self.given_name = given_name
@@ -736,10 +719,6 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         self.multi_value_extended_properties = multi_value_extended_properties
         self.photo = photo
         self.single_value_extended_properties = single_value_extended_properties
-        self.completed_date_time = completed_date_time
-        self.due_date_time = due_date_time
-        self.flag_status = flag_status
-        self.start_date_time = start_date_time
 
 
 class MicrosoftGraphContactFolder(MicrosoftGraphEntity):

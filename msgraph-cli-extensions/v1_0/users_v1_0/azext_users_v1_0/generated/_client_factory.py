@@ -11,7 +11,7 @@
 
 def cf_users_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.users import Users
+    from azext_users_v1_0.vendored_sdks.users import Users
     return get_mgmt_service_client(cli_ctx,
                                    Users,
                                    subscription_bound=False,
@@ -19,16 +19,16 @@ def cf_users_v1_0_cl(cli_ctx, *_):
 
 
 def cf_user_user(cli_ctx, *_):
-    return cf_users_v1_0_cl(cli_ctx).user_user
+    return cf_users_v1_0_cl(cli_ctx).users_user
 
 
 def cf_user(cli_ctx, *_):
-    return cf_users_v1_0_cl(cli_ctx).user
+    return cf_users_v1_0_cl(cli_ctx).users
 
 
 def cf_user_outlook(cli_ctx, *_):
-    return cf_users_v1_0_cl(cli_ctx).user_outlook
+    return cf_users_v1_0_cl(cli_ctx).users_outlook
 
 
 def cf_user_setting(cli_ctx, *_):
-    return cf_users_v1_0_cl(cli_ctx).user_setting
+    return cf_users_v1_0_cl(cli_ctx).users_settings

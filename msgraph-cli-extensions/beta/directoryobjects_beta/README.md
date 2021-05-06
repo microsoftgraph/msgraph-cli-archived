@@ -1,5 +1,12 @@
-Microsoft Azure CLI 'directoryobjects_beta' Extension
-==========================================
+# Azure CLI directoryobjects_beta Extension #
+This is the extension for directoryobjects_beta
 
-This package is for the 'directoryobjects_beta' extension.
-i.e. 'az directoryobjects_beta'
+### How to use ###
+Install this extension using the below CLI command
+```
+az extension add --name directoryobjects_beta
+```
+
+### Included Features ###
+#### directoryobjects directory-object-directory-object ####
+#### directoryobjects directory-object ####

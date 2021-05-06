@@ -340,12 +340,8 @@ class MicrosoftGraphExternalConnection(MicrosoftGraphEntity):
     :type items: list[~search.models.MicrosoftGraphExternalItem]
     :param operations:
     :type operations: list[~search.models.MicrosoftGraphConnectionOperation]
-    :param id_schema_id: Read-only.
-    :type id_schema_id: str
-    :param base_type:
-    :type base_type: str
-    :param properties:
-    :type properties: list[~search.models.MicrosoftGraphProperty]
+    :param schema: schema.
+    :type schema: ~search.models.MicrosoftGraphSchema
     """
 
     _attribute_map = {
@@ -358,9 +354,7 @@ class MicrosoftGraphExternalConnection(MicrosoftGraphEntity):
         'groups': {'key': 'groups', 'type': '[MicrosoftGraphExternalGroup]'},
         'items': {'key': 'items', 'type': '[MicrosoftGraphExternalItem]'},
         'operations': {'key': 'operations', 'type': '[MicrosoftGraphConnectionOperation]'},
-        'id_schema_id': {'key': 'schema.id', 'type': 'str'},
-        'base_type': {'key': 'schema.baseType', 'type': 'str'},
-        'properties': {'key': 'schema.properties', 'type': '[MicrosoftGraphProperty]'},
+        'schema': {'key': 'schema', 'type': 'MicrosoftGraphSchema'},
     }
 
     def __init__(
@@ -376,9 +370,7 @@ class MicrosoftGraphExternalConnection(MicrosoftGraphEntity):
         self.groups = kwargs.get('groups', None)
         self.items = kwargs.get('items', None)
         self.operations = kwargs.get('operations', None)
-        self.id_schema_id = kwargs.get('id_schema_id', None)
-        self.base_type = kwargs.get('base_type', None)
-        self.properties = kwargs.get('properties', None)
+        self.schema = kwargs.get('schema', None)
 
 
 class MicrosoftGraphExternalGroup(MicrosoftGraphEntity):

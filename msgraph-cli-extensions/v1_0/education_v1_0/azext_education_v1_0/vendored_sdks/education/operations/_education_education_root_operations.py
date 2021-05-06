@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -65,7 +65,9 @@ class EducationEducationRootOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationRoot"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -82,7 +84,6 @@ class EducationEducationRootOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -103,11 +104,7 @@ class EducationEducationRootOperations(object):
 
     def update_education_root(
         self,
-        id=None,  # type: Optional[str]
-        classes=None,  # type: Optional[List["models.MicrosoftGraphEducationClass"]]
-        me=None,  # type: Optional["models.MicrosoftGraphEducationUser"]
-        schools=None,  # type: Optional[List["models.MicrosoftGraphEducationSchool"]]
-        users=None,  # type: Optional[List["models.MicrosoftGraphEducationUser"]]
+        body,  # type: "models.MicrosoftGraphEducationRoot"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -115,26 +112,18 @@ class EducationEducationRootOperations(object):
 
         Update education.
 
-        :param id: Read-only.
-        :type id: str
-        :param classes: Read-only. Nullable.
-        :type classes: list[~education.models.MicrosoftGraphEducationClass]
-        :param me: educationUser.
-        :type me: ~education.models.MicrosoftGraphEducationUser
-        :param schools: Read-only. Nullable.
-        :type schools: list[~education.models.MicrosoftGraphEducationSchool]
-        :param users: Read-only. Nullable.
-        :type users: list[~education.models.MicrosoftGraphEducationUser]
+        :param body: New property values.
+        :type body: ~education.models.MicrosoftGraphEducationRoot
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphEducationRoot(id=id, classes=classes, me=me, schools=schools, users=users)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -150,10 +139,9 @@ class EducationEducationRootOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationRoot')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationRoot')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 

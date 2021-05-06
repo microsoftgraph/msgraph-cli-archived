@@ -17,7 +17,7 @@ from msgraph.cli.core.commands.parameters import (
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_education_v1_0.action import (
     AddTerm,
-    AddCreatedByApplication,
+    AddApplication,
     AddMailingAddress,
     AddAssignedLicenses,
     AddAssignedPlans,
@@ -30,11 +30,11 @@ from azext_education_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('education education-root get-root') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education-root show-education-root') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education education-root update-root') as c:
+    with self.argument_context('education education-root update-education-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classes', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
@@ -43,12 +43,6 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('users', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
-
-    with self.argument_context('education education delete') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
 
     with self.argument_context('education education create-class') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -59,7 +53,7 @@ def load_arguments(self, _):
         c.argument('external_name', type=str, help='Name of the class in the syncing system.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
         c.argument('mail_nickname', type=str, help='Mail name for sending email to all members, if this is enabled.')
-        c.argument('term', action=AddTerm, nargs='*', help='educationTerm')
+        c.argument('term', action=AddTerm, nargs='+', help='educationTerm')
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
                    'json-string/@json-file.')
@@ -69,16 +63,16 @@ def load_arguments(self, _):
                    'Nullable. Expected value: json-string/@json-file.')
         c.argument('teachers', type=validate_file_or_dict, help='All teachers in the class. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('education education create-school') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('description', type=str, help='Organization description.')
         c.argument('display_name', type=str, help='Organization display name.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
-        c.argument('address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddMailingAddress, nargs='+', help='physicalAddress')
         c.argument('external_id', type=str, help='ID of school in syncing system.')
         c.argument('external_principal_id', type=str, help='ID of principal in syncing system.')
         c.argument('fax', type=str, help='')
@@ -92,19 +86,19 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('users', type=validate_file_or_dict, help='Users in the school. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('education education create-user') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('account_enabled', arg_type=get_three_state_flag(), help='True if the account is enabled; '
                    'otherwise, false. This property is required when a user is created. Supports $filter.')
-        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='*', help='The licenses that are assigned to '
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='+', help='The licenses that are assigned to '
                    'the user. Not nullable.')
-        c.argument('assigned_plans', action=AddAssignedPlans, nargs='*', help='The plans that are assigned to the '
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='+', help='The plans that are assigned to the '
                    'user. Read-only. Not nullable.')
-        c.argument('business_phones', nargs='*', help='The telephone numbers for the user. Note: Although this is a '
+        c.argument('business_phones', nargs='+', help='The telephone numbers for the user. Note: Although this is a '
                    'string collection, only one number can be set for this property.')
         c.argument('department', type=str, help='The name for the department in which the user works. Supports '
                    '$filter.')
@@ -116,7 +110,7 @@ def load_arguments(self, _):
         c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
         c.argument('mail', type=str, help='The SMTP address for the user; for example, \'jeff@contoso.onmicrosoft.com\''
                    '. Read-Only. Supports $filter.')
-        c.argument('mailing_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('mailing_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
         c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
                    'a user is created. Supports $filter.')
         c.argument('middle_name', type=str, help='The middle name of user.')
@@ -126,19 +120,19 @@ def load_arguments(self, _):
                    'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
                    'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
                    'two can be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
-        c.argument('password_profile', action=AddPasswordProfile, nargs='*', help='passwordProfile')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='+', help='passwordProfile')
         c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
                    'Code; for example, \'en-US\'.')
-        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue']), help=''
-                   '')
-        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='*', help='The plans that are provisioned '
+        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue']),
+                   help='')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='+', help='The plans that are provisioned '
                    'for the user. Read-only. Not nullable.')
         c.argument('refresh_tokens_valid_from_date_time', help='')
-        c.argument('residence_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('residence_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
         c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='')
-        c.argument('student', action=AddStudent, nargs='*', help='educationStudent')
+        c.argument('student', action=AddStudent, nargs='+', help='educationStudent')
         c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
-        c.argument('teacher', action=AddTeacher, nargs='*', help='educationTeacher')
+        c.argument('teacher', action=AddTeacher, nargs='+', help='educationTeacher')
         c.argument('usage_location', type=str, help='A two-letter country code (ISO standard 3166). Required for users '
                    'who will be assigned licenses due to a legal requirement to check for availability of services in '
                    'countries or regions. Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports '
@@ -157,43 +151,59 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
                    'Expected value: json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
-    with self.argument_context('education education get-class') as c:
+    with self.argument_context('education education delete-class') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education education get-me') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education delete-me') as c:
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education education get-school') as c:
+    with self.argument_context('education education delete-school') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('education education get-user') as c:
+    with self.argument_context('education education delete-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('education education list-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education list-school') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education list-user') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-class') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-me') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-school') as c:
+        c.argument('education_school_id', type=str, help='key: id of educationSchool')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education show-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education update-class') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
@@ -205,7 +215,7 @@ def load_arguments(self, _):
         c.argument('external_name', type=str, help='Name of the class in the syncing system.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
         c.argument('mail_nickname', type=str, help='Mail name for sending email to all members, if this is enabled.')
-        c.argument('term', action=AddTerm, nargs='*', help='educationTerm')
+        c.argument('term', action=AddTerm, nargs='+', help='educationTerm')
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
                    'json-string/@json-file.')
@@ -215,19 +225,19 @@ def load_arguments(self, _):
                    'Nullable. Expected value: json-string/@json-file.')
         c.argument('teachers', type=validate_file_or_dict, help='All teachers in the class. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('education education update-me') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('account_enabled', arg_type=get_three_state_flag(), help='True if the account is enabled; '
                    'otherwise, false. This property is required when a user is created. Supports $filter.')
-        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='*', help='The licenses that are assigned to '
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='+', help='The licenses that are assigned to '
                    'the user. Not nullable.')
-        c.argument('assigned_plans', action=AddAssignedPlans, nargs='*', help='The plans that are assigned to the '
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='+', help='The plans that are assigned to the '
                    'user. Read-only. Not nullable.')
-        c.argument('business_phones', nargs='*', help='The telephone numbers for the user. Note: Although this is a '
+        c.argument('business_phones', nargs='+', help='The telephone numbers for the user. Note: Although this is a '
                    'string collection, only one number can be set for this property.')
         c.argument('department', type=str, help='The name for the department in which the user works. Supports '
                    '$filter.')
@@ -239,7 +249,7 @@ def load_arguments(self, _):
         c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
         c.argument('mail', type=str, help='The SMTP address for the user; for example, \'jeff@contoso.onmicrosoft.com\''
                    '. Read-Only. Supports $filter.')
-        c.argument('mailing_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('mailing_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
         c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
                    'a user is created. Supports $filter.')
         c.argument('middle_name', type=str, help='The middle name of user.')
@@ -249,19 +259,19 @@ def load_arguments(self, _):
                    'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
                    'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
                    'two can be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
-        c.argument('password_profile', action=AddPasswordProfile, nargs='*', help='passwordProfile')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='+', help='passwordProfile')
         c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
                    'Code; for example, \'en-US\'.')
-        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue']), help=''
-                   '')
-        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='*', help='The plans that are provisioned '
+        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue']),
+                   help='')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='+', help='The plans that are provisioned '
                    'for the user. Read-only. Not nullable.')
         c.argument('refresh_tokens_valid_from_date_time', help='')
-        c.argument('residence_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('residence_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
         c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='')
-        c.argument('student', action=AddStudent, nargs='*', help='educationStudent')
+        c.argument('student', action=AddStudent, nargs='+', help='educationStudent')
         c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
-        c.argument('teacher', action=AddTeacher, nargs='*', help='educationTeacher')
+        c.argument('teacher', action=AddTeacher, nargs='+', help='educationTeacher')
         c.argument('usage_location', type=str, help='A two-letter country code (ISO standard 3166). Required for users '
                    'who will be assigned licenses due to a legal requirement to check for availability of services in '
                    'countries or regions. Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports '
@@ -280,9 +290,10 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
                    'Expected value: json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
     with self.argument_context('education education update-school') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
@@ -290,7 +301,7 @@ def load_arguments(self, _):
         c.argument('description', type=str, help='Organization description.')
         c.argument('display_name', type=str, help='Organization display name.')
         c.argument('external_source', arg_type=get_enum_type(['sis', 'manual', 'unknownFutureValue']), help='')
-        c.argument('address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('address', action=AddMailingAddress, nargs='+', help='physicalAddress')
         c.argument('external_id', type=str, help='ID of school in syncing system.')
         c.argument('external_principal_id', type=str, help='ID of principal in syncing system.')
         c.argument('fax', type=str, help='')
@@ -304,20 +315,20 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('users', type=validate_file_or_dict, help='Users in the school. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('education education update-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('account_enabled', arg_type=get_three_state_flag(), help='True if the account is enabled; '
                    'otherwise, false. This property is required when a user is created. Supports $filter.')
-        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='*', help='The licenses that are assigned to '
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='+', help='The licenses that are assigned to '
                    'the user. Not nullable.')
-        c.argument('assigned_plans', action=AddAssignedPlans, nargs='*', help='The plans that are assigned to the '
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='+', help='The plans that are assigned to the '
                    'user. Read-only. Not nullable.')
-        c.argument('business_phones', nargs='*', help='The telephone numbers for the user. Note: Although this is a '
+        c.argument('business_phones', nargs='+', help='The telephone numbers for the user. Note: Although this is a '
                    'string collection, only one number can be set for this property.')
         c.argument('department', type=str, help='The name for the department in which the user works. Supports '
                    '$filter.')
@@ -329,7 +340,7 @@ def load_arguments(self, _):
         c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
         c.argument('mail', type=str, help='The SMTP address for the user; for example, \'jeff@contoso.onmicrosoft.com\''
                    '. Read-Only. Supports $filter.')
-        c.argument('mailing_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('mailing_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
         c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
                    'a user is created. Supports $filter.')
         c.argument('middle_name', type=str, help='The middle name of user.')
@@ -339,19 +350,19 @@ def load_arguments(self, _):
                    'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
                    'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
                    'two can be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
-        c.argument('password_profile', action=AddPasswordProfile, nargs='*', help='passwordProfile')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='+', help='passwordProfile')
         c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
                    'Code; for example, \'en-US\'.')
-        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue']), help=''
-                   '')
-        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='*', help='The plans that are provisioned '
+        c.argument('primary_role', arg_type=get_enum_type(['student', 'teacher', 'none', 'unknownFutureValue']),
+                   help='')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='+', help='The plans that are provisioned '
                    'for the user. Read-only. Not nullable.')
         c.argument('refresh_tokens_valid_from_date_time', help='')
-        c.argument('residence_address', action=AddMailingAddress, nargs='*', help='physicalAddress')
+        c.argument('residence_address', action=AddMailingAddress, nargs='+', help='physicalAddress')
         c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='')
-        c.argument('student', action=AddStudent, nargs='*', help='educationStudent')
+        c.argument('student', action=AddStudent, nargs='+', help='educationStudent')
         c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
-        c.argument('teacher', action=AddTeacher, nargs='*', help='educationTeacher')
+        c.argument('teacher', action=AddTeacher, nargs='+', help='educationTeacher')
         c.argument('usage_location', type=str, help='A two-letter country code (ISO standard 3166). Required for users '
                    'who will be assigned licenses due to a legal requirement to check for availability of services in '
                    'countries or regions. Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports '
@@ -370,13 +381,10 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
                    'Expected value: json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-
-    with self.argument_context('education education-class delete') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
 
     with self.argument_context('education education-class create-ref-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
@@ -393,51 +401,52 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education education-class get-group') as c:
+    with self.argument_context('education education-class delete-ref-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education education-class get-ref-group') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('education education-class list-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education-class list-ref-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('education education-class list-ref-school') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('education education-class list-ref-teacher') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('education education-class list-school') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education-class list-teacher') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education-class set-ref-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education education-me delete') as c:
-        c.argument('if_match', type=str, help='ETag')
+    with self.argument_context('education education-class show-group') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('education education-class show-ref-group') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
 
     with self.argument_context('education education-me create-ref-class') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
@@ -447,29 +456,32 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education education-me get-user') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('education education-me delete-ref-user') as c:
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('education education-me list-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education-me list-ref-class') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('education education-me list-ref-school') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('education education-me list-school') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education-me set-ref-user') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('education education-me show-user') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education-school create-ref-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
@@ -483,27 +495,23 @@ def load_arguments(self, _):
 
     with self.argument_context('education education-school list-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education-school list-ref-class') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('education education-school list-ref-user') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('education education-school list-user') as c:
         c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('education education-user delete') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education-user create-ref-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
@@ -515,35 +523,39 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education education-user get-ref-user') as c:
+    with self.argument_context('education education-user delete-ref-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-
-    with self.argument_context('education education-user get-user') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('education education-user list-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education-user list-ref-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('education education-user list-ref-school') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('education education-user list-school') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('education education-user set-ref-user') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('education education-user show-ref-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+
+    with self.argument_context('education education-user show-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')

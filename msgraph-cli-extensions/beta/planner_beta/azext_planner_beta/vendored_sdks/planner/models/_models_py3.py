@@ -856,9 +856,6 @@ class MicrosoftGraphPlannerDelta(MicrosoftGraphEntity):
 class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerAssignedToTaskBoardTaskFormat.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -874,7 +871,6 @@ class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDe
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'order_hints_by_assignee': {'key': 'orderHintsByAssignee', 'type': '{object}'},
@@ -884,7 +880,6 @@ class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDe
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         order_hints_by_assignee: Optional[Dict[str, object]] = None,
@@ -893,7 +888,6 @@ class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDe
     ):
         super(MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.order_hints_by_assignee = order_hints_by_assignee
         self.unassigned_order_hint = unassigned_order_hint
 
@@ -901,9 +895,6 @@ class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDe
 class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     """plannerBucket.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -921,7 +912,6 @@ class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'name': {'key': 'name', 'type': 'str'},
@@ -933,7 +923,6 @@ class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         name: Optional[str] = None,
@@ -944,7 +933,6 @@ class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerBucket, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.name = name
         self.order_hint = order_hint
         self.plan_id = plan_id
@@ -954,9 +942,6 @@ class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerBucketTaskBoardTaskFormat.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -968,7 +953,6 @@ class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphPlannerDelta)
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'order_hint': {'key': 'orderHint', 'type': 'str'},
@@ -977,14 +961,12 @@ class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphPlannerDelta)
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         order_hint: Optional[str] = None,
         **kwargs
     ):
         super(MicrosoftGraphPlannerBucketTaskBoardTaskFormat, self).__init__(id=id, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.order_hint = order_hint
 
@@ -1075,9 +1057,6 @@ class MicrosoftGraphPlannerGroup(MicrosoftGraphEntity):
 class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
     """plannerPlan.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1085,6 +1064,8 @@ class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
     :type additional_properties: dict[str, object]
     :param contexts: plannerPlanContextCollection.
     :type contexts: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~planner.models.MicrosoftGraphIdentitySet
     :param created_date_time: Read-only. Date and time at which the plan is created. The Timestamp
      type represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -1096,88 +1077,55 @@ class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
     :type title: str
     :param buckets: Read-only. Nullable. Collection of buckets in the plan.
     :type buckets: list[~planner.models.MicrosoftGraphPlannerBucket]
+    :param details: plannerPlanDetails.
+    :type details: ~planner.models.MicrosoftGraphPlannerPlanDetails
     :param tasks: Read-only. Nullable. Collection of tasks in the plan.
     :type tasks: list[~planner.models.MicrosoftGraphPlannerTask]
-    :param id_details_id: Read-only.
-    :type id_details_id: str
-    :param category_descriptions: plannerCategoryDescriptions.
-    :type category_descriptions: ~planner.models.MicrosoftGraphPlannerCategoryDescriptions
-    :param context_details: plannerPlanContextDetailsCollection.
-    :type context_details: dict[str, object]
-    :param shared_with: plannerUserIds.
-    :type shared_with: dict[str, object]
-    :param application: identity.
-    :type application: ~planner.models.MicrosoftGraphIdentity
-    :param device: identity.
-    :type device: ~planner.models.MicrosoftGraphIdentity
-    :param user: identity.
-    :type user: ~planner.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'contexts': {'key': 'contexts', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'owner': {'key': 'owner', 'type': 'str'},
         'title': {'key': 'title', 'type': 'str'},
         'buckets': {'key': 'buckets', 'type': '[MicrosoftGraphPlannerBucket]'},
+        'details': {'key': 'details', 'type': 'MicrosoftGraphPlannerPlanDetails'},
         'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphPlannerTask]'},
-        'id_details_id': {'key': 'details.id', 'type': 'str'},
-        'category_descriptions': {'key': 'details.categoryDescriptions', 'type': 'MicrosoftGraphPlannerCategoryDescriptions'},
-        'context_details': {'key': 'details.contextDetails', 'type': '{object}'},
-        'shared_with': {'key': 'details.sharedWith', 'type': '{object}'},
-        'application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         contexts: Optional[Dict[str, object]] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         owner: Optional[str] = None,
         title: Optional[str] = None,
         buckets: Optional[List["MicrosoftGraphPlannerBucket"]] = None,
+        details: Optional["MicrosoftGraphPlannerPlanDetails"] = None,
         tasks: Optional[List["MicrosoftGraphPlannerTask"]] = None,
-        id_details_id: Optional[str] = None,
-        category_descriptions: Optional["MicrosoftGraphPlannerCategoryDescriptions"] = None,
-        context_details: Optional[Dict[str, object]] = None,
-        shared_with: Optional[Dict[str, object]] = None,
-        application: Optional["MicrosoftGraphIdentity"] = None,
-        device: Optional["MicrosoftGraphIdentity"] = None,
-        user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphPlannerPlan, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.contexts = contexts
+        self.created_by = created_by
         self.created_date_time = created_date_time
         self.owner = owner
         self.title = title
         self.buckets = buckets
+        self.details = details
         self.tasks = tasks
-        self.id_details_id = id_details_id
-        self.category_descriptions = category_descriptions
-        self.context_details = context_details
-        self.shared_with = shared_with
-        self.application = application
-        self.device = device
-        self.user = user
 
 
 class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     """plannerPlanDetails.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1192,7 +1140,6 @@ class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'category_descriptions': {'key': 'categoryDescriptions', 'type': 'MicrosoftGraphPlannerCategoryDescriptions'},
@@ -1203,7 +1150,6 @@ class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         category_descriptions: Optional["MicrosoftGraphPlannerCategoryDescriptions"] = None,
@@ -1213,7 +1159,6 @@ class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerPlanDetails, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.category_descriptions = category_descriptions
         self.context_details = context_details
         self.shared_with = shared_with
@@ -1222,9 +1167,6 @@ class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerProgressTaskBoardTaskFormat.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1236,7 +1178,6 @@ class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelt
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'order_hint': {'key': 'orderHint', 'type': 'str'},
@@ -1245,7 +1186,6 @@ class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelt
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         order_hint: Optional[str] = None,
@@ -1253,16 +1193,12 @@ class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelt
     ):
         super(MicrosoftGraphPlannerProgressTaskBoardTaskFormat, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.order_hint = order_hint
 
 
 class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     """plannerTask.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1284,6 +1220,8 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     :type bucket_id: str
     :param checklist_item_count: Number of checklist items that are present on the task.
     :type checklist_item_count: int
+    :param completed_by: identitySet.
+    :type completed_by: ~planner.models.MicrosoftGraphIdentitySet
     :param completed_date_time: Read-only. Date and time at which the 'percentComplete' of the task
      is set to '100'. The Timestamp type represents date and time information using ISO 8601 format
      and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this:
@@ -1292,6 +1230,8 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     :param conversation_thread_id: Thread ID of the conversation on the task. This is the ID of the
      conversation thread object created in the group.
     :type conversation_thread_id: str
+    :param created_by: identitySet.
+    :type created_by: ~planner.models.MicrosoftGraphIdentitySet
     :param created_date_time: Read-only. Date and time at which the task is created. The Timestamp
      type represents date and time information using ISO 8601 format and is always in UTC time. For
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -1324,44 +1264,16 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     :type start_date_time: ~datetime.datetime
     :param title: Title of the task.
     :type title: str
+    :param assigned_to_task_board_format: plannerAssignedToTaskBoardTaskFormat.
+    :type assigned_to_task_board_format:
+     ~planner.models.MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat
     :param bucket_task_board_format: plannerBucketTaskBoardTaskFormat.
     :type bucket_task_board_format: ~planner.models.MicrosoftGraphPlannerBucketTaskBoardTaskFormat
+    :param details: plannerTaskDetails.
+    :type details: ~planner.models.MicrosoftGraphPlannerTaskDetails
     :param progress_task_board_format: plannerProgressTaskBoardTaskFormat.
     :type progress_task_board_format:
      ~planner.models.MicrosoftGraphPlannerProgressTaskBoardTaskFormat
-    :param id_details_id: Read-only.
-    :type id_details_id: str
-    :param checklist: plannerChecklistItems.
-    :type checklist: dict[str, object]
-    :param description: Description of the task.
-    :type description: str
-    :param preview_type_details_preview_type:  Possible values include: "automatic", "noPreview",
-     "checklist", "description", "reference".
-    :type preview_type_details_preview_type: str or
-     ~planner.models.MicrosoftGraphPlannerPreviewType
-    :param references: plannerExternalReferences.
-    :type references: dict[str, object]
-    :param id_assigned_to_task_board_format_id: Read-only.
-    :type id_assigned_to_task_board_format_id: str
-    :param order_hints_by_assignee: plannerOrderHintsByAssignee.
-    :type order_hints_by_assignee: dict[str, object]
-    :param unassigned_order_hint: Hint value used to order the task on the AssignedTo view of the
-     Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee dictionary
-     does not provide an order hint for the user the task is assigned to. The format is defined as
-     outlined here.
-    :type unassigned_order_hint: str
-    :param application_created_by_application: identity.
-    :type application_created_by_application: ~planner.models.MicrosoftGraphIdentity
-    :param device_created_by_device: identity.
-    :type device_created_by_device: ~planner.models.MicrosoftGraphIdentity
-    :param user_created_by_user: identity.
-    :type user_created_by_user: ~planner.models.MicrosoftGraphIdentity
-    :param application_completed_by_application: identity.
-    :type application_completed_by_application: ~planner.models.MicrosoftGraphIdentity
-    :param device_completed_by_device: identity.
-    :type device_completed_by_device: ~planner.models.MicrosoftGraphIdentity
-    :param user_completed_by_user: identity.
-    :type user_completed_by_user: ~planner.models.MicrosoftGraphIdentity
     """
 
     _validation = {
@@ -1373,7 +1285,6 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'active_checklist_item_count': {'key': 'activeChecklistItemCount', 'type': 'int'},
@@ -1382,8 +1293,10 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         'assignments': {'key': 'assignments', 'type': '{object}'},
         'bucket_id': {'key': 'bucketId', 'type': 'str'},
         'checklist_item_count': {'key': 'checklistItemCount', 'type': 'int'},
+        'completed_by': {'key': 'completedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'completed_date_time': {'key': 'completedDateTime', 'type': 'iso-8601'},
         'conversation_thread_id': {'key': 'conversationThreadId', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'due_date_time': {'key': 'dueDateTime', 'type': 'iso-8601'},
         'has_description': {'key': 'hasDescription', 'type': 'bool'},
@@ -1395,28 +1308,15 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         'reference_count': {'key': 'referenceCount', 'type': 'int'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'title': {'key': 'title', 'type': 'str'},
+        'assigned_to_task_board_format': {'key': 'assignedToTaskBoardFormat', 'type': 'MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat'},
         'bucket_task_board_format': {'key': 'bucketTaskBoardFormat', 'type': 'MicrosoftGraphPlannerBucketTaskBoardTaskFormat'},
+        'details': {'key': 'details', 'type': 'MicrosoftGraphPlannerTaskDetails'},
         'progress_task_board_format': {'key': 'progressTaskBoardFormat', 'type': 'MicrosoftGraphPlannerProgressTaskBoardTaskFormat'},
-        'id_details_id': {'key': 'details.id', 'type': 'str'},
-        'checklist': {'key': 'details.checklist', 'type': '{object}'},
-        'description': {'key': 'details.description', 'type': 'str'},
-        'preview_type_details_preview_type': {'key': 'details.previewType', 'type': 'str'},
-        'references': {'key': 'details.references', 'type': '{object}'},
-        'id_assigned_to_task_board_format_id': {'key': 'assignedToTaskBoardFormat.id', 'type': 'str'},
-        'order_hints_by_assignee': {'key': 'assignedToTaskBoardFormat.orderHintsByAssignee', 'type': '{object}'},
-        'unassigned_order_hint': {'key': 'assignedToTaskBoardFormat.unassignedOrderHint', 'type': 'str'},
-        'application_created_by_application': {'key': 'createdBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_created_by_device': {'key': 'createdBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_created_by_user': {'key': 'createdBy.user', 'type': 'MicrosoftGraphIdentity'},
-        'application_completed_by_application': {'key': 'completedBy.application', 'type': 'MicrosoftGraphIdentity'},
-        'device_completed_by_device': {'key': 'completedBy.device', 'type': 'MicrosoftGraphIdentity'},
-        'user_completed_by_user': {'key': 'completedBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         active_checklist_item_count: Optional[int] = None,
@@ -1425,8 +1325,10 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         assignments: Optional[Dict[str, object]] = None,
         bucket_id: Optional[str] = None,
         checklist_item_count: Optional[int] = None,
+        completed_by: Optional["MicrosoftGraphIdentitySet"] = None,
         completed_date_time: Optional[datetime.datetime] = None,
         conversation_thread_id: Optional[str] = None,
+        created_by: Optional["MicrosoftGraphIdentitySet"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         due_date_time: Optional[datetime.datetime] = None,
         has_description: Optional[bool] = None,
@@ -1438,26 +1340,13 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         reference_count: Optional[int] = None,
         start_date_time: Optional[datetime.datetime] = None,
         title: Optional[str] = None,
+        assigned_to_task_board_format: Optional["MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat"] = None,
         bucket_task_board_format: Optional["MicrosoftGraphPlannerBucketTaskBoardTaskFormat"] = None,
+        details: Optional["MicrosoftGraphPlannerTaskDetails"] = None,
         progress_task_board_format: Optional["MicrosoftGraphPlannerProgressTaskBoardTaskFormat"] = None,
-        id_details_id: Optional[str] = None,
-        checklist: Optional[Dict[str, object]] = None,
-        description: Optional[str] = None,
-        preview_type_details_preview_type: Optional[Union[str, "MicrosoftGraphPlannerPreviewType"]] = None,
-        references: Optional[Dict[str, object]] = None,
-        id_assigned_to_task_board_format_id: Optional[str] = None,
-        order_hints_by_assignee: Optional[Dict[str, object]] = None,
-        unassigned_order_hint: Optional[str] = None,
-        application_created_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_created_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_created_by_user: Optional["MicrosoftGraphIdentity"] = None,
-        application_completed_by_application: Optional["MicrosoftGraphIdentity"] = None,
-        device_completed_by_device: Optional["MicrosoftGraphIdentity"] = None,
-        user_completed_by_user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphPlannerTask, self).__init__(id=id, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.active_checklist_item_count = active_checklist_item_count
         self.applied_categories = applied_categories
@@ -1465,8 +1354,10 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         self.assignments = assignments
         self.bucket_id = bucket_id
         self.checklist_item_count = checklist_item_count
+        self.completed_by = completed_by
         self.completed_date_time = completed_date_time
         self.conversation_thread_id = conversation_thread_id
+        self.created_by = created_by
         self.created_date_time = created_date_time
         self.due_date_time = due_date_time
         self.has_description = has_description
@@ -1478,30 +1369,15 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
         self.reference_count = reference_count
         self.start_date_time = start_date_time
         self.title = title
+        self.assigned_to_task_board_format = assigned_to_task_board_format
         self.bucket_task_board_format = bucket_task_board_format
+        self.details = details
         self.progress_task_board_format = progress_task_board_format
-        self.id_details_id = id_details_id
-        self.checklist = checklist
-        self.description = description
-        self.preview_type_details_preview_type = preview_type_details_preview_type
-        self.references = references
-        self.id_assigned_to_task_board_format_id = id_assigned_to_task_board_format_id
-        self.order_hints_by_assignee = order_hints_by_assignee
-        self.unassigned_order_hint = unassigned_order_hint
-        self.application_created_by_application = application_created_by_application
-        self.device_created_by_device = device_created_by_device
-        self.user_created_by_user = user_created_by_user
-        self.application_completed_by_application = application_completed_by_application
-        self.device_completed_by_device = device_completed_by_device
-        self.user_completed_by_user = user_completed_by_user
 
 
 class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     """plannerTaskDetails.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1519,7 +1395,6 @@ class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'checklist': {'key': 'checklist', 'type': '{object}'},
@@ -1531,7 +1406,6 @@ class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         checklist: Optional[Dict[str, object]] = None,
@@ -1542,7 +1416,6 @@ class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerTaskDetails, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.checklist = checklist
         self.description = description
         self.preview_type = preview_type
@@ -1552,9 +1425,6 @@ class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
     """plannerUser.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1577,7 +1447,6 @@ class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'favorite_plan_references': {'key': 'favoritePlanReferences', 'type': '{object}'},
@@ -1592,7 +1461,6 @@ class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         favorite_plan_references: Optional[Dict[str, object]] = None,
@@ -1605,7 +1473,6 @@ class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
         **kwargs
     ):
         super(MicrosoftGraphPlannerUser, self).__init__(id=id, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.favorite_plan_references = favorite_plan_references
         self.recent_plan_references = recent_plan_references

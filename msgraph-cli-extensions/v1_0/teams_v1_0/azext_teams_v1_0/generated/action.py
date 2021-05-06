@@ -39,6 +39,10 @@ class AddFunSettings(argparse.Action):
                 d['allow_stickers_and_memes'] = v[0]
             elif kl == 'giphy-content-rating':
                 d['giphy_content_rating'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter fun_settings. All possible keys are: '
+                               'allow-custom-memes, allow-giphy, allow-stickers-and-memes, giphy-content-rating'.
+                               format(k))
         return d
 
 
@@ -63,6 +67,9 @@ class AddGuestSettings(argparse.Action):
                 d['allow_create_update_channels'] = v[0]
             elif kl == 'allow-delete-channels':
                 d['allow_delete_channels'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter guest_settings. All possible keys are: '
+                               'allow-create-update-channels, allow-delete-channels'.format(k))
         return d
 
 
@@ -95,6 +102,11 @@ class AddMemberSettings(argparse.Action):
                 d['allow_create_update_remove_tabs'] = v[0]
             elif kl == 'allow-delete-channels':
                 d['allow_delete_channels'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter member_settings. All possible keys are: '
+                               'allow-add-remove-apps, allow-create-private-channels, allow-create-update-channels, '
+                               'allow-create-update-remove-connectors, allow-create-update-remove-tabs, '
+                               'allow-delete-channels'.format(k))
         return d
 
 
@@ -125,6 +137,10 @@ class AddMessagingSettings(argparse.Action):
                 d['allow_user_delete_messages'] = v[0]
             elif kl == 'allow-user-edit-messages':
                 d['allow_user_edit_messages'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter messaging_settings. All possible keys '
+                               'are: allow-channel-mentions, allow-owner-delete-messages, allow-team-mentions, '
+                               'allow-user-delete-messages, allow-user-edit-messages'.format(k))
         return d
 
 
@@ -151,13 +167,16 @@ class AddGroupsMembers(argparse._AppendAction):
                 d['roles'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter members. All possible keys are: '
+                               'display-name, roles, id'.format(k))
         return d
 
 
-class AddGroupAssignedLabels(argparse._AppendAction):
+class AddAssignedLabels(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupAssignedLabels, self).__call__(parser, namespace, action, option_string)
+        super(AddAssignedLabels, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -175,13 +194,16 @@ class AddGroupAssignedLabels(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'label-id':
                 d['label_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter assigned_labels. All possible keys are: '
+                               'display-name, label-id'.format(k))
         return d
 
 
-class AddGroupAssignedLicenses(argparse._AppendAction):
+class AddAssignedLicenses(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupAssignedLicenses, self).__call__(parser, namespace, action, option_string)
+        super(AddAssignedLicenses, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -199,13 +221,16 @@ class AddGroupAssignedLicenses(argparse._AppendAction):
                 d['disabled_plans'] = v
             elif kl == 'sku-id':
                 d['sku_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter assigned_licenses. All possible keys are: '
+                               'disabled-plans, sku-id'.format(k))
         return d
 
 
-class AddGroupLicenseProcessingState(argparse.Action):
+class AddLicenseProcessingState(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.group_license_processing_state = action
+        namespace.license_processing_state = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -221,13 +246,16 @@ class AddGroupLicenseProcessingState(argparse.Action):
             v = properties[k]
             if kl == 'state':
                 d['state'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter license_processing_state. All possible '
+                               'keys are: state'.format(k))
         return d
 
 
-class AddGroupOnPremisesProvisioningErrors(argparse._AppendAction):
+class AddOnPremisesProvisioningErrors(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupOnPremisesProvisioningErrors, self).__call__(parser, namespace, action, option_string)
+        super(AddOnPremisesProvisioningErrors, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -249,13 +277,16 @@ class AddGroupOnPremisesProvisioningErrors(argparse._AppendAction):
                 d['property_causing_error'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter on_premises_provisioning_errors. All '
+                               'possible keys are: category, occurred-date-time, property-causing-error, value'.format(k))
         return d
 
 
-class AddGroupAppRoleAssignments(argparse._AppendAction):
+class AddAppRoleAssignments(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupAppRoleAssignments, self).__call__(parser, namespace, action, option_string)
+        super(AddAppRoleAssignments, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -287,13 +318,17 @@ class AddGroupAppRoleAssignments(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter app_role_assignments. All possible keys '
+                               'are: app-role-id, created-date-time, principal-display-name, principal-id, '
+                               'principal-type, resource-display-name, resource-id, deleted-date-time, id'.format(k))
         return d
 
 
-class AddGroupCreatedOnBehalfOf(argparse.Action):
+class AddCreatedOnBehalfOf(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.group_created_on_behalf_of = action
+        namespace.created_on_behalf_of = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -311,13 +346,16 @@ class AddGroupCreatedOnBehalfOf(argparse.Action):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter created_on_behalf_of. All possible keys '
+                               'are: deleted-date-time, id'.format(k))
         return d
 
 
-class AddGroupMemberOf(argparse._AppendAction):
+class AddMemberOf(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupMemberOf, self).__call__(parser, namespace, action, option_string)
+        super(AddMemberOf, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -335,13 +373,16 @@ class AddGroupMemberOf(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter member_of. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
-class AddGroupMembers(argparse._AppendAction):
+class AddMicrosoftGraphGroupMembers(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupMembers, self).__call__(parser, namespace, action, option_string)
+        super(AddMicrosoftGraphGroupMembers, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -359,13 +400,16 @@ class AddGroupMembers(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter microsoft_graph_group_members. All '
+                               'possible keys are: deleted-date-time, id'.format(k))
         return d
 
 
-class AddGroupMembersWithLicenseErrors(argparse._AppendAction):
+class AddMembersWithLicenseErrors(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupMembersWithLicenseErrors, self).__call__(parser, namespace, action, option_string)
+        super(AddMembersWithLicenseErrors, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -383,13 +427,16 @@ class AddGroupMembersWithLicenseErrors(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter members_with_license_errors. All possible '
+                               'keys are: deleted-date-time, id'.format(k))
         return d
 
 
-class AddGroupOwners(argparse._AppendAction):
+class AddOwners(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupOwners, self).__call__(parser, namespace, action, option_string)
+        super(AddOwners, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -407,41 +454,16 @@ class AddGroupOwners(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter owners. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
-class AddGroupSettings(argparse._AppendAction):
+class AddTransitiveMemberOf(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupSettings, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'template-id':
-                d['template_id'] = v[0]
-            elif kl == 'values':
-                d['values'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddGroupTransitiveMemberOf(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddGroupTransitiveMemberOf, self).__call__(parser, namespace, action, option_string)
+        super(AddTransitiveMemberOf, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -459,13 +481,16 @@ class AddGroupTransitiveMemberOf(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter transitive_member_of. All possible keys '
+                               'are: deleted-date-time, id'.format(k))
         return d
 
 
-class AddGroupTransitiveMembers(argparse._AppendAction):
+class AddTransitiveMembers(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupTransitiveMembers, self).__call__(parser, namespace, action, option_string)
+        super(AddTransitiveMembers, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -483,13 +508,16 @@ class AddGroupTransitiveMembers(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter transitive_members. All possible keys '
+                               'are: deleted-date-time, id'.format(k))
         return d
 
 
-class AddGroupAcceptedSenders(argparse._AppendAction):
+class AddAcceptedSenders(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupAcceptedSenders, self).__call__(parser, namespace, action, option_string)
+        super(AddAcceptedSenders, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -507,13 +535,16 @@ class AddGroupAcceptedSenders(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter accepted_senders. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
-class AddGroupPhoto(argparse.Action):
+class AddGroupsPhoto(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.group_photo = action
+        namespace.photo = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -533,13 +564,16 @@ class AddGroupPhoto(argparse.Action):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter photo. All possible keys are: height, '
+                               'width, id'.format(k))
         return d
 
 
-class AddGroupPhotos(argparse._AppendAction):
+class AddPhotos(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupPhotos, self).__call__(parser, namespace, action, option_string)
+        super(AddPhotos, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -559,13 +593,16 @@ class AddGroupPhotos(argparse._AppendAction):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter photos. All possible keys are: height, '
+                               'width, id'.format(k))
         return d
 
 
-class AddGroupRejectedSenders(argparse._AppendAction):
+class AddRejectedSenders(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupRejectedSenders, self).__call__(parser, namespace, action, option_string)
+        super(AddRejectedSenders, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -583,13 +620,16 @@ class AddGroupRejectedSenders(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter rejected_senders. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
-class AddGroupExtensions(argparse._AppendAction):
+class AddExtensions(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupExtensions, self).__call__(parser, namespace, action, option_string)
+        super(AddExtensions, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -605,13 +645,16 @@ class AddGroupExtensions(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter extensions. All possible keys are: id'.
+                format(k))
         return d
 
 
-class AddGroupGroupLifecyclePolicies(argparse._AppendAction):
+class AddGroupLifecyclePolicies(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddGroupGroupLifecyclePolicies, self).__call__(parser, namespace, action, option_string)
+        super(AddGroupLifecyclePolicies, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -633,13 +676,17 @@ class AddGroupGroupLifecyclePolicies(argparse._AppendAction):
                 d['managed_group_types'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter group_lifecycle_policies. All possible '
+                               'keys are: alternate-notification-emails, group-lifetime-in-days, managed-group-types, '
+                               'id'.format(k))
         return d
 
 
-class AddScheduleOfferShiftRequests(argparse._AppendAction):
+class AddOfferShiftRequests(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleOfferShiftRequests, self).__call__(parser, namespace, action, option_string)
+        super(AddOfferShiftRequests, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -681,27 +728,27 @@ class AddScheduleOfferShiftRequests(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
+            elif kl == 'application':
+                d['application'] = v[0]
+            elif kl == 'device':
+                d['device'] = v[0]
+            elif kl == 'user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter offer_shift_requests. All possible keys '
+                               'are: recipient-action-date-time, recipient-action-message, recipient-user-id, '
+                               'sender-shift-id, assigned-to, manager-action-date-time, manager-action-message, '
+                               'manager-user-id, sender-date-time, sender-message, sender-user-id, state, '
+                               'created-date-time, last-modified-date-time, application, device, user, id'.format(k))
         return d
 
 
-class AddScheduleOpenShiftChangeRequests(argparse._AppendAction):
+class AddOpenShiftChangeRequests(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleOpenShiftChangeRequests, self).__call__(parser, namespace, action, option_string)
+        super(AddOpenShiftChangeRequests, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -737,27 +784,27 @@ class AddScheduleOpenShiftChangeRequests(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
+            elif kl == 'application':
+                d['application'] = v[0]
+            elif kl == 'device':
+                d['device'] = v[0]
+            elif kl == 'user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter open_shift_change_requests. All possible '
+                               'keys are: open-shift-id, assigned-to, manager-action-date-time, '
+                               'manager-action-message, manager-user-id, sender-date-time, sender-message, '
+                               'sender-user-id, state, created-date-time, last-modified-date-time, application, '
+                               'device, user, id'.format(k))
         return d
 
 
-class AddScheduleSchedulingGroups(argparse._AppendAction):
+class AddSchedulingGroups(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleSchedulingGroups, self).__call__(parser, namespace, action, option_string)
+        super(AddSchedulingGroups, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -781,93 +828,25 @@ class AddScheduleSchedulingGroups(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
+            elif kl == 'application':
+                d['application'] = v[0]
+            elif kl == 'device':
+                d['device'] = v[0]
+            elif kl == 'user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter scheduling_groups. All possible keys are: '
+                               'display-name, is-active, user-ids, created-date-time, last-modified-date-time, '
+                               'application, device, user, id'.format(k))
         return d
 
 
-class AddScheduleShifts(argparse._AppendAction):
+class AddSwapShiftsChangeRequests(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleShifts, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'scheduling-group-id':
-                d['scheduling_group_id'] = v[0]
-            elif kl == 'user-id':
-                d['user_id'] = v[0]
-            elif kl == 'end-date-time-shared-shift-end-date-time':
-                d['end_date_time_shared_shift_end_date_time'] = v[0]
-            elif kl == 'start-date-time-shared-shift-start-date-time':
-                d['start_date_time_shared_shift_start_date_time'] = v[0]
-            elif kl == 'theme-shared-shift-theme':
-                d['theme_shared_shift_theme'] = v[0]
-            elif kl == 'activities-shared-shift-activities':
-                d['activities_shared_shift_activities'] = v
-            elif kl == 'display-name-shared-shift-display-name':
-                d['display_name_shared_shift_display_name'] = v[0]
-            elif kl == 'notes-shared-shift-notes':
-                d['notes_shared_shift_notes'] = v[0]
-            elif kl == 'end-date-time-draft-shift-end-date-time':
-                d['end_date_time_draft_shift_end_date_time'] = v[0]
-            elif kl == 'start-date-time-draft-shift-start-date-time':
-                d['start_date_time_draft_shift_start_date_time'] = v[0]
-            elif kl == 'theme-draft-shift-theme':
-                d['theme_draft_shift_theme'] = v[0]
-            elif kl == 'activities-draft-shift-activities':
-                d['activities_draft_shift_activities'] = v
-            elif kl == 'display-name-draft-shift-display-name':
-                d['display_name_draft_shift_display_name'] = v[0]
-            elif kl == 'notes-draft-shift-notes':
-                d['notes_draft_shift_notes'] = v[0]
-            elif kl == 'created-date-time':
-                d['created_date_time'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddScheduleSwapShiftsChangeRequests(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddScheduleSwapShiftsChangeRequests, self).__call__(parser, namespace, action, option_string)
+        super(AddSwapShiftsChangeRequests, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -911,27 +890,28 @@ class AddScheduleSwapShiftsChangeRequests(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
+            elif kl == 'application':
+                d['application'] = v[0]
+            elif kl == 'device':
+                d['device'] = v[0]
+            elif kl == 'user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter swap_shifts_change_requests. All possible '
+                               'keys are: recipient-shift-id, recipient-action-date-time, recipient-action-message, '
+                               'recipient-user-id, sender-shift-id, assigned-to, manager-action-date-time, '
+                               'manager-action-message, manager-user-id, sender-date-time, sender-message, '
+                               'sender-user-id, state, created-date-time, last-modified-date-time, application, '
+                               'device, user, id'.format(k))
         return d
 
 
-class AddScheduleTimeOffReasons(argparse._AppendAction):
+class AddTimeOffReasons(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleTimeOffReasons, self).__call__(parser, namespace, action, option_string)
+        super(AddTimeOffReasons, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -955,27 +935,25 @@ class AddScheduleTimeOffReasons(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
+            elif kl == 'application':
+                d['application'] = v[0]
+            elif kl == 'device':
+                d['device'] = v[0]
+            elif kl == 'user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter time_off_reasons. All possible keys are: '
+                               'display-name, icon-type, is-active, created-date-time, last-modified-date-time, '
+                               'application, device, user, id'.format(k))
         return d
 
 
-class AddScheduleTimeOffRequests(argparse._AppendAction):
+class AddTimeOffRequests(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddScheduleTimeOffRequests, self).__call__(parser, namespace, action, option_string)
+        super(AddTimeOffRequests, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1015,20 +993,20 @@ class AddScheduleTimeOffRequests(argparse._AppendAction):
                 d['created_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
+            elif kl == 'application':
+                d['application'] = v[0]
+            elif kl == 'device':
+                d['device'] = v[0]
+            elif kl == 'user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter time_off_requests. All possible keys are: '
+                               'end-date-time, start-date-time, time-off-reason-id, assigned-to, '
+                               'manager-action-date-time, manager-action-message, manager-user-id, sender-date-time, '
+                               'sender-message, sender-user-id, state, created-date-time, last-modified-date-time, '
+                               'application, device, user, id'.format(k))
         return d
 
 
@@ -1055,6 +1033,9 @@ class AddTeamsMembers(argparse._AppendAction):
                 d['roles'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter members. All possible keys are: '
+                               'display-name, roles, id'.format(k))
         return d
 
 
@@ -1083,13 +1064,16 @@ class AddTeamsAppDefinition(argparse.Action):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter teams_app_definition. All possible keys '
+                               'are: display-name, teams-app-id, version, id'.format(k))
         return d
 
 
-class AddTeamsAppAppDefinitions(argparse._AppendAction):
+class AddAppDefinitions(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddTeamsAppAppDefinitions, self).__call__(parser, namespace, action, option_string)
+        super(AddAppDefinitions, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1111,6 +1095,9 @@ class AddTeamsAppAppDefinitions(argparse._AppendAction):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter app_definitions. All possible keys are: '
+                               'display-name, teams-app-id, version, id'.format(k))
         return d
 
 
@@ -1135,6 +1122,9 @@ class AddError(argparse.Action):
                 d['code'] = v[0]
             elif kl == 'message':
                 d['message'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter error. All possible keys are: code, '
+                               'message'.format(k))
         return d
 
 
@@ -1167,6 +1157,9 @@ class AddAttachments(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'thumbnail-url':
                 d['thumbnail_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter attachments. All possible keys are: '
+                               'content, content-type, content-url, id, name, thumbnail-url'.format(k))
         return d
 
 
@@ -1191,78 +1184,9 @@ class AddBody(argparse.Action):
                 d['content'] = v[0]
             elif kl == 'content-type':
                 d['content_type'] = v[0]
-        return d
-
-
-class AddMentions(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddMentions, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'id':
-                d['id'] = v[0]
-            elif kl == 'mention-text':
-                d['mention_text'] = v[0]
-            elif kl == 'display-name-mentioned-user-display-name':
-                d['display_name_mentioned_user_display_name'] = v[0]
-            elif kl == 'id-mentioned-user-id':
-                d['id_mentioned_user_id'] = v[0]
-            elif kl == 'display-name-mentioned-device-display-name':
-                d['display_name_mentioned_device_display_name'] = v[0]
-            elif kl == 'id-mentioned-device-id':
-                d['id_mentioned_device_id'] = v[0]
-            elif kl == 'display-name-mentioned-application-display-name':
-                d['display_name_mentioned_application_display_name'] = v[0]
-            elif kl == 'id-mentioned-application-id':
-                d['id_mentioned_application_id'] = v[0]
-        return d
-
-
-class AddReactions(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddReactions, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'created-date-time':
-                d['created_date_time'] = v[0]
-            elif kl == 'reaction-type':
-                d['reaction_type'] = v[0]
-            elif kl == 'display-name-user-display-name':
-                d['display_name_user_display_name'] = v[0]
-            elif kl == 'id-user-id':
-                d['id_user_id'] = v[0]
-            elif kl == 'display-name-user-device-display-name':
-                d['display_name_user_device_display_name'] = v[0]
-            elif kl == 'id-user-device-id':
-                d['id_user_device_id'] = v[0]
-            elif kl == 'display-name-user-application-display-name':
-                d['display_name_user_application_display_name'] = v[0]
-            elif kl == 'id-user-application-id':
-                d['id_user_application_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter body. All possible keys are: content, '
+                               'content-type'.format(k))
         return d
 
 
@@ -1285,13 +1209,16 @@ class AddHostedContents(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter hosted_contents. All possible keys are: '
+                               'id'.format(k))
         return d
 
 
-class AddPolicyViolationPolicyTip(argparse.Action):
+class AddPolicyTip(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.policy_violation_policy_tip = action
+        namespace.policy_tip = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1311,6 +1238,36 @@ class AddPolicyViolationPolicyTip(argparse.Action):
                 d['general_text'] = v[0]
             elif kl == 'matched-condition-descriptions':
                 d['matched_condition_descriptions'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter policy_tip. All possible keys are: '
+                               'compliance-url, general-text, matched-condition-descriptions'.format(k))
+        return d
+
+
+class AddApplication(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.application = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -1339,13 +1296,16 @@ class AddConfiguration(argparse.Action):
                 d['remove_url'] = v[0]
             elif kl == 'website-url':
                 d['website_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter configuration. All possible keys are: '
+                               'content-url, entity-id, remove-url, website-url'.format(k))
         return d
 
 
-class AddParentReferenceSharepointIds(argparse.Action):
+class AddSharepointIds(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.parent_reference_sharepoint_ids = action
+        namespace.sharepoint_ids = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1373,6 +1333,10 @@ class AddParentReferenceSharepointIds(argparse.Action):
                 d['tenant_id'] = v[0]
             elif kl == 'web-id':
                 d['web_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter sharepoint_ids. All possible keys are: '
+                               'list-id, list-item-id, list-item-unique-id, site-id, site-url, tenant-id, web-id'.
+                               format(k))
         return d
 
 
@@ -1425,6 +1389,10 @@ class AddAudio(argparse.Action):
                 d['track_count'] = v[0]
             elif kl == 'year':
                 d['year'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter audio. All possible keys are: album, '
+                               'album-artist, artist, bitrate, composers, copyright, disc, disc-count, duration, '
+                               'genre, has-drm, is-variable-bitrate, title, track, track-count, year'.format(k))
         return d
 
 
@@ -1451,6 +1419,9 @@ class AddFileSystemInfo(argparse.Action):
                 d['last_accessed_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter file_system_info. All possible keys are: '
+                               'created-date-time, last-accessed-date-time, last-modified-date-time'.format(k))
         return d
 
 
@@ -1475,6 +1446,9 @@ class AddImage(argparse.Action):
                 d['height'] = v[0]
             elif kl == 'width':
                 d['width'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter image. All possible keys are: height, '
+                               'width'.format(k))
         return d
 
 
@@ -1501,10 +1475,13 @@ class AddLocation(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter location. All possible keys are: '
+                               'altitude, latitude, longitude'.format(k))
         return d
 
 
-class AddPhoto(argparse.Action):
+class AddTeamsChannelsPhoto(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.photo = action
@@ -1539,6 +1516,10 @@ class AddPhoto(argparse.Action):
                 d['orientation'] = v[0]
             elif kl == 'taken-date-time':
                 d['taken_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter photo. All possible keys are: '
+                               'camera-make, camera-model, exposure-denominator, exposure-numerator, f-number, '
+                               'focal-length, iso, orientation, taken-date-time'.format(k))
         return d
 
 
@@ -1563,6 +1544,9 @@ class AddPublication(argparse.Action):
                 d['level'] = v[0]
             elif kl == 'version-id':
                 d['version_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter publication. All possible keys are: '
+                               'level, version-id'.format(k))
         return d
 
 
@@ -1603,6 +1587,10 @@ class AddVideo(argparse.Action):
                 d['height'] = v[0]
             elif kl == 'width':
                 d['width'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter video. All possible keys are: '
+                               'audio-bits-per-sample, audio-channels, audio-format, audio-samples-per-second, '
+                               'bitrate, duration, four-cc, frame-rate, height, width'.format(k))
         return d
 
 
@@ -1649,6 +1637,12 @@ class AddSubscriptions(argparse._AppendAction):
                 d['resource'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter subscriptions. All possible keys are: '
+                               'application-id, change-type, client-state, creator-id, encryption-certificate, '
+                               'encryption-certificate-id, expiration-date-time, include-resource-data, '
+                               'latest-supported-tls-version, lifecycle-notification-url, notification-url, resource, '
+                               'id'.format(k))
         return d
 
 
@@ -1681,13 +1675,16 @@ class AddVersions(argparse._AppendAction):
                 d['publication'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter versions. All possible keys are: content, '
+                               'size, last-modified-by, last-modified-date-time, publication, id'.format(k))
         return d
 
 
-class AddListItemContentType(argparse.Action):
+class AddContentType(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.list_item_content_type = action
+        namespace.content_type = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1705,13 +1702,16 @@ class AddListItemContentType(argparse.Action):
                 d['id'] = v[0]
             elif kl == 'name':
                 d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter content_type. All possible keys are: id, '
+                               'name'.format(k))
         return d
 
 
-class AddListItemFields(argparse.Action):
+class AddFields(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.list_item_fields = action
+        namespace.fields = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1727,13 +1727,15 @@ class AddListItemFields(argparse.Action):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter fields. All possible keys are: id'.format(k))
         return d
 
 
-class AddWorkbookApplication(argparse.Action):
+class AddMicrosoftGraphWorkbookApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.workbook_application = action
+        namespace.microsoft_graph_workbook_application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1751,41 +1753,16 @@ class AddWorkbookApplication(argparse.Action):
                 d['calculation_mode'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter microsoft_graph_workbook_application. All '
+                               'possible keys are: calculation-mode, id'.format(k))
         return d
 
 
-class AddWorkbookComments(argparse._AppendAction):
+class AddFunctions(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddWorkbookComments, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'content':
-                d['content'] = v[0]
-            elif kl == 'content-type':
-                d['content_type'] = v[0]
-            elif kl == 'replies':
-                d['replies'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddWorkbookFunctions(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.workbook_functions = action
+        namespace.functions = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1801,45 +1778,16 @@ class AddWorkbookFunctions(argparse.Action):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter functions. All possible keys are: id'.
+                format(k))
         return d
 
 
-class AddSharedOwner(argparse.Action):
+class AddPackage(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.shared_owner = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name-user-display-name':
-                d['display_name_user_display_name'] = v[0]
-            elif kl == 'id-user-id':
-                d['id_user_id'] = v[0]
-            elif kl == 'display-name-device-display-name':
-                d['display_name_device_display_name'] = v[0]
-            elif kl == 'id-device-id':
-                d['id_device_id'] = v[0]
-            elif kl == 'display-name-application-display-name':
-                d['display_name_application_display_name'] = v[0]
-            elif kl == 'id-application-id':
-                d['id_application_id'] = v[0]
-        return d
-
-
-class AddRemoteItemPackage(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.remote_item_package = action
+        namespace.package = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1855,13 +1803,16 @@ class AddRemoteItemPackage(argparse.Action):
             v = properties[k]
             if kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter package. All possible keys are: type'.
+                format(k))
         return d
 
 
-class AddRemoteItemSpecialFolder(argparse.Action):
+class AddSpecialFolder(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.remote_item_special_folder = action
+        namespace.special_folder = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1877,13 +1828,16 @@ class AddRemoteItemSpecialFolder(argparse.Action):
             v = properties[k]
             if kl == 'name':
                 d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter special_folder. All possible keys are: '
+                               'name'.format(k))
         return d
 
 
-class AddFolderView(argparse.Action):
+class AddView(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.folder_view = action
+        namespace.view = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1903,13 +1857,16 @@ class AddFolderView(argparse.Action):
                 d['sort_order'] = v[0]
             elif kl == 'view-type':
                 d['view_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter view. All possible keys are: sort-by, '
+                               'sort-order, view-type'.format(k))
         return d
 
 
-class AddFileHashes(argparse.Action):
+class AddHashes(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.file_hashes = action
+        namespace.hashes = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1931,6 +1888,9 @@ class AddFileHashes(argparse.Action):
                 d['sha1_hash'] = v[0]
             elif kl == 'sha256-hash':
                 d['sha256_hash'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter hashes. All possible keys are: '
+                               'crc32-hash, quick-xor-hash, sha1-hash, sha256-hash'.format(k))
         return d
 
 
@@ -1965,13 +1925,17 @@ class AddDraftOpenShift(argparse.Action):
                 d['start_date_time'] = v[0]
             elif kl == 'theme':
                 d['theme'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter draft_open_shift. All possible keys are: '
+                               'open-slot-count, activities, display-name, notes, end-date-time, start-date-time, '
+                               'theme'.format(k))
         return d
 
 
-class AddSharedShiftActivities(argparse._AppendAction):
+class AddActivities(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddSharedShiftActivities, self).__call__(parser, namespace, action, option_string)
+        super(AddActivities, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1997,6 +1961,9 @@ class AddSharedShiftActivities(argparse._AppendAction):
                 d['start_date_time'] = v[0]
             elif kl == 'theme':
                 d['theme'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter activities. All possible keys are: code, '
+                               'display-name, end-date-time, is-paid, start-date-time, theme'.format(k))
         return d
 
 
@@ -2025,6 +1992,9 @@ class AddDraftTimeOff(argparse.Action):
                 d['start_date_time'] = v[0]
             elif kl == 'theme':
                 d['theme'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter draft_time_off. All possible keys are: '
+                               'time-off-reason-id, end-date-time, start-date-time, theme'.format(k))
         return d
 
 
@@ -2049,4 +2019,7 @@ class AddEncryption(argparse.Action):
                 d['protocol'] = v[0]
             elif kl == 'secret':
                 d['secret'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter encryption. All possible keys are: '
+                               'protocol, secret'.format(k))
         return d

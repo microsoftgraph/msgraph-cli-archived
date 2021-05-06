@@ -18,84 +18,84 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import CalendarConfiguration
-from .operations import GroupOperations
-from .operations import GroupCalendarOperations
-from .operations import GroupCalendarCalendarViewOperations
-from .operations import GroupCalendarEventOperations
-from .operations import GroupCalendarViewOperations
-from .operations import GroupCalendarViewCalendarOperations
-from .operations import GroupEventOperations
-from .operations import GroupEventCalendarOperations
-from .operations import PlacePlaceOperations
-from .operations import UserOperations
-from .operations import UserCalendarOperations
-from .operations import UserCalendarCalendarViewOperations
-from .operations import UserCalendarEventOperations
-from .operations import UserCalendarGroupOperations
-from .operations import UserCalendarGroupCalendarOperations
-from .operations import UserCalendarGroupCalendarCalendarViewOperations
-from .operations import UserCalendarGroupCalendarEventOperations
-from .operations import UserCalendarOperations
-from .operations import UserCalendarCalendarViewOperations
-from .operations import UserCalendarEventOperations
-from .operations import UserCalendarViewOperations
-from .operations import UserCalendarViewCalendarOperations
-from .operations import UserEventOperations
-from .operations import UserEventCalendarOperations
+from .operations import GroupsOperations
+from .operations import GroupsCalendarOperations
+from .operations import GroupsCalendarCalendarViewOperations
+from .operations import GroupsCalendarEventsOperations
+from .operations import GroupsCalendarViewOperations
+from .operations import GroupsCalendarViewCalendarOperations
+from .operations import GroupsEventsOperations
+from .operations import GroupsEventsCalendarOperations
+from .operations import PlacesPlaceOperations
+from .operations import UsersOperations
+from .operations import UsersCalendarOperations
+from .operations import UsersCalendarCalendarViewOperations
+from .operations import UsersCalendarEventsOperations
+from .operations import UsersCalendarGroupsOperations
+from .operations import UsersCalendarGroupsCalendarsOperations
+from .operations import UsersCalendarGroupsCalendarsCalendarViewOperations
+from .operations import UsersCalendarGroupsCalendarsEventsOperations
+from .operations import UsersCalendarsOperations
+from .operations import UsersCalendarsCalendarViewOperations
+from .operations import UsersCalendarsEventsOperations
+from .operations import UsersCalendarViewOperations
+from .operations import UsersCalendarViewCalendarOperations
+from .operations import UsersEventsOperations
+from .operations import UsersEventsCalendarOperations
 from . import models
 
 
 class Calendar(object):
     """Calendar.
 
-    :ivar group: GroupOperations operations
-    :vartype group: calendar.operations.GroupOperations
-    :ivar group_calendar: GroupCalendarOperations operations
-    :vartype group_calendar: calendar.operations.GroupCalendarOperations
-    :ivar group_calendar_calendar_view: GroupCalendarCalendarViewOperations operations
-    :vartype group_calendar_calendar_view: calendar.operations.GroupCalendarCalendarViewOperations
-    :ivar group_calendar_event: GroupCalendarEventOperations operations
-    :vartype group_calendar_event: calendar.operations.GroupCalendarEventOperations
-    :ivar group_calendar_view: GroupCalendarViewOperations operations
-    :vartype group_calendar_view: calendar.operations.GroupCalendarViewOperations
-    :ivar group_calendar_view_calendar: GroupCalendarViewCalendarOperations operations
-    :vartype group_calendar_view_calendar: calendar.operations.GroupCalendarViewCalendarOperations
-    :ivar group_event: GroupEventOperations operations
-    :vartype group_event: calendar.operations.GroupEventOperations
-    :ivar group_event_calendar: GroupEventCalendarOperations operations
-    :vartype group_event_calendar: calendar.operations.GroupEventCalendarOperations
-    :ivar place_place: PlacePlaceOperations operations
-    :vartype place_place: calendar.operations.PlacePlaceOperations
-    :ivar user: UserOperations operations
-    :vartype user: calendar.operations.UserOperations
-    :ivar user_calendar: UserCalendarOperations operations
-    :vartype user_calendar: calendar.operations.UserCalendarOperations
-    :ivar user_calendar_calendar_view: UserCalendarCalendarViewOperations operations
-    :vartype user_calendar_calendar_view: calendar.operations.UserCalendarCalendarViewOperations
-    :ivar user_calendar_event: UserCalendarEventOperations operations
-    :vartype user_calendar_event: calendar.operations.UserCalendarEventOperations
-    :ivar user_calendar_group: UserCalendarGroupOperations operations
-    :vartype user_calendar_group: calendar.operations.UserCalendarGroupOperations
-    :ivar user_calendar_group_calendar: UserCalendarGroupCalendarOperations operations
-    :vartype user_calendar_group_calendar: calendar.operations.UserCalendarGroupCalendarOperations
-    :ivar user_calendar_group_calendar_calendar_view: UserCalendarGroupCalendarCalendarViewOperations operations
-    :vartype user_calendar_group_calendar_calendar_view: calendar.operations.UserCalendarGroupCalendarCalendarViewOperations
-    :ivar user_calendar_group_calendar_event: UserCalendarGroupCalendarEventOperations operations
-    :vartype user_calendar_group_calendar_event: calendar.operations.UserCalendarGroupCalendarEventOperations
-    :ivar user_calendar: UserCalendarOperations operations
-    :vartype user_calendar: calendar.operations.UserCalendarOperations
-    :ivar user_calendar_calendar_view: UserCalendarCalendarViewOperations operations
-    :vartype user_calendar_calendar_view: calendar.operations.UserCalendarCalendarViewOperations
-    :ivar user_calendar_event: UserCalendarEventOperations operations
-    :vartype user_calendar_event: calendar.operations.UserCalendarEventOperations
-    :ivar user_calendar_view: UserCalendarViewOperations operations
-    :vartype user_calendar_view: calendar.operations.UserCalendarViewOperations
-    :ivar user_calendar_view_calendar: UserCalendarViewCalendarOperations operations
-    :vartype user_calendar_view_calendar: calendar.operations.UserCalendarViewCalendarOperations
-    :ivar user_event: UserEventOperations operations
-    :vartype user_event: calendar.operations.UserEventOperations
-    :ivar user_event_calendar: UserEventCalendarOperations operations
-    :vartype user_event_calendar: calendar.operations.UserEventCalendarOperations
+    :ivar groups: GroupsOperations operations
+    :vartype groups: calendar.operations.GroupsOperations
+    :ivar groups_calendar: GroupsCalendarOperations operations
+    :vartype groups_calendar: calendar.operations.GroupsCalendarOperations
+    :ivar groups_calendar_calendar_view: GroupsCalendarCalendarViewOperations operations
+    :vartype groups_calendar_calendar_view: calendar.operations.GroupsCalendarCalendarViewOperations
+    :ivar groups_calendar_events: GroupsCalendarEventsOperations operations
+    :vartype groups_calendar_events: calendar.operations.GroupsCalendarEventsOperations
+    :ivar groups_calendar_view: GroupsCalendarViewOperations operations
+    :vartype groups_calendar_view: calendar.operations.GroupsCalendarViewOperations
+    :ivar groups_calendar_view_calendar: GroupsCalendarViewCalendarOperations operations
+    :vartype groups_calendar_view_calendar: calendar.operations.GroupsCalendarViewCalendarOperations
+    :ivar groups_events: GroupsEventsOperations operations
+    :vartype groups_events: calendar.operations.GroupsEventsOperations
+    :ivar groups_events_calendar: GroupsEventsCalendarOperations operations
+    :vartype groups_events_calendar: calendar.operations.GroupsEventsCalendarOperations
+    :ivar places_place: PlacesPlaceOperations operations
+    :vartype places_place: calendar.operations.PlacesPlaceOperations
+    :ivar users: UsersOperations operations
+    :vartype users: calendar.operations.UsersOperations
+    :ivar users_calendar: UsersCalendarOperations operations
+    :vartype users_calendar: calendar.operations.UsersCalendarOperations
+    :ivar users_calendar_calendar_view: UsersCalendarCalendarViewOperations operations
+    :vartype users_calendar_calendar_view: calendar.operations.UsersCalendarCalendarViewOperations
+    :ivar users_calendar_events: UsersCalendarEventsOperations operations
+    :vartype users_calendar_events: calendar.operations.UsersCalendarEventsOperations
+    :ivar users_calendar_groups: UsersCalendarGroupsOperations operations
+    :vartype users_calendar_groups: calendar.operations.UsersCalendarGroupsOperations
+    :ivar users_calendar_groups_calendars: UsersCalendarGroupsCalendarsOperations operations
+    :vartype users_calendar_groups_calendars: calendar.operations.UsersCalendarGroupsCalendarsOperations
+    :ivar users_calendar_groups_calendars_calendar_view: UsersCalendarGroupsCalendarsCalendarViewOperations operations
+    :vartype users_calendar_groups_calendars_calendar_view: calendar.operations.UsersCalendarGroupsCalendarsCalendarViewOperations
+    :ivar users_calendar_groups_calendars_events: UsersCalendarGroupsCalendarsEventsOperations operations
+    :vartype users_calendar_groups_calendars_events: calendar.operations.UsersCalendarGroupsCalendarsEventsOperations
+    :ivar users_calendars: UsersCalendarsOperations operations
+    :vartype users_calendars: calendar.operations.UsersCalendarsOperations
+    :ivar users_calendars_calendar_view: UsersCalendarsCalendarViewOperations operations
+    :vartype users_calendars_calendar_view: calendar.operations.UsersCalendarsCalendarViewOperations
+    :ivar users_calendars_events: UsersCalendarsEventsOperations operations
+    :vartype users_calendars_events: calendar.operations.UsersCalendarsEventsOperations
+    :ivar users_calendar_view: UsersCalendarViewOperations operations
+    :vartype users_calendar_view: calendar.operations.UsersCalendarViewOperations
+    :ivar users_calendar_view_calendar: UsersCalendarViewCalendarOperations operations
+    :vartype users_calendar_view_calendar: calendar.operations.UsersCalendarViewCalendarOperations
+    :ivar users_events: UsersEventsOperations operations
+    :vartype users_events: calendar.operations.UsersEventsOperations
+    :ivar users_events_calendar: UsersEventsCalendarOperations operations
+    :vartype users_events_calendar: calendar.operations.UsersEventsCalendarOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -109,7 +109,6 @@ class Calendar(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -131,55 +130,56 @@ class Calendar(object):
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.group = GroupOperations(
+        self.groups = GroupsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_calendar = GroupCalendarOperations(
+        self.groups_calendar = GroupsCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_calendar_calendar_view = GroupCalendarCalendarViewOperations(
+        self.groups_calendar_calendar_view = GroupsCalendarCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_calendar_event = GroupCalendarEventOperations(
+        self.groups_calendar_events = GroupsCalendarEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_calendar_view = GroupCalendarViewOperations(
+        self.groups_calendar_view = GroupsCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_calendar_view_calendar = GroupCalendarViewCalendarOperations(
+        self.groups_calendar_view_calendar = GroupsCalendarViewCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_event = GroupEventOperations(
+        self.groups_events = GroupsEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_event_calendar = GroupEventCalendarOperations(
+        self.groups_events_calendar = GroupsEventsCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.place_place = PlacePlaceOperations(
+        self.places_place = PlacesPlaceOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar = UserCalendarOperations(
+        self.users_calendar = UsersCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar_calendar_view = UserCalendarCalendarViewOperations(
+        self.users_calendar_calendar_view = UsersCalendarCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar_event = UserCalendarEventOperations(
+        self.users_calendar_events = UsersCalendarEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar_group = UserCalendarGroupOperations(
+        self.users_calendar_groups = UsersCalendarGroupsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar_group_calendar = UserCalendarGroupCalendarOperations(
+        self.users_calendar_groups_calendars = UsersCalendarGroupsCalendarsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar_group_calendar_calendar_view = UserCalendarGroupCalendarCalendarViewOperations(
+        self.users_calendar_groups_calendars_calendar_view = UsersCalendarGroupsCalendarsCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar_group_calendar_event = UserCalendarGroupCalendarEventOperations(
+        self.users_calendar_groups_calendars_events = UsersCalendarGroupsCalendarsEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar = UserCalendarOperations(
+        self.users_calendars = UsersCalendarsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar_calendar_view = UserCalendarCalendarViewOperations(
+        self.users_calendars_calendar_view = UsersCalendarsCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar_event = UserCalendarEventOperations(
+        self.users_calendars_events = UsersCalendarsEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar_view = UserCalendarViewOperations(
+        self.users_calendar_view = UsersCalendarViewOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_calendar_view_calendar = UserCalendarViewCalendarOperations(
+        self.users_calendar_view_calendar = UsersCalendarViewCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_event = UserEventOperations(
+        self.users_events = UsersEventsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_event_calendar = UserEventCalendarOperations(
+        self.users_events_calendar = UsersEventsCalendarOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

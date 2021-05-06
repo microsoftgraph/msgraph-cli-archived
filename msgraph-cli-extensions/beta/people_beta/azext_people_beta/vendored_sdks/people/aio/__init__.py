@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._people_async import People
+from ._people import People
 __all__ = ['People']

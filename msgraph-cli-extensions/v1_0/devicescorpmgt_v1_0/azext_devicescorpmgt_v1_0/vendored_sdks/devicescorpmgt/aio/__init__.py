@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._devices_corporate_management_async import DevicesCorporateManagement
+from ._devices_corporate_management import DevicesCorporateManagement
 __all__ = ['DevicesCorporateManagement']

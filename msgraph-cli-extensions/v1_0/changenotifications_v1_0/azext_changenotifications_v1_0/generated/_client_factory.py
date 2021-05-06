@@ -11,7 +11,7 @@
 
 def cf_changenotifications_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.changenotifications import ChangeNotifications
+    from azext_changenotifications_v1_0.vendored_sdks.changenotifications import ChangeNotifications
     return get_mgmt_service_client(cli_ctx,
                                    ChangeNotifications,
                                    subscription_bound=False,
@@ -19,4 +19,4 @@ def cf_changenotifications_v1_0_cl(cli_ctx, *_):
 
 
 def cf_subscription_subscription(cli_ctx, *_):
-    return cf_changenotifications_v1_0_cl(cli_ctx).subscription_subscription
+    return cf_changenotifications_v1_0_cl(cli_ctx).subscriptions_subscription

@@ -136,9 +136,6 @@ class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
 class MicrosoftGraphAppRoleAssignment(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -173,7 +170,6 @@ class MicrosoftGraphAppRoleAssignment(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -191,7 +187,6 @@ class MicrosoftGraphAppRoleAssignment(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphAppRoleAssignment, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.app_role_id = kwargs.get('app_role_id', None)
         self.created_date_time = kwargs.get('created_date_time', None)
@@ -394,16 +389,13 @@ class MicrosoftGraphRecipient(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param address: The email address of the person or entity.
-    :type address: str
-    :param name: The display name of the person or entity.
-    :type name: str
+    :param email_address: emailAddress.
+    :type email_address: ~users_actions.models.MicrosoftGraphEmailAddress
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'emailAddress.address', 'type': 'str'},
-        'name': {'key': 'emailAddress.name', 'type': 'str'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
     }
 
     def __init__(
@@ -412,17 +404,14 @@ class MicrosoftGraphRecipient(msrest.serialization.Model):
     ):
         super(MicrosoftGraphRecipient, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.address = kwargs.get('address', None)
-        self.name = kwargs.get('name', None)
+        self.email_address = kwargs.get('email_address', None)
 
 
 class MicrosoftGraphAttendeeBase(MicrosoftGraphRecipient):
     """attendeeBase.
 
-    :param address: The email address of the person or entity.
-    :type address: str
-    :param name: The display name of the person or entity.
-    :type name: str
+    :param email_address: emailAddress.
+    :type email_address: ~users_actions.models.MicrosoftGraphEmailAddress
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -431,8 +420,7 @@ class MicrosoftGraphAttendeeBase(MicrosoftGraphRecipient):
     """
 
     _attribute_map = {
-        'address': {'key': 'emailAddress.address', 'type': 'str'},
-        'name': {'key': 'emailAddress.name', 'type': 'str'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'type': {'key': 'type', 'type': 'str'},
     }
@@ -449,13 +437,8 @@ class MicrosoftGraphAttendeeBase(MicrosoftGraphRecipient):
 class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
     """attendee.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
-    :param address: The email address of the person or entity.
-    :type address: str
-    :param name: The display name of the person or entity.
-    :type name: str
+    :param email_address: emailAddress.
+    :type email_address: ~users_actions.models.MicrosoftGraphEmailAddress
     :param type:  Possible values include: "required", "optional", "resource".
     :type type: str or ~users_actions.models.MicrosoftGraphAttendeeType
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -468,9 +451,7 @@ class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'emailAddress.address', 'type': 'str'},
-        'name': {'key': 'emailAddress.name', 'type': 'str'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'type': {'key': 'type', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'proposed_new_time': {'key': 'proposedNewTime', 'type': 'MicrosoftGraphTimeSlot'},
@@ -482,7 +463,6 @@ class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
         **kwargs
     ):
         super(MicrosoftGraphAttendee, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.proposed_new_time = kwargs.get('proposed_new_time', None)
         self.status = kwargs.get('status', None)
@@ -1805,9 +1785,6 @@ class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
 class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     """contact.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -1914,7 +1891,6 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -1965,7 +1941,6 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphContact, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assistant_name = kwargs.get('assistant_name', None)
         self.birthday = kwargs.get('birthday', None)
@@ -3094,9 +3069,6 @@ class MicrosoftGraphDeviceManagementTroubleshootingEvent(MicrosoftGraphEntity):
 class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     """drive.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -3149,7 +3121,6 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -3181,7 +3152,6 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphDrive, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.drive_type = kwargs.get('drive_type', None)
         self.owner = kwargs.get('owner', None)
         self.quota = kwargs.get('quota', None)
@@ -3197,9 +3167,6 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
 class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     """driveItem.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -3295,7 +3262,6 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -3347,7 +3313,6 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphDriveItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.audio = kwargs.get('audio', None)
         self.content = kwargs.get('content', None)
         self.c_tag = kwargs.get('c_tag', None)
@@ -3383,9 +3348,6 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
 class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
     """driveItemVersion.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param last_modified_by: identitySet.
@@ -3404,7 +3366,6 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
@@ -3419,7 +3380,6 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
         **kwargs
     ):
         super(MicrosoftGraphDriveItemVersion, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.size = kwargs.get('size', None)
@@ -3456,9 +3416,6 @@ class MicrosoftGraphEmailAddress(msrest.serialization.Model):
 class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     """event.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -3601,7 +3558,6 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -3655,7 +3611,6 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphEvent, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.allow_new_time_proposals = kwargs.get('allow_new_time_proposals', None)
         self.attendees = kwargs.get('attendees', None)
@@ -3725,9 +3680,6 @@ class MicrosoftGraphExtension(MicrosoftGraphEntity):
 class MicrosoftGraphExtensionProperty(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -3754,7 +3706,6 @@ class MicrosoftGraphExtensionProperty(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -3770,7 +3721,6 @@ class MicrosoftGraphExtensionProperty(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphExtensionProperty, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.app_display_name = kwargs.get('app_display_name', None)
         self.data_type = kwargs.get('data_type', None)
@@ -4086,9 +4036,6 @@ class MicrosoftGraphGeoCoordinates(msrest.serialization.Model):
 class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -4312,7 +4259,6 @@ class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -4386,7 +4332,6 @@ class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphGroup, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assigned_labels = kwargs.get('assigned_labels', None)
         self.assigned_licenses = kwargs.get('assigned_licenses', None)
@@ -5209,9 +5154,6 @@ class MicrosoftGraphLicenseProcessingState(msrest.serialization.Model):
 class MicrosoftGraphList(MicrosoftGraphBaseItem):
     """list.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -5260,7 +5202,6 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -5290,7 +5231,6 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
         **kwargs
     ):
         super(MicrosoftGraphList, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.list = kwargs.get('list', None)
@@ -5341,9 +5281,6 @@ class MicrosoftGraphListInfo(msrest.serialization.Model):
 class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     """listItem.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -5386,7 +5323,6 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -5414,7 +5350,6 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphListItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.content_type = kwargs.get('content_type', None)
         self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
         self.analytics = kwargs.get('analytics', None)
@@ -5426,9 +5361,6 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
 class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
     """listItemVersion.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param last_modified_by: identitySet.
@@ -5445,7 +5377,6 @@ class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
@@ -5459,7 +5390,6 @@ class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
         **kwargs
     ):
         super(MicrosoftGraphListItemVersion, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.fields = kwargs.get('fields', None)
 
@@ -6493,9 +6423,6 @@ class MicrosoftGraphMeetingTimeSuggestionsResult(msrest.serialization.Model):
 class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     """message.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -6598,7 +6525,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -6642,7 +6568,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphMessage, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.bcc_recipients = kwargs.get('bcc_recipients', None)
         self.body = kwargs.get('body', None)
@@ -7029,9 +6954,6 @@ class MicrosoftGraphOnenoteEntityBaseModel(MicrosoftGraphEntity):
 class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBaseModel):
     """onenoteEntitySchemaObjectModel.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -7046,7 +6968,6 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -7059,18 +6980,12 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
     ):
         super(MicrosoftGraphOnenoteEntitySchemaObjectModel, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.created_date_time = kwargs.get('created_date_time', None)
 
 
 class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     """onenoteEntityHierarchyModel.
 
-    :param id: Read-only.
-    :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -7097,8 +7012,6 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
-        'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -7114,7 +7027,6 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
     ):
         super(MicrosoftGraphOnenoteEntityHierarchyModel, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.created_by = kwargs.get('created_by', None)
         self.display_name = kwargs.get('display_name', None)
         self.last_modified_by = kwargs.get('last_modified_by', None)
@@ -7124,16 +7036,10 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
 class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     """notebook.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
@@ -7174,10 +7080,8 @@ class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -7199,8 +7103,6 @@ class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
         **kwargs
     ):
         super(MicrosoftGraphNotebook, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_default = kwargs.get('is_default', None)
         self.is_shared = kwargs.get('is_shared', None)
@@ -7385,9 +7287,6 @@ class MicrosoftGraphObjectIdentity(msrest.serialization.Model):
 class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     """scheduleChangeRequest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -7424,7 +7323,6 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -7446,7 +7344,6 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     ):
         super(MicrosoftGraphScheduleChangeRequest, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.assigned_to = kwargs.get('assigned_to', None)
         self.manager_action_date_time = kwargs.get('manager_action_date_time', None)
         self.manager_action_message = kwargs.get('manager_action_message', None)
@@ -7462,9 +7359,6 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The Timestamp type represents date and time information using ISO
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
@@ -7510,7 +7404,6 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
@@ -7534,7 +7427,6 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
         **kwargs
     ):
         super(MicrosoftGraphOfferShiftRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.recipient_action_date_time = kwargs.get('recipient_action_date_time', None)
         self.recipient_action_message = kwargs.get('recipient_action_message', None)
@@ -7677,9 +7569,6 @@ class MicrosoftGraphOperation(MicrosoftGraphEntity):
 class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     """onenoteOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The start time of the operation.
@@ -7704,7 +7593,6 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_action_date_time': {'key': 'lastActionDateTime', 'type': 'iso-8601'},
@@ -7721,7 +7609,6 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
         **kwargs
     ):
         super(MicrosoftGraphOnenoteOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs.get('error', None)
         self.percent_complete = kwargs.get('percent_complete', None)
@@ -7762,9 +7649,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
     :param created_date_time: The date and time when the page was created. The timestamp represents
@@ -7809,7 +7693,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -7831,7 +7714,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
         **kwargs
     ):
         super(MicrosoftGraphOnenotePage, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_url = kwargs.get('content_url', None)
@@ -7888,9 +7770,6 @@ class MicrosoftGraphOnenotePatchContentCommand(msrest.serialization.Model):
 class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     """onenoteResource.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -7905,7 +7784,6 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -7919,7 +7797,6 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     ):
         super(MicrosoftGraphOnenoteResource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_url = kwargs.get('content_url', None)
 
@@ -7927,16 +7804,10 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
 class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     """onenoteSection.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
@@ -7971,10 +7842,8 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -7994,8 +7863,6 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
         **kwargs
     ):
         super(MicrosoftGraphOnenoteSection, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_default = kwargs.get('is_default', None)
         self.links = kwargs.get('links', None)
@@ -8239,9 +8106,6 @@ class MicrosoftGraphOnPremisesProvisioningError(msrest.serialization.Model):
 class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     """openShift.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -8266,7 +8130,6 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -8283,7 +8146,6 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     ):
         super(MicrosoftGraphOpenShift, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.draft_open_shift = kwargs.get('draft_open_shift', None)
         self.scheduling_group_id = kwargs.get('scheduling_group_id', None)
         self.shared_open_shift = kwargs.get('shared_open_shift', None)
@@ -8294,9 +8156,6 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The Timestamp type represents date and time information using ISO
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
@@ -8334,7 +8193,6 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
@@ -8355,7 +8213,6 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
         **kwargs
     ):
         super(MicrosoftGraphOpenShiftChangeRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.open_shift_id = kwargs.get('open_shift_id', None)
 
@@ -8440,9 +8297,6 @@ class MicrosoftGraphShiftItem(MicrosoftGraphScheduleEntity):
 class MicrosoftGraphOpenShiftItem(MicrosoftGraphShiftItem):
     """openShiftItem.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param end_date_time:
     :type end_date_time: ~datetime.datetime
     :param start_date_time:
@@ -8470,7 +8324,6 @@ class MicrosoftGraphOpenShiftItem(MicrosoftGraphShiftItem):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'theme': {'key': 'theme', 'type': 'str'},
@@ -8486,7 +8339,6 @@ class MicrosoftGraphOpenShiftItem(MicrosoftGraphShiftItem):
         **kwargs
     ):
         super(MicrosoftGraphOpenShiftItem, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.open_slot_count = kwargs.get('open_slot_count', None)
 
@@ -9670,9 +9522,6 @@ class MicrosoftGraphPlannerUser(MicrosoftGraphEntity):
 class MicrosoftGraphPost(MicrosoftGraphOutlookItem):
     """post.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -9729,7 +9578,6 @@ class MicrosoftGraphPost(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -9756,7 +9604,6 @@ class MicrosoftGraphPost(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphPost, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.body = kwargs.get('body', None)
         self.conversation_id = kwargs.get('conversation_id', None)
@@ -10551,9 +10398,6 @@ class MicrosoftGraphScheduleItem(msrest.serialization.Model):
 class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
     """schedulingGroup.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -10579,7 +10423,6 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -10595,7 +10438,6 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphSchedulingGroup, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.is_active = kwargs.get('is_active', None)
@@ -10706,16 +10548,10 @@ class MicrosoftGraphSearchResult(msrest.serialization.Model):
 class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
     """sectionGroup.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
@@ -10751,10 +10587,8 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -10774,8 +10608,6 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
         **kwargs
     ):
         super(MicrosoftGraphSectionGroup, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.section_groups_url = kwargs.get('section_groups_url', None)
         self.sections_url = kwargs.get('sections_url', None)
@@ -11178,9 +11010,6 @@ class MicrosoftGraphSharingLink(msrest.serialization.Model):
 class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     """shift.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -11207,7 +11036,6 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -11224,7 +11052,6 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphShift, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.draft_shift = kwargs.get('draft_shift', None)
         self.scheduling_group_id = kwargs.get('scheduling_group_id', None)
@@ -11317,9 +11144,6 @@ class MicrosoftGraphShiftAvailability(msrest.serialization.Model):
 class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
     """shiftPreferences.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -11341,7 +11165,6 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -11355,7 +11178,6 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphShiftPreferences, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.availability = kwargs.get('availability', None)
 
@@ -11390,9 +11212,6 @@ class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):
 class MicrosoftGraphSite(MicrosoftGraphBaseItem):
     """site.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -11452,7 +11271,6 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -11487,7 +11305,6 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
         **kwargs
     ):
         super(MicrosoftGraphSite, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.error = kwargs.get('error', None)
@@ -11718,9 +11535,6 @@ class MicrosoftGraphSubscription(MicrosoftGraphEntity):
 class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
     """swapShiftsChangeRequest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -11733,9 +11547,6 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -11784,12 +11595,10 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -11815,8 +11624,6 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
         **kwargs
     ):
         super(MicrosoftGraphSwapShiftsChangeRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.recipient_shift_id = kwargs.get('recipient_shift_id', None)
 
@@ -12519,9 +12326,6 @@ class MicrosoftGraphTimeConstraint(msrest.serialization.Model):
 class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
     """timeOff.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -12546,7 +12350,6 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -12562,7 +12365,6 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphTimeOff, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.draft_time_off = kwargs.get('draft_time_off', None)
         self.shared_time_off = kwargs.get('shared_time_off', None)
@@ -12606,9 +12408,6 @@ class MicrosoftGraphTimeOffItem(MicrosoftGraphScheduleEntity):
 class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     """timeOffReason.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -12636,7 +12435,6 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -12653,7 +12451,6 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     ):
         super(MicrosoftGraphTimeOffReason, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.icon_type = kwargs.get('icon_type', None)
         self.is_active = kwargs.get('is_active', None)
@@ -12664,9 +12461,6 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The Timestamp type represents date and time information using ISO
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
@@ -12712,7 +12506,6 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
@@ -12735,7 +12528,6 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
         **kwargs
     ):
         super(MicrosoftGraphTimeOffRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.end_date_time = kwargs.get('end_date_time', None)
         self.start_date_time = kwargs.get('start_date_time', None)
@@ -13025,9 +12817,6 @@ class MicrosoftGraphUsedInsight(MicrosoftGraphEntity):
 class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory user object.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -13347,7 +13136,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -13464,7 +13252,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphUser, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.account_enabled = kwargs.get('account_enabled', None)
         self.age_group = kwargs.get('age_group', None)
@@ -16098,144 +15885,16 @@ class Paths140I0IcUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyallPostRe
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -16244,42 +15903,8 @@ class Paths140I0IcUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyallPostRe
     ):
         super(Paths140I0IcUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyallPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients = kwargs.get('to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class Paths14D4S5WUsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -16520,144 +16145,16 @@ class Paths16Mdb34UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGr
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -16666,42 +16163,8 @@ class Paths16Mdb34UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGr
     ):
         super(Paths16Mdb34UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphReplyallPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients = kwargs.get('to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class Paths16Noj0IUsersUserIdCalendarsCalendarIdCalendarviewEventIdInstancesEventId1MicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -16832,145 +16295,17 @@ class Paths16W4HmtUsersUserIdMessagesMessageIdMicrosoftGraphCreateforwardPostReq
     :type additional_properties: dict[str, object]
     :param to_recipients:
     :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients_message_to_recipients: The To: recipients for the message.
-    :type to_recipients_message_to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'to_recipients': {'key': 'ToRecipients', 'type': '[MicrosoftGraphRecipient]'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients_message_to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -16980,42 +16315,8 @@ class Paths16W4HmtUsersUserIdMessagesMessageIdMicrosoftGraphCreateforwardPostReq
         super(Paths16W4HmtUsersUserIdMessagesMessageIdMicrosoftGraphCreateforwardPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.to_recipients = kwargs.get('to_recipients', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients_message_to_recipients = kwargs.get('to_recipients_message_to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class Paths17C2FocUsersUserIdOnenoteSectionsOnenotesectionIdPagesOnenotepageIdMicrosoftGraphOnenotepatchcontentPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -17360,144 +16661,16 @@ class Paths1BibiieUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyPostReque
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -17506,42 +16679,8 @@ class Paths1BibiieUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyPostReque
     ):
         super(Paths1BibiieUsersUserIdMessagesMessageIdMicrosoftGraphCreatereplyPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients = kwargs.get('to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class Paths1C56La0UsersUserIdMessagesMessageIdAttachmentsMicrosoftGraphCreateuploadsessionPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -18392,14 +17531,12 @@ class Paths1H47062UsersUserIdOnlinemeetingsMicrosoftGraphCreateorgetPostRequestb
     :type end_date_time: ~datetime.datetime
     :param external_id:
     :type external_id: str
+    :param participants: meetingParticipants.
+    :type participants: ~users_actions.models.MicrosoftGraphMeetingParticipants
     :param start_date_time:
     :type start_date_time: ~datetime.datetime
     :param subject:
     :type subject: str
-    :param attendees:
-    :type attendees: list[~users_actions.models.MicrosoftGraphMeetingParticipantInfo]
-    :param organizer: meetingParticipantInfo.
-    :type organizer: ~users_actions.models.MicrosoftGraphMeetingParticipantInfo
     """
 
     _attribute_map = {
@@ -18407,10 +17544,9 @@ class Paths1H47062UsersUserIdOnlinemeetingsMicrosoftGraphCreateorgetPostRequestb
         'chat_info': {'key': 'chatInfo', 'type': 'MicrosoftGraphChatInfo'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'external_id': {'key': 'externalId', 'type': 'str'},
+        'participants': {'key': 'participants', 'type': 'MicrosoftGraphMeetingParticipants'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
-        'attendees': {'key': 'participants.attendees', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
-        'organizer': {'key': 'participants.organizer', 'type': 'MicrosoftGraphMeetingParticipantInfo'},
     }
 
     def __init__(
@@ -18422,10 +17558,9 @@ class Paths1H47062UsersUserIdOnlinemeetingsMicrosoftGraphCreateorgetPostRequestb
         self.chat_info = kwargs.get('chat_info', None)
         self.end_date_time = kwargs.get('end_date_time', None)
         self.external_id = kwargs.get('external_id', None)
+        self.participants = kwargs.get('participants', None)
         self.start_date_time = kwargs.get('start_date_time', None)
         self.subject = kwargs.get('subject', None)
-        self.attendees = kwargs.get('attendees', None)
-        self.organizer = kwargs.get('organizer', None)
 
 
 class Paths1H6CreUsersUserIdOnenoteSectiongroupsSectiongroupIdSectionsOnenotesectionIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -18642,144 +17777,16 @@ class Paths1Inq4EUsersUserIdMessagesMessageIdMicrosoftGraphReplyPostRequestbodyC
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -18788,42 +17795,8 @@ class Paths1Inq4EUsersUserIdMessagesMessageIdMicrosoftGraphReplyPostRequestbodyC
     ):
         super(Paths1Inq4EUsersUserIdMessagesMessageIdMicrosoftGraphReplyPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients = kwargs.get('to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class Paths1J1KpiuUsersUserIdEventsEventIdMicrosoftGraphTentativelyacceptPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -19484,28 +18457,15 @@ class Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewi
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param calendar_sync_enabled: Not yet documented.
-    :type calendar_sync_enabled: bool
-    :param device_account: windowsDeviceAccount.
-    :type device_account: ~users_actions.models.MicrosoftGraphWindowsDeviceAccount
-    :param device_account_email: Not yet documented.
-    :type device_account_email: str
-    :param exchange_server: Not yet documented.
-    :type exchange_server: str
-    :param password_rotation_enabled: Not yet documented.
-    :type password_rotation_enabled: bool
-    :param session_initiation_protocal_address: Not yet documented.
-    :type session_initiation_protocal_address: str
+    :param update_windows_device_account_action_parameter:
+     updateWindowsDeviceAccountActionParameter.
+    :type update_windows_device_account_action_parameter:
+     ~users_actions.models.MicrosoftGraphUpdateWindowsDeviceAccountActionParameter
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'calendar_sync_enabled': {'key': 'updateWindowsDeviceAccountActionParameter.calendarSyncEnabled', 'type': 'bool'},
-        'device_account': {'key': 'updateWindowsDeviceAccountActionParameter.deviceAccount', 'type': 'MicrosoftGraphWindowsDeviceAccount'},
-        'device_account_email': {'key': 'updateWindowsDeviceAccountActionParameter.deviceAccountEmail', 'type': 'str'},
-        'exchange_server': {'key': 'updateWindowsDeviceAccountActionParameter.exchangeServer', 'type': 'str'},
-        'password_rotation_enabled': {'key': 'updateWindowsDeviceAccountActionParameter.passwordRotationEnabled', 'type': 'bool'},
-        'session_initiation_protocal_address': {'key': 'updateWindowsDeviceAccountActionParameter.sessionInitiationProtocalAddress', 'type': 'str'},
+        'update_windows_device_account_action_parameter': {'key': 'updateWindowsDeviceAccountActionParameter', 'type': 'MicrosoftGraphUpdateWindowsDeviceAccountActionParameter'},
     }
 
     def __init__(
@@ -19514,12 +18474,7 @@ class Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewi
     ):
         super(Paths1Q6DqpaUsersUserIdManageddevicesManageddeviceIdMicrosoftGraphUpdatewindowsdeviceaccountPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.calendar_sync_enabled = kwargs.get('calendar_sync_enabled', None)
-        self.device_account = kwargs.get('device_account', None)
-        self.device_account_email = kwargs.get('device_account_email', None)
-        self.exchange_server = kwargs.get('exchange_server', None)
-        self.password_rotation_enabled = kwargs.get('password_rotation_enabled', None)
-        self.session_initiation_protocal_address = kwargs.get('session_initiation_protocal_address', None)
+        self.update_windows_device_account_action_parameter = kwargs.get('update_windows_device_account_action_parameter', None)
 
 
 class Paths1QrxrllUsersUserIdOnenotePagesOnenotepageIdParentsectionParentsectiongroupParentnotebookSectionsOnenotesectionIdMicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -20222,145 +19177,17 @@ class Paths1X7Dum0UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGr
     :type additional_properties: dict[str, object]
     :param to_recipients:
     :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients_message_to_recipients: The To: recipients for the message.
-    :type to_recipients_message_to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'to_recipients': {'key': 'ToRecipients', 'type': '[MicrosoftGraphRecipient]'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients_message_to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -20370,42 +19197,8 @@ class Paths1X7Dum0UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGr
         super(Paths1X7Dum0UsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphForwardPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.to_recipients = kwargs.get('to_recipients', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients_message_to_recipients = kwargs.get('to_recipients_message_to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class Paths1XbrsxoUsersUserIdOnenotePagesOnenotepageIdParentnotebookSectionsOnenotesectionIdParentsectiongroupParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -20708,145 +19501,17 @@ class Paths29L6IuUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGra
     :type additional_properties: dict[str, object]
     :param to_recipients:
     :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients_message_to_recipients: The To: recipients for the message.
-    :type to_recipients_message_to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'to_recipients': {'key': 'ToRecipients', 'type': '[MicrosoftGraphRecipient]'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients_message_to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -20856,42 +19521,8 @@ class Paths29L6IuUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGra
         super(Paths29L6IuUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreateforwardPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.to_recipients = kwargs.get('to_recipients', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients_message_to_recipients = kwargs.get('to_recipients_message_to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class Paths2D8U7EUsersUserIdOnenoteSectionsOnenotesectionIdParentnotebookSectiongroupsSectiongroupIdSectionsOnenotesectionId1MicrosoftGraphCopytosectiongroupPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -21036,144 +19667,16 @@ class Paths3M6QbmUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGra
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -21182,42 +19685,8 @@ class Paths3M6QbmUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGra
     ):
         super(Paths3M6QbmUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreatereplyallPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients = kwargs.get('to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class Paths3Mx0JpUsersUserIdMicrosoftGraphChangepasswordPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -21280,145 +19749,17 @@ class Paths3Ta6EnUsersUserIdMessagesMessageIdMicrosoftGraphForwardPostRequestbod
     :type additional_properties: dict[str, object]
     :param to_recipients:
     :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients_message_to_recipients: The To: recipients for the message.
-    :type to_recipients_message_to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'to_recipients': {'key': 'ToRecipients', 'type': '[MicrosoftGraphRecipient]'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients_message_to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -21428,42 +19769,8 @@ class Paths3Ta6EnUsersUserIdMessagesMessageIdMicrosoftGraphForwardPostRequestbod
         super(Paths3Ta6EnUsersUserIdMessagesMessageIdMicrosoftGraphForwardPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.to_recipients = kwargs.get('to_recipients', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients_message_to_recipients = kwargs.get('to_recipients_message_to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class Paths42Qvm9UsersUserIdEventsEventIdInstancesEventId1MicrosoftGraphSnoozereminderPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -21832,144 +20139,16 @@ class Paths6Zjq1HUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGra
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -21978,42 +20157,8 @@ class Paths6Zjq1HUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGra
     ):
         super(Paths6Zjq1HUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphReplyPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients = kwargs.get('to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class Paths7BooayUsersUserIdOnenoteSectionsOnenotesectionIdParentsectiongroupParentnotebookSectionsOnenotesectionId1MicrosoftGraphCopytonotebookPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -22734,144 +20879,16 @@ class PathsFh5OjtUsersUserIdMicrosoftGraphSendmailPostRequestbodyContentApplicat
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param save_to_sent_items:
     :type save_to_sent_items: bool
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'save_to_sent_items': {'key': 'SaveToSentItems', 'type': 'bool'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -22880,42 +20897,8 @@ class PathsFh5OjtUsersUserIdMicrosoftGraphSendmailPostRequestbodyContentApplicat
     ):
         super(PathsFh5OjtUsersUserIdMicrosoftGraphSendmailPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.message = kwargs.get('message', None)
         self.save_to_sent_items = kwargs.get('save_to_sent_items', False)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients = kwargs.get('to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class PathsFm3Zd0UsersUserIdOnenoteNotebooksNotebookIdSectiongroupsSectiongroupIdSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -23132,144 +21115,16 @@ class PathsGpd5XxUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGra
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -23278,42 +21133,8 @@ class PathsGpd5XxUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGra
     ):
         super(PathsGpd5XxUsersUserIdMailfoldersMailfolderIdMessagesMessageIdMicrosoftGraphCreatereplyPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients = kwargs.get('to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class PathsGsmlkyUsersUserIdOnenoteSectiongroupsSectiongroupIdParentnotebookSectionsOnenotesectionIdPagesOnenotepageIdParentnotebookMicrosoftGraphCopynotebookPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -23768,144 +21589,16 @@ class PathsKn6R94UsersUserIdMessagesMessageIdMicrosoftGraphReplyallPostRequestbo
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param message: message.
+    :type message: ~users_actions.models.MicrosoftGraphMessage
     :param comment:
     :type comment: str
-    :param id: Read-only.
-    :type id: str
-    :param categories: The categories associated with the item.
-    :type categories: list[str]
-    :param change_key: Identifies the version of the item. Every time the item is changed,
-     changeKey changes as well. This allows Exchange to apply changes to the correct version of the
-     object. Read-only.
-    :type change_key: str
-    :param created_date_time: The Timestamp type represents date and time information using ISO
-     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
-     this: '2014-01-01T00:00:00Z'.
-    :type created_date_time: ~datetime.datetime
-    :param last_modified_date_time: The Timestamp type represents date and time information using
-     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
-     like this: '2014-01-01T00:00:00Z'.
-    :type last_modified_date_time: ~datetime.datetime
-    :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param body: itemBody.
-    :type body: ~users_actions.models.MicrosoftGraphItemBody
-    :param body_preview: The first 255 characters of the message body. It is in text format.
-    :type body_preview: str
-    :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param conversation_id: The ID of the conversation the email belongs to.
-    :type conversation_id: str
-    :param conversation_index: Indicates the position of the message within the conversation.
-    :type conversation_index: bytes
-    :param flag: followupFlag.
-    :type flag: ~users_actions.models.MicrosoftGraphFollowupFlag
-    :param from_property: recipient.
-    :type from_property: ~users_actions.models.MicrosoftGraphRecipient
-    :param has_attachments: Indicates whether the message has attachments. This property doesn't
-     include inline attachments, so if a message contains only inline attachments, this property is
-     false. To verify the existence of inline attachments, parse the body property to look for a src
-     attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
-    :type has_attachments: bool
-    :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~users_actions.models.MicrosoftGraphImportance
-    :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or
-     ~users_actions.models.MicrosoftGraphInferenceClassificationType
-    :param internet_message_headers: A collection of message headers defined by RFC5322. The set
-     includes message headers indicating the network path taken by a message from the sender to the
-     recipient. It can also contain custom message headers that hold app data for the message.
-     Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~users_actions.models.MicrosoftGraphInternetMessageHeader]
-    :param internet_message_id: The message ID in the format specified by RFC2822.
-    :type internet_message_id: str
-    :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_delivery_receipt_requested: bool
-    :param is_draft: Indicates whether the message is a draft. A message is a draft if it hasn't
-     been sent yet.
-    :type is_draft: bool
-    :param is_read: Indicates whether the message has been read.
-    :type is_read: bool
-    :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
-     message.
-    :type is_read_receipt_requested: bool
-    :param parent_folder_id: The unique identifier for the message's parent mailFolder.
-    :type parent_folder_id: str
-    :param received_date_time: The date and time the message was received.
-    :type received_date_time: ~datetime.datetime
-    :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param sender: recipient.
-    :type sender: ~users_actions.models.MicrosoftGraphRecipient
-    :param sent_date_time: The date and time the message was sent.
-    :type sent_date_time: ~datetime.datetime
-    :param subject: The subject of the message.
-    :type subject: str
-    :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~users_actions.models.MicrosoftGraphRecipient]
-    :param unique_body: itemBody.
-    :type unique_body: ~users_actions.models.MicrosoftGraphItemBody
-    :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
-     argument to the end of the URL to change how the message is displayed. If ispopout is not
-     present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
-     to 0, then the browser will show the message in the Outlook Web App review pane.The message
-     will open in the browser if you are logged in to your mailbox via Outlook Web App. You will be
-     prompted to login if you are not already logged in with the browser.This URL can be accessed
-     from within an iFrame.
-    :type web_link: str
-    :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~users_actions.models.MicrosoftGraphAttachment]
-    :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~users_actions.models.MicrosoftGraphExtension]
-    :param multi_value_extended_properties: The collection of multi-value extended properties
-     defined for the message. Nullable.
-    :type multi_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
-    :param single_value_extended_properties: The collection of single-value extended properties
-     defined for the message. Nullable.
-    :type single_value_extended_properties:
-     list[~users_actions.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
+        'message': {'key': 'Message', 'type': 'MicrosoftGraphMessage'},
         'comment': {'key': 'Comment', 'type': 'str'},
-        'id': {'key': 'Message.id', 'type': 'str'},
-        'categories': {'key': 'Message.categories', 'type': '[str]'},
-        'change_key': {'key': 'Message.changeKey', 'type': 'str'},
-        'created_date_time': {'key': 'Message.createdDateTime', 'type': 'iso-8601'},
-        'last_modified_date_time': {'key': 'Message.lastModifiedDateTime', 'type': 'iso-8601'},
-        'bcc_recipients': {'key': 'Message.bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'Message.body', 'type': 'MicrosoftGraphItemBody'},
-        'body_preview': {'key': 'Message.bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'Message.ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'conversation_id': {'key': 'Message.conversationId', 'type': 'str'},
-        'conversation_index': {'key': 'Message.conversationIndex', 'type': 'base64'},
-        'flag': {'key': 'Message.flag', 'type': 'MicrosoftGraphFollowupFlag'},
-        'from_property': {'key': 'Message.from', 'type': 'MicrosoftGraphRecipient'},
-        'has_attachments': {'key': 'Message.hasAttachments', 'type': 'bool'},
-        'importance': {'key': 'Message.importance', 'type': 'str'},
-        'inference_classification': {'key': 'Message.inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'Message.internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
-        'internet_message_id': {'key': 'Message.internetMessageId', 'type': 'str'},
-        'is_delivery_receipt_requested': {'key': 'Message.isDeliveryReceiptRequested', 'type': 'bool'},
-        'is_draft': {'key': 'Message.isDraft', 'type': 'bool'},
-        'is_read': {'key': 'Message.isRead', 'type': 'bool'},
-        'is_read_receipt_requested': {'key': 'Message.isReadReceiptRequested', 'type': 'bool'},
-        'parent_folder_id': {'key': 'Message.parentFolderId', 'type': 'str'},
-        'received_date_time': {'key': 'Message.receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'Message.replyTo', 'type': '[MicrosoftGraphRecipient]'},
-        'sender': {'key': 'Message.sender', 'type': 'MicrosoftGraphRecipient'},
-        'sent_date_time': {'key': 'Message.sentDateTime', 'type': 'iso-8601'},
-        'subject': {'key': 'Message.subject', 'type': 'str'},
-        'to_recipients': {'key': 'Message.toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'Message.uniqueBody', 'type': 'MicrosoftGraphItemBody'},
-        'web_link': {'key': 'Message.webLink', 'type': 'str'},
-        'attachments': {'key': 'Message.attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'Message.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'Message.multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'Message.singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
     }
 
     def __init__(
@@ -23914,42 +21607,8 @@ class PathsKn6R94UsersUserIdMessagesMessageIdMicrosoftGraphReplyallPostRequestbo
     ):
         super(PathsKn6R94UsersUserIdMessagesMessageIdMicrosoftGraphReplyallPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.message = kwargs.get('message', None)
         self.comment = kwargs.get('comment', None)
-        self.id = kwargs.get('id', None)
-        self.categories = kwargs.get('categories', None)
-        self.change_key = kwargs.get('change_key', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.bcc_recipients = kwargs.get('bcc_recipients', None)
-        self.body = kwargs.get('body', None)
-        self.body_preview = kwargs.get('body_preview', None)
-        self.cc_recipients = kwargs.get('cc_recipients', None)
-        self.conversation_id = kwargs.get('conversation_id', None)
-        self.conversation_index = kwargs.get('conversation_index', None)
-        self.flag = kwargs.get('flag', None)
-        self.from_property = kwargs.get('from_property', None)
-        self.has_attachments = kwargs.get('has_attachments', None)
-        self.importance = kwargs.get('importance', None)
-        self.inference_classification = kwargs.get('inference_classification', None)
-        self.internet_message_headers = kwargs.get('internet_message_headers', None)
-        self.internet_message_id = kwargs.get('internet_message_id', None)
-        self.is_delivery_receipt_requested = kwargs.get('is_delivery_receipt_requested', None)
-        self.is_draft = kwargs.get('is_draft', None)
-        self.is_read = kwargs.get('is_read', None)
-        self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
-        self.parent_folder_id = kwargs.get('parent_folder_id', None)
-        self.received_date_time = kwargs.get('received_date_time', None)
-        self.reply_to = kwargs.get('reply_to', None)
-        self.sender = kwargs.get('sender', None)
-        self.sent_date_time = kwargs.get('sent_date_time', None)
-        self.subject = kwargs.get('subject', None)
-        self.to_recipients = kwargs.get('to_recipients', None)
-        self.unique_body = kwargs.get('unique_body', None)
-        self.web_link = kwargs.get('web_link', None)
-        self.attachments = kwargs.get('attachments', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
-        self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
 class PathsLp9Dm2UsersUserIdCalendarsCalendarIdCalendarviewEventIdMicrosoftGraphAcceptPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
@@ -24738,6 +22397,10 @@ class PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContent
     :type additional_properties: dict[str, object]
     :param attendees:
     :type attendees: list[~users_actions.models.MicrosoftGraphAttendeeBase]
+    :param location_constraint: locationConstraint.
+    :type location_constraint: ~users_actions.models.MicrosoftGraphLocationConstraint
+    :param time_constraint: timeConstraint.
+    :type time_constraint: ~users_actions.models.MicrosoftGraphTimeConstraint
     :param meeting_duration:
     :type meeting_duration: ~datetime.timedelta
     :param max_candidates:
@@ -24748,22 +22411,6 @@ class PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContent
     :type return_suggestion_reasons: bool
     :param minimum_attendee_percentage:
     :type minimum_attendee_percentage: float
-    :param activity_domain:  Possible values include: "unknown", "work", "personal",
-     "unrestricted".
-    :type activity_domain: str or ~users_actions.models.MicrosoftGraphActivityDomain
-    :param time_slots:
-    :type time_slots: list[~users_actions.models.MicrosoftGraphTimeSlot]
-    :param is_required: The client requests the service to include in the response a meeting
-     location for the meeting. If this is true and all the resources are busy, findMeetingTimes will
-     not return any meeting time suggestions. If this is false and all the resources are busy,
-     findMeetingTimes would still look for meeting times without locations.
-    :type is_required: bool
-    :param locations: Constraint information for one or more locations that the client requests for
-     the meeting.
-    :type locations: list[~users_actions.models.MicrosoftGraphLocationConstraintItem]
-    :param suggest_location: The client requests the service to suggest one or more meeting
-     locations.
-    :type suggest_location: bool
     """
 
     _validation = {
@@ -24773,16 +22420,13 @@ class PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContent
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'attendees': {'key': 'attendees', 'type': '[MicrosoftGraphAttendeeBase]'},
+        'location_constraint': {'key': 'locationConstraint', 'type': 'MicrosoftGraphLocationConstraint'},
+        'time_constraint': {'key': 'timeConstraint', 'type': 'MicrosoftGraphTimeConstraint'},
         'meeting_duration': {'key': 'meetingDuration', 'type': 'duration'},
         'max_candidates': {'key': 'maxCandidates', 'type': 'int'},
         'is_organizer_optional': {'key': 'isOrganizerOptional', 'type': 'bool'},
         'return_suggestion_reasons': {'key': 'returnSuggestionReasons', 'type': 'bool'},
         'minimum_attendee_percentage': {'key': 'minimumAttendeePercentage', 'type': 'float'},
-        'activity_domain': {'key': 'timeConstraint.activityDomain', 'type': 'str'},
-        'time_slots': {'key': 'timeConstraint.timeSlots', 'type': '[MicrosoftGraphTimeSlot]'},
-        'is_required': {'key': 'locationConstraint.isRequired', 'type': 'bool'},
-        'locations': {'key': 'locationConstraint.locations', 'type': '[MicrosoftGraphLocationConstraintItem]'},
-        'suggest_location': {'key': 'locationConstraint.suggestLocation', 'type': 'bool'},
     }
 
     def __init__(
@@ -24792,16 +22436,13 @@ class PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContent
         super(PathsSzpbzfUsersUserIdMicrosoftGraphFindmeetingtimesPostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.attendees = kwargs.get('attendees', None)
+        self.location_constraint = kwargs.get('location_constraint', None)
+        self.time_constraint = kwargs.get('time_constraint', None)
         self.meeting_duration = kwargs.get('meeting_duration', None)
         self.max_candidates = kwargs.get('max_candidates', None)
         self.is_organizer_optional = kwargs.get('is_organizer_optional', False)
         self.return_suggestion_reasons = kwargs.get('return_suggestion_reasons', False)
         self.minimum_attendee_percentage = kwargs.get('minimum_attendee_percentage', None)
-        self.activity_domain = kwargs.get('activity_domain', None)
-        self.time_slots = kwargs.get('time_slots', None)
-        self.is_required = kwargs.get('is_required', None)
-        self.locations = kwargs.get('locations', None)
-        self.suggest_location = kwargs.get('suggest_location', None)
 
 
 class PathsT4Hh9DUsersUserIdEventsEventIdMicrosoftGraphDeclinePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):

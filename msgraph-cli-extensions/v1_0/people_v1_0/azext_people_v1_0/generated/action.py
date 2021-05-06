@@ -35,6 +35,9 @@ class AddPersonType(argparse.Action):
                 d['class_property'] = v[0]
             elif kl == 'subclass':
                 d['subclass'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter person_type. All possible keys are: '
+                               'class, subclass'.format(k))
         return d
 
 
@@ -63,6 +66,9 @@ class AddPhones(argparse._AppendAction):
                 d['region'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter phones. All possible keys are: language, '
+                               'number, region, type'.format(k))
         return d
 
 
@@ -91,6 +97,9 @@ class AddScoredEmailAddresses(argparse._AppendAction):
                 d['relevance_score'] = v[0]
             elif kl == 'selection-likelihood':
                 d['selection_likelihood'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter scored_email_addresses. All possible keys '
+                               'are: address, item-id, relevance-score, selection-likelihood'.format(k))
         return d
 
 
@@ -117,6 +126,9 @@ class AddWebsites(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter websites. All possible keys are: address, '
+                               'display-name, type'.format(k))
         return d
 
 
@@ -143,6 +155,9 @@ class AddResourceReference(argparse.Action):
                 d['type'] = v[0]
             elif kl == 'web-url':
                 d['web_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter resource_reference. All possible keys '
+                               'are: id, type, web-url'.format(k))
         return d
 
 
@@ -179,13 +194,17 @@ class AddResourceVisualization(argparse.Action):
                 d['title'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter resource_visualization. All possible keys '
+                               'are: container-display-name, container-type, container-web-url, media-type, '
+                               'preview-image-url, preview-text, title, type'.format(k))
         return d
 
 
-class AddLastSharedSharedBy(argparse.Action):
+class AddSharedBy(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.last_shared_shared_by = action
+        namespace.shared_by = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -205,6 +224,9 @@ class AddLastSharedSharedBy(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter shared_by. All possible keys are: '
+                               'address, display-name, id'.format(k))
         return d
 
 
@@ -229,4 +251,7 @@ class AddLastUsed(argparse.Action):
                 d['last_accessed_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter last_used. All possible keys are: '
+                               'last-accessed-date-time, last-modified-date-time'.format(k))
         return d

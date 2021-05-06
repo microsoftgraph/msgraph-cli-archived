@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._directory_objects_async import DirectoryObjects
+from ._directory_objects import DirectoryObjects
 __all__ = ['DirectoryObjects']

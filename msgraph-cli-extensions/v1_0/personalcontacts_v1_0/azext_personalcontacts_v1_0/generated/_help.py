@@ -12,19 +12,19 @@
 from knack.help_files import helps
 
 
+helps['personalcontacts_v1_0'] = '''
+    type: group
+    short-summary: Manage Personal Contacts
+'''
+
 helps['personalcontacts user'] = """
     type: group
-    short-summary: personalcontacts user
-"""
-
-helps['personalcontacts user delete'] = """
-    type: command
-    short-summary: "Delete navigation property contacts for users"
+    short-summary: Manage user with personalcontacts_v1_0
 """
 
 helps['personalcontacts user create-contact'] = """
     type: command
-    short-summary: "Create new navigation property to contacts for users"
+    short-summary: "Create new navigation property to contacts for users."
     parameters:
       - name: --business-address
         short-summary: "physicalAddress"
@@ -105,7 +105,7 @@ Nullable."
 
 helps['personalcontacts user create-contact-folder'] = """
     type: command
-    short-summary: "Create new navigation property to contactFolders for users"
+    short-summary: "Create new navigation property to contactFolders for users."
     parameters:
       - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the contactFolder. Read-only. \
@@ -129,29 +129,39 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['personalcontacts user get-contact'] = """
+helps['personalcontacts user delete-contact'] = """
     type: command
-    short-summary: "Get contacts from users"
+    short-summary: "Delete navigation property contacts for users."
 """
 
-helps['personalcontacts user get-contact-folder'] = """
+helps['personalcontacts user delete-contact-folder'] = """
     type: command
-    short-summary: "Get contactFolders from users"
+    short-summary: "Delete navigation property contactFolders for users."
 """
 
 helps['personalcontacts user list-contact'] = """
     type: command
-    short-summary: "Get contacts from users"
+    short-summary: "Get contacts from users."
 """
 
 helps['personalcontacts user list-contact-folder'] = """
     type: command
-    short-summary: "Get contactFolders from users"
+    short-summary: "Get contactFolders from users."
+"""
+
+helps['personalcontacts user show-contact'] = """
+    type: command
+    short-summary: "Get contacts from users."
+"""
+
+helps['personalcontacts user show-contact-folder'] = """
+    type: command
+    short-summary: "Get contactFolders from users."
 """
 
 helps['personalcontacts user update-contact'] = """
     type: command
-    short-summary: "Update the navigation property contacts in users"
+    short-summary: "Update the navigation property contacts in users."
     parameters:
       - name: --business-address
         short-summary: "physicalAddress"
@@ -232,7 +242,7 @@ Nullable."
 
 helps['personalcontacts user update-contact-folder'] = """
     type: command
-    short-summary: "Update the navigation property contactFolders in users"
+    short-summary: "Update the navigation property contactFolders in users."
     parameters:
       - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the contactFolder. Read-only. \
@@ -258,17 +268,12 @@ Nullable."
 
 helps['personalcontacts user-contact-folder'] = """
     type: group
-    short-summary: personalcontacts user-contact-folder
-"""
-
-helps['personalcontacts user-contact-folder delete'] = """
-    type: command
-    short-summary: "Delete navigation property singleValueExtendedProperties for users"
+    short-summary: Manage user contact folder with personalcontacts_v1_0
 """
 
 helps['personalcontacts user-contact-folder create-child-folder'] = """
     type: command
-    short-summary: "Create new navigation property to childFolders for users"
+    short-summary: "Create new navigation property to childFolders for users."
     parameters:
       - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the contactFolder. Read-only. \
@@ -294,7 +299,7 @@ Nullable."
 
 helps['personalcontacts user-contact-folder create-contact'] = """
     type: command
-    short-summary: "Create new navigation property to contacts for users"
+    short-summary: "Create new navigation property to contacts for users."
     parameters:
       - name: --business-address
         short-summary: "physicalAddress"
@@ -375,57 +380,77 @@ Nullable."
 
 helps['personalcontacts user-contact-folder create-multi-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to multiValueExtendedProperties for users"
+    short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
 helps['personalcontacts user-contact-folder create-single-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to singleValueExtendedProperties for users"
+    short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['personalcontacts user-contact-folder get-child-folder'] = """
+helps['personalcontacts user-contact-folder delete-child-folder'] = """
     type: command
-    short-summary: "Get childFolders from users"
+    short-summary: "Delete navigation property childFolders for users."
 """
 
-helps['personalcontacts user-contact-folder get-contact'] = """
+helps['personalcontacts user-contact-folder delete-contact'] = """
     type: command
-    short-summary: "Get contacts from users"
+    short-summary: "Delete navigation property contacts for users."
 """
 
-helps['personalcontacts user-contact-folder get-multi-value-extended-property'] = """
+helps['personalcontacts user-contact-folder delete-multi-value-extended-property'] = """
     type: command
-    short-summary: "Get multiValueExtendedProperties from users"
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
 """
 
-helps['personalcontacts user-contact-folder get-single-value-extended-property'] = """
+helps['personalcontacts user-contact-folder delete-single-value-extended-property'] = """
     type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['personalcontacts user-contact-folder list-child-folder'] = """
     type: command
-    short-summary: "Get childFolders from users"
+    short-summary: "Get childFolders from users."
 """
 
 helps['personalcontacts user-contact-folder list-contact'] = """
     type: command
-    short-summary: "Get contacts from users"
+    short-summary: "Get contacts from users."
 """
 
 helps['personalcontacts user-contact-folder list-multi-value-extended-property'] = """
     type: command
-    short-summary: "Get multiValueExtendedProperties from users"
+    short-summary: "Get multiValueExtendedProperties from users."
 """
 
 helps['personalcontacts user-contact-folder list-single-value-extended-property'] = """
     type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Get singleValueExtendedProperties from users."
+"""
+
+helps['personalcontacts user-contact-folder show-child-folder'] = """
+    type: command
+    short-summary: "Get childFolders from users."
+"""
+
+helps['personalcontacts user-contact-folder show-contact'] = """
+    type: command
+    short-summary: "Get contacts from users."
+"""
+
+helps['personalcontacts user-contact-folder show-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Get multiValueExtendedProperties from users."
+"""
+
+helps['personalcontacts user-contact-folder show-single-value-extended-property'] = """
+    type: command
+    short-summary: "Get singleValueExtendedProperties from users."
 """
 
 helps['personalcontacts user-contact-folder update-child-folder'] = """
     type: command
-    short-summary: "Update the navigation property childFolders in users"
+    short-summary: "Update the navigation property childFolders in users."
     parameters:
       - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the contactFolder. Read-only. \
@@ -451,7 +476,7 @@ Nullable."
 
 helps['personalcontacts user-contact-folder update-contact'] = """
     type: command
-    short-summary: "Update the navigation property contacts in users"
+    short-summary: "Update the navigation property contacts in users."
     parameters:
       - name: --business-address
         short-summary: "physicalAddress"
@@ -532,170 +557,200 @@ Nullable."
 
 helps['personalcontacts user-contact-folder update-multi-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property multiValueExtendedProperties in users"
+    short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
 helps['personalcontacts user-contact-folder update-single-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property singleValueExtendedProperties in users"
+    short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
 helps['personalcontacts user-contact-folder-contact'] = """
     type: group
-    short-summary: personalcontacts user-contact-folder-contact
-"""
-
-helps['personalcontacts user-contact-folder-contact delete'] = """
-    type: command
-    short-summary: "Delete navigation property photo for users"
+    short-summary: Manage user contact folder contact with personalcontacts_v1_0
 """
 
 helps['personalcontacts user-contact-folder-contact create-extension'] = """
     type: command
-    short-summary: "Create new navigation property to extensions for users"
+    short-summary: "Create new navigation property to extensions for users."
 """
 
 helps['personalcontacts user-contact-folder-contact create-multi-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to multiValueExtendedProperties for users"
+    short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
 helps['personalcontacts user-contact-folder-contact create-single-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to singleValueExtendedProperties for users"
+    short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['personalcontacts user-contact-folder-contact get-extension'] = """
+helps['personalcontacts user-contact-folder-contact delete-extension'] = """
     type: command
-    short-summary: "Get extensions from users"
+    short-summary: "Delete navigation property extensions for users."
 """
 
-helps['personalcontacts user-contact-folder-contact get-multi-value-extended-property'] = """
+helps['personalcontacts user-contact-folder-contact delete-multi-value-extended-property'] = """
     type: command
-    short-summary: "Get multiValueExtendedProperties from users"
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
 """
 
-helps['personalcontacts user-contact-folder-contact get-photo'] = """
+helps['personalcontacts user-contact-folder-contact delete-photo'] = """
     type: command
-    short-summary: "Get photo from users"
+    short-summary: "Delete navigation property photo for users."
 """
 
-helps['personalcontacts user-contact-folder-contact get-single-value-extended-property'] = """
+helps['personalcontacts user-contact-folder-contact delete-single-value-extended-property'] = """
     type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['personalcontacts user-contact-folder-contact list-extension'] = """
     type: command
-    short-summary: "Get extensions from users"
+    short-summary: "Get extensions from users."
 """
 
 helps['personalcontacts user-contact-folder-contact list-multi-value-extended-property'] = """
     type: command
-    short-summary: "Get multiValueExtendedProperties from users"
+    short-summary: "Get multiValueExtendedProperties from users."
 """
 
 helps['personalcontacts user-contact-folder-contact list-single-value-extended-property'] = """
     type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Get singleValueExtendedProperties from users."
+"""
+
+helps['personalcontacts user-contact-folder-contact show-extension'] = """
+    type: command
+    short-summary: "Get extensions from users."
+"""
+
+helps['personalcontacts user-contact-folder-contact show-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Get multiValueExtendedProperties from users."
+"""
+
+helps['personalcontacts user-contact-folder-contact show-photo'] = """
+    type: command
+    short-summary: "Get photo from users."
+"""
+
+helps['personalcontacts user-contact-folder-contact show-single-value-extended-property'] = """
+    type: command
+    short-summary: "Get singleValueExtendedProperties from users."
 """
 
 helps['personalcontacts user-contact-folder-contact update-extension'] = """
     type: command
-    short-summary: "Update the navigation property extensions in users"
+    short-summary: "Update the navigation property extensions in users."
 """
 
 helps['personalcontacts user-contact-folder-contact update-multi-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property multiValueExtendedProperties in users"
+    short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
 helps['personalcontacts user-contact-folder-contact update-photo'] = """
     type: command
-    short-summary: "Update the navigation property photo in users"
+    short-summary: "Update the navigation property photo in users."
 """
 
 helps['personalcontacts user-contact-folder-contact update-single-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property singleValueExtendedProperties in users"
+    short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
 helps['personalcontacts user-contact'] = """
     type: group
-    short-summary: personalcontacts user-contact
-"""
-
-helps['personalcontacts user-contact delete'] = """
-    type: command
-    short-summary: "Delete navigation property photo for users"
+    short-summary: Manage user contact with personalcontacts_v1_0
 """
 
 helps['personalcontacts user-contact create-extension'] = """
     type: command
-    short-summary: "Create new navigation property to extensions for users"
+    short-summary: "Create new navigation property to extensions for users."
 """
 
 helps['personalcontacts user-contact create-multi-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to multiValueExtendedProperties for users"
+    short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
 helps['personalcontacts user-contact create-single-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to singleValueExtendedProperties for users"
+    short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['personalcontacts user-contact get-extension'] = """
+helps['personalcontacts user-contact delete-extension'] = """
     type: command
-    short-summary: "Get extensions from users"
+    short-summary: "Delete navigation property extensions for users."
 """
 
-helps['personalcontacts user-contact get-multi-value-extended-property'] = """
+helps['personalcontacts user-contact delete-multi-value-extended-property'] = """
     type: command
-    short-summary: "Get multiValueExtendedProperties from users"
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
 """
 
-helps['personalcontacts user-contact get-photo'] = """
+helps['personalcontacts user-contact delete-photo'] = """
     type: command
-    short-summary: "Get photo from users"
+    short-summary: "Delete navigation property photo for users."
 """
 
-helps['personalcontacts user-contact get-single-value-extended-property'] = """
+helps['personalcontacts user-contact delete-single-value-extended-property'] = """
     type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['personalcontacts user-contact list-extension'] = """
     type: command
-    short-summary: "Get extensions from users"
+    short-summary: "Get extensions from users."
 """
 
 helps['personalcontacts user-contact list-multi-value-extended-property'] = """
     type: command
-    short-summary: "Get multiValueExtendedProperties from users"
+    short-summary: "Get multiValueExtendedProperties from users."
 """
 
 helps['personalcontacts user-contact list-single-value-extended-property'] = """
     type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Get singleValueExtendedProperties from users."
+"""
+
+helps['personalcontacts user-contact show-extension'] = """
+    type: command
+    short-summary: "Get extensions from users."
+"""
+
+helps['personalcontacts user-contact show-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Get multiValueExtendedProperties from users."
+"""
+
+helps['personalcontacts user-contact show-photo'] = """
+    type: command
+    short-summary: "Get photo from users."
+"""
+
+helps['personalcontacts user-contact show-single-value-extended-property'] = """
+    type: command
+    short-summary: "Get singleValueExtendedProperties from users."
 """
 
 helps['personalcontacts user-contact update-extension'] = """
     type: command
-    short-summary: "Update the navigation property extensions in users"
+    short-summary: "Update the navigation property extensions in users."
 """
 
 helps['personalcontacts user-contact update-multi-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property multiValueExtendedProperties in users"
+    short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
 helps['personalcontacts user-contact update-photo'] = """
     type: command
-    short-summary: "Update the navigation property photo in users"
+    short-summary: "Update the navigation property photo in users."
 """
 
 helps['personalcontacts user-contact update-single-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property singleValueExtendedProperties in users"
+    short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """

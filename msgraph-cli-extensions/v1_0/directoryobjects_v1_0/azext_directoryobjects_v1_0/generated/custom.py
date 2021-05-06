@@ -10,27 +10,20 @@
 # pylint: disable=too-many-lines
 
 
-def directoryobjects_directory_object_directory_object_delete(client,
-                                                              directory_object_id,
-                                                              if_match=None):
-    return client.delete_directory_object(directory_object_id=directory_object_id,
-                                          if_match=if_match)
-
-
 def directoryobjects_directory_object_directory_object_create_directory_object(client,
                                                                                id_=None,
                                                                                deleted_date_time=None):
-    return client.create_directory_object(id=id_,
-                                          deleted_date_time=deleted_date_time)
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    return client.create_directory_object(body=body)
 
 
-def directoryobjects_directory_object_directory_object_get_directory_object(client,
-                                                                            directory_object_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_directory_object(directory_object_id=directory_object_id,
-                                       select=select,
-                                       expand=expand)
+def directoryobjects_directory_object_directory_object_delete_directory_object(client,
+                                                                               directory_object_id,
+                                                                               if_match=None):
+    return client.delete_directory_object(directory_object_id=directory_object_id,
+                                          if_match=if_match)
 
 
 def directoryobjects_directory_object_directory_object_list_directory_object(client,
@@ -42,41 +35,60 @@ def directoryobjects_directory_object_directory_object_list_directory_object(cli
                                         expand=expand)
 
 
+def directoryobjects_directory_object_directory_object_show_directory_object(client,
+                                                                             directory_object_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_directory_object(directory_object_id=directory_object_id,
+                                       select=select,
+                                       expand=expand)
+
+
 def directoryobjects_directory_object_directory_object_update_directory_object(client,
                                                                                directory_object_id,
                                                                                id_=None,
                                                                                deleted_date_time=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
     return client.update_directory_object(directory_object_id=directory_object_id,
-                                          id=id_,
-                                          deleted_date_time=deleted_date_time)
+                                          body=body)
 
 
 def directoryobjects_directory_object_check_member_group(client,
                                                          directory_object_id,
                                                          group_ids=None):
-    return client.check_member_group(directory_object_id=directory_object_id,
-                                     group_ids=group_ids)
+    body = {}
+    body['group_ids'] = group_ids
+    return client.check_member_groups(directory_object_id=directory_object_id,
+                                      body=body)
 
 
 def directoryobjects_directory_object_check_member_object(client,
                                                           directory_object_id,
                                                           ids=None):
-    return client.check_member_object(directory_object_id=directory_object_id,
-                                      ids=ids)
+    body = {}
+    body['ids'] = ids
+    return client.check_member_objects(directory_object_id=directory_object_id,
+                                       body=body)
 
 
 def directoryobjects_directory_object_get_available_extension_property(client,
                                                                        is_synced_from_on_premises=None):
     if is_synced_from_on_premises is None:
         is_synced_from_on_premises = False
-    return client.get_available_extension_property(is_synced_from_on_premises=is_synced_from_on_premises)
+    body = {}
+    body['is_synced_from_on_premises'] = False if is_synced_from_on_premises is None else is_synced_from_on_premises
+    return client.get_available_extension_properties(body=body)
 
 
 def directoryobjects_directory_object_get_by_id(client,
                                                 ids=None,
                                                 types=None):
-    return client.get_by_id(ids=ids,
-                            types=types)
+    body = {}
+    body['ids'] = ids
+    body['types'] = types
+    return client.get_by_ids(body=body)
 
 
 def directoryobjects_directory_object_get_member_group(client,
@@ -84,8 +96,10 @@ def directoryobjects_directory_object_get_member_group(client,
                                                        security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_group(directory_object_id=directory_object_id,
-                                   security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_groups(directory_object_id=directory_object_id,
+                                    body=body)
 
 
 def directoryobjects_directory_object_get_member_object(client,
@@ -93,8 +107,10 @@ def directoryobjects_directory_object_get_member_object(client,
                                                         security_enabled_only=None):
     if security_enabled_only is None:
         security_enabled_only = False
-    return client.get_member_object(directory_object_id=directory_object_id,
-                                    security_enabled_only=security_enabled_only)
+    body = {}
+    body['security_enabled_only'] = False if security_enabled_only is None else security_enabled_only
+    return client.get_member_objects(directory_object_id=directory_object_id,
+                                     body=body)
 
 
 def directoryobjects_directory_object_restore(client,
@@ -107,7 +123,9 @@ def directoryobjects_directory_object_validate_property(client,
                                                         display_name=None,
                                                         mail_nickname=None,
                                                         on_behalf_of_user_id=None):
-    return client.validate_property(entity_type=entity_type,
-                                    display_name=display_name,
-                                    mail_nickname=mail_nickname,
-                                    on_behalf_of_user_id=on_behalf_of_user_id)
+    body = {}
+    body['entity_type'] = entity_type
+    body['display_name'] = display_name
+    body['mail_nickname'] = mail_nickname
+    body['on_behalf_of_user_id'] = on_behalf_of_user_id
+    return client.validate_properties(body=body)

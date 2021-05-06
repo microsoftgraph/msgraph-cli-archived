@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._cloud_communications_async import CloudCommunications
+from ._cloud_communications import CloudCommunications
 __all__ = ['CloudCommunications']

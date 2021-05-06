@@ -20,10 +20,10 @@ if TYPE_CHECKING:
 from ._configuration import EducationConfiguration
 from .operations import EducationEducationRootOperations
 from .operations import EducationOperations
-from .operations import EducationClassOperations
+from .operations import EducationClassesOperations
 from .operations import EducationMeOperations
-from .operations import EducationSchoolOperations
-from .operations import EducationUserOperations
+from .operations import EducationSchoolsOperations
+from .operations import EducationUsersOperations
 from . import models
 
 
@@ -34,14 +34,14 @@ class Education(object):
     :vartype education_education_root: education.operations.EducationEducationRootOperations
     :ivar education: EducationOperations operations
     :vartype education: education.operations.EducationOperations
-    :ivar education_class: EducationClassOperations operations
-    :vartype education_class: education.operations.EducationClassOperations
+    :ivar education_classes: EducationClassesOperations operations
+    :vartype education_classes: education.operations.EducationClassesOperations
     :ivar education_me: EducationMeOperations operations
     :vartype education_me: education.operations.EducationMeOperations
-    :ivar education_school: EducationSchoolOperations operations
-    :vartype education_school: education.operations.EducationSchoolOperations
-    :ivar education_user: EducationUserOperations operations
-    :vartype education_user: education.operations.EducationUserOperations
+    :ivar education_schools: EducationSchoolsOperations operations
+    :vartype education_schools: education.operations.EducationSchoolsOperations
+    :ivar education_users: EducationUsersOperations operations
+    :vartype education_users: education.operations.EducationUsersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -55,7 +55,6 @@ class Education(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -77,19 +76,20 @@ class Education(object):
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
         self.education_education_root = EducationEducationRootOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.education = EducationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_class = EducationClassOperations(
+        self.education_classes = EducationClassesOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.education_me = EducationMeOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_school = EducationSchoolOperations(
+        self.education_schools = EducationSchoolsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.education_user = EducationUserOperations(
+        self.education_users = EducationUsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

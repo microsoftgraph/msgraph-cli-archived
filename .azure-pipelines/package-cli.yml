@@ -35,7 +35,7 @@ stages:
         inputs:
           script: |
             python setup.py sdist bdist_wheel
-            set CLI_VERSION=$(CLI_VERSION)
+            for /f "tokens=3 usebackq" %%i in (`find  "__version__"  msgraph\cli\core\__init__.py`)  do set CLI_VERSION=%%~i
             set
             cd build_scripts/windows/scripts
             build.cmd
@@ -120,6 +120,7 @@ stages:
         displayName: 'Test'
 
       - bash: |
+          export CLI_VERSION=$(cat msgraph/cli/core/__init__.py | grep __version__ | awk -F'=' '{print $2}')
           docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
           docker run --name debian microsoft/msgraph-cli:ubuntu-builder
 
@@ -152,19 +153,16 @@ stages:
             source: current
 
         - bash: |
-            echo "Show whats in the build directory"
-            ls -la $(Pipeline.Workspace)
+            export CLI_VERSION=$(cat msgraph/cli/core/__init__.py | grep __version__ | awk -F'=' '{print $2}')
+          displayName: 'Create CLI_VERSION variable'
 
-            echo "Showing msgraph/cli"
-            ls $(Pipeline.Workspace)/msgraph_msi
-          displayName: 'Directory structure'
 
         - task: GitHubRelease@0
           inputs:
             gitHubConnection: 'ddyett'
             repositoryName: 'microsoftgraph/msgraph-cli'
             tagSource: 'manual'
-            tag: '$(Build.BuildNumber)'
+            tag: $(CLI_VERSION)
             assets: |
               $(Pipeline.Workspace)/msgraph_msi/*.msi
               $(Pipeline.Workspace)/msgraph_deb/*.deb

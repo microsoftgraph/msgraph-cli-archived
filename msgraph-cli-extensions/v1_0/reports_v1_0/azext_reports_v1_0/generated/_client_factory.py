@@ -11,7 +11,7 @@
 
 def cf_reports_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.reports import Reports
+    from azext_reports_v1_0.vendored_sdks.reports import Reports
     return get_mgmt_service_client(cli_ctx,
                                    Reports,
                                    subscription_bound=False,
@@ -19,16 +19,16 @@ def cf_reports_v1_0_cl(cli_ctx, *_):
 
 
 def cf_audit_log_audit_log_root(cli_ctx, *_):
-    return cf_reports_v1_0_cl(cli_ctx).audit_log_audit_log_root
+    return cf_reports_v1_0_cl(cli_ctx).audit_logs_audit_log_root
 
 
 def cf_audit_log(cli_ctx, *_):
-    return cf_reports_v1_0_cl(cli_ctx).audit_log
+    return cf_reports_v1_0_cl(cli_ctx).audit_logs
 
 
 def cf_report_report_root(cli_ctx, *_):
-    return cf_reports_v1_0_cl(cli_ctx).report_report_root
+    return cf_reports_v1_0_cl(cli_ctx).reports_report_root
 
 
 def cf_report(cli_ctx, *_):
-    return cf_reports_v1_0_cl(cli_ctx).report
+    return cf_reports_v1_0_cl(cli_ctx).reports

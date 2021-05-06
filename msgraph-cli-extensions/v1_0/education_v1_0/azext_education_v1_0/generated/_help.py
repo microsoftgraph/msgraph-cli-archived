@@ -12,34 +12,34 @@
 from knack.help_files import helps
 
 
+helps['education_v1_0'] = '''
+    type: group
+    short-summary: Manage Education
+'''
+
 helps['education education-root'] = """
     type: group
-    short-summary: education education-root
+    short-summary: Manage education education root with education_v1_0
 """
 
-helps['education education-root get-root'] = """
+helps['education education-root show-education-root'] = """
     type: command
-    short-summary: "Get education"
+    short-summary: "Get education."
 """
 
-helps['education education-root update-root'] = """
+helps['education education-root update-education-root'] = """
     type: command
-    short-summary: "Update education"
+    short-summary: "Update education."
 """
 
 helps['education education'] = """
     type: group
-    short-summary: education education
-"""
-
-helps['education education delete'] = """
-    type: command
-    short-summary: "Delete navigation property me for education"
+    short-summary: Manage education with education_v1_0
 """
 
 helps['education education create-class'] = """
     type: command
-    short-summary: "Create new navigation property to classes for education"
+    short-summary: "Create new navigation property to classes for education."
     parameters:
       - name: --term
         short-summary: "educationTerm"
@@ -50,28 +50,28 @@ helps['education education create-class'] = """
             end-date: End of the term.
             external-id: ID of term in the syncing system.
             start-date: Start of the term.
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -81,7 +81,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['education education create-school'] = """
     type: command
-    short-summary: "Create new navigation property to schools for education"
+    short-summary: "Create new navigation property to schools for education."
     parameters:
       - name: --address
         short-summary: "physicalAddress"
@@ -93,28 +93,28 @@ helps['education education create-school'] = """
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -124,7 +124,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['education education create-user'] = """
     type: command
-    short-summary: "Create new navigation property to users for education"
+    short-summary: "Create new navigation property to users for education."
     parameters:
       - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the user. Not nullable."
@@ -211,28 +211,28 @@ as specified by the user’s passwordPolicies property. By default, a strong pas
 
             external-id: ID of the teacher in the source system.
             teacher-number: Teacher number.
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -240,44 +240,64 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['education education get-class'] = """
+helps['education education delete-class'] = """
     type: command
-    short-summary: "Get classes from education"
+    short-summary: "Delete navigation property classes for education."
 """
 
-helps['education education get-me'] = """
+helps['education education delete-me'] = """
     type: command
-    short-summary: "Get me from education"
+    short-summary: "Delete navigation property me for education."
 """
 
-helps['education education get-school'] = """
+helps['education education delete-school'] = """
     type: command
-    short-summary: "Get schools from education"
+    short-summary: "Delete navigation property schools for education."
 """
 
-helps['education education get-user'] = """
+helps['education education delete-user'] = """
     type: command
-    short-summary: "Get users from education"
+    short-summary: "Delete navigation property users for education."
 """
 
 helps['education education list-class'] = """
     type: command
-    short-summary: "Get classes from education"
+    short-summary: "Get classes from education."
 """
 
 helps['education education list-school'] = """
     type: command
-    short-summary: "Get schools from education"
+    short-summary: "Get schools from education."
 """
 
 helps['education education list-user'] = """
     type: command
-    short-summary: "Get users from education"
+    short-summary: "Get users from education."
+"""
+
+helps['education education show-class'] = """
+    type: command
+    short-summary: "Get classes from education."
+"""
+
+helps['education education show-me'] = """
+    type: command
+    short-summary: "Get me from education."
+"""
+
+helps['education education show-school'] = """
+    type: command
+    short-summary: "Get schools from education."
+"""
+
+helps['education education show-user'] = """
+    type: command
+    short-summary: "Get users from education."
 """
 
 helps['education education update-class'] = """
     type: command
-    short-summary: "Update the navigation property classes in education"
+    short-summary: "Update the navigation property classes in education."
     parameters:
       - name: --term
         short-summary: "educationTerm"
@@ -288,28 +308,28 @@ helps['education education update-class'] = """
             end-date: End of the term.
             external-id: ID of term in the syncing system.
             start-date: Start of the term.
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -319,7 +339,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['education education update-me'] = """
     type: command
-    short-summary: "Update the navigation property me in education"
+    short-summary: "Update the navigation property me in education."
     parameters:
       - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the user. Not nullable."
@@ -406,28 +426,28 @@ as specified by the user’s passwordPolicies property. By default, a strong pas
 
             external-id: ID of the teacher in the source system.
             teacher-number: Teacher number.
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -437,7 +457,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['education education update-school'] = """
     type: command
-    short-summary: "Update the navigation property schools in education"
+    short-summary: "Update the navigation property schools in education."
     parameters:
       - name: --address
         short-summary: "physicalAddress"
@@ -449,28 +469,28 @@ helps['education education update-school'] = """
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -480,7 +500,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['education education update-user'] = """
     type: command
-    short-summary: "Update the navigation property users in education"
+    short-summary: "Update the navigation property users in education."
     parameters:
       - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the user. Not nullable."
@@ -567,28 +587,28 @@ as specified by the user’s passwordPolicies property. By default, a strong pas
 
             external-id: ID of the teacher in the source system.
             teacher-number: Teacher number.
-      - name: --created-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -598,215 +618,215 @@ associated with the user won't show up as having changed when using delta.
 
 helps['education education-class'] = """
     type: group
-    short-summary: education education-class
-"""
-
-helps['education education-class delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property group for education"
+    short-summary: Manage education class with education_v1_0
 """
 
 helps['education education-class create-ref-member'] = """
     type: command
-    short-summary: "Create new navigation property ref to members for education"
+    short-summary: "Create new navigation property ref to members for education."
 """
 
 helps['education education-class create-ref-school'] = """
     type: command
-    short-summary: "Create new navigation property ref to schools for education"
+    short-summary: "Create new navigation property ref to schools for education."
 """
 
 helps['education education-class create-ref-teacher'] = """
     type: command
-    short-summary: "Create new navigation property ref to teachers for education"
+    short-summary: "Create new navigation property ref to teachers for education."
 """
 
-helps['education education-class get-group'] = """
+helps['education education-class delete-ref-group'] = """
     type: command
-    short-summary: "Get group from education"
-"""
-
-helps['education education-class get-ref-group'] = """
-    type: command
-    short-summary: "Get ref of group from education"
+    short-summary: "Delete ref of navigation property group for education."
 """
 
 helps['education education-class list-member'] = """
     type: command
-    short-summary: "Get members from education"
+    short-summary: "Get members from education."
 """
 
 helps['education education-class list-ref-member'] = """
     type: command
-    short-summary: "Get ref of members from education"
+    short-summary: "Get ref of members from education."
 """
 
 helps['education education-class list-ref-school'] = """
     type: command
-    short-summary: "Get ref of schools from education"
+    short-summary: "Get ref of schools from education."
 """
 
 helps['education education-class list-ref-teacher'] = """
     type: command
-    short-summary: "Get ref of teachers from education"
+    short-summary: "Get ref of teachers from education."
 """
 
 helps['education education-class list-school'] = """
     type: command
-    short-summary: "Get schools from education"
+    short-summary: "Get schools from education."
 """
 
 helps['education education-class list-teacher'] = """
     type: command
-    short-summary: "Get teachers from education"
+    short-summary: "Get teachers from education."
 """
 
 helps['education education-class set-ref-group'] = """
     type: command
-    short-summary: "Update the ref of navigation property group in education"
+    short-summary: "Update the ref of navigation property group in education."
+"""
+
+helps['education education-class show-group'] = """
+    type: command
+    short-summary: "Get group from education."
+"""
+
+helps['education education-class show-ref-group'] = """
+    type: command
+    short-summary: "Get ref of group from education."
 """
 
 helps['education education-me'] = """
     type: group
-    short-summary: education education-me
-"""
-
-helps['education education-me delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property user for education"
+    short-summary: Manage education me with education_v1_0
 """
 
 helps['education education-me create-ref-class'] = """
     type: command
-    short-summary: "Create new navigation property ref to classes for education"
+    short-summary: "Create new navigation property ref to classes for education."
 """
 
 helps['education education-me create-ref-school'] = """
     type: command
-    short-summary: "Create new navigation property ref to schools for education"
+    short-summary: "Create new navigation property ref to schools for education."
 """
 
-helps['education education-me get-ref-user'] = """
+helps['education education-me delete-ref-user'] = """
     type: command
-    short-summary: "Get ref of user from education"
-"""
-
-helps['education education-me get-user'] = """
-    type: command
-    short-summary: "Get user from education"
+    short-summary: "Delete ref of navigation property user for education."
 """
 
 helps['education education-me list-class'] = """
     type: command
-    short-summary: "Get classes from education"
+    short-summary: "Get classes from education."
 """
 
 helps['education education-me list-ref-class'] = """
     type: command
-    short-summary: "Get ref of classes from education"
+    short-summary: "Get ref of classes from education."
 """
 
 helps['education education-me list-ref-school'] = """
     type: command
-    short-summary: "Get ref of schools from education"
+    short-summary: "Get ref of schools from education."
 """
 
 helps['education education-me list-school'] = """
     type: command
-    short-summary: "Get schools from education"
+    short-summary: "Get schools from education."
 """
 
 helps['education education-me set-ref-user'] = """
     type: command
-    short-summary: "Update the ref of navigation property user in education"
+    short-summary: "Update the ref of navigation property user in education."
+"""
+
+helps['education education-me show-ref-user'] = """
+    type: command
+    short-summary: "Get ref of user from education."
+"""
+
+helps['education education-me show-user'] = """
+    type: command
+    short-summary: "Get user from education."
 """
 
 helps['education education-school'] = """
     type: group
-    short-summary: education education-school
+    short-summary: Manage education school with education_v1_0
 """
 
 helps['education education-school create-ref-class'] = """
     type: command
-    short-summary: "Create new navigation property ref to classes for education"
+    short-summary: "Create new navigation property ref to classes for education."
 """
 
 helps['education education-school create-ref-user'] = """
     type: command
-    short-summary: "Create new navigation property ref to users for education"
+    short-summary: "Create new navigation property ref to users for education."
 """
 
 helps['education education-school list-class'] = """
     type: command
-    short-summary: "Get classes from education"
+    short-summary: "Get classes from education."
 """
 
 helps['education education-school list-ref-class'] = """
     type: command
-    short-summary: "Get ref of classes from education"
+    short-summary: "Get ref of classes from education."
 """
 
 helps['education education-school list-ref-user'] = """
     type: command
-    short-summary: "Get ref of users from education"
+    short-summary: "Get ref of users from education."
 """
 
 helps['education education-school list-user'] = """
     type: command
-    short-summary: "Get users from education"
+    short-summary: "Get users from education."
 """
 
 helps['education education-user'] = """
     type: group
-    short-summary: education education-user
-"""
-
-helps['education education-user delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property user for education"
+    short-summary: Manage education user with education_v1_0
 """
 
 helps['education education-user create-ref-class'] = """
     type: command
-    short-summary: "Create new navigation property ref to classes for education"
+    short-summary: "Create new navigation property ref to classes for education."
 """
 
 helps['education education-user create-ref-school'] = """
     type: command
-    short-summary: "Create new navigation property ref to schools for education"
+    short-summary: "Create new navigation property ref to schools for education."
 """
 
-helps['education education-user get-ref-user'] = """
+helps['education education-user delete-ref-user'] = """
     type: command
-    short-summary: "Get ref of user from education"
-"""
-
-helps['education education-user get-user'] = """
-    type: command
-    short-summary: "Get user from education"
+    short-summary: "Delete ref of navigation property user for education."
 """
 
 helps['education education-user list-class'] = """
     type: command
-    short-summary: "Get classes from education"
+    short-summary: "Get classes from education."
 """
 
 helps['education education-user list-ref-class'] = """
     type: command
-    short-summary: "Get ref of classes from education"
+    short-summary: "Get ref of classes from education."
 """
 
 helps['education education-user list-ref-school'] = """
     type: command
-    short-summary: "Get ref of schools from education"
+    short-summary: "Get ref of schools from education."
 """
 
 helps['education education-user list-school'] = """
     type: command
-    short-summary: "Get schools from education"
+    short-summary: "Get schools from education."
 """
 
 helps['education education-user set-ref-user'] = """
     type: command
-    short-summary: "Update the ref of navigation property user in education"
+    short-summary: "Update the ref of navigation property user in education."
+"""
+
+helps['education education-user show-ref-user'] = """
+    type: command
+    short-summary: "Get ref of user from education."
+"""
+
+helps['education education-user show-user'] = """
+    type: command
+    short-summary: "Get user from education."
 """

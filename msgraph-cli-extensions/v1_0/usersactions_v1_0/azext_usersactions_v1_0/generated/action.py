@@ -41,6 +41,9 @@ class AddAttachmentItem(argparse.Action):
                 d['name'] = v[0]
             elif kl == 'size':
                 d['size'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter attachment_item. All possible keys are: '
+                               'attachment-type, content-type, is-inline, name, size'.format(k))
         return d
 
 
@@ -65,61 +68,16 @@ class AddEndTime(argparse.Action):
                 d['date_time'] = v[0]
             elif kl == 'time-zone':
                 d['time_zone'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter end_time. All possible keys are: '
+                               'date-time, time-zone'.format(k))
         return d
 
 
-class AddUsersactionsUserMailFolderMessageCreateForwardToRecipients(argparse._AppendAction):
+class AddBody(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersactionsUserMailFolderMessageCreateForwardToRecipients, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-        return d
-
-
-class AddMessageBccRecipients(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddMessageBccRecipients, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-        return d
-
-
-class AddMessageBody(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.message_body = action
+        namespace.body = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -137,61 +95,16 @@ class AddMessageBody(argparse.Action):
                 d['content'] = v[0]
             elif kl == 'content-type':
                 d['content_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter body. All possible keys are: content, '
+                               'content-type'.format(k))
         return d
 
 
-class AddMessageCcRecipients(argparse._AppendAction):
+class AddInternetMessageHeaders(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddMessageCcRecipients, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-        return d
-
-
-class AddMessageFrom(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.message_from = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-        return d
-
-
-class AddMessageInternetMessageHeaders(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddMessageInternetMessageHeaders, self).__call__(parser, namespace, action, option_string)
+        super(AddInternetMessageHeaders, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -209,61 +122,16 @@ class AddMessageInternetMessageHeaders(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter internet_message_headers. All possible '
+                               'keys are: name, value'.format(k))
         return d
 
 
-class AddMessageReplyTo(argparse._AppendAction):
+class AddAttachments(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddMessageReplyTo, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-        return d
-
-
-class AddMessageToRecipients(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddMessageToRecipients, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-        return d
-
-
-class AddMessageAttachments(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddMessageAttachments, self).__call__(parser, namespace, action, option_string)
+        super(AddAttachments, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -289,13 +157,16 @@ class AddMessageAttachments(argparse._AppendAction):
                 d['size'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter attachments. All possible keys are: '
+                               'content-type, is-inline, last-modified-date-time, name, size, id'.format(k))
         return d
 
 
-class AddMessageExtensions(argparse._AppendAction):
+class AddExtensions(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddMessageExtensions, self).__call__(parser, namespace, action, option_string)
+        super(AddExtensions, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -311,13 +182,16 @@ class AddMessageExtensions(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter extensions. All possible keys are: id'.
+                format(k))
         return d
 
 
-class AddMessageMultiValueExtendedProperties(argparse._AppendAction):
+class AddMultiValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddMessageMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -335,13 +209,16 @@ class AddMessageMultiValueExtendedProperties(argparse._AppendAction):
                 d['value'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter multi_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d
 
 
-class AddMessageSingleValueExtendedProperties(argparse._AppendAction):
+class AddSingleValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddMessageSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -359,37 +236,16 @@ class AddMessageSingleValueExtendedProperties(argparse._AppendAction):
                 d['value'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter single_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d
 
 
-class AddUsersactionsUserMailFolderMessageForwardToRecipients(argparse._AppendAction):
+class AddDeviceAccount(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersactionsUserMailFolderMessageForwardToRecipients, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-        return d
-
-
-class AddUpdateWindowsDeviceAccountActionParameterDeviceAccount(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.update_windows_device_account_action_parameter_device_account = action
+        namespace.device_account = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -405,54 +261,9 @@ class AddUpdateWindowsDeviceAccountActionParameterDeviceAccount(argparse.Action)
             v = properties[k]
             if kl == 'password':
                 d['password'] = v[0]
-        return d
-
-
-class AddUsersactionsUserMessageCreateForwardToRecipients(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddUsersactionsUserMessageCreateForwardToRecipients, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-        return d
-
-
-class AddUsersactionsUserMessageForwardToRecipients(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddUsersactionsUserMessageForwardToRecipients, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_account. All possible keys are: '
+                               'password'.format(k))
         return d
 
 
@@ -477,6 +288,9 @@ class AddAddLicenses(argparse._AppendAction):
                 d['disabled_plans'] = v
             elif kl == 'sku-id':
                 d['sku_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter add_licenses. All possible keys are: '
+                               'disabled-plans, sku-id'.format(k))
         return d
 
 
@@ -499,17 +313,18 @@ class AddAttendees(argparse._AppendAction):
             v = properties[k]
             if kl == 'type':
                 d['type'] = v[0]
-            elif kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
+            elif kl == 'email-address':
+                d['email_address'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter attendees. All possible keys are: type, '
+                               'email-address'.format(k))
         return d
 
 
-class AddLocationConstraintLocations(argparse._AppendAction):
+class AddLocations(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddLocationConstraintLocations, self).__call__(parser, namespace, action, option_string)
+        super(AddLocations, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -541,6 +356,10 @@ class AddLocationConstraintLocations(argparse._AppendAction):
                 d['unique_id'] = v[0]
             elif kl == 'unique-id-type':
                 d['unique_id_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter locations. All possible keys are: '
+                               'resolve-availability, address, coordinates, display-name, location-email-address, '
+                               'location-type, location-uri, unique-id, unique-id-type'.format(k))
         return d
 
 
@@ -569,6 +388,9 @@ class AddUsersOnenoteNotebooksSectiongroupsSectionsPagesCommands(argparse._Appen
                 d['position'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, '
+                               'content, position, target'.format(k))
         return d
 
 
@@ -597,6 +419,9 @@ class AddUsersOnenoteNotebooksSectionsPagesCommands(argparse._AppendAction):
                 d['position'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, '
+                               'content, position, target'.format(k))
         return d
 
 
@@ -625,6 +450,9 @@ class AddUsersOnenotePagesCommands(argparse._AppendAction):
                 d['position'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, '
+                               'content, position, target'.format(k))
         return d
 
 
@@ -653,6 +481,9 @@ class AddUsersOnenotePagesParentnotebookSectiongroupsSectionsPagesCommands(argpa
                 d['position'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, '
+                               'content, position, target'.format(k))
         return d
 
 
@@ -681,6 +512,9 @@ class AddUsersOnenotePagesParentnotebookSectionsPagesCommands(argparse._AppendAc
                 d['position'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, '
+                               'content, position, target'.format(k))
         return d
 
 
@@ -709,6 +543,9 @@ class AddUsersOnenotePagesParentsectionPagesCommands(argparse._AppendAction):
                 d['position'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, '
+                               'content, position, target'.format(k))
         return d
 
 
@@ -737,6 +574,9 @@ class AddUsersOnenoteSectiongroupsParentnotebookSectionsPagesCommands(argparse._
                 d['position'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, '
+                               'content, position, target'.format(k))
         return d
 
 
@@ -765,6 +605,9 @@ class AddUsersOnenoteSectiongroupsSectionsPagesCommands(argparse._AppendAction):
                 d['position'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, '
+                               'content, position, target'.format(k))
         return d
 
 
@@ -793,6 +636,9 @@ class AddCommands(argparse._AppendAction):
                 d['position'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, '
+                               'content, position, target'.format(k))
         return d
 
 
@@ -819,4 +665,7 @@ class AddChatInfo(argparse.Action):
                 d['reply_chain_message_id'] = v[0]
             elif kl == 'thread-id':
                 d['thread_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter chat_info. All possible keys are: '
+                               'message-id, reply-chain-message-id, thread-id'.format(k))
         return d

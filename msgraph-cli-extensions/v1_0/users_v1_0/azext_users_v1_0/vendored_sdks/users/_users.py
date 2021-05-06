@@ -18,24 +18,24 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import UsersConfiguration
-from .operations import UserUserOperations
-from .operations import UserOperations
-from .operations import UserOutlookOperations
-from .operations import UserSettingOperations
+from .operations import UsersUserOperations
+from .operations import UsersOperations
+from .operations import UsersOutlookOperations
+from .operations import UsersSettingsOperations
 from . import models
 
 
 class Users(object):
     """Users.
 
-    :ivar user_user: UserUserOperations operations
-    :vartype user_user: users.operations.UserUserOperations
-    :ivar user: UserOperations operations
-    :vartype user: users.operations.UserOperations
-    :ivar user_outlook: UserOutlookOperations operations
-    :vartype user_outlook: users.operations.UserOutlookOperations
-    :ivar user_setting: UserSettingOperations operations
-    :vartype user_setting: users.operations.UserSettingOperations
+    :ivar users_user: UsersUserOperations operations
+    :vartype users_user: users.operations.UsersUserOperations
+    :ivar users: UsersOperations operations
+    :vartype users: users.operations.UsersOperations
+    :ivar users_outlook: UsersOutlookOperations operations
+    :vartype users_outlook: users.operations.UsersOutlookOperations
+    :ivar users_settings: UsersSettingsOperations operations
+    :vartype users_settings: users.operations.UsersSettingsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -49,7 +49,6 @@ class Users(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -71,15 +70,16 @@ class Users(object):
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user_user = UserUserOperations(
+        self.users_user = UsersUserOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_outlook = UserOutlookOperations(
+        self.users_outlook = UsersOutlookOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_setting = UserSettingOperations(
+        self.users_settings = UsersSettingsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

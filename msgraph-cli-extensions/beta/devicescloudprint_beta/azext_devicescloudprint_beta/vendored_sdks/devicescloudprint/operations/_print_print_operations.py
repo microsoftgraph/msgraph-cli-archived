@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -65,7 +65,9 @@ class PrintPrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrint"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -82,7 +84,6 @@ class PrintPrintOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -103,15 +104,7 @@ class PrintPrintOperations(object):
 
     def update_print(
         self,
-        connectors=None,  # type: Optional[List["models.MicrosoftGraphPrintConnector"]]
-        operations=None,  # type: Optional[List["models.MicrosoftGraphPrintOperation"]]
-        printers=None,  # type: Optional[List["models.MicrosoftGraphPrinter"]]
-        printer_shares=None,  # type: Optional[List["models.MicrosoftGraphPrinterShare"]]
-        reports=None,  # type: Optional[List["models.MicrosoftGraphReportRoot"]]
-        services=None,  # type: Optional[List["models.MicrosoftGraphPrintService"]]
-        shares=None,  # type: Optional[List["models.MicrosoftGraphPrinterShare"]]
-        task_definitions=None,  # type: Optional[List["models.MicrosoftGraphPrintTaskDefinition"]]
-        document_conversion_enabled=None,  # type: Optional[bool]
+        body,  # type: "models.MicrosoftGraphPrint"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -119,34 +112,18 @@ class PrintPrintOperations(object):
 
         Update print.
 
-        :param connectors:
-        :type connectors: list[~devices_cloud_print.models.MicrosoftGraphPrintConnector]
-        :param operations:
-        :type operations: list[~devices_cloud_print.models.MicrosoftGraphPrintOperation]
-        :param printers:
-        :type printers: list[~devices_cloud_print.models.MicrosoftGraphPrinter]
-        :param printer_shares:
-        :type printer_shares: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
-        :param reports:
-        :type reports: list[~devices_cloud_print.models.MicrosoftGraphReportRoot]
-        :param services:
-        :type services: list[~devices_cloud_print.models.MicrosoftGraphPrintService]
-        :param shares:
-        :type shares: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
-        :param task_definitions:
-        :type task_definitions: list[~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition]
-        :param document_conversion_enabled:
-        :type document_conversion_enabled: bool
+        :param body: New property values.
+        :type body: ~devices_cloud_print.models.MicrosoftGraphPrint
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphPrint(connectors=connectors, operations=operations, printers=printers, printer_shares=printer_shares, reports=reports, services=services, shares=shares, task_definitions=task_definitions, document_conversion_enabled=document_conversion_enabled)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -162,10 +139,9 @@ class PrintPrintOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrint')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrint')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 

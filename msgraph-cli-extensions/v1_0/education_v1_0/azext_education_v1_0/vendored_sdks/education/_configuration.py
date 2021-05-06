@@ -61,8 +61,7 @@ class EducationConfiguration(Configuration):
         self.search = search
         self.filter = filter
         self.count = count
-        self.credential_scopes = ['https://management.azure.com/.default']
-        self.credential_scopes.extend(kwargs.pop('credential_scopes', []))
+        self.credential_scopes = kwargs.pop('credential_scopes', ['https://management.azure.com/.default'])
         kwargs.setdefault('sdk_moniker', 'education/{}'.format(VERSION))
         self._configure(**kwargs)
 

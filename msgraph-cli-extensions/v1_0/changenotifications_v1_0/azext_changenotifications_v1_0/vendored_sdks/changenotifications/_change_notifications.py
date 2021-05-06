@@ -18,15 +18,15 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import ChangeNotificationsConfiguration
-from .operations import SubscriptionSubscriptionOperations
+from .operations import SubscriptionsSubscriptionOperations
 from . import models
 
 
 class ChangeNotifications(object):
     """ChangeNotifications.
 
-    :ivar subscription_subscription: SubscriptionSubscriptionOperations operations
-    :vartype subscription_subscription: change_notifications.operations.SubscriptionSubscriptionOperations
+    :ivar subscriptions_subscription: SubscriptionsSubscriptionOperations operations
+    :vartype subscriptions_subscription: change_notifications.operations.SubscriptionsSubscriptionOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -40,7 +40,6 @@ class ChangeNotifications(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -62,9 +61,10 @@ class ChangeNotifications(object):
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.subscription_subscription = SubscriptionSubscriptionOperations(
+        self.subscriptions_subscription = SubscriptionsSubscriptionOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -65,7 +65,9 @@ class PlannerPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlanner"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -82,7 +84,6 @@ class PlannerPlannerOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -103,10 +104,7 @@ class PlannerPlannerOperations(object):
 
     def update_planner(
         self,
-        id=None,  # type: Optional[str]
-        buckets=None,  # type: Optional[List["models.MicrosoftGraphPlannerBucket"]]
-        plans=None,  # type: Optional[List["models.MicrosoftGraphPlannerPlan"]]
-        tasks=None,  # type: Optional[List["models.MicrosoftGraphPlannerTask"]]
+        body,  # type: "models.MicrosoftGraphPlanner"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -114,24 +112,18 @@ class PlannerPlannerOperations(object):
 
         Update planner.
 
-        :param id: Read-only.
-        :type id: str
-        :param buckets: Read-only. Nullable. Returns a collection of the specified buckets.
-        :type buckets: list[~planner.models.MicrosoftGraphPlannerBucket]
-        :param plans: Read-only. Nullable. Returns a collection of the specified plans.
-        :type plans: list[~planner.models.MicrosoftGraphPlannerPlan]
-        :param tasks: Read-only. Nullable. Returns a collection of the specified tasks.
-        :type tasks: list[~planner.models.MicrosoftGraphPlannerTask]
+        :param body: New property values.
+        :type body: ~planner.models.MicrosoftGraphPlanner
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
-
-        _body = models.MicrosoftGraphPlanner(id=id, buckets=buckets, plans=plans, tasks=tasks)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -147,10 +139,9 @@ class PlannerPlannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPlanner')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlanner')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 

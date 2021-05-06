@@ -192,22 +192,22 @@ def load_arguments(self, _):
     with self.argument_context('usersfunctions user-mail-folder delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions user-managed-app-registration get-user-id-with-flagged-app-registration') as c:
+    with self.argument_context('usersfunctions user-managed-app-registration show-user-id-with-flagged-app-registration') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
     with self.argument_context('usersfunctions user-message delta') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
-    with self.argument_context('usersfunctions user get-managed-app-diagnostic-statuses') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
-    with self.argument_context('usersfunctions user get-managed-app-policy') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
     with self.argument_context('usersfunctions user reminder-view') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('start_date_time', type=str, help='')
         c.argument('end_date_time', type=str, help='')
+
+    with self.argument_context('usersfunctions user show-managed-app-diagnostic-statuses') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+
+    with self.argument_context('usersfunctions user show-managed-app-policy') as c:
+        c.argument('user_id', type=str, help='key: id of user')
 
     with self.argument_context('usersfunctions user-onenote-notebook-section-group-section-page preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -222,7 +222,7 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions user-onenote-notebook get-recent-notebook') as c:
+    with self.argument_context('usersfunctions user-onenote-notebook show-recent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('include_personal_notebooks', arg_type=get_three_state_flag(), help='')
 

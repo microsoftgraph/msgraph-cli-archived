@@ -12,54 +12,69 @@
 from knack.help_files import helps
 
 
+helps['teams_v1_0'] = '''
+    type: group
+    short-summary: Manage Teams
+'''
+
 helps['teams chat-chat'] = """
     type: group
-    short-summary: teams chat-chat
-"""
-
-helps['teams chat-chat delete'] = """
-    type: command
-    short-summary: "Delete entity from chats"
+    short-summary: Manage chat chat with teams_v1_0
 """
 
 helps['teams chat-chat create-chat'] = """
     type: command
-    short-summary: "Add new entity to chats"
+    short-summary: "Add new entity to chats."
 """
 
-helps['teams chat-chat get-chat'] = """
+helps['teams chat-chat delete-chat'] = """
     type: command
-    short-summary: "Get entity from chats by key"
+    short-summary: "Delete entity from chats."
 """
 
 helps['teams chat-chat list-chat'] = """
     type: command
-    short-summary: "Get entities from chats"
+    short-summary: "Get entities from chats."
+"""
+
+helps['teams chat-chat show-chat'] = """
+    type: command
+    short-summary: "Get entity from chats by key."
 """
 
 helps['teams chat-chat update-chat'] = """
     type: command
-    short-summary: "Update entity in chats"
+    short-summary: "Update entity in chats."
 """
 
 helps['teams chat'] = """
     type: group
-    short-summary: teams chat
+    short-summary: Manage chat with teams_v1_0
 """
 
-helps['teams chat get-all-message'] = """
+helps['teams chat show-all-message'] = """
     type: command
-    short-summary: "Invoke function getAllMessages"
+    short-summary: "Invoke function getAllMessages."
 """
 
 helps['teams group'] = """
     type: group
-    short-summary: teams group
+    short-summary: Manage group with teams_v1_0
 """
 
-helps['teams group update'] = """
+helps['teams group delete-team'] = """
     type: command
-    short-summary: "Update the navigation property team in groups"
+    short-summary: "Delete navigation property team for groups."
+"""
+
+helps['teams group show-team'] = """
+    type: command
+    short-summary: "Get team from groups."
+"""
+
+helps['teams group update-team'] = """
+    type: command
+    short-summary: "Update the navigation property team in groups."
     parameters:
       - name: --fun-settings
         short-summary: "teamFunSettings"
@@ -111,34 +126,34 @@ allow-team-mentions=XX allow-user-delete-messages=XX allow-user-edit-messages=XX
             id: Read-only.
 
             Multiple actions can be specified by using more than one --members argument.
-      - name: --group-assigned-labels
+      - name: --assigned-labels
         short-summary: "The list of sensitivity label pairs (label ID, label name) associated with an Microsoft 365 \
 group. Returned only on $select. Read-only."
         long-summary: |
-            Usage: --group-assigned-labels display-name=XX label-id=XX
+            Usage: --assigned-labels display-name=XX label-id=XX
 
             display-name: The display name of the label. Read-only.
             label-id: The unique identifier of the label.
 
-            Multiple actions can be specified by using more than one --group-assigned-labels argument.
-      - name: --group-assigned-licenses
+            Multiple actions can be specified by using more than one --assigned-labels argument.
+      - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the group. Returned only on $select. Read-only."
         long-summary: |
-            Usage: --group-assigned-licenses disabled-plans=XX sku-id=XX
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
 
             disabled-plans: A collection of the unique identifiers for plans that have been disabled.
             sku-id: The unique identifier for the SKU.
 
-            Multiple actions can be specified by using more than one --group-assigned-licenses argument.
-      - name: --group-license-processing-state
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --license-processing-state
         short-summary: "licenseProcessingState"
         long-summary: |
-            Usage: --group-license-processing-state state=XX
+            Usage: --license-processing-state state=XX
 
-      - name: --group-on-premises-provisioning-errors
+      - name: --on-premises-provisioning-errors
         short-summary: "Errors when using Microsoft synchronization product during provisioning. Returned by default."
         long-summary: |
-            Usage: --group-on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
+            Usage: --on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
 value=XX
 
             category: Category of the provisioning error. Note: Currently, there is only one possible value. Possible \
@@ -149,10 +164,10 @@ property.
 UserPrincipalName or ProxyAddress
             value: Value of the property causing the error.
 
-            Multiple actions can be specified by using more than one --group-on-premises-provisioning-errors argument.
-      - name: --group-app-role-assignments
+            Multiple actions can be specified by using more than one --on-premises-provisioning-errors argument.
+      - name: --app-role-assignments
         long-summary: |
-            Usage: --group-app-role-assignments app-role-id=XX created-date-time=XX principal-display-name=XX \
+            Usage: --app-role-assignments app-role-id=XX created-date-time=XX principal-display-name=XX \
 principal-id=XX principal-type=XX resource-display-name=XX resource-id=XX deleted-date-time=XX id=XX
 
             app-role-id: The identifier (id) for the app role which is assigned to the principal. This app role must \
@@ -172,126 +187,115 @@ made. Does not support $filter.
 made. Required on create. Supports $filter (eq only).
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-app-role-assignments argument.
-      - name: --group-created-on-behalf-of
+            Multiple actions can be specified by using more than one --app-role-assignments argument.
+      - name: --created-on-behalf-of
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
         long-summary: |
-            Usage: --group-created-on-behalf-of deleted-date-time=XX id=XX
+            Usage: --created-on-behalf-of deleted-date-time=XX id=XX
 
             id: Read-only.
-      - name: --group-member-of
+      - name: --member-of
         short-summary: "Groups that this group is a member of. HTTP Methods: GET (supported for all groups). \
 Read-only. Nullable."
         long-summary: |
-            Usage: --group-member-of deleted-date-time=XX id=XX
+            Usage: --member-of deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-member-of argument.
-      - name: --group-members
+            Multiple actions can be specified by using more than one --member-of argument.
+      - name: --microsoft-graph-group-members
         short-summary: "Users and groups that are members of this group. HTTP Methods: GET (supported for all groups), \
 POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for \
 Microsoft 365 groups and security groups) Nullable."
         long-summary: |
-            Usage: --group-members deleted-date-time=XX id=XX
+            Usage: --microsoft-graph-group-members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-members argument.
-      - name: --group-members-with-license-errors
+            Multiple actions can be specified by using more than one --microsoft-graph-group-members argument.
+      - name: --members-with-license-errors
         short-summary: "A list of group members with license errors from this group-based license assignment. \
 Read-only."
         long-summary: |
-            Usage: --group-members-with-license-errors deleted-date-time=XX id=XX
+            Usage: --members-with-license-errors deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-members-with-license-errors argument.
-      - name: --group-owners
+            Multiple actions can be specified by using more than one --members-with-license-errors argument.
+      - name: --owners
         short-summary: "The owners of the group. The owners are a set of non-admin users who are allowed to modify \
 this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 \
 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security \
 groups). Nullable."
         long-summary: |
-            Usage: --group-owners deleted-date-time=XX id=XX
+            Usage: --owners deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-owners argument.
-      - name: --group-settings
-        short-summary: "Read-only. Nullable."
+            Multiple actions can be specified by using more than one --owners argument.
+      - name: --transitive-member-of
         long-summary: |
-            Usage: --group-settings display-name=XX template-id=XX values=XX id=XX
+            Usage: --transitive-member-of deleted-date-time=XX id=XX
 
-            display-name: Display name of this group of settings, which comes from the associated template.
-            template-id: Unique identifier for the template used to create this group of settings. Read-only.
-            values: Collection of name value pairs. Must contain and set all the settings defined in the template.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-settings argument.
-      - name: --group-transitive-member-of
+            Multiple actions can be specified by using more than one --transitive-member-of argument.
+      - name: --transitive-members
         long-summary: |
-            Usage: --group-transitive-member-of deleted-date-time=XX id=XX
+            Usage: --transitive-members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-transitive-member-of argument.
-      - name: --group-transitive-members
-        long-summary: |
-            Usage: --group-transitive-members deleted-date-time=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --group-transitive-members argument.
-      - name: --group-accepted-senders
+            Multiple actions can be specified by using more than one --transitive-members argument.
+      - name: --accepted-senders
         short-summary: "The list of users or groups that are allowed to create post's or calendar events in this \
 group. If this list is non-empty then only users or groups listed here are allowed to post."
         long-summary: |
-            Usage: --group-accepted-senders deleted-date-time=XX id=XX
+            Usage: --accepted-senders deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-accepted-senders argument.
-      - name: --group-photo
+            Multiple actions can be specified by using more than one --accepted-senders argument.
+      - name: --photo
         short-summary: "profilePhoto"
         long-summary: |
-            Usage: --group-photo height=XX width=XX id=XX
+            Usage: --photo height=XX width=XX id=XX
 
             height: The height of the photo. Read-only.
             width: The width of the photo. Read-only.
             id: Read-only.
-      - name: --group-photos
+      - name: --photos
         short-summary: "The profile photos owned by the group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-photos height=XX width=XX id=XX
+            Usage: --photos height=XX width=XX id=XX
 
             height: The height of the photo. Read-only.
             width: The width of the photo. Read-only.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-photos argument.
-      - name: --group-rejected-senders
+            Multiple actions can be specified by using more than one --photos argument.
+      - name: --rejected-senders
         short-summary: "The list of users or groups that are not allowed to create posts or calendar events in this \
 group. Nullable"
         long-summary: |
-            Usage: --group-rejected-senders deleted-date-time=XX id=XX
+            Usage: --rejected-senders deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-rejected-senders argument.
-      - name: --group-extensions
+            Multiple actions can be specified by using more than one --rejected-senders argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-extensions argument.
-      - name: --group-group-lifecycle-policies
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --group-lifecycle-policies
         short-summary: "The collection of lifecycle policies for this group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-group-lifecycle-policies alternate-notification-emails=XX group-lifetime-in-days=XX \
+            Usage: --group-lifecycle-policies alternate-notification-emails=XX group-lifetime-in-days=XX \
 managed-group-types=XX id=XX
 
             alternate-notification-emails: List of email address to send notifications for groups without owners. \
@@ -302,15 +306,13 @@ group expiration is extended by the number of days defined.
 Selected or None.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-group-lifecycle-policies argument.
-      - name: --schedule-offer-shift-requests
+            Multiple actions can be specified by using more than one --group-lifecycle-policies argument.
+      - name: --offer-shift-requests
         long-summary: |
-            Usage: --schedule-offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
+            Usage: --offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
 recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX manager-action-message=XX \
 manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
 and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -321,56 +323,34 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-offer-shift-requests argument.
-      - name: --schedule-open-shift-change-requests
+            Multiple actions can be specified by using more than one --offer-shift-requests argument.
+      - name: --open-shift-change-requests
         long-summary: |
-            Usage: --schedule-open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
+            Usage: --open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             open-shift-id: ID for the open shift.
             created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-open-shift-change-requests argument.
-      - name: --schedule-scheduling-groups
+            Multiple actions can be specified by using more than one --open-shift-change-requests argument.
+      - name: --scheduling-groups
         short-summary: "The logical grouping of users in the schedule (usually by role)."
         long-summary: |
-            Usage: --schedule-scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The display name for the schedulingGroup. Required.
             is-active: Indicates whether the schedulingGroup can be used when creating new entities or updating \
@@ -380,70 +360,18 @@ existing ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-scheduling-groups argument.
-      - name: --schedule-shifts
-        short-summary: "The shifts in the schedule."
+            Multiple actions can be specified by using more than one --scheduling-groups argument.
+      - name: --swap-shifts-change-requests
         long-summary: |
-            Usage: --schedule-shifts scheduling-group-id=XX user-id=XX end-date-time-shared-shift-end-date-time=XX \
-start-date-time-shared-shift-start-date-time=XX theme-shared-shift-theme=XX activities-shared-shift-activities=XX \
-display-name-shared-shift-display-name=XX notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX \
-start-date-time-draft-shift-start-date-time=XX theme-draft-shift-theme=XX activities-draft-shift-activities=XX \
-display-name-draft-shift-display-name=XX notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
-
-            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
-            user-id: ID of the user assigned to the shift. Required.
-            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-shared-shift-display-name: The shift label of the shiftItem.
-            notes-shared-shift-notes: The shift notes for the shiftItem.
-            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-draft-shift-display-name: The shift label of the shiftItem.
-            notes-draft-shift-notes: The shift notes for the shiftItem.
-            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
-always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --schedule-shifts argument.
-      - name: --schedule-swap-shifts-change-requests
-        long-summary: |
-            Usage: --schedule-swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
+            Usage: --swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
 recipient-action-message=XX recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-shift-id: ShiftId for the recipient user with whom the request is to swap.
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
@@ -455,28 +383,17 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-swap-shifts-change-requests argument.
-      - name: --schedule-time-off-reasons
+            Multiple actions can be specified by using more than one --swap-shifts-change-requests argument.
+      - name: --time-off-reasons
         short-summary: "The set of reasons for a time off in the schedule."
         long-summary: |
-            Usage: --schedule-time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The name of the timeOffReason. Required.
             is-active: Indicates whether the timeOffReason can be used when creating new entities or updating existing \
@@ -485,29 +402,17 @@ ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-time-off-reasons argument.
-      - name: --schedule-time-off-requests
+            Multiple actions can be specified by using more than one --time-off-reasons argument.
+      - name: --time-off-requests
         long-summary: |
-            Usage: --schedule-time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX \
-assigned-to=XX manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX \
-sender-message=XX sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
+            Usage: --time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX assigned-to=XX \
+manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX \
+sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             end-date-time: The Timestamp type represents date and time information using ISO 8601 format and is always \
 in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -518,46 +423,27 @@ always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like thi
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-time-off-requests argument.
-"""
-
-helps['teams group delete'] = """
-    type: command
-    short-summary: "Delete navigation property team for groups"
-"""
-
-helps['teams group get'] = """
-    type: command
-    short-summary: "Get team from groups"
+            Multiple actions can be specified by using more than one --time-off-requests argument.
 """
 
 helps['teams team'] = """
     type: group
-    short-summary: teams team
+    short-summary: Manage team team with teams_v1_0
 """
 
 helps['teams team list'] = """
     type: command
-    short-summary: "Get entities from teams"
+    short-summary: "Get entities from teams."
 """
 
 helps['teams team create'] = """
     type: command
-    short-summary: "Add new entity to teams"
+    short-summary: "Update entity in teams And Add new entity to teams."
     parameters:
       - name: --fun-settings
         short-summary: "teamFunSettings"
@@ -609,34 +495,34 @@ allow-team-mentions=XX allow-user-delete-messages=XX allow-user-edit-messages=XX
             id: Read-only.
 
             Multiple actions can be specified by using more than one --members argument.
-      - name: --group-assigned-labels
+      - name: --assigned-labels
         short-summary: "The list of sensitivity label pairs (label ID, label name) associated with an Microsoft 365 \
 group. Returned only on $select. Read-only."
         long-summary: |
-            Usage: --group-assigned-labels display-name=XX label-id=XX
+            Usage: --assigned-labels display-name=XX label-id=XX
 
             display-name: The display name of the label. Read-only.
             label-id: The unique identifier of the label.
 
-            Multiple actions can be specified by using more than one --group-assigned-labels argument.
-      - name: --group-assigned-licenses
+            Multiple actions can be specified by using more than one --assigned-labels argument.
+      - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the group. Returned only on $select. Read-only."
         long-summary: |
-            Usage: --group-assigned-licenses disabled-plans=XX sku-id=XX
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
 
             disabled-plans: A collection of the unique identifiers for plans that have been disabled.
             sku-id: The unique identifier for the SKU.
 
-            Multiple actions can be specified by using more than one --group-assigned-licenses argument.
-      - name: --group-license-processing-state
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --license-processing-state
         short-summary: "licenseProcessingState"
         long-summary: |
-            Usage: --group-license-processing-state state=XX
+            Usage: --license-processing-state state=XX
 
-      - name: --group-on-premises-provisioning-errors
+      - name: --on-premises-provisioning-errors
         short-summary: "Errors when using Microsoft synchronization product during provisioning. Returned by default."
         long-summary: |
-            Usage: --group-on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
+            Usage: --on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
 value=XX
 
             category: Category of the provisioning error. Note: Currently, there is only one possible value. Possible \
@@ -647,10 +533,10 @@ property.
 UserPrincipalName or ProxyAddress
             value: Value of the property causing the error.
 
-            Multiple actions can be specified by using more than one --group-on-premises-provisioning-errors argument.
-      - name: --group-app-role-assignments
+            Multiple actions can be specified by using more than one --on-premises-provisioning-errors argument.
+      - name: --app-role-assignments
         long-summary: |
-            Usage: --group-app-role-assignments app-role-id=XX created-date-time=XX principal-display-name=XX \
+            Usage: --app-role-assignments app-role-id=XX created-date-time=XX principal-display-name=XX \
 principal-id=XX principal-type=XX resource-display-name=XX resource-id=XX deleted-date-time=XX id=XX
 
             app-role-id: The identifier (id) for the app role which is assigned to the principal. This app role must \
@@ -670,126 +556,115 @@ made. Does not support $filter.
 made. Required on create. Supports $filter (eq only).
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-app-role-assignments argument.
-      - name: --group-created-on-behalf-of
+            Multiple actions can be specified by using more than one --app-role-assignments argument.
+      - name: --created-on-behalf-of
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
         long-summary: |
-            Usage: --group-created-on-behalf-of deleted-date-time=XX id=XX
+            Usage: --created-on-behalf-of deleted-date-time=XX id=XX
 
             id: Read-only.
-      - name: --group-member-of
+      - name: --member-of
         short-summary: "Groups that this group is a member of. HTTP Methods: GET (supported for all groups). \
 Read-only. Nullable."
         long-summary: |
-            Usage: --group-member-of deleted-date-time=XX id=XX
+            Usage: --member-of deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-member-of argument.
-      - name: --group-members
+            Multiple actions can be specified by using more than one --member-of argument.
+      - name: --microsoft-graph-group-members
         short-summary: "Users and groups that are members of this group. HTTP Methods: GET (supported for all groups), \
 POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for \
 Microsoft 365 groups and security groups) Nullable."
         long-summary: |
-            Usage: --group-members deleted-date-time=XX id=XX
+            Usage: --microsoft-graph-group-members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-members argument.
-      - name: --group-members-with-license-errors
+            Multiple actions can be specified by using more than one --microsoft-graph-group-members argument.
+      - name: --members-with-license-errors
         short-summary: "A list of group members with license errors from this group-based license assignment. \
 Read-only."
         long-summary: |
-            Usage: --group-members-with-license-errors deleted-date-time=XX id=XX
+            Usage: --members-with-license-errors deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-members-with-license-errors argument.
-      - name: --group-owners
+            Multiple actions can be specified by using more than one --members-with-license-errors argument.
+      - name: --owners
         short-summary: "The owners of the group. The owners are a set of non-admin users who are allowed to modify \
 this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 \
 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security \
 groups). Nullable."
         long-summary: |
-            Usage: --group-owners deleted-date-time=XX id=XX
+            Usage: --owners deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-owners argument.
-      - name: --group-settings
-        short-summary: "Read-only. Nullable."
+            Multiple actions can be specified by using more than one --owners argument.
+      - name: --transitive-member-of
         long-summary: |
-            Usage: --group-settings display-name=XX template-id=XX values=XX id=XX
+            Usage: --transitive-member-of deleted-date-time=XX id=XX
 
-            display-name: Display name of this group of settings, which comes from the associated template.
-            template-id: Unique identifier for the template used to create this group of settings. Read-only.
-            values: Collection of name value pairs. Must contain and set all the settings defined in the template.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-settings argument.
-      - name: --group-transitive-member-of
+            Multiple actions can be specified by using more than one --transitive-member-of argument.
+      - name: --transitive-members
         long-summary: |
-            Usage: --group-transitive-member-of deleted-date-time=XX id=XX
+            Usage: --transitive-members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-transitive-member-of argument.
-      - name: --group-transitive-members
-        long-summary: |
-            Usage: --group-transitive-members deleted-date-time=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --group-transitive-members argument.
-      - name: --group-accepted-senders
+            Multiple actions can be specified by using more than one --transitive-members argument.
+      - name: --accepted-senders
         short-summary: "The list of users or groups that are allowed to create post's or calendar events in this \
 group. If this list is non-empty then only users or groups listed here are allowed to post."
         long-summary: |
-            Usage: --group-accepted-senders deleted-date-time=XX id=XX
+            Usage: --accepted-senders deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-accepted-senders argument.
-      - name: --group-photo
+            Multiple actions can be specified by using more than one --accepted-senders argument.
+      - name: --photo
         short-summary: "profilePhoto"
         long-summary: |
-            Usage: --group-photo height=XX width=XX id=XX
+            Usage: --photo height=XX width=XX id=XX
 
             height: The height of the photo. Read-only.
             width: The width of the photo. Read-only.
             id: Read-only.
-      - name: --group-photos
+      - name: --photos
         short-summary: "The profile photos owned by the group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-photos height=XX width=XX id=XX
+            Usage: --photos height=XX width=XX id=XX
 
             height: The height of the photo. Read-only.
             width: The width of the photo. Read-only.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-photos argument.
-      - name: --group-rejected-senders
+            Multiple actions can be specified by using more than one --photos argument.
+      - name: --rejected-senders
         short-summary: "The list of users or groups that are not allowed to create posts or calendar events in this \
 group. Nullable"
         long-summary: |
-            Usage: --group-rejected-senders deleted-date-time=XX id=XX
+            Usage: --rejected-senders deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-rejected-senders argument.
-      - name: --group-extensions
+            Multiple actions can be specified by using more than one --rejected-senders argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-extensions argument.
-      - name: --group-group-lifecycle-policies
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --group-lifecycle-policies
         short-summary: "The collection of lifecycle policies for this group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-group-lifecycle-policies alternate-notification-emails=XX group-lifetime-in-days=XX \
+            Usage: --group-lifecycle-policies alternate-notification-emails=XX group-lifetime-in-days=XX \
 managed-group-types=XX id=XX
 
             alternate-notification-emails: List of email address to send notifications for groups without owners. \
@@ -800,15 +675,13 @@ group expiration is extended by the number of days defined.
 Selected or None.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-group-lifecycle-policies argument.
-      - name: --schedule-offer-shift-requests
+            Multiple actions can be specified by using more than one --group-lifecycle-policies argument.
+      - name: --offer-shift-requests
         long-summary: |
-            Usage: --schedule-offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
+            Usage: --offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
 recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX manager-action-message=XX \
 manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
 and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -819,56 +692,34 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-offer-shift-requests argument.
-      - name: --schedule-open-shift-change-requests
+            Multiple actions can be specified by using more than one --offer-shift-requests argument.
+      - name: --open-shift-change-requests
         long-summary: |
-            Usage: --schedule-open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
+            Usage: --open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             open-shift-id: ID for the open shift.
             created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-open-shift-change-requests argument.
-      - name: --schedule-scheduling-groups
+            Multiple actions can be specified by using more than one --open-shift-change-requests argument.
+      - name: --scheduling-groups
         short-summary: "The logical grouping of users in the schedule (usually by role)."
         long-summary: |
-            Usage: --schedule-scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The display name for the schedulingGroup. Required.
             is-active: Indicates whether the schedulingGroup can be used when creating new entities or updating \
@@ -878,70 +729,18 @@ existing ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-scheduling-groups argument.
-      - name: --schedule-shifts
-        short-summary: "The shifts in the schedule."
+            Multiple actions can be specified by using more than one --scheduling-groups argument.
+      - name: --swap-shifts-change-requests
         long-summary: |
-            Usage: --schedule-shifts scheduling-group-id=XX user-id=XX end-date-time-shared-shift-end-date-time=XX \
-start-date-time-shared-shift-start-date-time=XX theme-shared-shift-theme=XX activities-shared-shift-activities=XX \
-display-name-shared-shift-display-name=XX notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX \
-start-date-time-draft-shift-start-date-time=XX theme-draft-shift-theme=XX activities-draft-shift-activities=XX \
-display-name-draft-shift-display-name=XX notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
-
-            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
-            user-id: ID of the user assigned to the shift. Required.
-            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-shared-shift-display-name: The shift label of the shiftItem.
-            notes-shared-shift-notes: The shift notes for the shiftItem.
-            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-draft-shift-display-name: The shift label of the shiftItem.
-            notes-draft-shift-notes: The shift notes for the shiftItem.
-            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
-always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --schedule-shifts argument.
-      - name: --schedule-swap-shifts-change-requests
-        long-summary: |
-            Usage: --schedule-swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
+            Usage: --swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
 recipient-action-message=XX recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-shift-id: ShiftId for the recipient user with whom the request is to swap.
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
@@ -953,28 +752,17 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-swap-shifts-change-requests argument.
-      - name: --schedule-time-off-reasons
+            Multiple actions can be specified by using more than one --swap-shifts-change-requests argument.
+      - name: --time-off-reasons
         short-summary: "The set of reasons for a time off in the schedule."
         long-summary: |
-            Usage: --schedule-time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The name of the timeOffReason. Required.
             is-active: Indicates whether the timeOffReason can be used when creating new entities or updating existing \
@@ -983,29 +771,17 @@ ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-time-off-reasons argument.
-      - name: --schedule-time-off-requests
+            Multiple actions can be specified by using more than one --time-off-reasons argument.
+      - name: --time-off-requests
         long-summary: |
-            Usage: --schedule-time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX \
-assigned-to=XX manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX \
-sender-message=XX sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
+            Usage: --time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX assigned-to=XX \
+manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX \
+sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             end-date-time: The Timestamp type represents date and time information using ISO 8601 format and is always \
 in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -1016,27 +792,12 @@ always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like thi
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-time-off-requests argument.
-"""
-
-helps['teams team update'] = """
-    type: command
-    short-summary: "Update entity in teams"
-    parameters:
+            Multiple actions can be specified by using more than one --time-off-requests argument.
       - name: --fun-settings
         short-summary: "teamFunSettings"
         long-summary: |
@@ -1087,34 +848,34 @@ allow-team-mentions=XX allow-user-delete-messages=XX allow-user-edit-messages=XX
             id: Read-only.
 
             Multiple actions can be specified by using more than one --members argument.
-      - name: --group-assigned-labels
+      - name: --assigned-labels
         short-summary: "The list of sensitivity label pairs (label ID, label name) associated with an Microsoft 365 \
 group. Returned only on $select. Read-only."
         long-summary: |
-            Usage: --group-assigned-labels display-name=XX label-id=XX
+            Usage: --assigned-labels display-name=XX label-id=XX
 
             display-name: The display name of the label. Read-only.
             label-id: The unique identifier of the label.
 
-            Multiple actions can be specified by using more than one --group-assigned-labels argument.
-      - name: --group-assigned-licenses
+            Multiple actions can be specified by using more than one --assigned-labels argument.
+      - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the group. Returned only on $select. Read-only."
         long-summary: |
-            Usage: --group-assigned-licenses disabled-plans=XX sku-id=XX
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
 
             disabled-plans: A collection of the unique identifiers for plans that have been disabled.
             sku-id: The unique identifier for the SKU.
 
-            Multiple actions can be specified by using more than one --group-assigned-licenses argument.
-      - name: --group-license-processing-state
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --license-processing-state
         short-summary: "licenseProcessingState"
         long-summary: |
-            Usage: --group-license-processing-state state=XX
+            Usage: --license-processing-state state=XX
 
-      - name: --group-on-premises-provisioning-errors
+      - name: --on-premises-provisioning-errors
         short-summary: "Errors when using Microsoft synchronization product during provisioning. Returned by default."
         long-summary: |
-            Usage: --group-on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
+            Usage: --on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
 value=XX
 
             category: Category of the provisioning error. Note: Currently, there is only one possible value. Possible \
@@ -1125,10 +886,10 @@ property.
 UserPrincipalName or ProxyAddress
             value: Value of the property causing the error.
 
-            Multiple actions can be specified by using more than one --group-on-premises-provisioning-errors argument.
-      - name: --group-app-role-assignments
+            Multiple actions can be specified by using more than one --on-premises-provisioning-errors argument.
+      - name: --app-role-assignments
         long-summary: |
-            Usage: --group-app-role-assignments app-role-id=XX created-date-time=XX principal-display-name=XX \
+            Usage: --app-role-assignments app-role-id=XX created-date-time=XX principal-display-name=XX \
 principal-id=XX principal-type=XX resource-display-name=XX resource-id=XX deleted-date-time=XX id=XX
 
             app-role-id: The identifier (id) for the app role which is assigned to the principal. This app role must \
@@ -1148,126 +909,115 @@ made. Does not support $filter.
 made. Required on create. Supports $filter (eq only).
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-app-role-assignments argument.
-      - name: --group-created-on-behalf-of
+            Multiple actions can be specified by using more than one --app-role-assignments argument.
+      - name: --created-on-behalf-of
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
         long-summary: |
-            Usage: --group-created-on-behalf-of deleted-date-time=XX id=XX
+            Usage: --created-on-behalf-of deleted-date-time=XX id=XX
 
             id: Read-only.
-      - name: --group-member-of
+      - name: --member-of
         short-summary: "Groups that this group is a member of. HTTP Methods: GET (supported for all groups). \
 Read-only. Nullable."
         long-summary: |
-            Usage: --group-member-of deleted-date-time=XX id=XX
+            Usage: --member-of deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-member-of argument.
-      - name: --group-members
+            Multiple actions can be specified by using more than one --member-of argument.
+      - name: --microsoft-graph-group-members
         short-summary: "Users and groups that are members of this group. HTTP Methods: GET (supported for all groups), \
 POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for \
 Microsoft 365 groups and security groups) Nullable."
         long-summary: |
-            Usage: --group-members deleted-date-time=XX id=XX
+            Usage: --microsoft-graph-group-members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-members argument.
-      - name: --group-members-with-license-errors
+            Multiple actions can be specified by using more than one --microsoft-graph-group-members argument.
+      - name: --members-with-license-errors
         short-summary: "A list of group members with license errors from this group-based license assignment. \
 Read-only."
         long-summary: |
-            Usage: --group-members-with-license-errors deleted-date-time=XX id=XX
+            Usage: --members-with-license-errors deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-members-with-license-errors argument.
-      - name: --group-owners
+            Multiple actions can be specified by using more than one --members-with-license-errors argument.
+      - name: --owners
         short-summary: "The owners of the group. The owners are a set of non-admin users who are allowed to modify \
 this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 \
 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security \
 groups). Nullable."
         long-summary: |
-            Usage: --group-owners deleted-date-time=XX id=XX
+            Usage: --owners deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-owners argument.
-      - name: --group-settings
-        short-summary: "Read-only. Nullable."
+            Multiple actions can be specified by using more than one --owners argument.
+      - name: --transitive-member-of
         long-summary: |
-            Usage: --group-settings display-name=XX template-id=XX values=XX id=XX
+            Usage: --transitive-member-of deleted-date-time=XX id=XX
 
-            display-name: Display name of this group of settings, which comes from the associated template.
-            template-id: Unique identifier for the template used to create this group of settings. Read-only.
-            values: Collection of name value pairs. Must contain and set all the settings defined in the template.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-settings argument.
-      - name: --group-transitive-member-of
+            Multiple actions can be specified by using more than one --transitive-member-of argument.
+      - name: --transitive-members
         long-summary: |
-            Usage: --group-transitive-member-of deleted-date-time=XX id=XX
+            Usage: --transitive-members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-transitive-member-of argument.
-      - name: --group-transitive-members
-        long-summary: |
-            Usage: --group-transitive-members deleted-date-time=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --group-transitive-members argument.
-      - name: --group-accepted-senders
+            Multiple actions can be specified by using more than one --transitive-members argument.
+      - name: --accepted-senders
         short-summary: "The list of users or groups that are allowed to create post's or calendar events in this \
 group. If this list is non-empty then only users or groups listed here are allowed to post."
         long-summary: |
-            Usage: --group-accepted-senders deleted-date-time=XX id=XX
+            Usage: --accepted-senders deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-accepted-senders argument.
-      - name: --group-photo
+            Multiple actions can be specified by using more than one --accepted-senders argument.
+      - name: --photo
         short-summary: "profilePhoto"
         long-summary: |
-            Usage: --group-photo height=XX width=XX id=XX
+            Usage: --photo height=XX width=XX id=XX
 
             height: The height of the photo. Read-only.
             width: The width of the photo. Read-only.
             id: Read-only.
-      - name: --group-photos
+      - name: --photos
         short-summary: "The profile photos owned by the group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-photos height=XX width=XX id=XX
+            Usage: --photos height=XX width=XX id=XX
 
             height: The height of the photo. Read-only.
             width: The width of the photo. Read-only.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-photos argument.
-      - name: --group-rejected-senders
+            Multiple actions can be specified by using more than one --photos argument.
+      - name: --rejected-senders
         short-summary: "The list of users or groups that are not allowed to create posts or calendar events in this \
 group. Nullable"
         long-summary: |
-            Usage: --group-rejected-senders deleted-date-time=XX id=XX
+            Usage: --rejected-senders deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-rejected-senders argument.
-      - name: --group-extensions
+            Multiple actions can be specified by using more than one --rejected-senders argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-extensions argument.
-      - name: --group-group-lifecycle-policies
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --group-lifecycle-policies
         short-summary: "The collection of lifecycle policies for this group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-group-lifecycle-policies alternate-notification-emails=XX group-lifetime-in-days=XX \
+            Usage: --group-lifecycle-policies alternate-notification-emails=XX group-lifetime-in-days=XX \
 managed-group-types=XX id=XX
 
             alternate-notification-emails: List of email address to send notifications for groups without owners. \
@@ -1278,15 +1028,13 @@ group expiration is extended by the number of days defined.
 Selected or None.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-group-lifecycle-policies argument.
-      - name: --schedule-offer-shift-requests
+            Multiple actions can be specified by using more than one --group-lifecycle-policies argument.
+      - name: --offer-shift-requests
         long-summary: |
-            Usage: --schedule-offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
+            Usage: --offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
 recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX manager-action-message=XX \
 manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
 and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -1297,56 +1045,34 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-offer-shift-requests argument.
-      - name: --schedule-open-shift-change-requests
+            Multiple actions can be specified by using more than one --offer-shift-requests argument.
+      - name: --open-shift-change-requests
         long-summary: |
-            Usage: --schedule-open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
+            Usage: --open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             open-shift-id: ID for the open shift.
             created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-open-shift-change-requests argument.
-      - name: --schedule-scheduling-groups
+            Multiple actions can be specified by using more than one --open-shift-change-requests argument.
+      - name: --scheduling-groups
         short-summary: "The logical grouping of users in the schedule (usually by role)."
         long-summary: |
-            Usage: --schedule-scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The display name for the schedulingGroup. Required.
             is-active: Indicates whether the schedulingGroup can be used when creating new entities or updating \
@@ -1356,70 +1082,18 @@ existing ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-scheduling-groups argument.
-      - name: --schedule-shifts
-        short-summary: "The shifts in the schedule."
+            Multiple actions can be specified by using more than one --scheduling-groups argument.
+      - name: --swap-shifts-change-requests
         long-summary: |
-            Usage: --schedule-shifts scheduling-group-id=XX user-id=XX end-date-time-shared-shift-end-date-time=XX \
-start-date-time-shared-shift-start-date-time=XX theme-shared-shift-theme=XX activities-shared-shift-activities=XX \
-display-name-shared-shift-display-name=XX notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX \
-start-date-time-draft-shift-start-date-time=XX theme-draft-shift-theme=XX activities-draft-shift-activities=XX \
-display-name-draft-shift-display-name=XX notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
-
-            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
-            user-id: ID of the user assigned to the shift. Required.
-            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-shared-shift-display-name: The shift label of the shiftItem.
-            notes-shared-shift-notes: The shift notes for the shiftItem.
-            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-draft-shift-display-name: The shift label of the shiftItem.
-            notes-draft-shift-notes: The shift notes for the shiftItem.
-            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
-always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --schedule-shifts argument.
-      - name: --schedule-swap-shifts-change-requests
-        long-summary: |
-            Usage: --schedule-swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
+            Usage: --swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
 recipient-action-message=XX recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-shift-id: ShiftId for the recipient user with whom the request is to swap.
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
@@ -1431,28 +1105,17 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-swap-shifts-change-requests argument.
-      - name: --schedule-time-off-reasons
+            Multiple actions can be specified by using more than one --swap-shifts-change-requests argument.
+      - name: --time-off-reasons
         short-summary: "The set of reasons for a time off in the schedule."
         long-summary: |
-            Usage: --schedule-time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The name of the timeOffReason. Required.
             is-active: Indicates whether the timeOffReason can be used when creating new entities or updating existing \
@@ -1461,29 +1124,17 @@ ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-time-off-reasons argument.
-      - name: --schedule-time-off-requests
+            Multiple actions can be specified by using more than one --time-off-reasons argument.
+      - name: --time-off-requests
         long-summary: |
-            Usage: --schedule-time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX \
-assigned-to=XX manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX \
-sender-message=XX sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
+            Usage: --time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX assigned-to=XX \
+manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX \
+sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             end-date-time: The Timestamp type represents date and time information using ISO 8601 format and is always \
 in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -1494,56 +1145,42 @@ always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like thi
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-time-off-requests argument.
+            Multiple actions can be specified by using more than one --time-off-requests argument.
 """
 
-helps['teams team delete'] = """
+helps['teams team delete-team'] = """
     type: command
-    short-summary: "Delete entity from teams"
+    short-summary: "Delete entity from teams."
 """
 
-helps['teams team get'] = """
+helps['teams team show-team'] = """
     type: command
-    short-summary: "Get entity from teams by key"
+    short-summary: "Get entity from teams by key."
 """
 
 helps['teams team'] = """
     type: group
-    short-summary: teams team
-"""
-
-helps['teams team delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property template for teams"
+    short-summary: Manage team with teams_v1_0
 """
 
 helps['teams team archive'] = """
     type: command
-    short-summary: "Invoke action archive"
+    short-summary: "Invoke action archive."
 """
 
 helps['teams team clone'] = """
     type: command
-    short-summary: "Invoke action clone"
+    short-summary: "Invoke action clone."
 """
 
 helps['teams team create-channel'] = """
     type: command
-    short-summary: "Create new navigation property to channels for teams"
+    short-summary: "Create new navigation property to channels for teams."
     parameters:
       - name: --members
         long-summary: |
@@ -1558,7 +1195,7 @@ helps['teams team create-channel'] = """
 
 helps['teams team create-installed-app'] = """
     type: command
-    short-summary: "Create new navigation property to installedApps for teams"
+    short-summary: "Create new navigation property to installedApps for teams."
     parameters:
       - name: --teams-app-definition
         short-summary: "teamsAppDefinition"
@@ -1569,27 +1206,27 @@ helps['teams team create-installed-app'] = """
             teams-app-id: The ID from the Teams app manifest.
             version: The version number of the application.
             id: Read-only.
-      - name: --teams-app-app-definitions
+      - name: --app-definitions
         short-summary: "The details for each version of the app."
         long-summary: |
-            Usage: --teams-app-app-definitions display-name=XX teams-app-id=XX version=XX id=XX
+            Usage: --app-definitions display-name=XX teams-app-id=XX version=XX id=XX
 
             display-name: The name of the app provided by the app developer.
             teams-app-id: The ID from the Teams app manifest.
             version: The version number of the application.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
+            Multiple actions can be specified by using more than one --app-definitions argument.
 """
 
 helps['teams team create-member'] = """
     type: command
-    short-summary: "Create new navigation property to members for teams"
+    short-summary: "Create new navigation property to members for teams."
 """
 
 helps['teams team create-operation'] = """
     type: command
-    short-summary: "Create new navigation property to operations for teams"
+    short-summary: "Create new navigation property to operations for teams."
     parameters:
       - name: --error
         short-summary: "operationError"
@@ -1600,99 +1237,139 @@ helps['teams team create-operation'] = """
             message: Operation error message.
 """
 
-helps['teams team get-all-message'] = """
+helps['teams team delete-channel'] = """
     type: command
-    short-summary: "Invoke function getAllMessages"
+    short-summary: "Delete navigation property channels for teams."
 """
 
-helps['teams team get-channel'] = """
+helps['teams team delete-installed-app'] = """
     type: command
-    short-summary: "Get channels from teams"
+    short-summary: "Delete navigation property installedApps for teams."
 """
 
-helps['teams team get-group'] = """
+helps['teams team delete-member'] = """
     type: command
-    short-summary: "Get group from teams"
+    short-summary: "Delete navigation property members for teams."
 """
 
-helps['teams team get-installed-app'] = """
+helps['teams team delete-operation'] = """
     type: command
-    short-summary: "Get installedApps from teams"
+    short-summary: "Delete navigation property operations for teams."
 """
 
-helps['teams team get-member'] = """
+helps['teams team delete-primary-channel'] = """
     type: command
-    short-summary: "Get members from teams"
+    short-summary: "Delete navigation property primaryChannel for teams."
 """
 
-helps['teams team get-operation'] = """
+helps['teams team delete-ref-group'] = """
     type: command
-    short-summary: "Get operations from teams"
+    short-summary: "Delete ref of navigation property group for teams."
 """
 
-helps['teams team get-primary-channel'] = """
+helps['teams team delete-ref-template'] = """
     type: command
-    short-summary: "Get primaryChannel from teams"
+    short-summary: "Delete ref of navigation property template for teams."
 """
 
-helps['teams team get-ref-group'] = """
+helps['teams team delete-schedule'] = """
     type: command
-    short-summary: "Get ref of group from teams"
-"""
-
-helps['teams team get-ref-template'] = """
-    type: command
-    short-summary: "Get ref of template from teams"
-"""
-
-helps['teams team get-schedule'] = """
-    type: command
-    short-summary: "Get schedule from teams"
-"""
-
-helps['teams team get-template'] = """
-    type: command
-    short-summary: "Get template from teams"
+    short-summary: "Delete navigation property schedule for teams."
 """
 
 helps['teams team list-channel'] = """
     type: command
-    short-summary: "Get channels from teams"
+    short-summary: "Get channels from teams."
 """
 
 helps['teams team list-installed-app'] = """
     type: command
-    short-summary: "Get installedApps from teams"
+    short-summary: "Get installedApps from teams."
 """
 
 helps['teams team list-member'] = """
     type: command
-    short-summary: "Get members from teams"
+    short-summary: "Get members from teams."
 """
 
 helps['teams team list-operation'] = """
     type: command
-    short-summary: "Get operations from teams"
+    short-summary: "Get operations from teams."
 """
 
 helps['teams team set-ref-group'] = """
     type: command
-    short-summary: "Update the ref of navigation property group in teams"
+    short-summary: "Update the ref of navigation property group in teams."
 """
 
 helps['teams team set-ref-template'] = """
     type: command
-    short-summary: "Update the ref of navigation property template in teams"
+    short-summary: "Update the ref of navigation property template in teams."
+"""
+
+helps['teams team show-all-message'] = """
+    type: command
+    short-summary: "Invoke function getAllMessages."
+"""
+
+helps['teams team show-channel'] = """
+    type: command
+    short-summary: "Get channels from teams."
+"""
+
+helps['teams team show-group'] = """
+    type: command
+    short-summary: "Get group from teams."
+"""
+
+helps['teams team show-installed-app'] = """
+    type: command
+    short-summary: "Get installedApps from teams."
+"""
+
+helps['teams team show-member'] = """
+    type: command
+    short-summary: "Get members from teams."
+"""
+
+helps['teams team show-operation'] = """
+    type: command
+    short-summary: "Get operations from teams."
+"""
+
+helps['teams team show-primary-channel'] = """
+    type: command
+    short-summary: "Get primaryChannel from teams."
+"""
+
+helps['teams team show-ref-group'] = """
+    type: command
+    short-summary: "Get ref of group from teams."
+"""
+
+helps['teams team show-ref-template'] = """
+    type: command
+    short-summary: "Get ref of template from teams."
+"""
+
+helps['teams team show-schedule'] = """
+    type: command
+    short-summary: "Get schedule from teams."
+"""
+
+helps['teams team show-template'] = """
+    type: command
+    short-summary: "Get template from teams."
 """
 
 helps['teams team unarchive'] = """
     type: command
-    short-summary: "Invoke action unarchive"
+    short-summary: "Invoke action unarchive."
 """
 
 helps['teams team update-channel'] = """
     type: command
-    short-summary: "Update the navigation property channels in teams"
+    short-summary: "Update the navigation property channels in teams."
     parameters:
       - name: --members
         long-summary: |
@@ -1707,7 +1384,7 @@ helps['teams team update-channel'] = """
 
 helps['teams team update-installed-app'] = """
     type: command
-    short-summary: "Update the navigation property installedApps in teams"
+    short-summary: "Update the navigation property installedApps in teams."
     parameters:
       - name: --teams-app-definition
         short-summary: "teamsAppDefinition"
@@ -1718,27 +1395,27 @@ helps['teams team update-installed-app'] = """
             teams-app-id: The ID from the Teams app manifest.
             version: The version number of the application.
             id: Read-only.
-      - name: --teams-app-app-definitions
+      - name: --app-definitions
         short-summary: "The details for each version of the app."
         long-summary: |
-            Usage: --teams-app-app-definitions display-name=XX teams-app-id=XX version=XX id=XX
+            Usage: --app-definitions display-name=XX teams-app-id=XX version=XX id=XX
 
             display-name: The name of the app provided by the app developer.
             teams-app-id: The ID from the Teams app manifest.
             version: The version number of the application.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
+            Multiple actions can be specified by using more than one --app-definitions argument.
 """
 
 helps['teams team update-member'] = """
     type: command
-    short-summary: "Update the navigation property members in teams"
+    short-summary: "Update the navigation property members in teams."
 """
 
 helps['teams team update-operation'] = """
     type: command
-    short-summary: "Update the navigation property operations in teams"
+    short-summary: "Update the navigation property operations in teams."
     parameters:
       - name: --error
         short-summary: "operationError"
@@ -1751,7 +1428,7 @@ helps['teams team update-operation'] = """
 
 helps['teams team update-primary-channel'] = """
     type: command
-    short-summary: "Update the navigation property primaryChannel in teams"
+    short-summary: "Update the navigation property primaryChannel in teams."
     parameters:
       - name: --members
         long-summary: |
@@ -1766,16 +1443,14 @@ helps['teams team update-primary-channel'] = """
 
 helps['teams team update-schedule'] = """
     type: command
-    short-summary: "Update the navigation property schedule in teams"
+    short-summary: "Update the navigation property schedule in teams."
     parameters:
       - name: --offer-shift-requests
         long-summary: |
             Usage: --offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
 recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX manager-action-message=XX \
 manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
 and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -1786,18 +1461,9 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
             Multiple actions can be specified by using more than one --offer-shift-requests argument.
@@ -1805,27 +1471,16 @@ value in a future response, but the items associated with the user won't show up
         long-summary: |
             Usage: --open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             open-shift-id: ID for the open shift.
             created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
             Multiple actions can be specified by using more than one --open-shift-change-requests argument.
@@ -1833,9 +1488,7 @@ value in a future response, but the items associated with the user won't show up
         short-summary: "The logical grouping of users in the schedule (usually by role)."
         long-summary: |
             Usage: --scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The display name for the schedulingGroup. Required.
             is-active: Indicates whether the schedulingGroup can be used when creating new entities or updating \
@@ -1845,70 +1498,18 @@ existing ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
             Multiple actions can be specified by using more than one --scheduling-groups argument.
-      - name: --shifts
-        short-summary: "The shifts in the schedule."
-        long-summary: |
-            Usage: --shifts scheduling-group-id=XX user-id=XX end-date-time-shared-shift-end-date-time=XX \
-start-date-time-shared-shift-start-date-time=XX theme-shared-shift-theme=XX activities-shared-shift-activities=XX \
-display-name-shared-shift-display-name=XX notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX \
-start-date-time-draft-shift-start-date-time=XX theme-draft-shift-theme=XX activities-draft-shift-activities=XX \
-display-name-draft-shift-display-name=XX notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
-
-            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
-            user-id: ID of the user assigned to the shift. Required.
-            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-shared-shift-display-name: The shift label of the shiftItem.
-            notes-shared-shift-notes: The shift notes for the shiftItem.
-            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-draft-shift-display-name: The shift label of the shiftItem.
-            notes-draft-shift-notes: The shift notes for the shiftItem.
-            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
-always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --shifts argument.
       - name: --swap-shifts-change-requests
         long-summary: |
             Usage: --swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
 recipient-action-message=XX recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-shift-id: ShiftId for the recipient user with whom the request is to swap.
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
@@ -1920,18 +1521,9 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
             Multiple actions can be specified by using more than one --swap-shifts-change-requests argument.
@@ -1939,9 +1531,7 @@ value in a future response, but the items associated with the user won't show up
         short-summary: "The set of reasons for a time off in the schedule."
         long-summary: |
             Usage: --time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The name of the timeOffReason. Required.
             is-active: Indicates whether the timeOffReason can be used when creating new entities or updating existing \
@@ -1950,18 +1540,9 @@ ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
             Multiple actions can be specified by using more than one --time-off-reasons argument.
@@ -1969,10 +1550,7 @@ value in a future response, but the items associated with the user won't show up
         long-summary: |
             Usage: --time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX assigned-to=XX \
 manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX \
-sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-n\
-ame=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX \
-id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
+sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             end-date-time: The Timestamp type represents date and time information using ISO 8601 format and is always \
 in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -1983,18 +1561,9 @@ always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like thi
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
             Multiple actions can be specified by using more than one --time-off-requests argument.
@@ -2002,22 +1571,17 @@ value in a future response, but the items associated with the user won't show up
 
 helps['teams team-channel'] = """
     type: group
-    short-summary: teams team-channel
-"""
-
-helps['teams team-channel delete'] = """
-    type: command
-    short-summary: "Delete navigation property filesFolder for teams"
+    short-summary: Manage team channel with teams_v1_0
 """
 
 helps['teams team-channel create-member'] = """
     type: command
-    short-summary: "Create new navigation property to members for teams"
+    short-summary: "Create new navigation property to members for teams."
 """
 
 helps['teams team-channel create-message'] = """
     type: command
-    short-summary: "Create new navigation property to messages for teams"
+    short-summary: "Create new navigation property to messages for teams."
     parameters:
       - name: --attachments
         short-summary: "Attached files. Attachments are currently read-only – sending attachments is not supported."
@@ -2060,50 +1624,6 @@ document.
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --mentions
-        short-summary: "List of entities mentioned in the chat message. Currently supports user, bot, team, channel."
-        long-summary: |
-            Usage: --mentions id=XX mention-text=XX display-name-mentioned-user-display-name=XX \
-id-mentioned-user-id=XX display-name-mentioned-device-display-name=XX id-mentioned-device-id=XX \
-display-name-mentioned-application-display-name=XX id-mentioned-application-id=XX
-
-            id: Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the \
-corresponding :code:`<at id='{index}'>` tag in the message body.
-            mention-text: String used to represent the mention. For example, a user's display name, a team name.
-            display-name-mentioned-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-user-id: Unique identifier for the identity.
-            display-name-mentioned-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-device-id: Unique identifier for the identity.
-            display-name-mentioned-application-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --mentions argument.
-      - name: --reactions
-        long-summary: |
-            Usage: --reactions created-date-time=XX reaction-type=XX display-name-user-display-name=XX id-user-id=XX \
-display-name-user-device-display-name=XX id-user-device-id=XX display-name-user-application-display-name=XX \
-id-user-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-user-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-device-id: Unique identifier for the identity.
-            display-name-user-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --reactions argument.
       - name: --hosted-contents
         long-summary: |
             Usage: --hosted-contents id=XX
@@ -2111,16 +1631,43 @@ response, but the items associated with the user won't show up as having changed
             id: Read-only.
 
             Multiple actions can be specified by using more than one --hosted-contents argument.
-      - name: --policy-violation-policy-tip
+      - name: --policy-tip
         short-summary: "chatMessagePolicyViolationPolicyTip"
         long-summary: |
-            Usage: --policy-violation-policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
+            Usage: --policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-channel create-tab'] = """
     type: command
-    short-summary: "Create new navigation property to tabs for teams"
+    short-summary: "Create new navigation property to tabs for teams."
     parameters:
       - name: --configuration
         short-summary: "teamsTabConfiguration"
@@ -2131,63 +1678,83 @@ helps['teams team-channel create-tab'] = """
             entity-id: Identifier for the entity hosted by the tab provider.
             remove-url: Url called by Teams client when a Tab is removed using the Teams Client.
             website-url: Url for showing tab contents outside of Teams.
-      - name: --teams-app-app-definitions
+      - name: --app-definitions
         short-summary: "The details for each version of the app."
         long-summary: |
-            Usage: --teams-app-app-definitions display-name=XX teams-app-id=XX version=XX id=XX
+            Usage: --app-definitions display-name=XX teams-app-id=XX version=XX id=XX
 
             display-name: The name of the app provided by the app developer.
             teams-app-id: The ID from the Teams app manifest.
             version: The version number of the application.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
+            Multiple actions can be specified by using more than one --app-definitions argument.
 """
 
-helps['teams team-channel get-file-folder'] = """
+helps['teams team-channel delete-file-folder'] = """
     type: command
-    short-summary: "Get filesFolder from teams"
+    short-summary: "Delete navigation property filesFolder for teams."
 """
 
-helps['teams team-channel get-member'] = """
+helps['teams team-channel delete-member'] = """
     type: command
-    short-summary: "Get members from teams"
+    short-summary: "Delete navigation property members for teams."
 """
 
-helps['teams team-channel get-message'] = """
+helps['teams team-channel delete-message'] = """
     type: command
-    short-summary: "Get messages from teams"
+    short-summary: "Delete navigation property messages for teams."
 """
 
-helps['teams team-channel get-tab'] = """
+helps['teams team-channel delete-tab'] = """
     type: command
-    short-summary: "Get tabs from teams"
+    short-summary: "Delete navigation property tabs for teams."
 """
 
 helps['teams team-channel list-member'] = """
     type: command
-    short-summary: "Get members from teams"
+    short-summary: "Get members from teams."
 """
 
 helps['teams team-channel list-message'] = """
     type: command
-    short-summary: "Get messages from teams"
+    short-summary: "Get messages from teams."
 """
 
 helps['teams team-channel list-tab'] = """
     type: command
-    short-summary: "Get tabs from teams"
+    short-summary: "Get tabs from teams."
+"""
+
+helps['teams team-channel show-file-folder'] = """
+    type: command
+    short-summary: "Get filesFolder from teams."
+"""
+
+helps['teams team-channel show-member'] = """
+    type: command
+    short-summary: "Get members from teams."
+"""
+
+helps['teams team-channel show-message'] = """
+    type: command
+    short-summary: "Get messages from teams."
+"""
+
+helps['teams team-channel show-tab'] = """
+    type: command
+    short-summary: "Get tabs from teams."
 """
 
 helps['teams team-channel update-file-folder'] = """
     type: command
-    short-summary: "Update the navigation property filesFolder in teams"
+    short-summary: "Update the navigation property filesFolder in teams."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -2197,6 +1764,60 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -2345,31 +1966,10 @@ Read-only. Nullable."
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
-      - name: --list-item-parent-reference-sharepoint-ids
+      - name: --sharepoint-ids1
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
-site-id=XX site-url=XX tenant-id=XX web-id=XX
-
-            list-id: The unique identifier (guid) for the item's list in SharePoint.
-            list-item-id: An integer identifier for the item within the containing list.
-            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
-SharePoint site.
-            site-id: The unique identifier (guid) for the item's site collection (SPSite).
-            site-url: The SharePoint URL for the site that contains the item.
-            tenant-id: The unique identifier (guid) for the tenancy.
-            web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-item-content-type
-        short-summary: "contentTypeInfo"
-        long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
-
-            id: The id of the content type.
-            name: The name of the content type.
-      - name: --list-item-sharepoint-ids
-        short-summary: "sharepointIds"
-        long-summary: |
-            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
 tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -2380,137 +1980,72 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-item-fields
-        short-summary: "fieldValueSet"
+      - name: --application1
+        short-summary: "identity"
         long-summary: |
-            Usage: --list-item-fields id=XX
+            Usage: --application1 display-name=XX id=XX
 
-            id: Read-only.
-      - name: --workbook-application
-        short-summary: "workbookApplication"
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
         long-summary: |
-            Usage: --workbook-application calculation-mode=XX id=XX
+            Usage: --device1 display-name=XX id=XX
 
-            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
-AutomaticExceptTables, Manual.
-            id: Read-only.
-      - name: --workbook-comments
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
         long-summary: |
-            Usage: --workbook-comments content=XX content-type=XX replies=XX id=XX
+            Usage: --user1 display-name=XX id=XX
 
-            content: The content of comment.
-            content-type: Indicates the type for the comment.
-            replies: Read-only. Nullable.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --workbook-comments argument.
-      - name: --workbook-functions
-        short-summary: "workbookFunctions"
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
         long-summary: |
-            Usage: --workbook-functions id=XX
+            Usage: --application2 display-name=XX id=XX
 
-            id: Read-only.
-      - name: --shared-owner
-        short-summary: "identitySet"
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
         long-summary: |
-            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
-id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+            Usage: --device2 display-name=XX id=XX
 
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --shared-shared-by
-        short-summary: "identitySet"
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
         long-summary: |
-            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
-XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+            Usage: --user2 display-name=XX id=XX
 
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --remote-item-created-by
-        short-summary: "identitySet"
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+            Usage: --content-type id=XX name=XX
 
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --remote-item-file-system-info
-        short-summary: "fileSystemInfo"
-        long-summary: |
-            Usage: --remote-item-file-system-info created-date-time=XX last-accessed-date-time=XX \
-last-modified-date-time=XX
-
-            created-date-time: The UTC date and time the file was created on a client.
-            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
-list only.
-            last-modified-date-time: The UTC date and time the file was last modified on a client.
-      - name: --remote-item-image
-        short-summary: "image"
-        long-summary: |
-            Usage: --remote-item-image height=XX width=XX
-
-            height: Optional. Height of the image, in pixels. Read-only.
-            width: Optional. Width of the image, in pixels. Read-only.
-      - name: --remote-item-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --remote-item-package
-        short-summary: "package"
-        long-summary: |
-            Usage: --remote-item-package type=XX
-
-            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
-should expect other package types to be returned and handle them accordingly.
-      - name: --remote-item-sharepoint-ids
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --remote-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -2520,16 +2055,74 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --remote-item-special-folder
+      - name: --fields
+        short-summary: "fieldValueSet"
+        long-summary: |
+            Usage: --fields id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
         short-summary: "specialFolder"
         long-summary: |
-            Usage: --remote-item-special-folder name=XX
+            Usage: --special-folder name=XX
 
             name: The unique identifier for this item in the /drive/special collection
-      - name: --remote-item-video
+      - name: --microsoft-graph-video
         short-summary: "video"
         long-summary: |
-            Usage: --remote-item-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
 audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
 
             audio-bits-per-sample: Number of audio bits per sample.
@@ -2542,19 +2135,19 @@ audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX heig
             frame-rate: Frame rate of the video.
             height: Height of the video, in pixels.
             width: Width of the video, in pixels.
-      - name: --folder-view
+      - name: --view
         short-summary: "folderView"
         long-summary: |
-            Usage: --folder-view sort-by=XX sort-order=XX view-type=XX
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
 
             sort-by: The method by which the folder should be sorted.
             sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
 sorted ascending.
             view-type: The type of view that should be used to represent the folder.
-      - name: --file-hashes
+      - name: --hashes
         short-summary: "hashes"
         long-summary: |
-            Usage: --file-hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
 
             crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
             quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
@@ -2565,12 +2158,12 @@ have changed (if available). Read-only.
 
 helps['teams team-channel update-member'] = """
     type: command
-    short-summary: "Update the navigation property members in teams"
+    short-summary: "Update the navigation property members in teams."
 """
 
 helps['teams team-channel update-message'] = """
     type: command
-    short-summary: "Update the navigation property messages in teams"
+    short-summary: "Update the navigation property messages in teams."
     parameters:
       - name: --attachments
         short-summary: "Attached files. Attachments are currently read-only – sending attachments is not supported."
@@ -2613,50 +2206,6 @@ document.
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --mentions
-        short-summary: "List of entities mentioned in the chat message. Currently supports user, bot, team, channel."
-        long-summary: |
-            Usage: --mentions id=XX mention-text=XX display-name-mentioned-user-display-name=XX \
-id-mentioned-user-id=XX display-name-mentioned-device-display-name=XX id-mentioned-device-id=XX \
-display-name-mentioned-application-display-name=XX id-mentioned-application-id=XX
-
-            id: Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the \
-corresponding :code:`<at id='{index}'>` tag in the message body.
-            mention-text: String used to represent the mention. For example, a user's display name, a team name.
-            display-name-mentioned-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-user-id: Unique identifier for the identity.
-            display-name-mentioned-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-device-id: Unique identifier for the identity.
-            display-name-mentioned-application-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --mentions argument.
-      - name: --reactions
-        long-summary: |
-            Usage: --reactions created-date-time=XX reaction-type=XX display-name-user-display-name=XX id-user-id=XX \
-display-name-user-device-display-name=XX id-user-device-id=XX display-name-user-application-display-name=XX \
-id-user-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-user-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-device-id: Unique identifier for the identity.
-            display-name-user-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --reactions argument.
       - name: --hosted-contents
         long-summary: |
             Usage: --hosted-contents id=XX
@@ -2664,16 +2213,43 @@ response, but the items associated with the user won't show up as having changed
             id: Read-only.
 
             Multiple actions can be specified by using more than one --hosted-contents argument.
-      - name: --policy-violation-policy-tip
+      - name: --policy-tip
         short-summary: "chatMessagePolicyViolationPolicyTip"
         long-summary: |
-            Usage: --policy-violation-policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
+            Usage: --policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-channel update-tab'] = """
     type: command
-    short-summary: "Update the navigation property tabs in teams"
+    short-summary: "Update the navigation property tabs in teams."
     parameters:
       - name: --configuration
         short-summary: "teamsTabConfiguration"
@@ -2684,37 +2260,32 @@ helps['teams team-channel update-tab'] = """
             entity-id: Identifier for the entity hosted by the tab provider.
             remove-url: Url called by Teams client when a Tab is removed using the Teams Client.
             website-url: Url for showing tab contents outside of Teams.
-      - name: --teams-app-app-definitions
+      - name: --app-definitions
         short-summary: "The details for each version of the app."
         long-summary: |
-            Usage: --teams-app-app-definitions display-name=XX teams-app-id=XX version=XX id=XX
+            Usage: --app-definitions display-name=XX teams-app-id=XX version=XX id=XX
 
             display-name: The name of the app provided by the app developer.
             teams-app-id: The ID from the Teams app manifest.
             version: The version number of the application.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
+            Multiple actions can be specified by using more than one --app-definitions argument.
 """
 
 helps['teams team-channel-message'] = """
     type: group
-    short-summary: teams team-channel-message
-"""
-
-helps['teams team-channel-message delete'] = """
-    type: command
-    short-summary: "Delete navigation property replies for teams"
+    short-summary: Manage team channel message with teams_v1_0
 """
 
 helps['teams team-channel-message create-hosted-content'] = """
     type: command
-    short-summary: "Create new navigation property to hostedContents for teams"
+    short-summary: "Create new navigation property to hostedContents for teams."
 """
 
 helps['teams team-channel-message create-reply'] = """
     type: command
-    short-summary: "Create new navigation property to replies for teams"
+    short-summary: "Create new navigation property to replies for teams."
     parameters:
       - name: --attachments
         short-summary: "Attached files. Attachments are currently read-only – sending attachments is not supported."
@@ -2757,50 +2328,6 @@ document.
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --mentions
-        short-summary: "List of entities mentioned in the chat message. Currently supports user, bot, team, channel."
-        long-summary: |
-            Usage: --mentions id=XX mention-text=XX display-name-mentioned-user-display-name=XX \
-id-mentioned-user-id=XX display-name-mentioned-device-display-name=XX id-mentioned-device-id=XX \
-display-name-mentioned-application-display-name=XX id-mentioned-application-id=XX
-
-            id: Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the \
-corresponding :code:`<at id='{index}'>` tag in the message body.
-            mention-text: String used to represent the mention. For example, a user's display name, a team name.
-            display-name-mentioned-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-user-id: Unique identifier for the identity.
-            display-name-mentioned-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-device-id: Unique identifier for the identity.
-            display-name-mentioned-application-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --mentions argument.
-      - name: --reactions
-        long-summary: |
-            Usage: --reactions created-date-time=XX reaction-type=XX display-name-user-display-name=XX id-user-id=XX \
-display-name-user-device-display-name=XX id-user-device-id=XX display-name-user-application-display-name=XX \
-id-user-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-user-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-device-id: Unique identifier for the identity.
-            display-name-user-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --reactions argument.
       - name: --hosted-contents
         long-summary: |
             Usage: --hosted-contents id=XX
@@ -2808,41 +2335,78 @@ response, but the items associated with the user won't show up as having changed
             id: Read-only.
 
             Multiple actions can be specified by using more than one --hosted-contents argument.
-      - name: --policy-violation-policy-tip
+      - name: --policy-tip
         short-summary: "chatMessagePolicyViolationPolicyTip"
         long-summary: |
-            Usage: --policy-violation-policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
+            Usage: --policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['teams team-channel-message get-hosted-content'] = """
+helps['teams team-channel-message delete-hosted-content'] = """
     type: command
-    short-summary: "Get hostedContents from teams"
+    short-summary: "Delete navigation property hostedContents for teams."
 """
 
-helps['teams team-channel-message get-reply'] = """
+helps['teams team-channel-message delete-reply'] = """
     type: command
-    short-summary: "Get replies from teams"
+    short-summary: "Delete navigation property replies for teams."
 """
 
 helps['teams team-channel-message list-hosted-content'] = """
     type: command
-    short-summary: "Get hostedContents from teams"
+    short-summary: "Get hostedContents from teams."
 """
 
 helps['teams team-channel-message list-reply'] = """
     type: command
-    short-summary: "Get replies from teams"
+    short-summary: "Get replies from teams."
+"""
+
+helps['teams team-channel-message show-hosted-content'] = """
+    type: command
+    short-summary: "Get hostedContents from teams."
+"""
+
+helps['teams team-channel-message show-reply'] = """
+    type: command
+    short-summary: "Get replies from teams."
 """
 
 helps['teams team-channel-message update-hosted-content'] = """
     type: command
-    short-summary: "Update the navigation property hostedContents in teams"
+    short-summary: "Update the navigation property hostedContents in teams."
 """
 
 helps['teams team-channel-message update-reply'] = """
     type: command
-    short-summary: "Update the navigation property replies in teams"
+    short-summary: "Update the navigation property replies in teams."
     parameters:
       - name: --attachments
         short-summary: "Attached files. Attachments are currently read-only – sending attachments is not supported."
@@ -2885,50 +2449,6 @@ document.
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --mentions
-        short-summary: "List of entities mentioned in the chat message. Currently supports user, bot, team, channel."
-        long-summary: |
-            Usage: --mentions id=XX mention-text=XX display-name-mentioned-user-display-name=XX \
-id-mentioned-user-id=XX display-name-mentioned-device-display-name=XX id-mentioned-device-id=XX \
-display-name-mentioned-application-display-name=XX id-mentioned-application-id=XX
-
-            id: Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the \
-corresponding :code:`<at id='{index}'>` tag in the message body.
-            mention-text: String used to represent the mention. For example, a user's display name, a team name.
-            display-name-mentioned-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-user-id: Unique identifier for the identity.
-            display-name-mentioned-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-device-id: Unique identifier for the identity.
-            display-name-mentioned-application-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --mentions argument.
-      - name: --reactions
-        long-summary: |
-            Usage: --reactions created-date-time=XX reaction-type=XX display-name-user-display-name=XX id-user-id=XX \
-display-name-user-device-display-name=XX id-user-device-id=XX display-name-user-application-display-name=XX \
-id-user-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-user-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-device-id: Unique identifier for the identity.
-            display-name-user-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --reactions argument.
       - name: --hosted-contents
         long-summary: |
             Usage: --hosted-contents id=XX
@@ -2936,101 +2456,128 @@ response, but the items associated with the user won't show up as having changed
             id: Read-only.
 
             Multiple actions can be specified by using more than one --hosted-contents argument.
-      - name: --policy-violation-policy-tip
+      - name: --policy-tip
         short-summary: "chatMessagePolicyViolationPolicyTip"
         long-summary: |
-            Usage: --policy-violation-policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
+            Usage: --policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-channel-tab'] = """
     type: group
-    short-summary: teams team-channel-tab
+    short-summary: Manage team channel tab with teams_v1_0
 """
 
-helps['teams team-channel-tab delete'] = """
+helps['teams team-channel-tab delete-ref-team-app'] = """
     type: command
-    short-summary: "Delete ref of navigation property teamsApp for teams"
-"""
-
-helps['teams team-channel-tab get-app'] = """
-    type: command
-    short-summary: "Get teamsApp from teams"
-"""
-
-helps['teams team-channel-tab get-ref-team-app'] = """
-    type: command
-    short-summary: "Get ref of teamsApp from teams"
+    short-summary: "Delete ref of navigation property teamsApp for teams."
 """
 
 helps['teams team-channel-tab set-ref-team-app'] = """
     type: command
-    short-summary: "Update the ref of navigation property teamsApp in teams"
+    short-summary: "Update the ref of navigation property teamsApp in teams."
+"""
+
+helps['teams team-channel-tab show-ref-team-app'] = """
+    type: command
+    short-summary: "Get ref of teamsApp from teams."
+"""
+
+helps['teams team-channel-tab show-team-app'] = """
+    type: command
+    short-summary: "Get teamsApp from teams."
 """
 
 helps['teams team-installed-app'] = """
     type: group
-    short-summary: teams team-installed-app
+    short-summary: Manage team installed app with teams_v1_0
 """
 
-helps['teams team-installed-app delete'] = """
+helps['teams team-installed-app delete-ref-team-app'] = """
     type: command
-    short-summary: "Delete ref of navigation property teamsAppDefinition for teams"
+    short-summary: "Delete ref of navigation property teamsApp for teams."
 """
 
-helps['teams team-installed-app get-app'] = """
+helps['teams team-installed-app delete-ref-team-app-definition'] = """
     type: command
-    short-summary: "Get teamsApp from teams"
-"""
-
-helps['teams team-installed-app get-app-definition'] = """
-    type: command
-    short-summary: "Get teamsAppDefinition from teams"
-"""
-
-helps['teams team-installed-app get-ref-team-app'] = """
-    type: command
-    short-summary: "Get ref of teamsApp from teams"
-"""
-
-helps['teams team-installed-app get-ref-team-app-definition'] = """
-    type: command
-    short-summary: "Get ref of teamsAppDefinition from teams"
+    short-summary: "Delete ref of navigation property teamsAppDefinition for teams."
 """
 
 helps['teams team-installed-app set-ref-team-app'] = """
     type: command
-    short-summary: "Update the ref of navigation property teamsApp in teams"
+    short-summary: "Update the ref of navigation property teamsApp in teams."
 """
 
 helps['teams team-installed-app set-ref-team-app-definition'] = """
     type: command
-    short-summary: "Update the ref of navigation property teamsAppDefinition in teams"
+    short-summary: "Update the ref of navigation property teamsAppDefinition in teams."
+"""
+
+helps['teams team-installed-app show-ref-team-app'] = """
+    type: command
+    short-summary: "Get ref of teamsApp from teams."
+"""
+
+helps['teams team-installed-app show-ref-team-app-definition'] = """
+    type: command
+    short-summary: "Get ref of teamsAppDefinition from teams."
+"""
+
+helps['teams team-installed-app show-team-app'] = """
+    type: command
+    short-summary: "Get teamsApp from teams."
+"""
+
+helps['teams team-installed-app show-team-app-definition'] = """
+    type: command
+    short-summary: "Get teamsAppDefinition from teams."
 """
 
 helps['teams team-installed-app upgrade'] = """
     type: command
-    short-summary: "Invoke action upgrade"
+    short-summary: "Invoke action upgrade."
 """
 
 helps['teams team-primary-channel'] = """
     type: group
-    short-summary: teams team-primary-channel
-"""
-
-helps['teams team-primary-channel delete'] = """
-    type: command
-    short-summary: "Delete navigation property filesFolder for teams"
+    short-summary: Manage team primary channel with teams_v1_0
 """
 
 helps['teams team-primary-channel create-member'] = """
     type: command
-    short-summary: "Create new navigation property to members for teams"
+    short-summary: "Create new navigation property to members for teams."
 """
 
 helps['teams team-primary-channel create-message'] = """
     type: command
-    short-summary: "Create new navigation property to messages for teams"
+    short-summary: "Create new navigation property to messages for teams."
     parameters:
       - name: --attachments
         short-summary: "Attached files. Attachments are currently read-only – sending attachments is not supported."
@@ -3073,50 +2620,6 @@ document.
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --mentions
-        short-summary: "List of entities mentioned in the chat message. Currently supports user, bot, team, channel."
-        long-summary: |
-            Usage: --mentions id=XX mention-text=XX display-name-mentioned-user-display-name=XX \
-id-mentioned-user-id=XX display-name-mentioned-device-display-name=XX id-mentioned-device-id=XX \
-display-name-mentioned-application-display-name=XX id-mentioned-application-id=XX
-
-            id: Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the \
-corresponding :code:`<at id='{index}'>` tag in the message body.
-            mention-text: String used to represent the mention. For example, a user's display name, a team name.
-            display-name-mentioned-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-user-id: Unique identifier for the identity.
-            display-name-mentioned-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-device-id: Unique identifier for the identity.
-            display-name-mentioned-application-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --mentions argument.
-      - name: --reactions
-        long-summary: |
-            Usage: --reactions created-date-time=XX reaction-type=XX display-name-user-display-name=XX id-user-id=XX \
-display-name-user-device-display-name=XX id-user-device-id=XX display-name-user-application-display-name=XX \
-id-user-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-user-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-device-id: Unique identifier for the identity.
-            display-name-user-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --reactions argument.
       - name: --hosted-contents
         long-summary: |
             Usage: --hosted-contents id=XX
@@ -3124,16 +2627,43 @@ response, but the items associated with the user won't show up as having changed
             id: Read-only.
 
             Multiple actions can be specified by using more than one --hosted-contents argument.
-      - name: --policy-violation-policy-tip
+      - name: --policy-tip
         short-summary: "chatMessagePolicyViolationPolicyTip"
         long-summary: |
-            Usage: --policy-violation-policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
+            Usage: --policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-primary-channel create-tab'] = """
     type: command
-    short-summary: "Create new navigation property to tabs for teams"
+    short-summary: "Create new navigation property to tabs for teams."
     parameters:
       - name: --configuration
         short-summary: "teamsTabConfiguration"
@@ -3144,63 +2674,83 @@ helps['teams team-primary-channel create-tab'] = """
             entity-id: Identifier for the entity hosted by the tab provider.
             remove-url: Url called by Teams client when a Tab is removed using the Teams Client.
             website-url: Url for showing tab contents outside of Teams.
-      - name: --teams-app-app-definitions
+      - name: --app-definitions
         short-summary: "The details for each version of the app."
         long-summary: |
-            Usage: --teams-app-app-definitions display-name=XX teams-app-id=XX version=XX id=XX
+            Usage: --app-definitions display-name=XX teams-app-id=XX version=XX id=XX
 
             display-name: The name of the app provided by the app developer.
             teams-app-id: The ID from the Teams app manifest.
             version: The version number of the application.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
+            Multiple actions can be specified by using more than one --app-definitions argument.
 """
 
-helps['teams team-primary-channel get-file-folder'] = """
+helps['teams team-primary-channel delete-file-folder'] = """
     type: command
-    short-summary: "Get filesFolder from teams"
+    short-summary: "Delete navigation property filesFolder for teams."
 """
 
-helps['teams team-primary-channel get-member'] = """
+helps['teams team-primary-channel delete-member'] = """
     type: command
-    short-summary: "Get members from teams"
+    short-summary: "Delete navigation property members for teams."
 """
 
-helps['teams team-primary-channel get-message'] = """
+helps['teams team-primary-channel delete-message'] = """
     type: command
-    short-summary: "Get messages from teams"
+    short-summary: "Delete navigation property messages for teams."
 """
 
-helps['teams team-primary-channel get-tab'] = """
+helps['teams team-primary-channel delete-tab'] = """
     type: command
-    short-summary: "Get tabs from teams"
+    short-summary: "Delete navigation property tabs for teams."
 """
 
 helps['teams team-primary-channel list-member'] = """
     type: command
-    short-summary: "Get members from teams"
+    short-summary: "Get members from teams."
 """
 
 helps['teams team-primary-channel list-message'] = """
     type: command
-    short-summary: "Get messages from teams"
+    short-summary: "Get messages from teams."
 """
 
 helps['teams team-primary-channel list-tab'] = """
     type: command
-    short-summary: "Get tabs from teams"
+    short-summary: "Get tabs from teams."
+"""
+
+helps['teams team-primary-channel show-file-folder'] = """
+    type: command
+    short-summary: "Get filesFolder from teams."
+"""
+
+helps['teams team-primary-channel show-member'] = """
+    type: command
+    short-summary: "Get members from teams."
+"""
+
+helps['teams team-primary-channel show-message'] = """
+    type: command
+    short-summary: "Get messages from teams."
+"""
+
+helps['teams team-primary-channel show-tab'] = """
+    type: command
+    short-summary: "Get tabs from teams."
 """
 
 helps['teams team-primary-channel update-file-folder'] = """
     type: command
-    short-summary: "Update the navigation property filesFolder in teams"
+    short-summary: "Update the navigation property filesFolder in teams."
     parameters:
-      - name: --parent-reference-sharepoint-ids
+      - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -3210,6 +2760,60 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
       - name: --audio
         short-summary: "audio"
         long-summary: |
@@ -3358,31 +2962,10 @@ Read-only. Nullable."
             id: Read-only.
 
             Multiple actions can be specified by using more than one --versions argument.
-      - name: --list-item-parent-reference-sharepoint-ids
+      - name: --sharepoint-ids1
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --list-item-parent-reference-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX \
-site-id=XX site-url=XX tenant-id=XX web-id=XX
-
-            list-id: The unique identifier (guid) for the item's list in SharePoint.
-            list-item-id: An integer identifier for the item within the containing list.
-            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
-SharePoint site.
-            site-id: The unique identifier (guid) for the item's site collection (SPSite).
-            site-url: The SharePoint URL for the site that contains the item.
-            tenant-id: The unique identifier (guid) for the tenancy.
-            web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-item-content-type
-        short-summary: "contentTypeInfo"
-        long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
-
-            id: The id of the content type.
-            name: The name of the content type.
-      - name: --list-item-sharepoint-ids
-        short-summary: "sharepointIds"
-        long-summary: |
-            Usage: --list-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+            Usage: --sharepoint-ids1 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
 tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
@@ -3393,137 +2976,72 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --list-item-fields
-        short-summary: "fieldValueSet"
+      - name: --application1
+        short-summary: "identity"
         long-summary: |
-            Usage: --list-item-fields id=XX
+            Usage: --application1 display-name=XX id=XX
 
-            id: Read-only.
-      - name: --workbook-application
-        short-summary: "workbookApplication"
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
         long-summary: |
-            Usage: --workbook-application calculation-mode=XX id=XX
+            Usage: --device1 display-name=XX id=XX
 
-            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
-AutomaticExceptTables, Manual.
-            id: Read-only.
-      - name: --workbook-comments
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
         long-summary: |
-            Usage: --workbook-comments content=XX content-type=XX replies=XX id=XX
+            Usage: --user1 display-name=XX id=XX
 
-            content: The content of comment.
-            content-type: Indicates the type for the comment.
-            replies: Read-only. Nullable.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --workbook-comments argument.
-      - name: --workbook-functions
-        short-summary: "workbookFunctions"
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
         long-summary: |
-            Usage: --workbook-functions id=XX
+            Usage: --application2 display-name=XX id=XX
 
-            id: Read-only.
-      - name: --shared-owner
-        short-summary: "identitySet"
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
         long-summary: |
-            Usage: --shared-owner display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
-id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+            Usage: --device2 display-name=XX id=XX
 
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --shared-shared-by
-        short-summary: "identitySet"
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
         long-summary: |
-            Usage: --shared-shared-by display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=\
-XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+            Usage: --user2 display-name=XX id=XX
 
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --remote-item-created-by
-        short-summary: "identitySet"
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --content-type
+        short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --remote-item-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+            Usage: --content-type id=XX name=XX
 
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --remote-item-file-system-info
-        short-summary: "fileSystemInfo"
-        long-summary: |
-            Usage: --remote-item-file-system-info created-date-time=XX last-accessed-date-time=XX \
-last-modified-date-time=XX
-
-            created-date-time: The UTC date and time the file was created on a client.
-            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
-list only.
-            last-modified-date-time: The UTC date and time the file was last modified on a client.
-      - name: --remote-item-image
-        short-summary: "image"
-        long-summary: |
-            Usage: --remote-item-image height=XX width=XX
-
-            height: Optional. Height of the image, in pixels. Read-only.
-            width: Optional. Width of the image, in pixels. Read-only.
-      - name: --remote-item-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --remote-item-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --remote-item-package
-        short-summary: "package"
-        long-summary: |
-            Usage: --remote-item-package type=XX
-
-            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
-should expect other package types to be returned and handle them accordingly.
-      - name: --remote-item-sharepoint-ids
+            id: The id of the content type.
+            name: The name of the content type.
+      - name: --sharepoint-ids2
         short-summary: "sharepointIds"
         long-summary: |
-            Usage: --remote-item-sharepoint-ids list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX \
-site-url=XX tenant-id=XX web-id=XX
+            Usage: --sharepoint-ids2 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
 
             list-id: The unique identifier (guid) for the item's list in SharePoint.
             list-item-id: An integer identifier for the item within the containing list.
@@ -3533,16 +3051,74 @@ SharePoint site.
             site-url: The SharePoint URL for the site that contains the item.
             tenant-id: The unique identifier (guid) for the tenancy.
             web-id: The unique identifier (guid) for the item's site (SPWeb).
-      - name: --remote-item-special-folder
+      - name: --fields
+        short-summary: "fieldValueSet"
+        long-summary: |
+            Usage: --fields id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-workbook-application
+        short-summary: "workbookApplication"
+        long-summary: |
+            Usage: --microsoft-graph-workbook-application calculation-mode=XX id=XX
+
+            calculation-mode: Returns the calculation mode used in the workbook. Possible values are: Automatic, \
+AutomaticExceptTables, Manual.
+            id: Read-only.
+      - name: --functions
+        short-summary: "workbookFunctions"
+        long-summary: |
+            Usage: --functions id=XX
+
+            id: Read-only.
+      - name: --microsoft-graph-file-system-info-file-system-info
+        short-summary: "fileSystemInfo"
+        long-summary: |
+            Usage: --microsoft-graph-file-system-info-file-system-info created-date-time=XX last-accessed-date-time=XX \
+last-modified-date-time=XX
+
+            created-date-time: The UTC date and time the file was created on a client.
+            last-accessed-date-time: The UTC date and time the file was last accessed. Available for the recent file \
+list only.
+            last-modified-date-time: The UTC date and time the file was last modified on a client.
+      - name: --microsoft-graph-image
+        short-summary: "image"
+        long-summary: |
+            Usage: --microsoft-graph-image height=XX width=XX
+
+            height: Optional. Height of the image, in pixels. Read-only.
+            width: Optional. Width of the image, in pixels. Read-only.
+      - name: --package
+        short-summary: "package"
+        long-summary: |
+            Usage: --package type=XX
+
+            type: A string indicating the type of package. While oneNote is the only currently defined value, you \
+should expect other package types to be returned and handle them accordingly.
+      - name: --sharepoint-ids3
+        short-summary: "sharepointIds"
+        long-summary: |
+            Usage: --sharepoint-ids3 list-id=XX list-item-id=XX list-item-unique-id=XX site-id=XX site-url=XX \
+tenant-id=XX web-id=XX
+
+            list-id: The unique identifier (guid) for the item's list in SharePoint.
+            list-item-id: An integer identifier for the item within the containing list.
+            list-item-unique-id: The unique identifier (guid) for the item within OneDrive for Business or a \
+SharePoint site.
+            site-id: The unique identifier (guid) for the item's site collection (SPSite).
+            site-url: The SharePoint URL for the site that contains the item.
+            tenant-id: The unique identifier (guid) for the tenancy.
+            web-id: The unique identifier (guid) for the item's site (SPWeb).
+      - name: --special-folder
         short-summary: "specialFolder"
         long-summary: |
-            Usage: --remote-item-special-folder name=XX
+            Usage: --special-folder name=XX
 
             name: The unique identifier for this item in the /drive/special collection
-      - name: --remote-item-video
+      - name: --microsoft-graph-video
         short-summary: "video"
         long-summary: |
-            Usage: --remote-item-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
+            Usage: --microsoft-graph-video audio-bits-per-sample=XX audio-channels=XX audio-format=XX \
 audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX height=XX width=XX
 
             audio-bits-per-sample: Number of audio bits per sample.
@@ -3555,19 +3131,19 @@ audio-samples-per-second=XX bitrate=XX duration=XX four-cc=XX frame-rate=XX heig
             frame-rate: Frame rate of the video.
             height: Height of the video, in pixels.
             width: Width of the video, in pixels.
-      - name: --folder-view
+      - name: --view
         short-summary: "folderView"
         long-summary: |
-            Usage: --folder-view sort-by=XX sort-order=XX view-type=XX
+            Usage: --view sort-by=XX sort-order=XX view-type=XX
 
             sort-by: The method by which the folder should be sorted.
             sort-order: If true, indicates that items should be sorted in descending order. Otherwise, items should be \
 sorted ascending.
             view-type: The type of view that should be used to represent the folder.
-      - name: --file-hashes
+      - name: --hashes
         short-summary: "hashes"
         long-summary: |
-            Usage: --file-hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
+            Usage: --hashes crc32-hash=XX quick-xor-hash=XX sha1-hash=XX sha256-hash=XX
 
             crc32-hash: The CRC32 value of the file in little endian (if available). Read-only.
             quick-xor-hash: A proprietary hash of the file that can be used to determine if the contents of the file \
@@ -3578,12 +3154,12 @@ have changed (if available). Read-only.
 
 helps['teams team-primary-channel update-member'] = """
     type: command
-    short-summary: "Update the navigation property members in teams"
+    short-summary: "Update the navigation property members in teams."
 """
 
 helps['teams team-primary-channel update-message'] = """
     type: command
-    short-summary: "Update the navigation property messages in teams"
+    short-summary: "Update the navigation property messages in teams."
     parameters:
       - name: --attachments
         short-summary: "Attached files. Attachments are currently read-only – sending attachments is not supported."
@@ -3626,50 +3202,6 @@ document.
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --mentions
-        short-summary: "List of entities mentioned in the chat message. Currently supports user, bot, team, channel."
-        long-summary: |
-            Usage: --mentions id=XX mention-text=XX display-name-mentioned-user-display-name=XX \
-id-mentioned-user-id=XX display-name-mentioned-device-display-name=XX id-mentioned-device-id=XX \
-display-name-mentioned-application-display-name=XX id-mentioned-application-id=XX
-
-            id: Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the \
-corresponding :code:`<at id='{index}'>` tag in the message body.
-            mention-text: String used to represent the mention. For example, a user's display name, a team name.
-            display-name-mentioned-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-user-id: Unique identifier for the identity.
-            display-name-mentioned-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-device-id: Unique identifier for the identity.
-            display-name-mentioned-application-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --mentions argument.
-      - name: --reactions
-        long-summary: |
-            Usage: --reactions created-date-time=XX reaction-type=XX display-name-user-display-name=XX id-user-id=XX \
-display-name-user-device-display-name=XX id-user-device-id=XX display-name-user-application-display-name=XX \
-id-user-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-user-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-device-id: Unique identifier for the identity.
-            display-name-user-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --reactions argument.
       - name: --hosted-contents
         long-summary: |
             Usage: --hosted-contents id=XX
@@ -3677,16 +3209,43 @@ response, but the items associated with the user won't show up as having changed
             id: Read-only.
 
             Multiple actions can be specified by using more than one --hosted-contents argument.
-      - name: --policy-violation-policy-tip
+      - name: --policy-tip
         short-summary: "chatMessagePolicyViolationPolicyTip"
         long-summary: |
-            Usage: --policy-violation-policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
+            Usage: --policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-primary-channel update-tab'] = """
     type: command
-    short-summary: "Update the navigation property tabs in teams"
+    short-summary: "Update the navigation property tabs in teams."
     parameters:
       - name: --configuration
         short-summary: "teamsTabConfiguration"
@@ -3697,37 +3256,32 @@ helps['teams team-primary-channel update-tab'] = """
             entity-id: Identifier for the entity hosted by the tab provider.
             remove-url: Url called by Teams client when a Tab is removed using the Teams Client.
             website-url: Url for showing tab contents outside of Teams.
-      - name: --teams-app-app-definitions
+      - name: --app-definitions
         short-summary: "The details for each version of the app."
         long-summary: |
-            Usage: --teams-app-app-definitions display-name=XX teams-app-id=XX version=XX id=XX
+            Usage: --app-definitions display-name=XX teams-app-id=XX version=XX id=XX
 
             display-name: The name of the app provided by the app developer.
             teams-app-id: The ID from the Teams app manifest.
             version: The version number of the application.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --teams-app-app-definitions argument.
+            Multiple actions can be specified by using more than one --app-definitions argument.
 """
 
 helps['teams team-primary-channel-message'] = """
     type: group
-    short-summary: teams team-primary-channel-message
-"""
-
-helps['teams team-primary-channel-message delete'] = """
-    type: command
-    short-summary: "Delete navigation property replies for teams"
+    short-summary: Manage team primary channel message with teams_v1_0
 """
 
 helps['teams team-primary-channel-message create-hosted-content'] = """
     type: command
-    short-summary: "Create new navigation property to hostedContents for teams"
+    short-summary: "Create new navigation property to hostedContents for teams."
 """
 
 helps['teams team-primary-channel-message create-reply'] = """
     type: command
-    short-summary: "Create new navigation property to replies for teams"
+    short-summary: "Create new navigation property to replies for teams."
     parameters:
       - name: --attachments
         short-summary: "Attached files. Attachments are currently read-only – sending attachments is not supported."
@@ -3770,50 +3324,6 @@ document.
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --mentions
-        short-summary: "List of entities mentioned in the chat message. Currently supports user, bot, team, channel."
-        long-summary: |
-            Usage: --mentions id=XX mention-text=XX display-name-mentioned-user-display-name=XX \
-id-mentioned-user-id=XX display-name-mentioned-device-display-name=XX id-mentioned-device-id=XX \
-display-name-mentioned-application-display-name=XX id-mentioned-application-id=XX
-
-            id: Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the \
-corresponding :code:`<at id='{index}'>` tag in the message body.
-            mention-text: String used to represent the mention. For example, a user's display name, a team name.
-            display-name-mentioned-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-user-id: Unique identifier for the identity.
-            display-name-mentioned-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-device-id: Unique identifier for the identity.
-            display-name-mentioned-application-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --mentions argument.
-      - name: --reactions
-        long-summary: |
-            Usage: --reactions created-date-time=XX reaction-type=XX display-name-user-display-name=XX id-user-id=XX \
-display-name-user-device-display-name=XX id-user-device-id=XX display-name-user-application-display-name=XX \
-id-user-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-user-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-device-id: Unique identifier for the identity.
-            display-name-user-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --reactions argument.
       - name: --hosted-contents
         long-summary: |
             Usage: --hosted-contents id=XX
@@ -3821,41 +3331,78 @@ response, but the items associated with the user won't show up as having changed
             id: Read-only.
 
             Multiple actions can be specified by using more than one --hosted-contents argument.
-      - name: --policy-violation-policy-tip
+      - name: --policy-tip
         short-summary: "chatMessagePolicyViolationPolicyTip"
         long-summary: |
-            Usage: --policy-violation-policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
+            Usage: --policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['teams team-primary-channel-message get-hosted-content'] = """
+helps['teams team-primary-channel-message delete-hosted-content'] = """
     type: command
-    short-summary: "Get hostedContents from teams"
+    short-summary: "Delete navigation property hostedContents for teams."
 """
 
-helps['teams team-primary-channel-message get-reply'] = """
+helps['teams team-primary-channel-message delete-reply'] = """
     type: command
-    short-summary: "Get replies from teams"
+    short-summary: "Delete navigation property replies for teams."
 """
 
 helps['teams team-primary-channel-message list-hosted-content'] = """
     type: command
-    short-summary: "Get hostedContents from teams"
+    short-summary: "Get hostedContents from teams."
 """
 
 helps['teams team-primary-channel-message list-reply'] = """
     type: command
-    short-summary: "Get replies from teams"
+    short-summary: "Get replies from teams."
+"""
+
+helps['teams team-primary-channel-message show-hosted-content'] = """
+    type: command
+    short-summary: "Get hostedContents from teams."
+"""
+
+helps['teams team-primary-channel-message show-reply'] = """
+    type: command
+    short-summary: "Get replies from teams."
 """
 
 helps['teams team-primary-channel-message update-hosted-content'] = """
     type: command
-    short-summary: "Update the navigation property hostedContents in teams"
+    short-summary: "Update the navigation property hostedContents in teams."
 """
 
 helps['teams team-primary-channel-message update-reply'] = """
     type: command
-    short-summary: "Update the navigation property replies in teams"
+    short-summary: "Update the navigation property replies in teams."
     parameters:
       - name: --attachments
         short-summary: "Attached files. Attachments are currently read-only – sending attachments is not supported."
@@ -3898,50 +3445,6 @@ document.
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --mentions
-        short-summary: "List of entities mentioned in the chat message. Currently supports user, bot, team, channel."
-        long-summary: |
-            Usage: --mentions id=XX mention-text=XX display-name-mentioned-user-display-name=XX \
-id-mentioned-user-id=XX display-name-mentioned-device-display-name=XX id-mentioned-device-id=XX \
-display-name-mentioned-application-display-name=XX id-mentioned-application-id=XX
-
-            id: Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the \
-corresponding :code:`<at id='{index}'>` tag in the message body.
-            mention-text: String used to represent the mention. For example, a user's display name, a team name.
-            display-name-mentioned-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-user-id: Unique identifier for the identity.
-            display-name-mentioned-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-device-id: Unique identifier for the identity.
-            display-name-mentioned-application-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-mentioned-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --mentions argument.
-      - name: --reactions
-        long-summary: |
-            Usage: --reactions created-date-time=XX reaction-type=XX display-name-user-display-name=XX id-user-id=XX \
-display-name-user-device-display-name=XX id-user-device-id=XX display-name-user-application-display-name=XX \
-id-user-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-user-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-device-id: Unique identifier for the identity.
-            display-name-user-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-user-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --reactions argument.
       - name: --hosted-contents
         long-summary: |
             Usage: --hosted-contents id=XX
@@ -3949,57 +3452,134 @@ response, but the items associated with the user won't show up as having changed
             id: Read-only.
 
             Multiple actions can be specified by using more than one --hosted-contents argument.
-      - name: --policy-violation-policy-tip
+      - name: --policy-tip
         short-summary: "chatMessagePolicyViolationPolicyTip"
         long-summary: |
-            Usage: --policy-violation-policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
+            Usage: --policy-tip compliance-url=XX general-text=XX matched-condition-descriptions=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-primary-channel-tab'] = """
     type: group
-    short-summary: teams team-primary-channel-tab
+    short-summary: Manage team primary channel tab with teams_v1_0
 """
 
-helps['teams team-primary-channel-tab delete'] = """
+helps['teams team-primary-channel-tab delete-ref-team-app'] = """
     type: command
-    short-summary: "Delete ref of navigation property teamsApp for teams"
-"""
-
-helps['teams team-primary-channel-tab get-app'] = """
-    type: command
-    short-summary: "Get teamsApp from teams"
-"""
-
-helps['teams team-primary-channel-tab get-ref-team-app'] = """
-    type: command
-    short-summary: "Get ref of teamsApp from teams"
+    short-summary: "Delete ref of navigation property teamsApp for teams."
 """
 
 helps['teams team-primary-channel-tab set-ref-team-app'] = """
     type: command
-    short-summary: "Update the ref of navigation property teamsApp in teams"
+    short-summary: "Update the ref of navigation property teamsApp in teams."
+"""
+
+helps['teams team-primary-channel-tab show-ref-team-app'] = """
+    type: command
+    short-summary: "Get ref of teamsApp from teams."
+"""
+
+helps['teams team-primary-channel-tab show-team-app'] = """
+    type: command
+    short-summary: "Get teamsApp from teams."
 """
 
 helps['teams team-schedule'] = """
     type: group
-    short-summary: teams team-schedule
-"""
-
-helps['teams team-schedule delete'] = """
-    type: command
-    short-summary: "Delete navigation property timesOff for teams"
+    short-summary: Manage team schedule with teams_v1_0
 """
 
 helps['teams team-schedule create-offer-shift-request'] = """
     type: command
-    short-summary: "Create new navigation property to offerShiftRequests for teams"
+    short-summary: "Create new navigation property to offerShiftRequests for teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-schedule create-open-shift'] = """
     type: command
-    short-summary: "Create new navigation property to openShifts for teams"
+    short-summary: "Create new navigation property to openShifts for teams."
     parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
       - name: --draft-open-shift
         short-summary: "openShiftItem"
         long-summary: |
@@ -4026,24 +3606,106 @@ their shift. For example, an assignment or a scheduled break or lunch. Required.
 
 helps['teams team-schedule create-open-shift-change-request'] = """
     type: command
-    short-summary: "Create new navigation property to openShiftChangeRequests for teams"
+    short-summary: "Create new navigation property to openShiftChangeRequests for teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-schedule create-scheduling-group'] = """
     type: command
-    short-summary: "Create new navigation property to schedulingGroups for teams"
+    short-summary: "Create new navigation property to schedulingGroups for teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-schedule create-shift'] = """
     type: command
-    short-summary: "Create new navigation property to shifts for teams"
+    short-summary: "Create new navigation property to shifts for teams."
     parameters:
-      - name: --shared-shift-activities
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --activities
         short-summary: "An incremental part of a shift which can cover details of when and where an employee is during \
 their shift. For example, an assignment or a scheduled break or lunch. Required."
         long-summary: |
-            Usage: --shared-shift-activities code=XX display-name=XX end-date-time=XX is-paid=XX start-date-time=XX \
-theme=XX
+            Usage: --activities code=XX display-name=XX end-date-time=XX is-paid=XX start-date-time=XX theme=XX
 
             code: Customer defined code for the shiftActivity. Required.
             display-name: The name of the shiftActivity. Required.
@@ -4056,13 +3718,13 @@ Required.
 time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look \
 like this: '2014-01-01T00:00:00Z'. Required.
 
-            Multiple actions can be specified by using more than one --shared-shift-activities argument.
-      - name: --draft-shift-activities
+            Multiple actions can be specified by using more than one --activities argument.
+      - name: --microsoft-graph-shift-item-activities
         short-summary: "An incremental part of a shift which can cover details of when and where an employee is during \
 their shift. For example, an assignment or a scheduled break or lunch. Required."
         long-summary: |
-            Usage: --draft-shift-activities code=XX display-name=XX end-date-time=XX is-paid=XX start-date-time=XX \
-theme=XX
+            Usage: --microsoft-graph-shift-item-activities code=XX display-name=XX end-date-time=XX is-paid=XX \
+start-date-time=XX theme=XX
 
             code: Customer defined code for the shiftActivity. Required.
             display-name: The name of the shiftActivity. Required.
@@ -4075,18 +3737,73 @@ Required.
 time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look \
 like this: '2014-01-01T00:00:00Z'. Required.
 
-            Multiple actions can be specified by using more than one --draft-shift-activities argument.
+            Multiple actions can be specified by using more than one --microsoft-graph-shift-item-activities argument.
 """
 
 helps['teams team-schedule create-swap-shift-change-request'] = """
     type: command
-    short-summary: "Create new navigation property to swapShiftsChangeRequests for teams"
+    short-summary: "Create new navigation property to swapShiftsChangeRequests for teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-schedule create-time-off'] = """
     type: command
-    short-summary: "Create new navigation property to timesOff for teams"
+    short-summary: "Create new navigation property to timesOff for teams."
     parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
       - name: --draft-time-off
         short-summary: "timeOffItem"
         long-summary: |
@@ -4103,118 +3820,274 @@ helps['teams team-schedule create-time-off'] = """
 
 helps['teams team-schedule create-time-off-reason'] = """
     type: command
-    short-summary: "Create new navigation property to timeOffReasons for teams"
+    short-summary: "Create new navigation property to timeOffReasons for teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-schedule create-time-off-request'] = """
     type: command
-    short-summary: "Create new navigation property to timeOffRequests for teams"
+    short-summary: "Create new navigation property to timeOffRequests for teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['teams team-schedule get-offer-shift-request'] = """
+helps['teams team-schedule delete-offer-shift-request'] = """
     type: command
-    short-summary: "Get offerShiftRequests from teams"
+    short-summary: "Delete navigation property offerShiftRequests for teams."
 """
 
-helps['teams team-schedule get-open-shift'] = """
+helps['teams team-schedule delete-open-shift'] = """
     type: command
-    short-summary: "Get openShifts from teams"
+    short-summary: "Delete navigation property openShifts for teams."
 """
 
-helps['teams team-schedule get-open-shift-change-request'] = """
+helps['teams team-schedule delete-open-shift-change-request'] = """
     type: command
-    short-summary: "Get openShiftChangeRequests from teams"
+    short-summary: "Delete navigation property openShiftChangeRequests for teams."
 """
 
-helps['teams team-schedule get-scheduling-group'] = """
+helps['teams team-schedule delete-scheduling-group'] = """
     type: command
-    short-summary: "Get schedulingGroups from teams"
+    short-summary: "Delete navigation property schedulingGroups for teams."
 """
 
-helps['teams team-schedule get-shift'] = """
+helps['teams team-schedule delete-shift'] = """
     type: command
-    short-summary: "Get shifts from teams"
+    short-summary: "Delete navigation property shifts for teams."
 """
 
-helps['teams team-schedule get-swap-shift-change-request'] = """
+helps['teams team-schedule delete-swap-shift-change-request'] = """
     type: command
-    short-summary: "Get swapShiftsChangeRequests from teams"
+    short-summary: "Delete navigation property swapShiftsChangeRequests for teams."
 """
 
-helps['teams team-schedule get-time-off'] = """
+helps['teams team-schedule delete-time-off'] = """
     type: command
-    short-summary: "Get timesOff from teams"
+    short-summary: "Delete navigation property timesOff for teams."
 """
 
-helps['teams team-schedule get-time-off-reason'] = """
+helps['teams team-schedule delete-time-off-reason'] = """
     type: command
-    short-summary: "Get timeOffReasons from teams"
+    short-summary: "Delete navigation property timeOffReasons for teams."
 """
 
-helps['teams team-schedule get-time-off-request'] = """
+helps['teams team-schedule delete-time-off-request'] = """
     type: command
-    short-summary: "Get timeOffRequests from teams"
+    short-summary: "Delete navigation property timeOffRequests for teams."
 """
 
 helps['teams team-schedule list-offer-shift-request'] = """
     type: command
-    short-summary: "Get offerShiftRequests from teams"
+    short-summary: "Get offerShiftRequests from teams."
 """
 
 helps['teams team-schedule list-open-shift'] = """
     type: command
-    short-summary: "Get openShifts from teams"
+    short-summary: "Get openShifts from teams."
 """
 
 helps['teams team-schedule list-open-shift-change-request'] = """
     type: command
-    short-summary: "Get openShiftChangeRequests from teams"
+    short-summary: "Get openShiftChangeRequests from teams."
 """
 
 helps['teams team-schedule list-scheduling-group'] = """
     type: command
-    short-summary: "Get schedulingGroups from teams"
+    short-summary: "Get schedulingGroups from teams."
 """
 
 helps['teams team-schedule list-shift'] = """
     type: command
-    short-summary: "Get shifts from teams"
+    short-summary: "Get shifts from teams."
 """
 
 helps['teams team-schedule list-swap-shift-change-request'] = """
     type: command
-    short-summary: "Get swapShiftsChangeRequests from teams"
+    short-summary: "Get swapShiftsChangeRequests from teams."
 """
 
 helps['teams team-schedule list-time-off'] = """
     type: command
-    short-summary: "Get timesOff from teams"
+    short-summary: "Get timesOff from teams."
 """
 
 helps['teams team-schedule list-time-off-reason'] = """
     type: command
-    short-summary: "Get timeOffReasons from teams"
+    short-summary: "Get timeOffReasons from teams."
 """
 
 helps['teams team-schedule list-time-off-request'] = """
     type: command
-    short-summary: "Get timeOffRequests from teams"
+    short-summary: "Get timeOffRequests from teams."
 """
 
 helps['teams team-schedule share'] = """
     type: command
-    short-summary: "Invoke action share"
+    short-summary: "Invoke action share."
+"""
+
+helps['teams team-schedule show-offer-shift-request'] = """
+    type: command
+    short-summary: "Get offerShiftRequests from teams."
+"""
+
+helps['teams team-schedule show-open-shift'] = """
+    type: command
+    short-summary: "Get openShifts from teams."
+"""
+
+helps['teams team-schedule show-open-shift-change-request'] = """
+    type: command
+    short-summary: "Get openShiftChangeRequests from teams."
+"""
+
+helps['teams team-schedule show-scheduling-group'] = """
+    type: command
+    short-summary: "Get schedulingGroups from teams."
+"""
+
+helps['teams team-schedule show-shift'] = """
+    type: command
+    short-summary: "Get shifts from teams."
+"""
+
+helps['teams team-schedule show-swap-shift-change-request'] = """
+    type: command
+    short-summary: "Get swapShiftsChangeRequests from teams."
+"""
+
+helps['teams team-schedule show-time-off'] = """
+    type: command
+    short-summary: "Get timesOff from teams."
+"""
+
+helps['teams team-schedule show-time-off-reason'] = """
+    type: command
+    short-summary: "Get timeOffReasons from teams."
+"""
+
+helps['teams team-schedule show-time-off-request'] = """
+    type: command
+    short-summary: "Get timeOffRequests from teams."
 """
 
 helps['teams team-schedule update-offer-shift-request'] = """
     type: command
-    short-summary: "Update the navigation property offerShiftRequests in teams"
+    short-summary: "Update the navigation property offerShiftRequests in teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-schedule update-open-shift'] = """
     type: command
-    short-summary: "Update the navigation property openShifts in teams"
+    short-summary: "Update the navigation property openShifts in teams."
     parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
       - name: --draft-open-shift
         short-summary: "openShiftItem"
         long-summary: |
@@ -4241,24 +4114,106 @@ their shift. For example, an assignment or a scheduled break or lunch. Required.
 
 helps['teams team-schedule update-open-shift-change-request'] = """
     type: command
-    short-summary: "Update the navigation property openShiftChangeRequests in teams"
+    short-summary: "Update the navigation property openShiftChangeRequests in teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-schedule update-scheduling-group'] = """
     type: command
-    short-summary: "Update the navigation property schedulingGroups in teams"
+    short-summary: "Update the navigation property schedulingGroups in teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-schedule update-shift'] = """
     type: command
-    short-summary: "Update the navigation property shifts in teams"
+    short-summary: "Update the navigation property shifts in teams."
     parameters:
-      - name: --shared-shift-activities
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --activities
         short-summary: "An incremental part of a shift which can cover details of when and where an employee is during \
 their shift. For example, an assignment or a scheduled break or lunch. Required."
         long-summary: |
-            Usage: --shared-shift-activities code=XX display-name=XX end-date-time=XX is-paid=XX start-date-time=XX \
-theme=XX
+            Usage: --activities code=XX display-name=XX end-date-time=XX is-paid=XX start-date-time=XX theme=XX
 
             code: Customer defined code for the shiftActivity. Required.
             display-name: The name of the shiftActivity. Required.
@@ -4271,13 +4226,13 @@ Required.
 time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look \
 like this: '2014-01-01T00:00:00Z'. Required.
 
-            Multiple actions can be specified by using more than one --shared-shift-activities argument.
-      - name: --draft-shift-activities
+            Multiple actions can be specified by using more than one --activities argument.
+      - name: --microsoft-graph-shift-item-activities
         short-summary: "An incremental part of a shift which can cover details of when and where an employee is during \
 their shift. For example, an assignment or a scheduled break or lunch. Required."
         long-summary: |
-            Usage: --draft-shift-activities code=XX display-name=XX end-date-time=XX is-paid=XX start-date-time=XX \
-theme=XX
+            Usage: --microsoft-graph-shift-item-activities code=XX display-name=XX end-date-time=XX is-paid=XX \
+start-date-time=XX theme=XX
 
             code: Customer defined code for the shiftActivity. Required.
             display-name: The name of the shiftActivity. Required.
@@ -4290,18 +4245,73 @@ Required.
 time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look \
 like this: '2014-01-01T00:00:00Z'. Required.
 
-            Multiple actions can be specified by using more than one --draft-shift-activities argument.
+            Multiple actions can be specified by using more than one --microsoft-graph-shift-item-activities argument.
 """
 
 helps['teams team-schedule update-swap-shift-change-request'] = """
     type: command
-    short-summary: "Update the navigation property swapShiftsChangeRequests in teams"
+    short-summary: "Update the navigation property swapShiftsChangeRequests in teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-schedule update-time-off'] = """
     type: command
-    short-summary: "Update the navigation property timesOff in teams"
+    short-summary: "Update the navigation property timesOff in teams."
     parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
       - name: --draft-time-off
         short-summary: "timeOffItem"
         long-summary: |
@@ -4318,43 +4328,121 @@ helps['teams team-schedule update-time-off'] = """
 
 helps['teams team-schedule update-time-off-reason'] = """
     type: command
-    short-summary: "Update the navigation property timeOffReasons in teams"
+    short-summary: "Update the navigation property timeOffReasons in teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams team-schedule update-time-off-request'] = """
     type: command
-    short-summary: "Update the navigation property timeOffRequests in teams"
+    short-summary: "Update the navigation property timeOffRequests in teams."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['teams teamwork-teamwork'] = """
     type: group
-    short-summary: teams teamwork-teamwork
+    short-summary: Manage teamwork teamwork with teams_v1_0
 """
 
-helps['teams teamwork-teamwork getwork'] = """
+helps['teams teamwork-teamwork show-teamwork'] = """
     type: command
-    short-summary: "Get teamwork"
+    short-summary: "Get teamwork."
 """
 
-helps['teams teamwork-teamwork updatework'] = """
+helps['teams teamwork-teamwork update-teamwork'] = """
     type: command
-    short-summary: "Update teamwork"
+    short-summary: "Update teamwork."
 """
 
 helps['teams teamwork'] = """
     type: group
-    short-summary: teams teamwork
-"""
-
-helps['teams teamwork delete'] = """
-    type: command
-    short-summary: "Delete navigation property workforceIntegrations for teamwork"
+    short-summary: Manage teamwork with teams_v1_0
 """
 
 helps['teams teamwork create-workforce-integration'] = """
     type: command
-    short-summary: "Create new navigation property to workforceIntegrations for teamwork"
+    short-summary: "Create new navigation property to workforceIntegrations for teamwork."
     parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
       - name: --encryption
         short-summary: "workforceIntegrationEncryption"
         long-summary: |
@@ -4363,20 +4451,52 @@ helps['teams teamwork create-workforce-integration'] = """
             secret: Encryption shared secret.
 """
 
-helps['teams teamwork get-workforce-integration'] = """
+helps['teams teamwork delete-workforce-integration'] = """
     type: command
-    short-summary: "Get workforceIntegrations from teamwork"
+    short-summary: "Delete navigation property workforceIntegrations for teamwork."
 """
 
 helps['teams teamwork list-workforce-integration'] = """
     type: command
-    short-summary: "Get workforceIntegrations from teamwork"
+    short-summary: "Get workforceIntegrations from teamwork."
+"""
+
+helps['teams teamwork show-workforce-integration'] = """
+    type: command
+    short-summary: "Get workforceIntegrations from teamwork."
 """
 
 helps['teams teamwork update-workforce-integration'] = """
     type: command
-    short-summary: "Update the navigation property workforceIntegrations in teamwork"
+    short-summary: "Update the navigation property workforceIntegrations in teamwork."
     parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
       - name: --encryption
         short-summary: "workforceIntegrationEncryption"
         long-summary: |
@@ -4387,17 +4507,12 @@ helps['teams teamwork update-workforce-integration'] = """
 
 helps['teams user'] = """
     type: group
-    short-summary: teams user
-"""
-
-helps['teams user delete'] = """
-    type: command
-    short-summary: "Delete navigation property joinedTeams for users"
+    short-summary: Manage user with teams_v1_0
 """
 
 helps['teams user create-joined-team'] = """
     type: command
-    short-summary: "Create new navigation property to joinedTeams for users"
+    short-summary: "Create new navigation property to joinedTeams for users."
     parameters:
       - name: --fun-settings
         short-summary: "teamFunSettings"
@@ -4449,34 +4564,34 @@ allow-team-mentions=XX allow-user-delete-messages=XX allow-user-edit-messages=XX
             id: Read-only.
 
             Multiple actions can be specified by using more than one --members argument.
-      - name: --group-assigned-labels
+      - name: --assigned-labels
         short-summary: "The list of sensitivity label pairs (label ID, label name) associated with an Microsoft 365 \
 group. Returned only on $select. Read-only."
         long-summary: |
-            Usage: --group-assigned-labels display-name=XX label-id=XX
+            Usage: --assigned-labels display-name=XX label-id=XX
 
             display-name: The display name of the label. Read-only.
             label-id: The unique identifier of the label.
 
-            Multiple actions can be specified by using more than one --group-assigned-labels argument.
-      - name: --group-assigned-licenses
+            Multiple actions can be specified by using more than one --assigned-labels argument.
+      - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the group. Returned only on $select. Read-only."
         long-summary: |
-            Usage: --group-assigned-licenses disabled-plans=XX sku-id=XX
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
 
             disabled-plans: A collection of the unique identifiers for plans that have been disabled.
             sku-id: The unique identifier for the SKU.
 
-            Multiple actions can be specified by using more than one --group-assigned-licenses argument.
-      - name: --group-license-processing-state
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --license-processing-state
         short-summary: "licenseProcessingState"
         long-summary: |
-            Usage: --group-license-processing-state state=XX
+            Usage: --license-processing-state state=XX
 
-      - name: --group-on-premises-provisioning-errors
+      - name: --on-premises-provisioning-errors
         short-summary: "Errors when using Microsoft synchronization product during provisioning. Returned by default."
         long-summary: |
-            Usage: --group-on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
+            Usage: --on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
 value=XX
 
             category: Category of the provisioning error. Note: Currently, there is only one possible value. Possible \
@@ -4487,10 +4602,10 @@ property.
 UserPrincipalName or ProxyAddress
             value: Value of the property causing the error.
 
-            Multiple actions can be specified by using more than one --group-on-premises-provisioning-errors argument.
-      - name: --group-app-role-assignments
+            Multiple actions can be specified by using more than one --on-premises-provisioning-errors argument.
+      - name: --app-role-assignments
         long-summary: |
-            Usage: --group-app-role-assignments app-role-id=XX created-date-time=XX principal-display-name=XX \
+            Usage: --app-role-assignments app-role-id=XX created-date-time=XX principal-display-name=XX \
 principal-id=XX principal-type=XX resource-display-name=XX resource-id=XX deleted-date-time=XX id=XX
 
             app-role-id: The identifier (id) for the app role which is assigned to the principal. This app role must \
@@ -4510,126 +4625,115 @@ made. Does not support $filter.
 made. Required on create. Supports $filter (eq only).
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-app-role-assignments argument.
-      - name: --group-created-on-behalf-of
+            Multiple actions can be specified by using more than one --app-role-assignments argument.
+      - name: --created-on-behalf-of
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
         long-summary: |
-            Usage: --group-created-on-behalf-of deleted-date-time=XX id=XX
+            Usage: --created-on-behalf-of deleted-date-time=XX id=XX
 
             id: Read-only.
-      - name: --group-member-of
+      - name: --member-of
         short-summary: "Groups that this group is a member of. HTTP Methods: GET (supported for all groups). \
 Read-only. Nullable."
         long-summary: |
-            Usage: --group-member-of deleted-date-time=XX id=XX
+            Usage: --member-of deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-member-of argument.
-      - name: --group-members
+            Multiple actions can be specified by using more than one --member-of argument.
+      - name: --microsoft-graph-group-members
         short-summary: "Users and groups that are members of this group. HTTP Methods: GET (supported for all groups), \
 POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for \
 Microsoft 365 groups and security groups) Nullable."
         long-summary: |
-            Usage: --group-members deleted-date-time=XX id=XX
+            Usage: --microsoft-graph-group-members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-members argument.
-      - name: --group-members-with-license-errors
+            Multiple actions can be specified by using more than one --microsoft-graph-group-members argument.
+      - name: --members-with-license-errors
         short-summary: "A list of group members with license errors from this group-based license assignment. \
 Read-only."
         long-summary: |
-            Usage: --group-members-with-license-errors deleted-date-time=XX id=XX
+            Usage: --members-with-license-errors deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-members-with-license-errors argument.
-      - name: --group-owners
+            Multiple actions can be specified by using more than one --members-with-license-errors argument.
+      - name: --owners
         short-summary: "The owners of the group. The owners are a set of non-admin users who are allowed to modify \
 this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 \
 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security \
 groups). Nullable."
         long-summary: |
-            Usage: --group-owners deleted-date-time=XX id=XX
+            Usage: --owners deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-owners argument.
-      - name: --group-settings
-        short-summary: "Read-only. Nullable."
+            Multiple actions can be specified by using more than one --owners argument.
+      - name: --transitive-member-of
         long-summary: |
-            Usage: --group-settings display-name=XX template-id=XX values=XX id=XX
+            Usage: --transitive-member-of deleted-date-time=XX id=XX
 
-            display-name: Display name of this group of settings, which comes from the associated template.
-            template-id: Unique identifier for the template used to create this group of settings. Read-only.
-            values: Collection of name value pairs. Must contain and set all the settings defined in the template.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-settings argument.
-      - name: --group-transitive-member-of
+            Multiple actions can be specified by using more than one --transitive-member-of argument.
+      - name: --transitive-members
         long-summary: |
-            Usage: --group-transitive-member-of deleted-date-time=XX id=XX
+            Usage: --transitive-members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-transitive-member-of argument.
-      - name: --group-transitive-members
-        long-summary: |
-            Usage: --group-transitive-members deleted-date-time=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --group-transitive-members argument.
-      - name: --group-accepted-senders
+            Multiple actions can be specified by using more than one --transitive-members argument.
+      - name: --accepted-senders
         short-summary: "The list of users or groups that are allowed to create post's or calendar events in this \
 group. If this list is non-empty then only users or groups listed here are allowed to post."
         long-summary: |
-            Usage: --group-accepted-senders deleted-date-time=XX id=XX
+            Usage: --accepted-senders deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-accepted-senders argument.
-      - name: --group-photo
+            Multiple actions can be specified by using more than one --accepted-senders argument.
+      - name: --photo
         short-summary: "profilePhoto"
         long-summary: |
-            Usage: --group-photo height=XX width=XX id=XX
+            Usage: --photo height=XX width=XX id=XX
 
             height: The height of the photo. Read-only.
             width: The width of the photo. Read-only.
             id: Read-only.
-      - name: --group-photos
+      - name: --photos
         short-summary: "The profile photos owned by the group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-photos height=XX width=XX id=XX
+            Usage: --photos height=XX width=XX id=XX
 
             height: The height of the photo. Read-only.
             width: The width of the photo. Read-only.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-photos argument.
-      - name: --group-rejected-senders
+            Multiple actions can be specified by using more than one --photos argument.
+      - name: --rejected-senders
         short-summary: "The list of users or groups that are not allowed to create posts or calendar events in this \
 group. Nullable"
         long-summary: |
-            Usage: --group-rejected-senders deleted-date-time=XX id=XX
+            Usage: --rejected-senders deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-rejected-senders argument.
-      - name: --group-extensions
+            Multiple actions can be specified by using more than one --rejected-senders argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-extensions argument.
-      - name: --group-group-lifecycle-policies
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --group-lifecycle-policies
         short-summary: "The collection of lifecycle policies for this group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-group-lifecycle-policies alternate-notification-emails=XX group-lifetime-in-days=XX \
+            Usage: --group-lifecycle-policies alternate-notification-emails=XX group-lifetime-in-days=XX \
 managed-group-types=XX id=XX
 
             alternate-notification-emails: List of email address to send notifications for groups without owners. \
@@ -4640,15 +4744,13 @@ group expiration is extended by the number of days defined.
 Selected or None.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-group-lifecycle-policies argument.
-      - name: --schedule-offer-shift-requests
+            Multiple actions can be specified by using more than one --group-lifecycle-policies argument.
+      - name: --offer-shift-requests
         long-summary: |
-            Usage: --schedule-offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
+            Usage: --offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
 recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX manager-action-message=XX \
 manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
 and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -4659,56 +4761,34 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-offer-shift-requests argument.
-      - name: --schedule-open-shift-change-requests
+            Multiple actions can be specified by using more than one --offer-shift-requests argument.
+      - name: --open-shift-change-requests
         long-summary: |
-            Usage: --schedule-open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
+            Usage: --open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             open-shift-id: ID for the open shift.
             created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-open-shift-change-requests argument.
-      - name: --schedule-scheduling-groups
+            Multiple actions can be specified by using more than one --open-shift-change-requests argument.
+      - name: --scheduling-groups
         short-summary: "The logical grouping of users in the schedule (usually by role)."
         long-summary: |
-            Usage: --schedule-scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The display name for the schedulingGroup. Required.
             is-active: Indicates whether the schedulingGroup can be used when creating new entities or updating \
@@ -4718,70 +4798,18 @@ existing ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-scheduling-groups argument.
-      - name: --schedule-shifts
-        short-summary: "The shifts in the schedule."
+            Multiple actions can be specified by using more than one --scheduling-groups argument.
+      - name: --swap-shifts-change-requests
         long-summary: |
-            Usage: --schedule-shifts scheduling-group-id=XX user-id=XX end-date-time-shared-shift-end-date-time=XX \
-start-date-time-shared-shift-start-date-time=XX theme-shared-shift-theme=XX activities-shared-shift-activities=XX \
-display-name-shared-shift-display-name=XX notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX \
-start-date-time-draft-shift-start-date-time=XX theme-draft-shift-theme=XX activities-draft-shift-activities=XX \
-display-name-draft-shift-display-name=XX notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
-
-            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
-            user-id: ID of the user assigned to the shift. Required.
-            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-shared-shift-display-name: The shift label of the shiftItem.
-            notes-shared-shift-notes: The shift notes for the shiftItem.
-            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-draft-shift-display-name: The shift label of the shiftItem.
-            notes-draft-shift-notes: The shift notes for the shiftItem.
-            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
-always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --schedule-shifts argument.
-      - name: --schedule-swap-shifts-change-requests
-        long-summary: |
-            Usage: --schedule-swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
+            Usage: --swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
 recipient-action-message=XX recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-shift-id: ShiftId for the recipient user with whom the request is to swap.
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
@@ -4793,28 +4821,17 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-swap-shifts-change-requests argument.
-      - name: --schedule-time-off-reasons
+            Multiple actions can be specified by using more than one --swap-shifts-change-requests argument.
+      - name: --time-off-reasons
         short-summary: "The set of reasons for a time off in the schedule."
         long-summary: |
-            Usage: --schedule-time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The name of the timeOffReason. Required.
             is-active: Indicates whether the timeOffReason can be used when creating new entities or updating existing \
@@ -4823,29 +4840,17 @@ ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-time-off-reasons argument.
-      - name: --schedule-time-off-requests
+            Multiple actions can be specified by using more than one --time-off-reasons argument.
+      - name: --time-off-requests
         long-summary: |
-            Usage: --schedule-time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX \
-assigned-to=XX manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX \
-sender-message=XX sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
+            Usage: --time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX assigned-to=XX \
+manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX \
+sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             end-date-time: The Timestamp type represents date and time information using ISO 8601 format and is always \
 in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -4856,36 +4861,32 @@ always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like thi
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-time-off-requests argument.
+            Multiple actions can be specified by using more than one --time-off-requests argument.
 """
 
-helps['teams user get-joined-team'] = """
+helps['teams user delete-joined-team'] = """
     type: command
-    short-summary: "Get joinedTeams from users"
+    short-summary: "Delete navigation property joinedTeams for users."
 """
 
 helps['teams user list-joined-team'] = """
     type: command
-    short-summary: "Get joinedTeams from users"
+    short-summary: "Get joinedTeams from users."
+"""
+
+helps['teams user show-joined-team'] = """
+    type: command
+    short-summary: "Get joinedTeams from users."
 """
 
 helps['teams user update-joined-team'] = """
     type: command
-    short-summary: "Update the navigation property joinedTeams in users"
+    short-summary: "Update the navigation property joinedTeams in users."
     parameters:
       - name: --fun-settings
         short-summary: "teamFunSettings"
@@ -4937,34 +4938,34 @@ allow-team-mentions=XX allow-user-delete-messages=XX allow-user-edit-messages=XX
             id: Read-only.
 
             Multiple actions can be specified by using more than one --members argument.
-      - name: --group-assigned-labels
+      - name: --assigned-labels
         short-summary: "The list of sensitivity label pairs (label ID, label name) associated with an Microsoft 365 \
 group. Returned only on $select. Read-only."
         long-summary: |
-            Usage: --group-assigned-labels display-name=XX label-id=XX
+            Usage: --assigned-labels display-name=XX label-id=XX
 
             display-name: The display name of the label. Read-only.
             label-id: The unique identifier of the label.
 
-            Multiple actions can be specified by using more than one --group-assigned-labels argument.
-      - name: --group-assigned-licenses
+            Multiple actions can be specified by using more than one --assigned-labels argument.
+      - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the group. Returned only on $select. Read-only."
         long-summary: |
-            Usage: --group-assigned-licenses disabled-plans=XX sku-id=XX
+            Usage: --assigned-licenses disabled-plans=XX sku-id=XX
 
             disabled-plans: A collection of the unique identifiers for plans that have been disabled.
             sku-id: The unique identifier for the SKU.
 
-            Multiple actions can be specified by using more than one --group-assigned-licenses argument.
-      - name: --group-license-processing-state
+            Multiple actions can be specified by using more than one --assigned-licenses argument.
+      - name: --license-processing-state
         short-summary: "licenseProcessingState"
         long-summary: |
-            Usage: --group-license-processing-state state=XX
+            Usage: --license-processing-state state=XX
 
-      - name: --group-on-premises-provisioning-errors
+      - name: --on-premises-provisioning-errors
         short-summary: "Errors when using Microsoft synchronization product during provisioning. Returned by default."
         long-summary: |
-            Usage: --group-on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
+            Usage: --on-premises-provisioning-errors category=XX occurred-date-time=XX property-causing-error=XX \
 value=XX
 
             category: Category of the provisioning error. Note: Currently, there is only one possible value. Possible \
@@ -4975,10 +4976,10 @@ property.
 UserPrincipalName or ProxyAddress
             value: Value of the property causing the error.
 
-            Multiple actions can be specified by using more than one --group-on-premises-provisioning-errors argument.
-      - name: --group-app-role-assignments
+            Multiple actions can be specified by using more than one --on-premises-provisioning-errors argument.
+      - name: --app-role-assignments
         long-summary: |
-            Usage: --group-app-role-assignments app-role-id=XX created-date-time=XX principal-display-name=XX \
+            Usage: --app-role-assignments app-role-id=XX created-date-time=XX principal-display-name=XX \
 principal-id=XX principal-type=XX resource-display-name=XX resource-id=XX deleted-date-time=XX id=XX
 
             app-role-id: The identifier (id) for the app role which is assigned to the principal. This app role must \
@@ -4998,126 +4999,115 @@ made. Does not support $filter.
 made. Required on create. Supports $filter (eq only).
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-app-role-assignments argument.
-      - name: --group-created-on-behalf-of
+            Multiple actions can be specified by using more than one --app-role-assignments argument.
+      - name: --created-on-behalf-of
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
         long-summary: |
-            Usage: --group-created-on-behalf-of deleted-date-time=XX id=XX
+            Usage: --created-on-behalf-of deleted-date-time=XX id=XX
 
             id: Read-only.
-      - name: --group-member-of
+      - name: --member-of
         short-summary: "Groups that this group is a member of. HTTP Methods: GET (supported for all groups). \
 Read-only. Nullable."
         long-summary: |
-            Usage: --group-member-of deleted-date-time=XX id=XX
+            Usage: --member-of deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-member-of argument.
-      - name: --group-members
+            Multiple actions can be specified by using more than one --member-of argument.
+      - name: --microsoft-graph-group-members
         short-summary: "Users and groups that are members of this group. HTTP Methods: GET (supported for all groups), \
 POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for \
 Microsoft 365 groups and security groups) Nullable."
         long-summary: |
-            Usage: --group-members deleted-date-time=XX id=XX
+            Usage: --microsoft-graph-group-members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-members argument.
-      - name: --group-members-with-license-errors
+            Multiple actions can be specified by using more than one --microsoft-graph-group-members argument.
+      - name: --members-with-license-errors
         short-summary: "A list of group members with license errors from this group-based license assignment. \
 Read-only."
         long-summary: |
-            Usage: --group-members-with-license-errors deleted-date-time=XX id=XX
+            Usage: --members-with-license-errors deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-members-with-license-errors argument.
-      - name: --group-owners
+            Multiple actions can be specified by using more than one --members-with-license-errors argument.
+      - name: --owners
         short-summary: "The owners of the group. The owners are a set of non-admin users who are allowed to modify \
 this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 \
 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security \
 groups). Nullable."
         long-summary: |
-            Usage: --group-owners deleted-date-time=XX id=XX
+            Usage: --owners deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-owners argument.
-      - name: --group-settings
-        short-summary: "Read-only. Nullable."
+            Multiple actions can be specified by using more than one --owners argument.
+      - name: --transitive-member-of
         long-summary: |
-            Usage: --group-settings display-name=XX template-id=XX values=XX id=XX
+            Usage: --transitive-member-of deleted-date-time=XX id=XX
 
-            display-name: Display name of this group of settings, which comes from the associated template.
-            template-id: Unique identifier for the template used to create this group of settings. Read-only.
-            values: Collection of name value pairs. Must contain and set all the settings defined in the template.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-settings argument.
-      - name: --group-transitive-member-of
+            Multiple actions can be specified by using more than one --transitive-member-of argument.
+      - name: --transitive-members
         long-summary: |
-            Usage: --group-transitive-member-of deleted-date-time=XX id=XX
+            Usage: --transitive-members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-transitive-member-of argument.
-      - name: --group-transitive-members
-        long-summary: |
-            Usage: --group-transitive-members deleted-date-time=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --group-transitive-members argument.
-      - name: --group-accepted-senders
+            Multiple actions can be specified by using more than one --transitive-members argument.
+      - name: --accepted-senders
         short-summary: "The list of users or groups that are allowed to create post's or calendar events in this \
 group. If this list is non-empty then only users or groups listed here are allowed to post."
         long-summary: |
-            Usage: --group-accepted-senders deleted-date-time=XX id=XX
+            Usage: --accepted-senders deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-accepted-senders argument.
-      - name: --group-photo
+            Multiple actions can be specified by using more than one --accepted-senders argument.
+      - name: --photo
         short-summary: "profilePhoto"
         long-summary: |
-            Usage: --group-photo height=XX width=XX id=XX
+            Usage: --photo height=XX width=XX id=XX
 
             height: The height of the photo. Read-only.
             width: The width of the photo. Read-only.
             id: Read-only.
-      - name: --group-photos
+      - name: --photos
         short-summary: "The profile photos owned by the group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-photos height=XX width=XX id=XX
+            Usage: --photos height=XX width=XX id=XX
 
             height: The height of the photo. Read-only.
             width: The width of the photo. Read-only.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-photos argument.
-      - name: --group-rejected-senders
+            Multiple actions can be specified by using more than one --photos argument.
+      - name: --rejected-senders
         short-summary: "The list of users or groups that are not allowed to create posts or calendar events in this \
 group. Nullable"
         long-summary: |
-            Usage: --group-rejected-senders deleted-date-time=XX id=XX
+            Usage: --rejected-senders deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-rejected-senders argument.
-      - name: --group-extensions
+            Multiple actions can be specified by using more than one --rejected-senders argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-extensions argument.
-      - name: --group-group-lifecycle-policies
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --group-lifecycle-policies
         short-summary: "The collection of lifecycle policies for this group. Read-only. Nullable."
         long-summary: |
-            Usage: --group-group-lifecycle-policies alternate-notification-emails=XX group-lifetime-in-days=XX \
+            Usage: --group-lifecycle-policies alternate-notification-emails=XX group-lifetime-in-days=XX \
 managed-group-types=XX id=XX
 
             alternate-notification-emails: List of email address to send notifications for groups without owners. \
@@ -5128,15 +5118,13 @@ group expiration is extended by the number of days defined.
 Selected or None.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --group-group-lifecycle-policies argument.
-      - name: --schedule-offer-shift-requests
+            Multiple actions can be specified by using more than one --group-lifecycle-policies argument.
+      - name: --offer-shift-requests
         long-summary: |
-            Usage: --schedule-offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
+            Usage: --offer-shift-requests recipient-action-date-time=XX recipient-action-message=XX \
 recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX manager-action-message=XX \
 manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
 and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -5147,56 +5135,34 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-offer-shift-requests argument.
-      - name: --schedule-open-shift-change-requests
+            Multiple actions can be specified by using more than one --offer-shift-requests argument.
+      - name: --open-shift-change-requests
         long-summary: |
-            Usage: --schedule-open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
+            Usage: --open-shift-change-requests open-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             open-shift-id: ID for the open shift.
             created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-open-shift-change-requests argument.
-      - name: --schedule-scheduling-groups
+            Multiple actions can be specified by using more than one --open-shift-change-requests argument.
+      - name: --scheduling-groups
         short-summary: "The logical grouping of users in the schedule (usually by role)."
         long-summary: |
-            Usage: --schedule-scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --scheduling-groups display-name=XX is-active=XX user-ids=XX created-date-time=XX \
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The display name for the schedulingGroup. Required.
             is-active: Indicates whether the schedulingGroup can be used when creating new entities or updating \
@@ -5206,70 +5172,18 @@ existing ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-scheduling-groups argument.
-      - name: --schedule-shifts
-        short-summary: "The shifts in the schedule."
+            Multiple actions can be specified by using more than one --scheduling-groups argument.
+      - name: --swap-shifts-change-requests
         long-summary: |
-            Usage: --schedule-shifts scheduling-group-id=XX user-id=XX end-date-time-shared-shift-end-date-time=XX \
-start-date-time-shared-shift-start-date-time=XX theme-shared-shift-theme=XX activities-shared-shift-activities=XX \
-display-name-shared-shift-display-name=XX notes-shared-shift-notes=XX end-date-time-draft-shift-end-date-time=XX \
-start-date-time-draft-shift-start-date-time=XX theme-draft-shift-theme=XX activities-draft-shift-activities=XX \
-display-name-draft-shift-display-name=XX notes-draft-shift-notes=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
-
-            scheduling-group-id: ID of the scheduling group the shift is part of. Required.
-            user-id: ID of the user assigned to the shift. Required.
-            activities-shared-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-shared-shift-display-name: The shift label of the shiftItem.
-            notes-shared-shift-notes: The shift notes for the shiftItem.
-            activities-draft-shift-activities: An incremental part of a shift which can cover details of when and \
-where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-            display-name-draft-shift-display-name: The shift label of the shiftItem.
-            notes-draft-shift-notes: The shift notes for the shiftItem.
-            created-date-time: The Timestamp type represents date and time information using ISO 8601 format and is \
-always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --schedule-shifts argument.
-      - name: --schedule-swap-shifts-change-requests
-        long-summary: |
-            Usage: --schedule-swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
+            Usage: --swap-shifts-change-requests recipient-shift-id=XX recipient-action-date-time=XX \
 recipient-action-message=XX recipient-user-id=XX sender-shift-id=XX assigned-to=XX manager-action-date-time=XX \
 manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX sender-user-id=XX state=XX \
-created-date-time=XX last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             recipient-shift-id: ShiftId for the recipient user with whom the request is to swap.
             recipient-action-date-time: The Timestamp type represents date and time information using ISO 8601 format \
@@ -5281,28 +5195,17 @@ and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look l
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-swap-shifts-change-requests argument.
-      - name: --schedule-time-off-reasons
+            Multiple actions can be specified by using more than one --swap-shifts-change-requests argument.
+      - name: --time-off-reasons
         short-summary: "The set of reasons for a time off in the schedule."
         long-summary: |
-            Usage: --schedule-time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
-last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX \
-display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-app\
-lication-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --time-off-reasons display-name=XX icon-type=XX is-active=XX created-date-time=XX \
+last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             display-name: The name of the timeOffReason. Required.
             is-active: Indicates whether the timeOffReason can be used when creating new entities or updating existing \
@@ -5311,29 +5214,17 @@ ones. Required.
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-time-off-reasons argument.
-      - name: --schedule-time-off-requests
+            Multiple actions can be specified by using more than one --time-off-reasons argument.
+      - name: --time-off-requests
         long-summary: |
-            Usage: --schedule-time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX \
-assigned-to=XX manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX \
-sender-message=XX sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX \
-display-name-last-modified-by-user-display-name=XX id-last-modified-by-user-id=XX display-name-last-modified-by-device-\
-display-name=XX id-last-modified-by-device-id=XX display-name-last-modified-by-application-display-name=XX \
-id-last-modified-by-application-id=XX id=XX
+            Usage: --time-off-requests end-date-time=XX start-date-time=XX time-off-reason-id=XX assigned-to=XX \
+manager-action-date-time=XX manager-action-message=XX manager-user-id=XX sender-date-time=XX sender-message=XX \
+sender-user-id=XX state=XX created-date-time=XX last-modified-date-time=XX application=XX device=XX user=XX id=XX
 
             end-date-time: The Timestamp type represents date and time information using ISO 8601 format and is always \
 in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
@@ -5344,19 +5235,10 @@ always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like thi
 always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
             last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
 is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
+            application: identity
+            device: identity
+            user: identity
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --schedule-time-off-requests argument.
+            Multiple actions can be specified by using more than one --time-off-requests argument.
 """

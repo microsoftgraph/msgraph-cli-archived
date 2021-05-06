@@ -1,20 +1,113 @@
 # Azure CLI Module Creation Report
 
-### personalcontacts user create-contact
-
-create-contact a personalcontacts user.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|personalcontacts user|users|
+|az personalcontacts_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-contact|CreateContacts|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az personalcontacts_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az personalcontacts user|users|[commands](#CommandsInusers)|
+|az personalcontacts user-contact-folder|users.contactFolders|[commands](#CommandsInusers.contactFolders)|
+|az personalcontacts user-contact-folder-contact|users.contactFolders.contacts|[commands](#CommandsInusers.contactFolders.contacts)|
+|az personalcontacts user-contact|users.contacts|[commands](#CommandsInusers.contacts)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInusers">Commands in `az personalcontacts user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az personalcontacts user create-contact](#usersCreateContacts)|CreateContacts|[Parameters](#ParametersusersCreateContacts)|Not Found|
+|[az personalcontacts user create-contact-folder](#usersCreateContactFolders)|CreateContactFolders|[Parameters](#ParametersusersCreateContactFolders)|Not Found|
+|[az personalcontacts user delete-contact](#usersDeleteContacts)|DeleteContacts|[Parameters](#ParametersusersDeleteContacts)|Not Found|
+|[az personalcontacts user delete-contact-folder](#usersDeleteContactFolders)|DeleteContactFolders|[Parameters](#ParametersusersDeleteContactFolders)|Not Found|
+|[az personalcontacts user list-contact](#usersListContacts)|ListContacts|[Parameters](#ParametersusersListContacts)|Not Found|
+|[az personalcontacts user list-contact-folder](#usersListContactFolders)|ListContactFolders|[Parameters](#ParametersusersListContactFolders)|Not Found|
+|[az personalcontacts user show-contact](#usersGetContacts)|GetContacts|[Parameters](#ParametersusersGetContacts)|Not Found|
+|[az personalcontacts user show-contact-folder](#usersGetContactFolders)|GetContactFolders|[Parameters](#ParametersusersGetContactFolders)|Not Found|
+|[az personalcontacts user update-contact](#usersUpdateContacts)|UpdateContacts|[Parameters](#ParametersusersUpdateContacts)|Not Found|
+|[az personalcontacts user update-contact-folder](#usersUpdateContactFolders)|UpdateContactFolders|[Parameters](#ParametersusersUpdateContactFolders)|Not Found|
+
+### <a name="CommandsInusers.contacts">Commands in `az personalcontacts user-contact` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az personalcontacts user-contact create-extension](#users.contactsCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.contactsCreateExtensions)|Not Found|
+|[az personalcontacts user-contact create-multi-value-extended-property](#users.contactsCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.contactsCreateMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact create-single-value-extended-property](#users.contactsCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.contactsCreateSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact delete-extension](#users.contactsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.contactsDeleteExtensions)|Not Found|
+|[az personalcontacts user-contact delete-multi-value-extended-property](#users.contactsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.contactsDeleteMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact delete-photo](#users.contactsDeletePhoto)|DeletePhoto|[Parameters](#Parametersusers.contactsDeletePhoto)|Not Found|
+|[az personalcontacts user-contact delete-single-value-extended-property](#users.contactsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.contactsDeleteSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact list-extension](#users.contactsListExtensions)|ListExtensions|[Parameters](#Parametersusers.contactsListExtensions)|Not Found|
+|[az personalcontacts user-contact list-multi-value-extended-property](#users.contactsListMultiValueExtendedProperties)|ListMultiValueExtendedProperties|[Parameters](#Parametersusers.contactsListMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact list-single-value-extended-property](#users.contactsListSingleValueExtendedProperties)|ListSingleValueExtendedProperties|[Parameters](#Parametersusers.contactsListSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact set-photo-content](#users.contactsSetPhotoContent)|SetPhotoContent|[Parameters](#Parametersusers.contactsSetPhotoContent)|Not Found|
+|[az personalcontacts user-contact show-extension](#users.contactsGetExtensions)|GetExtensions|[Parameters](#Parametersusers.contactsGetExtensions)|Not Found|
+|[az personalcontacts user-contact show-multi-value-extended-property](#users.contactsGetMultiValueExtendedProperties)|GetMultiValueExtendedProperties|[Parameters](#Parametersusers.contactsGetMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact show-photo](#users.contactsGetPhoto)|GetPhoto|[Parameters](#Parametersusers.contactsGetPhoto)|Not Found|
+|[az personalcontacts user-contact show-photo-content](#users.contactsGetPhotoContent)|GetPhotoContent|[Parameters](#Parametersusers.contactsGetPhotoContent)|Not Found|
+|[az personalcontacts user-contact show-single-value-extended-property](#users.contactsGetSingleValueExtendedProperties)|GetSingleValueExtendedProperties|[Parameters](#Parametersusers.contactsGetSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact update-extension](#users.contactsUpdateExtensions)|UpdateExtensions|[Parameters](#Parametersusers.contactsUpdateExtensions)|Not Found|
+|[az personalcontacts user-contact update-multi-value-extended-property](#users.contactsUpdateMultiValueExtendedProperties)|UpdateMultiValueExtendedProperties|[Parameters](#Parametersusers.contactsUpdateMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact update-photo](#users.contactsUpdatePhoto)|UpdatePhoto|[Parameters](#Parametersusers.contactsUpdatePhoto)|Not Found|
+|[az personalcontacts user-contact update-single-value-extended-property](#users.contactsUpdateSingleValueExtendedProperties)|UpdateSingleValueExtendedProperties|[Parameters](#Parametersusers.contactsUpdateSingleValueExtendedProperties)|Not Found|
+
+### <a name="CommandsInusers.contactFolders">Commands in `az personalcontacts user-contact-folder` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az personalcontacts user-contact-folder create-child-folder](#users.contactFoldersCreateChildFolders)|CreateChildFolders|[Parameters](#Parametersusers.contactFoldersCreateChildFolders)|Not Found|
+|[az personalcontacts user-contact-folder create-contact](#users.contactFoldersCreateContacts)|CreateContacts|[Parameters](#Parametersusers.contactFoldersCreateContacts)|Not Found|
+|[az personalcontacts user-contact-folder create-multi-value-extended-property](#users.contactFoldersCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.contactFoldersCreateMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder create-single-value-extended-property](#users.contactFoldersCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.contactFoldersCreateSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder delete-child-folder](#users.contactFoldersDeleteChildFolders)|DeleteChildFolders|[Parameters](#Parametersusers.contactFoldersDeleteChildFolders)|Not Found|
+|[az personalcontacts user-contact-folder delete-contact](#users.contactFoldersDeleteContacts)|DeleteContacts|[Parameters](#Parametersusers.contactFoldersDeleteContacts)|Not Found|
+|[az personalcontacts user-contact-folder delete-multi-value-extended-property](#users.contactFoldersDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.contactFoldersDeleteMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder delete-single-value-extended-property](#users.contactFoldersDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.contactFoldersDeleteSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder list-child-folder](#users.contactFoldersListChildFolders)|ListChildFolders|[Parameters](#Parametersusers.contactFoldersListChildFolders)|Not Found|
+|[az personalcontacts user-contact-folder list-contact](#users.contactFoldersListContacts)|ListContacts|[Parameters](#Parametersusers.contactFoldersListContacts)|Not Found|
+|[az personalcontacts user-contact-folder list-multi-value-extended-property](#users.contactFoldersListMultiValueExtendedProperties)|ListMultiValueExtendedProperties|[Parameters](#Parametersusers.contactFoldersListMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder list-single-value-extended-property](#users.contactFoldersListSingleValueExtendedProperties)|ListSingleValueExtendedProperties|[Parameters](#Parametersusers.contactFoldersListSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder show-child-folder](#users.contactFoldersGetChildFolders)|GetChildFolders|[Parameters](#Parametersusers.contactFoldersGetChildFolders)|Not Found|
+|[az personalcontacts user-contact-folder show-contact](#users.contactFoldersGetContacts)|GetContacts|[Parameters](#Parametersusers.contactFoldersGetContacts)|Not Found|
+|[az personalcontacts user-contact-folder show-multi-value-extended-property](#users.contactFoldersGetMultiValueExtendedProperties)|GetMultiValueExtendedProperties|[Parameters](#Parametersusers.contactFoldersGetMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder show-single-value-extended-property](#users.contactFoldersGetSingleValueExtendedProperties)|GetSingleValueExtendedProperties|[Parameters](#Parametersusers.contactFoldersGetSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder update-child-folder](#users.contactFoldersUpdateChildFolders)|UpdateChildFolders|[Parameters](#Parametersusers.contactFoldersUpdateChildFolders)|Not Found|
+|[az personalcontacts user-contact-folder update-contact](#users.contactFoldersUpdateContacts)|UpdateContacts|[Parameters](#Parametersusers.contactFoldersUpdateContacts)|Not Found|
+|[az personalcontacts user-contact-folder update-multi-value-extended-property](#users.contactFoldersUpdateMultiValueExtendedProperties)|UpdateMultiValueExtendedProperties|[Parameters](#Parametersusers.contactFoldersUpdateMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder update-single-value-extended-property](#users.contactFoldersUpdateSingleValueExtendedProperties)|UpdateSingleValueExtendedProperties|[Parameters](#Parametersusers.contactFoldersUpdateSingleValueExtendedProperties)|Not Found|
+
+### <a name="CommandsInusers.contactFolders.contacts">Commands in `az personalcontacts user-contact-folder-contact` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az personalcontacts user-contact-folder-contact create-extension](#users.contactFolders.contactsCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.contactFolders.contactsCreateExtensions)|Not Found|
+|[az personalcontacts user-contact-folder-contact create-multi-value-extended-property](#users.contactFolders.contactsCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.contactFolders.contactsCreateMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder-contact create-single-value-extended-property](#users.contactFolders.contactsCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.contactFolders.contactsCreateSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder-contact delete-extension](#users.contactFolders.contactsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.contactFolders.contactsDeleteExtensions)|Not Found|
+|[az personalcontacts user-contact-folder-contact delete-multi-value-extended-property](#users.contactFolders.contactsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.contactFolders.contactsDeleteMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder-contact delete-photo](#users.contactFolders.contactsDeletePhoto)|DeletePhoto|[Parameters](#Parametersusers.contactFolders.contactsDeletePhoto)|Not Found|
+|[az personalcontacts user-contact-folder-contact delete-single-value-extended-property](#users.contactFolders.contactsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.contactFolders.contactsDeleteSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder-contact list-extension](#users.contactFolders.contactsListExtensions)|ListExtensions|[Parameters](#Parametersusers.contactFolders.contactsListExtensions)|Not Found|
+|[az personalcontacts user-contact-folder-contact list-multi-value-extended-property](#users.contactFolders.contactsListMultiValueExtendedProperties)|ListMultiValueExtendedProperties|[Parameters](#Parametersusers.contactFolders.contactsListMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder-contact list-single-value-extended-property](#users.contactFolders.contactsListSingleValueExtendedProperties)|ListSingleValueExtendedProperties|[Parameters](#Parametersusers.contactFolders.contactsListSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder-contact set-photo-content](#users.contactFolders.contactsSetPhotoContent)|SetPhotoContent|[Parameters](#Parametersusers.contactFolders.contactsSetPhotoContent)|Not Found|
+|[az personalcontacts user-contact-folder-contact show-extension](#users.contactFolders.contactsGetExtensions)|GetExtensions|[Parameters](#Parametersusers.contactFolders.contactsGetExtensions)|Not Found|
+|[az personalcontacts user-contact-folder-contact show-multi-value-extended-property](#users.contactFolders.contactsGetMultiValueExtendedProperties)|GetMultiValueExtendedProperties|[Parameters](#Parametersusers.contactFolders.contactsGetMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder-contact show-photo](#users.contactFolders.contactsGetPhoto)|GetPhoto|[Parameters](#Parametersusers.contactFolders.contactsGetPhoto)|Not Found|
+|[az personalcontacts user-contact-folder-contact show-photo-content](#users.contactFolders.contactsGetPhotoContent)|GetPhotoContent|[Parameters](#Parametersusers.contactFolders.contactsGetPhotoContent)|Not Found|
+|[az personalcontacts user-contact-folder-contact show-single-value-extended-property](#users.contactFolders.contactsGetSingleValueExtendedProperties)|GetSingleValueExtendedProperties|[Parameters](#Parametersusers.contactFolders.contactsGetSingleValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder-contact update-extension](#users.contactFolders.contactsUpdateExtensions)|UpdateExtensions|[Parameters](#Parametersusers.contactFolders.contactsUpdateExtensions)|Not Found|
+|[az personalcontacts user-contact-folder-contact update-multi-value-extended-property](#users.contactFolders.contactsUpdateMultiValueExtendedProperties)|UpdateMultiValueExtendedProperties|[Parameters](#Parametersusers.contactFolders.contactsUpdateMultiValueExtendedProperties)|Not Found|
+|[az personalcontacts user-contact-folder-contact update-photo](#users.contactFolders.contactsUpdatePhoto)|UpdatePhoto|[Parameters](#Parametersusers.contactFolders.contactsUpdatePhoto)|Not Found|
+|[az personalcontacts user-contact-folder-contact update-single-value-extended-property](#users.contactFolders.contactsUpdateSingleValueExtendedProperties)|UpdateSingleValueExtendedProperties|[Parameters](#Parametersusers.contactFolders.contactsUpdateSingleValueExtendedProperties)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az personalcontacts user`
+#### <a name="usersCreateContacts">Command `az personalcontacts user create-contact`</a>
+
+##### <a name="ParametersusersCreateContacts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -59,26 +152,14 @@ create-contact a personalcontacts user.
 |**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the contact. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
 |**--photo**|object|profilePhoto|photo|photo|
 |**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the contact. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
-|**--flag-completed-date-time**|object|dateTimeTimeZone|completed_date_time|completedDateTime|
-|**--flag-due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
-|**--flag-flag-status**|choice||flag_status|flagStatus|
-|**--flag-start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
+|**--completed-date-time**|object|dateTimeTimeZone|completed_date_time|completedDateTime|
+|**--due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
+|**--flag-status**|choice||flag_status|flagStatus|
+|**--start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
 
-### personalcontacts user create-contact-folder
+#### <a name="usersCreateContactFolders">Command `az personalcontacts user create-contact-folder`</a>
 
-create-contact-folder a personalcontacts user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-contact-folder|CreateContactFolders|
-
-#### Parameters
+##### <a name="ParametersusersCreateContactFolders">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -91,44 +172,47 @@ create-contact-folder a personalcontacts user.
 |**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
 |**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
 
-### personalcontacts user delete
+#### <a name="usersDeleteContacts">Command `az personalcontacts user delete-contact`</a>
 
-delete a personalcontacts user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteContactFolders|
-|delete|DeleteContacts|
-
-#### Parameters
+##### <a name="ParametersusersDeleteContacts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
 |**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### personalcontacts user get-contact
+#### <a name="usersDeleteContactFolders">Command `az personalcontacts user delete-contact-folder`</a>
 
-get-contact a personalcontacts user.
+##### <a name="ParametersusersDeleteContactFolders">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user|users|
+#### <a name="usersListContacts">Command `az personalcontacts user list-contact`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-contact|GetContacts|
+##### <a name="ParametersusersListContacts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="usersListContactFolders">Command `az personalcontacts user list-contact-folder`</a>
+
+##### <a name="ParametersusersListContactFolders">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersGetContacts">Command `az personalcontacts user show-contact`</a>
+
+##### <a name="ParametersusersGetContacts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -136,21 +220,9 @@ get-contact a personalcontacts user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user get-contact-folder
+#### <a name="usersGetContactFolders">Command `az personalcontacts user show-contact-folder`</a>
 
-get-contact-folder a personalcontacts user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-contact-folder|GetContactFolders|
-
-#### Parameters
+##### <a name="ParametersusersGetContactFolders">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -158,65 +230,9 @@ get-contact-folder a personalcontacts user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user list-contact
+#### <a name="usersUpdateContacts">Command `az personalcontacts user update-contact`</a>
 
-list-contact a personalcontacts user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-contact|ListContacts|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user list-contact-folder
-
-list-contact-folder a personalcontacts user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-contact-folder|ListContactFolders|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user update-contact
-
-update-contact a personalcontacts user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-contact|UpdateContacts|
-
-#### Parameters
+##### <a name="ParametersusersUpdateContacts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -262,26 +278,14 @@ update-contact a personalcontacts user.
 |**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the contact. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
 |**--photo**|object|profilePhoto|photo|photo|
 |**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the contact. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
-|**--flag-completed-date-time**|object|dateTimeTimeZone|completed_date_time|completedDateTime|
-|**--flag-due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
-|**--flag-flag-status**|choice||flag_status|flagStatus|
-|**--flag-start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
+|**--completed-date-time**|object|dateTimeTimeZone|completed_date_time|completedDateTime|
+|**--due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
+|**--flag-status**|choice||flag_status|flagStatus|
+|**--start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
 
-### personalcontacts user update-contact-folder
+#### <a name="usersUpdateContactFolders">Command `az personalcontacts user update-contact-folder`</a>
 
-update-contact-folder a personalcontacts user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-contact-folder|UpdateContactFolders|
-
-#### Parameters
+##### <a name="ParametersusersUpdateContactFolders">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -295,42 +299,19 @@ update-contact-folder a personalcontacts user.
 |**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
 |**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
 
-### personalcontacts user-contact create-extension
+### group `az personalcontacts user-contact`
+#### <a name="users.contactsCreateExtensions">Command `az personalcontacts user-contact create-extension`</a>
 
-create-extension a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-extension|CreateExtensions|
-
-#### Parameters
+##### <a name="Parametersusers.contactsCreateExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--id**|string|Read-only.|id|id|
 
-### personalcontacts user-contact create-multi-value-extended-property
+#### <a name="users.contactsCreateMultiValueExtendedProperties">Command `az personalcontacts user-contact create-multi-value-extended-property`</a>
 
-create-multi-value-extended-property a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-multi-value-extended-property|CreateMultiValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactsCreateMultiValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -338,21 +319,9 @@ create-multi-value-extended-property a personalcontacts user-contact.
 |**--id**|string|Read-only.|id|id|
 |**--value**|array|A collection of property values.|value|value|
 
-### personalcontacts user-contact create-single-value-extended-property
+#### <a name="users.contactsCreateSingleValueExtendedProperties">Command `az personalcontacts user-contact create-single-value-extended-property`</a>
 
-create-single-value-extended-property a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-single-value-extended-property|CreateSingleValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactsCreateSingleValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -360,159 +329,48 @@ create-single-value-extended-property a personalcontacts user-contact.
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
 
-### personalcontacts user-contact delete
+#### <a name="users.contactsDeleteExtensions">Command `az personalcontacts user-contact delete-extension`</a>
 
-delete a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteExtensions|
-|delete|DeleteMultiValueExtendedProperties|
-|delete|DeleteSingleValueExtendedProperties|
-|delete|DeletePhoto|
-
-#### Parameters
+##### <a name="Parametersusers.contactsDeleteExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.contactsDeleteMultiValueExtendedProperties">Command `az personalcontacts user-contact delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.contactsDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.contactsDeletePhoto">Command `az personalcontacts user-contact delete-photo`</a>
+
+##### <a name="Parametersusers.contactsDeletePhoto">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.contactsDeleteSingleValueExtendedProperties">Command `az personalcontacts user-contact delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.contactsDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### personalcontacts user-contact get-extension
+#### <a name="users.contactsListExtensions">Command `az personalcontacts user-contact list-extension`</a>
 
-get-extension a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-extension|GetExtensions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-id**|string|key: id of contact|contact_id|contact-id|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact get-multi-value-extended-property
-
-get-multi-value-extended-property a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-multi-value-extended-property|GetMultiValueExtendedProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-id**|string|key: id of contact|contact_id|contact-id|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact get-photo
-
-get-photo a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-photo|GetPhoto|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-id**|string|key: id of contact|contact_id|contact-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact get-photo-content
-
-get-photo-content a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-photo-content|GetPhotoContent|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-id**|string|key: id of contact|contact_id|contact-id|
-
-### personalcontacts user-contact get-single-value-extended-property
-
-get-single-value-extended-property a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-single-value-extended-property|GetSingleValueExtendedProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-id**|string|key: id of contact|contact_id|contact-id|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact list-extension
-
-list-extension a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-extension|ListExtensions|
-
-#### Parameters
+##### <a name="Parametersusers.contactsListExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -521,21 +379,9 @@ list-extension a personalcontacts user-contact.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user-contact list-multi-value-extended-property
+#### <a name="users.contactsListMultiValueExtendedProperties">Command `az personalcontacts user-contact list-multi-value-extended-property`</a>
 
-list-multi-value-extended-property a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-multi-value-extended-property|ListMultiValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactsListMultiValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -544,21 +390,9 @@ list-multi-value-extended-property a personalcontacts user-contact.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user-contact list-single-value-extended-property
+#### <a name="users.contactsListSingleValueExtendedProperties">Command `az personalcontacts user-contact list-single-value-extended-property`</a>
 
-list-single-value-extended-property a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-single-value-extended-property|ListSingleValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactsListSingleValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -567,42 +401,69 @@ list-single-value-extended-property a personalcontacts user-contact.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user-contact set-photo-content
+#### <a name="users.contactsSetPhotoContent">Command `az personalcontacts user-contact set-photo-content`</a>
 
-set-photo-content a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-photo-content|SetPhotoContent|
-
-#### Parameters
+##### <a name="Parametersusers.contactsSetPhotoContent">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--data**|binary|New media content.|data|data|
 
-### personalcontacts user-contact update-extension
+#### <a name="users.contactsGetExtensions">Command `az personalcontacts user-contact show-extension`</a>
 
-update-extension a personalcontacts user-contact.
+##### <a name="Parametersusers.contactsGetExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
+#### <a name="users.contactsGetMultiValueExtendedProperties">Command `az personalcontacts user-contact show-multi-value-extended-property`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-extension|UpdateExtensions|
+##### <a name="Parametersusers.contactsGetMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="users.contactsGetPhoto">Command `az personalcontacts user-contact show-photo`</a>
+
+##### <a name="Parametersusers.contactsGetPhoto">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.contactsGetPhotoContent">Command `az personalcontacts user-contact show-photo-content`</a>
+
+##### <a name="Parametersusers.contactsGetPhotoContent">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+
+#### <a name="users.contactsGetSingleValueExtendedProperties">Command `az personalcontacts user-contact show-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.contactsGetSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.contactsUpdateExtensions">Command `az personalcontacts user-contact update-extension`</a>
+
+##### <a name="Parametersusers.contactsUpdateExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -610,21 +471,9 @@ update-extension a personalcontacts user-contact.
 |**--extension-id**|string|key: id of extension|extension_id|extension-id|
 |**--id**|string|Read-only.|id|id|
 
-### personalcontacts user-contact update-multi-value-extended-property
+#### <a name="users.contactsUpdateMultiValueExtendedProperties">Command `az personalcontacts user-contact update-multi-value-extended-property`</a>
 
-update-multi-value-extended-property a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-multi-value-extended-property|UpdateMultiValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactsUpdateMultiValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -633,21 +482,9 @@ update-multi-value-extended-property a personalcontacts user-contact.
 |**--id**|string|Read-only.|id|id|
 |**--value**|array|A collection of property values.|value|value|
 
-### personalcontacts user-contact update-photo
+#### <a name="users.contactsUpdatePhoto">Command `az personalcontacts user-contact update-photo`</a>
 
-update-photo a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-photo|UpdatePhoto|
-
-#### Parameters
+##### <a name="Parametersusers.contactsUpdatePhoto">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -656,21 +493,9 @@ update-photo a personalcontacts user-contact.
 |**--height**|integer|The height of the photo. Read-only.|height|height|
 |**--width**|integer|The width of the photo. Read-only.|width|width|
 
-### personalcontacts user-contact update-single-value-extended-property
+#### <a name="users.contactsUpdateSingleValueExtendedProperties">Command `az personalcontacts user-contact update-single-value-extended-property`</a>
 
-update-single-value-extended-property a personalcontacts user-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact|users.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-single-value-extended-property|UpdateSingleValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactsUpdateSingleValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -679,21 +504,10 @@ update-single-value-extended-property a personalcontacts user-contact.
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
 
-### personalcontacts user-contact-folder create-child-folder
+### group `az personalcontacts user-contact-folder`
+#### <a name="users.contactFoldersCreateChildFolders">Command `az personalcontacts user-contact-folder create-child-folder`</a>
 
-create-child-folder a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-child-folder|CreateChildFolders|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersCreateChildFolders">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -707,21 +521,9 @@ create-child-folder a personalcontacts user-contact-folder.
 |**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
 |**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
 
-### personalcontacts user-contact-folder create-contact
+#### <a name="users.contactFoldersCreateContacts">Command `az personalcontacts user-contact-folder create-contact`</a>
 
-create-contact a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-contact|CreateContacts|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersCreateContacts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -767,26 +569,14 @@ create-contact a personalcontacts user-contact-folder.
 |**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the contact. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
 |**--photo**|object|profilePhoto|photo|photo|
 |**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the contact. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
-|**--flag-completed-date-time**|object|dateTimeTimeZone|completed_date_time|completedDateTime|
-|**--flag-due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
-|**--flag-flag-status**|choice||flag_status|flagStatus|
-|**--flag-start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
+|**--completed-date-time**|object|dateTimeTimeZone|completed_date_time|completedDateTime|
+|**--due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
+|**--flag-status**|choice||flag_status|flagStatus|
+|**--start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
 
-### personalcontacts user-contact-folder create-multi-value-extended-property
+#### <a name="users.contactFoldersCreateMultiValueExtendedProperties">Command `az personalcontacts user-contact-folder create-multi-value-extended-property`</a>
 
-create-multi-value-extended-property a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-multi-value-extended-property|CreateMultiValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersCreateMultiValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -794,21 +584,9 @@ create-multi-value-extended-property a personalcontacts user-contact-folder.
 |**--id**|string|Read-only.|id|id|
 |**--value**|array|A collection of property values.|value|value|
 
-### personalcontacts user-contact-folder create-single-value-extended-property
+#### <a name="users.contactFoldersCreateSingleValueExtendedProperties">Command `az personalcontacts user-contact-folder create-single-value-extended-property`</a>
 
-create-single-value-extended-property a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-single-value-extended-property|CreateSingleValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersCreateSingleValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -816,49 +594,93 @@ create-single-value-extended-property a personalcontacts user-contact-folder.
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
 
-### personalcontacts user-contact-folder delete
+#### <a name="users.contactFoldersDeleteChildFolders">Command `az personalcontacts user-contact-folder delete-child-folder`</a>
 
-delete a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteChildFolders|
-|delete|DeleteContacts|
-|delete|DeleteMultiValueExtendedProperties|
-|delete|DeleteSingleValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersDeleteChildFolders">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
 |**--contact-folder-id1**|string|key: id of contactFolder|contact_folder_id1|contactFolder-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.contactFoldersDeleteContacts">Command `az personalcontacts user-contact-folder delete-contact`</a>
+
+##### <a name="Parametersusers.contactFoldersDeleteContacts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
 |**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.contactFoldersDeleteMultiValueExtendedProperties">Command `az personalcontacts user-contact-folder delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.contactFoldersDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
 |**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.contactFoldersDeleteSingleValueExtendedProperties">Command `az personalcontacts user-contact-folder delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.contactFoldersDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
 |**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### personalcontacts user-contact-folder get-child-folder
+#### <a name="users.contactFoldersListChildFolders">Command `az personalcontacts user-contact-folder list-child-folder`</a>
 
-get-child-folder a personalcontacts user-contact-folder.
+##### <a name="Parametersusers.contactFoldersListChildFolders">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
+#### <a name="users.contactFoldersListContacts">Command `az personalcontacts user-contact-folder list-contact`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-child-folder|GetChildFolders|
+##### <a name="Parametersusers.contactFoldersListContacts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="users.contactFoldersListMultiValueExtendedProperties">Command `az personalcontacts user-contact-folder list-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.contactFoldersListMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.contactFoldersListSingleValueExtendedProperties">Command `az personalcontacts user-contact-folder list-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.contactFoldersListSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.contactFoldersGetChildFolders">Command `az personalcontacts user-contact-folder show-child-folder`</a>
+
+##### <a name="Parametersusers.contactFoldersGetChildFolders">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -867,21 +689,9 @@ get-child-folder a personalcontacts user-contact-folder.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user-contact-folder get-contact
+#### <a name="users.contactFoldersGetContacts">Command `az personalcontacts user-contact-folder show-contact`</a>
 
-get-contact a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-contact|GetContacts|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersGetContacts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -890,21 +700,9 @@ get-contact a personalcontacts user-contact-folder.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user-contact-folder get-multi-value-extended-property
+#### <a name="users.contactFoldersGetMultiValueExtendedProperties">Command `az personalcontacts user-contact-folder show-multi-value-extended-property`</a>
 
-get-multi-value-extended-property a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-multi-value-extended-property|GetMultiValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersGetMultiValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -913,21 +711,9 @@ get-multi-value-extended-property a personalcontacts user-contact-folder.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user-contact-folder get-single-value-extended-property
+#### <a name="users.contactFoldersGetSingleValueExtendedProperties">Command `az personalcontacts user-contact-folder show-single-value-extended-property`</a>
 
-get-single-value-extended-property a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-single-value-extended-property|GetSingleValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersGetSingleValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -936,113 +722,9 @@ get-single-value-extended-property a personalcontacts user-contact-folder.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user-contact-folder list-child-folder
+#### <a name="users.contactFoldersUpdateChildFolders">Command `az personalcontacts user-contact-folder update-child-folder`</a>
 
-list-child-folder a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-child-folder|ListChildFolders|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact-folder list-contact
-
-list-contact a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-contact|ListContacts|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact-folder list-multi-value-extended-property
-
-list-multi-value-extended-property a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-multi-value-extended-property|ListMultiValueExtendedProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact-folder list-single-value-extended-property
-
-list-single-value-extended-property a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-single-value-extended-property|ListSingleValueExtendedProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact-folder update-child-folder
-
-update-child-folder a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-child-folder|UpdateChildFolders|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersUpdateChildFolders">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1057,21 +739,9 @@ update-child-folder a personalcontacts user-contact-folder.
 |**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
 |**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
 
-### personalcontacts user-contact-folder update-contact
+#### <a name="users.contactFoldersUpdateContacts">Command `az personalcontacts user-contact-folder update-contact`</a>
 
-update-contact a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-contact|UpdateContacts|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersUpdateContacts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1118,26 +788,14 @@ update-contact a personalcontacts user-contact-folder.
 |**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the contact. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
 |**--photo**|object|profilePhoto|photo|photo|
 |**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the contact. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
-|**--flag-completed-date-time**|object|dateTimeTimeZone|completed_date_time|completedDateTime|
-|**--flag-due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
-|**--flag-flag-status**|choice||flag_status|flagStatus|
-|**--flag-start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
+|**--completed-date-time**|object|dateTimeTimeZone|completed_date_time|completedDateTime|
+|**--due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
+|**--flag-status**|choice||flag_status|flagStatus|
+|**--start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
 
-### personalcontacts user-contact-folder update-multi-value-extended-property
+#### <a name="users.contactFoldersUpdateMultiValueExtendedProperties">Command `az personalcontacts user-contact-folder update-multi-value-extended-property`</a>
 
-update-multi-value-extended-property a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-multi-value-extended-property|UpdateMultiValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersUpdateMultiValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1146,21 +804,9 @@ update-multi-value-extended-property a personalcontacts user-contact-folder.
 |**--id**|string|Read-only.|id|id|
 |**--value**|array|A collection of property values.|value|value|
 
-### personalcontacts user-contact-folder update-single-value-extended-property
+#### <a name="users.contactFoldersUpdateSingleValueExtendedProperties">Command `az personalcontacts user-contact-folder update-single-value-extended-property`</a>
 
-update-single-value-extended-property a personalcontacts user-contact-folder.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder|users.contactFolders|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-single-value-extended-property|UpdateSingleValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFoldersUpdateSingleValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1169,21 +815,10 @@ update-single-value-extended-property a personalcontacts user-contact-folder.
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
 
-### personalcontacts user-contact-folder-contact create-extension
+### group `az personalcontacts user-contact-folder-contact`
+#### <a name="users.contactFolders.contactsCreateExtensions">Command `az personalcontacts user-contact-folder-contact create-extension`</a>
 
-create-extension a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-extension|CreateExtensions|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsCreateExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1191,21 +826,9 @@ create-extension a personalcontacts user-contact-folder-contact.
 |**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--id**|string|Read-only.|id|id|
 
-### personalcontacts user-contact-folder-contact create-multi-value-extended-property
+#### <a name="users.contactFolders.contactsCreateMultiValueExtendedProperties">Command `az personalcontacts user-contact-folder-contact create-multi-value-extended-property`</a>
 
-create-multi-value-extended-property a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-multi-value-extended-property|CreateMultiValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsCreateMultiValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1214,21 +837,9 @@ create-multi-value-extended-property a personalcontacts user-contact-folder-cont
 |**--id**|string|Read-only.|id|id|
 |**--value**|array|A collection of property values.|value|value|
 
-### personalcontacts user-contact-folder-contact create-single-value-extended-property
+#### <a name="users.contactFolders.contactsCreateSingleValueExtendedProperties">Command `az personalcontacts user-contact-folder-contact create-single-value-extended-property`</a>
 
-create-single-value-extended-property a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-single-value-extended-property|CreateSingleValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsCreateSingleValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1237,165 +848,52 @@ create-single-value-extended-property a personalcontacts user-contact-folder-con
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
 
-### personalcontacts user-contact-folder-contact delete
+#### <a name="users.contactFolders.contactsDeleteExtensions">Command `az personalcontacts user-contact-folder-contact delete-extension`</a>
 
-delete a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteExtensions|
-|delete|DeleteMultiValueExtendedProperties|
-|delete|DeleteSingleValueExtendedProperties|
-|delete|DeletePhoto|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsDeleteExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
 |**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.contactFolders.contactsDeleteMultiValueExtendedProperties">Command `az personalcontacts user-contact-folder-contact delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.contactFolders.contactsDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.contactFolders.contactsDeletePhoto">Command `az personalcontacts user-contact-folder-contact delete-photo`</a>
+
+##### <a name="Parametersusers.contactFolders.contactsDeletePhoto">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.contactFolders.contactsDeleteSingleValueExtendedProperties">Command `az personalcontacts user-contact-folder-contact delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.contactFolders.contactsDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### personalcontacts user-contact-folder-contact get-extension
+#### <a name="users.contactFolders.contactsListExtensions">Command `az personalcontacts user-contact-folder-contact list-extension`</a>
 
-get-extension a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-extension|GetExtensions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
-|**--contact-id**|string|key: id of contact|contact_id|contact-id|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact-folder-contact get-multi-value-extended-property
-
-get-multi-value-extended-property a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-multi-value-extended-property|GetMultiValueExtendedProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
-|**--contact-id**|string|key: id of contact|contact_id|contact-id|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact-folder-contact get-photo
-
-get-photo a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-photo|GetPhoto|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
-|**--contact-id**|string|key: id of contact|contact_id|contact-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact-folder-contact get-photo-content
-
-get-photo-content a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-photo-content|GetPhotoContent|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
-|**--contact-id**|string|key: id of contact|contact_id|contact-id|
-
-### personalcontacts user-contact-folder-contact get-single-value-extended-property
-
-get-single-value-extended-property a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-single-value-extended-property|GetSingleValueExtendedProperties|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
-|**--contact-id**|string|key: id of contact|contact_id|contact-id|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### personalcontacts user-contact-folder-contact list-extension
-
-list-extension a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-extension|ListExtensions|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsListExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1405,21 +903,9 @@ list-extension a personalcontacts user-contact-folder-contact.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user-contact-folder-contact list-multi-value-extended-property
+#### <a name="users.contactFolders.contactsListMultiValueExtendedProperties">Command `az personalcontacts user-contact-folder-contact list-multi-value-extended-property`</a>
 
-list-multi-value-extended-property a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-multi-value-extended-property|ListMultiValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsListMultiValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1429,21 +915,9 @@ list-multi-value-extended-property a personalcontacts user-contact-folder-contac
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user-contact-folder-contact list-single-value-extended-property
+#### <a name="users.contactFolders.contactsListSingleValueExtendedProperties">Command `az personalcontacts user-contact-folder-contact list-single-value-extended-property`</a>
 
-list-single-value-extended-property a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-single-value-extended-property|ListSingleValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsListSingleValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1453,21 +927,9 @@ list-single-value-extended-property a personalcontacts user-contact-folder-conta
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### personalcontacts user-contact-folder-contact set-photo-content
+#### <a name="users.contactFolders.contactsSetPhotoContent">Command `az personalcontacts user-contact-folder-contact set-photo-content`</a>
 
-set-photo-content a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-photo-content|SetPhotoContent|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsSetPhotoContent">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1475,21 +937,65 @@ set-photo-content a personalcontacts user-contact-folder-contact.
 |**--contact-id**|string|key: id of contact|contact_id|contact-id|
 |**--data**|binary|New media content.|data|data|
 
-### personalcontacts user-contact-folder-contact update-extension
+#### <a name="users.contactFolders.contactsGetExtensions">Command `az personalcontacts user-contact-folder-contact show-extension`</a>
 
-update-extension a personalcontacts user-contact-folder-contact.
+##### <a name="Parametersusers.contactFolders.contactsGetExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
+#### <a name="users.contactFolders.contactsGetMultiValueExtendedProperties">Command `az personalcontacts user-contact-folder-contact show-multi-value-extended-property`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-extension|UpdateExtensions|
+##### <a name="Parametersusers.contactFolders.contactsGetMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="users.contactFolders.contactsGetPhoto">Command `az personalcontacts user-contact-folder-contact show-photo`</a>
+
+##### <a name="Parametersusers.contactFolders.contactsGetPhoto">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.contactFolders.contactsGetPhotoContent">Command `az personalcontacts user-contact-folder-contact show-photo-content`</a>
+
+##### <a name="Parametersusers.contactFolders.contactsGetPhotoContent">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+
+#### <a name="users.contactFolders.contactsGetSingleValueExtendedProperties">Command `az personalcontacts user-contact-folder-contact show-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.contactFolders.contactsGetSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--contact-folder-id**|string|key: id of contactFolder|contact_folder_id|contactFolder-id|
+|**--contact-id**|string|key: id of contact|contact_id|contact-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.contactFolders.contactsUpdateExtensions">Command `az personalcontacts user-contact-folder-contact update-extension`</a>
+
+##### <a name="Parametersusers.contactFolders.contactsUpdateExtensions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1498,21 +1004,9 @@ update-extension a personalcontacts user-contact-folder-contact.
 |**--extension-id**|string|key: id of extension|extension_id|extension-id|
 |**--id**|string|Read-only.|id|id|
 
-### personalcontacts user-contact-folder-contact update-multi-value-extended-property
+#### <a name="users.contactFolders.contactsUpdateMultiValueExtendedProperties">Command `az personalcontacts user-contact-folder-contact update-multi-value-extended-property`</a>
 
-update-multi-value-extended-property a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-multi-value-extended-property|UpdateMultiValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsUpdateMultiValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1522,21 +1016,9 @@ update-multi-value-extended-property a personalcontacts user-contact-folder-cont
 |**--id**|string|Read-only.|id|id|
 |**--value**|array|A collection of property values.|value|value|
 
-### personalcontacts user-contact-folder-contact update-photo
+#### <a name="users.contactFolders.contactsUpdatePhoto">Command `az personalcontacts user-contact-folder-contact update-photo`</a>
 
-update-photo a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-photo|UpdatePhoto|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsUpdatePhoto">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1546,21 +1028,9 @@ update-photo a personalcontacts user-contact-folder-contact.
 |**--height**|integer|The height of the photo. Read-only.|height|height|
 |**--width**|integer|The width of the photo. Read-only.|width|width|
 
-### personalcontacts user-contact-folder-contact update-single-value-extended-property
+#### <a name="users.contactFolders.contactsUpdateSingleValueExtendedProperties">Command `az personalcontacts user-contact-folder-contact update-single-value-extended-property`</a>
 
-update-single-value-extended-property a personalcontacts user-contact-folder-contact.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|personalcontacts user-contact-folder-contact|users.contactFolders.contacts|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-single-value-extended-property|UpdateSingleValueExtendedProperties|
-
-#### Parameters
+##### <a name="Parametersusers.contactFolders.contactsUpdateSingleValueExtendedProperties">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|

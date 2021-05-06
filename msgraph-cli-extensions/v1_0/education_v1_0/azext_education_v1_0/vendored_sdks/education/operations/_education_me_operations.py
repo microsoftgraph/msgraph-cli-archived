@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -45,7 +45,7 @@ class EducationMeOperations(object):
         self._deserialize = deserializer
         self._config = config
 
-    def list_class(
+    def list_classes(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum85"]]]
         select=None,  # type: Optional[List[Union[str, "models.Enum86"]]]
@@ -69,7 +69,9 @@ class EducationMeOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationClass0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -77,11 +79,10 @@ class EducationMeOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
-                url = self.list_class.metadata['url']  # type: ignore
+                url = self.list_classes.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -131,9 +132,9 @@ class EducationMeOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_class.metadata = {'url': '/education/me/classes'}  # type: ignore
+    list_classes.metadata = {'url': '/education/me/classes'}  # type: ignore
 
-    def list_ref_class(
+    def list_ref_classes(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum88"]]]
         **kwargs  # type: Any
@@ -151,7 +152,9 @@ class EducationMeOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfEducationClass"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -159,11 +162,10 @@ class EducationMeOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
-                url = self.list_ref_class.metadata['url']  # type: ignore
+                url = self.list_ref_classes.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -209,9 +211,9 @@ class EducationMeOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_ref_class.metadata = {'url': '/education/me/classes/$ref'}  # type: ignore
+    list_ref_classes.metadata = {'url': '/education/me/classes/$ref'}  # type: ignore
 
-    def create_ref_class(
+    def create_ref_classes(
         self,
         body,  # type: Dict[str, object]
         **kwargs  # type: Any
@@ -229,13 +231,15 @@ class EducationMeOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[Dict[str, object]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_ref_class.metadata['url']  # type: ignore
+        url = self.create_ref_classes.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -244,13 +248,11 @@ class EducationMeOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content = self._serialize.body(body, '{object}')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -265,9 +267,9 @@ class EducationMeOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_ref_class.metadata = {'url': '/education/me/classes/$ref'}  # type: ignore
+    create_ref_classes.metadata = {'url': '/education/me/classes/$ref'}  # type: ignore
 
-    def list_school(
+    def list_schools(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum89"]]]
         select=None,  # type: Optional[List[Union[str, "models.Enum90"]]]
@@ -291,7 +293,9 @@ class EducationMeOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationSchool0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -299,11 +303,10 @@ class EducationMeOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
-                url = self.list_school.metadata['url']  # type: ignore
+                url = self.list_schools.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -353,9 +356,9 @@ class EducationMeOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_school.metadata = {'url': '/education/me/schools'}  # type: ignore
+    list_schools.metadata = {'url': '/education/me/schools'}  # type: ignore
 
-    def list_ref_school(
+    def list_ref_schools(
         self,
         orderby=None,  # type: Optional[List[Union[str, "models.Enum92"]]]
         **kwargs  # type: Any
@@ -373,7 +376,9 @@ class EducationMeOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfEducationSchool0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -381,11 +386,10 @@ class EducationMeOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
-                url = self.list_ref_school.metadata['url']  # type: ignore
+                url = self.list_ref_schools.metadata['url']  # type: ignore
                 # Construct parameters
                 query_parameters = {}  # type: Dict[str, Any]
                 if self._config.top is not None:
@@ -431,9 +435,9 @@ class EducationMeOperations(object):
         return ItemPaged(
             get_next, extract_data
         )
-    list_ref_school.metadata = {'url': '/education/me/schools/$ref'}  # type: ignore
+    list_ref_schools.metadata = {'url': '/education/me/schools/$ref'}  # type: ignore
 
-    def create_ref_school(
+    def create_ref_schools(
         self,
         body,  # type: Dict[str, object]
         **kwargs  # type: Any
@@ -451,13 +455,15 @@ class EducationMeOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[Dict[str, object]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
         # Construct URL
-        url = self.create_ref_school.metadata['url']  # type: ignore
+        url = self.create_ref_schools.metadata['url']  # type: ignore
 
         # Construct parameters
         query_parameters = {}  # type: Dict[str, Any]
@@ -466,13 +472,11 @@ class EducationMeOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content = self._serialize.body(body, '{object}')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -487,7 +491,7 @@ class EducationMeOperations(object):
             return cls(pipeline_response, deserialized, {})
 
         return deserialized
-    create_ref_school.metadata = {'url': '/education/me/schools/$ref'}  # type: ignore
+    create_ref_schools.metadata = {'url': '/education/me/schools/$ref'}  # type: ignore
 
     def get_user(
         self,
@@ -510,7 +514,9 @@ class EducationMeOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -527,7 +533,6 @@ class EducationMeOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -561,7 +566,9 @@ class EducationMeOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[str]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -574,7 +581,6 @@ class EducationMeOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -611,7 +617,9 @@ class EducationMeOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
@@ -631,7 +639,6 @@ class EducationMeOperations(object):
         body_content = self._serialize.body(body, '{object}')
         body_content_kwargs['content'] = body_content
         request = self._client.put(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -663,7 +670,9 @@ class EducationMeOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

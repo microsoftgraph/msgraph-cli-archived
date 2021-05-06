@@ -661,44 +661,29 @@ class MicrosoftGraphSharedInsight(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param last_shared: sharingDetail.
+    :type last_shared: ~people.models.MicrosoftGraphSharingDetail
     :param resource_reference: resourceReference.
     :type resource_reference: ~people.models.MicrosoftGraphResourceReference
     :param resource_visualization: resourceVisualization.
     :type resource_visualization: ~people.models.MicrosoftGraphResourceVisualization
     :param sharing_history:
     :type sharing_history: list[~people.models.MicrosoftGraphSharingDetail]
-    :param id_resource_id: Read-only.
-    :type id_resource_id: str
-    :param id_last_shared_method_id: Read-only.
-    :type id_last_shared_method_id: str
-    :param shared_by: insightIdentity.
-    :type shared_by: ~people.models.MicrosoftGraphInsightIdentity
-    :param shared_date_time: The date and time the file was last shared. The timestamp represents
-     date and time information using ISO 8601 format and is always in UTC time. For example,
-     midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.
-    :type shared_date_time: ~datetime.datetime
-    :param sharing_reference: resourceReference.
-    :type sharing_reference: ~people.models.MicrosoftGraphResourceReference
-    :param sharing_subject: The subject with which the document was shared.
-    :type sharing_subject: str
-    :param sharing_type: Determines the way the document was shared, can be by a 'Link',
-     'Attachment', 'Group', 'Site'.
-    :type sharing_type: str
+    :param last_shared_method: entity.
+    :type last_shared_method: ~people.models.MicrosoftGraphEntity
+    :param resource: entity.
+    :type resource: ~people.models.MicrosoftGraphEntity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'last_shared': {'key': 'lastShared', 'type': 'MicrosoftGraphSharingDetail'},
         'resource_reference': {'key': 'resourceReference', 'type': 'MicrosoftGraphResourceReference'},
         'resource_visualization': {'key': 'resourceVisualization', 'type': 'MicrosoftGraphResourceVisualization'},
         'sharing_history': {'key': 'sharingHistory', 'type': '[MicrosoftGraphSharingDetail]'},
-        'id_resource_id': {'key': 'resource.id', 'type': 'str'},
-        'id_last_shared_method_id': {'key': 'lastSharedMethod.id', 'type': 'str'},
-        'shared_by': {'key': 'lastShared.sharedBy', 'type': 'MicrosoftGraphInsightIdentity'},
-        'shared_date_time': {'key': 'lastShared.sharedDateTime', 'type': 'iso-8601'},
-        'sharing_reference': {'key': 'lastShared.sharingReference', 'type': 'MicrosoftGraphResourceReference'},
-        'sharing_subject': {'key': 'lastShared.sharingSubject', 'type': 'str'},
-        'sharing_type': {'key': 'lastShared.sharingType', 'type': 'str'},
+        'last_shared_method': {'key': 'lastSharedMethod', 'type': 'MicrosoftGraphEntity'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEntity'},
     }
 
     def __init__(
@@ -707,16 +692,12 @@ class MicrosoftGraphSharedInsight(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphSharedInsight, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.last_shared = kwargs.get('last_shared', None)
         self.resource_reference = kwargs.get('resource_reference', None)
         self.resource_visualization = kwargs.get('resource_visualization', None)
         self.sharing_history = kwargs.get('sharing_history', None)
-        self.id_resource_id = kwargs.get('id_resource_id', None)
-        self.id_last_shared_method_id = kwargs.get('id_last_shared_method_id', None)
-        self.shared_by = kwargs.get('shared_by', None)
-        self.shared_date_time = kwargs.get('shared_date_time', None)
-        self.sharing_reference = kwargs.get('sharing_reference', None)
-        self.sharing_subject = kwargs.get('sharing_subject', None)
-        self.sharing_type = kwargs.get('sharing_type', None)
+        self.last_shared_method = kwargs.get('last_shared_method', None)
+        self.resource = kwargs.get('resource', None)
 
 
 class MicrosoftGraphSharingDetail(msrest.serialization.Model):
@@ -780,8 +761,8 @@ class MicrosoftGraphTrending(MicrosoftGraphEntity):
      number, the more the document is currently trending around the user (the more relevant it is).
      Returned documents are sorted by this value.
     :type weight: float
-    :param id_resource_id: Read-only.
-    :type id_resource_id: str
+    :param resource: entity.
+    :type resource: ~people.models.MicrosoftGraphEntity
     """
 
     _attribute_map = {
@@ -791,7 +772,7 @@ class MicrosoftGraphTrending(MicrosoftGraphEntity):
         'resource_reference': {'key': 'resourceReference', 'type': 'MicrosoftGraphResourceReference'},
         'resource_visualization': {'key': 'resourceVisualization', 'type': 'MicrosoftGraphResourceVisualization'},
         'weight': {'key': 'weight', 'type': 'float'},
-        'id_resource_id': {'key': 'resource.id', 'type': 'str'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEntity'},
     }
 
     def __init__(
@@ -804,7 +785,7 @@ class MicrosoftGraphTrending(MicrosoftGraphEntity):
         self.resource_reference = kwargs.get('resource_reference', None)
         self.resource_visualization = kwargs.get('resource_visualization', None)
         self.weight = kwargs.get('weight', None)
-        self.id_resource_id = kwargs.get('id_resource_id', None)
+        self.resource = kwargs.get('resource', None)
 
 
 class MicrosoftGraphUsageDetails(msrest.serialization.Model):
@@ -855,8 +836,8 @@ class MicrosoftGraphUsedInsight(MicrosoftGraphEntity):
     :type resource_reference: ~people.models.MicrosoftGraphResourceReference
     :param resource_visualization: resourceVisualization.
     :type resource_visualization: ~people.models.MicrosoftGraphResourceVisualization
-    :param id_resource_id: Read-only.
-    :type id_resource_id: str
+    :param resource: entity.
+    :type resource: ~people.models.MicrosoftGraphEntity
     """
 
     _attribute_map = {
@@ -865,7 +846,7 @@ class MicrosoftGraphUsedInsight(MicrosoftGraphEntity):
         'last_used': {'key': 'lastUsed', 'type': 'MicrosoftGraphUsageDetails'},
         'resource_reference': {'key': 'resourceReference', 'type': 'MicrosoftGraphResourceReference'},
         'resource_visualization': {'key': 'resourceVisualization', 'type': 'MicrosoftGraphResourceVisualization'},
-        'id_resource_id': {'key': 'resource.id', 'type': 'str'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEntity'},
     }
 
     def __init__(
@@ -877,7 +858,7 @@ class MicrosoftGraphUsedInsight(MicrosoftGraphEntity):
         self.last_used = kwargs.get('last_used', None)
         self.resource_reference = kwargs.get('resource_reference', None)
         self.resource_visualization = kwargs.get('resource_visualization', None)
-        self.id_resource_id = kwargs.get('id_resource_id', None)
+        self.resource = kwargs.get('resource', None)
 
 
 class MicrosoftGraphWebsite(msrest.serialization.Model):

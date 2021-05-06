@@ -344,16 +344,14 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
     :type join_information: ~cloud_communications.models.MicrosoftGraphItemBody
     :param join_web_url: The join URL of the online meeting. Read-only.
     :type join_web_url: str
+    :param participants: meetingParticipants.
+    :type participants: ~cloud_communications.models.MicrosoftGraphMeetingParticipants
     :param start_date_time: The meeting start time in UTC.
     :type start_date_time: ~datetime.datetime
     :param subject: The subject of the online meeting.
     :type subject: str
     :param video_teleconference_id: The video teleconferencing ID. Read-only.
     :type video_teleconference_id: str
-    :param attendees:
-    :type attendees: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
-    :param organizer: meetingParticipantInfo.
-    :type organizer: ~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo
     """
 
     _attribute_map = {
@@ -366,11 +364,10 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
         'external_id': {'key': 'externalId', 'type': 'str'},
         'join_information': {'key': 'joinInformation', 'type': 'MicrosoftGraphItemBody'},
         'join_web_url': {'key': 'joinWebUrl', 'type': 'str'},
+        'participants': {'key': 'participants', 'type': 'MicrosoftGraphMeetingParticipants'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
         'video_teleconference_id': {'key': 'videoTeleconferenceId', 'type': 'str'},
-        'attendees': {'key': 'participants.attendees', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
-        'organizer': {'key': 'participants.organizer', 'type': 'MicrosoftGraphMeetingParticipantInfo'},
     }
 
     def __init__(
@@ -385,11 +382,10 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
         external_id: Optional[str] = None,
         join_information: Optional["MicrosoftGraphItemBody"] = None,
         join_web_url: Optional[str] = None,
+        participants: Optional["MicrosoftGraphMeetingParticipants"] = None,
         start_date_time: Optional[datetime.datetime] = None,
         subject: Optional[str] = None,
         video_teleconference_id: Optional[str] = None,
-        attendees: Optional[List["MicrosoftGraphMeetingParticipantInfo"]] = None,
-        organizer: Optional["MicrosoftGraphMeetingParticipantInfo"] = None,
         **kwargs
     ):
         super(MicrosoftGraphOnlineMeeting, self).__init__(id=id, **kwargs)
@@ -401,11 +397,10 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
         self.external_id = external_id
         self.join_information = join_information
         self.join_web_url = join_web_url
+        self.participants = participants
         self.start_date_time = start_date_time
         self.subject = subject
         self.video_teleconference_id = video_teleconference_id
-        self.attendees = attendees
-        self.organizer = organizer
 
 
 class OdataError(msrest.serialization.Model):

@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._sites_async import Sites
+from ._sites import Sites
 __all__ = ['Sites']

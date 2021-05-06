@@ -12,30 +12,25 @@
 from knack.help_files import helps
 
 
+helps['applications_v1_0'] = '''
+    type: group
+    short-summary: Manage Applications
+'''
+
 helps['applications application'] = """
     type: group
-    short-summary: applications application
+    short-summary: Manage application application with applications_v1_0
 """
 
 helps['applications application list'] = """
     type: command
-    short-summary: "Get entities from applications"
+    short-summary: "Get entities from applications."
 """
 
 helps['applications application create'] = """
     type: command
-    short-summary: "Add new entity to applications"
+    short-summary: "Update entity in applications And Add new entity to applications."
     parameters:
-      - name: --add-ins
-        short-summary: "Defines custom behavior that a consuming service can use to call an app in specific contexts. \
-For example, applications that can render file streams may set the addIns property for its 'FileHandler' \
-functionality. This will let services like Microsoft 365 call the application in the context of a document the user is \
-working on."
-        long-summary: |
-            Usage: --add-ins id=XX properties=XX type=XX
-
-
-            Multiple actions can be specified by using more than one --add-ins argument.
       - name: --app-roles
         short-summary: "The collection of roles the application declares. With app role assignments, these roles can \
 be assigned to users, groups, or other applications' service principals. Not nullable."
@@ -134,19 +129,6 @@ look like this: '2014-01-01T00:00:00Z'. Optional.
 
             redirect-uris: Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth \
 2.0 authorization codes and access tokens are sent.
-      - name: --required-resource-access
-        short-summary: "Specifies resources that this application requires access to and the set of OAuth permission \
-scopes and application roles that it needs under each of those resources. This pre-configuration of required resource \
-access drives the consent experience. Not nullable."
-        long-summary: |
-            Usage: --required-resource-access resource-access=XX resource-app-id=XX
-
-            resource-access: The list of OAuth2.0 permission scopes and app roles that the application requires from \
-the specified resource.
-            resource-app-id: The unique identifier for the resource that the application requires access to.  This \
-should be equal to the appId declared on the target resource application.
-
-            Multiple actions can be specified by using more than one --required-resource-access argument.
       - name: --created-on-behalf-of
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
@@ -223,19 +205,19 @@ policy type, but only one can be activated as the organization default. Optional
             id: Read-only.
 
             Multiple actions can be specified by using more than one --token-lifetime-policies argument.
-      - name: --web-implicit-grant-settings
+      - name: --implicit-grant-settings
         short-summary: "implicitGrantSettings"
         long-summary: |
-            Usage: --web-implicit-grant-settings enable-access-token-issuance=XX enable-id-token-issuance=XX
+            Usage: --implicit-grant-settings enable-access-token-issuance=XX enable-id-token-issuance=XX
 
             enable-access-token-issuance: Specifies whether this web application can request an access token using the \
 OAuth 2.0 implicit flow.
             enable-id-token-issuance: Specifies whether this web application can request an ID token using the OAuth \
 2.0 implicit flow.
-      - name: --optional-claims-access-token
+      - name: --access-token
         short-summary: "The optional claims returned in the JWT access token."
         long-summary: |
-            Usage: --optional-claims-access-token additional-properties=XX essential=XX name=XX source=XX
+            Usage: --access-token additional-properties=XX essential=XX name=XX source=XX
 
             additional-properties: Additional properties of the claim. If a property exists in this collection, it \
 modifies the behavior of the optional claim specified in the name property.
@@ -246,11 +228,11 @@ authorization experience for the specific task requested by the end user. The de
 from extension properties. If the source value is null, the claim is a predefined optional claim. If the source value \
 is user, the value in the name property is the extension property from the user object.
 
-            Multiple actions can be specified by using more than one --optional-claims-access-token argument.
-      - name: --optional-claims-id-token
+            Multiple actions can be specified by using more than one --access-token argument.
+      - name: --id-token
         short-summary: "The optional claims returned in the JWT ID token."
         long-summary: |
-            Usage: --optional-claims-id-token additional-properties=XX essential=XX name=XX source=XX
+            Usage: --id-token additional-properties=XX essential=XX name=XX source=XX
 
             additional-properties: Additional properties of the claim. If a property exists in this collection, it \
 modifies the behavior of the optional claim specified in the name property.
@@ -261,11 +243,11 @@ authorization experience for the specific task requested by the end user. The de
 from extension properties. If the source value is null, the claim is a predefined optional claim. If the source value \
 is user, the value in the name property is the extension property from the user object.
 
-            Multiple actions can be specified by using more than one --optional-claims-id-token argument.
-      - name: --optional-claims-saml2token
+            Multiple actions can be specified by using more than one --id-token argument.
+      - name: --saml2-token
         short-summary: "The optional claims returned in the SAML token."
         long-summary: |
-            Usage: --optional-claims-saml2token additional-properties=XX essential=XX name=XX source=XX
+            Usage: --saml2-token additional-properties=XX essential=XX name=XX source=XX
 
             additional-properties: Additional properties of the claim. If a property exists in this collection, it \
 modifies the behavior of the optional claim specified in the name property.
@@ -276,13 +258,13 @@ authorization experience for the specific task requested by the end user. The de
 from extension properties. If the source value is null, the claim is a predefined optional claim. If the source value \
 is user, the value in the name property is the extension property from the user object.
 
-            Multiple actions can be specified by using more than one --optional-claims-saml2token argument.
-      - name: --api-oauth2permission-scopes
+            Multiple actions can be specified by using more than one --saml2-token argument.
+      - name: --oauth2-permission-scopes
         short-summary: "The definition of the delegated permissions exposed by the web API represented by this \
 application registration. These delegated permissions may be requested by a client application, and may be granted by \
 users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes."
         long-summary: |
-            Usage: --api-oauth2permission-scopes admin-consent-description=XX admin-consent-display-name=XX id=XX \
+            Usage: --oauth2-permission-scopes admin-consent-description=XX admin-consent-display-name=XX id=XX \
 is-enabled=XX origin=XX type=XX user-consent-description=XX user-consent-display-name=XX value=XX
 
             admin-consent-description: A description of the delegated permissions, intended to be read by an \
@@ -309,35 +291,19 @@ of themselves.
 characters in length. Allowed characters are : ! # $ % & ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as \
 characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed.
 
-            Multiple actions can be specified by using more than one --api-oauth2permission-scopes argument.
-      - name: --api-pre-authorized-applications
+            Multiple actions can be specified by using more than one --oauth2-permission-scopes argument.
+      - name: --pre-authorized-applications
         short-summary: "Lists the client applications that are pre-authorized with the specified delegated permissions \
 to access this application's APIs. Users are not required to consent to any pre-authorized application (for the \
 permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through \
 incremental consent for example) will require user consent."
         long-summary: |
-            Usage: --api-pre-authorized-applications app-id=XX delegated-permission-ids=XX
+            Usage: --pre-authorized-applications app-id=XX delegated-permission-ids=XX
 
             app-id: The unique identifier for the application.
             delegated-permission-ids: The unique identifier for the oauth2PermissionScopes the application requires.
 
-            Multiple actions can be specified by using more than one --api-pre-authorized-applications argument.
-"""
-
-helps['applications application update'] = """
-    type: command
-    short-summary: "Update entity in applications"
-    parameters:
-      - name: --add-ins
-        short-summary: "Defines custom behavior that a consuming service can use to call an app in specific contexts. \
-For example, applications that can render file streams may set the addIns property for its 'FileHandler' \
-functionality. This will let services like Microsoft 365 call the application in the context of a document the user is \
-working on."
-        long-summary: |
-            Usage: --add-ins id=XX properties=XX type=XX
-
-
-            Multiple actions can be specified by using more than one --add-ins argument.
+            Multiple actions can be specified by using more than one --pre-authorized-applications argument.
       - name: --app-roles
         short-summary: "The collection of roles the application declares. With app role assignments, these roles can \
 be assigned to users, groups, or other applications' service principals. Not nullable."
@@ -436,19 +402,6 @@ look like this: '2014-01-01T00:00:00Z'. Optional.
 
             redirect-uris: Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth \
 2.0 authorization codes and access tokens are sent.
-      - name: --required-resource-access
-        short-summary: "Specifies resources that this application requires access to and the set of OAuth permission \
-scopes and application roles that it needs under each of those resources. This pre-configuration of required resource \
-access drives the consent experience. Not nullable."
-        long-summary: |
-            Usage: --required-resource-access resource-access=XX resource-app-id=XX
-
-            resource-access: The list of OAuth2.0 permission scopes and app roles that the application requires from \
-the specified resource.
-            resource-app-id: The unique identifier for the resource that the application requires access to.  This \
-should be equal to the appId declared on the target resource application.
-
-            Multiple actions can be specified by using more than one --required-resource-access argument.
       - name: --created-on-behalf-of
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
@@ -525,19 +478,19 @@ policy type, but only one can be activated as the organization default. Optional
             id: Read-only.
 
             Multiple actions can be specified by using more than one --token-lifetime-policies argument.
-      - name: --web-implicit-grant-settings
+      - name: --implicit-grant-settings
         short-summary: "implicitGrantSettings"
         long-summary: |
-            Usage: --web-implicit-grant-settings enable-access-token-issuance=XX enable-id-token-issuance=XX
+            Usage: --implicit-grant-settings enable-access-token-issuance=XX enable-id-token-issuance=XX
 
             enable-access-token-issuance: Specifies whether this web application can request an access token using the \
 OAuth 2.0 implicit flow.
             enable-id-token-issuance: Specifies whether this web application can request an ID token using the OAuth \
 2.0 implicit flow.
-      - name: --optional-claims-access-token
+      - name: --access-token
         short-summary: "The optional claims returned in the JWT access token."
         long-summary: |
-            Usage: --optional-claims-access-token additional-properties=XX essential=XX name=XX source=XX
+            Usage: --access-token additional-properties=XX essential=XX name=XX source=XX
 
             additional-properties: Additional properties of the claim. If a property exists in this collection, it \
 modifies the behavior of the optional claim specified in the name property.
@@ -548,11 +501,11 @@ authorization experience for the specific task requested by the end user. The de
 from extension properties. If the source value is null, the claim is a predefined optional claim. If the source value \
 is user, the value in the name property is the extension property from the user object.
 
-            Multiple actions can be specified by using more than one --optional-claims-access-token argument.
-      - name: --optional-claims-id-token
+            Multiple actions can be specified by using more than one --access-token argument.
+      - name: --id-token
         short-summary: "The optional claims returned in the JWT ID token."
         long-summary: |
-            Usage: --optional-claims-id-token additional-properties=XX essential=XX name=XX source=XX
+            Usage: --id-token additional-properties=XX essential=XX name=XX source=XX
 
             additional-properties: Additional properties of the claim. If a property exists in this collection, it \
 modifies the behavior of the optional claim specified in the name property.
@@ -563,11 +516,11 @@ authorization experience for the specific task requested by the end user. The de
 from extension properties. If the source value is null, the claim is a predefined optional claim. If the source value \
 is user, the value in the name property is the extension property from the user object.
 
-            Multiple actions can be specified by using more than one --optional-claims-id-token argument.
-      - name: --optional-claims-saml2token
+            Multiple actions can be specified by using more than one --id-token argument.
+      - name: --saml2-token
         short-summary: "The optional claims returned in the SAML token."
         long-summary: |
-            Usage: --optional-claims-saml2token additional-properties=XX essential=XX name=XX source=XX
+            Usage: --saml2-token additional-properties=XX essential=XX name=XX source=XX
 
             additional-properties: Additional properties of the claim. If a property exists in this collection, it \
 modifies the behavior of the optional claim specified in the name property.
@@ -578,13 +531,13 @@ authorization experience for the specific task requested by the end user. The de
 from extension properties. If the source value is null, the claim is a predefined optional claim. If the source value \
 is user, the value in the name property is the extension property from the user object.
 
-            Multiple actions can be specified by using more than one --optional-claims-saml2token argument.
-      - name: --api-oauth2permission-scopes
+            Multiple actions can be specified by using more than one --saml2-token argument.
+      - name: --oauth2-permission-scopes
         short-summary: "The definition of the delegated permissions exposed by the web API represented by this \
 application registration. These delegated permissions may be requested by a client application, and may be granted by \
 users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes."
         long-summary: |
-            Usage: --api-oauth2permission-scopes admin-consent-description=XX admin-consent-display-name=XX id=XX \
+            Usage: --oauth2-permission-scopes admin-consent-description=XX admin-consent-display-name=XX id=XX \
 is-enabled=XX origin=XX type=XX user-consent-description=XX user-consent-display-name=XX value=XX
 
             admin-consent-description: A description of the delegated permissions, intended to be read by an \
@@ -611,54 +564,49 @@ of themselves.
 characters in length. Allowed characters are : ! # $ % & ' ( ) * + , - . / : ;  =  ? @ [ ] ^ + _  {  } ~, as well as \
 characters in the ranges 0-9, A-Z and a-z. Any other character, including the space character, are not allowed.
 
-            Multiple actions can be specified by using more than one --api-oauth2permission-scopes argument.
-      - name: --api-pre-authorized-applications
+            Multiple actions can be specified by using more than one --oauth2-permission-scopes argument.
+      - name: --pre-authorized-applications
         short-summary: "Lists the client applications that are pre-authorized with the specified delegated permissions \
 to access this application's APIs. Users are not required to consent to any pre-authorized application (for the \
 permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through \
 incremental consent for example) will require user consent."
         long-summary: |
-            Usage: --api-pre-authorized-applications app-id=XX delegated-permission-ids=XX
+            Usage: --pre-authorized-applications app-id=XX delegated-permission-ids=XX
 
             app-id: The unique identifier for the application.
             delegated-permission-ids: The unique identifier for the oauth2PermissionScopes the application requires.
 
-            Multiple actions can be specified by using more than one --api-pre-authorized-applications argument.
+            Multiple actions can be specified by using more than one --pre-authorized-applications argument.
 """
 
-helps['applications application delete'] = """
+helps['applications application delete-application'] = """
     type: command
-    short-summary: "Delete entity from applications"
-"""
-
-helps['applications application get'] = """
-    type: command
-    short-summary: "Get entity from applications by key"
-"""
-
-helps['applications application get-logo'] = """
-    type: command
-    short-summary: "Get media content for application from applications"
+    short-summary: "Delete entity from applications."
 """
 
 helps['applications application set-logo'] = """
     type: command
-    short-summary: "Update media content for application in applications"
+    short-summary: "Update media content for application in applications."
+"""
+
+helps['applications application show-application'] = """
+    type: command
+    short-summary: "Get entity from applications by key."
+"""
+
+helps['applications application show-logo'] = """
+    type: command
+    short-summary: "Get media content for application from applications."
 """
 
 helps['applications application'] = """
     type: group
-    short-summary: applications application
-"""
-
-helps['applications application delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property createdOnBehalfOf for applications"
+    short-summary: Manage application with applications_v1_0
 """
 
 helps['applications application add-key'] = """
     type: command
-    short-summary: "Invoke action addKey"
+    short-summary: "Invoke action addKey."
     parameters:
       - name: --key-credential
         short-summary: "keyCredential"
@@ -700,7 +648,7 @@ look like this: '2014-01-01T00:00:00Z'. Optional.
 
 helps['applications application add-password'] = """
     type: command
-    short-summary: "Invoke action addPassword"
+    short-summary: "Invoke action addPassword."
     parameters:
       - name: --password-credential
         short-summary: "passwordCredential"
@@ -724,208 +672,203 @@ look like this: '2014-01-01T00:00:00Z'. Optional.
 
 helps['applications application check-member-group'] = """
     type: command
-    short-summary: "Invoke action checkMemberGroups"
+    short-summary: "Invoke action checkMemberGroups."
 """
 
 helps['applications application check-member-object'] = """
     type: command
-    short-summary: "Invoke action checkMemberObjects"
+    short-summary: "Invoke action checkMemberObjects."
 """
 
 helps['applications application create-extension-property'] = """
     type: command
-    short-summary: "Create new navigation property to extensionProperties for applications"
+    short-summary: "Create new navigation property to extensionProperties for applications."
 """
 
 helps['applications application create-ref-home-realm-discovery-policy'] = """
     type: command
-    short-summary: "Create new navigation property ref to homeRealmDiscoveryPolicies for applications"
+    short-summary: "Create new navigation property ref to homeRealmDiscoveryPolicies for applications."
 """
 
 helps['applications application create-ref-owner'] = """
     type: command
-    short-summary: "Create new navigation property ref to owners for applications"
+    short-summary: "Create new navigation property ref to owners for applications."
 """
 
 helps['applications application create-ref-token-issuance-policy'] = """
     type: command
-    short-summary: "Create new navigation property ref to tokenIssuancePolicies for applications"
+    short-summary: "Create new navigation property ref to tokenIssuancePolicies for applications."
 """
 
 helps['applications application create-ref-token-lifetime-policy'] = """
     type: command
-    short-summary: "Create new navigation property ref to tokenLifetimePolicies for applications"
+    short-summary: "Create new navigation property ref to tokenLifetimePolicies for applications."
+"""
+
+helps['applications application delete-extension-property'] = """
+    type: command
+    short-summary: "Delete navigation property extensionProperties for applications."
+"""
+
+helps['applications application delete-ref-created-on-behalf-of'] = """
+    type: command
+    short-summary: "Delete ref of navigation property createdOnBehalfOf for applications."
 """
 
 helps['applications application delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['applications application get-available-extension-property'] = """
     type: command
-    short-summary: "Invoke action getAvailableExtensionProperties"
+    short-summary: "Invoke action getAvailableExtensionProperties."
 """
 
 helps['applications application get-by-id'] = """
     type: command
-    short-summary: "Invoke action getByIds"
-"""
-
-helps['applications application get-created-on-behalf-of'] = """
-    type: command
-    short-summary: "Get createdOnBehalfOf from applications"
-"""
-
-helps['applications application get-extension-property'] = """
-    type: command
-    short-summary: "Get extensionProperties from applications"
+    short-summary: "Invoke action getByIds."
 """
 
 helps['applications application get-member-group'] = """
     type: command
-    short-summary: "Invoke action getMemberGroups"
+    short-summary: "Invoke action getMemberGroups."
 """
 
 helps['applications application get-member-object'] = """
     type: command
-    short-summary: "Invoke action getMemberObjects"
-"""
-
-helps['applications application get-ref-created-on-behalf-of'] = """
-    type: command
-    short-summary: "Get ref of createdOnBehalfOf from applications"
+    short-summary: "Invoke action getMemberObjects."
 """
 
 helps['applications application list-extension-property'] = """
     type: command
-    short-summary: "Get extensionProperties from applications"
+    short-summary: "Get extensionProperties from applications."
 """
 
 helps['applications application list-home-realm-discovery-policy'] = """
     type: command
-    short-summary: "Get homeRealmDiscoveryPolicies from applications"
+    short-summary: "Get homeRealmDiscoveryPolicies from applications."
 """
 
 helps['applications application list-owner'] = """
     type: command
-    short-summary: "Get owners from applications"
+    short-summary: "Get owners from applications."
 """
 
 helps['applications application list-ref-home-realm-discovery-policy'] = """
     type: command
-    short-summary: "Get ref of homeRealmDiscoveryPolicies from applications"
+    short-summary: "Get ref of homeRealmDiscoveryPolicies from applications."
 """
 
 helps['applications application list-ref-owner'] = """
     type: command
-    short-summary: "Get ref of owners from applications"
+    short-summary: "Get ref of owners from applications."
 """
 
 helps['applications application list-ref-token-issuance-policy'] = """
     type: command
-    short-summary: "Get ref of tokenIssuancePolicies from applications"
+    short-summary: "Get ref of tokenIssuancePolicies from applications."
 """
 
 helps['applications application list-ref-token-lifetime-policy'] = """
     type: command
-    short-summary: "Get ref of tokenLifetimePolicies from applications"
+    short-summary: "Get ref of tokenLifetimePolicies from applications."
 """
 
 helps['applications application list-token-issuance-policy'] = """
     type: command
-    short-summary: "Get tokenIssuancePolicies from applications"
+    short-summary: "Get tokenIssuancePolicies from applications."
 """
 
 helps['applications application list-token-lifetime-policy'] = """
     type: command
-    short-summary: "Get tokenLifetimePolicies from applications"
+    short-summary: "Get tokenLifetimePolicies from applications."
 """
 
 helps['applications application remove-key'] = """
     type: command
-    short-summary: "Invoke action removeKey"
+    short-summary: "Invoke action removeKey."
 """
 
 helps['applications application remove-password'] = """
     type: command
-    short-summary: "Invoke action removePassword"
+    short-summary: "Invoke action removePassword."
 """
 
 helps['applications application restore'] = """
     type: command
-    short-summary: "Invoke action restore"
+    short-summary: "Invoke action restore."
 """
 
 helps['applications application set-ref-created-on-behalf-of'] = """
     type: command
-    short-summary: "Update the ref of navigation property createdOnBehalfOf in applications"
+    short-summary: "Update the ref of navigation property createdOnBehalfOf in applications."
+"""
+
+helps['applications application show-created-on-behalf-of'] = """
+    type: command
+    short-summary: "Get createdOnBehalfOf from applications."
+"""
+
+helps['applications application show-extension-property'] = """
+    type: command
+    short-summary: "Get extensionProperties from applications."
+"""
+
+helps['applications application show-ref-created-on-behalf-of'] = """
+    type: command
+    short-summary: "Get ref of createdOnBehalfOf from applications."
 """
 
 helps['applications application update-extension-property'] = """
     type: command
-    short-summary: "Update the navigation property extensionProperties in applications"
+    short-summary: "Update the navigation property extensionProperties in applications."
 """
 
 helps['applications application validate-property'] = """
     type: command
-    short-summary: "Invoke action validateProperties"
+    short-summary: "Invoke action validateProperties."
 """
 
 helps['applications group'] = """
     type: group
-    short-summary: applications group
-"""
-
-helps['applications group delete'] = """
-    type: command
-    short-summary: "Delete navigation property appRoleAssignments for groups"
+    short-summary: Manage group with applications_v1_0
 """
 
 helps['applications group create-app-role-assignment'] = """
     type: command
-    short-summary: "Create new navigation property to appRoleAssignments for groups"
+    short-summary: "Create new navigation property to appRoleAssignments for groups."
 """
 
-helps['applications group get-app-role-assignment'] = """
+helps['applications group delete-app-role-assignment'] = """
     type: command
-    short-summary: "Get appRoleAssignments from groups"
+    short-summary: "Delete navigation property appRoleAssignments for groups."
 """
 
 helps['applications group list-app-role-assignment'] = """
     type: command
-    short-summary: "Get appRoleAssignments from groups"
+    short-summary: "Get appRoleAssignments from groups."
+"""
+
+helps['applications group show-app-role-assignment'] = """
+    type: command
+    short-summary: "Get appRoleAssignments from groups."
 """
 
 helps['applications group update-app-role-assignment'] = """
     type: command
-    short-summary: "Update the navigation property appRoleAssignments in groups"
+    short-summary: "Update the navigation property appRoleAssignments in groups."
 """
 
 helps['applications service-principal-service-principal'] = """
     type: group
-    short-summary: applications service-principal-service-principal
-"""
-
-helps['applications service-principal-service-principal delete'] = """
-    type: command
-    short-summary: "Delete entity from servicePrincipals"
+    short-summary: Manage service principal service principal with applications_v1_0
 """
 
 helps['applications service-principal-service-principal create-service-principal'] = """
     type: command
-    short-summary: "Add new entity to servicePrincipals"
+    short-summary: "Add new entity to servicePrincipals."
     parameters:
-      - name: --add-ins
-        short-summary: "Defines custom behavior that a consuming service can use to call an app in specific contexts. \
-For example, applications that can render file streams may set the addIns property for its 'FileHandler' \
-functionality. This will let services like Microsoft 365 call the application in the context of a document the user is \
-working on."
-        long-summary: |
-            Usage: --add-ins id=XX properties=XX type=XX
-
-
-            Multiple actions can be specified by using more than one --add-ins argument.
       - name: --app-roles
         short-summary: "The roles exposed by the application which this service principal represents. For more \
 information see the appRoles property definition on the application entity. Not nullable."
@@ -1229,30 +1172,25 @@ policy type, but only one can be activated as the organization default. Optional
             Multiple actions can be specified by using more than one --transitive-member-of argument.
 """
 
-helps['applications service-principal-service-principal get-service-principal'] = """
+helps['applications service-principal-service-principal delete-service-principal'] = """
     type: command
-    short-summary: "Get entity from servicePrincipals by key"
+    short-summary: "Delete entity from servicePrincipals."
 """
 
 helps['applications service-principal-service-principal list-service-principal'] = """
     type: command
-    short-summary: "Get entities from servicePrincipals"
+    short-summary: "Get entities from servicePrincipals."
+"""
+
+helps['applications service-principal-service-principal show-service-principal'] = """
+    type: command
+    short-summary: "Get entity from servicePrincipals by key."
 """
 
 helps['applications service-principal-service-principal update-service-principal'] = """
     type: command
-    short-summary: "Update entity in servicePrincipals"
+    short-summary: "Update entity in servicePrincipals."
     parameters:
-      - name: --add-ins
-        short-summary: "Defines custom behavior that a consuming service can use to call an app in specific contexts. \
-For example, applications that can render file streams may set the addIns property for its 'FileHandler' \
-functionality. This will let services like Microsoft 365 call the application in the context of a document the user is \
-working on."
-        long-summary: |
-            Usage: --add-ins id=XX properties=XX type=XX
-
-
-            Multiple actions can be specified by using more than one --add-ins argument.
       - name: --app-roles
         short-summary: "The roles exposed by the application which this service principal represents. For more \
 information see the appRoles property definition on the application entity. Not nullable."
@@ -1558,17 +1496,12 @@ policy type, but only one can be activated as the organization default. Optional
 
 helps['applications service-principal'] = """
     type: group
-    short-summary: applications service-principal
-"""
-
-helps['applications service-principal delete'] = """
-    type: command
-    short-summary: "Delete navigation property endpoints for servicePrincipals"
+    short-summary: Manage service principal with applications_v1_0
 """
 
 helps['applications service-principal add-key'] = """
     type: command
-    short-summary: "Invoke action addKey"
+    short-summary: "Invoke action addKey."
     parameters:
       - name: --key-credential
         short-summary: "keyCredential"
@@ -1610,7 +1543,7 @@ look like this: '2014-01-01T00:00:00Z'. Optional.
 
 helps['applications service-principal add-password'] = """
     type: command
-    short-summary: "Invoke action addPassword"
+    short-summary: "Invoke action addPassword."
     parameters:
       - name: --password-credential
         short-summary: "passwordCredential"
@@ -1634,295 +1567,310 @@ look like this: '2014-01-01T00:00:00Z'. Optional.
 
 helps['applications service-principal check-member-group'] = """
     type: command
-    short-summary: "Invoke action checkMemberGroups"
+    short-summary: "Invoke action checkMemberGroups."
 """
 
 helps['applications service-principal check-member-object'] = """
     type: command
-    short-summary: "Invoke action checkMemberObjects"
+    short-summary: "Invoke action checkMemberObjects."
 """
 
 helps['applications service-principal create-app-role-assigned-to'] = """
     type: command
-    short-summary: "Create new navigation property to appRoleAssignedTo for servicePrincipals"
+    short-summary: "Create new navigation property to appRoleAssignedTo for servicePrincipals."
 """
 
 helps['applications service-principal create-app-role-assignment'] = """
     type: command
-    short-summary: "Create new navigation property to appRoleAssignments for servicePrincipals"
+    short-summary: "Create new navigation property to appRoleAssignments for servicePrincipals."
 """
 
 helps['applications service-principal create-endpoint'] = """
     type: command
-    short-summary: "Create new navigation property to endpoints for servicePrincipals"
+    short-summary: "Create new navigation property to endpoints for servicePrincipals."
 """
 
 helps['applications service-principal create-ref-claim-mapping-policy'] = """
     type: command
-    short-summary: "Create new navigation property ref to claimsMappingPolicies for servicePrincipals"
+    short-summary: "Create new navigation property ref to claimsMappingPolicies for servicePrincipals."
 """
 
 helps['applications service-principal create-ref-created-object'] = """
     type: command
-    short-summary: "Create new navigation property ref to createdObjects for servicePrincipals"
+    short-summary: "Create new navigation property ref to createdObjects for servicePrincipals."
 """
 
 helps['applications service-principal create-ref-home-realm-discovery-policy'] = """
     type: command
-    short-summary: "Create new navigation property ref to homeRealmDiscoveryPolicies for servicePrincipals"
+    short-summary: "Create new navigation property ref to homeRealmDiscoveryPolicies for servicePrincipals."
 """
 
 helps['applications service-principal create-ref-member-of'] = """
     type: command
-    short-summary: "Create new navigation property ref to memberOf for servicePrincipals"
+    short-summary: "Create new navigation property ref to memberOf for servicePrincipals."
 """
 
 helps['applications service-principal create-ref-oauth2-permission-grant'] = """
     type: command
-    short-summary: "Create new navigation property ref to oauth2PermissionGrants for servicePrincipals"
+    short-summary: "Create new navigation property ref to oauth2PermissionGrants for servicePrincipals."
 """
 
 helps['applications service-principal create-ref-owned-object'] = """
     type: command
-    short-summary: "Create new navigation property ref to ownedObjects for servicePrincipals"
+    short-summary: "Create new navigation property ref to ownedObjects for servicePrincipals."
 """
 
 helps['applications service-principal create-ref-owner'] = """
     type: command
-    short-summary: "Create new navigation property ref to owners for servicePrincipals"
+    short-summary: "Create new navigation property ref to owners for servicePrincipals."
 """
 
 helps['applications service-principal create-ref-token-issuance-policy'] = """
     type: command
-    short-summary: "Create new navigation property ref to tokenIssuancePolicies for servicePrincipals"
+    short-summary: "Create new navigation property ref to tokenIssuancePolicies for servicePrincipals."
 """
 
 helps['applications service-principal create-ref-token-lifetime-policy'] = """
     type: command
-    short-summary: "Create new navigation property ref to tokenLifetimePolicies for servicePrincipals"
+    short-summary: "Create new navigation property ref to tokenLifetimePolicies for servicePrincipals."
 """
 
 helps['applications service-principal create-ref-transitive-member-of'] = """
     type: command
-    short-summary: "Create new navigation property ref to transitiveMemberOf for servicePrincipals"
+    short-summary: "Create new navigation property ref to transitiveMemberOf for servicePrincipals."
+"""
+
+helps['applications service-principal delete-app-role-assigned-to'] = """
+    type: command
+    short-summary: "Delete navigation property appRoleAssignedTo for servicePrincipals."
+"""
+
+helps['applications service-principal delete-app-role-assignment'] = """
+    type: command
+    short-summary: "Delete navigation property appRoleAssignments for servicePrincipals."
+"""
+
+helps['applications service-principal delete-endpoint'] = """
+    type: command
+    short-summary: "Delete navigation property endpoints for servicePrincipals."
 """
 
 helps['applications service-principal delta'] = """
     type: command
-    short-summary: "Invoke function delta"
-"""
-
-helps['applications service-principal get-app-role-assigned-to'] = """
-    type: command
-    short-summary: "Get appRoleAssignedTo from servicePrincipals"
-"""
-
-helps['applications service-principal get-app-role-assignment'] = """
-    type: command
-    short-summary: "Get appRoleAssignments from servicePrincipals"
+    short-summary: "Invoke function delta."
 """
 
 helps['applications service-principal get-available-extension-property'] = """
     type: command
-    short-summary: "Invoke action getAvailableExtensionProperties"
+    short-summary: "Invoke action getAvailableExtensionProperties."
 """
 
 helps['applications service-principal get-by-id'] = """
     type: command
-    short-summary: "Invoke action getByIds"
-"""
-
-helps['applications service-principal get-endpoint'] = """
-    type: command
-    short-summary: "Get endpoints from servicePrincipals"
+    short-summary: "Invoke action getByIds."
 """
 
 helps['applications service-principal get-member-group'] = """
     type: command
-    short-summary: "Invoke action getMemberGroups"
+    short-summary: "Invoke action getMemberGroups."
 """
 
 helps['applications service-principal get-member-object'] = """
     type: command
-    short-summary: "Invoke action getMemberObjects"
+    short-summary: "Invoke action getMemberObjects."
 """
 
 helps['applications service-principal list-app-role-assigned-to'] = """
     type: command
-    short-summary: "Get appRoleAssignedTo from servicePrincipals"
+    short-summary: "Get appRoleAssignedTo from servicePrincipals."
 """
 
 helps['applications service-principal list-app-role-assignment'] = """
     type: command
-    short-summary: "Get appRoleAssignments from servicePrincipals"
+    short-summary: "Get appRoleAssignments from servicePrincipals."
 """
 
 helps['applications service-principal list-claim-mapping-policy'] = """
     type: command
-    short-summary: "Get claimsMappingPolicies from servicePrincipals"
+    short-summary: "Get claimsMappingPolicies from servicePrincipals."
 """
 
 helps['applications service-principal list-created-object'] = """
     type: command
-    short-summary: "Get createdObjects from servicePrincipals"
+    short-summary: "Get createdObjects from servicePrincipals."
 """
 
 helps['applications service-principal list-endpoint'] = """
     type: command
-    short-summary: "Get endpoints from servicePrincipals"
+    short-summary: "Get endpoints from servicePrincipals."
 """
 
 helps['applications service-principal list-home-realm-discovery-policy'] = """
     type: command
-    short-summary: "Get homeRealmDiscoveryPolicies from servicePrincipals"
+    short-summary: "Get homeRealmDiscoveryPolicies from servicePrincipals."
 """
 
 helps['applications service-principal list-member-of'] = """
     type: command
-    short-summary: "Get memberOf from servicePrincipals"
+    short-summary: "Get memberOf from servicePrincipals."
 """
 
 helps['applications service-principal list-oauth2-permission-grant'] = """
     type: command
-    short-summary: "Get oauth2PermissionGrants from servicePrincipals"
+    short-summary: "Get oauth2PermissionGrants from servicePrincipals."
 """
 
 helps['applications service-principal list-owned-object'] = """
     type: command
-    short-summary: "Get ownedObjects from servicePrincipals"
+    short-summary: "Get ownedObjects from servicePrincipals."
 """
 
 helps['applications service-principal list-owner'] = """
     type: command
-    short-summary: "Get owners from servicePrincipals"
+    short-summary: "Get owners from servicePrincipals."
 """
 
 helps['applications service-principal list-ref-claim-mapping-policy'] = """
     type: command
-    short-summary: "Get ref of claimsMappingPolicies from servicePrincipals"
+    short-summary: "Get ref of claimsMappingPolicies from servicePrincipals."
 """
 
 helps['applications service-principal list-ref-created-object'] = """
     type: command
-    short-summary: "Get ref of createdObjects from servicePrincipals"
+    short-summary: "Get ref of createdObjects from servicePrincipals."
 """
 
 helps['applications service-principal list-ref-home-realm-discovery-policy'] = """
     type: command
-    short-summary: "Get ref of homeRealmDiscoveryPolicies from servicePrincipals"
+    short-summary: "Get ref of homeRealmDiscoveryPolicies from servicePrincipals."
 """
 
 helps['applications service-principal list-ref-member-of'] = """
     type: command
-    short-summary: "Get ref of memberOf from servicePrincipals"
+    short-summary: "Get ref of memberOf from servicePrincipals."
 """
 
 helps['applications service-principal list-ref-oauth2-permission-grant'] = """
     type: command
-    short-summary: "Get ref of oauth2PermissionGrants from servicePrincipals"
+    short-summary: "Get ref of oauth2PermissionGrants from servicePrincipals."
 """
 
 helps['applications service-principal list-ref-owned-object'] = """
     type: command
-    short-summary: "Get ref of ownedObjects from servicePrincipals"
+    short-summary: "Get ref of ownedObjects from servicePrincipals."
 """
 
 helps['applications service-principal list-ref-owner'] = """
     type: command
-    short-summary: "Get ref of owners from servicePrincipals"
+    short-summary: "Get ref of owners from servicePrincipals."
 """
 
 helps['applications service-principal list-ref-token-issuance-policy'] = """
     type: command
-    short-summary: "Get ref of tokenIssuancePolicies from servicePrincipals"
+    short-summary: "Get ref of tokenIssuancePolicies from servicePrincipals."
 """
 
 helps['applications service-principal list-ref-token-lifetime-policy'] = """
     type: command
-    short-summary: "Get ref of tokenLifetimePolicies from servicePrincipals"
+    short-summary: "Get ref of tokenLifetimePolicies from servicePrincipals."
 """
 
 helps['applications service-principal list-ref-transitive-member-of'] = """
     type: command
-    short-summary: "Get ref of transitiveMemberOf from servicePrincipals"
+    short-summary: "Get ref of transitiveMemberOf from servicePrincipals."
 """
 
 helps['applications service-principal list-token-issuance-policy'] = """
     type: command
-    short-summary: "Get tokenIssuancePolicies from servicePrincipals"
+    short-summary: "Get tokenIssuancePolicies from servicePrincipals."
 """
 
 helps['applications service-principal list-token-lifetime-policy'] = """
     type: command
-    short-summary: "Get tokenLifetimePolicies from servicePrincipals"
+    short-summary: "Get tokenLifetimePolicies from servicePrincipals."
 """
 
 helps['applications service-principal list-transitive-member-of'] = """
     type: command
-    short-summary: "Get transitiveMemberOf from servicePrincipals"
+    short-summary: "Get transitiveMemberOf from servicePrincipals."
 """
 
 helps['applications service-principal remove-key'] = """
     type: command
-    short-summary: "Invoke action removeKey"
+    short-summary: "Invoke action removeKey."
 """
 
 helps['applications service-principal remove-password'] = """
     type: command
-    short-summary: "Invoke action removePassword"
+    short-summary: "Invoke action removePassword."
 """
 
 helps['applications service-principal restore'] = """
     type: command
-    short-summary: "Invoke action restore"
+    short-summary: "Invoke action restore."
+"""
+
+helps['applications service-principal show-app-role-assigned-to'] = """
+    type: command
+    short-summary: "Get appRoleAssignedTo from servicePrincipals."
+"""
+
+helps['applications service-principal show-app-role-assignment'] = """
+    type: command
+    short-summary: "Get appRoleAssignments from servicePrincipals."
+"""
+
+helps['applications service-principal show-endpoint'] = """
+    type: command
+    short-summary: "Get endpoints from servicePrincipals."
 """
 
 helps['applications service-principal update-app-role-assigned-to'] = """
     type: command
-    short-summary: "Update the navigation property appRoleAssignedTo in servicePrincipals"
+    short-summary: "Update the navigation property appRoleAssignedTo in servicePrincipals."
 """
 
 helps['applications service-principal update-app-role-assignment'] = """
     type: command
-    short-summary: "Update the navigation property appRoleAssignments in servicePrincipals"
+    short-summary: "Update the navigation property appRoleAssignments in servicePrincipals."
 """
 
 helps['applications service-principal update-endpoint'] = """
     type: command
-    short-summary: "Update the navigation property endpoints in servicePrincipals"
+    short-summary: "Update the navigation property endpoints in servicePrincipals."
 """
 
 helps['applications service-principal validate-property'] = """
     type: command
-    short-summary: "Invoke action validateProperties"
+    short-summary: "Invoke action validateProperties."
 """
 
 helps['applications user'] = """
     type: group
-    short-summary: applications user
-"""
-
-helps['applications user delete'] = """
-    type: command
-    short-summary: "Delete navigation property appRoleAssignments for users"
+    short-summary: Manage user with applications_v1_0
 """
 
 helps['applications user create-app-role-assignment'] = """
     type: command
-    short-summary: "Create new navigation property to appRoleAssignments for users"
+    short-summary: "Create new navigation property to appRoleAssignments for users."
 """
 
-helps['applications user get-app-role-assignment'] = """
+helps['applications user delete-app-role-assignment'] = """
     type: command
-    short-summary: "Get appRoleAssignments from users"
+    short-summary: "Delete navigation property appRoleAssignments for users."
 """
 
 helps['applications user list-app-role-assignment'] = """
     type: command
-    short-summary: "Get appRoleAssignments from users"
+    short-summary: "Get appRoleAssignments from users."
+"""
+
+helps['applications user show-app-role-assignment'] = """
+    type: command
+    short-summary: "Get appRoleAssignments from users."
 """
 
 helps['applications user update-app-role-assignment'] = """
     type: command
-    short-summary: "Update the navigation property appRoleAssignments in users"
+    short-summary: "Update the navigation property appRoleAssignments in users."
 """

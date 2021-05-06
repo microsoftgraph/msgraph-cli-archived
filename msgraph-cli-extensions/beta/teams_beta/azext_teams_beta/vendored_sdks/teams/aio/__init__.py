@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._teams_async import Teams
+from ._teams import Teams
 __all__ = ['Teams']

@@ -1,119 +1,161 @@
 # Azure CLI Module Creation Report
 
-### compliance compliance delete
-
-delete a compliance compliance.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|compliance compliance|compliance|
+|az compliance_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteEdiscovery|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az compliance_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az compliance compliance|compliance.compliance|[commands](#CommandsIncompliance.compliance)|
+|az compliance compliance|compliance|[commands](#CommandsIncompliance)|
+|az compliance compliance-ediscovery|compliance.ediscovery|[commands](#CommandsIncompliance.ediscovery)|
+|az compliance compliance-ediscovery-case|compliance.ediscovery.cases|[commands](#CommandsIncompliance.ediscovery.cases)|
+|az compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|[commands](#CommandsIncompliance.ediscovery.cases.custodians)|
+|az compliance compliance-ediscovery-case-custodian-site-source|compliance.ediscovery.cases.custodians.siteSources|[commands](#CommandsIncompliance.ediscovery.cases.custodians.siteSources)|
+|az compliance compliance-ediscovery-case-custodian-unified-group-source|compliance.ediscovery.cases.custodians.unifiedGroupSources|[commands](#CommandsIncompliance.ediscovery.cases.custodians.unifiedGroupSources)|
+|az compliance compliance-ediscovery-case-review-set|compliance.ediscovery.cases.reviewSets|[commands](#CommandsIncompliance.ediscovery.cases.reviewSets)|
 
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--if-match**|string|ETag|if_match|If-Match|
+## COMMANDS
+### <a name="CommandsIncompliance.compliance">Commands in `az compliance compliance` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az compliance compliance create](#compliance.complianceUpdateCompliance)|UpdateCompliance|[Parameters](#Parameterscompliance.complianceUpdateCompliance)|Not Found|
+|[az compliance compliance show-compliance](#compliance.complianceGetCompliance)|GetCompliance|[Parameters](#Parameterscompliance.complianceGetCompliance)|Not Found|
 
-### compliance compliance get
+### <a name="CommandsIncompliance">Commands in `az compliance compliance` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az compliance compliance delete-ediscovery](#complianceDeleteEdiscovery)|DeleteEdiscovery|[Parameters](#ParameterscomplianceDeleteEdiscovery)|Not Found|
+|[az compliance compliance show-ediscovery](#complianceGetEdiscovery)|GetEdiscovery|[Parameters](#ParameterscomplianceGetEdiscovery)|Not Found|
+|[az compliance compliance update-ediscovery](#complianceUpdateEdiscovery)|UpdateEdiscovery|[Parameters](#ParameterscomplianceUpdateEdiscovery)|Not Found|
 
-get a compliance compliance.
+### <a name="CommandsIncompliance.ediscovery">Commands in `az compliance compliance-ediscovery` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az compliance compliance-ediscovery create-case](#compliance.ediscoveryCreateCases)|CreateCases|[Parameters](#Parameterscompliance.ediscoveryCreateCases)|Not Found|
+|[az compliance compliance-ediscovery delete-case](#compliance.ediscoveryDeleteCases)|DeleteCases|[Parameters](#Parameterscompliance.ediscoveryDeleteCases)|Not Found|
+|[az compliance compliance-ediscovery list-case](#compliance.ediscoveryListCases)|ListCases|[Parameters](#Parameterscompliance.ediscoveryListCases)|Not Found|
+|[az compliance compliance-ediscovery show-case](#compliance.ediscoveryGetCases)|GetCases|[Parameters](#Parameterscompliance.ediscoveryGetCases)|Not Found|
+|[az compliance compliance-ediscovery update-case](#compliance.ediscoveryUpdateCases)|UpdateCases|[Parameters](#Parameterscompliance.ediscoveryUpdateCases)|Not Found|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance|compliance.compliance|
+### <a name="CommandsIncompliance.ediscovery.cases">Commands in `az compliance compliance-ediscovery-case` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az compliance compliance-ediscovery-case close](#compliance.ediscovery.casesclose)|close|[Parameters](#Parameterscompliance.ediscovery.casesclose)|Not Found|
+|[az compliance compliance-ediscovery-case create-custodian](#compliance.ediscovery.casesCreateCustodians)|CreateCustodians|[Parameters](#Parameterscompliance.ediscovery.casesCreateCustodians)|Not Found|
+|[az compliance compliance-ediscovery-case create-review-set](#compliance.ediscovery.casesCreateReviewSets)|CreateReviewSets|[Parameters](#Parameterscompliance.ediscovery.casesCreateReviewSets)|Not Found|
+|[az compliance compliance-ediscovery-case delete-custodian](#compliance.ediscovery.casesDeleteCustodians)|DeleteCustodians|[Parameters](#Parameterscompliance.ediscovery.casesDeleteCustodians)|Not Found|
+|[az compliance compliance-ediscovery-case delete-review-set](#compliance.ediscovery.casesDeleteReviewSets)|DeleteReviewSets|[Parameters](#Parameterscompliance.ediscovery.casesDeleteReviewSets)|Not Found|
+|[az compliance compliance-ediscovery-case list-custodian](#compliance.ediscovery.casesListCustodians)|ListCustodians|[Parameters](#Parameterscompliance.ediscovery.casesListCustodians)|Not Found|
+|[az compliance compliance-ediscovery-case list-review-set](#compliance.ediscovery.casesListReviewSets)|ListReviewSets|[Parameters](#Parameterscompliance.ediscovery.casesListReviewSets)|Not Found|
+|[az compliance compliance-ediscovery-case reopen](#compliance.ediscovery.casesreopen)|reopen|[Parameters](#Parameterscompliance.ediscovery.casesreopen)|Not Found|
+|[az compliance compliance-ediscovery-case show-custodian](#compliance.ediscovery.casesGetCustodians)|GetCustodians|[Parameters](#Parameterscompliance.ediscovery.casesGetCustodians)|Not Found|
+|[az compliance compliance-ediscovery-case show-review-set](#compliance.ediscovery.casesGetReviewSets)|GetReviewSets|[Parameters](#Parameterscompliance.ediscovery.casesGetReviewSets)|Not Found|
+|[az compliance compliance-ediscovery-case update-custodian](#compliance.ediscovery.casesUpdateCustodians)|UpdateCustodians|[Parameters](#Parameterscompliance.ediscovery.casesUpdateCustodians)|Not Found|
+|[az compliance compliance-ediscovery-case update-review-set](#compliance.ediscovery.casesUpdateReviewSets)|UpdateReviewSets|[Parameters](#Parameterscompliance.ediscovery.casesUpdateReviewSets)|Not Found|
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get|GetCompliance|
+### <a name="CommandsIncompliance.ediscovery.cases.custodians">Commands in `az compliance compliance-ediscovery-case-custodian` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az compliance compliance-ediscovery-case-custodian activate](#compliance.ediscovery.cases.custodiansactivate)|activate|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansactivate)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian create-site-source](#compliance.ediscovery.cases.custodiansCreateSiteSources)|CreateSiteSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansCreateSiteSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian create-unified-group-source](#compliance.ediscovery.cases.custodiansCreateUnifiedGroupSources)|CreateUnifiedGroupSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansCreateUnifiedGroupSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian create-user-source](#compliance.ediscovery.cases.custodiansCreateUserSources)|CreateUserSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansCreateUserSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian delete-ref-last-index-operation](#compliance.ediscovery.cases.custodiansDeleteRefLastIndexOperation)|DeleteRefLastIndexOperation|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansDeleteRefLastIndexOperation)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian delete-site-source](#compliance.ediscovery.cases.custodiansDeleteSiteSources)|DeleteSiteSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansDeleteSiteSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian delete-unified-group-source](#compliance.ediscovery.cases.custodiansDeleteUnifiedGroupSources)|DeleteUnifiedGroupSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansDeleteUnifiedGroupSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian delete-user-source](#compliance.ediscovery.cases.custodiansDeleteUserSources)|DeleteUserSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansDeleteUserSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian list-site-source](#compliance.ediscovery.cases.custodiansListSiteSources)|ListSiteSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansListSiteSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian list-unified-group-source](#compliance.ediscovery.cases.custodiansListUnifiedGroupSources)|ListUnifiedGroupSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansListUnifiedGroupSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian list-user-source](#compliance.ediscovery.cases.custodiansListUserSources)|ListUserSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansListUserSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian release](#compliance.ediscovery.cases.custodiansrelease)|release|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansrelease)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian set-ref-last-index-operation](#compliance.ediscovery.cases.custodiansSetRefLastIndexOperation)|SetRefLastIndexOperation|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansSetRefLastIndexOperation)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian show-last-index-operation](#compliance.ediscovery.cases.custodiansGetLastIndexOperation)|GetLastIndexOperation|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansGetLastIndexOperation)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian show-ref-last-index-operation](#compliance.ediscovery.cases.custodiansGetRefLastIndexOperation)|GetRefLastIndexOperation|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansGetRefLastIndexOperation)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian show-site-source](#compliance.ediscovery.cases.custodiansGetSiteSources)|GetSiteSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansGetSiteSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian show-unified-group-source](#compliance.ediscovery.cases.custodiansGetUnifiedGroupSources)|GetUnifiedGroupSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansGetUnifiedGroupSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian show-user-source](#compliance.ediscovery.cases.custodiansGetUserSources)|GetUserSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansGetUserSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian update-index](#compliance.ediscovery.cases.custodiansupdateIndex)|updateIndex|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansupdateIndex)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian update-site-source](#compliance.ediscovery.cases.custodiansUpdateSiteSources)|UpdateSiteSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansUpdateSiteSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian update-unified-group-source](#compliance.ediscovery.cases.custodiansUpdateUnifiedGroupSources)|UpdateUnifiedGroupSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansUpdateUnifiedGroupSources)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian update-user-source](#compliance.ediscovery.cases.custodiansUpdateUserSources)|UpdateUserSources|[Parameters](#Parameterscompliance.ediscovery.cases.custodiansUpdateUserSources)|Not Found|
 
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+### <a name="CommandsIncompliance.ediscovery.cases.custodians.siteSources">Commands in `az compliance compliance-ediscovery-case-custodian-site-source` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az compliance compliance-ediscovery-case-custodian-site-source delete-ref-site](#compliance.ediscovery.cases.custodians.siteSourcesDeleteRefSite)|DeleteRefSite|[Parameters](#Parameterscompliance.ediscovery.cases.custodians.siteSourcesDeleteRefSite)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian-site-source set-ref-site](#compliance.ediscovery.cases.custodians.siteSourcesSetRefSite)|SetRefSite|[Parameters](#Parameterscompliance.ediscovery.cases.custodians.siteSourcesSetRefSite)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian-site-source show-ref-site](#compliance.ediscovery.cases.custodians.siteSourcesGetRefSite)|GetRefSite|[Parameters](#Parameterscompliance.ediscovery.cases.custodians.siteSourcesGetRefSite)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian-site-source show-site](#compliance.ediscovery.cases.custodians.siteSourcesGetSite)|GetSite|[Parameters](#Parameterscompliance.ediscovery.cases.custodians.siteSourcesGetSite)|Not Found|
 
-### compliance compliance get-ediscovery
+### <a name="CommandsIncompliance.ediscovery.cases.custodians.unifiedGroupSources">Commands in `az compliance compliance-ediscovery-case-custodian-unified-group-source` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az compliance compliance-ediscovery-case-custodian-unified-group-source delete-ref-group](#compliance.ediscovery.cases.custodians.unifiedGroupSourcesDeleteRefGroup)|DeleteRefGroup|[Parameters](#Parameterscompliance.ediscovery.cases.custodians.unifiedGroupSourcesDeleteRefGroup)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian-unified-group-source set-ref-group](#compliance.ediscovery.cases.custodians.unifiedGroupSourcesSetRefGroup)|SetRefGroup|[Parameters](#Parameterscompliance.ediscovery.cases.custodians.unifiedGroupSourcesSetRefGroup)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian-unified-group-source show-group](#compliance.ediscovery.cases.custodians.unifiedGroupSourcesGetGroup)|GetGroup|[Parameters](#Parameterscompliance.ediscovery.cases.custodians.unifiedGroupSourcesGetGroup)|Not Found|
+|[az compliance compliance-ediscovery-case-custodian-unified-group-source show-ref-group](#compliance.ediscovery.cases.custodians.unifiedGroupSourcesGetRefGroup)|GetRefGroup|[Parameters](#Parameterscompliance.ediscovery.cases.custodians.unifiedGroupSourcesGetRefGroup)|Not Found|
 
-get-ediscovery a compliance compliance.
+### <a name="CommandsIncompliance.ediscovery.cases.reviewSets">Commands in `az compliance compliance-ediscovery-case-review-set` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az compliance compliance-ediscovery-case-review-set create-query](#compliance.ediscovery.cases.reviewSetsCreateQueries)|CreateQueries|[Parameters](#Parameterscompliance.ediscovery.cases.reviewSetsCreateQueries)|Not Found|
+|[az compliance compliance-ediscovery-case-review-set delete-query](#compliance.ediscovery.cases.reviewSetsDeleteQueries)|DeleteQueries|[Parameters](#Parameterscompliance.ediscovery.cases.reviewSetsDeleteQueries)|Not Found|
+|[az compliance compliance-ediscovery-case-review-set list-query](#compliance.ediscovery.cases.reviewSetsListQueries)|ListQueries|[Parameters](#Parameterscompliance.ediscovery.cases.reviewSetsListQueries)|Not Found|
+|[az compliance compliance-ediscovery-case-review-set show-query](#compliance.ediscovery.cases.reviewSetsGetQueries)|GetQueries|[Parameters](#Parameterscompliance.ediscovery.cases.reviewSetsGetQueries)|Not Found|
+|[az compliance compliance-ediscovery-case-review-set update-query](#compliance.ediscovery.cases.reviewSetsUpdateQueries)|UpdateQueries|[Parameters](#Parameterscompliance.ediscovery.cases.reviewSetsUpdateQueries)|Not Found|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance|compliance|
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ediscovery|GetEdiscovery|
+## COMMAND DETAILS
 
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+### group `az compliance compliance`
+#### <a name="compliance.complianceUpdateCompliance">Command `az compliance compliance create`</a>
 
-### compliance compliance update
-
-update a compliance compliance.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance|compliance.compliance|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update|UpdateCompliance|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-id**|string|Read-only.|id|id|
-|**--ediscovery-cases**|array||cases|cases|
-
-### compliance compliance update-ediscovery
-
-update-ediscovery a compliance compliance.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance|compliance|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-ediscovery|UpdateEdiscovery|
-
-#### Parameters
+##### <a name="Parameterscompliance.complianceUpdateCompliance">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--cases**|array||cases|cases|
 
-### compliance compliance-ediscovery create-case
+#### <a name="compliance.complianceGetCompliance">Command `az compliance compliance show-compliance`</a>
 
-create-case a compliance compliance-ediscovery.
+##### <a name="Parameterscompliance.complianceGetCompliance">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery|compliance.ediscovery|
+### group `az compliance compliance`
+#### <a name="complianceDeleteEdiscovery">Command `az compliance compliance delete-ediscovery`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-case|CreateCases|
+##### <a name="ParameterscomplianceDeleteEdiscovery">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Parameters
+#### <a name="complianceGetEdiscovery">Command `az compliance compliance show-ediscovery`</a>
+
+##### <a name="ParameterscomplianceGetEdiscovery">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="complianceUpdateEdiscovery">Command `az compliance compliance update-ediscovery`</a>
+
+##### <a name="ParameterscomplianceUpdateEdiscovery">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--cases**|array||cases|cases|
+
+### group `az compliance compliance-ediscovery`
+#### <a name="compliance.ediscoveryCreateCases">Command `az compliance compliance-ediscovery create-case`</a>
+
+##### <a name="Parameterscompliance.ediscoveryCreateCases">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -126,90 +168,42 @@ create-case a compliance compliance-ediscovery.
 |**--status**|choice||status|status|
 |**--custodians**|array||custodians|custodians|
 |**--review-sets**|array||review_sets|reviewSets|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--closed-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--closed-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--closed-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
-### compliance compliance-ediscovery delete
+#### <a name="compliance.ediscoveryDeleteCases">Command `az compliance compliance-ediscovery delete-case`</a>
 
-delete a compliance compliance-ediscovery.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery|compliance.ediscovery|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteCases|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscoveryDeleteCases">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### compliance compliance-ediscovery get-case
+#### <a name="compliance.ediscoveryListCases">Command `az compliance compliance-ediscovery list-case`</a>
 
-get-case a compliance compliance-ediscovery.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery|compliance.ediscovery|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-case|GetCases|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### compliance compliance-ediscovery list-case
-
-list-case a compliance compliance-ediscovery.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery|compliance.ediscovery|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-case|ListCases|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscoveryListCases">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### compliance compliance-ediscovery update-case
+#### <a name="compliance.ediscoveryGetCases">Command `az compliance compliance-ediscovery show-case`</a>
 
-update-case a compliance compliance-ediscovery.
+##### <a name="Parameterscompliance.ediscoveryGetCases">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery|compliance.ediscovery|
+#### <a name="compliance.ediscoveryUpdateCases">Command `az compliance compliance-ediscovery update-case`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-case|UpdateCases|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscoveryUpdateCases">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -223,47 +217,24 @@ update-case a compliance compliance-ediscovery.
 |**--status**|choice||status|status|
 |**--custodians**|array||custodians|custodians|
 |**--review-sets**|array||review_sets|reviewSets|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--closed-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--closed-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--closed-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
-### compliance compliance-ediscovery-case close
+### group `az compliance compliance-ediscovery-case`
+#### <a name="compliance.ediscovery.casesclose">Command `az compliance compliance-ediscovery-case close`</a>
 
-close a compliance compliance-ediscovery-case.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|close|close|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.casesclose">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 
-### compliance compliance-ediscovery-case create-custodian
+#### <a name="compliance.ediscovery.casesCreateCustodians">Command `az compliance compliance-ediscovery-case create-custodian`</a>
 
-create-custodian a compliance compliance-ediscovery-case.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-custodian|CreateCustodians|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.casesCreateCustodians">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -281,21 +252,9 @@ create-custodian a compliance compliance-ediscovery-case.
 |**--unified-group-sources**|array||unified_group_sources|unifiedGroupSources|
 |**--user-sources**|array||user_sources|userSources|
 
-### compliance compliance-ediscovery-case create-review-set
+#### <a name="compliance.ediscovery.casesCreateReviewSets">Command `az compliance compliance-ediscovery-case create-review-set`</a>
 
-create-review-set a compliance compliance-ediscovery-case.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-review-set|CreateReviewSets|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.casesCreateReviewSets">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -303,48 +262,58 @@ create-review-set a compliance compliance-ediscovery-case.
 |**--created-date-time**|date-time||created_date_time|createdDateTime|
 |**--display-name**|string||display_name|displayName|
 |**--queries**|array||queries|queries|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### compliance compliance-ediscovery-case delete
+#### <a name="compliance.ediscovery.casesDeleteCustodians">Command `az compliance compliance-ediscovery-case delete-custodian`</a>
 
-delete a compliance compliance-ediscovery-case.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteCustodians|
-|delete|DeleteReviewSets|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.casesDeleteCustodians">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 |**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="compliance.ediscovery.casesDeleteReviewSets">Command `az compliance compliance-ediscovery-case delete-review-set`</a>
+
+##### <a name="Parameterscompliance.ediscovery.casesDeleteReviewSets">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 |**--review-set-id**|string|key: id of reviewSet|review_set_id|reviewSet-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### compliance compliance-ediscovery-case get-custodian
+#### <a name="compliance.ediscovery.casesListCustodians">Command `az compliance compliance-ediscovery-case list-custodian`</a>
 
-get-custodian a compliance compliance-ediscovery-case.
+##### <a name="Parameterscompliance.ediscovery.casesListCustodians">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
+#### <a name="compliance.ediscovery.casesListReviewSets">Command `az compliance compliance-ediscovery-case list-review-set`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-custodian|GetCustodians|
+##### <a name="Parameterscompliance.ediscovery.casesListReviewSets">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="compliance.ediscovery.casesreopen">Command `az compliance compliance-ediscovery-case reopen`</a>
+
+##### <a name="Parameterscompliance.ediscovery.casesreopen">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+
+#### <a name="compliance.ediscovery.casesGetCustodians">Command `az compliance compliance-ediscovery-case show-custodian`</a>
+
+##### <a name="Parameterscompliance.ediscovery.casesGetCustodians">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -352,21 +321,9 @@ get-custodian a compliance compliance-ediscovery-case.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### compliance compliance-ediscovery-case get-review-set
+#### <a name="compliance.ediscovery.casesGetReviewSets">Command `az compliance compliance-ediscovery-case show-review-set`</a>
 
-get-review-set a compliance compliance-ediscovery-case.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-review-set|GetReviewSets|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.casesGetReviewSets">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -374,84 +331,9 @@ get-review-set a compliance compliance-ediscovery-case.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### compliance compliance-ediscovery-case list-custodian
+#### <a name="compliance.ediscovery.casesUpdateCustodians">Command `az compliance compliance-ediscovery-case update-custodian`</a>
 
-list-custodian a compliance compliance-ediscovery-case.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-custodian|ListCustodians|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### compliance compliance-ediscovery-case list-review-set
-
-list-review-set a compliance compliance-ediscovery-case.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-review-set|ListReviewSets|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### compliance compliance-ediscovery-case reopen
-
-reopen a compliance compliance-ediscovery-case.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|reopen|reopen|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-
-### compliance compliance-ediscovery-case update-custodian
-
-update-custodian a compliance compliance-ediscovery-case.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-custodian|UpdateCustodians|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.casesUpdateCustodians">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -470,21 +352,9 @@ update-custodian a compliance compliance-ediscovery-case.
 |**--unified-group-sources**|array||unified_group_sources|unifiedGroupSources|
 |**--user-sources**|array||user_sources|userSources|
 
-### compliance compliance-ediscovery-case update-review-set
+#### <a name="compliance.ediscovery.casesUpdateReviewSets">Command `az compliance compliance-ediscovery-case update-review-set`</a>
 
-update-review-set a compliance compliance-ediscovery-case.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case|compliance.ediscovery.cases|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-review-set|UpdateReviewSets|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.casesUpdateReviewSets">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -493,45 +363,22 @@ update-review-set a compliance compliance-ediscovery-case.
 |**--created-date-time**|date-time||created_date_time|createdDateTime|
 |**--display-name**|string||display_name|displayName|
 |**--queries**|array||queries|queries|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### compliance compliance-ediscovery-case-custodian activate
+### group `az compliance compliance-ediscovery-case-custodian`
+#### <a name="compliance.ediscovery.cases.custodiansactivate">Command `az compliance compliance-ediscovery-case-custodian activate`</a>
 
-activate a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|activate|activate|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansactivate">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 |**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
 
-### compliance compliance-ediscovery-case-custodian create-site-source
+#### <a name="compliance.ediscovery.cases.custodiansCreateSiteSources">Command `az compliance compliance-ediscovery-case-custodian create-site-source`</a>
 
-create-site-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-site-source|CreateSiteSources|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansCreateSiteSources">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -539,26 +386,14 @@ create-site-source a compliance compliance-ediscovery-case-custodian.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time||created_date_time|createdDateTime|
 |**--display-name**|string||display_name|displayName|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 |**--site**|object|site|site|site|
 
-### compliance compliance-ediscovery-case-custodian create-unified-group-source
+#### <a name="compliance.ediscovery.cases.custodiansCreateUnifiedGroupSources">Command `az compliance compliance-ediscovery-case-custodian create-unified-group-source`</a>
 
-create-unified-group-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-unified-group-source|CreateUnifiedGroupSources|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansCreateUnifiedGroupSources">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -566,27 +401,15 @@ create-unified-group-source a compliance compliance-ediscovery-case-custodian.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time||created_date_time|createdDateTime|
 |**--display-name**|string||display_name|displayName|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 |**--included-sources**|choice||included_sources|includedSources|
 |**--group**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|group|group|
 
-### compliance compliance-ediscovery-case-custodian create-user-source
+#### <a name="compliance.ediscovery.cases.custodiansCreateUserSources">Command `az compliance compliance-ediscovery-case-custodian create-user-source`</a>
 
-create-user-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-user-source|CreateUserSources|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansCreateUserSources">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -594,165 +417,54 @@ create-user-source a compliance compliance-ediscovery-case-custodian.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time||created_date_time|createdDateTime|
 |**--display-name**|string||display_name|displayName|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 |**--email**|string||email|email|
 |**--included-sources**|choice||included_sources|includedSources|
 
-### compliance compliance-ediscovery-case-custodian delete
+#### <a name="compliance.ediscovery.cases.custodiansDeleteRefLastIndexOperation">Command `az compliance compliance-ediscovery-case-custodian delete-ref-last-index-operation`</a>
 
-delete a compliance compliance-ediscovery-case-custodian.
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansDeleteRefLastIndexOperation">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
+#### <a name="compliance.ediscovery.cases.custodiansDeleteSiteSources">Command `az compliance compliance-ediscovery-case-custodian delete-site-source`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteSiteSources|
-|delete|DeleteUnifiedGroupSources|
-|delete|DeleteUserSources|
-|delete|DeleteRefLastIndexOperation|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansDeleteSiteSources">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 |**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
 |**--site-source-id**|string|key: id of siteSource|site_source_id|siteSource-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="compliance.ediscovery.cases.custodiansDeleteUnifiedGroupSources">Command `az compliance compliance-ediscovery-case-custodian delete-unified-group-source`</a>
+
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansDeleteUnifiedGroupSources">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
 |**--unified-group-source-id**|string|key: id of unifiedGroupSource|unified_group_source_id|unifiedGroupSource-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="compliance.ediscovery.cases.custodiansDeleteUserSources">Command `az compliance compliance-ediscovery-case-custodian delete-user-source`</a>
+
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansDeleteUserSources">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
 |**--user-source-id**|string|key: id of userSource|user_source_id|userSource-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### compliance compliance-ediscovery-case-custodian get-last-index-operation
+#### <a name="compliance.ediscovery.cases.custodiansListSiteSources">Command `az compliance compliance-ediscovery-case-custodian list-site-source`</a>
 
-get-last-index-operation a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-last-index-operation|GetLastIndexOperation|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### compliance compliance-ediscovery-case-custodian get-ref-last-index-operation
-
-get-ref-last-index-operation a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-last-index-operation|GetRefLastIndexOperation|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
-
-### compliance compliance-ediscovery-case-custodian get-site-source
-
-get-site-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-site-source|GetSiteSources|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
-|**--site-source-id**|string|key: id of siteSource|site_source_id|siteSource-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### compliance compliance-ediscovery-case-custodian get-unified-group-source
-
-get-unified-group-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-unified-group-source|GetUnifiedGroupSources|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
-|**--unified-group-source-id**|string|key: id of unifiedGroupSource|unified_group_source_id|unifiedGroupSource-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### compliance compliance-ediscovery-case-custodian get-user-source
-
-get-user-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user-source|GetUserSources|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
-|**--user-source-id**|string|key: id of userSource|user_source_id|userSource-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### compliance compliance-ediscovery-case-custodian list-site-source
-
-list-site-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-site-source|ListSiteSources|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansListSiteSources">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -761,21 +473,9 @@ list-site-source a compliance compliance-ediscovery-case-custodian.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### compliance compliance-ediscovery-case-custodian list-unified-group-source
+#### <a name="compliance.ediscovery.cases.custodiansListUnifiedGroupSources">Command `az compliance compliance-ediscovery-case-custodian list-unified-group-source`</a>
 
-list-unified-group-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-unified-group-source|ListUnifiedGroupSources|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansListUnifiedGroupSources">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -784,21 +484,9 @@ list-unified-group-source a compliance compliance-ediscovery-case-custodian.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### compliance compliance-ediscovery-case-custodian list-user-source
+#### <a name="compliance.ediscovery.cases.custodiansListUserSources">Command `az compliance compliance-ediscovery-case-custodian list-user-source`</a>
 
-list-user-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-user-source|ListUserSources|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansListUserSources">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -807,82 +495,85 @@ list-user-source a compliance compliance-ediscovery-case-custodian.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### compliance compliance-ediscovery-case-custodian release
+#### <a name="compliance.ediscovery.cases.custodiansrelease">Command `az compliance compliance-ediscovery-case-custodian release`</a>
 
-release a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|release|release|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansrelease">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 |**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
 
-### compliance compliance-ediscovery-case-custodian set-ref-last-index-operation
+#### <a name="compliance.ediscovery.cases.custodiansSetRefLastIndexOperation">Command `az compliance compliance-ediscovery-case-custodian set-ref-last-index-operation`</a>
 
-set-ref-last-index-operation a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-last-index-operation|SetRefLastIndexOperation|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansSetRefLastIndexOperation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 |**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
 |**--body**|dictionary|New navigation property ref values|body|body|
 
-### compliance compliance-ediscovery-case-custodian update-index
+#### <a name="compliance.ediscovery.cases.custodiansGetLastIndexOperation">Command `az compliance compliance-ediscovery-case-custodian show-last-index-operation`</a>
 
-update-index a compliance compliance-ediscovery-case-custodian.
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansGetLastIndexOperation">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
+#### <a name="compliance.ediscovery.cases.custodiansGetRefLastIndexOperation">Command `az compliance compliance-ediscovery-case-custodian show-ref-last-index-operation`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-index|updateIndex|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansGetRefLastIndexOperation">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 |**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
 
-### compliance compliance-ediscovery-case-custodian update-site-source
+#### <a name="compliance.ediscovery.cases.custodiansGetSiteSources">Command `az compliance compliance-ediscovery-case-custodian show-site-source`</a>
 
-update-site-source a compliance compliance-ediscovery-case-custodian.
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansGetSiteSources">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
+|**--site-source-id**|string|key: id of siteSource|site_source_id|siteSource-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
+#### <a name="compliance.ediscovery.cases.custodiansGetUnifiedGroupSources">Command `az compliance compliance-ediscovery-case-custodian show-unified-group-source`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-site-source|UpdateSiteSources|
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansGetUnifiedGroupSources">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
+|**--unified-group-source-id**|string|key: id of unifiedGroupSource|unified_group_source_id|unifiedGroupSource-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="compliance.ediscovery.cases.custodiansGetUserSources">Command `az compliance compliance-ediscovery-case-custodian show-user-source`</a>
+
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansGetUserSources">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
+|**--user-source-id**|string|key: id of userSource|user_source_id|userSource-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="compliance.ediscovery.cases.custodiansupdateIndex">Command `az compliance compliance-ediscovery-case-custodian update-index`</a>
+
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansupdateIndex">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
+
+#### <a name="compliance.ediscovery.cases.custodiansUpdateSiteSources">Command `az compliance compliance-ediscovery-case-custodian update-site-source`</a>
+
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansUpdateSiteSources">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -891,26 +582,14 @@ update-site-source a compliance compliance-ediscovery-case-custodian.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time||created_date_time|createdDateTime|
 |**--display-name**|string||display_name|displayName|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 |**--site**|object|site|site|site|
 
-### compliance compliance-ediscovery-case-custodian update-unified-group-source
+#### <a name="compliance.ediscovery.cases.custodiansUpdateUnifiedGroupSources">Command `az compliance compliance-ediscovery-case-custodian update-unified-group-source`</a>
 
-update-unified-group-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-unified-group-source|UpdateUnifiedGroupSources|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansUpdateUnifiedGroupSources">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -919,27 +598,15 @@ update-unified-group-source a compliance compliance-ediscovery-case-custodian.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time||created_date_time|createdDateTime|
 |**--display-name**|string||display_name|displayName|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 |**--included-sources**|choice||included_sources|includedSources|
 |**--group**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|group|group|
 
-### compliance compliance-ediscovery-case-custodian update-user-source
+#### <a name="compliance.ediscovery.cases.custodiansUpdateUserSources">Command `az compliance compliance-ediscovery-case-custodian update-user-source`</a>
 
-update-user-source a compliance compliance-ediscovery-case-custodian.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian|compliance.ediscovery.cases.custodians|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-user-source|UpdateUserSources|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodiansUpdateUserSources">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -948,27 +615,16 @@ update-user-source a compliance compliance-ediscovery-case-custodian.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time||created_date_time|createdDateTime|
 |**--display-name**|string||display_name|displayName|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 |**--email**|string||email|email|
 |**--included-sources**|choice||included_sources|includedSources|
 
-### compliance compliance-ediscovery-case-custodian-site-source delete
+### group `az compliance compliance-ediscovery-case-custodian-site-source`
+#### <a name="compliance.ediscovery.cases.custodians.siteSourcesDeleteRefSite">Command `az compliance compliance-ediscovery-case-custodian-site-source delete-ref-site`</a>
 
-delete a compliance compliance-ediscovery-case-custodian-site-source.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian-site-source|compliance.ediscovery.cases.custodians.siteSources|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefSite|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodians.siteSourcesDeleteRefSite">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -976,42 +632,28 @@ delete a compliance compliance-ediscovery-case-custodian-site-source.
 |**--site-source-id**|string|key: id of siteSource|site_source_id|siteSource-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### compliance compliance-ediscovery-case-custodian-site-source get-ref-site
+#### <a name="compliance.ediscovery.cases.custodians.siteSourcesSetRefSite">Command `az compliance compliance-ediscovery-case-custodian-site-source set-ref-site`</a>
 
-get-ref-site a compliance compliance-ediscovery-case-custodian-site-source.
+##### <a name="Parameterscompliance.ediscovery.cases.custodians.siteSourcesSetRefSite">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
+|**--site-source-id**|string|key: id of siteSource|site_source_id|siteSource-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian-site-source|compliance.ediscovery.cases.custodians.siteSources|
+#### <a name="compliance.ediscovery.cases.custodians.siteSourcesGetRefSite">Command `az compliance compliance-ediscovery-case-custodian-site-source show-ref-site`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-site|GetRefSite|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodians.siteSourcesGetRefSite">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 |**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
 |**--site-source-id**|string|key: id of siteSource|site_source_id|siteSource-id|
 
-### compliance compliance-ediscovery-case-custodian-site-source get-site
+#### <a name="compliance.ediscovery.cases.custodians.siteSourcesGetSite">Command `az compliance compliance-ediscovery-case-custodian-site-source show-site`</a>
 
-get-site a compliance compliance-ediscovery-case-custodian-site-source.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian-site-source|compliance.ediscovery.cases.custodians.siteSources|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-site|GetSite|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodians.siteSourcesGetSite">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -1020,43 +662,10 @@ get-site a compliance compliance-ediscovery-case-custodian-site-source.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### compliance compliance-ediscovery-case-custodian-site-source set-ref-site
+### group `az compliance compliance-ediscovery-case-custodian-unified-group-source`
+#### <a name="compliance.ediscovery.cases.custodians.unifiedGroupSourcesDeleteRefGroup">Command `az compliance compliance-ediscovery-case-custodian-unified-group-source delete-ref-group`</a>
 
-set-ref-site a compliance compliance-ediscovery-case-custodian-site-source.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian-site-source|compliance.ediscovery.cases.custodians.siteSources|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-site|SetRefSite|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
-|**--site-source-id**|string|key: id of siteSource|site_source_id|siteSource-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### compliance compliance-ediscovery-case-custodian-unified-group-source delete
-
-delete a compliance compliance-ediscovery-case-custodian-unified-group-source.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian-unified-group-source|compliance.ediscovery.cases.custodians.unifiedGroupSources|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefGroup|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodians.unifiedGroupSourcesDeleteRefGroup">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -1064,21 +673,19 @@ delete a compliance compliance-ediscovery-case-custodian-unified-group-source.
 |**--unified-group-source-id**|string|key: id of unifiedGroupSource|unified_group_source_id|unifiedGroupSource-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### compliance compliance-ediscovery-case-custodian-unified-group-source get-group
+#### <a name="compliance.ediscovery.cases.custodians.unifiedGroupSourcesSetRefGroup">Command `az compliance compliance-ediscovery-case-custodian-unified-group-source set-ref-group`</a>
 
-get-group a compliance compliance-ediscovery-case-custodian-unified-group-source.
+##### <a name="Parameterscompliance.ediscovery.cases.custodians.unifiedGroupSourcesSetRefGroup">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
+|**--unified-group-source-id**|string|key: id of unifiedGroupSource|unified_group_source_id|unifiedGroupSource-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian-unified-group-source|compliance.ediscovery.cases.custodians.unifiedGroupSources|
+#### <a name="compliance.ediscovery.cases.custodians.unifiedGroupSourcesGetGroup">Command `az compliance compliance-ediscovery-case-custodian-unified-group-source show-group`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-group|GetGroup|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodians.unifiedGroupSourcesGetGroup">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -1087,64 +694,19 @@ get-group a compliance compliance-ediscovery-case-custodian-unified-group-source
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### compliance compliance-ediscovery-case-custodian-unified-group-source get-ref-group
+#### <a name="compliance.ediscovery.cases.custodians.unifiedGroupSourcesGetRefGroup">Command `az compliance compliance-ediscovery-case-custodian-unified-group-source show-ref-group`</a>
 
-get-ref-group a compliance compliance-ediscovery-case-custodian-unified-group-source.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian-unified-group-source|compliance.ediscovery.cases.custodians.unifiedGroupSources|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-group|GetRefGroup|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.custodians.unifiedGroupSourcesGetRefGroup">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
 |**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
 |**--unified-group-source-id**|string|key: id of unifiedGroupSource|unified_group_source_id|unifiedGroupSource-id|
 
-### compliance compliance-ediscovery-case-custodian-unified-group-source set-ref-group
+### group `az compliance compliance-ediscovery-case-review-set`
+#### <a name="compliance.ediscovery.cases.reviewSetsCreateQueries">Command `az compliance compliance-ediscovery-case-review-set create-query`</a>
 
-set-ref-group a compliance compliance-ediscovery-case-custodian-unified-group-source.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-custodian-unified-group-source|compliance.ediscovery.cases.custodians.unifiedGroupSources|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-group|SetRefGroup|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--custodian-id**|string|key: id of custodian|custodian_id|custodian-id|
-|**--unified-group-source-id**|string|key: id of unifiedGroupSource|unified_group_source_id|unifiedGroupSource-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### compliance compliance-ediscovery-case-review-set create-query
-
-create-query a compliance compliance-ediscovery-case-review-set.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-review-set|compliance.ediscovery.cases.reviewSets|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-query|CreateQueries|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.reviewSetsCreateQueries">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -1154,28 +716,16 @@ create-query a compliance compliance-ediscovery-case-review-set.
 |**--display-name**|string||display_name|displayName|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--query**|string||query|query|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
-### compliance compliance-ediscovery-case-review-set delete
+#### <a name="compliance.ediscovery.cases.reviewSetsDeleteQueries">Command `az compliance compliance-ediscovery-case-review-set delete-query`</a>
 
-delete a compliance compliance-ediscovery-case-review-set.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-review-set|compliance.ediscovery.cases.reviewSets|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteQueries|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.reviewSetsDeleteQueries">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -1183,44 +733,9 @@ delete a compliance compliance-ediscovery-case-review-set.
 |**--review-set-query-id**|string|key: id of reviewSetQuery|review_set_query_id|reviewSetQuery-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### compliance compliance-ediscovery-case-review-set get-query
+#### <a name="compliance.ediscovery.cases.reviewSetsListQueries">Command `az compliance compliance-ediscovery-case-review-set list-query`</a>
 
-get-query a compliance compliance-ediscovery-case-review-set.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-review-set|compliance.ediscovery.cases.reviewSets|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-query|GetQueries|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
-|**--review-set-id**|string|key: id of reviewSet|review_set_id|reviewSet-id|
-|**--review-set-query-id**|string|key: id of reviewSetQuery|review_set_query_id|reviewSetQuery-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### compliance compliance-ediscovery-case-review-set list-query
-
-list-query a compliance compliance-ediscovery-case-review-set.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-review-set|compliance.ediscovery.cases.reviewSets|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-query|ListQueries|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.reviewSetsListQueries">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -1229,21 +744,20 @@ list-query a compliance compliance-ediscovery-case-review-set.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### compliance compliance-ediscovery-case-review-set update-query
+#### <a name="compliance.ediscovery.cases.reviewSetsGetQueries">Command `az compliance compliance-ediscovery-case-review-set show-query`</a>
 
-update-query a compliance compliance-ediscovery-case-review-set.
+##### <a name="Parameterscompliance.ediscovery.cases.reviewSetsGetQueries">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
+|**--review-set-id**|string|key: id of reviewSet|review_set_id|reviewSet-id|
+|**--review-set-query-id**|string|key: id of reviewSetQuery|review_set_query_id|reviewSetQuery-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|compliance compliance-ediscovery-case-review-set|compliance.ediscovery.cases.reviewSets|
+#### <a name="compliance.ediscovery.cases.reviewSetsUpdateQueries">Command `az compliance compliance-ediscovery-case-review-set update-query`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-query|UpdateQueries|
-
-#### Parameters
+##### <a name="Parameterscompliance.ediscovery.cases.reviewSetsUpdateQueries">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ediscovery-case-id**|string|key: id of ediscoveryCase|ediscovery_case_id|ediscoveryCase-id|
@@ -1254,9 +768,9 @@ update-query a compliance compliance-ediscovery-case-review-set.
 |**--display-name**|string||display_name|displayName|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--query**|string||query|query|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|

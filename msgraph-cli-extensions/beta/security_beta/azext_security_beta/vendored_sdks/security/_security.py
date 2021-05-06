@@ -20,9 +20,9 @@ if TYPE_CHECKING:
 from ._configuration import SecurityConfiguration
 from .operations import SecuritySecurityOperations
 from .operations import SecurityOperations
-from .operations import SecurityAlertOperations
-from .operations import SecuritySecurityActionOperations
-from .operations import SecurityTIIndicatorOperations
+from .operations import SecurityAlertsOperations
+from .operations import SecuritySecurityActionsOperations
+from .operations import SecurityTiIndicatorsOperations
 from . import models
 
 
@@ -33,12 +33,12 @@ class Security(object):
     :vartype security_security: security.operations.SecuritySecurityOperations
     :ivar security: SecurityOperations operations
     :vartype security: security.operations.SecurityOperations
-    :ivar security_alert: SecurityAlertOperations operations
-    :vartype security_alert: security.operations.SecurityAlertOperations
-    :ivar security_security_action: SecuritySecurityActionOperations operations
-    :vartype security_security_action: security.operations.SecuritySecurityActionOperations
-    :ivar security_ti_indicator: SecurityTIIndicatorOperations operations
-    :vartype security_ti_indicator: security.operations.SecurityTIIndicatorOperations
+    :ivar security_alerts: SecurityAlertsOperations operations
+    :vartype security_alerts: security.operations.SecurityAlertsOperations
+    :ivar security_security_actions: SecuritySecurityActionsOperations operations
+    :vartype security_security_actions: security.operations.SecuritySecurityActionsOperations
+    :ivar security_ti_indicators: SecurityTiIndicatorsOperations operations
+    :vartype security_ti_indicators: security.operations.SecurityTiIndicatorsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -52,7 +52,6 @@ class Security(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -74,17 +73,18 @@ class Security(object):
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
         self.security_security = SecuritySecurityOperations(
             self._client, self._config, self._serialize, self._deserialize)
         self.security = SecurityOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security_alert = SecurityAlertOperations(
+        self.security_alerts = SecurityAlertsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security_security_action = SecuritySecurityActionOperations(
+        self.security_security_actions = SecuritySecurityActionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.security_ti_indicator = SecurityTIIndicatorOperations(
+        self.security_ti_indicators = SecurityTiIndicatorsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

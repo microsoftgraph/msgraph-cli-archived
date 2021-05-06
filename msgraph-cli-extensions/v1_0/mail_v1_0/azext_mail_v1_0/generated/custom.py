@@ -11,59 +11,44 @@
 # pylint: disable=too-many-lines
 
 
-def mail_user_delete(client,
-                     user_id,
-                     mail_folder_id=None,
-                     if_match=None,
-                     message_id=None):
-    if user_id is not None and mail_folder_id is not None:
-        return client.delete_mail_folder(user_id=user_id,
-                                         mail_folder_id=mail_folder_id,
-                                         if_match=if_match)
-    elif user_id is not None and message_id is not None:
-        return client.delete_message(user_id=user_id,
-                                     message_id=message_id,
-                                     if_match=if_match)
-    return client.delete_inference_classification(user_id=user_id,
-                                                  if_match=if_match)
-
-
-def mail_user_create_folder(client,
-                            user_id,
-                            id_=None,
-                            child_folder_count=None,
-                            display_name=None,
-                            parent_folder_id=None,
-                            total_item_count=None,
-                            unread_item_count=None,
-                            child_folders=None,
-                            message_rules=None,
-                            messages=None,
-                            multi_value_extended_properties=None,
-                            single_value_extended_properties=None):
-    return client.create_mail_folder(user_id=user_id,
-                                     id=id_,
-                                     child_folder_count=child_folder_count,
-                                     display_name=display_name,
-                                     parent_folder_id=parent_folder_id,
-                                     total_item_count=total_item_count,
-                                     unread_item_count=unread_item_count,
-                                     child_folders=child_folders,
-                                     message_rules=message_rules,
-                                     messages=messages,
-                                     multi_value_extended_properties=multi_value_extended_properties,
-                                     single_value_extended_properties=single_value_extended_properties)
+def mail_user_create_mail_folder(client,
+                                 user_id,
+                                 id_=None,
+                                 child_folder_count=None,
+                                 display_name=None,
+                                 parent_folder_id=None,
+                                 total_item_count=None,
+                                 unread_item_count=None,
+                                 child_folders=None,
+                                 message_rules=None,
+                                 messages=None,
+                                 multi_value_extended_properties=None,
+                                 single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['child_folder_count'] = child_folder_count
+    body['display_name'] = display_name
+    body['parent_folder_id'] = parent_folder_id
+    body['total_item_count'] = total_item_count
+    body['unread_item_count'] = unread_item_count
+    body['child_folders'] = child_folders
+    body['message_rules'] = message_rules
+    body['messages'] = messages
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    return client.create_mail_folders(user_id=user_id,
+                                      body=body)
 
 
 def mail_user_create_message(client,
                              user_id,
+                             body,
                              id_=None,
                              categories=None,
                              change_key=None,
                              created_date_time=None,
                              last_modified_date_time=None,
                              bcc_recipients=None,
-                             body=None,
                              body_preview=None,
                              cc_recipients=None,
                              conversation_id=None,
@@ -89,97 +74,92 @@ def mail_user_create_message(client,
                              extensions=None,
                              multi_value_extended_properties=None,
                              single_value_extended_properties=None,
-                             sender_email_address_address=None,
-                             sender_email_address_name=None,
-                             from_email_address_address=None,
-                             from_email_address_name=None,
-                             flag_completed_date_time=None,
-                             flag_due_date_time=None,
-                             flag_flag_status=None,
-                             flag_start_date_time=None):
-    return client.create_message(user_id=user_id,
-                                 id=id_,
-                                 categories=categories,
-                                 change_key=change_key,
-                                 created_date_time=created_date_time,
-                                 last_modified_date_time=last_modified_date_time,
-                                 bcc_recipients=bcc_recipients,
-                                 body=body,
-                                 body_preview=body_preview,
-                                 cc_recipients=cc_recipients,
-                                 conversation_id=conversation_id,
-                                 conversation_index=conversation_index,
-                                 has_attachments=has_attachments,
-                                 importance=importance,
-                                 inference_classification=inference_classification,
-                                 internet_message_headers=internet_message_headers,
-                                 internet_message_id=internet_message_id,
-                                 is_delivery_receipt_requested=is_delivery_receipt_requested,
-                                 is_draft=is_draft,
-                                 is_read=is_read,
-                                 is_read_receipt_requested=is_read_receipt_requested,
-                                 parent_folder_id=parent_folder_id,
-                                 received_date_time=received_date_time,
-                                 reply_to=reply_to,
-                                 sent_date_time=sent_date_time,
-                                 subject=subject,
-                                 to_recipients=to_recipients,
-                                 unique_body=unique_body,
-                                 web_link=web_link,
-                                 attachments=attachments,
-                                 extensions=extensions,
-                                 multi_value_extended_properties=multi_value_extended_properties,
-                                 single_value_extended_properties=single_value_extended_properties,
-                                 address=sender_email_address_address,
-                                 name=sender_email_address_name,
-                                 microsoft_graph_email_address=from_email_address_address,
-                                 microsoft_graph_email_address_name=from_email_address_name,
-                                 completed_date_time=flag_completed_date_time,
-                                 due_date_time=flag_due_date_time,
-                                 flag_status=flag_flag_status,
-                                 start_date_time=flag_start_date_time)
+                             email_address=None,
+                             microsoft_graph_email_address=None,
+                             completed_date_time=None,
+                             due_date_time=None,
+                             flag_status=None,
+                             start_date_time=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['bcc_recipients'] = bcc_recipients
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['cc_recipients'] = cc_recipients
+    body['conversation_id'] = conversation_id
+    body['conversation_index'] = conversation_index
+    body['has_attachments'] = has_attachments
+    body['importance'] = importance
+    body['inference_classification'] = inference_classification
+    body['internet_message_headers'] = internet_message_headers
+    body['internet_message_id'] = internet_message_id
+    body['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['is_draft'] = is_draft
+    body['is_read'] = is_read
+    body['is_read_receipt_requested'] = is_read_receipt_requested
+    body['parent_folder_id'] = parent_folder_id
+    body['received_date_time'] = received_date_time
+    body['reply_to'] = reply_to
+    body['sent_date_time'] = sent_date_time
+    body['subject'] = subject
+    body['to_recipients'] = to_recipients
+    body['unique_body'] = unique_body
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['extensions'] = extensions
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['sender'] = {}
+    body['sender']['email_address'] = email_address
+    body['from_property'] = {}
+    body['from_property']['email_address'] = microsoft_graph_email_address
+    body['flag'] = {}
+    body['flag']['completed_date_time'] = completed_date_time
+    body['flag']['due_date_time'] = due_date_time
+    body['flag']['flag_status'] = flag_status
+    body['flag']['start_date_time'] = start_date_time
+    return client.create_messages(user_id=user_id,
+                                  body=body)
 
 
-def mail_user_get_folder(client,
-                         user_id,
-                         mail_folder_id,
-                         select=None,
-                         expand=None):
-    return client.get_mail_folder(user_id=user_id,
-                                  mail_folder_id=mail_folder_id,
-                                  select=select,
-                                  expand=expand)
+def mail_user_delete_inference_classification(client,
+                                              user_id,
+                                              if_match=None):
+    return client.delete_inference_classification(user_id=user_id,
+                                                  if_match=if_match)
 
 
-def mail_user_get_inference_classification(client,
-                                           user_id,
-                                           select=None,
-                                           expand=None):
-    return client.get_inference_classification(user_id=user_id,
-                                               select=select,
-                                               expand=expand)
+def mail_user_delete_mail_folder(client,
+                                 user_id,
+                                 mail_folder_id,
+                                 if_match=None):
+    return client.delete_mail_folders(user_id=user_id,
+                                      mail_folder_id=mail_folder_id,
+                                      if_match=if_match)
 
 
-def mail_user_get_message(client,
-                          user_id,
-                          message_id,
-                          select=None,
-                          expand=None):
-    return client.get_message(user_id=user_id,
-                              message_id=message_id,
-                              select=select,
-                              expand=expand)
+def mail_user_delete_message(client,
+                             user_id,
+                             message_id,
+                             if_match=None):
+    return client.delete_messages(user_id=user_id,
+                                  message_id=message_id,
+                                  if_match=if_match)
 
 
-def mail_user_list_folder(client,
-                          user_id,
-                          orderby=None,
-                          select=None,
-                          expand=None):
-    return client.list_mail_folder(user_id=user_id,
-                                   orderby=orderby,
-                                   select=select,
-                                   expand=expand)
+def mail_user_list_mail_folder(client,
+                               user_id,
+                               orderby=None,
+                               select=None,
+                               expand=None):
+    return client.list_mail_folders(user_id=user_id,
+                                    orderby=orderby,
+                                    select=select,
+                                    expand=expand)
 
 
 def mail_user_list_message(client,
@@ -187,60 +167,95 @@ def mail_user_list_message(client,
                            orderby=None,
                            select=None,
                            expand=None):
-    return client.list_message(user_id=user_id,
-                               orderby=orderby,
+    return client.list_messages(user_id=user_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
+
+
+def mail_user_show_inference_classification(client,
+                                            user_id,
+                                            select=None,
+                                            expand=None):
+    return client.get_inference_classification(user_id=user_id,
+                                               select=select,
+                                               expand=expand)
+
+
+def mail_user_show_mail_folder(client,
+                               user_id,
+                               mail_folder_id,
+                               select=None,
+                               expand=None):
+    return client.get_mail_folders(user_id=user_id,
+                                   mail_folder_id=mail_folder_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def mail_user_show_message(client,
+                           user_id,
+                           message_id,
+                           select=None,
+                           expand=None):
+    return client.get_messages(user_id=user_id,
+                               message_id=message_id,
                                select=select,
                                expand=expand)
-
-
-def mail_user_update_folder(client,
-                            user_id,
-                            mail_folder_id,
-                            id_=None,
-                            child_folder_count=None,
-                            display_name=None,
-                            parent_folder_id=None,
-                            total_item_count=None,
-                            unread_item_count=None,
-                            child_folders=None,
-                            message_rules=None,
-                            messages=None,
-                            multi_value_extended_properties=None,
-                            single_value_extended_properties=None):
-    return client.update_mail_folder(user_id=user_id,
-                                     mail_folder_id=mail_folder_id,
-                                     id=id_,
-                                     child_folder_count=child_folder_count,
-                                     display_name=display_name,
-                                     parent_folder_id=parent_folder_id,
-                                     total_item_count=total_item_count,
-                                     unread_item_count=unread_item_count,
-                                     child_folders=child_folders,
-                                     message_rules=message_rules,
-                                     messages=messages,
-                                     multi_value_extended_properties=multi_value_extended_properties,
-                                     single_value_extended_properties=single_value_extended_properties)
 
 
 def mail_user_update_inference_classification(client,
                                               user_id,
                                               id_=None,
                                               overrides=None):
+    body = {}
+    body['id'] = id_
+    body['overrides'] = overrides
     return client.update_inference_classification(user_id=user_id,
-                                                  id=id_,
-                                                  overrides=overrides)
+                                                  body=body)
+
+
+def mail_user_update_mail_folder(client,
+                                 user_id,
+                                 mail_folder_id,
+                                 id_=None,
+                                 child_folder_count=None,
+                                 display_name=None,
+                                 parent_folder_id=None,
+                                 total_item_count=None,
+                                 unread_item_count=None,
+                                 child_folders=None,
+                                 message_rules=None,
+                                 messages=None,
+                                 multi_value_extended_properties=None,
+                                 single_value_extended_properties=None):
+    body = {}
+    body['id'] = id_
+    body['child_folder_count'] = child_folder_count
+    body['display_name'] = display_name
+    body['parent_folder_id'] = parent_folder_id
+    body['total_item_count'] = total_item_count
+    body['unread_item_count'] = unread_item_count
+    body['child_folders'] = child_folders
+    body['message_rules'] = message_rules
+    body['messages'] = messages
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    return client.update_mail_folders(user_id=user_id,
+                                      mail_folder_id=mail_folder_id,
+                                      body=body)
 
 
 def mail_user_update_message(client,
                              user_id,
                              message_id,
+                             body,
                              id_=None,
                              categories=None,
                              change_key=None,
                              created_date_time=None,
                              last_modified_date_time=None,
                              bcc_recipients=None,
-                             body=None,
                              body_preview=None,
                              cc_recipients=None,
                              conversation_id=None,
@@ -266,89 +281,79 @@ def mail_user_update_message(client,
                              extensions=None,
                              multi_value_extended_properties=None,
                              single_value_extended_properties=None,
-                             sender_email_address_address=None,
-                             sender_email_address_name=None,
-                             from_email_address_address=None,
-                             from_email_address_name=None,
-                             flag_completed_date_time=None,
-                             flag_due_date_time=None,
-                             flag_flag_status=None,
-                             flag_start_date_time=None):
-    return client.update_message(user_id=user_id,
-                                 message_id=message_id,
-                                 id=id_,
-                                 categories=categories,
-                                 change_key=change_key,
-                                 created_date_time=created_date_time,
-                                 last_modified_date_time=last_modified_date_time,
-                                 bcc_recipients=bcc_recipients,
-                                 body=body,
-                                 body_preview=body_preview,
-                                 cc_recipients=cc_recipients,
-                                 conversation_id=conversation_id,
-                                 conversation_index=conversation_index,
-                                 has_attachments=has_attachments,
-                                 importance=importance,
-                                 inference_classification=inference_classification,
-                                 internet_message_headers=internet_message_headers,
-                                 internet_message_id=internet_message_id,
-                                 is_delivery_receipt_requested=is_delivery_receipt_requested,
-                                 is_draft=is_draft,
-                                 is_read=is_read,
-                                 is_read_receipt_requested=is_read_receipt_requested,
-                                 parent_folder_id=parent_folder_id,
-                                 received_date_time=received_date_time,
-                                 reply_to=reply_to,
-                                 sent_date_time=sent_date_time,
-                                 subject=subject,
-                                 to_recipients=to_recipients,
-                                 unique_body=unique_body,
-                                 web_link=web_link,
-                                 attachments=attachments,
-                                 extensions=extensions,
-                                 multi_value_extended_properties=multi_value_extended_properties,
-                                 single_value_extended_properties=single_value_extended_properties,
-                                 address=sender_email_address_address,
-                                 name=sender_email_address_name,
-                                 microsoft_graph_email_address=from_email_address_address,
-                                 microsoft_graph_email_address_name=from_email_address_name,
-                                 completed_date_time=flag_completed_date_time,
-                                 due_date_time=flag_due_date_time,
-                                 flag_status=flag_flag_status,
-                                 start_date_time=flag_start_date_time)
-
-
-def mail_user_inference_classification_delete(client,
-                                              user_id,
-                                              inference_classification_override_id,
-                                              if_match=None):
-    return client.delete_override(user_id=user_id,
-                                  inference_classification_override_id=inference_classification_override_id,
-                                  if_match=if_match)
+                             email_address=None,
+                             microsoft_graph_email_address=None,
+                             completed_date_time=None,
+                             due_date_time=None,
+                             flag_status=None,
+                             start_date_time=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['bcc_recipients'] = bcc_recipients
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['cc_recipients'] = cc_recipients
+    body['conversation_id'] = conversation_id
+    body['conversation_index'] = conversation_index
+    body['has_attachments'] = has_attachments
+    body['importance'] = importance
+    body['inference_classification'] = inference_classification
+    body['internet_message_headers'] = internet_message_headers
+    body['internet_message_id'] = internet_message_id
+    body['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['is_draft'] = is_draft
+    body['is_read'] = is_read
+    body['is_read_receipt_requested'] = is_read_receipt_requested
+    body['parent_folder_id'] = parent_folder_id
+    body['received_date_time'] = received_date_time
+    body['reply_to'] = reply_to
+    body['sent_date_time'] = sent_date_time
+    body['subject'] = subject
+    body['to_recipients'] = to_recipients
+    body['unique_body'] = unique_body
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['extensions'] = extensions
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['sender'] = {}
+    body['sender']['email_address'] = email_address
+    body['from_property'] = {}
+    body['from_property']['email_address'] = microsoft_graph_email_address
+    body['flag'] = {}
+    body['flag']['completed_date_time'] = completed_date_time
+    body['flag']['due_date_time'] = due_date_time
+    body['flag']['flag_status'] = flag_status
+    body['flag']['start_date_time'] = start_date_time
+    return client.update_messages(user_id=user_id,
+                                  message_id=message_id,
+                                  body=body)
 
 
 def mail_user_inference_classification_create_override(client,
                                                        user_id,
                                                        id_=None,
                                                        classify_as=None,
-                                                       sender_email_address_address=None,
-                                                       sender_email_address_name=None):
-    return client.create_override(user_id=user_id,
-                                  id=id_,
-                                  classify_as=classify_as,
-                                  address=sender_email_address_address,
-                                  name=sender_email_address_name)
+                                                       sender_email_address=None):
+    body = {}
+    body['id'] = id_
+    body['classify_as'] = classify_as
+    body['sender_email_address'] = sender_email_address
+    return client.create_overrides(user_id=user_id,
+                                   body=body)
 
 
-def mail_user_inference_classification_get_override(client,
-                                                    user_id,
-                                                    inference_classification_override_id,
-                                                    select=None,
-                                                    expand=None):
-    return client.get_override(user_id=user_id,
-                               inference_classification_override_id=inference_classification_override_id,
-                               select=select,
-                               expand=expand)
+def mail_user_inference_classification_delete_override(client,
+                                                       user_id,
+                                                       inference_classification_override_id,
+                                                       if_match=None):
+    return client.delete_overrides(user_id=user_id,
+                                   inference_classification_override_id=inference_classification_override_id,
+                                   if_match=if_match)
 
 
 def mail_user_inference_classification_list_override(client,
@@ -356,8 +361,19 @@ def mail_user_inference_classification_list_override(client,
                                                      orderby=None,
                                                      select=None,
                                                      expand=None):
-    return client.list_override(user_id=user_id,
-                                orderby=orderby,
+    return client.list_overrides(user_id=user_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
+
+
+def mail_user_inference_classification_show_override(client,
+                                                     user_id,
+                                                     inference_classification_override_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_overrides(user_id=user_id,
+                                inference_classification_override_id=inference_classification_override_id,
                                 select=select,
                                 expand=expand)
 
@@ -367,49 +383,14 @@ def mail_user_inference_classification_update_override(client,
                                                        inference_classification_override_id,
                                                        id_=None,
                                                        classify_as=None,
-                                                       sender_email_address_address=None,
-                                                       sender_email_address_name=None):
-    return client.update_override(user_id=user_id,
-                                  inference_classification_override_id=inference_classification_override_id,
-                                  id=id_,
-                                  classify_as=classify_as,
-                                  address=sender_email_address_address,
-                                  name=sender_email_address_name)
-
-
-def mail_user_mail_folder_delete(client,
-                                 user_id,
-                                 mail_folder_id,
-                                 mail_folder_id1=None,
-                                 if_match=None,
-                                 message_rule_id=None,
-                                 message_id=None,
-                                 multi_value_legacy_extended_property_id=None,
-                                 single_value_legacy_extended_property_id=None):
-    if user_id is not None and mail_folder_id is not None and mail_folder_id1 is not None:
-        return client.delete_child_folder(user_id=user_id,
-                                          mail_folder_id=mail_folder_id,
-                                          mail_folder_id1=mail_folder_id1,
-                                          if_match=if_match)
-    elif user_id is not None and mail_folder_id is not None and message_rule_id is not None:
-        return client.delete_message_rule(user_id=user_id,
-                                          mail_folder_id=mail_folder_id,
-                                          message_rule_id=message_rule_id,
-                                          if_match=if_match)
-    elif user_id is not None and mail_folder_id is not None and message_id is not None:
-        return client.delete_message(user_id=user_id,
-                                     mail_folder_id=mail_folder_id,
-                                     message_id=message_id,
-                                     if_match=if_match)
-    elif user_id is not None and mail_folder_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           mail_folder_id=mail_folder_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        mail_folder_id=mail_folder_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+                                                       sender_email_address=None):
+    body = {}
+    body['id'] = id_
+    body['classify_as'] = classify_as
+    body['sender_email_address'] = sender_email_address
+    return client.update_overrides(user_id=user_id,
+                                   inference_classification_override_id=inference_classification_override_id,
+                                   body=body)
 
 
 def mail_user_mail_folder_create_child_folder(client,
@@ -426,31 +407,33 @@ def mail_user_mail_folder_create_child_folder(client,
                                               messages=None,
                                               multi_value_extended_properties=None,
                                               single_value_extended_properties=None):
-    return client.create_child_folder(user_id=user_id,
-                                      mail_folder_id=mail_folder_id,
-                                      id=id_,
-                                      child_folder_count=child_folder_count,
-                                      display_name=display_name,
-                                      parent_folder_id=parent_folder_id,
-                                      total_item_count=total_item_count,
-                                      unread_item_count=unread_item_count,
-                                      child_folders=child_folders,
-                                      message_rules=message_rules,
-                                      messages=messages,
-                                      multi_value_extended_properties=multi_value_extended_properties,
-                                      single_value_extended_properties=single_value_extended_properties)
+    body = {}
+    body['id'] = id_
+    body['child_folder_count'] = child_folder_count
+    body['display_name'] = display_name
+    body['parent_folder_id'] = parent_folder_id
+    body['total_item_count'] = total_item_count
+    body['unread_item_count'] = unread_item_count
+    body['child_folders'] = child_folders
+    body['message_rules'] = message_rules
+    body['messages'] = messages
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    return client.create_child_folders(user_id=user_id,
+                                       mail_folder_id=mail_folder_id,
+                                       body=body)
 
 
 def mail_user_mail_folder_create_message(client,
                                          user_id,
                                          mail_folder_id,
+                                         body,
                                          id_=None,
                                          categories=None,
                                          change_key=None,
                                          created_date_time=None,
                                          last_modified_date_time=None,
                                          bcc_recipients=None,
-                                         body=None,
                                          body_preview=None,
                                          cc_recipients=None,
                                          conversation_id=None,
@@ -476,56 +459,57 @@ def mail_user_mail_folder_create_message(client,
                                          extensions=None,
                                          multi_value_extended_properties=None,
                                          single_value_extended_properties=None,
-                                         sender_email_address_address=None,
-                                         sender_email_address_name=None,
-                                         from_email_address_address=None,
-                                         from_email_address_name=None,
-                                         flag_completed_date_time=None,
-                                         flag_due_date_time=None,
-                                         flag_flag_status=None,
-                                         flag_start_date_time=None):
-    return client.create_message(user_id=user_id,
-                                 mail_folder_id=mail_folder_id,
-                                 id=id_,
-                                 categories=categories,
-                                 change_key=change_key,
-                                 created_date_time=created_date_time,
-                                 last_modified_date_time=last_modified_date_time,
-                                 bcc_recipients=bcc_recipients,
-                                 body=body,
-                                 body_preview=body_preview,
-                                 cc_recipients=cc_recipients,
-                                 conversation_id=conversation_id,
-                                 conversation_index=conversation_index,
-                                 has_attachments=has_attachments,
-                                 importance=importance,
-                                 inference_classification=inference_classification,
-                                 internet_message_headers=internet_message_headers,
-                                 internet_message_id=internet_message_id,
-                                 is_delivery_receipt_requested=is_delivery_receipt_requested,
-                                 is_draft=is_draft,
-                                 is_read=is_read,
-                                 is_read_receipt_requested=is_read_receipt_requested,
-                                 parent_folder_id=parent_folder_id,
-                                 received_date_time=received_date_time,
-                                 reply_to=reply_to,
-                                 sent_date_time=sent_date_time,
-                                 subject=subject,
-                                 to_recipients=to_recipients,
-                                 unique_body=unique_body,
-                                 web_link=web_link,
-                                 attachments=attachments,
-                                 extensions=extensions,
-                                 multi_value_extended_properties=multi_value_extended_properties,
-                                 single_value_extended_properties=single_value_extended_properties,
-                                 address=sender_email_address_address,
-                                 name=sender_email_address_name,
-                                 microsoft_graph_email_address=from_email_address_address,
-                                 microsoft_graph_email_address_name=from_email_address_name,
-                                 completed_date_time=flag_completed_date_time,
-                                 due_date_time=flag_due_date_time,
-                                 flag_status=flag_flag_status,
-                                 start_date_time=flag_start_date_time)
+                                         email_address=None,
+                                         microsoft_graph_email_address=None,
+                                         completed_date_time=None,
+                                         due_date_time=None,
+                                         flag_status=None,
+                                         start_date_time=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['bcc_recipients'] = bcc_recipients
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['cc_recipients'] = cc_recipients
+    body['conversation_id'] = conversation_id
+    body['conversation_index'] = conversation_index
+    body['has_attachments'] = has_attachments
+    body['importance'] = importance
+    body['inference_classification'] = inference_classification
+    body['internet_message_headers'] = internet_message_headers
+    body['internet_message_id'] = internet_message_id
+    body['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['is_draft'] = is_draft
+    body['is_read'] = is_read
+    body['is_read_receipt_requested'] = is_read_receipt_requested
+    body['parent_folder_id'] = parent_folder_id
+    body['received_date_time'] = received_date_time
+    body['reply_to'] = reply_to
+    body['sent_date_time'] = sent_date_time
+    body['subject'] = subject
+    body['to_recipients'] = to_recipients
+    body['unique_body'] = unique_body
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['extensions'] = extensions
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['sender'] = {}
+    body['sender']['email_address'] = email_address
+    body['from_property'] = {}
+    body['from_property']['email_address'] = microsoft_graph_email_address
+    body['flag'] = {}
+    body['flag']['completed_date_time'] = completed_date_time
+    body['flag']['due_date_time'] = due_date_time
+    body['flag']['flag_status'] = flag_status
+    body['flag']['start_date_time'] = start_date_time
+    return client.create_messages(user_id=user_id,
+                                  mail_folder_id=mail_folder_id,
+                                  body=body)
 
 
 def mail_user_mail_folder_create_message_rule(client,
@@ -537,13 +521,13 @@ def mail_user_mail_folder_create_message_rule(client,
                                               is_enabled=None,
                                               is_read_only=None,
                                               sequence=None,
-                                              exceptions_body_contains=None,
-                                              exceptions_body_or_subject_contains=None,
-                                              exceptions_categories=None,
-                                              exceptions_from_addresses=None,
-                                              exceptions_has_attachments=None,
-                                              exceptions_header_contains=None,
-                                              exceptions_importance=None,
+                                              body_contains=None,
+                                              body_or_subject_contains=None,
+                                              categories=None,
+                                              from_addresses=None,
+                                              has_attachments=None,
+                                              header_contains=None,
+                                              importance=None,
                                               exceptions_is_approval_request=None,
                                               exceptions_is_automatic_forward=None,
                                               exceptions_is_automatic_reply=None,
@@ -555,138 +539,143 @@ def mail_user_mail_folder_create_message_rule(client,
                                               exceptions_is_read_receipt=None,
                                               exceptions_is_signed=None,
                                               exceptions_is_voicemail=None,
-                                              exceptions_message_action_flag=None,
-                                              exceptions_not_sent_to_me=None,
-                                              exceptions_recipient_contains=None,
-                                              exceptions_sender_contains=None,
-                                              exceptions_sensitivity=None,
-                                              exceptions_sent_cc_me=None,
-                                              exceptions_sent_only_to_me=None,
-                                              exceptions_sent_to_addresses=None,
-                                              exceptions_sent_to_me=None,
-                                              exceptions_sent_to_or_cc_me=None,
-                                              exceptions_subject_contains=None,
-                                              exceptions_within_size_range=None,
-                                              conditions_body_contains=None,
-                                              conditions_body_or_subject_contains=None,
-                                              conditions_categories=None,
-                                              conditions_from_addresses=None,
-                                              conditions_has_attachments=None,
-                                              conditions_header_contains=None,
-                                              conditions_importance=None,
-                                              conditions_is_approval_request=None,
-                                              conditions_is_automatic_forward=None,
-                                              conditions_is_automatic_reply=None,
-                                              conditions_is_encrypted=None,
-                                              conditions_is_meeting_request=None,
-                                              conditions_is_meeting_response=None,
-                                              conditions_is_non_delivery_report=None,
-                                              conditions_is_permission_controlled=None,
-                                              conditions_is_read_receipt=None,
-                                              conditions_is_signed=None,
-                                              conditions_is_voicemail=None,
-                                              conditions_message_action_flag=None,
-                                              conditions_not_sent_to_me=None,
-                                              conditions_recipient_contains=None,
-                                              conditions_sender_contains=None,
-                                              conditions_sensitivity=None,
-                                              conditions_sent_cc_me=None,
-                                              conditions_sent_only_to_me=None,
-                                              conditions_sent_to_addresses=None,
-                                              conditions_sent_to_me=None,
-                                              conditions_sent_to_or_cc_me=None,
-                                              conditions_subject_contains=None,
-                                              conditions_within_size_range=None,
-                                              actions_assign_categories=None,
-                                              actions_copy_to_folder=None,
-                                              actions_delete=None,
-                                              actions_forward_as_attachment_to=None,
-                                              actions_forward_to=None,
-                                              actions_mark_as_read=None,
-                                              actions_mark_importance=None,
-                                              actions_move_to_folder=None,
-                                              actions_permanent_delete=None,
-                                              actions_redirect_to=None,
-                                              actions_stop_processing_rules=None):
-    return client.create_message_rule(user_id=user_id,
-                                      mail_folder_id=mail_folder_id,
-                                      id=id_,
-                                      display_name=display_name,
-                                      has_error=has_error,
-                                      is_enabled=is_enabled,
-                                      is_read_only=is_read_only,
-                                      sequence=sequence,
-                                      body_contains=exceptions_body_contains,
-                                      body_or_subject_contains=exceptions_body_or_subject_contains,
-                                      categories=exceptions_categories,
-                                      from_addresses=exceptions_from_addresses,
-                                      has_attachments=exceptions_has_attachments,
-                                      header_contains=exceptions_header_contains,
-                                      importance=exceptions_importance,
-                                      is_approval_request=exceptions_is_approval_request,
-                                      is_automatic_forward=exceptions_is_automatic_forward,
-                                      is_automatic_reply=exceptions_is_automatic_reply,
-                                      is_encrypted=exceptions_is_encrypted,
-                                      is_meeting_request=exceptions_is_meeting_request,
-                                      is_meeting_response=exceptions_is_meeting_response,
-                                      is_non_delivery_report=exceptions_is_non_delivery_report,
-                                      is_permission_controlled=exceptions_is_permission_controlled,
-                                      is_read_receipt=exceptions_is_read_receipt,
-                                      is_signed=exceptions_is_signed,
-                                      is_voicemail=exceptions_is_voicemail,
-                                      message_action_flag=exceptions_message_action_flag,
-                                      not_sent_to_me=exceptions_not_sent_to_me,
-                                      recipient_contains=exceptions_recipient_contains,
-                                      sender_contains=exceptions_sender_contains,
-                                      sensitivity=exceptions_sensitivity,
-                                      sent_cc_me=exceptions_sent_cc_me,
-                                      sent_only_to_me=exceptions_sent_only_to_me,
-                                      sent_to_addresses=exceptions_sent_to_addresses,
-                                      sent_to_me=exceptions_sent_to_me,
-                                      sent_to_or_cc_me=exceptions_sent_to_or_cc_me,
-                                      subject_contains=exceptions_subject_contains,
-                                      within_size_range=exceptions_within_size_range,
-                                      microsoft_graph_message_rule_predicates_body_contains=conditions_body_contains,
-                                      microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains=conditions_body_or_subject_contains,
-                                      microsoft_graph_message_rule_predicates_categories=conditions_categories,
-                                      microsoft_graph_message_rule_predicates_from_addresses=conditions_from_addresses,
-                                      boolean_has_attachments=conditions_has_attachments,
-                                      microsoft_graph_message_rule_predicates_header_contains=conditions_header_contains,
-                                      microsoft_graph_importance=conditions_importance,
-                                      is_approval_request=conditions_is_approval_request,
-                                      is_automatic_forward=conditions_is_automatic_forward,
-                                      is_automatic_reply=conditions_is_automatic_reply,
-                                      is_encrypted=conditions_is_encrypted,
-                                      is_meeting_request=conditions_is_meeting_request,
-                                      is_meeting_response=conditions_is_meeting_response,
-                                      is_non_delivery_report=conditions_is_non_delivery_report,
-                                      is_permission_controlled=conditions_is_permission_controlled,
-                                      is_read_receipt=conditions_is_read_receipt,
-                                      is_signed=conditions_is_signed,
-                                      is_voicemail=conditions_is_voicemail,
-                                      microsoft_graph_message_action_flag_message_action_flag=conditions_message_action_flag,
-                                      boolean_not_sent_to_me=conditions_not_sent_to_me,
-                                      microsoft_graph_message_rule_predicates_recipient_contains=conditions_recipient_contains,
-                                      microsoft_graph_message_rule_predicates_sender_contains=conditions_sender_contains,
-                                      microsoft_graph_sensitivity=conditions_sensitivity,
-                                      boolean_sent_cc_me=conditions_sent_cc_me,
-                                      boolean_sent_only_to_me=conditions_sent_only_to_me,
-                                      microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses=conditions_sent_to_addresses,
-                                      boolean_sent_to_me=conditions_sent_to_me,
-                                      boolean_sent_to_or_cc_me=conditions_sent_to_or_cc_me,
-                                      microsoft_graph_message_rule_predicates_subject_contains=conditions_subject_contains,
-                                      microsoft_graph_size_range_within_size_range=conditions_within_size_range,
-                                      assign_categories=actions_assign_categories,
-                                      copy_to_folder=actions_copy_to_folder,
-                                      delete=actions_delete,
-                                      forward_as_attachment_to=actions_forward_as_attachment_to,
-                                      forward_to=actions_forward_to,
-                                      mark_as_read=actions_mark_as_read,
-                                      mark_importance=actions_mark_importance,
-                                      move_to_folder=actions_move_to_folder,
-                                      permanent_delete=actions_permanent_delete,
-                                      redirect_to=actions_redirect_to,
-                                      stop_processing_rules=actions_stop_processing_rules)
+                                              message_action_flag=None,
+                                              not_sent_to_me=None,
+                                              recipient_contains=None,
+                                              sender_contains=None,
+                                              sensitivity=None,
+                                              sent_cc_me=None,
+                                              sent_only_to_me=None,
+                                              sent_to_addresses=None,
+                                              sent_to_me=None,
+                                              sent_to_or_cc_me=None,
+                                              subject_contains=None,
+                                              within_size_range=None,
+                                              microsoft_graph_message_rule_predicates_body_contains=None,
+                                              microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains=None,
+                                              microsoft_graph_message_rule_predicates_categories=None,
+                                              microsoft_graph_message_rule_predicates_from_addresses=None,
+                                              boolean_has_attachments=None,
+                                              microsoft_graph_message_rule_predicates_header_contains=None,
+                                              microsoft_graph_importance=None,
+                                              is_approval_request=None,
+                                              is_automatic_forward=None,
+                                              is_automatic_reply=None,
+                                              is_encrypted=None,
+                                              is_meeting_request=None,
+                                              is_meeting_response=None,
+                                              is_non_delivery_report=None,
+                                              is_permission_controlled=None,
+                                              is_read_receipt=None,
+                                              is_signed=None,
+                                              is_voicemail=None,
+                                              microsoft_graph_message_action_flag_message_action_flag=None,
+                                              boolean_not_sent_to_me=None,
+                                              microsoft_graph_message_rule_predicates_recipient_contains=None,
+                                              microsoft_graph_message_rule_predicates_sender_contains=None,
+                                              microsoft_graph_sensitivity=None,
+                                              boolean_sent_cc_me=None,
+                                              boolean_sent_only_to_me=None,
+                                              microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses=None,
+                                              boolean_sent_to_me=None,
+                                              boolean_sent_to_or_cc_me=None,
+                                              microsoft_graph_message_rule_predicates_subject_contains=None,
+                                              microsoft_graph_size_range_within_size_range=None,
+                                              assign_categories=None,
+                                              copy_to_folder=None,
+                                              delete=None,
+                                              forward_as_attachment_to=None,
+                                              forward_to=None,
+                                              mark_as_read=None,
+                                              mark_importance=None,
+                                              move_to_folder=None,
+                                              permanent_delete=None,
+                                              redirect_to=None,
+                                              stop_processing_rules=None):
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['has_error'] = has_error
+    body['is_enabled'] = is_enabled
+    body['is_read_only'] = is_read_only
+    body['sequence'] = sequence
+    body['exceptions'] = {}
+    body['exceptions']['body_contains'] = body_contains
+    body['exceptions']['body_or_subject_contains'] = body_or_subject_contains
+    body['exceptions']['categories'] = categories
+    body['exceptions']['from_addresses'] = from_addresses
+    body['exceptions']['has_attachments'] = has_attachments
+    body['exceptions']['header_contains'] = header_contains
+    body['exceptions']['importance'] = importance
+    body['exceptions']['is_approval_request'] = exceptions_is_approval_request
+    body['exceptions']['is_automatic_forward'] = exceptions_is_automatic_forward
+    body['exceptions']['is_automatic_reply'] = exceptions_is_automatic_reply
+    body['exceptions']['is_encrypted'] = exceptions_is_encrypted
+    body['exceptions']['is_meeting_request'] = exceptions_is_meeting_request
+    body['exceptions']['is_meeting_response'] = exceptions_is_meeting_response
+    body['exceptions']['is_non_delivery_report'] = exceptions_is_non_delivery_report
+    body['exceptions']['is_permission_controlled'] = exceptions_is_permission_controlled
+    body['exceptions']['is_read_receipt'] = exceptions_is_read_receipt
+    body['exceptions']['is_signed'] = exceptions_is_signed
+    body['exceptions']['is_voicemail'] = exceptions_is_voicemail
+    body['exceptions']['message_action_flag'] = message_action_flag
+    body['exceptions']['not_sent_to_me'] = not_sent_to_me
+    body['exceptions']['recipient_contains'] = recipient_contains
+    body['exceptions']['sender_contains'] = sender_contains
+    body['exceptions']['sensitivity'] = sensitivity
+    body['exceptions']['sent_cc_me'] = sent_cc_me
+    body['exceptions']['sent_only_to_me'] = sent_only_to_me
+    body['exceptions']['sent_to_addresses'] = sent_to_addresses
+    body['exceptions']['sent_to_me'] = sent_to_me
+    body['exceptions']['sent_to_or_cc_me'] = sent_to_or_cc_me
+    body['exceptions']['subject_contains'] = subject_contains
+    body['exceptions']['within_size_range'] = within_size_range
+    body['conditions'] = {}
+    body['conditions']['body_contains'] = microsoft_graph_message_rule_predicates_body_contains
+    body['conditions']['body_or_subject_contains'] = microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains
+    body['conditions']['categories'] = microsoft_graph_message_rule_predicates_categories
+    body['conditions']['from_addresses'] = microsoft_graph_message_rule_predicates_from_addresses
+    body['conditions']['has_attachments'] = boolean_has_attachments
+    body['conditions']['header_contains'] = microsoft_graph_message_rule_predicates_header_contains
+    body['conditions']['importance'] = microsoft_graph_importance
+    body['conditions']['is_approval_request'] = is_approval_request
+    body['conditions']['is_automatic_forward'] = is_automatic_forward
+    body['conditions']['is_automatic_reply'] = is_automatic_reply
+    body['conditions']['is_encrypted'] = is_encrypted
+    body['conditions']['is_meeting_request'] = is_meeting_request
+    body['conditions']['is_meeting_response'] = is_meeting_response
+    body['conditions']['is_non_delivery_report'] = is_non_delivery_report
+    body['conditions']['is_permission_controlled'] = is_permission_controlled
+    body['conditions']['is_read_receipt'] = is_read_receipt
+    body['conditions']['is_signed'] = is_signed
+    body['conditions']['is_voicemail'] = is_voicemail
+    body['conditions']['message_action_flag'] = microsoft_graph_message_action_flag_message_action_flag
+    body['conditions']['not_sent_to_me'] = boolean_not_sent_to_me
+    body['conditions']['recipient_contains'] = microsoft_graph_message_rule_predicates_recipient_contains
+    body['conditions']['sender_contains'] = microsoft_graph_message_rule_predicates_sender_contains
+    body['conditions']['sensitivity'] = microsoft_graph_sensitivity
+    body['conditions']['sent_cc_me'] = boolean_sent_cc_me
+    body['conditions']['sent_only_to_me'] = boolean_sent_only_to_me
+    body['conditions']['sent_to_addresses'] = microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses
+    body['conditions']['sent_to_me'] = boolean_sent_to_me
+    body['conditions']['sent_to_or_cc_me'] = boolean_sent_to_or_cc_me
+    body['conditions']['subject_contains'] = microsoft_graph_message_rule_predicates_subject_contains
+    body['conditions']['within_size_range'] = microsoft_graph_size_range_within_size_range
+    body['actions'] = {}
+    body['actions']['assign_categories'] = assign_categories
+    body['actions']['copy_to_folder'] = copy_to_folder
+    body['actions']['delete'] = delete
+    body['actions']['forward_as_attachment_to'] = forward_as_attachment_to
+    body['actions']['forward_to'] = forward_to
+    body['actions']['mark_as_read'] = mark_as_read
+    body['actions']['mark_importance'] = mark_importance
+    body['actions']['move_to_folder'] = move_to_folder
+    body['actions']['permanent_delete'] = permanent_delete
+    body['actions']['redirect_to'] = redirect_to
+    body['actions']['stop_processing_rules'] = stop_processing_rules
+    return client.create_message_rules(user_id=user_id,
+                                       mail_folder_id=mail_folder_id,
+                                       body=body)
 
 
 def mail_user_mail_folder_create_multi_value_extended_property(client,
@@ -694,10 +683,12 @@ def mail_user_mail_folder_create_multi_value_extended_property(client,
                                                                mail_folder_id,
                                                                id_=None,
                                                                value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       mail_folder_id=mail_folder_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         mail_folder_id=mail_folder_id,
+                                                         body=body)
 
 
 def mail_user_mail_folder_create_single_value_extended_property(client,
@@ -705,75 +696,67 @@ def mail_user_mail_folder_create_single_value_extended_property(client,
                                                                 mail_folder_id,
                                                                 id_=None,
                                                                 value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        mail_folder_id=mail_folder_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          mail_folder_id=mail_folder_id,
+                                                          body=body)
 
 
-def mail_user_mail_folder_get_child_folder(client,
-                                           user_id,
-                                           mail_folder_id,
-                                           mail_folder_id1,
-                                           select=None,
-                                           expand=None):
-    return client.get_child_folder(user_id=user_id,
-                                   mail_folder_id=mail_folder_id,
-                                   mail_folder_id1=mail_folder_id1,
-                                   select=select,
-                                   expand=expand)
+def mail_user_mail_folder_delete_child_folder(client,
+                                              user_id,
+                                              mail_folder_id,
+                                              mail_folder_id1,
+                                              if_match=None):
+    return client.delete_child_folders(user_id=user_id,
+                                       mail_folder_id=mail_folder_id,
+                                       mail_folder_id1=mail_folder_id1,
+                                       if_match=if_match)
 
 
-def mail_user_mail_folder_get_message(client,
-                                      user_id,
-                                      mail_folder_id,
-                                      message_id,
-                                      select=None,
-                                      expand=None):
-    return client.get_message(user_id=user_id,
-                              mail_folder_id=mail_folder_id,
-                              message_id=message_id,
-                              select=select,
-                              expand=expand)
+def mail_user_mail_folder_delete_message(client,
+                                         user_id,
+                                         mail_folder_id,
+                                         message_id,
+                                         if_match=None):
+    return client.delete_messages(user_id=user_id,
+                                  mail_folder_id=mail_folder_id,
+                                  message_id=message_id,
+                                  if_match=if_match)
 
 
-def mail_user_mail_folder_get_message_rule(client,
-                                           user_id,
-                                           mail_folder_id,
-                                           message_rule_id,
-                                           select=None,
-                                           expand=None):
-    return client.get_message_rule(user_id=user_id,
-                                   mail_folder_id=mail_folder_id,
-                                   message_rule_id=message_rule_id,
-                                   select=select,
-                                   expand=expand)
+def mail_user_mail_folder_delete_message_rule(client,
+                                              user_id,
+                                              mail_folder_id,
+                                              message_rule_id,
+                                              if_match=None):
+    return client.delete_message_rules(user_id=user_id,
+                                       mail_folder_id=mail_folder_id,
+                                       message_rule_id=message_rule_id,
+                                       if_match=if_match)
 
 
-def mail_user_mail_folder_get_multi_value_extended_property(client,
-                                                            user_id,
-                                                            mail_folder_id,
-                                                            multi_value_legacy_extended_property_id,
-                                                            select=None,
-                                                            expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    mail_folder_id=mail_folder_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+def mail_user_mail_folder_delete_multi_value_extended_property(client,
+                                                               user_id,
+                                                               mail_folder_id,
+                                                               multi_value_legacy_extended_property_id,
+                                                               if_match=None):
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         mail_folder_id=mail_folder_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
-def mail_user_mail_folder_get_single_value_extended_property(client,
-                                                             user_id,
-                                                             mail_folder_id,
-                                                             single_value_legacy_extended_property_id,
-                                                             select=None,
-                                                             expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     mail_folder_id=mail_folder_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+def mail_user_mail_folder_delete_single_value_extended_property(client,
+                                                                user_id,
+                                                                mail_folder_id,
+                                                                single_value_legacy_extended_property_id,
+                                                                if_match=None):
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          mail_folder_id=mail_folder_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def mail_user_mail_folder_list_child_folder(client,
@@ -782,11 +765,11 @@ def mail_user_mail_folder_list_child_folder(client,
                                             orderby=None,
                                             select=None,
                                             expand=None):
-    return client.list_child_folder(user_id=user_id,
-                                    mail_folder_id=mail_folder_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_child_folders(user_id=user_id,
+                                     mail_folder_id=mail_folder_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def mail_user_mail_folder_list_message(client,
@@ -795,11 +778,11 @@ def mail_user_mail_folder_list_message(client,
                                        orderby=None,
                                        select=None,
                                        expand=None):
-    return client.list_message(user_id=user_id,
-                               mail_folder_id=mail_folder_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
+    return client.list_messages(user_id=user_id,
+                                mail_folder_id=mail_folder_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
 
 
 def mail_user_mail_folder_list_message_rule(client,
@@ -808,11 +791,11 @@ def mail_user_mail_folder_list_message_rule(client,
                                             orderby=None,
                                             select=None,
                                             expand=None):
-    return client.list_message_rule(user_id=user_id,
-                                    mail_folder_id=mail_folder_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_message_rules(user_id=user_id,
+                                     mail_folder_id=mail_folder_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def mail_user_mail_folder_list_multi_value_extended_property(client,
@@ -821,11 +804,11 @@ def mail_user_mail_folder_list_multi_value_extended_property(client,
                                                              orderby=None,
                                                              select=None,
                                                              expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     mail_folder_id=mail_folder_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       mail_folder_id=mail_folder_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def mail_user_mail_folder_list_single_value_extended_property(client,
@@ -834,11 +817,76 @@ def mail_user_mail_folder_list_single_value_extended_property(client,
                                                               orderby=None,
                                                               select=None,
                                                               expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        mail_folder_id=mail_folder_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
+
+
+def mail_user_mail_folder_show_child_folder(client,
+                                            user_id,
+                                            mail_folder_id,
+                                            mail_folder_id1,
+                                            select=None,
+                                            expand=None):
+    return client.get_child_folders(user_id=user_id,
+                                    mail_folder_id=mail_folder_id,
+                                    mail_folder_id1=mail_folder_id1,
+                                    select=select,
+                                    expand=expand)
+
+
+def mail_user_mail_folder_show_message(client,
+                                       user_id,
+                                       mail_folder_id,
+                                       message_id,
+                                       select=None,
+                                       expand=None):
+    return client.get_messages(user_id=user_id,
+                               mail_folder_id=mail_folder_id,
+                               message_id=message_id,
+                               select=select,
+                               expand=expand)
+
+
+def mail_user_mail_folder_show_message_rule(client,
+                                            user_id,
+                                            mail_folder_id,
+                                            message_rule_id,
+                                            select=None,
+                                            expand=None):
+    return client.get_message_rules(user_id=user_id,
+                                    mail_folder_id=mail_folder_id,
+                                    message_rule_id=message_rule_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def mail_user_mail_folder_show_multi_value_extended_property(client,
+                                                             user_id,
+                                                             mail_folder_id,
+                                                             multi_value_legacy_extended_property_id,
+                                                             select=None,
+                                                             expand=None):
+    return client.get_multi_value_extended_properties(user_id=user_id,
                                                       mail_folder_id=mail_folder_id,
-                                                      orderby=orderby,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
                                                       select=select,
                                                       expand=expand)
+
+
+def mail_user_mail_folder_show_single_value_extended_property(client,
+                                                              user_id,
+                                                              mail_folder_id,
+                                                              single_value_legacy_extended_property_id,
+                                                              select=None,
+                                                              expand=None):
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       mail_folder_id=mail_folder_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def mail_user_mail_folder_update_child_folder(client,
@@ -856,33 +904,35 @@ def mail_user_mail_folder_update_child_folder(client,
                                               messages=None,
                                               multi_value_extended_properties=None,
                                               single_value_extended_properties=None):
-    return client.update_child_folder(user_id=user_id,
-                                      mail_folder_id=mail_folder_id,
-                                      mail_folder_id1=mail_folder_id1,
-                                      id=id_,
-                                      child_folder_count=child_folder_count,
-                                      display_name=display_name,
-                                      parent_folder_id=parent_folder_id,
-                                      total_item_count=total_item_count,
-                                      unread_item_count=unread_item_count,
-                                      child_folders=child_folders,
-                                      message_rules=message_rules,
-                                      messages=messages,
-                                      multi_value_extended_properties=multi_value_extended_properties,
-                                      single_value_extended_properties=single_value_extended_properties)
+    body = {}
+    body['id'] = id_
+    body['child_folder_count'] = child_folder_count
+    body['display_name'] = display_name
+    body['parent_folder_id'] = parent_folder_id
+    body['total_item_count'] = total_item_count
+    body['unread_item_count'] = unread_item_count
+    body['child_folders'] = child_folders
+    body['message_rules'] = message_rules
+    body['messages'] = messages
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    return client.update_child_folders(user_id=user_id,
+                                       mail_folder_id=mail_folder_id,
+                                       mail_folder_id1=mail_folder_id1,
+                                       body=body)
 
 
 def mail_user_mail_folder_update_message(client,
                                          user_id,
                                          mail_folder_id,
                                          message_id,
+                                         body,
                                          id_=None,
                                          categories=None,
                                          change_key=None,
                                          created_date_time=None,
                                          last_modified_date_time=None,
                                          bcc_recipients=None,
-                                         body=None,
                                          body_preview=None,
                                          cc_recipients=None,
                                          conversation_id=None,
@@ -908,57 +958,58 @@ def mail_user_mail_folder_update_message(client,
                                          extensions=None,
                                          multi_value_extended_properties=None,
                                          single_value_extended_properties=None,
-                                         sender_email_address_address=None,
-                                         sender_email_address_name=None,
-                                         from_email_address_address=None,
-                                         from_email_address_name=None,
-                                         flag_completed_date_time=None,
-                                         flag_due_date_time=None,
-                                         flag_flag_status=None,
-                                         flag_start_date_time=None):
-    return client.update_message(user_id=user_id,
-                                 mail_folder_id=mail_folder_id,
-                                 message_id=message_id,
-                                 id=id_,
-                                 categories=categories,
-                                 change_key=change_key,
-                                 created_date_time=created_date_time,
-                                 last_modified_date_time=last_modified_date_time,
-                                 bcc_recipients=bcc_recipients,
-                                 body=body,
-                                 body_preview=body_preview,
-                                 cc_recipients=cc_recipients,
-                                 conversation_id=conversation_id,
-                                 conversation_index=conversation_index,
-                                 has_attachments=has_attachments,
-                                 importance=importance,
-                                 inference_classification=inference_classification,
-                                 internet_message_headers=internet_message_headers,
-                                 internet_message_id=internet_message_id,
-                                 is_delivery_receipt_requested=is_delivery_receipt_requested,
-                                 is_draft=is_draft,
-                                 is_read=is_read,
-                                 is_read_receipt_requested=is_read_receipt_requested,
-                                 parent_folder_id=parent_folder_id,
-                                 received_date_time=received_date_time,
-                                 reply_to=reply_to,
-                                 sent_date_time=sent_date_time,
-                                 subject=subject,
-                                 to_recipients=to_recipients,
-                                 unique_body=unique_body,
-                                 web_link=web_link,
-                                 attachments=attachments,
-                                 extensions=extensions,
-                                 multi_value_extended_properties=multi_value_extended_properties,
-                                 single_value_extended_properties=single_value_extended_properties,
-                                 address=sender_email_address_address,
-                                 name=sender_email_address_name,
-                                 microsoft_graph_email_address=from_email_address_address,
-                                 microsoft_graph_email_address_name=from_email_address_name,
-                                 completed_date_time=flag_completed_date_time,
-                                 due_date_time=flag_due_date_time,
-                                 flag_status=flag_flag_status,
-                                 start_date_time=flag_start_date_time)
+                                         email_address=None,
+                                         microsoft_graph_email_address=None,
+                                         completed_date_time=None,
+                                         due_date_time=None,
+                                         flag_status=None,
+                                         start_date_time=None):
+    body = {}
+    body['id'] = id_
+    body['categories'] = categories
+    body['change_key'] = change_key
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['bcc_recipients'] = bcc_recipients
+    body['body'] = body
+    body['body_preview'] = body_preview
+    body['cc_recipients'] = cc_recipients
+    body['conversation_id'] = conversation_id
+    body['conversation_index'] = conversation_index
+    body['has_attachments'] = has_attachments
+    body['importance'] = importance
+    body['inference_classification'] = inference_classification
+    body['internet_message_headers'] = internet_message_headers
+    body['internet_message_id'] = internet_message_id
+    body['is_delivery_receipt_requested'] = is_delivery_receipt_requested
+    body['is_draft'] = is_draft
+    body['is_read'] = is_read
+    body['is_read_receipt_requested'] = is_read_receipt_requested
+    body['parent_folder_id'] = parent_folder_id
+    body['received_date_time'] = received_date_time
+    body['reply_to'] = reply_to
+    body['sent_date_time'] = sent_date_time
+    body['subject'] = subject
+    body['to_recipients'] = to_recipients
+    body['unique_body'] = unique_body
+    body['web_link'] = web_link
+    body['attachments'] = attachments
+    body['extensions'] = extensions
+    body['multi_value_extended_properties'] = multi_value_extended_properties
+    body['single_value_extended_properties'] = single_value_extended_properties
+    body['sender'] = {}
+    body['sender']['email_address'] = email_address
+    body['from_property'] = {}
+    body['from_property']['email_address'] = microsoft_graph_email_address
+    body['flag'] = {}
+    body['flag']['completed_date_time'] = completed_date_time
+    body['flag']['due_date_time'] = due_date_time
+    body['flag']['flag_status'] = flag_status
+    body['flag']['start_date_time'] = start_date_time
+    return client.update_messages(user_id=user_id,
+                                  mail_folder_id=mail_folder_id,
+                                  message_id=message_id,
+                                  body=body)
 
 
 def mail_user_mail_folder_update_message_rule(client,
@@ -971,13 +1022,13 @@ def mail_user_mail_folder_update_message_rule(client,
                                               is_enabled=None,
                                               is_read_only=None,
                                               sequence=None,
-                                              exceptions_body_contains=None,
-                                              exceptions_body_or_subject_contains=None,
-                                              exceptions_categories=None,
-                                              exceptions_from_addresses=None,
-                                              exceptions_has_attachments=None,
-                                              exceptions_header_contains=None,
-                                              exceptions_importance=None,
+                                              body_contains=None,
+                                              body_or_subject_contains=None,
+                                              categories=None,
+                                              from_addresses=None,
+                                              has_attachments=None,
+                                              header_contains=None,
+                                              importance=None,
                                               exceptions_is_approval_request=None,
                                               exceptions_is_automatic_forward=None,
                                               exceptions_is_automatic_reply=None,
@@ -989,139 +1040,144 @@ def mail_user_mail_folder_update_message_rule(client,
                                               exceptions_is_read_receipt=None,
                                               exceptions_is_signed=None,
                                               exceptions_is_voicemail=None,
-                                              exceptions_message_action_flag=None,
-                                              exceptions_not_sent_to_me=None,
-                                              exceptions_recipient_contains=None,
-                                              exceptions_sender_contains=None,
-                                              exceptions_sensitivity=None,
-                                              exceptions_sent_cc_me=None,
-                                              exceptions_sent_only_to_me=None,
-                                              exceptions_sent_to_addresses=None,
-                                              exceptions_sent_to_me=None,
-                                              exceptions_sent_to_or_cc_me=None,
-                                              exceptions_subject_contains=None,
-                                              exceptions_within_size_range=None,
-                                              conditions_body_contains=None,
-                                              conditions_body_or_subject_contains=None,
-                                              conditions_categories=None,
-                                              conditions_from_addresses=None,
-                                              conditions_has_attachments=None,
-                                              conditions_header_contains=None,
-                                              conditions_importance=None,
-                                              conditions_is_approval_request=None,
-                                              conditions_is_automatic_forward=None,
-                                              conditions_is_automatic_reply=None,
-                                              conditions_is_encrypted=None,
-                                              conditions_is_meeting_request=None,
-                                              conditions_is_meeting_response=None,
-                                              conditions_is_non_delivery_report=None,
-                                              conditions_is_permission_controlled=None,
-                                              conditions_is_read_receipt=None,
-                                              conditions_is_signed=None,
-                                              conditions_is_voicemail=None,
-                                              conditions_message_action_flag=None,
-                                              conditions_not_sent_to_me=None,
-                                              conditions_recipient_contains=None,
-                                              conditions_sender_contains=None,
-                                              conditions_sensitivity=None,
-                                              conditions_sent_cc_me=None,
-                                              conditions_sent_only_to_me=None,
-                                              conditions_sent_to_addresses=None,
-                                              conditions_sent_to_me=None,
-                                              conditions_sent_to_or_cc_me=None,
-                                              conditions_subject_contains=None,
-                                              conditions_within_size_range=None,
-                                              actions_assign_categories=None,
-                                              actions_copy_to_folder=None,
-                                              actions_delete=None,
-                                              actions_forward_as_attachment_to=None,
-                                              actions_forward_to=None,
-                                              actions_mark_as_read=None,
-                                              actions_mark_importance=None,
-                                              actions_move_to_folder=None,
-                                              actions_permanent_delete=None,
-                                              actions_redirect_to=None,
-                                              actions_stop_processing_rules=None):
-    return client.update_message_rule(user_id=user_id,
-                                      mail_folder_id=mail_folder_id,
-                                      message_rule_id=message_rule_id,
-                                      id=id_,
-                                      display_name=display_name,
-                                      has_error=has_error,
-                                      is_enabled=is_enabled,
-                                      is_read_only=is_read_only,
-                                      sequence=sequence,
-                                      body_contains=exceptions_body_contains,
-                                      body_or_subject_contains=exceptions_body_or_subject_contains,
-                                      categories=exceptions_categories,
-                                      from_addresses=exceptions_from_addresses,
-                                      has_attachments=exceptions_has_attachments,
-                                      header_contains=exceptions_header_contains,
-                                      importance=exceptions_importance,
-                                      is_approval_request=exceptions_is_approval_request,
-                                      is_automatic_forward=exceptions_is_automatic_forward,
-                                      is_automatic_reply=exceptions_is_automatic_reply,
-                                      is_encrypted=exceptions_is_encrypted,
-                                      is_meeting_request=exceptions_is_meeting_request,
-                                      is_meeting_response=exceptions_is_meeting_response,
-                                      is_non_delivery_report=exceptions_is_non_delivery_report,
-                                      is_permission_controlled=exceptions_is_permission_controlled,
-                                      is_read_receipt=exceptions_is_read_receipt,
-                                      is_signed=exceptions_is_signed,
-                                      is_voicemail=exceptions_is_voicemail,
-                                      message_action_flag=exceptions_message_action_flag,
-                                      not_sent_to_me=exceptions_not_sent_to_me,
-                                      recipient_contains=exceptions_recipient_contains,
-                                      sender_contains=exceptions_sender_contains,
-                                      sensitivity=exceptions_sensitivity,
-                                      sent_cc_me=exceptions_sent_cc_me,
-                                      sent_only_to_me=exceptions_sent_only_to_me,
-                                      sent_to_addresses=exceptions_sent_to_addresses,
-                                      sent_to_me=exceptions_sent_to_me,
-                                      sent_to_or_cc_me=exceptions_sent_to_or_cc_me,
-                                      subject_contains=exceptions_subject_contains,
-                                      within_size_range=exceptions_within_size_range,
-                                      microsoft_graph_message_rule_predicates_body_contains=conditions_body_contains,
-                                      microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains=conditions_body_or_subject_contains,
-                                      microsoft_graph_message_rule_predicates_categories=conditions_categories,
-                                      microsoft_graph_message_rule_predicates_from_addresses=conditions_from_addresses,
-                                      boolean_has_attachments=conditions_has_attachments,
-                                      microsoft_graph_message_rule_predicates_header_contains=conditions_header_contains,
-                                      microsoft_graph_importance=conditions_importance,
-                                      is_approval_request=conditions_is_approval_request,
-                                      is_automatic_forward=conditions_is_automatic_forward,
-                                      is_automatic_reply=conditions_is_automatic_reply,
-                                      is_encrypted=conditions_is_encrypted,
-                                      is_meeting_request=conditions_is_meeting_request,
-                                      is_meeting_response=conditions_is_meeting_response,
-                                      is_non_delivery_report=conditions_is_non_delivery_report,
-                                      is_permission_controlled=conditions_is_permission_controlled,
-                                      is_read_receipt=conditions_is_read_receipt,
-                                      is_signed=conditions_is_signed,
-                                      is_voicemail=conditions_is_voicemail,
-                                      microsoft_graph_message_action_flag_message_action_flag=conditions_message_action_flag,
-                                      boolean_not_sent_to_me=conditions_not_sent_to_me,
-                                      microsoft_graph_message_rule_predicates_recipient_contains=conditions_recipient_contains,
-                                      microsoft_graph_message_rule_predicates_sender_contains=conditions_sender_contains,
-                                      microsoft_graph_sensitivity=conditions_sensitivity,
-                                      boolean_sent_cc_me=conditions_sent_cc_me,
-                                      boolean_sent_only_to_me=conditions_sent_only_to_me,
-                                      microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses=conditions_sent_to_addresses,
-                                      boolean_sent_to_me=conditions_sent_to_me,
-                                      boolean_sent_to_or_cc_me=conditions_sent_to_or_cc_me,
-                                      microsoft_graph_message_rule_predicates_subject_contains=conditions_subject_contains,
-                                      microsoft_graph_size_range_within_size_range=conditions_within_size_range,
-                                      assign_categories=actions_assign_categories,
-                                      copy_to_folder=actions_copy_to_folder,
-                                      delete=actions_delete,
-                                      forward_as_attachment_to=actions_forward_as_attachment_to,
-                                      forward_to=actions_forward_to,
-                                      mark_as_read=actions_mark_as_read,
-                                      mark_importance=actions_mark_importance,
-                                      move_to_folder=actions_move_to_folder,
-                                      permanent_delete=actions_permanent_delete,
-                                      redirect_to=actions_redirect_to,
-                                      stop_processing_rules=actions_stop_processing_rules)
+                                              message_action_flag=None,
+                                              not_sent_to_me=None,
+                                              recipient_contains=None,
+                                              sender_contains=None,
+                                              sensitivity=None,
+                                              sent_cc_me=None,
+                                              sent_only_to_me=None,
+                                              sent_to_addresses=None,
+                                              sent_to_me=None,
+                                              sent_to_or_cc_me=None,
+                                              subject_contains=None,
+                                              within_size_range=None,
+                                              microsoft_graph_message_rule_predicates_body_contains=None,
+                                              microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains=None,
+                                              microsoft_graph_message_rule_predicates_categories=None,
+                                              microsoft_graph_message_rule_predicates_from_addresses=None,
+                                              boolean_has_attachments=None,
+                                              microsoft_graph_message_rule_predicates_header_contains=None,
+                                              microsoft_graph_importance=None,
+                                              is_approval_request=None,
+                                              is_automatic_forward=None,
+                                              is_automatic_reply=None,
+                                              is_encrypted=None,
+                                              is_meeting_request=None,
+                                              is_meeting_response=None,
+                                              is_non_delivery_report=None,
+                                              is_permission_controlled=None,
+                                              is_read_receipt=None,
+                                              is_signed=None,
+                                              is_voicemail=None,
+                                              microsoft_graph_message_action_flag_message_action_flag=None,
+                                              boolean_not_sent_to_me=None,
+                                              microsoft_graph_message_rule_predicates_recipient_contains=None,
+                                              microsoft_graph_message_rule_predicates_sender_contains=None,
+                                              microsoft_graph_sensitivity=None,
+                                              boolean_sent_cc_me=None,
+                                              boolean_sent_only_to_me=None,
+                                              microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses=None,
+                                              boolean_sent_to_me=None,
+                                              boolean_sent_to_or_cc_me=None,
+                                              microsoft_graph_message_rule_predicates_subject_contains=None,
+                                              microsoft_graph_size_range_within_size_range=None,
+                                              assign_categories=None,
+                                              copy_to_folder=None,
+                                              delete=None,
+                                              forward_as_attachment_to=None,
+                                              forward_to=None,
+                                              mark_as_read=None,
+                                              mark_importance=None,
+                                              move_to_folder=None,
+                                              permanent_delete=None,
+                                              redirect_to=None,
+                                              stop_processing_rules=None):
+    body = {}
+    body['id'] = id_
+    body['display_name'] = display_name
+    body['has_error'] = has_error
+    body['is_enabled'] = is_enabled
+    body['is_read_only'] = is_read_only
+    body['sequence'] = sequence
+    body['exceptions'] = {}
+    body['exceptions']['body_contains'] = body_contains
+    body['exceptions']['body_or_subject_contains'] = body_or_subject_contains
+    body['exceptions']['categories'] = categories
+    body['exceptions']['from_addresses'] = from_addresses
+    body['exceptions']['has_attachments'] = has_attachments
+    body['exceptions']['header_contains'] = header_contains
+    body['exceptions']['importance'] = importance
+    body['exceptions']['is_approval_request'] = exceptions_is_approval_request
+    body['exceptions']['is_automatic_forward'] = exceptions_is_automatic_forward
+    body['exceptions']['is_automatic_reply'] = exceptions_is_automatic_reply
+    body['exceptions']['is_encrypted'] = exceptions_is_encrypted
+    body['exceptions']['is_meeting_request'] = exceptions_is_meeting_request
+    body['exceptions']['is_meeting_response'] = exceptions_is_meeting_response
+    body['exceptions']['is_non_delivery_report'] = exceptions_is_non_delivery_report
+    body['exceptions']['is_permission_controlled'] = exceptions_is_permission_controlled
+    body['exceptions']['is_read_receipt'] = exceptions_is_read_receipt
+    body['exceptions']['is_signed'] = exceptions_is_signed
+    body['exceptions']['is_voicemail'] = exceptions_is_voicemail
+    body['exceptions']['message_action_flag'] = message_action_flag
+    body['exceptions']['not_sent_to_me'] = not_sent_to_me
+    body['exceptions']['recipient_contains'] = recipient_contains
+    body['exceptions']['sender_contains'] = sender_contains
+    body['exceptions']['sensitivity'] = sensitivity
+    body['exceptions']['sent_cc_me'] = sent_cc_me
+    body['exceptions']['sent_only_to_me'] = sent_only_to_me
+    body['exceptions']['sent_to_addresses'] = sent_to_addresses
+    body['exceptions']['sent_to_me'] = sent_to_me
+    body['exceptions']['sent_to_or_cc_me'] = sent_to_or_cc_me
+    body['exceptions']['subject_contains'] = subject_contains
+    body['exceptions']['within_size_range'] = within_size_range
+    body['conditions'] = {}
+    body['conditions']['body_contains'] = microsoft_graph_message_rule_predicates_body_contains
+    body['conditions']['body_or_subject_contains'] = microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains
+    body['conditions']['categories'] = microsoft_graph_message_rule_predicates_categories
+    body['conditions']['from_addresses'] = microsoft_graph_message_rule_predicates_from_addresses
+    body['conditions']['has_attachments'] = boolean_has_attachments
+    body['conditions']['header_contains'] = microsoft_graph_message_rule_predicates_header_contains
+    body['conditions']['importance'] = microsoft_graph_importance
+    body['conditions']['is_approval_request'] = is_approval_request
+    body['conditions']['is_automatic_forward'] = is_automatic_forward
+    body['conditions']['is_automatic_reply'] = is_automatic_reply
+    body['conditions']['is_encrypted'] = is_encrypted
+    body['conditions']['is_meeting_request'] = is_meeting_request
+    body['conditions']['is_meeting_response'] = is_meeting_response
+    body['conditions']['is_non_delivery_report'] = is_non_delivery_report
+    body['conditions']['is_permission_controlled'] = is_permission_controlled
+    body['conditions']['is_read_receipt'] = is_read_receipt
+    body['conditions']['is_signed'] = is_signed
+    body['conditions']['is_voicemail'] = is_voicemail
+    body['conditions']['message_action_flag'] = microsoft_graph_message_action_flag_message_action_flag
+    body['conditions']['not_sent_to_me'] = boolean_not_sent_to_me
+    body['conditions']['recipient_contains'] = microsoft_graph_message_rule_predicates_recipient_contains
+    body['conditions']['sender_contains'] = microsoft_graph_message_rule_predicates_sender_contains
+    body['conditions']['sensitivity'] = microsoft_graph_sensitivity
+    body['conditions']['sent_cc_me'] = boolean_sent_cc_me
+    body['conditions']['sent_only_to_me'] = boolean_sent_only_to_me
+    body['conditions']['sent_to_addresses'] = microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses
+    body['conditions']['sent_to_me'] = boolean_sent_to_me
+    body['conditions']['sent_to_or_cc_me'] = boolean_sent_to_or_cc_me
+    body['conditions']['subject_contains'] = microsoft_graph_message_rule_predicates_subject_contains
+    body['conditions']['within_size_range'] = microsoft_graph_size_range_within_size_range
+    body['actions'] = {}
+    body['actions']['assign_categories'] = assign_categories
+    body['actions']['copy_to_folder'] = copy_to_folder
+    body['actions']['delete'] = delete
+    body['actions']['forward_as_attachment_to'] = forward_as_attachment_to
+    body['actions']['forward_to'] = forward_to
+    body['actions']['mark_as_read'] = mark_as_read
+    body['actions']['mark_importance'] = mark_importance
+    body['actions']['move_to_folder'] = move_to_folder
+    body['actions']['permanent_delete'] = permanent_delete
+    body['actions']['redirect_to'] = redirect_to
+    body['actions']['stop_processing_rules'] = stop_processing_rules
+    return client.update_message_rules(user_id=user_id,
+                                       mail_folder_id=mail_folder_id,
+                                       message_rule_id=message_rule_id,
+                                       body=body)
 
 
 def mail_user_mail_folder_update_multi_value_extended_property(client,
@@ -1130,11 +1186,13 @@ def mail_user_mail_folder_update_multi_value_extended_property(client,
                                                                multi_value_legacy_extended_property_id,
                                                                id_=None,
                                                                value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       mail_folder_id=mail_folder_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         mail_folder_id=mail_folder_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def mail_user_mail_folder_update_single_value_extended_property(client,
@@ -1143,45 +1201,13 @@ def mail_user_mail_folder_update_single_value_extended_property(client,
                                                                 single_value_legacy_extended_property_id,
                                                                 id_=None,
                                                                 value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        mail_folder_id=mail_folder_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
-
-
-def mail_user_mail_folder_message_delete(client,
-                                         user_id,
-                                         mail_folder_id,
-                                         message_id,
-                                         attachment_id=None,
-                                         if_match=None,
-                                         extension_id=None,
-                                         multi_value_legacy_extended_property_id=None,
-                                         single_value_legacy_extended_property_id=None):
-    if user_id is not None and mail_folder_id is not None and message_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        mail_folder_id=mail_folder_id,
-                                        message_id=message_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and mail_folder_id is not None and message_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       mail_folder_id=mail_folder_id,
-                                       message_id=message_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and mail_folder_id is not None and message_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           mail_folder_id=mail_folder_id,
-                                                           message_id=message_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        mail_folder_id=mail_folder_id,
-                                                        message_id=message_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          mail_folder_id=mail_folder_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def mail_user_mail_folder_message_create_attachment(client,
@@ -1194,15 +1220,17 @@ def mail_user_mail_folder_message_create_attachment(client,
                                                     last_modified_date_time=None,
                                                     name=None,
                                                     size=None):
-    return client.create_attachment(user_id=user_id,
-                                    mail_folder_id=mail_folder_id,
-                                    message_id=message_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(user_id=user_id,
+                                     mail_folder_id=mail_folder_id,
+                                     message_id=message_id,
+                                     body=body)
 
 
 def mail_user_mail_folder_message_create_extension(client,
@@ -1210,10 +1238,12 @@ def mail_user_mail_folder_message_create_extension(client,
                                                    mail_folder_id,
                                                    message_id,
                                                    id_=None):
-    return client.create_extension(user_id=user_id,
-                                   mail_folder_id=mail_folder_id,
-                                   message_id=message_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    mail_folder_id=mail_folder_id,
+                                    message_id=message_id,
+                                    body=body)
 
 
 def mail_user_mail_folder_message_create_multi_value_extended_property(client,
@@ -1222,11 +1252,13 @@ def mail_user_mail_folder_message_create_multi_value_extended_property(client,
                                                                        message_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       mail_folder_id=mail_folder_id,
-                                                       message_id=message_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         mail_folder_id=mail_folder_id,
+                                                         message_id=message_id,
+                                                         body=body)
 
 
 def mail_user_mail_folder_message_create_single_value_extended_property(client,
@@ -1235,71 +1267,65 @@ def mail_user_mail_folder_message_create_single_value_extended_property(client,
                                                                         message_id,
                                                                         id_=None,
                                                                         value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        mail_folder_id=mail_folder_id,
-                                                        message_id=message_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          mail_folder_id=mail_folder_id,
+                                                          message_id=message_id,
+                                                          body=body)
 
 
-def mail_user_mail_folder_message_get_attachment(client,
-                                                 user_id,
-                                                 mail_folder_id,
-                                                 message_id,
-                                                 attachment_id,
-                                                 select=None,
-                                                 expand=None):
-    return client.get_attachment(user_id=user_id,
-                                 mail_folder_id=mail_folder_id,
-                                 message_id=message_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+def mail_user_mail_folder_message_delete_attachment(client,
+                                                    user_id,
+                                                    mail_folder_id,
+                                                    message_id,
+                                                    attachment_id,
+                                                    if_match=None):
+    return client.delete_attachments(user_id=user_id,
+                                     mail_folder_id=mail_folder_id,
+                                     message_id=message_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
-def mail_user_mail_folder_message_get_extension(client,
-                                                user_id,
-                                                mail_folder_id,
-                                                message_id,
-                                                extension_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_extension(user_id=user_id,
-                                mail_folder_id=mail_folder_id,
-                                message_id=message_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+def mail_user_mail_folder_message_delete_extension(client,
+                                                   user_id,
+                                                   mail_folder_id,
+                                                   message_id,
+                                                   extension_id,
+                                                   if_match=None):
+    return client.delete_extensions(user_id=user_id,
+                                    mail_folder_id=mail_folder_id,
+                                    message_id=message_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
-def mail_user_mail_folder_message_get_multi_value_extended_property(client,
-                                                                    user_id,
-                                                                    mail_folder_id,
-                                                                    message_id,
-                                                                    multi_value_legacy_extended_property_id,
-                                                                    select=None,
-                                                                    expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    mail_folder_id=mail_folder_id,
-                                                    message_id=message_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+def mail_user_mail_folder_message_delete_multi_value_extended_property(client,
+                                                                       user_id,
+                                                                       mail_folder_id,
+                                                                       message_id,
+                                                                       multi_value_legacy_extended_property_id,
+                                                                       if_match=None):
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         mail_folder_id=mail_folder_id,
+                                                         message_id=message_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
-def mail_user_mail_folder_message_get_single_value_extended_property(client,
-                                                                     user_id,
-                                                                     mail_folder_id,
-                                                                     message_id,
-                                                                     single_value_legacy_extended_property_id,
-                                                                     select=None,
-                                                                     expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     mail_folder_id=mail_folder_id,
-                                                     message_id=message_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+def mail_user_mail_folder_message_delete_single_value_extended_property(client,
+                                                                        user_id,
+                                                                        mail_folder_id,
+                                                                        message_id,
+                                                                        single_value_legacy_extended_property_id,
+                                                                        if_match=None):
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          mail_folder_id=mail_folder_id,
+                                                          message_id=message_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def mail_user_mail_folder_message_list_attachment(client,
@@ -1309,12 +1335,12 @@ def mail_user_mail_folder_message_list_attachment(client,
                                                   orderby=None,
                                                   select=None,
                                                   expand=None):
-    return client.list_attachment(user_id=user_id,
-                                  mail_folder_id=mail_folder_id,
-                                  message_id=message_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(user_id=user_id,
+                                   mail_folder_id=mail_folder_id,
+                                   message_id=message_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def mail_user_mail_folder_message_list_extension(client,
@@ -1324,12 +1350,12 @@ def mail_user_mail_folder_message_list_extension(client,
                                                  orderby=None,
                                                  select=None,
                                                  expand=None):
-    return client.list_extension(user_id=user_id,
-                                 mail_folder_id=mail_folder_id,
-                                 message_id=message_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  mail_folder_id=mail_folder_id,
+                                  message_id=message_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def mail_user_mail_folder_message_list_multi_value_extended_property(client,
@@ -1339,12 +1365,12 @@ def mail_user_mail_folder_message_list_multi_value_extended_property(client,
                                                                      orderby=None,
                                                                      select=None,
                                                                      expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     mail_folder_id=mail_folder_id,
-                                                     message_id=message_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       mail_folder_id=mail_folder_id,
+                                                       message_id=message_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def mail_user_mail_folder_message_list_single_value_extended_property(client,
@@ -1354,12 +1380,72 @@ def mail_user_mail_folder_message_list_single_value_extended_property(client,
                                                                       orderby=None,
                                                                       select=None,
                                                                       expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        mail_folder_id=mail_folder_id,
+                                                        message_id=message_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
+
+
+def mail_user_mail_folder_message_show_attachment(client,
+                                                  user_id,
+                                                  mail_folder_id,
+                                                  message_id,
+                                                  attachment_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_attachments(user_id=user_id,
+                                  mail_folder_id=mail_folder_id,
+                                  message_id=message_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
+
+
+def mail_user_mail_folder_message_show_extension(client,
+                                                 user_id,
+                                                 mail_folder_id,
+                                                 message_id,
+                                                 extension_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_extensions(user_id=user_id,
+                                 mail_folder_id=mail_folder_id,
+                                 message_id=message_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def mail_user_mail_folder_message_show_multi_value_extended_property(client,
+                                                                     user_id,
+                                                                     mail_folder_id,
+                                                                     message_id,
+                                                                     multi_value_legacy_extended_property_id,
+                                                                     select=None,
+                                                                     expand=None):
+    return client.get_multi_value_extended_properties(user_id=user_id,
                                                       mail_folder_id=mail_folder_id,
                                                       message_id=message_id,
-                                                      orderby=orderby,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
                                                       select=select,
                                                       expand=expand)
+
+
+def mail_user_mail_folder_message_show_single_value_extended_property(client,
+                                                                      user_id,
+                                                                      mail_folder_id,
+                                                                      message_id,
+                                                                      single_value_legacy_extended_property_id,
+                                                                      select=None,
+                                                                      expand=None):
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       mail_folder_id=mail_folder_id,
+                                                       message_id=message_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def mail_user_mail_folder_message_update_attachment(client,
@@ -1373,16 +1459,18 @@ def mail_user_mail_folder_message_update_attachment(client,
                                                     last_modified_date_time=None,
                                                     name=None,
                                                     size=None):
-    return client.update_attachment(user_id=user_id,
-                                    mail_folder_id=mail_folder_id,
-                                    message_id=message_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(user_id=user_id,
+                                     mail_folder_id=mail_folder_id,
+                                     message_id=message_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def mail_user_mail_folder_message_update_extension(client,
@@ -1391,11 +1479,13 @@ def mail_user_mail_folder_message_update_extension(client,
                                                    message_id,
                                                    extension_id,
                                                    id_=None):
-    return client.update_extension(user_id=user_id,
-                                   mail_folder_id=mail_folder_id,
-                                   message_id=message_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    mail_folder_id=mail_folder_id,
+                                    message_id=message_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def mail_user_mail_folder_message_update_multi_value_extended_property(client,
@@ -1405,12 +1495,14 @@ def mail_user_mail_folder_message_update_multi_value_extended_property(client,
                                                                        multi_value_legacy_extended_property_id,
                                                                        id_=None,
                                                                        value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       mail_folder_id=mail_folder_id,
-                                                       message_id=message_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         mail_folder_id=mail_folder_id,
+                                                         message_id=message_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def mail_user_mail_folder_message_update_single_value_extended_property(client,
@@ -1420,41 +1512,14 @@ def mail_user_mail_folder_message_update_single_value_extended_property(client,
                                                                         single_value_legacy_extended_property_id,
                                                                         id_=None,
                                                                         value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        mail_folder_id=mail_folder_id,
-                                                        message_id=message_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
-
-
-def mail_user_message_delete(client,
-                             user_id,
-                             message_id,
-                             attachment_id=None,
-                             if_match=None,
-                             extension_id=None,
-                             multi_value_legacy_extended_property_id=None,
-                             single_value_legacy_extended_property_id=None):
-    if user_id is not None and message_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        message_id=message_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and message_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       message_id=message_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and message_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           message_id=message_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        message_id=message_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          mail_folder_id=mail_folder_id,
+                                                          message_id=message_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)
 
 
 def mail_user_message_create_attachment(client,
@@ -1466,23 +1531,27 @@ def mail_user_message_create_attachment(client,
                                         last_modified_date_time=None,
                                         name=None,
                                         size=None):
-    return client.create_attachment(user_id=user_id,
-                                    message_id=message_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.create_attachments(user_id=user_id,
+                                     message_id=message_id,
+                                     body=body)
 
 
 def mail_user_message_create_extension(client,
                                        user_id,
                                        message_id,
                                        id_=None):
-    return client.create_extension(user_id=user_id,
-                                   message_id=message_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    message_id=message_id,
+                                    body=body)
 
 
 def mail_user_message_create_multi_value_extended_property(client,
@@ -1490,10 +1559,12 @@ def mail_user_message_create_multi_value_extended_property(client,
                                                            message_id,
                                                            id_=None,
                                                            value=None):
-    return client.create_multi_value_extended_property(user_id=user_id,
-                                                       message_id=message_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_multi_value_extended_properties(user_id=user_id,
+                                                         message_id=message_id,
+                                                         body=body)
 
 
 def mail_user_message_create_single_value_extended_property(client,
@@ -1501,62 +1572,56 @@ def mail_user_message_create_single_value_extended_property(client,
                                                             message_id,
                                                             id_=None,
                                                             value=None):
-    return client.create_single_value_extended_property(user_id=user_id,
-                                                        message_id=message_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.create_single_value_extended_properties(user_id=user_id,
+                                                          message_id=message_id,
+                                                          body=body)
 
 
-def mail_user_message_get_attachment(client,
-                                     user_id,
-                                     message_id,
-                                     attachment_id,
-                                     select=None,
-                                     expand=None):
-    return client.get_attachment(user_id=user_id,
-                                 message_id=message_id,
-                                 attachment_id=attachment_id,
-                                 select=select,
-                                 expand=expand)
+def mail_user_message_delete_attachment(client,
+                                        user_id,
+                                        message_id,
+                                        attachment_id,
+                                        if_match=None):
+    return client.delete_attachments(user_id=user_id,
+                                     message_id=message_id,
+                                     attachment_id=attachment_id,
+                                     if_match=if_match)
 
 
-def mail_user_message_get_extension(client,
-                                    user_id,
-                                    message_id,
-                                    extension_id,
-                                    select=None,
-                                    expand=None):
-    return client.get_extension(user_id=user_id,
-                                message_id=message_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+def mail_user_message_delete_extension(client,
+                                       user_id,
+                                       message_id,
+                                       extension_id,
+                                       if_match=None):
+    return client.delete_extensions(user_id=user_id,
+                                    message_id=message_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
 
 
-def mail_user_message_get_multi_value_extended_property(client,
-                                                        user_id,
-                                                        message_id,
-                                                        multi_value_legacy_extended_property_id,
-                                                        select=None,
-                                                        expand=None):
-    return client.get_multi_value_extended_property(user_id=user_id,
-                                                    message_id=message_id,
-                                                    multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                    select=select,
-                                                    expand=expand)
+def mail_user_message_delete_multi_value_extended_property(client,
+                                                           user_id,
+                                                           message_id,
+                                                           multi_value_legacy_extended_property_id,
+                                                           if_match=None):
+    return client.delete_multi_value_extended_properties(user_id=user_id,
+                                                         message_id=message_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         if_match=if_match)
 
 
-def mail_user_message_get_single_value_extended_property(client,
-                                                         user_id,
-                                                         message_id,
-                                                         single_value_legacy_extended_property_id,
-                                                         select=None,
-                                                         expand=None):
-    return client.get_single_value_extended_property(user_id=user_id,
-                                                     message_id=message_id,
-                                                     single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                     select=select,
-                                                     expand=expand)
+def mail_user_message_delete_single_value_extended_property(client,
+                                                            user_id,
+                                                            message_id,
+                                                            single_value_legacy_extended_property_id,
+                                                            if_match=None):
+    return client.delete_single_value_extended_properties(user_id=user_id,
+                                                          message_id=message_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          if_match=if_match)
 
 
 def mail_user_message_list_attachment(client,
@@ -1565,11 +1630,11 @@ def mail_user_message_list_attachment(client,
                                       orderby=None,
                                       select=None,
                                       expand=None):
-    return client.list_attachment(user_id=user_id,
-                                  message_id=message_id,
-                                  orderby=orderby,
-                                  select=select,
-                                  expand=expand)
+    return client.list_attachments(user_id=user_id,
+                                   message_id=message_id,
+                                   orderby=orderby,
+                                   select=select,
+                                   expand=expand)
 
 
 def mail_user_message_list_extension(client,
@@ -1578,11 +1643,11 @@ def mail_user_message_list_extension(client,
                                      orderby=None,
                                      select=None,
                                      expand=None):
-    return client.list_extension(user_id=user_id,
-                                 message_id=message_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  message_id=message_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def mail_user_message_list_multi_value_extended_property(client,
@@ -1591,11 +1656,11 @@ def mail_user_message_list_multi_value_extended_property(client,
                                                          orderby=None,
                                                          select=None,
                                                          expand=None):
-    return client.list_multi_value_extended_property(user_id=user_id,
-                                                     message_id=message_id,
-                                                     orderby=orderby,
-                                                     select=select,
-                                                     expand=expand)
+    return client.list_multi_value_extended_properties(user_id=user_id,
+                                                       message_id=message_id,
+                                                       orderby=orderby,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def mail_user_message_list_single_value_extended_property(client,
@@ -1604,11 +1669,63 @@ def mail_user_message_list_single_value_extended_property(client,
                                                           orderby=None,
                                                           select=None,
                                                           expand=None):
-    return client.list_single_value_extended_property(user_id=user_id,
+    return client.list_single_value_extended_properties(user_id=user_id,
+                                                        message_id=message_id,
+                                                        orderby=orderby,
+                                                        select=select,
+                                                        expand=expand)
+
+
+def mail_user_message_show_attachment(client,
+                                      user_id,
+                                      message_id,
+                                      attachment_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_attachments(user_id=user_id,
+                                  message_id=message_id,
+                                  attachment_id=attachment_id,
+                                  select=select,
+                                  expand=expand)
+
+
+def mail_user_message_show_extension(client,
+                                     user_id,
+                                     message_id,
+                                     extension_id,
+                                     select=None,
+                                     expand=None):
+    return client.get_extensions(user_id=user_id,
+                                 message_id=message_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def mail_user_message_show_multi_value_extended_property(client,
+                                                         user_id,
+                                                         message_id,
+                                                         multi_value_legacy_extended_property_id,
+                                                         select=None,
+                                                         expand=None):
+    return client.get_multi_value_extended_properties(user_id=user_id,
                                                       message_id=message_id,
-                                                      orderby=orderby,
+                                                      multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
                                                       select=select,
                                                       expand=expand)
+
+
+def mail_user_message_show_single_value_extended_property(client,
+                                                          user_id,
+                                                          message_id,
+                                                          single_value_legacy_extended_property_id,
+                                                          select=None,
+                                                          expand=None):
+    return client.get_single_value_extended_properties(user_id=user_id,
+                                                       message_id=message_id,
+                                                       single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                       select=select,
+                                                       expand=expand)
 
 
 def mail_user_message_update_attachment(client,
@@ -1621,15 +1738,17 @@ def mail_user_message_update_attachment(client,
                                         last_modified_date_time=None,
                                         name=None,
                                         size=None):
-    return client.update_attachment(user_id=user_id,
-                                    message_id=message_id,
-                                    attachment_id=attachment_id,
-                                    id=id_,
-                                    content_type_parameter=content_type,
-                                    is_inline=is_inline,
-                                    last_modified_date_time=last_modified_date_time,
-                                    name=name,
-                                    size=size)
+    body = {}
+    body['id'] = id_
+    body['content_type'] = content_type
+    body['is_inline'] = is_inline
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['size'] = size
+    return client.update_attachments(user_id=user_id,
+                                     message_id=message_id,
+                                     attachment_id=attachment_id,
+                                     body=body)
 
 
 def mail_user_message_update_extension(client,
@@ -1637,10 +1756,12 @@ def mail_user_message_update_extension(client,
                                        message_id,
                                        extension_id,
                                        id_=None):
-    return client.update_extension(user_id=user_id,
-                                   message_id=message_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    message_id=message_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def mail_user_message_update_multi_value_extended_property(client,
@@ -1649,11 +1770,13 @@ def mail_user_message_update_multi_value_extended_property(client,
                                                            multi_value_legacy_extended_property_id,
                                                            id_=None,
                                                            value=None):
-    return client.update_multi_value_extended_property(user_id=user_id,
-                                                       message_id=message_id,
-                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                       id=id_,
-                                                       value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_multi_value_extended_properties(user_id=user_id,
+                                                         message_id=message_id,
+                                                         multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                         body=body)
 
 
 def mail_user_message_update_single_value_extended_property(client,
@@ -1662,8 +1785,10 @@ def mail_user_message_update_single_value_extended_property(client,
                                                             single_value_legacy_extended_property_id,
                                                             id_=None,
                                                             value=None):
-    return client.update_single_value_extended_property(user_id=user_id,
-                                                        message_id=message_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        id=id_,
-                                                        value=value)
+    body = {}
+    body['id'] = id_
+    body['value'] = value
+    return client.update_single_value_extended_properties(user_id=user_id,
+                                                          message_id=message_id,
+                                                          single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                          body=body)

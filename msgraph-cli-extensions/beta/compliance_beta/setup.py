@@ -31,8 +31,9 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = []
+
 try:
-    from .manual.dependency import DEPENDENCIES
+    from azext_compliance_beta.manual.dependency import DEPENDENCIES
 except ImportError:
     pass
 
@@ -47,7 +48,7 @@ setup(
     description='Microsoft Azure Command-Line Tools Compliance Extension',
     author='Microsoft Corporation',
     author_email='azpycli@microsoft.com',
-    url='https://github.com/Azure/azure-cli-extensions/tree/master/src/compliance_beta',
+    url='https://github.com/Azure/azure-cli-extensions/tree/master/compliance_beta',
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
     classifiers=CLASSIFIERS,

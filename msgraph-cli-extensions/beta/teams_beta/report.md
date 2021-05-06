@@ -1,20 +1,477 @@
 # Azure CLI Module Creation Report
 
-### teams app-catalog create-app
-
-create-app a teams app-catalog.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|teams app-catalog|appCatalogs|
+|az teams_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-app|CreateTeamsApps|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az teams_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az teams app-catalog|appCatalogs|[commands](#CommandsInappCatalogs)|
+|az teams app-catalog-team-app|appCatalogs.teamsApps|[commands](#CommandsInappCatalogs.teamsApps)|
+|az teams chat-chat|chats.chat|[commands](#CommandsInchats.chat)|
+|az teams chat|chats|[commands](#CommandsInchats)|
+|az teams chat-installed-app|chats.installedApps|[commands](#CommandsInchats.installedApps)|
+|az teams chat-member|chats.members|[commands](#CommandsInchats.members)|
+|az teams chat-message|chats.messages|[commands](#CommandsInchats.messages)|
+|az teams chat-message-reply|chats.messages.replies|[commands](#CommandsInchats.messages.replies)|
+|az teams chat-tab|chats.tabs|[commands](#CommandsInchats.tabs)|
+|az teams group|groups|[commands](#CommandsIngroups)|
+|az teams team|teams.team|[commands](#CommandsInteams.team)|
+|az teams team|teams|[commands](#CommandsInteams)|
+|az teams team-channel|teams.channels|[commands](#CommandsInteams.channels)|
+|az teams team-channel-member|teams.channels.members|[commands](#CommandsInteams.channels.members)|
+|az teams team-channel-message|teams.channels.messages|[commands](#CommandsInteams.channels.messages)|
+|az teams team-channel-message-reply|teams.channels.messages.replies|[commands](#CommandsInteams.channels.messages.replies)|
+|az teams team-channel-tab|teams.channels.tabs|[commands](#CommandsInteams.channels.tabs)|
+|az teams team-installed-app|teams.installedApps|[commands](#CommandsInteams.installedApps)|
+|az teams team-member|teams.members|[commands](#CommandsInteams.members)|
+|az teams team-primary-channel|teams.primaryChannel|[commands](#CommandsInteams.primaryChannel)|
+|az teams team-primary-channel-member|teams.primaryChannel.members|[commands](#CommandsInteams.primaryChannel.members)|
+|az teams team-primary-channel-message|teams.primaryChannel.messages|[commands](#CommandsInteams.primaryChannel.messages)|
+|az teams team-primary-channel-message-reply|teams.primaryChannel.messages.replies|[commands](#CommandsInteams.primaryChannel.messages.replies)|
+|az teams team-primary-channel-tab|teams.primaryChannel.tabs|[commands](#CommandsInteams.primaryChannel.tabs)|
+|az teams team-schedule|teams.schedule|[commands](#CommandsInteams.schedule)|
+|az teams team-schedule-time-card|teams.schedule.timeCards|[commands](#CommandsInteams.schedule.timeCards)|
+|az teams teamwork-teamwork|teamwork.teamwork|[commands](#CommandsInteamwork.teamwork)|
+|az teams teamwork|teamwork|[commands](#CommandsInteamwork)|
+|az teams user|users|[commands](#CommandsInusers)|
+|az teams user-teamwork|users.teamwork|[commands](#CommandsInusers.teamwork)|
+|az teams user-teamwork-installed-app|users.teamwork.installedApps|[commands](#CommandsInusers.teamwork.installedApps)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInappCatalogs">Commands in `az teams app-catalog` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams app-catalog create-team-app](#appCatalogsCreateTeamsApps)|CreateTeamsApps|[Parameters](#ParametersappCatalogsCreateTeamsApps)|Not Found|
+|[az teams app-catalog delete-team-app](#appCatalogsDeleteTeamsApps)|DeleteTeamsApps|[Parameters](#ParametersappCatalogsDeleteTeamsApps)|Not Found|
+|[az teams app-catalog list-team-app](#appCatalogsListTeamsApps)|ListTeamsApps|[Parameters](#ParametersappCatalogsListTeamsApps)|Not Found|
+|[az teams app-catalog show-team-app](#appCatalogsGetTeamsApps)|GetTeamsApps|[Parameters](#ParametersappCatalogsGetTeamsApps)|Not Found|
+|[az teams app-catalog update-team-app](#appCatalogsUpdateTeamsApps)|UpdateTeamsApps|[Parameters](#ParametersappCatalogsUpdateTeamsApps)|Not Found|
+
+### <a name="CommandsInappCatalogs.teamsApps">Commands in `az teams app-catalog-team-app` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams app-catalog-team-app create-app-definition](#appCatalogs.teamsAppsCreateAppDefinitions)|CreateAppDefinitions|[Parameters](#ParametersappCatalogs.teamsAppsCreateAppDefinitions)|Not Found|
+|[az teams app-catalog-team-app delete-app-definition](#appCatalogs.teamsAppsDeleteAppDefinitions)|DeleteAppDefinitions|[Parameters](#ParametersappCatalogs.teamsAppsDeleteAppDefinitions)|Not Found|
+|[az teams app-catalog-team-app list-app-definition](#appCatalogs.teamsAppsListAppDefinitions)|ListAppDefinitions|[Parameters](#ParametersappCatalogs.teamsAppsListAppDefinitions)|Not Found|
+|[az teams app-catalog-team-app show-app-definition](#appCatalogs.teamsAppsGetAppDefinitions)|GetAppDefinitions|[Parameters](#ParametersappCatalogs.teamsAppsGetAppDefinitions)|Not Found|
+|[az teams app-catalog-team-app update-app-definition](#appCatalogs.teamsAppsUpdateAppDefinitions)|UpdateAppDefinitions|[Parameters](#ParametersappCatalogs.teamsAppsUpdateAppDefinitions)|Not Found|
+
+### <a name="CommandsInchats">Commands in `az teams chat` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams chat all-message](#chatsallMessages)|allMessages|[Parameters](#ParameterschatsallMessages)|Not Found|
+|[az teams chat create-installed-app](#chatsCreateInstalledApps)|CreateInstalledApps|[Parameters](#ParameterschatsCreateInstalledApps)|Not Found|
+|[az teams chat create-member](#chatsCreateMembers)|CreateMembers|[Parameters](#ParameterschatsCreateMembers)|Not Found|
+|[az teams chat create-message](#chatsCreateMessages)|CreateMessages|[Parameters](#ParameterschatsCreateMessages)|Not Found|
+|[az teams chat create-tab](#chatsCreateTabs)|CreateTabs|[Parameters](#ParameterschatsCreateTabs)|Not Found|
+|[az teams chat delete-installed-app](#chatsDeleteInstalledApps)|DeleteInstalledApps|[Parameters](#ParameterschatsDeleteInstalledApps)|Not Found|
+|[az teams chat delete-member](#chatsDeleteMembers)|DeleteMembers|[Parameters](#ParameterschatsDeleteMembers)|Not Found|
+|[az teams chat delete-message](#chatsDeleteMessages)|DeleteMessages|[Parameters](#ParameterschatsDeleteMessages)|Not Found|
+|[az teams chat delete-tab](#chatsDeleteTabs)|DeleteTabs|[Parameters](#ParameterschatsDeleteTabs)|Not Found|
+|[az teams chat list-installed-app](#chatsListInstalledApps)|ListInstalledApps|[Parameters](#ParameterschatsListInstalledApps)|Not Found|
+|[az teams chat list-member](#chatsListMembers)|ListMembers|[Parameters](#ParameterschatsListMembers)|Not Found|
+|[az teams chat list-message](#chatsListMessages)|ListMessages|[Parameters](#ParameterschatsListMessages)|Not Found|
+|[az teams chat list-tab](#chatsListTabs)|ListTabs|[Parameters](#ParameterschatsListTabs)|Not Found|
+|[az teams chat send-activity-notification](#chatssendActivityNotification)|sendActivityNotification|[Parameters](#ParameterschatssendActivityNotification)|Not Found|
+|[az teams chat show-all-message](#chatsgetAllMessages)|getAllMessages|[Parameters](#ParameterschatsgetAllMessages)|Not Found|
+|[az teams chat show-installed-app](#chatsGetInstalledApps)|GetInstalledApps|[Parameters](#ParameterschatsGetInstalledApps)|Not Found|
+|[az teams chat show-member](#chatsGetMembers)|GetMembers|[Parameters](#ParameterschatsGetMembers)|Not Found|
+|[az teams chat show-message](#chatsGetMessages)|GetMessages|[Parameters](#ParameterschatsGetMessages)|Not Found|
+|[az teams chat show-tab](#chatsGetTabs)|GetTabs|[Parameters](#ParameterschatsGetTabs)|Not Found|
+|[az teams chat update-installed-app](#chatsUpdateInstalledApps)|UpdateInstalledApps|[Parameters](#ParameterschatsUpdateInstalledApps)|Not Found|
+|[az teams chat update-member](#chatsUpdateMembers)|UpdateMembers|[Parameters](#ParameterschatsUpdateMembers)|Not Found|
+|[az teams chat update-message](#chatsUpdateMessages)|UpdateMessages|[Parameters](#ParameterschatsUpdateMessages)|Not Found|
+|[az teams chat update-tab](#chatsUpdateTabs)|UpdateTabs|[Parameters](#ParameterschatsUpdateTabs)|Not Found|
+
+### <a name="CommandsInchats.chat">Commands in `az teams chat-chat` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams chat-chat create-chat](#chats.chatCreateChat)|CreateChat|[Parameters](#Parameterschats.chatCreateChat)|Not Found|
+|[az teams chat-chat delete-chat](#chats.chatDeleteChat)|DeleteChat|[Parameters](#Parameterschats.chatDeleteChat)|Not Found|
+|[az teams chat-chat list-chat](#chats.chatListChat)|ListChat|[Parameters](#Parameterschats.chatListChat)|Not Found|
+|[az teams chat-chat show-chat](#chats.chatGetChat)|GetChat|[Parameters](#Parameterschats.chatGetChat)|Not Found|
+|[az teams chat-chat update-chat](#chats.chatUpdateChat)|UpdateChat|[Parameters](#Parameterschats.chatUpdateChat)|Not Found|
+
+### <a name="CommandsInchats.installedApps">Commands in `az teams chat-installed-app` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams chat-installed-app delete-ref-team-app](#chats.installedAppsDeleteRefTeamsApp)|DeleteRefTeamsApp|[Parameters](#Parameterschats.installedAppsDeleteRefTeamsApp)|Not Found|
+|[az teams chat-installed-app delete-ref-team-app-definition](#chats.installedAppsDeleteRefTeamsAppDefinition)|DeleteRefTeamsAppDefinition|[Parameters](#Parameterschats.installedAppsDeleteRefTeamsAppDefinition)|Not Found|
+|[az teams chat-installed-app set-ref-team-app](#chats.installedAppsSetRefTeamsApp)|SetRefTeamsApp|[Parameters](#Parameterschats.installedAppsSetRefTeamsApp)|Not Found|
+|[az teams chat-installed-app set-ref-team-app-definition](#chats.installedAppsSetRefTeamsAppDefinition)|SetRefTeamsAppDefinition|[Parameters](#Parameterschats.installedAppsSetRefTeamsAppDefinition)|Not Found|
+|[az teams chat-installed-app show-ref-team-app](#chats.installedAppsGetRefTeamsApp)|GetRefTeamsApp|[Parameters](#Parameterschats.installedAppsGetRefTeamsApp)|Not Found|
+|[az teams chat-installed-app show-ref-team-app-definition](#chats.installedAppsGetRefTeamsAppDefinition)|GetRefTeamsAppDefinition|[Parameters](#Parameterschats.installedAppsGetRefTeamsAppDefinition)|Not Found|
+|[az teams chat-installed-app show-team-app](#chats.installedAppsGetTeamsApp)|GetTeamsApp|[Parameters](#Parameterschats.installedAppsGetTeamsApp)|Not Found|
+|[az teams chat-installed-app show-team-app-definition](#chats.installedAppsGetTeamsAppDefinition)|GetTeamsAppDefinition|[Parameters](#Parameterschats.installedAppsGetTeamsAppDefinition)|Not Found|
+|[az teams chat-installed-app upgrade](#chats.installedAppsupgrade)|upgrade|[Parameters](#Parameterschats.installedAppsupgrade)|Not Found|
+
+### <a name="CommandsInchats.members">Commands in `az teams chat-member` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams chat-member add](#chats.membersadd)|add|[Parameters](#Parameterschats.membersadd)|Not Found|
+
+### <a name="CommandsInchats.messages">Commands in `az teams chat-message` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams chat-message create-hosted-content](#chats.messagesCreateHostedContents)|CreateHostedContents|[Parameters](#Parameterschats.messagesCreateHostedContents)|Not Found|
+|[az teams chat-message create-reply](#chats.messagesCreateReplies)|CreateReplies|[Parameters](#Parameterschats.messagesCreateReplies)|Not Found|
+|[az teams chat-message delete-hosted-content](#chats.messagesDeleteHostedContents)|DeleteHostedContents|[Parameters](#Parameterschats.messagesDeleteHostedContents)|Not Found|
+|[az teams chat-message delete-reply](#chats.messagesDeleteReplies)|DeleteReplies|[Parameters](#Parameterschats.messagesDeleteReplies)|Not Found|
+|[az teams chat-message delta](#chats.messagesdelta)|delta|[Parameters](#Parameterschats.messagesdelta)|Not Found|
+|[az teams chat-message list-hosted-content](#chats.messagesListHostedContents)|ListHostedContents|[Parameters](#Parameterschats.messagesListHostedContents)|Not Found|
+|[az teams chat-message list-reply](#chats.messagesListReplies)|ListReplies|[Parameters](#Parameterschats.messagesListReplies)|Not Found|
+|[az teams chat-message set-hosted-content-content](#chats.messagesSetHostedContentsContent)|SetHostedContentsContent|[Parameters](#Parameterschats.messagesSetHostedContentsContent)|Not Found|
+|[az teams chat-message show-hosted-content](#chats.messagesGetHostedContents)|GetHostedContents|[Parameters](#Parameterschats.messagesGetHostedContents)|Not Found|
+|[az teams chat-message show-hosted-content-content](#chats.messagesGetHostedContentsContent)|GetHostedContentsContent|[Parameters](#Parameterschats.messagesGetHostedContentsContent)|Not Found|
+|[az teams chat-message show-reply](#chats.messagesGetReplies)|GetReplies|[Parameters](#Parameterschats.messagesGetReplies)|Not Found|
+|[az teams chat-message update-hosted-content](#chats.messagesUpdateHostedContents)|UpdateHostedContents|[Parameters](#Parameterschats.messagesUpdateHostedContents)|Not Found|
+|[az teams chat-message update-reply](#chats.messagesUpdateReplies)|UpdateReplies|[Parameters](#Parameterschats.messagesUpdateReplies)|Not Found|
+
+### <a name="CommandsInchats.messages.replies">Commands in `az teams chat-message-reply` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams chat-message-reply delta](#chats.messages.repliesdelta)|delta|[Parameters](#Parameterschats.messages.repliesdelta)|Not Found|
+
+### <a name="CommandsInchats.tabs">Commands in `az teams chat-tab` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams chat-tab delete-ref-team-app](#chats.tabsDeleteRefTeamsApp)|DeleteRefTeamsApp|[Parameters](#Parameterschats.tabsDeleteRefTeamsApp)|Not Found|
+|[az teams chat-tab set-ref-team-app](#chats.tabsSetRefTeamsApp)|SetRefTeamsApp|[Parameters](#Parameterschats.tabsSetRefTeamsApp)|Not Found|
+|[az teams chat-tab show-ref-team-app](#chats.tabsGetRefTeamsApp)|GetRefTeamsApp|[Parameters](#Parameterschats.tabsGetRefTeamsApp)|Not Found|
+|[az teams chat-tab show-team-app](#chats.tabsGetTeamsApp)|GetTeamsApp|[Parameters](#Parameterschats.tabsGetTeamsApp)|Not Found|
+
+### <a name="CommandsIngroups">Commands in `az teams group` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams group delete-team](#groupsDeleteTeam)|DeleteTeam|[Parameters](#ParametersgroupsDeleteTeam)|Not Found|
+|[az teams group show-team](#groupsGetTeam)|GetTeam|[Parameters](#ParametersgroupsGetTeam)|Not Found|
+|[az teams group update-team](#groupsUpdateTeam)|UpdateTeam|[Parameters](#ParametersgroupsUpdateTeam)|Not Found|
+
+### <a name="CommandsInteams.team">Commands in `az teams team` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team list](#teams.teamListTeam)|ListTeam|[Parameters](#Parametersteams.teamListTeam)|Not Found|
+|[az teams team create](#teams.teamUpdateTeam)|UpdateTeam|[Parameters](#Parametersteams.teamUpdateTeam)|Not Found|
+|[az teams team create](#teams.teamCreateTeam)|CreateTeam|[Parameters](#Parametersteams.teamCreateTeam)|Not Found|
+|[az teams team delete-team](#teams.teamDeleteTeam)|DeleteTeam|[Parameters](#Parametersteams.teamDeleteTeam)|Not Found|
+|[az teams team show-team](#teams.teamGetTeam)|GetTeam|[Parameters](#Parametersteams.teamGetTeam)|Not Found|
+
+### <a name="CommandsInteams">Commands in `az teams team` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team all-message](#teamsallMessages)|allMessages|[Parameters](#ParametersteamsallMessages)|Not Found|
+|[az teams team archive](#teamsarchive)|archive|[Parameters](#Parametersteamsarchive)|Not Found|
+|[az teams team clone](#teamsclone)|clone|[Parameters](#Parametersteamsclone)|Not Found|
+|[az teams team complete-migration](#teamscompleteMigration)|completeMigration|[Parameters](#ParametersteamscompleteMigration)|Not Found|
+|[az teams team create-channel](#teamsCreateChannels)|CreateChannels|[Parameters](#ParametersteamsCreateChannels)|Not Found|
+|[az teams team create-installed-app](#teamsCreateInstalledApps)|CreateInstalledApps|[Parameters](#ParametersteamsCreateInstalledApps)|Not Found|
+|[az teams team create-member](#teamsCreateMembers)|CreateMembers|[Parameters](#ParametersteamsCreateMembers)|Not Found|
+|[az teams team create-operation](#teamsCreateOperations)|CreateOperations|[Parameters](#ParametersteamsCreateOperations)|Not Found|
+|[az teams team create-ref-owner](#teamsCreateRefOwners)|CreateRefOwners|[Parameters](#ParametersteamsCreateRefOwners)|Not Found|
+|[az teams team delete-channel](#teamsDeleteChannels)|DeleteChannels|[Parameters](#ParametersteamsDeleteChannels)|Not Found|
+|[az teams team delete-installed-app](#teamsDeleteInstalledApps)|DeleteInstalledApps|[Parameters](#ParametersteamsDeleteInstalledApps)|Not Found|
+|[az teams team delete-member](#teamsDeleteMembers)|DeleteMembers|[Parameters](#ParametersteamsDeleteMembers)|Not Found|
+|[az teams team delete-operation](#teamsDeleteOperations)|DeleteOperations|[Parameters](#ParametersteamsDeleteOperations)|Not Found|
+|[az teams team delete-photo](#teamsDeletePhoto)|DeletePhoto|[Parameters](#ParametersteamsDeletePhoto)|Not Found|
+|[az teams team delete-primary-channel](#teamsDeletePrimaryChannel)|DeletePrimaryChannel|[Parameters](#ParametersteamsDeletePrimaryChannel)|Not Found|
+|[az teams team delete-ref-group](#teamsDeleteRefGroup)|DeleteRefGroup|[Parameters](#ParametersteamsDeleteRefGroup)|Not Found|
+|[az teams team delete-ref-template](#teamsDeleteRefTemplate)|DeleteRefTemplate|[Parameters](#ParametersteamsDeleteRefTemplate)|Not Found|
+|[az teams team delete-schedule](#teamsDeleteSchedule)|DeleteSchedule|[Parameters](#ParametersteamsDeleteSchedule)|Not Found|
+|[az teams team list-channel](#teamsListChannels)|ListChannels|[Parameters](#ParametersteamsListChannels)|Not Found|
+|[az teams team list-installed-app](#teamsListInstalledApps)|ListInstalledApps|[Parameters](#ParametersteamsListInstalledApps)|Not Found|
+|[az teams team list-member](#teamsListMembers)|ListMembers|[Parameters](#ParametersteamsListMembers)|Not Found|
+|[az teams team list-operation](#teamsListOperations)|ListOperations|[Parameters](#ParametersteamsListOperations)|Not Found|
+|[az teams team list-owner](#teamsListOwners)|ListOwners|[Parameters](#ParametersteamsListOwners)|Not Found|
+|[az teams team list-ref-owner](#teamsListRefOwners)|ListRefOwners|[Parameters](#ParametersteamsListRefOwners)|Not Found|
+|[az teams team send-activity-notification](#teamssendActivityNotification)|sendActivityNotification|[Parameters](#ParametersteamssendActivityNotification)|Not Found|
+|[az teams team set-photo-content](#teamsSetPhotoContent)|SetPhotoContent|[Parameters](#ParametersteamsSetPhotoContent)|Not Found|
+|[az teams team set-ref-group](#teamsSetRefGroup)|SetRefGroup|[Parameters](#ParametersteamsSetRefGroup)|Not Found|
+|[az teams team set-ref-template](#teamsSetRefTemplate)|SetRefTemplate|[Parameters](#ParametersteamsSetRefTemplate)|Not Found|
+|[az teams team show-all-message](#teamsgetAllMessages)|getAllMessages|[Parameters](#ParametersteamsgetAllMessages)|Not Found|
+|[az teams team show-channel](#teamsGetChannels)|GetChannels|[Parameters](#ParametersteamsGetChannels)|Not Found|
+|[az teams team show-group](#teamsGetGroup)|GetGroup|[Parameters](#ParametersteamsGetGroup)|Not Found|
+|[az teams team show-installed-app](#teamsGetInstalledApps)|GetInstalledApps|[Parameters](#ParametersteamsGetInstalledApps)|Not Found|
+|[az teams team show-member](#teamsGetMembers)|GetMembers|[Parameters](#ParametersteamsGetMembers)|Not Found|
+|[az teams team show-operation](#teamsGetOperations)|GetOperations|[Parameters](#ParametersteamsGetOperations)|Not Found|
+|[az teams team show-photo](#teamsGetPhoto)|GetPhoto|[Parameters](#ParametersteamsGetPhoto)|Not Found|
+|[az teams team show-photo-content](#teamsGetPhotoContent)|GetPhotoContent|[Parameters](#ParametersteamsGetPhotoContent)|Not Found|
+|[az teams team show-primary-channel](#teamsGetPrimaryChannel)|GetPrimaryChannel|[Parameters](#ParametersteamsGetPrimaryChannel)|Not Found|
+|[az teams team show-ref-group](#teamsGetRefGroup)|GetRefGroup|[Parameters](#ParametersteamsGetRefGroup)|Not Found|
+|[az teams team show-ref-template](#teamsGetRefTemplate)|GetRefTemplate|[Parameters](#ParametersteamsGetRefTemplate)|Not Found|
+|[az teams team show-schedule](#teamsGetSchedule)|GetSchedule|[Parameters](#ParametersteamsGetSchedule)|Not Found|
+|[az teams team show-template](#teamsGetTemplate)|GetTemplate|[Parameters](#ParametersteamsGetTemplate)|Not Found|
+|[az teams team unarchive](#teamsunarchive)|unarchive|[Parameters](#Parametersteamsunarchive)|Not Found|
+|[az teams team update-channel](#teamsUpdateChannels)|UpdateChannels|[Parameters](#ParametersteamsUpdateChannels)|Not Found|
+|[az teams team update-installed-app](#teamsUpdateInstalledApps)|UpdateInstalledApps|[Parameters](#ParametersteamsUpdateInstalledApps)|Not Found|
+|[az teams team update-member](#teamsUpdateMembers)|UpdateMembers|[Parameters](#ParametersteamsUpdateMembers)|Not Found|
+|[az teams team update-operation](#teamsUpdateOperations)|UpdateOperations|[Parameters](#ParametersteamsUpdateOperations)|Not Found|
+|[az teams team update-photo](#teamsUpdatePhoto)|UpdatePhoto|[Parameters](#ParametersteamsUpdatePhoto)|Not Found|
+|[az teams team update-primary-channel](#teamsUpdatePrimaryChannel)|UpdatePrimaryChannel|[Parameters](#ParametersteamsUpdatePrimaryChannel)|Not Found|
+|[az teams team update-schedule](#teamsUpdateSchedule)|UpdateSchedule|[Parameters](#ParametersteamsUpdateSchedule)|Not Found|
+
+### <a name="CommandsInteams.channels">Commands in `az teams team-channel` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-channel all-message](#teams.channelsallMessages)|allMessages|[Parameters](#Parametersteams.channelsallMessages)|Not Found|
+|[az teams team-channel complete-migration](#teams.channelscompleteMigration)|completeMigration|[Parameters](#Parametersteams.channelscompleteMigration)|Not Found|
+|[az teams team-channel create-member](#teams.channelsCreateMembers)|CreateMembers|[Parameters](#Parametersteams.channelsCreateMembers)|Not Found|
+|[az teams team-channel create-message](#teams.channelsCreateMessages)|CreateMessages|[Parameters](#Parametersteams.channelsCreateMessages)|Not Found|
+|[az teams team-channel create-tab](#teams.channelsCreateTabs)|CreateTabs|[Parameters](#Parametersteams.channelsCreateTabs)|Not Found|
+|[az teams team-channel delete-file-folder](#teams.channelsDeleteFilesFolder)|DeleteFilesFolder|[Parameters](#Parametersteams.channelsDeleteFilesFolder)|Not Found|
+|[az teams team-channel delete-member](#teams.channelsDeleteMembers)|DeleteMembers|[Parameters](#Parametersteams.channelsDeleteMembers)|Not Found|
+|[az teams team-channel delete-message](#teams.channelsDeleteMessages)|DeleteMessages|[Parameters](#Parametersteams.channelsDeleteMessages)|Not Found|
+|[az teams team-channel delete-tab](#teams.channelsDeleteTabs)|DeleteTabs|[Parameters](#Parametersteams.channelsDeleteTabs)|Not Found|
+|[az teams team-channel list-member](#teams.channelsListMembers)|ListMembers|[Parameters](#Parametersteams.channelsListMembers)|Not Found|
+|[az teams team-channel list-message](#teams.channelsListMessages)|ListMessages|[Parameters](#Parametersteams.channelsListMessages)|Not Found|
+|[az teams team-channel list-tab](#teams.channelsListTabs)|ListTabs|[Parameters](#Parametersteams.channelsListTabs)|Not Found|
+|[az teams team-channel set-file-folder-content](#teams.channelsSetFilesFolderContent)|SetFilesFolderContent|[Parameters](#Parametersteams.channelsSetFilesFolderContent)|Not Found|
+|[az teams team-channel show-file-folder](#teams.channelsGetFilesFolder)|GetFilesFolder|[Parameters](#Parametersteams.channelsGetFilesFolder)|Not Found|
+|[az teams team-channel show-file-folder-content](#teams.channelsGetFilesFolderContent)|GetFilesFolderContent|[Parameters](#Parametersteams.channelsGetFilesFolderContent)|Not Found|
+|[az teams team-channel show-member](#teams.channelsGetMembers)|GetMembers|[Parameters](#Parametersteams.channelsGetMembers)|Not Found|
+|[az teams team-channel show-message](#teams.channelsGetMessages)|GetMessages|[Parameters](#Parametersteams.channelsGetMessages)|Not Found|
+|[az teams team-channel show-tab](#teams.channelsGetTabs)|GetTabs|[Parameters](#Parametersteams.channelsGetTabs)|Not Found|
+|[az teams team-channel update-file-folder](#teams.channelsUpdateFilesFolder)|UpdateFilesFolder|[Parameters](#Parametersteams.channelsUpdateFilesFolder)|Not Found|
+|[az teams team-channel update-member](#teams.channelsUpdateMembers)|UpdateMembers|[Parameters](#Parametersteams.channelsUpdateMembers)|Not Found|
+|[az teams team-channel update-message](#teams.channelsUpdateMessages)|UpdateMessages|[Parameters](#Parametersteams.channelsUpdateMessages)|Not Found|
+|[az teams team-channel update-tab](#teams.channelsUpdateTabs)|UpdateTabs|[Parameters](#Parametersteams.channelsUpdateTabs)|Not Found|
+
+### <a name="CommandsInteams.channels.members">Commands in `az teams team-channel-member` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-channel-member add](#teams.channels.membersadd)|add|[Parameters](#Parametersteams.channels.membersadd)|Not Found|
+
+### <a name="CommandsInteams.channels.messages">Commands in `az teams team-channel-message` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-channel-message create-hosted-content](#teams.channels.messagesCreateHostedContents)|CreateHostedContents|[Parameters](#Parametersteams.channels.messagesCreateHostedContents)|Not Found|
+|[az teams team-channel-message create-reply](#teams.channels.messagesCreateReplies)|CreateReplies|[Parameters](#Parametersteams.channels.messagesCreateReplies)|Not Found|
+|[az teams team-channel-message delete-hosted-content](#teams.channels.messagesDeleteHostedContents)|DeleteHostedContents|[Parameters](#Parametersteams.channels.messagesDeleteHostedContents)|Not Found|
+|[az teams team-channel-message delete-reply](#teams.channels.messagesDeleteReplies)|DeleteReplies|[Parameters](#Parametersteams.channels.messagesDeleteReplies)|Not Found|
+|[az teams team-channel-message delta](#teams.channels.messagesdelta)|delta|[Parameters](#Parametersteams.channels.messagesdelta)|Not Found|
+|[az teams team-channel-message list-hosted-content](#teams.channels.messagesListHostedContents)|ListHostedContents|[Parameters](#Parametersteams.channels.messagesListHostedContents)|Not Found|
+|[az teams team-channel-message list-reply](#teams.channels.messagesListReplies)|ListReplies|[Parameters](#Parametersteams.channels.messagesListReplies)|Not Found|
+|[az teams team-channel-message set-hosted-content-content](#teams.channels.messagesSetHostedContentsContent)|SetHostedContentsContent|[Parameters](#Parametersteams.channels.messagesSetHostedContentsContent)|Not Found|
+|[az teams team-channel-message show-hosted-content](#teams.channels.messagesGetHostedContents)|GetHostedContents|[Parameters](#Parametersteams.channels.messagesGetHostedContents)|Not Found|
+|[az teams team-channel-message show-hosted-content-content](#teams.channels.messagesGetHostedContentsContent)|GetHostedContentsContent|[Parameters](#Parametersteams.channels.messagesGetHostedContentsContent)|Not Found|
+|[az teams team-channel-message show-reply](#teams.channels.messagesGetReplies)|GetReplies|[Parameters](#Parametersteams.channels.messagesGetReplies)|Not Found|
+|[az teams team-channel-message update-hosted-content](#teams.channels.messagesUpdateHostedContents)|UpdateHostedContents|[Parameters](#Parametersteams.channels.messagesUpdateHostedContents)|Not Found|
+|[az teams team-channel-message update-reply](#teams.channels.messagesUpdateReplies)|UpdateReplies|[Parameters](#Parametersteams.channels.messagesUpdateReplies)|Not Found|
+
+### <a name="CommandsInteams.channels.messages.replies">Commands in `az teams team-channel-message-reply` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-channel-message-reply delta](#teams.channels.messages.repliesdelta)|delta|[Parameters](#Parametersteams.channels.messages.repliesdelta)|Not Found|
+
+### <a name="CommandsInteams.channels.tabs">Commands in `az teams team-channel-tab` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-channel-tab delete-ref-team-app](#teams.channels.tabsDeleteRefTeamsApp)|DeleteRefTeamsApp|[Parameters](#Parametersteams.channels.tabsDeleteRefTeamsApp)|Not Found|
+|[az teams team-channel-tab set-ref-team-app](#teams.channels.tabsSetRefTeamsApp)|SetRefTeamsApp|[Parameters](#Parametersteams.channels.tabsSetRefTeamsApp)|Not Found|
+|[az teams team-channel-tab show-ref-team-app](#teams.channels.tabsGetRefTeamsApp)|GetRefTeamsApp|[Parameters](#Parametersteams.channels.tabsGetRefTeamsApp)|Not Found|
+|[az teams team-channel-tab show-team-app](#teams.channels.tabsGetTeamsApp)|GetTeamsApp|[Parameters](#Parametersteams.channels.tabsGetTeamsApp)|Not Found|
+
+### <a name="CommandsInteams.installedApps">Commands in `az teams team-installed-app` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-installed-app delete-ref-team-app](#teams.installedAppsDeleteRefTeamsApp)|DeleteRefTeamsApp|[Parameters](#Parametersteams.installedAppsDeleteRefTeamsApp)|Not Found|
+|[az teams team-installed-app delete-ref-team-app-definition](#teams.installedAppsDeleteRefTeamsAppDefinition)|DeleteRefTeamsAppDefinition|[Parameters](#Parametersteams.installedAppsDeleteRefTeamsAppDefinition)|Not Found|
+|[az teams team-installed-app set-ref-team-app](#teams.installedAppsSetRefTeamsApp)|SetRefTeamsApp|[Parameters](#Parametersteams.installedAppsSetRefTeamsApp)|Not Found|
+|[az teams team-installed-app set-ref-team-app-definition](#teams.installedAppsSetRefTeamsAppDefinition)|SetRefTeamsAppDefinition|[Parameters](#Parametersteams.installedAppsSetRefTeamsAppDefinition)|Not Found|
+|[az teams team-installed-app show-ref-team-app](#teams.installedAppsGetRefTeamsApp)|GetRefTeamsApp|[Parameters](#Parametersteams.installedAppsGetRefTeamsApp)|Not Found|
+|[az teams team-installed-app show-ref-team-app-definition](#teams.installedAppsGetRefTeamsAppDefinition)|GetRefTeamsAppDefinition|[Parameters](#Parametersteams.installedAppsGetRefTeamsAppDefinition)|Not Found|
+|[az teams team-installed-app show-team-app](#teams.installedAppsGetTeamsApp)|GetTeamsApp|[Parameters](#Parametersteams.installedAppsGetTeamsApp)|Not Found|
+|[az teams team-installed-app show-team-app-definition](#teams.installedAppsGetTeamsAppDefinition)|GetTeamsAppDefinition|[Parameters](#Parametersteams.installedAppsGetTeamsAppDefinition)|Not Found|
+|[az teams team-installed-app upgrade](#teams.installedAppsupgrade)|upgrade|[Parameters](#Parametersteams.installedAppsupgrade)|Not Found|
+
+### <a name="CommandsInteams.members">Commands in `az teams team-member` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-member add](#teams.membersadd)|add|[Parameters](#Parametersteams.membersadd)|Not Found|
+
+### <a name="CommandsInteams.primaryChannel">Commands in `az teams team-primary-channel` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-primary-channel complete-migration](#teams.primaryChannelcompleteMigration)|completeMigration|[Parameters](#Parametersteams.primaryChannelcompleteMigration)|Not Found|
+|[az teams team-primary-channel create-member](#teams.primaryChannelCreateMembers)|CreateMembers|[Parameters](#Parametersteams.primaryChannelCreateMembers)|Not Found|
+|[az teams team-primary-channel create-message](#teams.primaryChannelCreateMessages)|CreateMessages|[Parameters](#Parametersteams.primaryChannelCreateMessages)|Not Found|
+|[az teams team-primary-channel create-tab](#teams.primaryChannelCreateTabs)|CreateTabs|[Parameters](#Parametersteams.primaryChannelCreateTabs)|Not Found|
+|[az teams team-primary-channel delete-file-folder](#teams.primaryChannelDeleteFilesFolder)|DeleteFilesFolder|[Parameters](#Parametersteams.primaryChannelDeleteFilesFolder)|Not Found|
+|[az teams team-primary-channel delete-member](#teams.primaryChannelDeleteMembers)|DeleteMembers|[Parameters](#Parametersteams.primaryChannelDeleteMembers)|Not Found|
+|[az teams team-primary-channel delete-message](#teams.primaryChannelDeleteMessages)|DeleteMessages|[Parameters](#Parametersteams.primaryChannelDeleteMessages)|Not Found|
+|[az teams team-primary-channel delete-tab](#teams.primaryChannelDeleteTabs)|DeleteTabs|[Parameters](#Parametersteams.primaryChannelDeleteTabs)|Not Found|
+|[az teams team-primary-channel list-member](#teams.primaryChannelListMembers)|ListMembers|[Parameters](#Parametersteams.primaryChannelListMembers)|Not Found|
+|[az teams team-primary-channel list-message](#teams.primaryChannelListMessages)|ListMessages|[Parameters](#Parametersteams.primaryChannelListMessages)|Not Found|
+|[az teams team-primary-channel list-tab](#teams.primaryChannelListTabs)|ListTabs|[Parameters](#Parametersteams.primaryChannelListTabs)|Not Found|
+|[az teams team-primary-channel set-file-folder-content](#teams.primaryChannelSetFilesFolderContent)|SetFilesFolderContent|[Parameters](#Parametersteams.primaryChannelSetFilesFolderContent)|Not Found|
+|[az teams team-primary-channel show-file-folder](#teams.primaryChannelGetFilesFolder)|GetFilesFolder|[Parameters](#Parametersteams.primaryChannelGetFilesFolder)|Not Found|
+|[az teams team-primary-channel show-file-folder-content](#teams.primaryChannelGetFilesFolderContent)|GetFilesFolderContent|[Parameters](#Parametersteams.primaryChannelGetFilesFolderContent)|Not Found|
+|[az teams team-primary-channel show-member](#teams.primaryChannelGetMembers)|GetMembers|[Parameters](#Parametersteams.primaryChannelGetMembers)|Not Found|
+|[az teams team-primary-channel show-message](#teams.primaryChannelGetMessages)|GetMessages|[Parameters](#Parametersteams.primaryChannelGetMessages)|Not Found|
+|[az teams team-primary-channel show-tab](#teams.primaryChannelGetTabs)|GetTabs|[Parameters](#Parametersteams.primaryChannelGetTabs)|Not Found|
+|[az teams team-primary-channel update-file-folder](#teams.primaryChannelUpdateFilesFolder)|UpdateFilesFolder|[Parameters](#Parametersteams.primaryChannelUpdateFilesFolder)|Not Found|
+|[az teams team-primary-channel update-member](#teams.primaryChannelUpdateMembers)|UpdateMembers|[Parameters](#Parametersteams.primaryChannelUpdateMembers)|Not Found|
+|[az teams team-primary-channel update-message](#teams.primaryChannelUpdateMessages)|UpdateMessages|[Parameters](#Parametersteams.primaryChannelUpdateMessages)|Not Found|
+|[az teams team-primary-channel update-tab](#teams.primaryChannelUpdateTabs)|UpdateTabs|[Parameters](#Parametersteams.primaryChannelUpdateTabs)|Not Found|
+
+### <a name="CommandsInteams.primaryChannel.members">Commands in `az teams team-primary-channel-member` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-primary-channel-member add](#teams.primaryChannel.membersadd)|add|[Parameters](#Parametersteams.primaryChannel.membersadd)|Not Found|
+
+### <a name="CommandsInteams.primaryChannel.messages">Commands in `az teams team-primary-channel-message` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-primary-channel-message create-hosted-content](#teams.primaryChannel.messagesCreateHostedContents)|CreateHostedContents|[Parameters](#Parametersteams.primaryChannel.messagesCreateHostedContents)|Not Found|
+|[az teams team-primary-channel-message create-reply](#teams.primaryChannel.messagesCreateReplies)|CreateReplies|[Parameters](#Parametersteams.primaryChannel.messagesCreateReplies)|Not Found|
+|[az teams team-primary-channel-message delete-hosted-content](#teams.primaryChannel.messagesDeleteHostedContents)|DeleteHostedContents|[Parameters](#Parametersteams.primaryChannel.messagesDeleteHostedContents)|Not Found|
+|[az teams team-primary-channel-message delete-reply](#teams.primaryChannel.messagesDeleteReplies)|DeleteReplies|[Parameters](#Parametersteams.primaryChannel.messagesDeleteReplies)|Not Found|
+|[az teams team-primary-channel-message delta](#teams.primaryChannel.messagesdelta)|delta|[Parameters](#Parametersteams.primaryChannel.messagesdelta)|Not Found|
+|[az teams team-primary-channel-message list-hosted-content](#teams.primaryChannel.messagesListHostedContents)|ListHostedContents|[Parameters](#Parametersteams.primaryChannel.messagesListHostedContents)|Not Found|
+|[az teams team-primary-channel-message list-reply](#teams.primaryChannel.messagesListReplies)|ListReplies|[Parameters](#Parametersteams.primaryChannel.messagesListReplies)|Not Found|
+|[az teams team-primary-channel-message set-hosted-content-content](#teams.primaryChannel.messagesSetHostedContentsContent)|SetHostedContentsContent|[Parameters](#Parametersteams.primaryChannel.messagesSetHostedContentsContent)|Not Found|
+|[az teams team-primary-channel-message show-hosted-content](#teams.primaryChannel.messagesGetHostedContents)|GetHostedContents|[Parameters](#Parametersteams.primaryChannel.messagesGetHostedContents)|Not Found|
+|[az teams team-primary-channel-message show-hosted-content-content](#teams.primaryChannel.messagesGetHostedContentsContent)|GetHostedContentsContent|[Parameters](#Parametersteams.primaryChannel.messagesGetHostedContentsContent)|Not Found|
+|[az teams team-primary-channel-message show-reply](#teams.primaryChannel.messagesGetReplies)|GetReplies|[Parameters](#Parametersteams.primaryChannel.messagesGetReplies)|Not Found|
+|[az teams team-primary-channel-message update-hosted-content](#teams.primaryChannel.messagesUpdateHostedContents)|UpdateHostedContents|[Parameters](#Parametersteams.primaryChannel.messagesUpdateHostedContents)|Not Found|
+|[az teams team-primary-channel-message update-reply](#teams.primaryChannel.messagesUpdateReplies)|UpdateReplies|[Parameters](#Parametersteams.primaryChannel.messagesUpdateReplies)|Not Found|
+
+### <a name="CommandsInteams.primaryChannel.messages.replies">Commands in `az teams team-primary-channel-message-reply` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-primary-channel-message-reply delta](#teams.primaryChannel.messages.repliesdelta)|delta|[Parameters](#Parametersteams.primaryChannel.messages.repliesdelta)|Not Found|
+
+### <a name="CommandsInteams.primaryChannel.tabs">Commands in `az teams team-primary-channel-tab` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-primary-channel-tab delete-ref-team-app](#teams.primaryChannel.tabsDeleteRefTeamsApp)|DeleteRefTeamsApp|[Parameters](#Parametersteams.primaryChannel.tabsDeleteRefTeamsApp)|Not Found|
+|[az teams team-primary-channel-tab set-ref-team-app](#teams.primaryChannel.tabsSetRefTeamsApp)|SetRefTeamsApp|[Parameters](#Parametersteams.primaryChannel.tabsSetRefTeamsApp)|Not Found|
+|[az teams team-primary-channel-tab show-ref-team-app](#teams.primaryChannel.tabsGetRefTeamsApp)|GetRefTeamsApp|[Parameters](#Parametersteams.primaryChannel.tabsGetRefTeamsApp)|Not Found|
+|[az teams team-primary-channel-tab show-team-app](#teams.primaryChannel.tabsGetTeamsApp)|GetTeamsApp|[Parameters](#Parametersteams.primaryChannel.tabsGetTeamsApp)|Not Found|
+
+### <a name="CommandsInteams.schedule">Commands in `az teams team-schedule` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-schedule create-offer-shift-request](#teams.scheduleCreateOfferShiftRequests)|CreateOfferShiftRequests|[Parameters](#Parametersteams.scheduleCreateOfferShiftRequests)|Not Found|
+|[az teams team-schedule create-open-shift](#teams.scheduleCreateOpenShifts)|CreateOpenShifts|[Parameters](#Parametersteams.scheduleCreateOpenShifts)|Not Found|
+|[az teams team-schedule create-open-shift-change-request](#teams.scheduleCreateOpenShiftChangeRequests)|CreateOpenShiftChangeRequests|[Parameters](#Parametersteams.scheduleCreateOpenShiftChangeRequests)|Not Found|
+|[az teams team-schedule create-scheduling-group](#teams.scheduleCreateSchedulingGroups)|CreateSchedulingGroups|[Parameters](#Parametersteams.scheduleCreateSchedulingGroups)|Not Found|
+|[az teams team-schedule create-shift](#teams.scheduleCreateShifts)|CreateShifts|[Parameters](#Parametersteams.scheduleCreateShifts)|Not Found|
+|[az teams team-schedule create-swap-shift-change-request](#teams.scheduleCreateSwapShiftsChangeRequests)|CreateSwapShiftsChangeRequests|[Parameters](#Parametersteams.scheduleCreateSwapShiftsChangeRequests)|Not Found|
+|[az teams team-schedule create-time-card](#teams.scheduleCreateTimeCards)|CreateTimeCards|[Parameters](#Parametersteams.scheduleCreateTimeCards)|Not Found|
+|[az teams team-schedule create-time-off](#teams.scheduleCreateTimesOff)|CreateTimesOff|[Parameters](#Parametersteams.scheduleCreateTimesOff)|Not Found|
+|[az teams team-schedule create-time-off-reason](#teams.scheduleCreateTimeOffReasons)|CreateTimeOffReasons|[Parameters](#Parametersteams.scheduleCreateTimeOffReasons)|Not Found|
+|[az teams team-schedule create-time-off-request](#teams.scheduleCreateTimeOffRequests)|CreateTimeOffRequests|[Parameters](#Parametersteams.scheduleCreateTimeOffRequests)|Not Found|
+|[az teams team-schedule delete-offer-shift-request](#teams.scheduleDeleteOfferShiftRequests)|DeleteOfferShiftRequests|[Parameters](#Parametersteams.scheduleDeleteOfferShiftRequests)|Not Found|
+|[az teams team-schedule delete-open-shift](#teams.scheduleDeleteOpenShifts)|DeleteOpenShifts|[Parameters](#Parametersteams.scheduleDeleteOpenShifts)|Not Found|
+|[az teams team-schedule delete-open-shift-change-request](#teams.scheduleDeleteOpenShiftChangeRequests)|DeleteOpenShiftChangeRequests|[Parameters](#Parametersteams.scheduleDeleteOpenShiftChangeRequests)|Not Found|
+|[az teams team-schedule delete-scheduling-group](#teams.scheduleDeleteSchedulingGroups)|DeleteSchedulingGroups|[Parameters](#Parametersteams.scheduleDeleteSchedulingGroups)|Not Found|
+|[az teams team-schedule delete-shift](#teams.scheduleDeleteShifts)|DeleteShifts|[Parameters](#Parametersteams.scheduleDeleteShifts)|Not Found|
+|[az teams team-schedule delete-swap-shift-change-request](#teams.scheduleDeleteSwapShiftsChangeRequests)|DeleteSwapShiftsChangeRequests|[Parameters](#Parametersteams.scheduleDeleteSwapShiftsChangeRequests)|Not Found|
+|[az teams team-schedule delete-time-card](#teams.scheduleDeleteTimeCards)|DeleteTimeCards|[Parameters](#Parametersteams.scheduleDeleteTimeCards)|Not Found|
+|[az teams team-schedule delete-time-off](#teams.scheduleDeleteTimesOff)|DeleteTimesOff|[Parameters](#Parametersteams.scheduleDeleteTimesOff)|Not Found|
+|[az teams team-schedule delete-time-off-reason](#teams.scheduleDeleteTimeOffReasons)|DeleteTimeOffReasons|[Parameters](#Parametersteams.scheduleDeleteTimeOffReasons)|Not Found|
+|[az teams team-schedule delete-time-off-request](#teams.scheduleDeleteTimeOffRequests)|DeleteTimeOffRequests|[Parameters](#Parametersteams.scheduleDeleteTimeOffRequests)|Not Found|
+|[az teams team-schedule list-offer-shift-request](#teams.scheduleListOfferShiftRequests)|ListOfferShiftRequests|[Parameters](#Parametersteams.scheduleListOfferShiftRequests)|Not Found|
+|[az teams team-schedule list-open-shift](#teams.scheduleListOpenShifts)|ListOpenShifts|[Parameters](#Parametersteams.scheduleListOpenShifts)|Not Found|
+|[az teams team-schedule list-open-shift-change-request](#teams.scheduleListOpenShiftChangeRequests)|ListOpenShiftChangeRequests|[Parameters](#Parametersteams.scheduleListOpenShiftChangeRequests)|Not Found|
+|[az teams team-schedule list-scheduling-group](#teams.scheduleListSchedulingGroups)|ListSchedulingGroups|[Parameters](#Parametersteams.scheduleListSchedulingGroups)|Not Found|
+|[az teams team-schedule list-shift](#teams.scheduleListShifts)|ListShifts|[Parameters](#Parametersteams.scheduleListShifts)|Not Found|
+|[az teams team-schedule list-swap-shift-change-request](#teams.scheduleListSwapShiftsChangeRequests)|ListSwapShiftsChangeRequests|[Parameters](#Parametersteams.scheduleListSwapShiftsChangeRequests)|Not Found|
+|[az teams team-schedule list-time-card](#teams.scheduleListTimeCards)|ListTimeCards|[Parameters](#Parametersteams.scheduleListTimeCards)|Not Found|
+|[az teams team-schedule list-time-off](#teams.scheduleListTimesOff)|ListTimesOff|[Parameters](#Parametersteams.scheduleListTimesOff)|Not Found|
+|[az teams team-schedule list-time-off-reason](#teams.scheduleListTimeOffReasons)|ListTimeOffReasons|[Parameters](#Parametersteams.scheduleListTimeOffReasons)|Not Found|
+|[az teams team-schedule list-time-off-request](#teams.scheduleListTimeOffRequests)|ListTimeOffRequests|[Parameters](#Parametersteams.scheduleListTimeOffRequests)|Not Found|
+|[az teams team-schedule share](#teams.scheduleshare)|share|[Parameters](#Parametersteams.scheduleshare)|Not Found|
+|[az teams team-schedule show-offer-shift-request](#teams.scheduleGetOfferShiftRequests)|GetOfferShiftRequests|[Parameters](#Parametersteams.scheduleGetOfferShiftRequests)|Not Found|
+|[az teams team-schedule show-open-shift](#teams.scheduleGetOpenShifts)|GetOpenShifts|[Parameters](#Parametersteams.scheduleGetOpenShifts)|Not Found|
+|[az teams team-schedule show-open-shift-change-request](#teams.scheduleGetOpenShiftChangeRequests)|GetOpenShiftChangeRequests|[Parameters](#Parametersteams.scheduleGetOpenShiftChangeRequests)|Not Found|
+|[az teams team-schedule show-scheduling-group](#teams.scheduleGetSchedulingGroups)|GetSchedulingGroups|[Parameters](#Parametersteams.scheduleGetSchedulingGroups)|Not Found|
+|[az teams team-schedule show-shift](#teams.scheduleGetShifts)|GetShifts|[Parameters](#Parametersteams.scheduleGetShifts)|Not Found|
+|[az teams team-schedule show-swap-shift-change-request](#teams.scheduleGetSwapShiftsChangeRequests)|GetSwapShiftsChangeRequests|[Parameters](#Parametersteams.scheduleGetSwapShiftsChangeRequests)|Not Found|
+|[az teams team-schedule show-time-card](#teams.scheduleGetTimeCards)|GetTimeCards|[Parameters](#Parametersteams.scheduleGetTimeCards)|Not Found|
+|[az teams team-schedule show-time-off](#teams.scheduleGetTimesOff)|GetTimesOff|[Parameters](#Parametersteams.scheduleGetTimesOff)|Not Found|
+|[az teams team-schedule show-time-off-reason](#teams.scheduleGetTimeOffReasons)|GetTimeOffReasons|[Parameters](#Parametersteams.scheduleGetTimeOffReasons)|Not Found|
+|[az teams team-schedule show-time-off-request](#teams.scheduleGetTimeOffRequests)|GetTimeOffRequests|[Parameters](#Parametersteams.scheduleGetTimeOffRequests)|Not Found|
+|[az teams team-schedule update-offer-shift-request](#teams.scheduleUpdateOfferShiftRequests)|UpdateOfferShiftRequests|[Parameters](#Parametersteams.scheduleUpdateOfferShiftRequests)|Not Found|
+|[az teams team-schedule update-open-shift](#teams.scheduleUpdateOpenShifts)|UpdateOpenShifts|[Parameters](#Parametersteams.scheduleUpdateOpenShifts)|Not Found|
+|[az teams team-schedule update-open-shift-change-request](#teams.scheduleUpdateOpenShiftChangeRequests)|UpdateOpenShiftChangeRequests|[Parameters](#Parametersteams.scheduleUpdateOpenShiftChangeRequests)|Not Found|
+|[az teams team-schedule update-scheduling-group](#teams.scheduleUpdateSchedulingGroups)|UpdateSchedulingGroups|[Parameters](#Parametersteams.scheduleUpdateSchedulingGroups)|Not Found|
+|[az teams team-schedule update-shift](#teams.scheduleUpdateShifts)|UpdateShifts|[Parameters](#Parametersteams.scheduleUpdateShifts)|Not Found|
+|[az teams team-schedule update-swap-shift-change-request](#teams.scheduleUpdateSwapShiftsChangeRequests)|UpdateSwapShiftsChangeRequests|[Parameters](#Parametersteams.scheduleUpdateSwapShiftsChangeRequests)|Not Found|
+|[az teams team-schedule update-time-card](#teams.scheduleUpdateTimeCards)|UpdateTimeCards|[Parameters](#Parametersteams.scheduleUpdateTimeCards)|Not Found|
+|[az teams team-schedule update-time-off](#teams.scheduleUpdateTimesOff)|UpdateTimesOff|[Parameters](#Parametersteams.scheduleUpdateTimesOff)|Not Found|
+|[az teams team-schedule update-time-off-reason](#teams.scheduleUpdateTimeOffReasons)|UpdateTimeOffReasons|[Parameters](#Parametersteams.scheduleUpdateTimeOffReasons)|Not Found|
+|[az teams team-schedule update-time-off-request](#teams.scheduleUpdateTimeOffRequests)|UpdateTimeOffRequests|[Parameters](#Parametersteams.scheduleUpdateTimeOffRequests)|Not Found|
+
+### <a name="CommandsInteams.schedule.timeCards">Commands in `az teams team-schedule-time-card` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams team-schedule-time-card clock-in](#teams.schedule.timeCardsclockIn)|clockIn|[Parameters](#Parametersteams.schedule.timeCardsclockIn)|Not Found|
+|[az teams team-schedule-time-card clock-out](#teams.schedule.timeCardsclockOut)|clockOut|[Parameters](#Parametersteams.schedule.timeCardsclockOut)|Not Found|
+|[az teams team-schedule-time-card confirm](#teams.schedule.timeCardsconfirm)|confirm|[Parameters](#Parametersteams.schedule.timeCardsconfirm)|Not Found|
+|[az teams team-schedule-time-card end-break](#teams.schedule.timeCardsendBreak)|endBreak|[Parameters](#Parametersteams.schedule.timeCardsendBreak)|Not Found|
+|[az teams team-schedule-time-card start-break](#teams.schedule.timeCardsstartBreak)|startBreak|[Parameters](#Parametersteams.schedule.timeCardsstartBreak)|Not Found|
+
+### <a name="CommandsInteamwork">Commands in `az teams teamwork` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams teamwork create-workforce-integration](#teamworkCreateWorkforceIntegrations)|CreateWorkforceIntegrations|[Parameters](#ParametersteamworkCreateWorkforceIntegrations)|Not Found|
+|[az teams teamwork delete-workforce-integration](#teamworkDeleteWorkforceIntegrations)|DeleteWorkforceIntegrations|[Parameters](#ParametersteamworkDeleteWorkforceIntegrations)|Not Found|
+|[az teams teamwork list-workforce-integration](#teamworkListWorkforceIntegrations)|ListWorkforceIntegrations|[Parameters](#ParametersteamworkListWorkforceIntegrations)|Not Found|
+|[az teams teamwork show-workforce-integration](#teamworkGetWorkforceIntegrations)|GetWorkforceIntegrations|[Parameters](#ParametersteamworkGetWorkforceIntegrations)|Not Found|
+|[az teams teamwork update-workforce-integration](#teamworkUpdateWorkforceIntegrations)|UpdateWorkforceIntegrations|[Parameters](#ParametersteamworkUpdateWorkforceIntegrations)|Not Found|
+
+### <a name="CommandsInteamwork.teamwork">Commands in `az teams teamwork-teamwork` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams teamwork-teamwork show-teamwork](#teamwork.teamworkGetTeamwork)|GetTeamwork|[Parameters](#Parametersteamwork.teamworkGetTeamwork)|Not Found|
+|[az teams teamwork-teamwork update-teamwork](#teamwork.teamworkUpdateTeamwork)|UpdateTeamwork|[Parameters](#Parametersteamwork.teamworkUpdateTeamwork)|Not Found|
+
+### <a name="CommandsInusers">Commands in `az teams user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams user create-chat](#usersCreateChats)|CreateChats|[Parameters](#ParametersusersCreateChats)|Not Found|
+|[az teams user create-joined-team](#usersCreateJoinedTeams)|CreateJoinedTeams|[Parameters](#ParametersusersCreateJoinedTeams)|Not Found|
+|[az teams user delete-chat](#usersDeleteChats)|DeleteChats|[Parameters](#ParametersusersDeleteChats)|Not Found|
+|[az teams user delete-joined-team](#usersDeleteJoinedTeams)|DeleteJoinedTeams|[Parameters](#ParametersusersDeleteJoinedTeams)|Not Found|
+|[az teams user delete-teamwork](#usersDeleteTeamwork)|DeleteTeamwork|[Parameters](#ParametersusersDeleteTeamwork)|Not Found|
+|[az teams user list-chat](#usersListChats)|ListChats|[Parameters](#ParametersusersListChats)|Not Found|
+|[az teams user list-joined-team](#usersListJoinedTeams)|ListJoinedTeams|[Parameters](#ParametersusersListJoinedTeams)|Not Found|
+|[az teams user show-chat](#usersGetChats)|GetChats|[Parameters](#ParametersusersGetChats)|Not Found|
+|[az teams user show-joined-team](#usersGetJoinedTeams)|GetJoinedTeams|[Parameters](#ParametersusersGetJoinedTeams)|Not Found|
+|[az teams user show-teamwork](#usersGetTeamwork)|GetTeamwork|[Parameters](#ParametersusersGetTeamwork)|Not Found|
+|[az teams user update-chat](#usersUpdateChats)|UpdateChats|[Parameters](#ParametersusersUpdateChats)|Not Found|
+|[az teams user update-joined-team](#usersUpdateJoinedTeams)|UpdateJoinedTeams|[Parameters](#ParametersusersUpdateJoinedTeams)|Not Found|
+|[az teams user update-teamwork](#usersUpdateTeamwork)|UpdateTeamwork|[Parameters](#ParametersusersUpdateTeamwork)|Not Found|
+
+### <a name="CommandsInusers.teamwork">Commands in `az teams user-teamwork` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams user-teamwork create-installed-app](#users.teamworkCreateInstalledApps)|CreateInstalledApps|[Parameters](#Parametersusers.teamworkCreateInstalledApps)|Not Found|
+|[az teams user-teamwork delete-installed-app](#users.teamworkDeleteInstalledApps)|DeleteInstalledApps|[Parameters](#Parametersusers.teamworkDeleteInstalledApps)|Not Found|
+|[az teams user-teamwork list-installed-app](#users.teamworkListInstalledApps)|ListInstalledApps|[Parameters](#Parametersusers.teamworkListInstalledApps)|Not Found|
+|[az teams user-teamwork show-installed-app](#users.teamworkGetInstalledApps)|GetInstalledApps|[Parameters](#Parametersusers.teamworkGetInstalledApps)|Not Found|
+|[az teams user-teamwork update-installed-app](#users.teamworkUpdateInstalledApps)|UpdateInstalledApps|[Parameters](#Parametersusers.teamworkUpdateInstalledApps)|Not Found|
+
+### <a name="CommandsInusers.teamwork.installedApps">Commands in `az teams user-teamwork-installed-app` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az teams user-teamwork-installed-app delete-ref-chat](#users.teamwork.installedAppsDeleteRefChat)|DeleteRefChat|[Parameters](#Parametersusers.teamwork.installedAppsDeleteRefChat)|Not Found|
+|[az teams user-teamwork-installed-app set-ref-chat](#users.teamwork.installedAppsSetRefChat)|SetRefChat|[Parameters](#Parametersusers.teamwork.installedAppsSetRefChat)|Not Found|
+|[az teams user-teamwork-installed-app show-chat](#users.teamwork.installedAppsGetChat)|GetChat|[Parameters](#Parametersusers.teamwork.installedAppsGetChat)|Not Found|
+|[az teams user-teamwork-installed-app show-ref-chat](#users.teamwork.installedAppsGetRefChat)|GetRefChat|[Parameters](#Parametersusers.teamwork.installedAppsGetRefChat)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az teams app-catalog`
+#### <a name="appCatalogsCreateTeamsApps">Command `az teams app-catalog create-team-app`</a>
+
+##### <a name="ParametersappCatalogsCreateTeamsApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -23,83 +480,35 @@ create-app a teams app-catalog.
 |**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
 |**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams app-catalog delete
+#### <a name="appCatalogsDeleteTeamsApps">Command `az teams app-catalog delete-team-app`</a>
 
-delete a teams app-catalog.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams app-catalog|appCatalogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteTeamsApps|
-
-#### Parameters
+##### <a name="ParametersappCatalogsDeleteTeamsApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams app-catalog get-app
+#### <a name="appCatalogsListTeamsApps">Command `az teams app-catalog list-team-app`</a>
 
-get-app a teams app-catalog.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams app-catalog|appCatalogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app|GetTeamsApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams app-catalog list-app
-
-list-app a teams app-catalog.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams app-catalog|appCatalogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-app|ListTeamsApps|
-
-#### Parameters
+##### <a name="ParametersappCatalogsListTeamsApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams app-catalog update-app
+#### <a name="appCatalogsGetTeamsApps">Command `az teams app-catalog show-team-app`</a>
 
-update-app a teams app-catalog.
+##### <a name="ParametersappCatalogsGetTeamsApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams app-catalog|appCatalogs|
+#### <a name="appCatalogsUpdateTeamsApps">Command `az teams app-catalog update-team-app`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-app|UpdateTeamsApps|
-
-#### Parameters
+##### <a name="ParametersappCatalogsUpdateTeamsApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
@@ -109,21 +518,10 @@ update-app a teams app-catalog.
 |**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
 |**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams app-catalog-team-app create-app-definition
+### group `az teams app-catalog-team-app`
+#### <a name="appCatalogs.teamsAppsCreateAppDefinitions">Command `az teams app-catalog-team-app create-app-definition`</a>
 
-create-app-definition a teams app-catalog-team-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams app-catalog-team-app|appCatalogs.teamsApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-app-definition|CreateAppDefinitions|
-
-#### Parameters
+##### <a name="ParametersappCatalogs.teamsAppsCreateAppDefinitions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
@@ -136,71 +534,22 @@ create-app-definition a teams app-catalog-team-app.
 |**--shortdescription**|string||shortdescription|shortdescription|
 |**--microsoft-graph-teams-app-definition-teams-app-id-teams-app-id**|string|The ID from the Teams app manifest.|microsoft_graph_teams_app_definition_teams_app_id_teams_app_id|teamsAppId|
 |**--version**|string|The version number of the application.|version|version|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams app-catalog-team-app delete
+#### <a name="appCatalogs.teamsAppsDeleteAppDefinitions">Command `az teams app-catalog-team-app delete-app-definition`</a>
 
-delete a teams app-catalog-team-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams app-catalog-team-app|appCatalogs.teamsApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAppDefinitions|
-
-#### Parameters
+##### <a name="ParametersappCatalogs.teamsAppsDeleteAppDefinitions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
 |**--teams-app-definition-id**|string|key: id of teamsAppDefinition|teams_app_definition_id|teamsAppDefinition-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams app-catalog-team-app get-app-definition
+#### <a name="appCatalogs.teamsAppsListAppDefinitions">Command `az teams app-catalog-team-app list-app-definition`</a>
 
-get-app-definition a teams app-catalog-team-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams app-catalog-team-app|appCatalogs.teamsApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app-definition|GetAppDefinitions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
-|**--teams-app-definition-id**|string|key: id of teamsAppDefinition|teams_app_definition_id|teamsAppDefinition-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams app-catalog-team-app list-app-definition
-
-list-app-definition a teams app-catalog-team-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams app-catalog-team-app|appCatalogs.teamsApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-app-definition|ListAppDefinitions|
-
-#### Parameters
+##### <a name="ParametersappCatalogs.teamsAppsListAppDefinitions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
@@ -208,21 +557,19 @@ list-app-definition a teams app-catalog-team-app.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams app-catalog-team-app update-app-definition
+#### <a name="appCatalogs.teamsAppsGetAppDefinitions">Command `az teams app-catalog-team-app show-app-definition`</a>
 
-update-app-definition a teams app-catalog-team-app.
+##### <a name="ParametersappCatalogs.teamsAppsGetAppDefinitions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
+|**--teams-app-definition-id**|string|key: id of teamsAppDefinition|teams_app_definition_id|teamsAppDefinition-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams app-catalog-team-app|appCatalogs.teamsApps|
+#### <a name="appCatalogs.teamsAppsUpdateAppDefinitions">Command `az teams app-catalog-team-app update-app-definition`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-app-definition|UpdateAppDefinitions|
-
-#### Parameters
+##### <a name="ParametersappCatalogs.teamsAppsUpdateAppDefinitions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--teams-app-id**|string|key: id of teamsApp|teams_app_id|teamsApp-id|
@@ -236,86 +583,44 @@ update-app-definition a teams app-catalog-team-app.
 |**--shortdescription**|string||shortdescription|shortdescription|
 |**--microsoft-graph-teams-app-definition-teams-app-id-teams-app-id**|string|The ID from the Teams app manifest.|microsoft_graph_teams_app_definition_teams_app_id_teams_app_id|teamsAppId|
 |**--version**|string|The version number of the application.|version|version|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams chat all-message
+### group `az teams chat`
+#### <a name="chatsallMessages">Command `az teams chat all-message`</a>
 
-all-message a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|all-message|allMessages|
-
-#### Parameters
+##### <a name="ParameterschatsallMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+#### <a name="chatsCreateInstalledApps">Command `az teams chat create-installed-app`</a>
 
-### teams chat create-installed-app
-
-create-installed-app a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-installed-app|CreateInstalledApps|
-
-#### Parameters
+##### <a name="ParameterschatsCreateInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--id**|string|Read-only.|id|id|
-|**--teams-app-definition-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-definition-azure-adapp-id**|string||azure_ad_app_id|azureADAppId|
-|**--teams-app-definition-description**|string||description|description|
-|**--teams-app-definition-display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
-|**--teams-app-definition-last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
-|**--teams-app-definition-publishing-state**|choice||publishing_state|publishingState|
-|**--teams-app-definition-shortdescription**|string||shortdescription|shortdescription|
-|**--teams-app-definition-teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
-|**--teams-app-definition-version**|string|The version number of the application.|version|version|
-|**--teams-app-definition-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--teams-app-definition-created-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--teams-app-definition-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--teams-app-definition-created-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--teams-app-definition-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--teams-app-definition-created-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--teams-app-id**|string|Read-only.|id3|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--azure-ad-app-id**|string||azure_ad_app_id|azureADAppId|
+|**--description**|string||description|description|
+|**--display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
+|**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--publishing-state**|choice||publishing_state|publishingState|
+|**--shortdescription**|string||shortdescription|shortdescription|
+|**--teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
+|**--version**|string|The version number of the application.|version|version|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--id1**|string|Read-only.|id1|id|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams chat create-member
+#### <a name="chatsCreateMembers">Command `az teams chat create-member`</a>
 
-create-member a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-member|CreateMembers|
-
-#### Parameters
+##### <a name="ParameterschatsCreateMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -323,21 +628,9 @@ create-member a teams chat.
 |**--display-name**|string|The display name of the user.|display_name|displayName|
 |**--roles**|array|The roles for that user.|roles|roles|
 
-### teams chat create-message
+#### <a name="chatsCreateMessages">Command `az teams chat create-message`</a>
 
-create-message a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-message|CreateMessages|
-
-#### Parameters
+##### <a name="ParameterschatsCreateMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -362,33 +655,18 @@ create-message a teams chat.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams chat create-tab
+#### <a name="chatsCreateTabs">Command `az teams chat create-tab`</a>
 
-create-tab a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-tab|CreateTabs|
-
-#### Parameters
+##### <a name="ParameterschatsCreateTabs">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -400,159 +678,50 @@ create-tab a teams chat.
 |**--teams-app-id**|string||teams_app_id|teamsAppId|
 |**--web-url**|string|Deep link URL of the tab instance. Read only.|web_url|webUrl|
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams chat delete
+#### <a name="chatsDeleteInstalledApps">Command `az teams chat delete-installed-app`</a>
 
-delete a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteInstalledApps|
-|delete|DeleteMembers|
-|delete|DeleteMessages|
-|delete|DeleteTabs|
-
-#### Parameters
+##### <a name="ParameterschatsDeleteInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="chatsDeleteMembers">Command `az teams chat delete-member`</a>
+
+##### <a name="ParameterschatsDeleteMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="chatsDeleteMessages">Command `az teams chat delete-message`</a>
+
+##### <a name="ParameterschatsDeleteMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="chatsDeleteTabs">Command `az teams chat delete-tab`</a>
+
+##### <a name="ParameterschatsDeleteTabs">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams chat get-all-message
+#### <a name="chatsListInstalledApps">Command `az teams chat list-installed-app`</a>
 
-get-all-message a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-all-message|getAllMessages|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-
-### teams chat get-installed-app
-
-get-installed-app a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-installed-app|GetInstalledApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams chat get-member
-
-get-member a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-member|GetMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams chat get-message
-
-get-message a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-message|GetMessages|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams chat get-tab
-
-get-tab a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-tab|GetTabs|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams chat list-installed-app
-
-list-installed-app a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-installed-app|ListInstalledApps|
-
-#### Parameters
+##### <a name="ParameterschatsListInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -560,21 +729,9 @@ list-installed-app a teams chat.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams chat list-member
+#### <a name="chatsListMembers">Command `az teams chat list-member`</a>
 
-list-member a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-member|ListMembers|
-
-#### Parameters
+##### <a name="ParameterschatsListMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -582,21 +739,9 @@ list-member a teams chat.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams chat list-message
+#### <a name="chatsListMessages">Command `az teams chat list-message`</a>
 
-list-message a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-message|ListMessages|
-
-#### Parameters
+##### <a name="ParameterschatsListMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -604,21 +749,9 @@ list-message a teams chat.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams chat list-tab
+#### <a name="chatsListTabs">Command `az teams chat list-tab`</a>
 
-list-tab a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-tab|ListTabs|
-
-#### Parameters
+##### <a name="ParameterschatsListTabs">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -626,21 +759,9 @@ list-tab a teams chat.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams chat send-activity-notification
+#### <a name="chatssendActivityNotification">Command `az teams chat send-activity-notification`</a>
 
-send-activity-notification a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|send-activity-notification|sendActivityNotification|
-
-#### Parameters
+##### <a name="ParameterschatssendActivityNotification">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -651,62 +772,80 @@ send-activity-notification a teams chat.
 |**--template-parameters**|array||template_parameters|templateParameters|
 |**--recipient**|dictionary|teamworkNotificationRecipient|recipient|recipient|
 
-### teams chat update-installed-app
+#### <a name="chatsgetAllMessages">Command `az teams chat show-all-message`</a>
 
-update-installed-app a teams chat.
+##### <a name="ParameterschatsgetAllMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="chatsGetInstalledApps">Command `az teams chat show-installed-app`</a>
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
+##### <a name="ParameterschatsGetInstalledApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-installed-app|UpdateInstalledApps|
+#### <a name="chatsGetMembers">Command `az teams chat show-member`</a>
 
-#### Parameters
+##### <a name="ParameterschatsGetMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="chatsGetMessages">Command `az teams chat show-message`</a>
+
+##### <a name="ParameterschatsGetMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="chatsGetTabs">Command `az teams chat show-tab`</a>
+
+##### <a name="ParameterschatsGetTabs">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="chatsUpdateInstalledApps">Command `az teams chat update-installed-app`</a>
+
+##### <a name="ParameterschatsUpdateInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
 |**--id**|string|Read-only.|id|id|
-|**--teams-app-definition-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-definition-azure-adapp-id**|string||azure_ad_app_id|azureADAppId|
-|**--teams-app-definition-description**|string||description|description|
-|**--teams-app-definition-display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
-|**--teams-app-definition-last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
-|**--teams-app-definition-publishing-state**|choice||publishing_state|publishingState|
-|**--teams-app-definition-shortdescription**|string||shortdescription|shortdescription|
-|**--teams-app-definition-teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
-|**--teams-app-definition-version**|string|The version number of the application.|version|version|
-|**--teams-app-definition-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--teams-app-definition-created-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--teams-app-definition-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--teams-app-definition-created-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--teams-app-definition-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--teams-app-definition-created-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--teams-app-id**|string|Read-only.|id3|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--azure-ad-app-id**|string||azure_ad_app_id|azureADAppId|
+|**--description**|string||description|description|
+|**--display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
+|**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--publishing-state**|choice||publishing_state|publishingState|
+|**--shortdescription**|string||shortdescription|shortdescription|
+|**--teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
+|**--version**|string|The version number of the application.|version|version|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--id1**|string|Read-only.|id1|id|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams chat update-member
+#### <a name="chatsUpdateMembers">Command `az teams chat update-member`</a>
 
-update-member a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-member|UpdateMembers|
-
-#### Parameters
+##### <a name="ParameterschatsUpdateMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -715,21 +854,9 @@ update-member a teams chat.
 |**--display-name**|string|The display name of the user.|display_name|displayName|
 |**--roles**|array|The roles for that user.|roles|roles|
 
-### teams chat update-message
+#### <a name="chatsUpdateMessages">Command `az teams chat update-message`</a>
 
-update-message a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-message|UpdateMessages|
-
-#### Parameters
+##### <a name="ParameterschatsUpdateMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -755,33 +882,18 @@ update-message a teams chat.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams chat update-tab
+#### <a name="chatsUpdateTabs">Command `az teams chat update-tab`</a>
 
-update-tab a teams chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat|chats|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-tab|UpdateTabs|
-
-#### Parameters
+##### <a name="ParameterschatsUpdateTabs">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -794,26 +906,15 @@ update-tab a teams chat.
 |**--teams-app-id**|string||teams_app_id|teamsAppId|
 |**--web-url**|string|Deep link URL of the tab instance. Read only.|web_url|webUrl|
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams chat-chat create-chat
+### group `az teams chat-chat`
+#### <a name="chats.chatCreateChat">Command `az teams chat-chat create-chat`</a>
 
-create-chat a teams chat-chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-chat|chats.chat|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-chat|CreateChat|
-
-#### Parameters
+##### <a name="Parameterschats.chatCreateChat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -825,83 +926,35 @@ create-chat a teams chat-chat.
 |**--messages**|array||messages|messages|
 |**--tabs**|array||tabs|tabs|
 
-### teams chat-chat delete
+#### <a name="chats.chatDeleteChat">Command `az teams chat-chat delete-chat`</a>
 
-delete a teams chat-chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-chat|chats.chat|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteChat|
-
-#### Parameters
+##### <a name="Parameterschats.chatDeleteChat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams chat-chat get-chat
+#### <a name="chats.chatListChat">Command `az teams chat-chat list-chat`</a>
 
-get-chat a teams chat-chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-chat|chats.chat|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-chat|GetChat|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams chat-chat list-chat
-
-list-chat a teams chat-chat.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-chat|chats.chat|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-chat|ListChat|
-
-#### Parameters
+##### <a name="Parameterschats.chatListChat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams chat-chat update-chat
+#### <a name="chats.chatGetChat">Command `az teams chat-chat show-chat`</a>
 
-update-chat a teams chat-chat.
+##### <a name="Parameterschats.chatGetChat">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-chat|chats.chat|
+#### <a name="chats.chatUpdateChat">Command `az teams chat-chat update-chat`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-chat|UpdateChat|
-
-#### Parameters
+##### <a name="Parameterschats.chatUpdateChat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -914,43 +967,62 @@ update-chat a teams chat-chat.
 |**--messages**|array||messages|messages|
 |**--tabs**|array||tabs|tabs|
 
-### teams chat-installed-app delete
+### group `az teams chat-installed-app`
+#### <a name="chats.installedAppsDeleteRefTeamsApp">Command `az teams chat-installed-app delete-ref-team-app`</a>
 
-delete a teams chat-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-installed-app|chats.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefTeamsApp|
-|delete|DeleteRefTeamsAppDefinition|
-
-#### Parameters
+##### <a name="Parameterschats.installedAppsDeleteRefTeamsApp">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams chat-installed-app get-app
+#### <a name="chats.installedAppsDeleteRefTeamsAppDefinition">Command `az teams chat-installed-app delete-ref-team-app-definition`</a>
 
-get-app a teams chat-installed-app.
+##### <a name="Parameterschats.installedAppsDeleteRefTeamsAppDefinition">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-installed-app|chats.installedApps|
+#### <a name="chats.installedAppsSetRefTeamsApp">Command `az teams chat-installed-app set-ref-team-app`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app|GetTeamsApp|
+##### <a name="Parameterschats.installedAppsSetRefTeamsApp">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
-#### Parameters
+#### <a name="chats.installedAppsSetRefTeamsAppDefinition">Command `az teams chat-installed-app set-ref-team-app-definition`</a>
+
+##### <a name="Parameterschats.installedAppsSetRefTeamsAppDefinition">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
+
+#### <a name="chats.installedAppsGetRefTeamsApp">Command `az teams chat-installed-app show-ref-team-app`</a>
+
+##### <a name="Parameterschats.installedAppsGetRefTeamsApp">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+
+#### <a name="chats.installedAppsGetRefTeamsAppDefinition">Command `az teams chat-installed-app show-ref-team-app-definition`</a>
+
+##### <a name="Parameterschats.installedAppsGetRefTeamsAppDefinition">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+
+#### <a name="chats.installedAppsGetTeamsApp">Command `az teams chat-installed-app show-team-app`</a>
+
+##### <a name="Parameterschats.installedAppsGetTeamsApp">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -958,21 +1030,9 @@ get-app a teams chat-installed-app.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams chat-installed-app get-app-definition
+#### <a name="chats.installedAppsGetTeamsAppDefinition">Command `az teams chat-installed-app show-team-app-definition`</a>
 
-get-app-definition a teams chat-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-installed-app|chats.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app-definition|GetTeamsAppDefinition|
-
-#### Parameters
+##### <a name="Parameterschats.installedAppsGetTeamsAppDefinition">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -980,143 +1040,27 @@ get-app-definition a teams chat-installed-app.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams chat-installed-app get-ref-team-app
+#### <a name="chats.installedAppsupgrade">Command `az teams chat-installed-app upgrade`</a>
 
-get-ref-team-app a teams chat-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-installed-app|chats.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-team-app|GetRefTeamsApp|
-
-#### Parameters
+##### <a name="Parameterschats.installedAppsupgrade">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
 
-### teams chat-installed-app get-ref-team-app-definition
+### group `az teams chat-member`
+#### <a name="chats.membersadd">Command `az teams chat-member add`</a>
 
-get-ref-team-app-definition a teams chat-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-installed-app|chats.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-team-app-definition|GetRefTeamsAppDefinition|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
-
-### teams chat-installed-app set-ref-team-app
-
-set-ref-team-app a teams chat-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-installed-app|chats.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-team-app|SetRefTeamsApp|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### teams chat-installed-app set-ref-team-app-definition
-
-set-ref-team-app-definition a teams chat-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-installed-app|chats.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-team-app-definition|SetRefTeamsAppDefinition|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### teams chat-installed-app upgrade
-
-upgrade a teams chat-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-installed-app|chats.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|upgrade|upgrade|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
-
-### teams chat-member add
-
-add a teams chat-member.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-member|chats.members|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|add|add|
-
-#### Parameters
+##### <a name="Parameterschats.membersadd">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--values**|array||values|values|
 
-### teams chat-message create-hosted-content
+### group `az teams chat-message`
+#### <a name="chats.messagesCreateHostedContents">Command `az teams chat-message create-hosted-content`</a>
 
-create-hosted-content a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-hosted-content|CreateHostedContents|
-
-#### Parameters
+##### <a name="Parameterschats.messagesCreateHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -1125,21 +1069,9 @@ create-hosted-content a teams chat-message.
 |**--content-bytes**|byte-array||content_bytes|contentBytes|
 |**--content-type**|string||content_type|contentType|
 
-### teams chat-message create-reply
+#### <a name="chats.messagesCreateReplies">Command `az teams chat-message create-reply`</a>
 
-create-reply a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-reply|CreateReplies|
-
-#### Parameters
+##### <a name="Parameterschats.messagesCreateReplies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -1165,143 +1097,45 @@ create-reply a teams chat-message.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams chat-message delete
+#### <a name="chats.messagesDeleteHostedContents">Command `az teams chat-message delete-hosted-content`</a>
 
-delete a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteHostedContents|
-|delete|DeleteReplies|
-
-#### Parameters
+##### <a name="Parameterschats.messagesDeleteHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
 |**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="chats.messagesDeleteReplies">Command `az teams chat-message delete-reply`</a>
+
+##### <a name="Parameterschats.messagesDeleteReplies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
 |**--chat-message-id1**|string|key: id of chatMessage|chat_message_id1|chatMessage-id1|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams chat-message delta
+#### <a name="chats.messagesdelta">Command `az teams chat-message delta`</a>
 
-delta a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delta|delta|
-
-#### Parameters
+##### <a name="Parameterschats.messagesdelta">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 
-### teams chat-message get-hosted-content
+#### <a name="chats.messagesListHostedContents">Command `az teams chat-message list-hosted-content`</a>
 
-get-hosted-content a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-hosted-content|GetHostedContents|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams chat-message get-hosted-content-content
-
-get-hosted-content-content a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-hosted-content-content|GetHostedContentsContent|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
-
-### teams chat-message get-reply
-
-get-reply a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-reply|GetReplies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--chat-message-id1**|string|key: id of chatMessage|chat_message_id1|chatMessage-id1|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams chat-message list-hosted-content
-
-list-hosted-content a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-hosted-content|ListHostedContents|
-
-#### Parameters
+##### <a name="Parameterschats.messagesListHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -1310,21 +1144,9 @@ list-hosted-content a teams chat-message.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams chat-message list-reply
+#### <a name="chats.messagesListReplies">Command `az teams chat-message list-reply`</a>
 
-list-reply a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-reply|ListReplies|
-
-#### Parameters
+##### <a name="Parameterschats.messagesListReplies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -1333,21 +1155,9 @@ list-reply a teams chat-message.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams chat-message set-hosted-content-content
+#### <a name="chats.messagesSetHostedContentsContent">Command `az teams chat-message set-hosted-content-content`</a>
 
-set-hosted-content-content a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-hosted-content-content|SetHostedContentsContent|
-
-#### Parameters
+##### <a name="Parameterschats.messagesSetHostedContentsContent">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -1355,21 +1165,40 @@ set-hosted-content-content a teams chat-message.
 |**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
 |**--data**|binary|New media content.|data|data|
 
-### teams chat-message update-hosted-content
+#### <a name="chats.messagesGetHostedContents">Command `az teams chat-message show-hosted-content`</a>
 
-update-hosted-content a teams chat-message.
+##### <a name="Parameterschats.messagesGetHostedContents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
+#### <a name="chats.messagesGetHostedContentsContent">Command `az teams chat-message show-hosted-content-content`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-hosted-content|UpdateHostedContents|
+##### <a name="Parameterschats.messagesGetHostedContentsContent">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
 
-#### Parameters
+#### <a name="chats.messagesGetReplies">Command `az teams chat-message show-reply`</a>
+
+##### <a name="Parameterschats.messagesGetReplies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-id1**|string|key: id of chatMessage|chat_message_id1|chatMessage-id1|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="chats.messagesUpdateHostedContents">Command `az teams chat-message update-hosted-content`</a>
+
+##### <a name="Parameterschats.messagesUpdateHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -1379,21 +1208,9 @@ update-hosted-content a teams chat-message.
 |**--content-bytes**|byte-array||content_bytes|contentBytes|
 |**--content-type**|string||content_type|contentType|
 
-### teams chat-message update-reply
+#### <a name="chats.messagesUpdateReplies">Command `az teams chat-message update-reply`</a>
 
-update-reply a teams chat-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message|chats.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-reply|UpdateReplies|
-
-#### Parameters
+##### <a name="Parameterschats.messagesUpdateReplies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
@@ -1420,178 +1237,82 @@ update-reply a teams chat-message.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams chat-message-reply delta
+### group `az teams chat-message-reply`
+#### <a name="chats.messages.repliesdelta">Command `az teams chat-message-reply delta`</a>
 
-delta a teams chat-message-reply.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-message-reply|chats.messages.replies|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delta|delta|
-
-#### Parameters
+##### <a name="Parameterschats.messages.repliesdelta">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
 
-### teams chat-tab delete
+### group `az teams chat-tab`
+#### <a name="chats.tabsDeleteRefTeamsApp">Command `az teams chat-tab delete-ref-team-app`</a>
 
-delete a teams chat-tab.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-tab|chats.tabs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefTeamsApp|
-
-#### Parameters
+##### <a name="Parameterschats.tabsDeleteRefTeamsApp">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams chat-tab get-app
+#### <a name="chats.tabsSetRefTeamsApp">Command `az teams chat-tab set-ref-team-app`</a>
 
-get-app a teams chat-tab.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-tab|chats.tabs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app|GetTeamsApp|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams chat-tab get-ref-team-app
-
-get-ref-team-app a teams chat-tab.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-tab|chats.tabs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-team-app|GetRefTeamsApp|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--chat-id**|string|key: id of chat|chat_id|chat-id|
-|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
-
-### teams chat-tab set-ref-team-app
-
-set-ref-team-app a teams chat-tab.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams chat-tab|chats.tabs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-team-app|SetRefTeamsApp|
-
-#### Parameters
+##### <a name="Parameterschats.tabsSetRefTeamsApp">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
 |**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
 |**--body**|dictionary|New navigation property ref values|body|body|
 
-### teams group delete
+#### <a name="chats.tabsGetRefTeamsApp">Command `az teams chat-tab show-ref-team-app`</a>
 
-delete a teams group.
+##### <a name="Parameterschats.tabsGetRefTeamsApp">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams group|groups|
+#### <a name="chats.tabsGetTeamsApp">Command `az teams chat-tab show-team-app`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteTeam|
+##### <a name="Parameterschats.tabsGetTeamsApp">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+### group `az teams group`
+#### <a name="groupsDeleteTeam">Command `az teams group delete-team`</a>
+
+##### <a name="ParametersgroupsDeleteTeam">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--group-id**|string|key: id of group|group_id|group-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams group get
+#### <a name="groupsGetTeam">Command `az teams group show-team`</a>
 
-get a teams group.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams group|groups|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get|GetTeam|
-
-#### Parameters
+##### <a name="ParametersgroupsGetTeam">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--group-id**|string|key: id of group|group_id|group-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams group update
+#### <a name="groupsUpdateTeam">Command `az teams group update-team`</a>
 
-update a teams group.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams group|groups|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update|UpdateTeam|
-
-#### Parameters
+##### <a name="ParametersgroupsUpdateTeam">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--group-id**|string|key: id of group|group_id|group-id|
@@ -1618,84 +1339,134 @@ update a teams group.
 |**--owners**|array||owners|owners|
 |**--photo**|object|profilePhoto|photo|photo|
 |**--primary-channel**|object|channel|primary_channel|primaryChannel|
-|**--template-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--schedule-id**|string|Read-only.|id1|id|
-|**--schedule-enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
-|**--schedule-offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
-|**--schedule-open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
-|**--schedule-provision-status**|choice||provision_status|provisionStatus|
-|**--schedule-provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
-|**--schedule-swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
-|**--schedule-time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
-|**--schedule-time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
-|**--schedule-time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
-|**--schedule-workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
-|**--schedule-offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
-|**--schedule-open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
-|**--schedule-open-shifts**|array||open_shifts|openShifts|
-|**--schedule-scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
-|**--schedule-shifts**|array|The shifts in the schedule.|shifts|shifts|
-|**--schedule-swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
-|**--schedule-time-cards**|array||time_cards|timeCards|
-|**--schedule-time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
-|**--schedule-time-off-requests**|array||time_off_requests|timeOffRequests|
-|**--schedule-times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
-|**--schedule-time-clock-settings-approved-location**|object|geoCoordinates|approved_location|approvedLocation|
-|**--discovery-settings-show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--id1**|string|Read-only.|id1|id|
+|**--enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
+|**--offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
+|**--open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
+|**--provision-status**|choice||provision_status|provisionStatus|
+|**--provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
+|**--swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
+|**--time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
+|**--time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
+|**--time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
+|**--workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
+|**--offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
+|**--open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
+|**--open-shifts**|array||open_shifts|openShifts|
+|**--scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
+|**--shifts**|array|The shifts in the schedule.|shifts|shifts|
+|**--swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
+|**--time-cards**|array||time_cards|timeCards|
+|**--time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
+|**--time-off-requests**|array||time_off_requests|timeOffRequests|
+|**--times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
+|**--approved-location**|object|geoCoordinates|approved_location|approvedLocation|
+|**--show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
 
-### teams team all-message
+### group `az teams team`
+#### <a name="teams.teamListTeam">Command `az teams team list`</a>
 
-all-message a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|all-message|allMessages|
-
-#### Parameters
+##### <a name="Parametersteams.teamListTeam">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team archive
+#### <a name="teams.teamUpdateTeam">Command `az teams team create`</a>
 
-archive a teams team.
+##### <a name="Parametersteams.teamUpdateTeam">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--id**|string|Read-only.|id|id|
+|**--classification**|string|An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.|classification|classification|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--description**|string|An optional description for the team.|description|description|
+|**--display-name**|string|The name of the team.|display_name|displayName|
+|**--fun-settings**|object|teamFunSettings|fun_settings|funSettings|
+|**--guest-settings**|object|teamGuestSettings|guest_settings|guestSettings|
+|**--internal-id**|string|A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.|internal_id|internalId|
+|**--is-archived**|boolean|Whether this team is in read-only mode.|is_archived|isArchived|
+|**--is-membership-limited-to-owners**|boolean||is_membership_limited_to_owners|isMembershipLimitedToOwners|
+|**--member-settings**|object|teamMemberSettings|member_settings|memberSettings|
+|**--messaging-settings**|object|teamMessagingSettings|messaging_settings|messagingSettings|
+|**--specialization**|choice||specialization|specialization|
+|**--visibility**|choice||visibility|visibility|
+|**--web-url**|string|A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.|web_url|webUrl|
+|**--channels**|array|The collection of channels & messages associated with the team.|channels|channels|
+|**--group**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|group|group|
+|**--installed-apps**|array|The apps installed in this team.|installed_apps|installedApps|
+|**--members**|array|Members and owners of the team.|members|members|
+|**--operations**|array|The async operations that ran or are running on this team.|operations|operations|
+|**--owners**|array||owners|owners|
+|**--photo**|object|profilePhoto|photo|photo|
+|**--primary-channel**|object|channel|primary_channel|primaryChannel|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--id1**|string|Read-only.|id1|id|
+|**--enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
+|**--offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
+|**--open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
+|**--provision-status**|choice||provision_status|provisionStatus|
+|**--provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
+|**--swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
+|**--time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
+|**--time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
+|**--time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
+|**--workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
+|**--offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
+|**--open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
+|**--open-shifts**|array||open_shifts|openShifts|
+|**--scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
+|**--shifts**|array|The shifts in the schedule.|shifts|shifts|
+|**--swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
+|**--time-cards**|array||time_cards|timeCards|
+|**--time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
+|**--time-off-requests**|array||time_off_requests|timeOffRequests|
+|**--times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
+|**--approved-location**|object|geoCoordinates|approved_location|approvedLocation|
+|**--show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
+#### <a name="teams.teamCreateTeam">Command `az teams team create`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|archive|archive|
+##### <a name="Parametersteams.teamCreateTeam">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="teams.teamDeleteTeam">Command `az teams team delete-team`</a>
 
-#### Parameters
+##### <a name="Parametersteams.teamDeleteTeam">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.teamGetTeam">Command `az teams team show-team`</a>
+
+##### <a name="Parametersteams.teamGetTeam">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### group `az teams team`
+#### <a name="teamsallMessages">Command `az teams team all-message`</a>
+
+##### <a name="ParametersteamsallMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="teamsarchive">Command `az teams team archive`</a>
+
+##### <a name="Parametersteamsarchive">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--should-set-spo-site-read-only-for-members**|boolean||should_set_spo_site_read_only_for_members|shouldSetSpoSiteReadOnlyForMembers|
 
-### teams team clone
+#### <a name="teamsclone">Command `az teams team clone`</a>
 
-clone a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|clone|clone|
-
-#### Parameters
+##### <a name="Parametersteamsclone">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -1706,105 +1477,16 @@ clone a teams team.
 |**--visibility**|choice||visibility|visibility|
 |**--parts-to-clone**|choice||parts_to_clone|partsToClone|
 
-### teams team complete-migration
+#### <a name="teamscompleteMigration">Command `az teams team complete-migration`</a>
 
-complete-migration a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|complete-migration|completeMigration|
-
-#### Parameters
+##### <a name="ParametersteamscompleteMigration">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 
-### teams team create
+#### <a name="teamsCreateChannels">Command `az teams team create-channel`</a>
 
-create a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams.team|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create|CreateTeam|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--classification**|string|An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.|classification|classification|
-|**--created-date-time**|date-time||created_date_time|createdDateTime|
-|**--description**|string|An optional description for the team.|description|description|
-|**--display-name**|string|The name of the team.|display_name|displayName|
-|**--fun-settings**|object|teamFunSettings|fun_settings|funSettings|
-|**--guest-settings**|object|teamGuestSettings|guest_settings|guestSettings|
-|**--internal-id**|string|A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.|internal_id|internalId|
-|**--is-archived**|boolean|Whether this team is in read-only mode.|is_archived|isArchived|
-|**--is-membership-limited-to-owners**|boolean||is_membership_limited_to_owners|isMembershipLimitedToOwners|
-|**--member-settings**|object|teamMemberSettings|member_settings|memberSettings|
-|**--messaging-settings**|object|teamMessagingSettings|messaging_settings|messagingSettings|
-|**--specialization**|choice||specialization|specialization|
-|**--visibility**|choice||visibility|visibility|
-|**--web-url**|string|A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.|web_url|webUrl|
-|**--channels**|array|The collection of channels & messages associated with the team.|channels|channels|
-|**--group**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|group|group|
-|**--installed-apps**|array|The apps installed in this team.|installed_apps|installedApps|
-|**--members**|array|Members and owners of the team.|members|members|
-|**--operations**|array|The async operations that ran or are running on this team.|operations|operations|
-|**--owners**|array||owners|owners|
-|**--photo**|object|profilePhoto|photo|photo|
-|**--primary-channel**|object|channel|primary_channel|primaryChannel|
-|**--template-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--schedule-id**|string|Read-only.|id1|id|
-|**--schedule-enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
-|**--schedule-offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
-|**--schedule-open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
-|**--schedule-provision-status**|choice||provision_status|provisionStatus|
-|**--schedule-provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
-|**--schedule-swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
-|**--schedule-time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
-|**--schedule-time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
-|**--schedule-time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
-|**--schedule-workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
-|**--schedule-offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
-|**--schedule-open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
-|**--schedule-open-shifts**|array||open_shifts|openShifts|
-|**--schedule-scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
-|**--schedule-shifts**|array|The shifts in the schedule.|shifts|shifts|
-|**--schedule-swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
-|**--schedule-time-cards**|array||time_cards|timeCards|
-|**--schedule-time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
-|**--schedule-time-off-requests**|array||time_off_requests|timeOffRequests|
-|**--schedule-times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
-|**--schedule-time-clock-settings-approved-location**|object|geoCoordinates|approved_location|approvedLocation|
-|**--discovery-settings-show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
-
-### teams team create-channel
-
-create-channel a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-channel|CreateChannels|
-
-#### Parameters
+##### <a name="ParametersteamsCreateChannels">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -1822,61 +1504,34 @@ create-channel a teams team.
 |**--messages**|array|A collection of all the messages in the channel. A navigation property. Nullable.|messages|messages|
 |**--tabs**|array|A collection of all the tabs in the channel. A navigation property.|tabs|tabs|
 
-### teams team create-installed-app
+#### <a name="teamsCreateInstalledApps">Command `az teams team create-installed-app`</a>
 
-create-installed-app a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-installed-app|CreateInstalledApps|
-
-#### Parameters
+##### <a name="ParametersteamsCreateInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
-|**--teams-app-definition-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-definition-azure-adapp-id**|string||azure_ad_app_id|azureADAppId|
-|**--teams-app-definition-description**|string||description|description|
-|**--teams-app-definition-display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
-|**--teams-app-definition-last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
-|**--teams-app-definition-publishing-state**|choice||publishing_state|publishingState|
-|**--teams-app-definition-shortdescription**|string||shortdescription|shortdescription|
-|**--teams-app-definition-teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
-|**--teams-app-definition-version**|string|The version number of the application.|version|version|
-|**--teams-app-definition-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--teams-app-definition-created-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--teams-app-definition-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--teams-app-definition-created-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--teams-app-definition-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--teams-app-definition-created-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--teams-app-id**|string|Read-only.|id3|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--azure-ad-app-id**|string||azure_ad_app_id|azureADAppId|
+|**--description**|string||description|description|
+|**--display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
+|**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--publishing-state**|choice||publishing_state|publishingState|
+|**--shortdescription**|string||shortdescription|shortdescription|
+|**--teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
+|**--version**|string|The version number of the application.|version|version|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--id1**|string|Read-only.|id1|id|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams team create-member
+#### <a name="teamsCreateMembers">Command `az teams team create-member`</a>
 
-create-member a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-member|CreateMembers|
-
-#### Parameters
+##### <a name="ParametersteamsCreateMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -1884,21 +1539,9 @@ create-member a teams team.
 |**--display-name**|string|The display name of the user.|display_name|displayName|
 |**--roles**|array|The roles for that user.|roles|roles|
 
-### teams team create-operation
+#### <a name="teamsCreateOperations">Command `az teams team create-operation`</a>
 
-create-operation a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-operation|CreateOperations|
-
-#### Parameters
+##### <a name="ParametersteamsCreateOperations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -1912,383 +1555,93 @@ create-operation a teams team.
 |**--target-resource-id**|string|The ID of the object that's created or modified as result of this async operation, typically a team.|target_resource_id|targetResourceId|
 |**--target-resource-location**|string|The location of the object that's created or modified as result of this async operation. This URL should be treated as an opaque value and not parsed into its component paths.|target_resource_location|targetResourceLocation|
 
-### teams team create-ref-owner
+#### <a name="teamsCreateRefOwners">Command `az teams team create-ref-owner`</a>
 
-create-ref-owner a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-owner|CreateRefOwners|
-
-#### Parameters
+##### <a name="ParametersteamsCreateRefOwners">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### teams team delete
+#### <a name="teamsDeleteChannels">Command `az teams team delete-channel`</a>
 
-delete a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteChannels|
-|delete|DeleteInstalledApps|
-|delete|DeleteMembers|
-|delete|DeleteOperations|
-|delete|DeleteRefGroup|
-|delete|DeletePhoto|
-|delete|DeletePrimaryChannel|
-|delete|DeleteSchedule|
-|delete|DeleteRefTemplate|
-
-#### Parameters
+##### <a name="ParametersteamsDeleteChannels">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teamsDeleteInstalledApps">Command `az teams team delete-installed-app`</a>
+
+##### <a name="ParametersteamsDeleteInstalledApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teamsDeleteMembers">Command `az teams team delete-member`</a>
+
+##### <a name="ParametersteamsDeleteMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teamsDeleteOperations">Command `az teams team delete-operation`</a>
+
+##### <a name="ParametersteamsDeleteOperations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--teams-async-operation-id**|string|key: id of teamsAsyncOperation|teams_async_operation_id|teamsAsyncOperation-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team get
+#### <a name="teamsDeletePhoto">Command `az teams team delete-photo`</a>
 
-get a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams.team|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get|GetTeam|
-
-#### Parameters
+##### <a name="ParametersteamsDeletePhoto">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team get-all-message
+#### <a name="teamsDeletePrimaryChannel">Command `az teams team delete-primary-channel`</a>
 
-get-all-message a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-all-message|getAllMessages|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-
-### teams team get-channel
-
-get-channel a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-channel|GetChannels|
-
-#### Parameters
+##### <a name="ParametersteamsDeletePrimaryChannel">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team get-group
+#### <a name="teamsDeleteRefGroup">Command `az teams team delete-ref-group`</a>
 
-get-group a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-group|GetGroup|
-
-#### Parameters
+##### <a name="ParametersteamsDeleteRefGroup">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team get-installed-app
+#### <a name="teamsDeleteRefTemplate">Command `az teams team delete-ref-template`</a>
 
-get-installed-app a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-installed-app|GetInstalledApps|
-
-#### Parameters
+##### <a name="ParametersteamsDeleteRefTemplate">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team get-member
+#### <a name="teamsDeleteSchedule">Command `az teams team delete-schedule`</a>
 
-get-member a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-member|GetMembers|
-
-#### Parameters
+##### <a name="ParametersteamsDeleteSchedule">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
-|**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team get-operation
+#### <a name="teamsListChannels">Command `az teams team list-channel`</a>
 
-get-operation a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-operation|GetOperations|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-async-operation-id**|string|key: id of teamsAsyncOperation|teams_async_operation_id|teamsAsyncOperation-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team get-photo
-
-get-photo a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-photo|GetPhoto|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team get-photo-content
-
-get-photo-content a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-photo-content|GetPhotoContent|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-
-### teams team get-primary-channel
-
-get-primary-channel a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-primary-channel|GetPrimaryChannel|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team get-ref-group
-
-get-ref-group a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-group|GetRefGroup|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-
-### teams team get-ref-template
-
-get-ref-template a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-template|GetRefTemplate|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-
-### teams team get-schedule
-
-get-schedule a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-schedule|GetSchedule|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team get-template
-
-get-template a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-template|GetTemplate|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team list
-
-list a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams.team|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list|ListTeam|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team list-channel
-
-list-channel a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-channel|ListChannels|
-
-#### Parameters
+##### <a name="ParametersteamsListChannels">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2296,21 +1649,9 @@ list-channel a teams team.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team list-installed-app
+#### <a name="teamsListInstalledApps">Command `az teams team list-installed-app`</a>
 
-list-installed-app a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-installed-app|ListInstalledApps|
-
-#### Parameters
+##### <a name="ParametersteamsListInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2318,21 +1659,9 @@ list-installed-app a teams team.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team list-member
+#### <a name="teamsListMembers">Command `az teams team list-member`</a>
 
-list-member a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-member|ListMembers|
-
-#### Parameters
+##### <a name="ParametersteamsListMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2340,21 +1669,9 @@ list-member a teams team.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team list-operation
+#### <a name="teamsListOperations">Command `az teams team list-operation`</a>
 
-list-operation a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-operation|ListOperations|
-
-#### Parameters
+##### <a name="ParametersteamsListOperations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2362,21 +1679,9 @@ list-operation a teams team.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team list-owner
+#### <a name="teamsListOwners">Command `az teams team list-owner`</a>
 
-list-owner a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-owner|ListOwners|
-
-#### Parameters
+##### <a name="ParametersteamsListOwners">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2384,41 +1689,17 @@ list-owner a teams team.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team list-ref-owner
+#### <a name="teamsListRefOwners">Command `az teams team list-ref-owner`</a>
 
-list-ref-owner a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-owner|ListRefOwners|
-
-#### Parameters
+##### <a name="ParametersteamsListRefOwners">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 
-### teams team send-activity-notification
+#### <a name="teamssendActivityNotification">Command `az teams team send-activity-notification`</a>
 
-send-activity-notification a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|send-activity-notification|sendActivityNotification|
-
-#### Parameters
+##### <a name="ParametersteamssendActivityNotification">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2429,166 +1710,151 @@ send-activity-notification a teams team.
 |**--template-parameters**|array||template_parameters|templateParameters|
 |**--recipient**|dictionary|teamworkNotificationRecipient|recipient|recipient|
 
-### teams team set-photo-content
+#### <a name="teamsSetPhotoContent">Command `az teams team set-photo-content`</a>
 
-set-photo-content a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-photo-content|SetPhotoContent|
-
-#### Parameters
+##### <a name="ParametersteamsSetPhotoContent">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--data**|binary|New media content.|data|data|
 
-### teams team set-ref-group
+#### <a name="teamsSetRefGroup">Command `az teams team set-ref-group`</a>
 
-set-ref-group a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-group|SetRefGroup|
-
-#### Parameters
+##### <a name="ParametersteamsSetRefGroup">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--body**|dictionary|New navigation property ref values|body|body|
 
-### teams team set-ref-template
+#### <a name="teamsSetRefTemplate">Command `az teams team set-ref-template`</a>
 
-set-ref-template a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-template|SetRefTemplate|
-
-#### Parameters
+##### <a name="ParametersteamsSetRefTemplate">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--body**|dictionary|New navigation property ref values|body|body|
 
-### teams team unarchive
+#### <a name="teamsgetAllMessages">Command `az teams team show-all-message`</a>
 
-unarchive a teams team.
+##### <a name="ParametersteamsgetAllMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="teamsGetChannels">Command `az teams team show-channel`</a>
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
+##### <a name="ParametersteamsGetChannels">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|unarchive|unarchive|
+#### <a name="teamsGetGroup">Command `az teams team show-group`</a>
 
-#### Parameters
+##### <a name="ParametersteamsGetGroup">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teamsGetInstalledApps">Command `az teams team show-installed-app`</a>
+
+##### <a name="ParametersteamsGetInstalledApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teamsGetMembers">Command `az teams team show-member`</a>
+
+##### <a name="ParametersteamsGetMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teamsGetOperations">Command `az teams team show-operation`</a>
+
+##### <a name="ParametersteamsGetOperations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--teams-async-operation-id**|string|key: id of teamsAsyncOperation|teams_async_operation_id|teamsAsyncOperation-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teamsGetPhoto">Command `az teams team show-photo`</a>
+
+##### <a name="ParametersteamsGetPhoto">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teamsGetPhotoContent">Command `az teams team show-photo-content`</a>
+
+##### <a name="ParametersteamsGetPhotoContent">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 
-### teams team update
+#### <a name="teamsGetPrimaryChannel">Command `az teams team show-primary-channel`</a>
 
-update a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams.team|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update|UpdateTeam|
-
-#### Parameters
+##### <a name="ParametersteamsGetPrimaryChannel">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
-|**--id**|string|Read-only.|id|id|
-|**--classification**|string|An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.|classification|classification|
-|**--created-date-time**|date-time||created_date_time|createdDateTime|
-|**--description**|string|An optional description for the team.|description|description|
-|**--display-name**|string|The name of the team.|display_name|displayName|
-|**--fun-settings**|object|teamFunSettings|fun_settings|funSettings|
-|**--guest-settings**|object|teamGuestSettings|guest_settings|guestSettings|
-|**--internal-id**|string|A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.|internal_id|internalId|
-|**--is-archived**|boolean|Whether this team is in read-only mode.|is_archived|isArchived|
-|**--is-membership-limited-to-owners**|boolean||is_membership_limited_to_owners|isMembershipLimitedToOwners|
-|**--member-settings**|object|teamMemberSettings|member_settings|memberSettings|
-|**--messaging-settings**|object|teamMessagingSettings|messaging_settings|messagingSettings|
-|**--specialization**|choice||specialization|specialization|
-|**--visibility**|choice||visibility|visibility|
-|**--web-url**|string|A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.|web_url|webUrl|
-|**--channels**|array|The collection of channels & messages associated with the team.|channels|channels|
-|**--group**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|group|group|
-|**--installed-apps**|array|The apps installed in this team.|installed_apps|installedApps|
-|**--members**|array|Members and owners of the team.|members|members|
-|**--operations**|array|The async operations that ran or are running on this team.|operations|operations|
-|**--owners**|array||owners|owners|
-|**--photo**|object|profilePhoto|photo|photo|
-|**--primary-channel**|object|channel|primary_channel|primaryChannel|
-|**--template-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--schedule-id**|string|Read-only.|id1|id|
-|**--schedule-enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
-|**--schedule-offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
-|**--schedule-open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
-|**--schedule-provision-status**|choice||provision_status|provisionStatus|
-|**--schedule-provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
-|**--schedule-swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
-|**--schedule-time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
-|**--schedule-time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
-|**--schedule-time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
-|**--schedule-workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
-|**--schedule-offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
-|**--schedule-open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
-|**--schedule-open-shifts**|array||open_shifts|openShifts|
-|**--schedule-scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
-|**--schedule-shifts**|array|The shifts in the schedule.|shifts|shifts|
-|**--schedule-swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
-|**--schedule-time-cards**|array||time_cards|timeCards|
-|**--schedule-time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
-|**--schedule-time-off-requests**|array||time_off_requests|timeOffRequests|
-|**--schedule-times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
-|**--schedule-time-clock-settings-approved-location**|object|geoCoordinates|approved_location|approvedLocation|
-|**--discovery-settings-show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team update-channel
+#### <a name="teamsGetRefGroup">Command `az teams team show-ref-group`</a>
 
-update-channel a teams team.
+##### <a name="ParametersteamsGetRefGroup">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
+#### <a name="teamsGetRefTemplate">Command `az teams team show-ref-template`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-channel|UpdateChannels|
+##### <a name="ParametersteamsGetRefTemplate">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 
-#### Parameters
+#### <a name="teamsGetSchedule">Command `az teams team show-schedule`</a>
+
+##### <a name="ParametersteamsGetSchedule">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teamsGetTemplate">Command `az teams team show-template`</a>
+
+##### <a name="ParametersteamsGetTemplate">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teamsunarchive">Command `az teams team unarchive`</a>
+
+##### <a name="Parametersteamsunarchive">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+
+#### <a name="teamsUpdateChannels">Command `az teams team update-channel`</a>
+
+##### <a name="ParametersteamsUpdateChannels">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2607,62 +1873,35 @@ update-channel a teams team.
 |**--messages**|array|A collection of all the messages in the channel. A navigation property. Nullable.|messages|messages|
 |**--tabs**|array|A collection of all the tabs in the channel. A navigation property.|tabs|tabs|
 
-### teams team update-installed-app
+#### <a name="teamsUpdateInstalledApps">Command `az teams team update-installed-app`</a>
 
-update-installed-app a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-installed-app|UpdateInstalledApps|
-
-#### Parameters
+##### <a name="ParametersteamsUpdateInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
 |**--id**|string|Read-only.|id|id|
-|**--teams-app-definition-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-definition-azure-adapp-id**|string||azure_ad_app_id|azureADAppId|
-|**--teams-app-definition-description**|string||description|description|
-|**--teams-app-definition-display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
-|**--teams-app-definition-last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
-|**--teams-app-definition-publishing-state**|choice||publishing_state|publishingState|
-|**--teams-app-definition-shortdescription**|string||shortdescription|shortdescription|
-|**--teams-app-definition-teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
-|**--teams-app-definition-version**|string|The version number of the application.|version|version|
-|**--teams-app-definition-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--teams-app-definition-created-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--teams-app-definition-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--teams-app-definition-created-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--teams-app-definition-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--teams-app-definition-created-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--teams-app-id**|string|Read-only.|id3|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--azure-ad-app-id**|string||azure_ad_app_id|azureADAppId|
+|**--description**|string||description|description|
+|**--display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
+|**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--publishing-state**|choice||publishing_state|publishingState|
+|**--shortdescription**|string||shortdescription|shortdescription|
+|**--teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
+|**--version**|string|The version number of the application.|version|version|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--id1**|string|Read-only.|id1|id|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams team update-member
+#### <a name="teamsUpdateMembers">Command `az teams team update-member`</a>
 
-update-member a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-member|UpdateMembers|
-
-#### Parameters
+##### <a name="ParametersteamsUpdateMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2671,21 +1910,9 @@ update-member a teams team.
 |**--display-name**|string|The display name of the user.|display_name|displayName|
 |**--roles**|array|The roles for that user.|roles|roles|
 
-### teams team update-operation
+#### <a name="teamsUpdateOperations">Command `az teams team update-operation`</a>
 
-update-operation a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-operation|UpdateOperations|
-
-#### Parameters
+##### <a name="ParametersteamsUpdateOperations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2700,21 +1927,9 @@ update-operation a teams team.
 |**--target-resource-id**|string|The ID of the object that's created or modified as result of this async operation, typically a team.|target_resource_id|targetResourceId|
 |**--target-resource-location**|string|The location of the object that's created or modified as result of this async operation. This URL should be treated as an opaque value and not parsed into its component paths.|target_resource_location|targetResourceLocation|
 
-### teams team update-photo
+#### <a name="teamsUpdatePhoto">Command `az teams team update-photo`</a>
 
-update-photo a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-photo|UpdatePhoto|
-
-#### Parameters
+##### <a name="ParametersteamsUpdatePhoto">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2722,21 +1937,9 @@ update-photo a teams team.
 |**--height**|integer|The height of the photo. Read-only.|height|height|
 |**--width**|integer|The width of the photo. Read-only.|width|width|
 
-### teams team update-primary-channel
+#### <a name="teamsUpdatePrimaryChannel">Command `az teams team update-primary-channel`</a>
 
-update-primary-channel a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-primary-channel|UpdatePrimaryChannel|
-
-#### Parameters
+##### <a name="ParametersteamsUpdatePrimaryChannel">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2754,21 +1957,9 @@ update-primary-channel a teams team.
 |**--messages**|array|A collection of all the messages in the channel. A navigation property. Nullable.|messages|messages|
 |**--tabs**|array|A collection of all the tabs in the channel. A navigation property.|tabs|tabs|
 
-### teams team update-schedule
+#### <a name="teamsUpdateSchedule">Command `az teams team update-schedule`</a>
 
-update-schedule a teams team.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team|teams|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-schedule|UpdateSchedule|
-
-#### Parameters
+##### <a name="ParametersteamsUpdateSchedule">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2793,62 +1984,27 @@ update-schedule a teams team.
 |**--time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
 |**--time-off-requests**|array||time_off_requests|timeOffRequests|
 |**--times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
-|**--time-clock-settings-approved-location**|object|geoCoordinates|approved_location|approvedLocation|
+|**--approved-location**|object|geoCoordinates|approved_location|approvedLocation|
 
-### teams team-channel all-message
+### group `az teams team-channel`
+#### <a name="teams.channelsallMessages">Command `az teams team-channel all-message`</a>
 
-all-message a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|all-message|allMessages|
-
-#### Parameters
+##### <a name="Parametersteams.channelsallMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 
-### teams team-channel complete-migration
+#### <a name="teams.channelscompleteMigration">Command `az teams team-channel complete-migration`</a>
 
-complete-migration a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|complete-migration|completeMigration|
-
-#### Parameters
+##### <a name="Parametersteams.channelscompleteMigration">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--channel-id**|string|key: id of channel|channel_id|channel-id|
 
-### teams team-channel create-member
+#### <a name="teams.channelsCreateMembers">Command `az teams team-channel create-member`</a>
 
-create-member a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-member|CreateMembers|
-
-#### Parameters
+##### <a name="Parametersteams.channelsCreateMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2857,21 +2013,9 @@ create-member a teams team-channel.
 |**--display-name**|string|The display name of the user.|display_name|displayName|
 |**--roles**|array|The roles for that user.|roles|roles|
 
-### teams team-channel create-message
+#### <a name="teams.channelsCreateMessages">Command `az teams team-channel create-message`</a>
 
-create-message a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-message|CreateMessages|
-
-#### Parameters
+##### <a name="Parametersteams.channelsCreateMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2897,33 +2041,18 @@ create-message a teams team-channel.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams team-channel create-tab
+#### <a name="teams.channelsCreateTabs">Command `az teams team-channel create-tab`</a>
 
-create-tab a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-tab|CreateTabs|
-
-#### Parameters
+##### <a name="Parametersteams.channelsCreateTabs">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -2936,164 +2065,53 @@ create-tab a teams team-channel.
 |**--teams-app-id**|string||teams_app_id|teamsAppId|
 |**--web-url**|string|Deep link URL of the tab instance. Read only.|web_url|webUrl|
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams team-channel delete
+#### <a name="teams.channelsDeleteFilesFolder">Command `az teams team-channel delete-file-folder`</a>
 
-delete a teams team-channel.
+##### <a name="Parametersteams.channelsDeleteFilesFolder">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
+#### <a name="teams.channelsDeleteMembers">Command `az teams team-channel delete-member`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteMembers|
-|delete|DeleteMessages|
-|delete|DeleteTabs|
-|delete|DeleteFilesFolder|
-
-#### Parameters
+##### <a name="Parametersteams.channelsDeleteMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--channel-id**|string|key: id of channel|channel_id|channel-id|
 |**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.channelsDeleteMessages">Command `az teams team-channel delete-message`</a>
+
+##### <a name="Parametersteams.channelsDeleteMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
 |**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.channelsDeleteTabs">Command `az teams team-channel delete-tab`</a>
+
+##### <a name="Parametersteams.channelsDeleteTabs">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
 |**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team-channel get-file-folder
+#### <a name="teams.channelsListMembers">Command `az teams team-channel list-member`</a>
 
-get-file-folder a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-file-folder|GetFilesFolder|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-channel get-file-folder-content
-
-get-file-folder-content a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-file-folder-content|GetFilesFolderContent|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-
-### teams team-channel get-member
-
-get-member a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-member|GetMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-|**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-channel get-message
-
-get-message a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-message|GetMessages|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-channel get-tab
-
-get-tab a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-tab|GetTabs|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-channel list-member
-
-list-member a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-member|ListMembers|
-
-#### Parameters
+##### <a name="Parametersteams.channelsListMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3102,21 +2120,9 @@ list-member a teams team-channel.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-channel list-message
+#### <a name="teams.channelsListMessages">Command `az teams team-channel list-message`</a>
 
-list-message a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-message|ListMessages|
-
-#### Parameters
+##### <a name="Parametersteams.channelsListMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3125,21 +2131,9 @@ list-message a teams team-channel.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-channel list-tab
+#### <a name="teams.channelsListTabs">Command `az teams team-channel list-tab`</a>
 
-list-tab a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-tab|ListTabs|
-
-#### Parameters
+##### <a name="Parametersteams.channelsListTabs">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3148,42 +2142,69 @@ list-tab a teams team-channel.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-channel set-file-folder-content
+#### <a name="teams.channelsSetFilesFolderContent">Command `az teams team-channel set-file-folder-content`</a>
 
-set-file-folder-content a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-file-folder-content|SetFilesFolderContent|
-
-#### Parameters
+##### <a name="Parametersteams.channelsSetFilesFolderContent">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--channel-id**|string|key: id of channel|channel_id|channel-id|
 |**--data**|binary|New media content.|data|data|
 
-### teams team-channel update-file-folder
+#### <a name="teams.channelsGetFilesFolder">Command `az teams team-channel show-file-folder`</a>
 
-update-file-folder a teams team-channel.
+##### <a name="Parametersteams.channelsGetFilesFolder">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
+#### <a name="teams.channelsGetFilesFolderContent">Command `az teams team-channel show-file-folder-content`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-file-folder|UpdateFilesFolder|
+##### <a name="Parametersteams.channelsGetFilesFolderContent">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
 
-#### Parameters
+#### <a name="teams.channelsGetMembers">Command `az teams team-channel show-member`</a>
+
+##### <a name="Parametersteams.channelsGetMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.channelsGetMessages">Command `az teams team-channel show-message`</a>
+
+##### <a name="Parametersteams.channelsGetMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.channelsGetTabs">Command `az teams team-channel show-tab`</a>
+
+##### <a name="Parametersteams.channelsGetTabs">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.channelsUpdateFilesFolder">Command `az teams team-channel update-file-folder`</a>
+
+##### <a name="Parametersteams.channelsUpdateFilesFolder">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3197,26 +2218,20 @@ update-file-folder a teams team-channel.
 |**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
 |**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
 |**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
-|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
-|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
-|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
-|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
-|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
-|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
-|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
-|**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--microsoft-graph-item-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--microsoft-graph-item-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--site-id**|string||site_id|siteId|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -3237,69 +2252,57 @@ update-file-folder a teams team-channel.
 |**--subscriptions**|array|The set of subscriptions on the item. Only supported on the root of a drive.|subscriptions|subscriptions|
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
-|**--analytics-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--analytics-all-time**|object|itemActivityStat|all_time|allTime|
-|**--analytics-item-activity-stats**|array||item_activity_stats|itemActivityStats|
-|**--analytics-last-seven-days**|object|itemActivityStat|last_seven_days|lastSevenDays|
-|**--workbook-id**|string|Read-only.|id6|id|
-|**--workbook-application**|object|workbookApplication|application|application|
-|**--workbook-comments**|array||comments|comments|
-|**--workbook-functions**|object|workbookFunctions|functions|functions|
-|**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
-|**--workbook-operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
-|**--workbook-tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
-|**--workbook-worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
-|**--special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
-|**--shared-owner**|object|identitySet|owner|owner|
-|**--shared-scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
-|**--shared-shared-by**|object|identitySet|shared_by|sharedBy|
-|**--shared-shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
-|**--search-result-on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
-|**--remote-item-created-by**|object|identitySet|created_by|createdBy|
-|**--remote-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
-|**--remote-item-file**|object|file|file|file|
-|**--remote-item-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
-|**--remote-item-folder**|object|folder|folder|folder|
-|**--remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
-|**--remote-item-image**|object|image|microsoft_graph_image|image|
-|**--remote-item-last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
-|**--remote-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
-|**--remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
-|**--remote-item-package**|object|package|package|package|
-|**--remote-item-parent-reference**|object|itemReference|parent_reference|parentReference|
-|**--remote-item-shared**|object|shared|shared|shared|
-|**--remote-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
-|**--remote-item-size**|integer|Size of the remote item. Read-only.|integer_size|size|
-|**--remote-item-special-folder**|object|specialFolder|special_folder|specialFolder|
-|**--remote-item-video**|object|video|microsoft_graph_video|video|
-|**--remote-item-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
-|**--remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
-|**--pending-operations-pending-content-update-queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
-|**--package-type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
-|**--folder-child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
-|**--folder-view**|object|folderView|view|view|
-|**--file-hashes**|object|hashes|hashes|hashes|
-|**--file-mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
-|**--file-processing-metadata**|boolean||processing_metadata|processingMetadata|
-|**--deleted-state**|string|Represents the state of the deleted item.|state|state|
-|**--bundle-album**|object|album|album|album|
-|**--bundle-child-count**|integer||integer_child_count|childCount|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--all-time**|object|itemActivityStat|all_time|allTime|
+|**--item-activity-stats**|array||item_activity_stats|itemActivityStats|
+|**--last-seven-days**|object|itemActivityStat|last_seven_days|lastSevenDays|
+|**--id1**|string|Read-only.|id1|id|
+|**--microsoft-graph-workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--comments**|array||comments|comments|
+|**--functions**|object|workbookFunctions|functions|functions|
+|**--names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
+|**--operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
+|**--tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
+|**--worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
+|**--microsoft-graph-special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
+|**--owner**|object|identitySet|owner|owner|
+|**--scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
+|**--shared-by**|object|identitySet|shared_by|sharedBy|
+|**--shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
+|**--on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
+|**--created-by**|object|identitySet|created_by|createdBy|
+|**--microsoft-graph-remote-item-created-date-time-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
+|**--file**|object|file|file|file|
+|**--microsoft-graph-file-system-info-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
+|**--folder**|object|folder|folder|folder|
+|**--microsoft-graph-remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
+|**--microsoft-graph-image**|object|image|microsoft_graph_image|image|
+|**--last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
+|**--microsoft-graph-remote-item-last-modified-date-time-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--microsoft-graph-remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
+|**--package**|object|package|package|package|
+|**--parent-reference**|object|itemReference|parent_reference|parentReference|
+|**--shared**|object|shared|shared|shared|
+|**--sharepoint-ids1**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--integer-size**|integer|Size of the remote item. Read-only.|integer_size|size|
+|**--special-folder**|object|specialFolder|special_folder|specialFolder|
+|**--microsoft-graph-video**|object|video|microsoft_graph_video|video|
+|**--microsoft-graph-remote-item-web-dav-url-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
+|**--microsoft-graph-remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
+|**--queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
+|**--type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
+|**--child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
+|**--view**|object|folderView|view|view|
+|**--hashes**|object|hashes|hashes|hashes|
+|**--mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
+|**--processing-metadata**|boolean||processing_metadata|processingMetadata|
+|**--state**|string|Represents the state of the deleted item.|state|state|
+|**--album**|object|album|album|album|
+|**--integer-child-count**|integer||integer_child_count|childCount|
 
-### teams team-channel update-member
+#### <a name="teams.channelsUpdateMembers">Command `az teams team-channel update-member`</a>
 
-update-member a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-member|UpdateMembers|
-
-#### Parameters
+##### <a name="Parametersteams.channelsUpdateMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3309,21 +2312,9 @@ update-member a teams team-channel.
 |**--display-name**|string|The display name of the user.|display_name|displayName|
 |**--roles**|array|The roles for that user.|roles|roles|
 
-### teams team-channel update-message
+#### <a name="teams.channelsUpdateMessages">Command `az teams team-channel update-message`</a>
 
-update-message a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-message|UpdateMessages|
-
-#### Parameters
+##### <a name="Parametersteams.channelsUpdateMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3350,33 +2341,18 @@ update-message a teams team-channel.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams team-channel update-tab
+#### <a name="teams.channelsUpdateTabs">Command `az teams team-channel update-tab`</a>
 
-update-tab a teams team-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel|teams.channels|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-tab|UpdateTabs|
-
-#### Parameters
+##### <a name="Parametersteams.channelsUpdateTabs">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3390,47 +2366,25 @@ update-tab a teams team-channel.
 |**--teams-app-id**|string||teams_app_id|teamsAppId|
 |**--web-url**|string|Deep link URL of the tab instance. Read only.|web_url|webUrl|
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams team-channel-member add
+### group `az teams team-channel-member`
+#### <a name="teams.channels.membersadd">Command `az teams team-channel-member add`</a>
 
-add a teams team-channel-member.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-member|teams.channels.members|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|add|add|
-
-#### Parameters
+##### <a name="Parametersteams.channels.membersadd">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--channel-id**|string|key: id of channel|channel_id|channel-id|
 |**--values**|array||values|values|
 
-### teams team-channel-message create-hosted-content
+### group `az teams team-channel-message`
+#### <a name="teams.channels.messagesCreateHostedContents">Command `az teams team-channel-message create-hosted-content`</a>
 
-create-hosted-content a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-hosted-content|CreateHostedContents|
-
-#### Parameters
+##### <a name="Parametersteams.channels.messagesCreateHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3440,21 +2394,9 @@ create-hosted-content a teams team-channel-message.
 |**--content-bytes**|byte-array||content_bytes|contentBytes|
 |**--content-type**|string||content_type|contentType|
 
-### teams team-channel-message create-reply
+#### <a name="teams.channels.messagesCreateReplies">Command `az teams team-channel-message create-reply`</a>
 
-create-reply a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-reply|CreateReplies|
-
-#### Parameters
+##### <a name="Parametersteams.channels.messagesCreateReplies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3481,148 +2423,48 @@ create-reply a teams team-channel-message.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams team-channel-message delete
+#### <a name="teams.channels.messagesDeleteHostedContents">Command `az teams team-channel-message delete-hosted-content`</a>
 
-delete a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteHostedContents|
-|delete|DeleteReplies|
-
-#### Parameters
+##### <a name="Parametersteams.channels.messagesDeleteHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--channel-id**|string|key: id of channel|channel_id|channel-id|
 |**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
 |**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.channels.messagesDeleteReplies">Command `az teams team-channel-message delete-reply`</a>
+
+##### <a name="Parametersteams.channels.messagesDeleteReplies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
 |**--chat-message-id1**|string|key: id of chatMessage|chat_message_id1|chatMessage-id1|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team-channel-message delta
+#### <a name="teams.channels.messagesdelta">Command `az teams team-channel-message delta`</a>
 
-delta a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delta|delta|
-
-#### Parameters
+##### <a name="Parametersteams.channels.messagesdelta">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--channel-id**|string|key: id of channel|channel_id|channel-id|
 
-### teams team-channel-message get-hosted-content
+#### <a name="teams.channels.messagesListHostedContents">Command `az teams team-channel-message list-hosted-content`</a>
 
-get-hosted-content a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-hosted-content|GetHostedContents|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-channel-message get-hosted-content-content
-
-get-hosted-content-content a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-hosted-content-content|GetHostedContentsContent|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
-
-### teams team-channel-message get-reply
-
-get-reply a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-reply|GetReplies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--chat-message-id1**|string|key: id of chatMessage|chat_message_id1|chatMessage-id1|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-channel-message list-hosted-content
-
-list-hosted-content a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-hosted-content|ListHostedContents|
-
-#### Parameters
+##### <a name="Parametersteams.channels.messagesListHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3632,21 +2474,9 @@ list-hosted-content a teams team-channel-message.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-channel-message list-reply
+#### <a name="teams.channels.messagesListReplies">Command `az teams team-channel-message list-reply`</a>
 
-list-reply a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-reply|ListReplies|
-
-#### Parameters
+##### <a name="Parametersteams.channels.messagesListReplies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3656,21 +2486,9 @@ list-reply a teams team-channel-message.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-channel-message set-hosted-content-content
+#### <a name="teams.channels.messagesSetHostedContentsContent">Command `az teams team-channel-message set-hosted-content-content`</a>
 
-set-hosted-content-content a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-hosted-content-content|SetHostedContentsContent|
-
-#### Parameters
+##### <a name="Parametersteams.channels.messagesSetHostedContentsContent">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3679,21 +2497,43 @@ set-hosted-content-content a teams team-channel-message.
 |**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
 |**--data**|binary|New media content.|data|data|
 
-### teams team-channel-message update-hosted-content
+#### <a name="teams.channels.messagesGetHostedContents">Command `az teams team-channel-message show-hosted-content`</a>
 
-update-hosted-content a teams team-channel-message.
+##### <a name="Parametersteams.channels.messagesGetHostedContents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
+#### <a name="teams.channels.messagesGetHostedContentsContent">Command `az teams team-channel-message show-hosted-content-content`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-hosted-content|UpdateHostedContents|
+##### <a name="Parametersteams.channels.messagesGetHostedContentsContent">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
 
-#### Parameters
+#### <a name="teams.channels.messagesGetReplies">Command `az teams team-channel-message show-reply`</a>
+
+##### <a name="Parametersteams.channels.messagesGetReplies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-id1**|string|key: id of chatMessage|chat_message_id1|chatMessage-id1|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.channels.messagesUpdateHostedContents">Command `az teams team-channel-message update-hosted-content`</a>
+
+##### <a name="Parametersteams.channels.messagesUpdateHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3704,21 +2544,9 @@ update-hosted-content a teams team-channel-message.
 |**--content-bytes**|byte-array||content_bytes|contentBytes|
 |**--content-type**|string||content_type|contentType|
 
-### teams team-channel-message update-reply
+#### <a name="teams.channels.messagesUpdateReplies">Command `az teams team-channel-message update-reply`</a>
 
-update-reply a teams team-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message|teams.channels.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-reply|UpdateReplies|
-
-#### Parameters
+##### <a name="Parametersteams.channels.messagesUpdateReplies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3746,54 +2574,29 @@ update-reply a teams team-channel-message.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams team-channel-message-reply delta
+### group `az teams team-channel-message-reply`
+#### <a name="teams.channels.messages.repliesdelta">Command `az teams team-channel-message-reply delta`</a>
 
-delta a teams team-channel-message-reply.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-message-reply|teams.channels.messages.replies|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delta|delta|
-
-#### Parameters
+##### <a name="Parametersteams.channels.messages.repliesdelta">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--channel-id**|string|key: id of channel|channel_id|channel-id|
 |**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
 
-### teams team-channel-tab delete
+### group `az teams team-channel-tab`
+#### <a name="teams.channels.tabsDeleteRefTeamsApp">Command `az teams team-channel-tab delete-ref-team-app`</a>
 
-delete a teams team-channel-tab.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-tab|teams.channels.tabs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefTeamsApp|
-
-#### Parameters
+##### <a name="Parametersteams.channels.tabsDeleteRefTeamsApp">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3801,21 +2604,28 @@ delete a teams team-channel-tab.
 |**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team-channel-tab get-app
+#### <a name="teams.channels.tabsSetRefTeamsApp">Command `az teams team-channel-tab set-ref-team-app`</a>
 
-get-app a teams team-channel-tab.
+##### <a name="Parametersteams.channels.tabsSetRefTeamsApp">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-tab|teams.channels.tabs|
+#### <a name="teams.channels.tabsGetRefTeamsApp">Command `az teams team-channel-tab show-ref-team-app`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app|GetTeamsApp|
+##### <a name="Parametersteams.channels.tabsGetRefTeamsApp">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--channel-id**|string|key: id of channel|channel_id|channel-id|
+|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
 
-#### Parameters
+#### <a name="teams.channels.tabsGetTeamsApp">Command `az teams team-channel-tab show-team-app`</a>
+
+##### <a name="Parametersteams.channels.tabsGetTeamsApp">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3824,86 +2634,62 @@ get-app a teams team-channel-tab.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-channel-tab get-ref-team-app
+### group `az teams team-installed-app`
+#### <a name="teams.installedAppsDeleteRefTeamsApp">Command `az teams team-installed-app delete-ref-team-app`</a>
 
-get-ref-team-app a teams team-channel-tab.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-tab|teams.channels.tabs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-team-app|GetRefTeamsApp|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
-
-### teams team-channel-tab set-ref-team-app
-
-set-ref-team-app a teams team-channel-tab.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-channel-tab|teams.channels.tabs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-team-app|SetRefTeamsApp|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--channel-id**|string|key: id of channel|channel_id|channel-id|
-|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### teams team-installed-app delete
-
-delete a teams team-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-installed-app|teams.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefTeamsApp|
-|delete|DeleteRefTeamsAppDefinition|
-
-#### Parameters
+##### <a name="Parametersteams.installedAppsDeleteRefTeamsApp">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team-installed-app get-app
+#### <a name="teams.installedAppsDeleteRefTeamsAppDefinition">Command `az teams team-installed-app delete-ref-team-app-definition`</a>
 
-get-app a teams team-installed-app.
+##### <a name="Parametersteams.installedAppsDeleteRefTeamsAppDefinition">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-installed-app|teams.installedApps|
+#### <a name="teams.installedAppsSetRefTeamsApp">Command `az teams team-installed-app set-ref-team-app`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app|GetTeamsApp|
+##### <a name="Parametersteams.installedAppsSetRefTeamsApp">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
-#### Parameters
+#### <a name="teams.installedAppsSetRefTeamsAppDefinition">Command `az teams team-installed-app set-ref-team-app-definition`</a>
+
+##### <a name="Parametersteams.installedAppsSetRefTeamsAppDefinition">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
+
+#### <a name="teams.installedAppsGetRefTeamsApp">Command `az teams team-installed-app show-ref-team-app`</a>
+
+##### <a name="Parametersteams.installedAppsGetRefTeamsApp">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+
+#### <a name="teams.installedAppsGetRefTeamsAppDefinition">Command `az teams team-installed-app show-ref-team-app-definition`</a>
+
+##### <a name="Parametersteams.installedAppsGetRefTeamsAppDefinition">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
+
+#### <a name="teams.installedAppsGetTeamsApp">Command `az teams team-installed-app show-team-app`</a>
+
+##### <a name="Parametersteams.installedAppsGetTeamsApp">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3911,21 +2697,9 @@ get-app a teams team-installed-app.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-installed-app get-app-definition
+#### <a name="teams.installedAppsGetTeamsAppDefinition">Command `az teams team-installed-app show-team-app-definition`</a>
 
-get-app-definition a teams team-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-installed-app|teams.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app-definition|GetTeamsAppDefinition|
-
-#### Parameters
+##### <a name="Parametersteams.installedAppsGetTeamsAppDefinition">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -3933,162 +2707,34 @@ get-app-definition a teams team-installed-app.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-installed-app get-ref-team-app
+#### <a name="teams.installedAppsupgrade">Command `az teams team-installed-app upgrade`</a>
 
-get-ref-team-app a teams team-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-installed-app|teams.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-team-app|GetRefTeamsApp|
-
-#### Parameters
+##### <a name="Parametersteams.installedAppsupgrade">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
 
-### teams team-installed-app get-ref-team-app-definition
+### group `az teams team-member`
+#### <a name="teams.membersadd">Command `az teams team-member add`</a>
 
-get-ref-team-app-definition a teams team-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-installed-app|teams.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-team-app-definition|GetRefTeamsAppDefinition|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
-
-### teams team-installed-app set-ref-team-app
-
-set-ref-team-app a teams team-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-installed-app|teams.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-team-app|SetRefTeamsApp|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### teams team-installed-app set-ref-team-app-definition
-
-set-ref-team-app-definition a teams team-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-installed-app|teams.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-team-app-definition|SetRefTeamsAppDefinition|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### teams team-installed-app upgrade
-
-upgrade a teams team-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-installed-app|teams.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|upgrade|upgrade|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-app-installation-id**|string|key: id of teamsAppInstallation|teams_app_installation_id|teamsAppInstallation-id|
-
-### teams team-member add
-
-add a teams team-member.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-member|teams.members|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|add|add|
-
-#### Parameters
+##### <a name="Parametersteams.membersadd">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--values**|array||values|values|
 
-### teams team-primary-channel complete-migration
+### group `az teams team-primary-channel`
+#### <a name="teams.primaryChannelcompleteMigration">Command `az teams team-primary-channel complete-migration`</a>
 
-complete-migration a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|complete-migration|completeMigration|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelcompleteMigration">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 
-### teams team-primary-channel create-member
+#### <a name="teams.primaryChannelCreateMembers">Command `az teams team-primary-channel create-member`</a>
 
-create-member a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-member|CreateMembers|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelCreateMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4096,21 +2742,9 @@ create-member a teams team-primary-channel.
 |**--display-name**|string|The display name of the user.|display_name|displayName|
 |**--roles**|array|The roles for that user.|roles|roles|
 
-### teams team-primary-channel create-message
+#### <a name="teams.primaryChannelCreateMessages">Command `az teams team-primary-channel create-message`</a>
 
-create-message a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-message|CreateMessages|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelCreateMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4135,33 +2769,18 @@ create-message a teams team-primary-channel.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams team-primary-channel create-tab
+#### <a name="teams.primaryChannelCreateTabs">Command `az teams team-primary-channel create-tab`</a>
 
-create-tab a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-tab|CreateTabs|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelCreateTabs">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4173,158 +2792,49 @@ create-tab a teams team-primary-channel.
 |**--teams-app-id**|string||teams_app_id|teamsAppId|
 |**--web-url**|string|Deep link URL of the tab instance. Read only.|web_url|webUrl|
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams team-primary-channel delete
+#### <a name="teams.primaryChannelDeleteFilesFolder">Command `az teams team-primary-channel delete-file-folder`</a>
 
-delete a teams team-primary-channel.
+##### <a name="Parametersteams.primaryChannelDeleteFilesFolder">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
+#### <a name="teams.primaryChannelDeleteMembers">Command `az teams team-primary-channel delete-member`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteMembers|
-|delete|DeleteMessages|
-|delete|DeleteTabs|
-|delete|DeleteFilesFolder|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelDeleteMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.primaryChannelDeleteMessages">Command `az teams team-primary-channel delete-message`</a>
+
+##### <a name="Parametersteams.primaryChannelDeleteMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.primaryChannelDeleteTabs">Command `az teams team-primary-channel delete-tab`</a>
+
+##### <a name="Parametersteams.primaryChannelDeleteTabs">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team-primary-channel get-file-folder
+#### <a name="teams.primaryChannelListMembers">Command `az teams team-primary-channel list-member`</a>
 
-get-file-folder a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-file-folder|GetFilesFolder|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-primary-channel get-file-folder-content
-
-get-file-folder-content a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-file-folder-content|GetFilesFolderContent|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-
-### teams team-primary-channel get-member
-
-get-member a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-member|GetMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-primary-channel get-message
-
-get-message a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-message|GetMessages|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-primary-channel get-tab
-
-get-tab a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-tab|GetTabs|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-primary-channel list-member
-
-list-member a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-member|ListMembers|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelListMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4332,21 +2842,9 @@ list-member a teams team-primary-channel.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-primary-channel list-message
+#### <a name="teams.primaryChannelListMessages">Command `az teams team-primary-channel list-message`</a>
 
-list-message a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-message|ListMessages|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelListMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4354,21 +2852,9 @@ list-message a teams team-primary-channel.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-primary-channel list-tab
+#### <a name="teams.primaryChannelListTabs">Command `az teams team-primary-channel list-tab`</a>
 
-list-tab a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-tab|ListTabs|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelListTabs">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4376,41 +2862,63 @@ list-tab a teams team-primary-channel.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-primary-channel set-file-folder-content
+#### <a name="teams.primaryChannelSetFilesFolderContent">Command `az teams team-primary-channel set-file-folder-content`</a>
 
-set-file-folder-content a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-file-folder-content|SetFilesFolderContent|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelSetFilesFolderContent">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--data**|binary|New media content.|data|data|
 
-### teams team-primary-channel update-file-folder
+#### <a name="teams.primaryChannelGetFilesFolder">Command `az teams team-primary-channel show-file-folder`</a>
 
-update-file-folder a teams team-primary-channel.
+##### <a name="Parametersteams.primaryChannelGetFilesFolder">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
+#### <a name="teams.primaryChannelGetFilesFolderContent">Command `az teams team-primary-channel show-file-folder-content`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-file-folder|UpdateFilesFolder|
+##### <a name="Parametersteams.primaryChannelGetFilesFolderContent">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 
-#### Parameters
+#### <a name="teams.primaryChannelGetMembers">Command `az teams team-primary-channel show-member`</a>
+
+##### <a name="Parametersteams.primaryChannelGetMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--conversation-member-id**|string|key: id of conversationMember|conversation_member_id|conversationMember-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.primaryChannelGetMessages">Command `az teams team-primary-channel show-message`</a>
+
+##### <a name="Parametersteams.primaryChannelGetMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.primaryChannelGetTabs">Command `az teams team-primary-channel show-tab`</a>
+
+##### <a name="Parametersteams.primaryChannelGetTabs">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.primaryChannelUpdateFilesFolder">Command `az teams team-primary-channel update-file-folder`</a>
+
+##### <a name="Parametersteams.primaryChannelUpdateFilesFolder">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4423,26 +2931,20 @@ update-file-folder a teams team-primary-channel.
 |**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
 |**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
 |**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
-|**--parent-reference-drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
-|**--parent-reference-drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
-|**--parent-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
-|**--parent-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
-|**--parent-reference-path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
-|**--parent-reference-share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
-|**--parent-reference-sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
-|**--parent-reference-site-id**|string||site_id|siteId|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--microsoft-graph-item-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--microsoft-graph-item-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--site-id**|string||site_id|siteId|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--audio**|object|audio|audio|audio|
 |**--content**|byte-array|The content stream, if the item represents a file.|content|content|
 |**--c-tag**|string|An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.|c_tag|cTag|
@@ -4463,69 +2965,57 @@ update-file-folder a teams team-primary-channel.
 |**--subscriptions**|array|The set of subscriptions on the item. Only supported on the root of a drive.|subscriptions|subscriptions|
 |**--thumbnails**|array|Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.|thumbnails|thumbnails|
 |**--versions**|array|The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.|versions|versions|
-|**--analytics-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--analytics-all-time**|object|itemActivityStat|all_time|allTime|
-|**--analytics-item-activity-stats**|array||item_activity_stats|itemActivityStats|
-|**--analytics-last-seven-days**|object|itemActivityStat|last_seven_days|lastSevenDays|
-|**--workbook-id**|string|Read-only.|id6|id|
-|**--workbook-application**|object|workbookApplication|application|application|
-|**--workbook-comments**|array||comments|comments|
-|**--workbook-functions**|object|workbookFunctions|functions|functions|
-|**--workbook-names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
-|**--workbook-operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
-|**--workbook-tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
-|**--workbook-worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
-|**--special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
-|**--shared-owner**|object|identitySet|owner|owner|
-|**--shared-scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
-|**--shared-shared-by**|object|identitySet|shared_by|sharedBy|
-|**--shared-shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
-|**--search-result-on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
-|**--remote-item-created-by**|object|identitySet|created_by|createdBy|
-|**--remote-item-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
-|**--remote-item-file**|object|file|file|file|
-|**--remote-item-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
-|**--remote-item-folder**|object|folder|folder|folder|
-|**--remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
-|**--remote-item-image**|object|image|microsoft_graph_image|image|
-|**--remote-item-last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
-|**--remote-item-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
-|**--remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
-|**--remote-item-package**|object|package|package|package|
-|**--remote-item-parent-reference**|object|itemReference|parent_reference|parentReference|
-|**--remote-item-shared**|object|shared|shared|shared|
-|**--remote-item-sharepoint-ids**|object|sharepointIds|sharepoint_ids1|sharepointIds|
-|**--remote-item-size**|integer|Size of the remote item. Read-only.|integer_size|size|
-|**--remote-item-special-folder**|object|specialFolder|special_folder|specialFolder|
-|**--remote-item-video**|object|video|microsoft_graph_video|video|
-|**--remote-item-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
-|**--remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
-|**--pending-operations-pending-content-update-queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
-|**--package-type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
-|**--folder-child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
-|**--folder-view**|object|folderView|view|view|
-|**--file-hashes**|object|hashes|hashes|hashes|
-|**--file-mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
-|**--file-processing-metadata**|boolean||processing_metadata|processingMetadata|
-|**--deleted-state**|string|Represents the state of the deleted item.|state|state|
-|**--bundle-album**|object|album|album|album|
-|**--bundle-child-count**|integer||integer_child_count|childCount|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--all-time**|object|itemActivityStat|all_time|allTime|
+|**--item-activity-stats**|array||item_activity_stats|itemActivityStats|
+|**--last-seven-days**|object|itemActivityStat|last_seven_days|lastSevenDays|
+|**--id1**|string|Read-only.|id1|id|
+|**--microsoft-graph-workbook-application**|object|workbookApplication|microsoft_graph_workbook_application|application|
+|**--comments**|array||comments|comments|
+|**--functions**|object|workbookFunctions|functions|functions|
+|**--names**|array|Represents a collection of workbook scoped named items (named ranges and constants). Read-only.|names|names|
+|**--operations**|array|The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.|operations|operations|
+|**--tables**|array|Represents a collection of tables associated with the workbook. Read-only.|tables|tables|
+|**--worksheets**|array|Represents a collection of worksheets associated with the workbook. Read-only.|worksheets|worksheets|
+|**--microsoft-graph-special-folder-name**|string|The unique identifier for this item in the /drive/special collection|microsoft_graph_special_folder_name|name|
+|**--owner**|object|identitySet|owner|owner|
+|**--scope**|string|Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.|scope|scope|
+|**--shared-by**|object|identitySet|shared_by|sharedBy|
+|**--shared-date-time**|date-time|The UTC date and time when the item was shared. Read-only.|shared_date_time|sharedDateTime|
+|**--on-click-telemetry-url**|string|A callback URL that can be used to record telemetry information. The application should issue a GET on this URL if the user interacts with this item to improve the quality of results.|on_click_telemetry_url|onClickTelemetryUrl|
+|**--created-by**|object|identitySet|created_by|createdBy|
+|**--microsoft-graph-remote-item-created-date-time-created-date-time**|date-time|Date and time of item creation. Read-only.|microsoft_graph_remote_item_created_date_time_created_date_time|createdDateTime|
+|**--file**|object|file|file|file|
+|**--microsoft-graph-file-system-info-file-system-info**|object|fileSystemInfo|microsoft_graph_file_system_info_file_system_info|fileSystemInfo|
+|**--folder**|object|folder|folder|folder|
+|**--microsoft-graph-remote-item-id**|string|Unique identifier for the remote item in its drive. Read-only.|microsoft_graph_remote_item_id|id|
+|**--microsoft-graph-image**|object|image|microsoft_graph_image|image|
+|**--last-modified-by**|object|identitySet|last_modified_by|lastModifiedBy|
+|**--microsoft-graph-remote-item-last-modified-date-time-last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time|lastModifiedDateTime|
+|**--microsoft-graph-remote-item-name**|string|Optional. Filename of the remote item. Read-only.|microsoft_graph_remote_item_name|name|
+|**--package**|object|package|package|package|
+|**--parent-reference**|object|itemReference|parent_reference|parentReference|
+|**--shared**|object|shared|shared|shared|
+|**--sharepoint-ids1**|object|sharepointIds|sharepoint_ids1|sharepointIds|
+|**--integer-size**|integer|Size of the remote item. Read-only.|integer_size|size|
+|**--special-folder**|object|specialFolder|special_folder|specialFolder|
+|**--microsoft-graph-video**|object|video|microsoft_graph_video|video|
+|**--microsoft-graph-remote-item-web-dav-url-web-dav-url**|string|DAV compatible URL for the item.|microsoft_graph_remote_item_web_dav_url_web_dav_url|webDavUrl|
+|**--microsoft-graph-remote-item-web-url**|string|URL that displays the resource in the browser. Read-only.|microsoft_graph_remote_item_web_url|webUrl|
+|**--queued-date-time**|date-time|Date and time the pending binary operation was queued in UTC time. Read-only.|queued_date_time|queuedDateTime|
+|**--type**|string|A string indicating the type of package. While oneNote is the only currently defined value, you should expect other package types to be returned and handle them accordingly.|type|type|
+|**--child-count**|integer|Number of children contained immediately within this container.|child_count|childCount|
+|**--view**|object|folderView|view|view|
+|**--hashes**|object|hashes|hashes|hashes|
+|**--mime-type**|string|The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.|mime_type|mimeType|
+|**--processing-metadata**|boolean||processing_metadata|processingMetadata|
+|**--state**|string|Represents the state of the deleted item.|state|state|
+|**--album**|object|album|album|album|
+|**--integer-child-count**|integer||integer_child_count|childCount|
 
-### teams team-primary-channel update-member
+#### <a name="teams.primaryChannelUpdateMembers">Command `az teams team-primary-channel update-member`</a>
 
-update-member a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-member|UpdateMembers|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelUpdateMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4534,21 +3024,9 @@ update-member a teams team-primary-channel.
 |**--display-name**|string|The display name of the user.|display_name|displayName|
 |**--roles**|array|The roles for that user.|roles|roles|
 
-### teams team-primary-channel update-message
+#### <a name="teams.primaryChannelUpdateMessages">Command `az teams team-primary-channel update-message`</a>
 
-update-message a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-message|UpdateMessages|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelUpdateMessages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4574,33 +3052,18 @@ update-message a teams team-primary-channel.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams team-primary-channel update-tab
+#### <a name="teams.primaryChannelUpdateTabs">Command `az teams team-primary-channel update-tab`</a>
 
-update-tab a teams team-primary-channel.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel|teams.primaryChannel|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-tab|UpdateTabs|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannelUpdateTabs">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4613,46 +3076,24 @@ update-tab a teams team-primary-channel.
 |**--teams-app-id**|string||teams_app_id|teamsAppId|
 |**--web-url**|string|Deep link URL of the tab instance. Read only.|web_url|webUrl|
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
 
-### teams team-primary-channel-member add
+### group `az teams team-primary-channel-member`
+#### <a name="teams.primaryChannel.membersadd">Command `az teams team-primary-channel-member add`</a>
 
-add a teams team-primary-channel-member.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-member|teams.primaryChannel.members|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|add|add|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.membersadd">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--values**|array||values|values|
 
-### teams team-primary-channel-message create-hosted-content
+### group `az teams team-primary-channel-message`
+#### <a name="teams.primaryChannel.messagesCreateHostedContents">Command `az teams team-primary-channel-message create-hosted-content`</a>
 
-create-hosted-content a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-hosted-content|CreateHostedContents|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.messagesCreateHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4661,21 +3102,9 @@ create-hosted-content a teams team-primary-channel-message.
 |**--content-bytes**|byte-array||content_bytes|contentBytes|
 |**--content-type**|string||content_type|contentType|
 
-### teams team-primary-channel-message create-reply
+#### <a name="teams.primaryChannel.messagesCreateReplies">Command `az teams team-primary-channel-message create-reply`</a>
 
-create-reply a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-reply|CreateReplies|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.messagesCreateReplies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4701,143 +3130,45 @@ create-reply a teams team-primary-channel-message.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams team-primary-channel-message delete
+#### <a name="teams.primaryChannel.messagesDeleteHostedContents">Command `az teams team-primary-channel-message delete-hosted-content`</a>
 
-delete a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteHostedContents|
-|delete|DeleteReplies|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.messagesDeleteHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
 |**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.primaryChannel.messagesDeleteReplies">Command `az teams team-primary-channel-message delete-reply`</a>
+
+##### <a name="Parametersteams.primaryChannel.messagesDeleteReplies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
 |**--chat-message-id1**|string|key: id of chatMessage|chat_message_id1|chatMessage-id1|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team-primary-channel-message delta
+#### <a name="teams.primaryChannel.messagesdelta">Command `az teams team-primary-channel-message delta`</a>
 
-delta a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delta|delta|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.messagesdelta">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 
-### teams team-primary-channel-message get-hosted-content
+#### <a name="teams.primaryChannel.messagesListHostedContents">Command `az teams team-primary-channel-message list-hosted-content`</a>
 
-get-hosted-content a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-hosted-content|GetHostedContents|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-primary-channel-message get-hosted-content-content
-
-get-hosted-content-content a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-hosted-content-content|GetHostedContentsContent|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
-
-### teams team-primary-channel-message get-reply
-
-get-reply a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-reply|GetReplies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
-|**--chat-message-id1**|string|key: id of chatMessage|chat_message_id1|chatMessage-id1|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-primary-channel-message list-hosted-content
-
-list-hosted-content a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-hosted-content|ListHostedContents|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.messagesListHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4846,21 +3177,9 @@ list-hosted-content a teams team-primary-channel-message.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-primary-channel-message list-reply
+#### <a name="teams.primaryChannel.messagesListReplies">Command `az teams team-primary-channel-message list-reply`</a>
 
-list-reply a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-reply|ListReplies|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.messagesListReplies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4869,21 +3188,9 @@ list-reply a teams team-primary-channel-message.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-primary-channel-message set-hosted-content-content
+#### <a name="teams.primaryChannel.messagesSetHostedContentsContent">Command `az teams team-primary-channel-message set-hosted-content-content`</a>
 
-set-hosted-content-content a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-hosted-content-content|SetHostedContentsContent|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.messagesSetHostedContentsContent">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4891,21 +3198,40 @@ set-hosted-content-content a teams team-primary-channel-message.
 |**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
 |**--data**|binary|New media content.|data|data|
 
-### teams team-primary-channel-message update-hosted-content
+#### <a name="teams.primaryChannel.messagesGetHostedContents">Command `az teams team-primary-channel-message show-hosted-content`</a>
 
-update-hosted-content a teams team-primary-channel-message.
+##### <a name="Parametersteams.primaryChannel.messagesGetHostedContents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
+#### <a name="teams.primaryChannel.messagesGetHostedContentsContent">Command `az teams team-primary-channel-message show-hosted-content-content`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-hosted-content|UpdateHostedContents|
+##### <a name="Parametersteams.primaryChannel.messagesGetHostedContentsContent">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-hosted-content-id**|string|key: id of chatMessageHostedContent|chat_message_hosted_content_id|chatMessageHostedContent-id|
 
-#### Parameters
+#### <a name="teams.primaryChannel.messagesGetReplies">Command `az teams team-primary-channel-message show-reply`</a>
+
+##### <a name="Parametersteams.primaryChannel.messagesGetReplies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
+|**--chat-message-id1**|string|key: id of chatMessage|chat_message_id1|chatMessage-id1|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.primaryChannel.messagesUpdateHostedContents">Command `az teams team-primary-channel-message update-hosted-content`</a>
+
+##### <a name="Parametersteams.primaryChannel.messagesUpdateHostedContents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4915,21 +3241,9 @@ update-hosted-content a teams team-primary-channel-message.
 |**--content-bytes**|byte-array||content_bytes|contentBytes|
 |**--content-type**|string||content_type|contentType|
 
-### teams team-primary-channel-message update-reply
+#### <a name="teams.primaryChannel.messagesUpdateReplies">Command `az teams team-primary-channel-message update-reply`</a>
 
-update-reply a teams team-primary-channel-message.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message|teams.primaryChannel.messages|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-reply|UpdateReplies|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.messagesUpdateReplies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -4956,74 +3270,54 @@ update-reply a teams team-primary-channel-message.
 |**--web-url**|string||web_url|webUrl|
 |**--hosted-contents**|array||hosted_contents|hostedContents|
 |**--replies**|array||replies|replies|
-|**--policy-violation-dlp-action**|choice||dlp_action|dlpAction|
-|**--policy-violation-justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
-|**--policy-violation-policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
-|**--policy-violation-user-action**|choice||user_action|userAction|
-|**--policy-violation-verdict-details**|choice||verdict_details|verdictDetails|
-|**--from-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--from-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--from-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--from-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--from-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--from-application-id**|string|Unique identifier for the identity.|id2|id|
+|**--dlp-action**|choice||dlp_action|dlpAction|
+|**--justification-text**|string|Justification text provided by the sender of the message when overriding a policy violation.|justification_text|justificationText|
+|**--policy-tip**|object|chatMessagePolicyViolationPolicyTip|policy_tip|policyTip|
+|**--user-action**|choice||user_action|userAction|
+|**--verdict-details**|choice||verdict_details|verdictDetails|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### teams team-primary-channel-message-reply delta
+### group `az teams team-primary-channel-message-reply`
+#### <a name="teams.primaryChannel.messages.repliesdelta">Command `az teams team-primary-channel-message-reply delta`</a>
 
-delta a teams team-primary-channel-message-reply.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-message-reply|teams.primaryChannel.messages.replies|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delta|delta|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.messages.repliesdelta">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--chat-message-id**|string|key: id of chatMessage|chat_message_id|chatMessage-id|
 
-### teams team-primary-channel-tab delete
+### group `az teams team-primary-channel-tab`
+#### <a name="teams.primaryChannel.tabsDeleteRefTeamsApp">Command `az teams team-primary-channel-tab delete-ref-team-app`</a>
 
-delete a teams team-primary-channel-tab.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-tab|teams.primaryChannel.tabs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefTeamsApp|
-
-#### Parameters
+##### <a name="Parametersteams.primaryChannel.tabsDeleteRefTeamsApp">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team-primary-channel-tab get-app
+#### <a name="teams.primaryChannel.tabsSetRefTeamsApp">Command `az teams team-primary-channel-tab set-ref-team-app`</a>
 
-get-app a teams team-primary-channel-tab.
+##### <a name="Parametersteams.primaryChannel.tabsSetRefTeamsApp">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-tab|teams.primaryChannel.tabs|
+#### <a name="teams.primaryChannel.tabsGetRefTeamsApp">Command `az teams team-primary-channel-tab show-ref-team-app`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app|GetTeamsApp|
+##### <a name="Parametersteams.primaryChannel.tabsGetRefTeamsApp">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
 
-#### Parameters
+#### <a name="teams.primaryChannel.tabsGetTeamsApp">Command `az teams team-primary-channel-tab show-team-app`</a>
+
+##### <a name="Parametersteams.primaryChannel.tabsGetTeamsApp">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5031,80 +3325,22 @@ get-app a teams team-primary-channel-tab.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-primary-channel-tab get-ref-team-app
+### group `az teams team-schedule`
+#### <a name="teams.scheduleCreateOfferShiftRequests">Command `az teams team-schedule create-offer-shift-request`</a>
 
-get-ref-team-app a teams team-primary-channel-tab.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-tab|teams.primaryChannel.tabs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-team-app|GetRefTeamsApp|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
-
-### teams team-primary-channel-tab set-ref-team-app
-
-set-ref-team-app a teams team-primary-channel-tab.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-primary-channel-tab|teams.primaryChannel.tabs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-team-app|SetRefTeamsApp|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--teams-tab-id**|string|key: id of teamsTab|teams_tab_id|teamsTab-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### teams team-schedule create-offer-shift-request
-
-create-offer-shift-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-offer-shift-request|CreateOfferShiftRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleCreateOfferShiftRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--assigned-to**|choice||assigned_to|assignedTo|
 |**--manager-action-date-time**|date-time||manager_action_date_time|managerActionDateTime|
 |**--manager-action-message**|string||manager_action_message|managerActionMessage|
@@ -5118,77 +3354,41 @@ create-offer-shift-request a teams team-schedule.
 |**--recipient-user-id**|string|User ID of the recipient of the offer shift request.|recipient_user_id|recipientUserId|
 |**--sender-shift-id**|string|User ID of the sender of the offer shift request.|sender_shift_id|senderShiftId|
 
-### teams team-schedule create-open-shift
+#### <a name="teams.scheduleCreateOpenShifts">Command `az teams team-schedule create-open-shift`</a>
 
-create-open-shift a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-open-shift|CreateOpenShifts|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleCreateOpenShifts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--draft-open-shift**|object|openShiftItem|draft_open_shift|draftOpenShift|
 |**--is-staged-for-deletion**|boolean||is_staged_for_deletion|isStagedForDeletion|
 |**--scheduling-group-id**|string|ID for the scheduling group that the open shift belongs to.|scheduling_group_id|schedulingGroupId|
 |**--shared-open-shift**|object|openShiftItem|shared_open_shift|sharedOpenShift|
 
-### teams team-schedule create-open-shift-change-request
+#### <a name="teams.scheduleCreateOpenShiftChangeRequests">Command `az teams team-schedule create-open-shift-change-request`</a>
 
-create-open-shift-change-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-open-shift-change-request|CreateOpenShiftChangeRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleCreateOpenShiftChangeRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--assigned-to**|choice||assigned_to|assignedTo|
 |**--manager-action-date-time**|date-time||manager_action_date_time|managerActionDateTime|
 |**--manager-action-message**|string||manager_action_message|managerActionMessage|
@@ -5199,125 +3399,71 @@ create-open-shift-change-request a teams team-schedule.
 |**--state**|choice||state|state|
 |**--open-shift-id**|string|ID for the open shift.|open_shift_id|openShiftId|
 
-### teams team-schedule create-scheduling-group
+#### <a name="teams.scheduleCreateSchedulingGroups">Command `az teams team-schedule create-scheduling-group`</a>
 
-create-scheduling-group a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-scheduling-group|CreateSchedulingGroups|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleCreateSchedulingGroups">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
-|**--microsoft-graph-scheduling-group-display-name**|string|The display name for the schedulingGroup. Required.|microsoft_graph_scheduling_group_display_name|displayName|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--display-name**|string|The display name for the schedulingGroup. Required.|display_name|displayName|
 |**--is-active**|boolean|Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.|is_active|isActive|
 |**--user-ids**|array|The list of user IDs that are a member of the schedulingGroup. Required.|user_ids|userIds|
 
-### teams team-schedule create-shift
+#### <a name="teams.scheduleCreateShifts">Command `az teams team-schedule create-shift`</a>
 
-create-shift a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-shift|CreateShifts|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleCreateShifts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--is-staged-for-deletion**|boolean||is_staged_for_deletion|isStagedForDeletion|
 |**--scheduling-group-id**|string|ID of the scheduling group the shift is part of. Required.|scheduling_group_id|schedulingGroupId|
 |**--user-id**|string|ID of the user assigned to the shift. Required.|user_id|userId|
-|**--shared-shift-end-date-time**|date-time||end_date_time|endDateTime|
-|**--shared-shift-start-date-time**|date-time||start_date_time|startDateTime|
-|**--shared-shift-theme**|choice||theme|theme|
-|**--shared-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|activities|activities|
-|**--shared-shift-display-name**|string|The shift label of the shiftItem.|microsoft_graph_shift_item_display_name|displayName|
-|**--shared-shift-notes**|string|The shift notes for the shiftItem.|notes|notes|
-|**--draft-shift-end-date-time**|date-time||microsoft_graph_schedule_entity_end_date_time_end_date_time|endDateTime|
-|**--draft-shift-start-date-time**|date-time||microsoft_graph_schedule_entity_start_date_time_start_date_time|startDateTime|
-|**--draft-shift-theme**|choice||microsoft_graph_schedule_entity_theme|theme|
-|**--draft-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|microsoft_graph_shift_item_activities|activities|
-|**--draft-shift-display-name**|string|The shift label of the shiftItem.|display_name5|displayName|
-|**--draft-shift-notes**|string|The shift notes for the shiftItem.|microsoft_graph_shift_item_notes|notes|
+|**--end-date-time**|date-time||end_date_time|endDateTime|
+|**--start-date-time**|date-time||start_date_time|startDateTime|
+|**--theme**|choice||theme|theme|
+|**--activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|activities|activities|
+|**--display-name**|string|The shift label of the shiftItem.|display_name|displayName|
+|**--notes**|string|The shift notes for the shiftItem.|notes|notes|
+|**--microsoft-graph-schedule-entity-end-date-time-end-date-time**|date-time||microsoft_graph_schedule_entity_end_date_time_end_date_time|endDateTime|
+|**--microsoft-graph-schedule-entity-start-date-time-start-date-time**|date-time||microsoft_graph_schedule_entity_start_date_time_start_date_time|startDateTime|
+|**--microsoft-graph-schedule-entity-theme**|choice||microsoft_graph_schedule_entity_theme|theme|
+|**--microsoft-graph-shift-item-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|microsoft_graph_shift_item_activities|activities|
+|**--microsoft-graph-shift-item-display-name**|string|The shift label of the shiftItem.|microsoft_graph_shift_item_display_name|displayName|
+|**--microsoft-graph-shift-item-notes**|string|The shift notes for the shiftItem.|microsoft_graph_shift_item_notes|notes|
 
-### teams team-schedule create-swap-shift-change-request
+#### <a name="teams.scheduleCreateSwapShiftsChangeRequests">Command `az teams team-schedule create-swap-shift-change-request`</a>
 
-create-swap-shift-change-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-swap-shift-change-request|CreateSwapShiftsChangeRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleCreateSwapShiftsChangeRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--assigned-to**|choice||assigned_to|assignedTo|
 |**--manager-action-date-time**|date-time||manager_action_date_time|managerActionDateTime|
 |**--manager-action-message**|string||manager_action_message|managerActionMessage|
@@ -5332,162 +3478,90 @@ create-swap-shift-change-request a teams team-schedule.
 |**--sender-shift-id**|string|User ID of the sender of the offer shift request.|sender_shift_id|senderShiftId|
 |**--recipient-shift-id**|string|ShiftId for the recipient user with whom the request is to swap.|recipient_shift_id|recipientShiftId|
 
-### teams team-schedule create-time-card
+#### <a name="teams.scheduleCreateTimeCards">Command `az teams team-schedule create-time-card`</a>
 
-create-time-card a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-time-card|CreateTimeCards|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleCreateTimeCards">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--breaks**|array||breaks|breaks|
 |**--confirmed-by**|choice||confirmed_by|confirmedBy|
 |**--notes**|object|itemBody|notes|notes|
 |**--state**|choice||state|state|
 |**--user-id**|string||user_id|userId|
-|**--original-entry-breaks**|array||microsoft_graph_time_card_entry_breaks|breaks|
-|**--original-entry-clock-in-event**|object|timeCardEvent|clock_in_event|clockInEvent|
-|**--original-entry-clock-out-event**|object|timeCardEvent|clock_out_event|clockOutEvent|
-|**--clock-out-event-at-approved-location**|boolean||at_approved_location|atApprovedLocation|
-|**--clock-out-event-date-time**|date-time||date_time|dateTime|
-|**--clock-out-event-notes**|object|itemBody|microsoft_graph_item_body_notes|notes|
-|**--clock-in-event-at-approved-location**|boolean||boolean_at_approved_location|atApprovedLocation|
-|**--clock-in-event-date-time**|date-time||microsoft_graph_time_card_event_date_time|dateTime|
-|**--clock-in-event-notes**|object|itemBody|notes1|notes|
+|**--microsoft-graph-time-card-entry-breaks**|array||microsoft_graph_time_card_entry_breaks|breaks|
+|**--clock-in-event**|object|timeCardEvent|clock_in_event|clockInEvent|
+|**--clock-out-event**|object|timeCardEvent|clock_out_event|clockOutEvent|
+|**--at-approved-location**|boolean||at_approved_location|atApprovedLocation|
+|**--date-time**|date-time||date_time|dateTime|
+|**--microsoft-graph-item-body-notes**|object|itemBody|microsoft_graph_item_body_notes|notes|
+|**--boolean-at-approved-location**|boolean||boolean_at_approved_location|atApprovedLocation|
+|**--microsoft-graph-time-card-event-date-time**|date-time||microsoft_graph_time_card_event_date_time|dateTime|
+|**--notes1**|object|itemBody|notes1|notes|
 
-### teams team-schedule create-time-off
+#### <a name="teams.scheduleCreateTimesOff">Command `az teams team-schedule create-time-off`</a>
 
-create-time-off a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-time-off|CreateTimesOff|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleCreateTimesOff">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--draft-time-off**|object|timeOffItem|draft_time_off|draftTimeOff|
 |**--is-staged-for-deletion**|boolean||is_staged_for_deletion|isStagedForDeletion|
 |**--shared-time-off**|object|timeOffItem|shared_time_off|sharedTimeOff|
 |**--user-id**|string|ID of the user assigned to the timeOff. Required.|user_id|userId|
 
-### teams team-schedule create-time-off-reason
+#### <a name="teams.scheduleCreateTimeOffReasons">Command `az teams team-schedule create-time-off-reason`</a>
 
-create-time-off-reason a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-time-off-reason|CreateTimeOffReasons|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleCreateTimeOffReasons">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
-|**--microsoft-graph-time-off-reason-display-name**|string|The name of the timeOffReason. Required.|microsoft_graph_time_off_reason_display_name|displayName|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--display-name**|string|The name of the timeOffReason. Required.|display_name|displayName|
 |**--icon-type**|choice||icon_type|iconType|
 |**--is-active**|boolean|Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required.|is_active|isActive|
 
-### teams team-schedule create-time-off-request
+#### <a name="teams.scheduleCreateTimeOffRequests">Command `az teams team-schedule create-time-off-request`</a>
 
-create-time-off-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-time-off-request|CreateTimeOffRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleCreateTimeOffRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--assigned-to**|choice||assigned_to|assignedTo|
 |**--manager-action-date-time**|date-time||manager_action_date_time|managerActionDateTime|
 |**--manager-action-message**|string||manager_action_message|managerActionMessage|
@@ -5500,280 +3574,99 @@ create-time-off-request a teams team-schedule.
 |**--start-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
 |**--time-off-reason-id**|string|The reason for the time off.|time_off_reason_id|timeOffReasonId|
 
-### teams team-schedule delete
+#### <a name="teams.scheduleDeleteOfferShiftRequests">Command `az teams team-schedule delete-offer-shift-request`</a>
 
-delete a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteOfferShiftRequests|
-|delete|DeleteOpenShiftChangeRequests|
-|delete|DeleteOpenShifts|
-|delete|DeleteSchedulingGroups|
-|delete|DeleteShifts|
-|delete|DeleteSwapShiftsChangeRequests|
-|delete|DeleteTimeCards|
-|delete|DeleteTimeOffReasons|
-|delete|DeleteTimeOffRequests|
-|delete|DeleteTimesOff|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleDeleteOfferShiftRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--offer-shift-request-id**|string|key: id of offerShiftRequest|offer_shift_request_id|offerShiftRequest-id|
-|**--open-shift-change-request-id**|string|key: id of openShiftChangeRequest|open_shift_change_request_id|openShiftChangeRequest-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.scheduleDeleteOpenShifts">Command `az teams team-schedule delete-open-shift`</a>
+
+##### <a name="Parametersteams.scheduleDeleteOpenShifts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--open-shift-id**|string|key: id of openShift|open_shift_id|openShift-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.scheduleDeleteOpenShiftChangeRequests">Command `az teams team-schedule delete-open-shift-change-request`</a>
+
+##### <a name="Parametersteams.scheduleDeleteOpenShiftChangeRequests">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--open-shift-change-request-id**|string|key: id of openShiftChangeRequest|open_shift_change_request_id|openShiftChangeRequest-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.scheduleDeleteSchedulingGroups">Command `az teams team-schedule delete-scheduling-group`</a>
+
+##### <a name="Parametersteams.scheduleDeleteSchedulingGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--scheduling-group-id**|string|key: id of schedulingGroup|scheduling_group_id|schedulingGroup-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.scheduleDeleteShifts">Command `az teams team-schedule delete-shift`</a>
+
+##### <a name="Parametersteams.scheduleDeleteShifts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--shift-id**|string|key: id of shift|shift_id|shift-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.scheduleDeleteSwapShiftsChangeRequests">Command `az teams team-schedule delete-swap-shift-change-request`</a>
+
+##### <a name="Parametersteams.scheduleDeleteSwapShiftsChangeRequests">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--swap-shifts-change-request-id**|string|key: id of swapShiftsChangeRequest|swap_shifts_change_request_id|swapShiftsChangeRequest-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.scheduleDeleteTimeCards">Command `az teams team-schedule delete-time-card`</a>
+
+##### <a name="Parametersteams.scheduleDeleteTimeCards">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--time-card-id**|string|key: id of timeCard|time_card_id|timeCard-id|
-|**--time-off-reason-id**|string|key: id of timeOffReason|time_off_reason_id|timeOffReason-id|
-|**--time-off-request-id**|string|key: id of timeOffRequest|time_off_request_id|timeOffRequest-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="teams.scheduleDeleteTimesOff">Command `az teams team-schedule delete-time-off`</a>
+
+##### <a name="Parametersteams.scheduleDeleteTimesOff">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
 |**--time-off-id**|string|key: id of timeOff|time_off_id|timeOff-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team-schedule get-offer-shift-request
+#### <a name="teams.scheduleDeleteTimeOffReasons">Command `az teams team-schedule delete-time-off-reason`</a>
 
-get-offer-shift-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-offer-shift-request|GetOfferShiftRequests|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--offer-shift-request-id**|string|key: id of offerShiftRequest|offer_shift_request_id|offerShiftRequest-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-schedule get-open-shift
-
-get-open-shift a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-open-shift|GetOpenShifts|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--open-shift-id**|string|key: id of openShift|open_shift_id|openShift-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-schedule get-open-shift-change-request
-
-get-open-shift-change-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-open-shift-change-request|GetOpenShiftChangeRequests|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--open-shift-change-request-id**|string|key: id of openShiftChangeRequest|open_shift_change_request_id|openShiftChangeRequest-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-schedule get-scheduling-group
-
-get-scheduling-group a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-scheduling-group|GetSchedulingGroups|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--scheduling-group-id**|string|key: id of schedulingGroup|scheduling_group_id|schedulingGroup-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-schedule get-shift
-
-get-shift a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-shift|GetShifts|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--shift-id**|string|key: id of shift|shift_id|shift-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-schedule get-swap-shift-change-request
-
-get-swap-shift-change-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-swap-shift-change-request|GetSwapShiftsChangeRequests|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--swap-shifts-change-request-id**|string|key: id of swapShiftsChangeRequest|swap_shifts_change_request_id|swapShiftsChangeRequest-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-schedule get-time-card
-
-get-time-card a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-time-card|GetTimeCards|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--time-card-id**|string|key: id of timeCard|time_card_id|timeCard-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-schedule get-time-off
-
-get-time-off a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-time-off|GetTimesOff|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--team-id**|string|key: id of team|team_id|team-id|
-|**--time-off-id**|string|key: id of timeOff|time_off_id|timeOff-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams team-schedule get-time-off-reason
-
-get-time-off-reason a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-time-off-reason|GetTimeOffReasons|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleDeleteTimeOffReasons">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--time-off-reason-id**|string|key: id of timeOffReason|time_off_reason_id|timeOffReason-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team-schedule get-time-off-request
+#### <a name="teams.scheduleDeleteTimeOffRequests">Command `az teams team-schedule delete-time-off-request`</a>
 
-get-time-off-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-time-off-request|GetTimeOffRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleDeleteTimeOffRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--time-off-request-id**|string|key: id of timeOffRequest|time_off_request_id|timeOffRequest-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### teams team-schedule list-offer-shift-request
+#### <a name="teams.scheduleListOfferShiftRequests">Command `az teams team-schedule list-offer-shift-request`</a>
 
-list-offer-shift-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-offer-shift-request|ListOfferShiftRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleListOfferShiftRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5781,21 +3674,9 @@ list-offer-shift-request a teams team-schedule.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-schedule list-open-shift
+#### <a name="teams.scheduleListOpenShifts">Command `az teams team-schedule list-open-shift`</a>
 
-list-open-shift a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-open-shift|ListOpenShifts|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleListOpenShifts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5803,21 +3684,9 @@ list-open-shift a teams team-schedule.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-schedule list-open-shift-change-request
+#### <a name="teams.scheduleListOpenShiftChangeRequests">Command `az teams team-schedule list-open-shift-change-request`</a>
 
-list-open-shift-change-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-open-shift-change-request|ListOpenShiftChangeRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleListOpenShiftChangeRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5825,21 +3694,9 @@ list-open-shift-change-request a teams team-schedule.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-schedule list-scheduling-group
+#### <a name="teams.scheduleListSchedulingGroups">Command `az teams team-schedule list-scheduling-group`</a>
 
-list-scheduling-group a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-scheduling-group|ListSchedulingGroups|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleListSchedulingGroups">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5847,21 +3704,9 @@ list-scheduling-group a teams team-schedule.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-schedule list-shift
+#### <a name="teams.scheduleListShifts">Command `az teams team-schedule list-shift`</a>
 
-list-shift a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-shift|ListShifts|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleListShifts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5869,21 +3714,9 @@ list-shift a teams team-schedule.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-schedule list-swap-shift-change-request
+#### <a name="teams.scheduleListSwapShiftsChangeRequests">Command `az teams team-schedule list-swap-shift-change-request`</a>
 
-list-swap-shift-change-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-swap-shift-change-request|ListSwapShiftsChangeRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleListSwapShiftsChangeRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5891,21 +3724,9 @@ list-swap-shift-change-request a teams team-schedule.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-schedule list-time-card
+#### <a name="teams.scheduleListTimeCards">Command `az teams team-schedule list-time-card`</a>
 
-list-time-card a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-time-card|ListTimeCards|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleListTimeCards">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5913,21 +3734,9 @@ list-time-card a teams team-schedule.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-schedule list-time-off
+#### <a name="teams.scheduleListTimesOff">Command `az teams team-schedule list-time-off`</a>
 
-list-time-off a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-time-off|ListTimesOff|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleListTimesOff">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5935,21 +3744,9 @@ list-time-off a teams team-schedule.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-schedule list-time-off-reason
+#### <a name="teams.scheduleListTimeOffReasons">Command `az teams team-schedule list-time-off-reason`</a>
 
-list-time-off-reason a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-time-off-reason|ListTimeOffReasons|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleListTimeOffReasons">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5957,21 +3754,9 @@ list-time-off-reason a teams team-schedule.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-schedule list-time-off-request
+#### <a name="teams.scheduleListTimeOffRequests">Command `az teams team-schedule list-time-off-request`</a>
 
-list-time-off-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-time-off-request|ListTimeOffRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleListTimeOffRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -5979,21 +3764,9 @@ list-time-off-request a teams team-schedule.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams team-schedule share
+#### <a name="teams.scheduleshare">Command `az teams team-schedule share`</a>
 
-share a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|share|share|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleshare">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6001,21 +3774,109 @@ share a teams team-schedule.
 |**--start-date-time**|date-time||start_date_time|startDateTime|
 |**--end-date-time**|date-time||end_date_time|endDateTime|
 
-### teams team-schedule update-offer-shift-request
+#### <a name="teams.scheduleGetOfferShiftRequests">Command `az teams team-schedule show-offer-shift-request`</a>
 
-update-offer-shift-request a teams team-schedule.
+##### <a name="Parametersteams.scheduleGetOfferShiftRequests">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--offer-shift-request-id**|string|key: id of offerShiftRequest|offer_shift_request_id|offerShiftRequest-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
+#### <a name="teams.scheduleGetOpenShifts">Command `az teams team-schedule show-open-shift`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-offer-shift-request|UpdateOfferShiftRequests|
+##### <a name="Parametersteams.scheduleGetOpenShifts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--open-shift-id**|string|key: id of openShift|open_shift_id|openShift-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="teams.scheduleGetOpenShiftChangeRequests">Command `az teams team-schedule show-open-shift-change-request`</a>
+
+##### <a name="Parametersteams.scheduleGetOpenShiftChangeRequests">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--open-shift-change-request-id**|string|key: id of openShiftChangeRequest|open_shift_change_request_id|openShiftChangeRequest-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.scheduleGetSchedulingGroups">Command `az teams team-schedule show-scheduling-group`</a>
+
+##### <a name="Parametersteams.scheduleGetSchedulingGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--scheduling-group-id**|string|key: id of schedulingGroup|scheduling_group_id|schedulingGroup-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.scheduleGetShifts">Command `az teams team-schedule show-shift`</a>
+
+##### <a name="Parametersteams.scheduleGetShifts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--shift-id**|string|key: id of shift|shift_id|shift-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.scheduleGetSwapShiftsChangeRequests">Command `az teams team-schedule show-swap-shift-change-request`</a>
+
+##### <a name="Parametersteams.scheduleGetSwapShiftsChangeRequests">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--swap-shifts-change-request-id**|string|key: id of swapShiftsChangeRequest|swap_shifts_change_request_id|swapShiftsChangeRequest-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.scheduleGetTimeCards">Command `az teams team-schedule show-time-card`</a>
+
+##### <a name="Parametersteams.scheduleGetTimeCards">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--time-card-id**|string|key: id of timeCard|time_card_id|timeCard-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.scheduleGetTimesOff">Command `az teams team-schedule show-time-off`</a>
+
+##### <a name="Parametersteams.scheduleGetTimesOff">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--time-off-id**|string|key: id of timeOff|time_off_id|timeOff-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.scheduleGetTimeOffReasons">Command `az teams team-schedule show-time-off-reason`</a>
+
+##### <a name="Parametersteams.scheduleGetTimeOffReasons">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--time-off-reason-id**|string|key: id of timeOffReason|time_off_reason_id|timeOffReason-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.scheduleGetTimeOffRequests">Command `az teams team-schedule show-time-off-request`</a>
+
+##### <a name="Parametersteams.scheduleGetTimeOffRequests">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--team-id**|string|key: id of team|team_id|team-id|
+|**--time-off-request-id**|string|key: id of timeOffRequest|time_off_request_id|timeOffRequest-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="teams.scheduleUpdateOfferShiftRequests">Command `az teams team-schedule update-offer-shift-request`</a>
+
+##### <a name="Parametersteams.scheduleUpdateOfferShiftRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6023,18 +3884,12 @@ update-offer-shift-request a teams team-schedule.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--assigned-to**|choice||assigned_to|assignedTo|
 |**--manager-action-date-time**|date-time||manager_action_date_time|managerActionDateTime|
 |**--manager-action-message**|string||manager_action_message|managerActionMessage|
@@ -6048,21 +3903,9 @@ update-offer-shift-request a teams team-schedule.
 |**--recipient-user-id**|string|User ID of the recipient of the offer shift request.|recipient_user_id|recipientUserId|
 |**--sender-shift-id**|string|User ID of the sender of the offer shift request.|sender_shift_id|senderShiftId|
 
-### teams team-schedule update-open-shift
+#### <a name="teams.scheduleUpdateOpenShifts">Command `az teams team-schedule update-open-shift`</a>
 
-update-open-shift a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-open-shift|UpdateOpenShifts|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleUpdateOpenShifts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6070,38 +3913,20 @@ update-open-shift a teams team-schedule.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--draft-open-shift**|object|openShiftItem|draft_open_shift|draftOpenShift|
 |**--is-staged-for-deletion**|boolean||is_staged_for_deletion|isStagedForDeletion|
 |**--scheduling-group-id**|string|ID for the scheduling group that the open shift belongs to.|scheduling_group_id|schedulingGroupId|
 |**--shared-open-shift**|object|openShiftItem|shared_open_shift|sharedOpenShift|
 
-### teams team-schedule update-open-shift-change-request
+#### <a name="teams.scheduleUpdateOpenShiftChangeRequests">Command `az teams team-schedule update-open-shift-change-request`</a>
 
-update-open-shift-change-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-open-shift-change-request|UpdateOpenShiftChangeRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleUpdateOpenShiftChangeRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6109,18 +3934,12 @@ update-open-shift-change-request a teams team-schedule.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--assigned-to**|choice||assigned_to|assignedTo|
 |**--manager-action-date-time**|date-time||manager_action_date_time|managerActionDateTime|
 |**--manager-action-message**|string||manager_action_message|managerActionMessage|
@@ -6131,21 +3950,9 @@ update-open-shift-change-request a teams team-schedule.
 |**--state**|choice||state|state|
 |**--open-shift-id**|string|ID for the open shift.|open_shift_id|openShiftId|
 
-### teams team-schedule update-scheduling-group
+#### <a name="teams.scheduleUpdateSchedulingGroups">Command `az teams team-schedule update-scheduling-group`</a>
 
-update-scheduling-group a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-scheduling-group|UpdateSchedulingGroups|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleUpdateSchedulingGroups">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6153,37 +3960,19 @@ update-scheduling-group a teams team-schedule.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
-|**--microsoft-graph-scheduling-group-display-name**|string|The display name for the schedulingGroup. Required.|microsoft_graph_scheduling_group_display_name|displayName|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--display-name**|string|The display name for the schedulingGroup. Required.|display_name|displayName|
 |**--is-active**|boolean|Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.|is_active|isActive|
 |**--user-ids**|array|The list of user IDs that are a member of the schedulingGroup. Required.|user_ids|userIds|
 
-### teams team-schedule update-shift
+#### <a name="teams.scheduleUpdateShifts">Command `az teams team-schedule update-shift`</a>
 
-update-shift a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-shift|UpdateShifts|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleUpdateShifts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6191,49 +3980,31 @@ update-shift a teams team-schedule.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--is-staged-for-deletion**|boolean||is_staged_for_deletion|isStagedForDeletion|
 |**--scheduling-group-id**|string|ID of the scheduling group the shift is part of. Required.|scheduling_group_id|schedulingGroupId|
 |**--user-id**|string|ID of the user assigned to the shift. Required.|user_id|userId|
-|**--shared-shift-end-date-time**|date-time||end_date_time|endDateTime|
-|**--shared-shift-start-date-time**|date-time||start_date_time|startDateTime|
-|**--shared-shift-theme**|choice||theme|theme|
-|**--shared-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|activities|activities|
-|**--shared-shift-display-name**|string|The shift label of the shiftItem.|microsoft_graph_shift_item_display_name|displayName|
-|**--shared-shift-notes**|string|The shift notes for the shiftItem.|notes|notes|
-|**--draft-shift-end-date-time**|date-time||microsoft_graph_schedule_entity_end_date_time_end_date_time|endDateTime|
-|**--draft-shift-start-date-time**|date-time||microsoft_graph_schedule_entity_start_date_time_start_date_time|startDateTime|
-|**--draft-shift-theme**|choice||microsoft_graph_schedule_entity_theme|theme|
-|**--draft-shift-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|microsoft_graph_shift_item_activities|activities|
-|**--draft-shift-display-name**|string|The shift label of the shiftItem.|display_name5|displayName|
-|**--draft-shift-notes**|string|The shift notes for the shiftItem.|microsoft_graph_shift_item_notes|notes|
+|**--end-date-time**|date-time||end_date_time|endDateTime|
+|**--start-date-time**|date-time||start_date_time|startDateTime|
+|**--theme**|choice||theme|theme|
+|**--activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|activities|activities|
+|**--display-name**|string|The shift label of the shiftItem.|display_name|displayName|
+|**--notes**|string|The shift notes for the shiftItem.|notes|notes|
+|**--microsoft-graph-schedule-entity-end-date-time-end-date-time**|date-time||microsoft_graph_schedule_entity_end_date_time_end_date_time|endDateTime|
+|**--microsoft-graph-schedule-entity-start-date-time-start-date-time**|date-time||microsoft_graph_schedule_entity_start_date_time_start_date_time|startDateTime|
+|**--microsoft-graph-schedule-entity-theme**|choice||microsoft_graph_schedule_entity_theme|theme|
+|**--microsoft-graph-shift-item-activities**|array|An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.|microsoft_graph_shift_item_activities|activities|
+|**--microsoft-graph-shift-item-display-name**|string|The shift label of the shiftItem.|microsoft_graph_shift_item_display_name|displayName|
+|**--microsoft-graph-shift-item-notes**|string|The shift notes for the shiftItem.|microsoft_graph_shift_item_notes|notes|
 
-### teams team-schedule update-swap-shift-change-request
+#### <a name="teams.scheduleUpdateSwapShiftsChangeRequests">Command `az teams team-schedule update-swap-shift-change-request`</a>
 
-update-swap-shift-change-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-swap-shift-change-request|UpdateSwapShiftsChangeRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleUpdateSwapShiftsChangeRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6241,18 +4012,12 @@ update-swap-shift-change-request a teams team-schedule.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--assigned-to**|choice||assigned_to|assignedTo|
 |**--manager-action-date-time**|date-time||manager_action_date_time|managerActionDateTime|
 |**--manager-action-message**|string||manager_action_message|managerActionMessage|
@@ -6267,21 +4032,9 @@ update-swap-shift-change-request a teams team-schedule.
 |**--sender-shift-id**|string|User ID of the sender of the offer shift request.|sender_shift_id|senderShiftId|
 |**--recipient-shift-id**|string|ShiftId for the recipient user with whom the request is to swap.|recipient_shift_id|recipientShiftId|
 
-### teams team-schedule update-time-card
+#### <a name="teams.scheduleUpdateTimeCards">Command `az teams team-schedule update-time-card`</a>
 
-update-time-card a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-time-card|UpdateTimeCards|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleUpdateTimeCards">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6289,48 +4042,30 @@ update-time-card a teams team-schedule.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--breaks**|array||breaks|breaks|
 |**--confirmed-by**|choice||confirmed_by|confirmedBy|
 |**--notes**|object|itemBody|notes|notes|
 |**--state**|choice||state|state|
 |**--user-id**|string||user_id|userId|
-|**--original-entry-breaks**|array||microsoft_graph_time_card_entry_breaks|breaks|
-|**--original-entry-clock-in-event**|object|timeCardEvent|clock_in_event|clockInEvent|
-|**--original-entry-clock-out-event**|object|timeCardEvent|clock_out_event|clockOutEvent|
-|**--clock-out-event-at-approved-location**|boolean||at_approved_location|atApprovedLocation|
-|**--clock-out-event-date-time**|date-time||date_time|dateTime|
-|**--clock-out-event-notes**|object|itemBody|microsoft_graph_item_body_notes|notes|
-|**--clock-in-event-at-approved-location**|boolean||boolean_at_approved_location|atApprovedLocation|
-|**--clock-in-event-date-time**|date-time||microsoft_graph_time_card_event_date_time|dateTime|
-|**--clock-in-event-notes**|object|itemBody|notes1|notes|
+|**--microsoft-graph-time-card-entry-breaks**|array||microsoft_graph_time_card_entry_breaks|breaks|
+|**--clock-in-event**|object|timeCardEvent|clock_in_event|clockInEvent|
+|**--clock-out-event**|object|timeCardEvent|clock_out_event|clockOutEvent|
+|**--at-approved-location**|boolean||at_approved_location|atApprovedLocation|
+|**--date-time**|date-time||date_time|dateTime|
+|**--microsoft-graph-item-body-notes**|object|itemBody|microsoft_graph_item_body_notes|notes|
+|**--boolean-at-approved-location**|boolean||boolean_at_approved_location|atApprovedLocation|
+|**--microsoft-graph-time-card-event-date-time**|date-time||microsoft_graph_time_card_event_date_time|dateTime|
+|**--notes1**|object|itemBody|notes1|notes|
 
-### teams team-schedule update-time-off
+#### <a name="teams.scheduleUpdateTimesOff">Command `az teams team-schedule update-time-off`</a>
 
-update-time-off a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-time-off|UpdateTimesOff|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleUpdateTimesOff">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6338,38 +4073,20 @@ update-time-off a teams team-schedule.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--draft-time-off**|object|timeOffItem|draft_time_off|draftTimeOff|
 |**--is-staged-for-deletion**|boolean||is_staged_for_deletion|isStagedForDeletion|
 |**--shared-time-off**|object|timeOffItem|shared_time_off|sharedTimeOff|
 |**--user-id**|string|ID of the user assigned to the timeOff. Required.|user_id|userId|
 
-### teams team-schedule update-time-off-reason
+#### <a name="teams.scheduleUpdateTimeOffReasons">Command `az teams team-schedule update-time-off-reason`</a>
 
-update-time-off-reason a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-time-off-reason|UpdateTimeOffReasons|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleUpdateTimeOffReasons">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6377,37 +4094,19 @@ update-time-off-reason a teams team-schedule.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
-|**--microsoft-graph-time-off-reason-display-name**|string|The name of the timeOffReason. Required.|microsoft_graph_time_off_reason_display_name|displayName|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--display-name**|string|The name of the timeOffReason. Required.|display_name|displayName|
 |**--icon-type**|choice||icon_type|iconType|
 |**--is-active**|boolean|Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required.|is_active|isActive|
 
-### teams team-schedule update-time-off-request
+#### <a name="teams.scheduleUpdateTimeOffRequests">Command `az teams team-schedule update-time-off-request`</a>
 
-update-time-off-request a teams team-schedule.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule|teams.schedule|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-time-off-request|UpdateTimeOffRequests|
-
-#### Parameters
+##### <a name="Parametersteams.scheduleUpdateTimeOffRequests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6415,18 +4114,12 @@ update-time-off-request a teams team-schedule.
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--assigned-to**|choice||assigned_to|assignedTo|
 |**--manager-action-date-time**|date-time||manager_action_date_time|managerActionDateTime|
 |**--manager-action-message**|string||manager_action_message|managerActionMessage|
@@ -6439,21 +4132,10 @@ update-time-off-request a teams team-schedule.
 |**--start-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
 |**--time-off-reason-id**|string|The reason for the time off.|time_off_reason_id|timeOffReasonId|
 
-### teams team-schedule-time-card clock-in
+### group `az teams team-schedule-time-card`
+#### <a name="teams.schedule.timeCardsclockIn">Command `az teams team-schedule-time-card clock-in`</a>
 
-clock-in a teams team-schedule-time-card.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule-time-card|teams.schedule.timeCards|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|clock-in|clockIn|
-
-#### Parameters
+##### <a name="Parametersteams.schedule.timeCardsclockIn">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6461,21 +4143,9 @@ clock-in a teams team-schedule-time-card.
 |**--on-behalf-of-user-id**|string||on_behalf_of_user_id|onBehalfOfUserId|
 |**--notes**|object|itemBody|notes|notes|
 
-### teams team-schedule-time-card clock-out
+#### <a name="teams.schedule.timeCardsclockOut">Command `az teams team-schedule-time-card clock-out`</a>
 
-clock-out a teams team-schedule-time-card.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule-time-card|teams.schedule.timeCards|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|clock-out|clockOut|
-
-#### Parameters
+##### <a name="Parametersteams.schedule.timeCardsclockOut">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6483,41 +4153,17 @@ clock-out a teams team-schedule-time-card.
 |**--at-approved-location**|boolean||at_approved_location|atApprovedLocation|
 |**--notes**|object|itemBody|notes|notes|
 
-### teams team-schedule-time-card confirm
+#### <a name="teams.schedule.timeCardsconfirm">Command `az teams team-schedule-time-card confirm`</a>
 
-confirm a teams team-schedule-time-card.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule-time-card|teams.schedule.timeCards|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|confirm|confirm|
-
-#### Parameters
+##### <a name="Parametersteams.schedule.timeCardsconfirm">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--time-card-id**|string|key: id of timeCard|time_card_id|timeCard-id|
 
-### teams team-schedule-time-card end-break
+#### <a name="teams.schedule.timeCardsendBreak">Command `az teams team-schedule-time-card end-break`</a>
 
-end-break a teams team-schedule-time-card.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule-time-card|teams.schedule.timeCards|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|end-break|endBreak|
-
-#### Parameters
+##### <a name="Parametersteams.schedule.timeCardsendBreak">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6525,21 +4171,9 @@ end-break a teams team-schedule-time-card.
 |**--at-approved-location**|boolean||at_approved_location|atApprovedLocation|
 |**--notes**|object|itemBody|notes|notes|
 
-### teams team-schedule-time-card start-break
+#### <a name="teams.schedule.timeCardsstartBreak">Command `az teams team-schedule-time-card start-break`</a>
 
-start-break a teams team-schedule-time-card.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams team-schedule-time-card|teams.schedule.timeCards|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|start-break|startBreak|
-
-#### Parameters
+##### <a name="Parametersteams.schedule.timeCardsstartBreak">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--team-id**|string|key: id of team|team_id|team-id|
@@ -6547,40 +4181,23 @@ start-break a teams team-schedule-time-card.
 |**--at-approved-location**|boolean||at_approved_location|atApprovedLocation|
 |**--notes**|object|itemBody|notes|notes|
 
-### teams teamwork create-workforce-integration
+### group `az teams teamwork`
+#### <a name="teamworkCreateWorkforceIntegrations">Command `az teams teamwork create-workforce-integration`</a>
 
-create-workforce-integration a teams teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams teamwork|teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-workforce-integration|CreateWorkforceIntegrations|
-
-#### Parameters
+##### <a name="ParametersteamworkCreateWorkforceIntegrations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--api-version**|integer|API version for the call back URL. Start with 1.|api_version|apiVersion|
-|**--microsoft-graph-workforce-integration-display-name**|string|Name of the workforce integration.|microsoft_graph_workforce_integration_display_name|displayName|
+|**--display-name**|string|Name of the workforce integration.|display_name|displayName|
 |**--eligibility-filtering-enabled-entities**|choice||eligibility_filtering_enabled_entities|eligibilityFilteringEnabledEntities|
 |**--encryption**|object|workforceIntegrationEncryption|encryption|encryption|
 |**--is-active**|boolean|Indicates whether this workforce integration is currently active and available.|is_active|isActive|
@@ -6588,103 +4205,49 @@ create-workforce-integration a teams teamwork.
 |**--supports**|choice||supports|supports|
 |**--url**|string|Workforce Integration URL for callbacks from the Shifts service.|url|url|
 
-### teams teamwork delete
+#### <a name="teamworkDeleteWorkforceIntegrations">Command `az teams teamwork delete-workforce-integration`</a>
 
-delete a teams teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams teamwork|teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteWorkforceIntegrations|
-
-#### Parameters
+##### <a name="ParametersteamworkDeleteWorkforceIntegrations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--workforce-integration-id**|string|key: id of workforceIntegration|workforce_integration_id|workforceIntegration-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams teamwork get-workforce-integration
+#### <a name="teamworkListWorkforceIntegrations">Command `az teams teamwork list-workforce-integration`</a>
 
-get-workforce-integration a teams teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams teamwork|teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-workforce-integration|GetWorkforceIntegrations|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--workforce-integration-id**|string|key: id of workforceIntegration|workforce_integration_id|workforceIntegration-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams teamwork list-workforce-integration
-
-list-workforce-integration a teams teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams teamwork|teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-workforce-integration|ListWorkforceIntegrations|
-
-#### Parameters
+##### <a name="ParametersteamworkListWorkforceIntegrations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams teamwork update-workforce-integration
+#### <a name="teamworkGetWorkforceIntegrations">Command `az teams teamwork show-workforce-integration`</a>
 
-update-workforce-integration a teams teamwork.
+##### <a name="ParametersteamworkGetWorkforceIntegrations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--workforce-integration-id**|string|key: id of workforceIntegration|workforce_integration_id|workforceIntegration-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams teamwork|teamwork|
+#### <a name="teamworkUpdateWorkforceIntegrations">Command `az teams teamwork update-workforce-integration`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-workforce-integration|UpdateWorkforceIntegrations|
-
-#### Parameters
+##### <a name="ParametersteamworkUpdateWorkforceIntegrations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--workforce-integration-id**|string|key: id of workforceIntegration|workforce_integration_id|workforceIntegration-id|
 |**--id**|string|Read-only.|id|id|
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
-|**--last-modified-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name|displayName|
-|**--last-modified-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--last-modified-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--last-modified-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--last-modified-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--last-modified-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--created-by-user-id**|string|Unique identifier for the identity.|id3|id|
-|**--created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name3|displayName|
-|**--created-by-device-id**|string|Unique identifier for the identity.|id4|id|
-|**--created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name4|displayName|
-|**--created-by-application-id**|string|Unique identifier for the identity.|id5|id|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--api-version**|integer|API version for the call back URL. Start with 1.|api_version|apiVersion|
-|**--microsoft-graph-workforce-integration-display-name**|string|Name of the workforce integration.|microsoft_graph_workforce_integration_display_name|displayName|
+|**--display-name**|string|Name of the workforce integration.|display_name|displayName|
 |**--eligibility-filtering-enabled-entities**|choice||eligibility_filtering_enabled_entities|eligibilityFilteringEnabledEntities|
 |**--encryption**|object|workforceIntegrationEncryption|encryption|encryption|
 |**--is-active**|boolean|Indicates whether this workforce integration is currently active and available.|is_active|isActive|
@@ -6692,61 +4255,27 @@ update-workforce-integration a teams teamwork.
 |**--supports**|choice||supports|supports|
 |**--url**|string|Workforce Integration URL for callbacks from the Shifts service.|url|url|
 
-### teams teamwork-teamwork getwork
+### group `az teams teamwork-teamwork`
+#### <a name="teamwork.teamworkGetTeamwork">Command `az teams teamwork-teamwork show-teamwork`</a>
 
-getwork a teams teamwork-teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams teamwork-teamwork|teamwork.teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|getwork|GetTeamwork|
-
-#### Parameters
+##### <a name="Parametersteamwork.teamworkGetTeamwork">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams teamwork-teamwork updatework
+#### <a name="teamwork.teamworkUpdateTeamwork">Command `az teams teamwork-teamwork update-teamwork`</a>
 
-updatework a teams teamwork-teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams teamwork-teamwork|teamwork.teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|updatework|UpdateTeamwork|
-
-#### Parameters
+##### <a name="Parametersteamwork.teamworkUpdateTeamwork">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--workforce-integrations**|array||workforce_integrations|workforceIntegrations|
 
-### teams user create-chat
+### group `az teams user`
+#### <a name="usersCreateChats">Command `az teams user create-chat`</a>
 
-create-chat a teams user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-chat|CreateChats|
-
-#### Parameters
+##### <a name="ParametersusersCreateChats">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -6759,21 +4288,9 @@ create-chat a teams user.
 |**--messages**|array||messages|messages|
 |**--tabs**|array||tabs|tabs|
 
-### teams user create-joined-team
+#### <a name="usersCreateJoinedTeams">Command `az teams user create-joined-team`</a>
 
-create-joined-team a teams user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-joined-team|CreateJoinedTeams|
-
-#### Parameters
+##### <a name="ParametersusersCreateJoinedTeams">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -6800,70 +4317,80 @@ create-joined-team a teams user.
 |**--owners**|array||owners|owners|
 |**--photo**|object|profilePhoto|photo|photo|
 |**--primary-channel**|object|channel|primary_channel|primaryChannel|
-|**--template-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--schedule-id**|string|Read-only.|id1|id|
-|**--schedule-enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
-|**--schedule-offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
-|**--schedule-open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
-|**--schedule-provision-status**|choice||provision_status|provisionStatus|
-|**--schedule-provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
-|**--schedule-swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
-|**--schedule-time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
-|**--schedule-time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
-|**--schedule-time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
-|**--schedule-workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
-|**--schedule-offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
-|**--schedule-open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
-|**--schedule-open-shifts**|array||open_shifts|openShifts|
-|**--schedule-scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
-|**--schedule-shifts**|array|The shifts in the schedule.|shifts|shifts|
-|**--schedule-swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
-|**--schedule-time-cards**|array||time_cards|timeCards|
-|**--schedule-time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
-|**--schedule-time-off-requests**|array||time_off_requests|timeOffRequests|
-|**--schedule-times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
-|**--schedule-time-clock-settings-approved-location**|object|geoCoordinates|approved_location|approvedLocation|
-|**--discovery-settings-show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--id1**|string|Read-only.|id1|id|
+|**--enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
+|**--offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
+|**--open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
+|**--provision-status**|choice||provision_status|provisionStatus|
+|**--provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
+|**--swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
+|**--time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
+|**--time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
+|**--time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
+|**--workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
+|**--offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
+|**--open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
+|**--open-shifts**|array||open_shifts|openShifts|
+|**--scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
+|**--shifts**|array|The shifts in the schedule.|shifts|shifts|
+|**--swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
+|**--time-cards**|array||time_cards|timeCards|
+|**--time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
+|**--time-off-requests**|array||time_off_requests|timeOffRequests|
+|**--times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
+|**--approved-location**|object|geoCoordinates|approved_location|approvedLocation|
+|**--show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
 
-### teams user delete
+#### <a name="usersDeleteChats">Command `az teams user delete-chat`</a>
 
-delete a teams user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteChats|
-|delete|DeleteJoinedTeams|
-|delete|DeleteTeamwork|
-
-#### Parameters
+##### <a name="ParametersusersDeleteChats">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--chat-id**|string|key: id of chat|chat_id|chat-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteJoinedTeams">Command `az teams user delete-joined-team`</a>
+
+##### <a name="ParametersusersDeleteJoinedTeams">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--team-id**|string|key: id of team|team_id|team-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams user get-chat
+#### <a name="usersDeleteTeamwork">Command `az teams user delete-teamwork`</a>
 
-get-chat a teams user.
+##### <a name="ParametersusersDeleteTeamwork">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
+#### <a name="usersListChats">Command `az teams user list-chat`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-chat|GetChats|
+##### <a name="ParametersusersListChats">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="usersListJoinedTeams">Command `az teams user list-joined-team`</a>
+
+##### <a name="ParametersusersListJoinedTeams">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersGetChats">Command `az teams user show-chat`</a>
+
+##### <a name="ParametersusersGetChats">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -6871,21 +4398,9 @@ get-chat a teams user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams user get-joined-team
+#### <a name="usersGetJoinedTeams">Command `az teams user show-joined-team`</a>
 
-get-joined-team a teams user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-joined-team|GetJoinedTeams|
-
-#### Parameters
+##### <a name="ParametersusersGetJoinedTeams">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -6893,86 +4408,18 @@ get-joined-team a teams user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams user getwork
+#### <a name="usersGetTeamwork">Command `az teams user show-teamwork`</a>
 
-getwork a teams user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|getwork|GetTeamwork|
-
-#### Parameters
+##### <a name="ParametersusersGetTeamwork">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams user list-chat
+#### <a name="usersUpdateChats">Command `az teams user update-chat`</a>
 
-list-chat a teams user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-chat|ListChats|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams user list-joined-team
-
-list-joined-team a teams user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-joined-team|ListJoinedTeams|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams user update-chat
-
-update-chat a teams user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-chat|UpdateChats|
-
-#### Parameters
+##### <a name="ParametersusersUpdateChats">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -6986,21 +4433,9 @@ update-chat a teams user.
 |**--messages**|array||messages|messages|
 |**--tabs**|array||tabs|tabs|
 
-### teams user update-joined-team
+#### <a name="usersUpdateJoinedTeams">Command `az teams user update-joined-team`</a>
 
-update-joined-team a teams user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-joined-team|UpdateJoinedTeams|
-
-#### Parameters
+##### <a name="ParametersusersUpdateJoinedTeams">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -7028,158 +4463,86 @@ update-joined-team a teams user.
 |**--owners**|array||owners|owners|
 |**--photo**|object|profilePhoto|photo|photo|
 |**--primary-channel**|object|channel|primary_channel|primaryChannel|
-|**--template-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--schedule-id**|string|Read-only.|id1|id|
-|**--schedule-enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
-|**--schedule-offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
-|**--schedule-open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
-|**--schedule-provision-status**|choice||provision_status|provisionStatus|
-|**--schedule-provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
-|**--schedule-swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
-|**--schedule-time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
-|**--schedule-time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
-|**--schedule-time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
-|**--schedule-workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
-|**--schedule-offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
-|**--schedule-open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
-|**--schedule-open-shifts**|array||open_shifts|openShifts|
-|**--schedule-scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
-|**--schedule-shifts**|array|The shifts in the schedule.|shifts|shifts|
-|**--schedule-swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
-|**--schedule-time-cards**|array||time_cards|timeCards|
-|**--schedule-time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
-|**--schedule-time-off-requests**|array||time_off_requests|timeOffRequests|
-|**--schedule-times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
-|**--schedule-time-clock-settings-approved-location**|object|geoCoordinates|approved_location|approvedLocation|
-|**--discovery-settings-show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--id1**|string|Read-only.|id1|id|
+|**--enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
+|**--offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
+|**--open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
+|**--provision-status**|choice||provision_status|provisionStatus|
+|**--provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
+|**--swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
+|**--time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
+|**--time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
+|**--time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
+|**--workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
+|**--offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
+|**--open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
+|**--open-shifts**|array||open_shifts|openShifts|
+|**--scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
+|**--shifts**|array|The shifts in the schedule.|shifts|shifts|
+|**--swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
+|**--time-cards**|array||time_cards|timeCards|
+|**--time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
+|**--time-off-requests**|array||time_off_requests|timeOffRequests|
+|**--times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
+|**--approved-location**|object|geoCoordinates|approved_location|approvedLocation|
+|**--show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
 
-### teams user updatework
+#### <a name="usersUpdateTeamwork">Command `az teams user update-teamwork`</a>
 
-updatework a teams user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|updatework|UpdateTeamwork|
-
-#### Parameters
+##### <a name="ParametersusersUpdateTeamwork">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
 |**--installed-apps**|array|The apps installed in the personal scope of this user.|installed_apps|installedApps|
 
-### teams user-teamwork create-installed-app
+### group `az teams user-teamwork`
+#### <a name="users.teamworkCreateInstalledApps">Command `az teams user-teamwork create-installed-app`</a>
 
-create-installed-app a teams user-teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user-teamwork|users.teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-installed-app|CreateInstalledApps|
-
-#### Parameters
+##### <a name="Parametersusers.teamworkCreateInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
-|**--teams-app-definition-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-definition-azure-adapp-id**|string||azure_ad_app_id|azureADAppId|
-|**--teams-app-definition-description**|string||description|description|
-|**--teams-app-definition-display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
-|**--teams-app-definition-last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
-|**--teams-app-definition-publishing-state**|choice||publishing_state|publishingState|
-|**--teams-app-definition-shortdescription**|string||shortdescription|shortdescription|
-|**--teams-app-definition-teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
-|**--teams-app-definition-version**|string|The version number of the application.|version|version|
-|**--teams-app-definition-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--teams-app-definition-created-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--teams-app-definition-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--teams-app-definition-created-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--teams-app-definition-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--teams-app-definition-created-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--teams-app-id**|string|Read-only.|id3|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
-|**--chat-id**|string|Read-only.|id4|id|
-|**--chat-created-date-time**|date-time||created_date_time|createdDateTime|
-|**--chat-last-updated-date-time**|date-time||last_updated_date_time|lastUpdatedDateTime|
-|**--chat-topic**|string||topic|topic|
-|**--chat-installed-apps**|array||installed_apps|installedApps|
-|**--chat-members**|array||members|members|
-|**--chat-messages**|array||messages|messages|
-|**--chat-tabs**|array||tabs|tabs|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--azure-ad-app-id**|string||azure_ad_app_id|azureADAppId|
+|**--description**|string||description|description|
+|**--display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
+|**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--publishing-state**|choice||publishing_state|publishingState|
+|**--shortdescription**|string||shortdescription|shortdescription|
+|**--teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
+|**--version**|string|The version number of the application.|version|version|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--id1**|string|Read-only.|id1|id|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--id2**|string|Read-only.|id2|id|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--last-updated-date-time**|date-time||last_updated_date_time|lastUpdatedDateTime|
+|**--topic**|string||topic|topic|
+|**--installed-apps**|array||installed_apps|installedApps|
+|**--members**|array||members|members|
+|**--messages**|array||messages|messages|
+|**--tabs**|array||tabs|tabs|
 
-### teams user-teamwork delete
+#### <a name="users.teamworkDeleteInstalledApps">Command `az teams user-teamwork delete-installed-app`</a>
 
-delete a teams user-teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user-teamwork|users.teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteInstalledApps|
-
-#### Parameters
+##### <a name="Parametersusers.teamworkDeleteInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### teams user-teamwork get-installed-app
+#### <a name="users.teamworkListInstalledApps">Command `az teams user-teamwork list-installed-app`</a>
 
-get-installed-app a teams user-teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user-teamwork|users.teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-installed-app|GetInstalledApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### teams user-teamwork list-installed-app
-
-list-installed-app a teams user-teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user-teamwork|users.teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-installed-app|ListInstalledApps|
-
-#### Parameters
+##### <a name="Parametersusers.teamworkListInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -7187,91 +4550,9 @@ list-installed-app a teams user-teamwork.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams user-teamwork update-installed-app
+#### <a name="users.teamworkGetInstalledApps">Command `az teams user-teamwork show-installed-app`</a>
 
-update-installed-app a teams user-teamwork.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user-teamwork|users.teamwork|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-installed-app|UpdateInstalledApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
-|**--id**|string|Read-only.|id|id|
-|**--teams-app-definition-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--teams-app-definition-azure-adapp-id**|string||azure_ad_app_id|azureADAppId|
-|**--teams-app-definition-description**|string||description|description|
-|**--teams-app-definition-display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
-|**--teams-app-definition-last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
-|**--teams-app-definition-publishing-state**|choice||publishing_state|publishingState|
-|**--teams-app-definition-shortdescription**|string||shortdescription|shortdescription|
-|**--teams-app-definition-teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
-|**--teams-app-definition-version**|string|The version number of the application.|version|version|
-|**--teams-app-definition-created-by-user-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|microsoft_graph_identity_display_name|displayName|
-|**--teams-app-definition-created-by-user-id**|string|Unique identifier for the identity.|microsoft_graph_identity_id|id|
-|**--teams-app-definition-created-by-device-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name1|displayName|
-|**--teams-app-definition-created-by-device-id**|string|Unique identifier for the identity.|id1|id|
-|**--teams-app-definition-created-by-application-display-name**|string|The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.|display_name2|displayName|
-|**--teams-app-definition-created-by-application-id**|string|Unique identifier for the identity.|id2|id|
-|**--teams-app-id**|string|Read-only.|id3|id|
-|**--teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
-|**--teams-app-distribution-method**|choice||distribution_method|distributionMethod|
-|**--teams-app-external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
-|**--teams-app-app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
-|**--chat-id**|string|Read-only.|id4|id|
-|**--chat-created-date-time**|date-time||created_date_time|createdDateTime|
-|**--chat-last-updated-date-time**|date-time||last_updated_date_time|lastUpdatedDateTime|
-|**--chat-topic**|string||topic|topic|
-|**--chat-installed-apps**|array||installed_apps|installedApps|
-|**--chat-members**|array||members|members|
-|**--chat-messages**|array||messages|messages|
-|**--chat-tabs**|array||tabs|tabs|
-
-### teams user-teamwork-installed-app delete
-
-delete a teams user-teamwork-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user-teamwork-installed-app|users.teamwork.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefChat|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### teams user-teamwork-installed-app get-chat
-
-get-chat a teams user-teamwork-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user-teamwork-installed-app|users.teamwork.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-chat|GetChat|
-
-#### Parameters
+##### <a name="Parametersusers.teamworkGetInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -7279,43 +4560,73 @@ get-chat a teams user-teamwork-installed-app.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### teams user-teamwork-installed-app get-ref-chat
+#### <a name="users.teamworkUpdateInstalledApps">Command `az teams user-teamwork update-installed-app`</a>
 
-get-ref-chat a teams user-teamwork-installed-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user-teamwork-installed-app|users.teamwork.installedApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-chat|GetRefChat|
-
-#### Parameters
+##### <a name="Parametersusers.teamworkUpdateInstalledApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
+|**--id**|string|Read-only.|id|id|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--azure-ad-app-id**|string||azure_ad_app_id|azureADAppId|
+|**--description**|string||description|description|
+|**--display-name**|string|The name of the app provided by the app developer.|display_name|displayName|
+|**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+|**--publishing-state**|choice||publishing_state|publishingState|
+|**--shortdescription**|string||shortdescription|shortdescription|
+|**--teams-app-id**|string|The ID from the Teams app manifest.|teams_app_id|teamsAppId|
+|**--version**|string|The version number of the application.|version|version|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--id1**|string|Read-only.|id1|id|
+|**--microsoft-graph-teams-app-display-name**|string|The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.|microsoft_graph_teams_app_display_name|displayName|
+|**--distribution-method**|choice||distribution_method|distributionMethod|
+|**--external-id**|string|The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.|external_id|externalId|
+|**--app-definitions**|array|The details for each version of the app.|app_definitions|appDefinitions|
+|**--id2**|string|Read-only.|id2|id|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--last-updated-date-time**|date-time||last_updated_date_time|lastUpdatedDateTime|
+|**--topic**|string||topic|topic|
+|**--installed-apps**|array||installed_apps|installedApps|
+|**--members**|array||members|members|
+|**--messages**|array||messages|messages|
+|**--tabs**|array||tabs|tabs|
 
-### teams user-teamwork-installed-app set-ref-chat
+### group `az teams user-teamwork-installed-app`
+#### <a name="users.teamwork.installedAppsDeleteRefChat">Command `az teams user-teamwork-installed-app delete-ref-chat`</a>
 
-set-ref-chat a teams user-teamwork-installed-app.
+##### <a name="Parametersusers.teamwork.installedAppsDeleteRefChat">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|teams user-teamwork-installed-app|users.teamwork.installedApps|
+#### <a name="users.teamwork.installedAppsSetRefChat">Command `az teams user-teamwork-installed-app set-ref-chat`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-chat|SetRefChat|
-
-#### Parameters
+##### <a name="Parametersusers.teamwork.installedAppsSetRefChat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
 |**--body**|dictionary|New navigation property ref values|body|body|
+
+#### <a name="users.teamwork.installedAppsGetChat">Command `az teams user-teamwork-installed-app show-chat`</a>
+
+##### <a name="Parametersusers.teamwork.installedAppsGetChat">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.teamwork.installedAppsGetRefChat">Command `az teams user-teamwork-installed-app show-ref-chat`</a>
+
+##### <a name="Parametersusers.teamwork.installedAppsGetRefChat">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-scope-teams-app-installation-id**|string|key: id of userScopeTeamsAppInstallation|user_scope_teams_app_installation_id|userScopeTeamsAppInstallation-id|

@@ -11,7 +11,7 @@
 
 def cf_cloudcommunications_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.cloudcommunications import CloudCommunications
+    from azext_cloudcommunications_beta.vendored_sdks.cloudcommunications import CloudCommunications
     return get_mgmt_service_client(cli_ctx,
                                    CloudCommunications,
                                    subscription_bound=False,
@@ -19,32 +19,32 @@ def cf_cloudcommunications_beta_cl(cli_ctx, *_):
 
 
 def cf_communication_cloud_communication(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_cloud_communication
+    return cf_cloudcommunications_beta_cl(cli_ctx).communications_cloud_communications
 
 
 def cf_communication(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication
+    return cf_cloudcommunications_beta_cl(cli_ctx).communications
 
 
 def cf_communication_call_record(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_call_record
+    return cf_cloudcommunications_beta_cl(cli_ctx).communications_call_records
 
 
 def cf_communication_call_record_session(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_call_record_session
+    return cf_cloudcommunications_beta_cl(cli_ctx).communications_call_records_sessions
 
 
 def cf_communication_call(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_call
+    return cf_cloudcommunications_beta_cl(cli_ctx).communications_calls
 
 
 def cf_communication_call_participant(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_call_participant
+    return cf_cloudcommunications_beta_cl(cli_ctx).communications_calls_participants
 
 
 def cf_communication_online_meeting(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_online_meeting
+    return cf_cloudcommunications_beta_cl(cli_ctx).communications_online_meetings
 
 
 def cf_user(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).user
+    return cf_cloudcommunications_beta_cl(cli_ctx).users

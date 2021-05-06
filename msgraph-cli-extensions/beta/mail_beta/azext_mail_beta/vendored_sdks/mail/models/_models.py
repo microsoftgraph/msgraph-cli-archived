@@ -770,18 +770,15 @@ class MicrosoftGraphInferenceClassificationOverride(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param classify_as:  Possible values include: "focused", "other".
     :type classify_as: str or ~mail.models.MicrosoftGraphInferenceClassificationType
-    :param address: The email address of the person or entity.
-    :type address: str
-    :param name: The display name of the person or entity.
-    :type name: str
+    :param sender_email_address: emailAddress.
+    :type sender_email_address: ~mail.models.MicrosoftGraphEmailAddress
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'classify_as': {'key': 'classifyAs', 'type': 'str'},
-        'address': {'key': 'senderEmailAddress.address', 'type': 'str'},
-        'name': {'key': 'senderEmailAddress.name', 'type': 'str'},
+        'sender_email_address': {'key': 'senderEmailAddress', 'type': 'MicrosoftGraphEmailAddress'},
     }
 
     def __init__(
@@ -791,8 +788,7 @@ class MicrosoftGraphInferenceClassificationOverride(MicrosoftGraphEntity):
         super(MicrosoftGraphInferenceClassificationOverride, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.classify_as = kwargs.get('classify_as', None)
-        self.address = kwargs.get('address', None)
-        self.name = kwargs.get('name', None)
+        self.sender_email_address = kwargs.get('sender_email_address', None)
 
 
 class MicrosoftGraphInternetMessageHeader(msrest.serialization.Model):
@@ -1059,9 +1055,6 @@ class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
 class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     """message.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -1093,6 +1086,10 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     :type conversation_id: str
     :param conversation_index: Indicates the position of the message within the conversation.
     :type conversation_index: bytes
+    :param flag: followupFlag.
+    :type flag: ~mail.models.MicrosoftGraphFollowupFlag
+    :param from_property: recipient.
+    :type from_property: ~mail.models.MicrosoftGraphRecipient
     :param has_attachments: Indicates whether the message has attachments. This property doesn't
      include inline attachments, so if a message contains only inline attachments, this property is
      false. To verify the existence of inline attachments, parse the body property to look for a src
@@ -1120,12 +1117,16 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     :param is_read_receipt_requested: Indicates whether a read receipt is requested for the
      message.
     :type is_read_receipt_requested: bool
+    :param mentions_preview: mentionsPreview.
+    :type mentions_preview: ~mail.models.MicrosoftGraphMentionsPreview
     :param parent_folder_id: The unique identifier for the message's parent mailFolder.
     :type parent_folder_id: str
     :param received_date_time: The date and time the message was received.
     :type received_date_time: ~datetime.datetime
     :param reply_to: The email addresses to use when replying.
     :type reply_to: list[~mail.models.MicrosoftGraphRecipient]
+    :param sender: recipient.
+    :type sender: ~mail.models.MicrosoftGraphRecipient
     :param sent_date_time: The date and time the message was sent.
     :type sent_date_time: ~datetime.datetime
     :param subject: The subject of the message.
@@ -1160,28 +1161,9 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
      defined for the message. Nullable.
     :type single_value_extended_properties:
      list[~mail.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
-    :param address_sender_email_address: The email address of the person or entity.
-    :type address_sender_email_address: str
-    :param name_sender_email_address_name: The display name of the person or entity.
-    :type name_sender_email_address_name: str
-    :param is_mentioned:
-    :type is_mentioned: bool
-    :param address_from_email_address: The email address of the person or entity.
-    :type address_from_email_address: str
-    :param name_from_email_address_name: The display name of the person or entity.
-    :type name_from_email_address_name: str
-    :param completed_date_time: dateTimeTimeZone.
-    :type completed_date_time: ~mail.models.MicrosoftGraphDateTimeZone
-    :param due_date_time: dateTimeTimeZone.
-    :type due_date_time: ~mail.models.MicrosoftGraphDateTimeZone
-    :param flag_status:  Possible values include: "notFlagged", "complete", "flagged".
-    :type flag_status: str or ~mail.models.MicrosoftGraphFollowupFlagStatus
-    :param start_date_time: dateTimeTimeZone.
-    :type start_date_time: ~mail.models.MicrosoftGraphDateTimeZone
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -1194,6 +1176,8 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         'cc_recipients': {'key': 'ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
         'conversation_id': {'key': 'conversationId', 'type': 'str'},
         'conversation_index': {'key': 'conversationIndex', 'type': 'base64'},
+        'flag': {'key': 'flag', 'type': 'MicrosoftGraphFollowupFlag'},
+        'from_property': {'key': 'from', 'type': 'MicrosoftGraphRecipient'},
         'has_attachments': {'key': 'hasAttachments', 'type': 'bool'},
         'importance': {'key': 'importance', 'type': 'str'},
         'inference_classification': {'key': 'inferenceClassification', 'type': 'str'},
@@ -1203,9 +1187,11 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         'is_draft': {'key': 'isDraft', 'type': 'bool'},
         'is_read': {'key': 'isRead', 'type': 'bool'},
         'is_read_receipt_requested': {'key': 'isReadReceiptRequested', 'type': 'bool'},
+        'mentions_preview': {'key': 'mentionsPreview', 'type': 'MicrosoftGraphMentionsPreview'},
         'parent_folder_id': {'key': 'parentFolderId', 'type': 'str'},
         'received_date_time': {'key': 'receivedDateTime', 'type': 'iso-8601'},
         'reply_to': {'key': 'replyTo', 'type': '[MicrosoftGraphRecipient]'},
+        'sender': {'key': 'sender', 'type': 'MicrosoftGraphRecipient'},
         'sent_date_time': {'key': 'sentDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
         'to_recipients': {'key': 'toRecipients', 'type': '[MicrosoftGraphRecipient]'},
@@ -1218,15 +1204,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         'mentions': {'key': 'mentions', 'type': '[MicrosoftGraphMention]'},
         'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
-        'address_sender_email_address': {'key': 'sender.emailAddress.address', 'type': 'str'},
-        'name_sender_email_address_name': {'key': 'sender.emailAddress.name', 'type': 'str'},
-        'is_mentioned': {'key': 'mentionsPreview.isMentioned', 'type': 'bool'},
-        'address_from_email_address': {'key': 'from.emailAddress.address', 'type': 'str'},
-        'name_from_email_address_name': {'key': 'from.emailAddress.name', 'type': 'str'},
-        'completed_date_time': {'key': 'flag.completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
-        'due_date_time': {'key': 'flag.dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
-        'flag_status': {'key': 'flag.flagStatus', 'type': 'str'},
-        'start_date_time': {'key': 'flag.startDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
     }
 
     def __init__(
@@ -1235,13 +1212,14 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     ):
         super(MicrosoftGraphMessage, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.bcc_recipients = kwargs.get('bcc_recipients', None)
         self.body = kwargs.get('body', None)
         self.body_preview = kwargs.get('body_preview', None)
         self.cc_recipients = kwargs.get('cc_recipients', None)
         self.conversation_id = kwargs.get('conversation_id', None)
         self.conversation_index = kwargs.get('conversation_index', None)
+        self.flag = kwargs.get('flag', None)
+        self.from_property = kwargs.get('from_property', None)
         self.has_attachments = kwargs.get('has_attachments', None)
         self.importance = kwargs.get('importance', None)
         self.inference_classification = kwargs.get('inference_classification', None)
@@ -1251,9 +1229,11 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         self.is_draft = kwargs.get('is_draft', None)
         self.is_read = kwargs.get('is_read', None)
         self.is_read_receipt_requested = kwargs.get('is_read_receipt_requested', None)
+        self.mentions_preview = kwargs.get('mentions_preview', None)
         self.parent_folder_id = kwargs.get('parent_folder_id', None)
         self.received_date_time = kwargs.get('received_date_time', None)
         self.reply_to = kwargs.get('reply_to', None)
+        self.sender = kwargs.get('sender', None)
         self.sent_date_time = kwargs.get('sent_date_time', None)
         self.subject = kwargs.get('subject', None)
         self.to_recipients = kwargs.get('to_recipients', None)
@@ -1266,15 +1246,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         self.mentions = kwargs.get('mentions', None)
         self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
         self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
-        self.address_sender_email_address = kwargs.get('address_sender_email_address', None)
-        self.name_sender_email_address_name = kwargs.get('name_sender_email_address_name', None)
-        self.is_mentioned = kwargs.get('is_mentioned', None)
-        self.address_from_email_address = kwargs.get('address_from_email_address', None)
-        self.name_from_email_address_name = kwargs.get('name_from_email_address_name', None)
-        self.completed_date_time = kwargs.get('completed_date_time', None)
-        self.due_date_time = kwargs.get('due_date_time', None)
-        self.flag_status = kwargs.get('flag_status', None)
-        self.start_date_time = kwargs.get('start_date_time', None)
 
 
 class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
@@ -1285,8 +1256,14 @@ class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param actions: messageRuleActions.
+    :type actions: ~mail.models.MicrosoftGraphMessageRuleActions
+    :param conditions: messageRulePredicates.
+    :type conditions: ~mail.models.MicrosoftGraphMessageRulePredicates
     :param display_name: The display name of the rule.
     :type display_name: str
+    :param exceptions: messageRulePredicates.
+    :type exceptions: ~mail.models.MicrosoftGraphMessageRulePredicates
     :param has_error: Indicates whether the rule is in an error condition. Read-only.
     :type has_error: bool
     :param is_enabled: Indicates whether the rule is enabled to be applied to messages.
@@ -1296,229 +1273,6 @@ class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
     :type is_read_only: bool
     :param sequence: Indicates the order in which the rule is executed, among other rules.
     :type sequence: int
-    :param body_contains_exceptions_body_contains: Represents the strings that should appear in the
-     body of an incoming message in order for the condition or exception to apply.
-    :type body_contains_exceptions_body_contains: list[str]
-    :param body_or_subject_contains_exceptions_body_or_subject_contains: Represents the strings
-     that should appear in the body or subject of an incoming message in order for the condition or
-     exception to apply.
-    :type body_or_subject_contains_exceptions_body_or_subject_contains: list[str]
-    :param categories_exceptions_categories: Represents the categories that an incoming message
-     should be labeled with in order for the condition or exception to apply.
-    :type categories_exceptions_categories: list[str]
-    :param from_addresses_exceptions_from_addresses: Represents the specific sender email addresses
-     of an incoming message in order for the condition or exception to apply.
-    :type from_addresses_exceptions_from_addresses: list[~mail.models.MicrosoftGraphRecipient]
-    :param has_attachments_exceptions_has_attachments: Indicates whether an incoming message must
-     have attachments in order for the condition or exception to apply.
-    :type has_attachments_exceptions_has_attachments: bool
-    :param header_contains_exceptions_header_contains: Represents the strings that appear in the
-     headers of an incoming message in order for the condition or exception to apply.
-    :type header_contains_exceptions_header_contains: list[str]
-    :param importance_exceptions_importance:  Possible values include: "low", "normal", "high".
-    :type importance_exceptions_importance: str or ~mail.models.MicrosoftGraphImportance
-    :param is_approval_request_exceptions_is_approval_request: Indicates whether an incoming
-     message must be an approval request in order for the condition or exception to apply.
-    :type is_approval_request_exceptions_is_approval_request: bool
-    :param is_automatic_forward_exceptions_is_automatic_forward: Indicates whether an incoming
-     message must be automatically forwarded in order for the condition or exception to apply.
-    :type is_automatic_forward_exceptions_is_automatic_forward: bool
-    :param is_automatic_reply_exceptions_is_automatic_reply: Indicates whether an incoming message
-     must be an auto reply in order for the condition or exception to apply.
-    :type is_automatic_reply_exceptions_is_automatic_reply: bool
-    :param is_encrypted_exceptions_is_encrypted: Indicates whether an incoming message must be
-     encrypted in order for the condition or exception to apply.
-    :type is_encrypted_exceptions_is_encrypted: bool
-    :param is_meeting_request_exceptions_is_meeting_request: Indicates whether an incoming message
-     must be a meeting request in order for the condition or exception to apply.
-    :type is_meeting_request_exceptions_is_meeting_request: bool
-    :param is_meeting_response_exceptions_is_meeting_response: Indicates whether an incoming
-     message must be a meeting response in order for the condition or exception to apply.
-    :type is_meeting_response_exceptions_is_meeting_response: bool
-    :param is_non_delivery_report_exceptions_is_non_delivery_report: Indicates whether an incoming
-     message must be a non-delivery report in order for the condition or exception to apply.
-    :type is_non_delivery_report_exceptions_is_non_delivery_report: bool
-    :param is_permission_controlled_exceptions_is_permission_controlled: Indicates whether an
-     incoming message must be permission controlled (RMS-protected) in order for the condition or
-     exception to apply.
-    :type is_permission_controlled_exceptions_is_permission_controlled: bool
-    :param is_read_receipt_exceptions_is_read_receipt: Indicates whether an incoming message must
-     be a read receipt in order for the condition or exception to apply.
-    :type is_read_receipt_exceptions_is_read_receipt: bool
-    :param is_signed_exceptions_is_signed: Indicates whether an incoming message must be S/MIME-
-     signed in order for the condition or exception to apply.
-    :type is_signed_exceptions_is_signed: bool
-    :param is_voicemail_exceptions_is_voicemail: Indicates whether an incoming message must be a
-     voice mail in order for the condition or exception to apply.
-    :type is_voicemail_exceptions_is_voicemail: bool
-    :param message_action_flag_exceptions_message_action_flag:  Possible values include: "any",
-     "call", "doNotForward", "followUp", "fyi", "forward", "noResponseNecessary", "read", "reply",
-     "replyToAll", "review".
-    :type message_action_flag_exceptions_message_action_flag: str or
-     ~mail.models.MicrosoftGraphMessageActionFlag
-    :param not_sent_to_me_exceptions_not_sent_to_me: Indicates whether the owner of the mailbox
-     must not be a recipient of an incoming message in order for the condition or exception to
-     apply.
-    :type not_sent_to_me_exceptions_not_sent_to_me: bool
-    :param recipient_contains_exceptions_recipient_contains: Represents the strings that appear in
-     either the toRecipients or ccRecipients properties of an incoming message in order for the
-     condition or exception to apply.
-    :type recipient_contains_exceptions_recipient_contains: list[str]
-    :param sender_contains_exceptions_sender_contains: Represents the strings that appear in the
-     from property of an incoming message in order for the condition or exception to apply.
-    :type sender_contains_exceptions_sender_contains: list[str]
-    :param sensitivity_exceptions_sensitivity:  Possible values include: "normal", "personal",
-     "private", "confidential".
-    :type sensitivity_exceptions_sensitivity: str or ~mail.models.MicrosoftGraphSensitivity
-    :param sent_cc_me_exceptions_sent_cc_me: Indicates whether the owner of the mailbox must be in
-     the ccRecipients property of an incoming message in order for the condition or exception to
-     apply.
-    :type sent_cc_me_exceptions_sent_cc_me: bool
-    :param sent_only_to_me_exceptions_sent_only_to_me: Indicates whether the owner of the mailbox
-     must be the only recipient in an incoming message in order for the condition or exception to
-     apply.
-    :type sent_only_to_me_exceptions_sent_only_to_me: bool
-    :param sent_to_addresses_exceptions_sent_to_addresses: Represents the email addresses that an
-     incoming message must have been sent to in order for the condition or exception to apply.
-    :type sent_to_addresses_exceptions_sent_to_addresses:
-     list[~mail.models.MicrosoftGraphRecipient]
-    :param sent_to_me_exceptions_sent_to_me: Indicates whether the owner of the mailbox must be in
-     the toRecipients property of an incoming message in order for the condition or exception to
-     apply.
-    :type sent_to_me_exceptions_sent_to_me: bool
-    :param sent_to_or_cc_me_exceptions_sent_to_or_cc_me: Indicates whether the owner of the mailbox
-     must be in either a toRecipients or ccRecipients property of an incoming message in order for
-     the condition or exception to apply.
-    :type sent_to_or_cc_me_exceptions_sent_to_or_cc_me: bool
-    :param subject_contains_exceptions_subject_contains: Represents the strings that appear in the
-     subject of an incoming message in order for the condition or exception to apply.
-    :type subject_contains_exceptions_subject_contains: list[str]
-    :param within_size_range_exceptions_within_size_range: sizeRange.
-    :type within_size_range_exceptions_within_size_range: ~mail.models.MicrosoftGraphSizeRange
-    :param body_contains_conditions_body_contains: Represents the strings that should appear in the
-     body of an incoming message in order for the condition or exception to apply.
-    :type body_contains_conditions_body_contains: list[str]
-    :param body_or_subject_contains_conditions_body_or_subject_contains: Represents the strings
-     that should appear in the body or subject of an incoming message in order for the condition or
-     exception to apply.
-    :type body_or_subject_contains_conditions_body_or_subject_contains: list[str]
-    :param categories_conditions_categories: Represents the categories that an incoming message
-     should be labeled with in order for the condition or exception to apply.
-    :type categories_conditions_categories: list[str]
-    :param from_addresses_conditions_from_addresses: Represents the specific sender email addresses
-     of an incoming message in order for the condition or exception to apply.
-    :type from_addresses_conditions_from_addresses: list[~mail.models.MicrosoftGraphRecipient]
-    :param has_attachments_conditions_has_attachments: Indicates whether an incoming message must
-     have attachments in order for the condition or exception to apply.
-    :type has_attachments_conditions_has_attachments: bool
-    :param header_contains_conditions_header_contains: Represents the strings that appear in the
-     headers of an incoming message in order for the condition or exception to apply.
-    :type header_contains_conditions_header_contains: list[str]
-    :param importance_conditions_importance:  Possible values include: "low", "normal", "high".
-    :type importance_conditions_importance: str or ~mail.models.MicrosoftGraphImportance
-    :param is_approval_request_conditions_is_approval_request: Indicates whether an incoming
-     message must be an approval request in order for the condition or exception to apply.
-    :type is_approval_request_conditions_is_approval_request: bool
-    :param is_automatic_forward_conditions_is_automatic_forward: Indicates whether an incoming
-     message must be automatically forwarded in order for the condition or exception to apply.
-    :type is_automatic_forward_conditions_is_automatic_forward: bool
-    :param is_automatic_reply_conditions_is_automatic_reply: Indicates whether an incoming message
-     must be an auto reply in order for the condition or exception to apply.
-    :type is_automatic_reply_conditions_is_automatic_reply: bool
-    :param is_encrypted_conditions_is_encrypted: Indicates whether an incoming message must be
-     encrypted in order for the condition or exception to apply.
-    :type is_encrypted_conditions_is_encrypted: bool
-    :param is_meeting_request_conditions_is_meeting_request: Indicates whether an incoming message
-     must be a meeting request in order for the condition or exception to apply.
-    :type is_meeting_request_conditions_is_meeting_request: bool
-    :param is_meeting_response_conditions_is_meeting_response: Indicates whether an incoming
-     message must be a meeting response in order for the condition or exception to apply.
-    :type is_meeting_response_conditions_is_meeting_response: bool
-    :param is_non_delivery_report_conditions_is_non_delivery_report: Indicates whether an incoming
-     message must be a non-delivery report in order for the condition or exception to apply.
-    :type is_non_delivery_report_conditions_is_non_delivery_report: bool
-    :param is_permission_controlled_conditions_is_permission_controlled: Indicates whether an
-     incoming message must be permission controlled (RMS-protected) in order for the condition or
-     exception to apply.
-    :type is_permission_controlled_conditions_is_permission_controlled: bool
-    :param is_read_receipt_conditions_is_read_receipt: Indicates whether an incoming message must
-     be a read receipt in order for the condition or exception to apply.
-    :type is_read_receipt_conditions_is_read_receipt: bool
-    :param is_signed_conditions_is_signed: Indicates whether an incoming message must be S/MIME-
-     signed in order for the condition or exception to apply.
-    :type is_signed_conditions_is_signed: bool
-    :param is_voicemail_conditions_is_voicemail: Indicates whether an incoming message must be a
-     voice mail in order for the condition or exception to apply.
-    :type is_voicemail_conditions_is_voicemail: bool
-    :param message_action_flag_conditions_message_action_flag:  Possible values include: "any",
-     "call", "doNotForward", "followUp", "fyi", "forward", "noResponseNecessary", "read", "reply",
-     "replyToAll", "review".
-    :type message_action_flag_conditions_message_action_flag: str or
-     ~mail.models.MicrosoftGraphMessageActionFlag
-    :param not_sent_to_me_conditions_not_sent_to_me: Indicates whether the owner of the mailbox
-     must not be a recipient of an incoming message in order for the condition or exception to
-     apply.
-    :type not_sent_to_me_conditions_not_sent_to_me: bool
-    :param recipient_contains_conditions_recipient_contains: Represents the strings that appear in
-     either the toRecipients or ccRecipients properties of an incoming message in order for the
-     condition or exception to apply.
-    :type recipient_contains_conditions_recipient_contains: list[str]
-    :param sender_contains_conditions_sender_contains: Represents the strings that appear in the
-     from property of an incoming message in order for the condition or exception to apply.
-    :type sender_contains_conditions_sender_contains: list[str]
-    :param sensitivity_conditions_sensitivity:  Possible values include: "normal", "personal",
-     "private", "confidential".
-    :type sensitivity_conditions_sensitivity: str or ~mail.models.MicrosoftGraphSensitivity
-    :param sent_cc_me_conditions_sent_cc_me: Indicates whether the owner of the mailbox must be in
-     the ccRecipients property of an incoming message in order for the condition or exception to
-     apply.
-    :type sent_cc_me_conditions_sent_cc_me: bool
-    :param sent_only_to_me_conditions_sent_only_to_me: Indicates whether the owner of the mailbox
-     must be the only recipient in an incoming message in order for the condition or exception to
-     apply.
-    :type sent_only_to_me_conditions_sent_only_to_me: bool
-    :param sent_to_addresses_conditions_sent_to_addresses: Represents the email addresses that an
-     incoming message must have been sent to in order for the condition or exception to apply.
-    :type sent_to_addresses_conditions_sent_to_addresses:
-     list[~mail.models.MicrosoftGraphRecipient]
-    :param sent_to_me_conditions_sent_to_me: Indicates whether the owner of the mailbox must be in
-     the toRecipients property of an incoming message in order for the condition or exception to
-     apply.
-    :type sent_to_me_conditions_sent_to_me: bool
-    :param sent_to_or_cc_me_conditions_sent_to_or_cc_me: Indicates whether the owner of the mailbox
-     must be in either a toRecipients or ccRecipients property of an incoming message in order for
-     the condition or exception to apply.
-    :type sent_to_or_cc_me_conditions_sent_to_or_cc_me: bool
-    :param subject_contains_conditions_subject_contains: Represents the strings that appear in the
-     subject of an incoming message in order for the condition or exception to apply.
-    :type subject_contains_conditions_subject_contains: list[str]
-    :param within_size_range_conditions_within_size_range: sizeRange.
-    :type within_size_range_conditions_within_size_range: ~mail.models.MicrosoftGraphSizeRange
-    :param assign_categories: A list of categories to be assigned to a message.
-    :type assign_categories: list[str]
-    :param copy_to_folder: The ID of a folder that a message is to be copied to.
-    :type copy_to_folder: str
-    :param delete: Indicates whether a message should be moved to the Deleted Items folder.
-    :type delete: bool
-    :param forward_as_attachment_to: The email addresses of the recipients to which a message
-     should be forwarded as an attachment.
-    :type forward_as_attachment_to: list[~mail.models.MicrosoftGraphRecipient]
-    :param forward_to: The email addresses of the recipients to which a message should be
-     forwarded.
-    :type forward_to: list[~mail.models.MicrosoftGraphRecipient]
-    :param mark_as_read: Indicates whether a message should be marked as read.
-    :type mark_as_read: bool
-    :param mark_importance:  Possible values include: "low", "normal", "high".
-    :type mark_importance: str or ~mail.models.MicrosoftGraphImportance
-    :param move_to_folder: The ID of the folder that a message will be moved to.
-    :type move_to_folder: str
-    :param permanent_delete: Indicates whether a message should be permanently deleted and not
-     saved to the Deleted Items folder.
-    :type permanent_delete: bool
-    :param redirect_to: The email addresses to which a message should be redirected.
-    :type redirect_to: list[~mail.models.MicrosoftGraphRecipient]
-    :param stop_processing_rules: Indicates whether subsequent rules should be evaluated.
-    :type stop_processing_rules: bool
     """
 
     _validation = {
@@ -1528,82 +1282,14 @@ class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'actions': {'key': 'actions', 'type': 'MicrosoftGraphMessageRuleActions'},
+        'conditions': {'key': 'conditions', 'type': 'MicrosoftGraphMessageRulePredicates'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'exceptions': {'key': 'exceptions', 'type': 'MicrosoftGraphMessageRulePredicates'},
         'has_error': {'key': 'hasError', 'type': 'bool'},
         'is_enabled': {'key': 'isEnabled', 'type': 'bool'},
         'is_read_only': {'key': 'isReadOnly', 'type': 'bool'},
         'sequence': {'key': 'sequence', 'type': 'int'},
-        'body_contains_exceptions_body_contains': {'key': 'exceptions.bodyContains', 'type': '[str]'},
-        'body_or_subject_contains_exceptions_body_or_subject_contains': {'key': 'exceptions.bodyOrSubjectContains', 'type': '[str]'},
-        'categories_exceptions_categories': {'key': 'exceptions.categories', 'type': '[str]'},
-        'from_addresses_exceptions_from_addresses': {'key': 'exceptions.fromAddresses', 'type': '[MicrosoftGraphRecipient]'},
-        'has_attachments_exceptions_has_attachments': {'key': 'exceptions.hasAttachments', 'type': 'bool'},
-        'header_contains_exceptions_header_contains': {'key': 'exceptions.headerContains', 'type': '[str]'},
-        'importance_exceptions_importance': {'key': 'exceptions.importance', 'type': 'str'},
-        'is_approval_request_exceptions_is_approval_request': {'key': 'exceptions.isApprovalRequest', 'type': 'bool'},
-        'is_automatic_forward_exceptions_is_automatic_forward': {'key': 'exceptions.isAutomaticForward', 'type': 'bool'},
-        'is_automatic_reply_exceptions_is_automatic_reply': {'key': 'exceptions.isAutomaticReply', 'type': 'bool'},
-        'is_encrypted_exceptions_is_encrypted': {'key': 'exceptions.isEncrypted', 'type': 'bool'},
-        'is_meeting_request_exceptions_is_meeting_request': {'key': 'exceptions.isMeetingRequest', 'type': 'bool'},
-        'is_meeting_response_exceptions_is_meeting_response': {'key': 'exceptions.isMeetingResponse', 'type': 'bool'},
-        'is_non_delivery_report_exceptions_is_non_delivery_report': {'key': 'exceptions.isNonDeliveryReport', 'type': 'bool'},
-        'is_permission_controlled_exceptions_is_permission_controlled': {'key': 'exceptions.isPermissionControlled', 'type': 'bool'},
-        'is_read_receipt_exceptions_is_read_receipt': {'key': 'exceptions.isReadReceipt', 'type': 'bool'},
-        'is_signed_exceptions_is_signed': {'key': 'exceptions.isSigned', 'type': 'bool'},
-        'is_voicemail_exceptions_is_voicemail': {'key': 'exceptions.isVoicemail', 'type': 'bool'},
-        'message_action_flag_exceptions_message_action_flag': {'key': 'exceptions.messageActionFlag', 'type': 'str'},
-        'not_sent_to_me_exceptions_not_sent_to_me': {'key': 'exceptions.notSentToMe', 'type': 'bool'},
-        'recipient_contains_exceptions_recipient_contains': {'key': 'exceptions.recipientContains', 'type': '[str]'},
-        'sender_contains_exceptions_sender_contains': {'key': 'exceptions.senderContains', 'type': '[str]'},
-        'sensitivity_exceptions_sensitivity': {'key': 'exceptions.sensitivity', 'type': 'str'},
-        'sent_cc_me_exceptions_sent_cc_me': {'key': 'exceptions.sentCcMe', 'type': 'bool'},
-        'sent_only_to_me_exceptions_sent_only_to_me': {'key': 'exceptions.sentOnlyToMe', 'type': 'bool'},
-        'sent_to_addresses_exceptions_sent_to_addresses': {'key': 'exceptions.sentToAddresses', 'type': '[MicrosoftGraphRecipient]'},
-        'sent_to_me_exceptions_sent_to_me': {'key': 'exceptions.sentToMe', 'type': 'bool'},
-        'sent_to_or_cc_me_exceptions_sent_to_or_cc_me': {'key': 'exceptions.sentToOrCcMe', 'type': 'bool'},
-        'subject_contains_exceptions_subject_contains': {'key': 'exceptions.subjectContains', 'type': '[str]'},
-        'within_size_range_exceptions_within_size_range': {'key': 'exceptions.withinSizeRange', 'type': 'MicrosoftGraphSizeRange'},
-        'body_contains_conditions_body_contains': {'key': 'conditions.bodyContains', 'type': '[str]'},
-        'body_or_subject_contains_conditions_body_or_subject_contains': {'key': 'conditions.bodyOrSubjectContains', 'type': '[str]'},
-        'categories_conditions_categories': {'key': 'conditions.categories', 'type': '[str]'},
-        'from_addresses_conditions_from_addresses': {'key': 'conditions.fromAddresses', 'type': '[MicrosoftGraphRecipient]'},
-        'has_attachments_conditions_has_attachments': {'key': 'conditions.hasAttachments', 'type': 'bool'},
-        'header_contains_conditions_header_contains': {'key': 'conditions.headerContains', 'type': '[str]'},
-        'importance_conditions_importance': {'key': 'conditions.importance', 'type': 'str'},
-        'is_approval_request_conditions_is_approval_request': {'key': 'conditions.isApprovalRequest', 'type': 'bool'},
-        'is_automatic_forward_conditions_is_automatic_forward': {'key': 'conditions.isAutomaticForward', 'type': 'bool'},
-        'is_automatic_reply_conditions_is_automatic_reply': {'key': 'conditions.isAutomaticReply', 'type': 'bool'},
-        'is_encrypted_conditions_is_encrypted': {'key': 'conditions.isEncrypted', 'type': 'bool'},
-        'is_meeting_request_conditions_is_meeting_request': {'key': 'conditions.isMeetingRequest', 'type': 'bool'},
-        'is_meeting_response_conditions_is_meeting_response': {'key': 'conditions.isMeetingResponse', 'type': 'bool'},
-        'is_non_delivery_report_conditions_is_non_delivery_report': {'key': 'conditions.isNonDeliveryReport', 'type': 'bool'},
-        'is_permission_controlled_conditions_is_permission_controlled': {'key': 'conditions.isPermissionControlled', 'type': 'bool'},
-        'is_read_receipt_conditions_is_read_receipt': {'key': 'conditions.isReadReceipt', 'type': 'bool'},
-        'is_signed_conditions_is_signed': {'key': 'conditions.isSigned', 'type': 'bool'},
-        'is_voicemail_conditions_is_voicemail': {'key': 'conditions.isVoicemail', 'type': 'bool'},
-        'message_action_flag_conditions_message_action_flag': {'key': 'conditions.messageActionFlag', 'type': 'str'},
-        'not_sent_to_me_conditions_not_sent_to_me': {'key': 'conditions.notSentToMe', 'type': 'bool'},
-        'recipient_contains_conditions_recipient_contains': {'key': 'conditions.recipientContains', 'type': '[str]'},
-        'sender_contains_conditions_sender_contains': {'key': 'conditions.senderContains', 'type': '[str]'},
-        'sensitivity_conditions_sensitivity': {'key': 'conditions.sensitivity', 'type': 'str'},
-        'sent_cc_me_conditions_sent_cc_me': {'key': 'conditions.sentCcMe', 'type': 'bool'},
-        'sent_only_to_me_conditions_sent_only_to_me': {'key': 'conditions.sentOnlyToMe', 'type': 'bool'},
-        'sent_to_addresses_conditions_sent_to_addresses': {'key': 'conditions.sentToAddresses', 'type': '[MicrosoftGraphRecipient]'},
-        'sent_to_me_conditions_sent_to_me': {'key': 'conditions.sentToMe', 'type': 'bool'},
-        'sent_to_or_cc_me_conditions_sent_to_or_cc_me': {'key': 'conditions.sentToOrCcMe', 'type': 'bool'},
-        'subject_contains_conditions_subject_contains': {'key': 'conditions.subjectContains', 'type': '[str]'},
-        'within_size_range_conditions_within_size_range': {'key': 'conditions.withinSizeRange', 'type': 'MicrosoftGraphSizeRange'},
-        'assign_categories': {'key': 'actions.assignCategories', 'type': '[str]'},
-        'copy_to_folder': {'key': 'actions.copyToFolder', 'type': 'str'},
-        'delete': {'key': 'actions.delete', 'type': 'bool'},
-        'forward_as_attachment_to': {'key': 'actions.forwardAsAttachmentTo', 'type': '[MicrosoftGraphRecipient]'},
-        'forward_to': {'key': 'actions.forwardTo', 'type': '[MicrosoftGraphRecipient]'},
-        'mark_as_read': {'key': 'actions.markAsRead', 'type': 'bool'},
-        'mark_importance': {'key': 'actions.markImportance', 'type': 'str'},
-        'move_to_folder': {'key': 'actions.moveToFolder', 'type': 'str'},
-        'permanent_delete': {'key': 'actions.permanentDelete', 'type': 'bool'},
-        'redirect_to': {'key': 'actions.redirectTo', 'type': '[MicrosoftGraphRecipient]'},
-        'stop_processing_rules': {'key': 'actions.stopProcessingRules', 'type': 'bool'},
     }
 
     def __init__(
@@ -1612,82 +1298,14 @@ class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphMessageRule, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.actions = kwargs.get('actions', None)
+        self.conditions = kwargs.get('conditions', None)
         self.display_name = kwargs.get('display_name', None)
+        self.exceptions = kwargs.get('exceptions', None)
         self.has_error = kwargs.get('has_error', None)
         self.is_enabled = kwargs.get('is_enabled', None)
         self.is_read_only = kwargs.get('is_read_only', None)
         self.sequence = kwargs.get('sequence', None)
-        self.body_contains_exceptions_body_contains = kwargs.get('body_contains_exceptions_body_contains', None)
-        self.body_or_subject_contains_exceptions_body_or_subject_contains = kwargs.get('body_or_subject_contains_exceptions_body_or_subject_contains', None)
-        self.categories_exceptions_categories = kwargs.get('categories_exceptions_categories', None)
-        self.from_addresses_exceptions_from_addresses = kwargs.get('from_addresses_exceptions_from_addresses', None)
-        self.has_attachments_exceptions_has_attachments = kwargs.get('has_attachments_exceptions_has_attachments', None)
-        self.header_contains_exceptions_header_contains = kwargs.get('header_contains_exceptions_header_contains', None)
-        self.importance_exceptions_importance = kwargs.get('importance_exceptions_importance', None)
-        self.is_approval_request_exceptions_is_approval_request = kwargs.get('is_approval_request_exceptions_is_approval_request', None)
-        self.is_automatic_forward_exceptions_is_automatic_forward = kwargs.get('is_automatic_forward_exceptions_is_automatic_forward', None)
-        self.is_automatic_reply_exceptions_is_automatic_reply = kwargs.get('is_automatic_reply_exceptions_is_automatic_reply', None)
-        self.is_encrypted_exceptions_is_encrypted = kwargs.get('is_encrypted_exceptions_is_encrypted', None)
-        self.is_meeting_request_exceptions_is_meeting_request = kwargs.get('is_meeting_request_exceptions_is_meeting_request', None)
-        self.is_meeting_response_exceptions_is_meeting_response = kwargs.get('is_meeting_response_exceptions_is_meeting_response', None)
-        self.is_non_delivery_report_exceptions_is_non_delivery_report = kwargs.get('is_non_delivery_report_exceptions_is_non_delivery_report', None)
-        self.is_permission_controlled_exceptions_is_permission_controlled = kwargs.get('is_permission_controlled_exceptions_is_permission_controlled', None)
-        self.is_read_receipt_exceptions_is_read_receipt = kwargs.get('is_read_receipt_exceptions_is_read_receipt', None)
-        self.is_signed_exceptions_is_signed = kwargs.get('is_signed_exceptions_is_signed', None)
-        self.is_voicemail_exceptions_is_voicemail = kwargs.get('is_voicemail_exceptions_is_voicemail', None)
-        self.message_action_flag_exceptions_message_action_flag = kwargs.get('message_action_flag_exceptions_message_action_flag', None)
-        self.not_sent_to_me_exceptions_not_sent_to_me = kwargs.get('not_sent_to_me_exceptions_not_sent_to_me', None)
-        self.recipient_contains_exceptions_recipient_contains = kwargs.get('recipient_contains_exceptions_recipient_contains', None)
-        self.sender_contains_exceptions_sender_contains = kwargs.get('sender_contains_exceptions_sender_contains', None)
-        self.sensitivity_exceptions_sensitivity = kwargs.get('sensitivity_exceptions_sensitivity', None)
-        self.sent_cc_me_exceptions_sent_cc_me = kwargs.get('sent_cc_me_exceptions_sent_cc_me', None)
-        self.sent_only_to_me_exceptions_sent_only_to_me = kwargs.get('sent_only_to_me_exceptions_sent_only_to_me', None)
-        self.sent_to_addresses_exceptions_sent_to_addresses = kwargs.get('sent_to_addresses_exceptions_sent_to_addresses', None)
-        self.sent_to_me_exceptions_sent_to_me = kwargs.get('sent_to_me_exceptions_sent_to_me', None)
-        self.sent_to_or_cc_me_exceptions_sent_to_or_cc_me = kwargs.get('sent_to_or_cc_me_exceptions_sent_to_or_cc_me', None)
-        self.subject_contains_exceptions_subject_contains = kwargs.get('subject_contains_exceptions_subject_contains', None)
-        self.within_size_range_exceptions_within_size_range = kwargs.get('within_size_range_exceptions_within_size_range', None)
-        self.body_contains_conditions_body_contains = kwargs.get('body_contains_conditions_body_contains', None)
-        self.body_or_subject_contains_conditions_body_or_subject_contains = kwargs.get('body_or_subject_contains_conditions_body_or_subject_contains', None)
-        self.categories_conditions_categories = kwargs.get('categories_conditions_categories', None)
-        self.from_addresses_conditions_from_addresses = kwargs.get('from_addresses_conditions_from_addresses', None)
-        self.has_attachments_conditions_has_attachments = kwargs.get('has_attachments_conditions_has_attachments', None)
-        self.header_contains_conditions_header_contains = kwargs.get('header_contains_conditions_header_contains', None)
-        self.importance_conditions_importance = kwargs.get('importance_conditions_importance', None)
-        self.is_approval_request_conditions_is_approval_request = kwargs.get('is_approval_request_conditions_is_approval_request', None)
-        self.is_automatic_forward_conditions_is_automatic_forward = kwargs.get('is_automatic_forward_conditions_is_automatic_forward', None)
-        self.is_automatic_reply_conditions_is_automatic_reply = kwargs.get('is_automatic_reply_conditions_is_automatic_reply', None)
-        self.is_encrypted_conditions_is_encrypted = kwargs.get('is_encrypted_conditions_is_encrypted', None)
-        self.is_meeting_request_conditions_is_meeting_request = kwargs.get('is_meeting_request_conditions_is_meeting_request', None)
-        self.is_meeting_response_conditions_is_meeting_response = kwargs.get('is_meeting_response_conditions_is_meeting_response', None)
-        self.is_non_delivery_report_conditions_is_non_delivery_report = kwargs.get('is_non_delivery_report_conditions_is_non_delivery_report', None)
-        self.is_permission_controlled_conditions_is_permission_controlled = kwargs.get('is_permission_controlled_conditions_is_permission_controlled', None)
-        self.is_read_receipt_conditions_is_read_receipt = kwargs.get('is_read_receipt_conditions_is_read_receipt', None)
-        self.is_signed_conditions_is_signed = kwargs.get('is_signed_conditions_is_signed', None)
-        self.is_voicemail_conditions_is_voicemail = kwargs.get('is_voicemail_conditions_is_voicemail', None)
-        self.message_action_flag_conditions_message_action_flag = kwargs.get('message_action_flag_conditions_message_action_flag', None)
-        self.not_sent_to_me_conditions_not_sent_to_me = kwargs.get('not_sent_to_me_conditions_not_sent_to_me', None)
-        self.recipient_contains_conditions_recipient_contains = kwargs.get('recipient_contains_conditions_recipient_contains', None)
-        self.sender_contains_conditions_sender_contains = kwargs.get('sender_contains_conditions_sender_contains', None)
-        self.sensitivity_conditions_sensitivity = kwargs.get('sensitivity_conditions_sensitivity', None)
-        self.sent_cc_me_conditions_sent_cc_me = kwargs.get('sent_cc_me_conditions_sent_cc_me', None)
-        self.sent_only_to_me_conditions_sent_only_to_me = kwargs.get('sent_only_to_me_conditions_sent_only_to_me', None)
-        self.sent_to_addresses_conditions_sent_to_addresses = kwargs.get('sent_to_addresses_conditions_sent_to_addresses', None)
-        self.sent_to_me_conditions_sent_to_me = kwargs.get('sent_to_me_conditions_sent_to_me', None)
-        self.sent_to_or_cc_me_conditions_sent_to_or_cc_me = kwargs.get('sent_to_or_cc_me_conditions_sent_to_or_cc_me', None)
-        self.subject_contains_conditions_subject_contains = kwargs.get('subject_contains_conditions_subject_contains', None)
-        self.within_size_range_conditions_within_size_range = kwargs.get('within_size_range_conditions_within_size_range', None)
-        self.assign_categories = kwargs.get('assign_categories', None)
-        self.copy_to_folder = kwargs.get('copy_to_folder', None)
-        self.delete = kwargs.get('delete', None)
-        self.forward_as_attachment_to = kwargs.get('forward_as_attachment_to', None)
-        self.forward_to = kwargs.get('forward_to', None)
-        self.mark_as_read = kwargs.get('mark_as_read', None)
-        self.mark_importance = kwargs.get('mark_importance', None)
-        self.move_to_folder = kwargs.get('move_to_folder', None)
-        self.permanent_delete = kwargs.get('permanent_delete', None)
-        self.redirect_to = kwargs.get('redirect_to', None)
-        self.stop_processing_rules = kwargs.get('stop_processing_rules', None)
 
 
 class MicrosoftGraphMessageRuleActions(msrest.serialization.Model):
@@ -1959,16 +1577,13 @@ class MicrosoftGraphRecipient(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param address: The email address of the person or entity.
-    :type address: str
-    :param name: The display name of the person or entity.
-    :type name: str
+    :param email_address: emailAddress.
+    :type email_address: ~mail.models.MicrosoftGraphEmailAddress
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'emailAddress.address', 'type': 'str'},
-        'name': {'key': 'emailAddress.name', 'type': 'str'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
     }
 
     def __init__(
@@ -1977,8 +1592,7 @@ class MicrosoftGraphRecipient(msrest.serialization.Model):
     ):
         super(MicrosoftGraphRecipient, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.address = kwargs.get('address', None)
-        self.name = kwargs.get('name', None)
+        self.email_address = kwargs.get('email_address', None)
 
 
 class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):

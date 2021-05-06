@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Update APT packages
 RUN apt-get update
 RUN apt-get install -y libssl-dev libffi-dev python3-dev debhelper zlib1g-dev wget dh-python python3 python3-setuptools python3-pip \
-        unzip
+        unzip libgirepository1.0-dev libcairo2-dev gir1.2-secret-1
 
 # Download Python source code
 ARG python_version="3.6.10"
@@ -24,7 +24,7 @@ RUN ${PYTHON_SRC_DIR}/*/configure --srcdir ${PYTHON_SRC_DIR}/* --prefix $(pwd)/p
 
 ENV PATH=/msgraph-cli/python_env/bin:$PATH
 
-RUN pip install wheel
+RUN pip install --upgrade pip && pip install wheel pygobject
 
 COPY . .
 

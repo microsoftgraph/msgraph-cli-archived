@@ -18,30 +18,30 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import ApplicationsConfiguration
-from .operations import ApplicationApplicationOperations
-from .operations import ApplicationOperations
-from .operations import GroupOperations
-from .operations import ServicePrincipalServicePrincipalOperations
-from .operations import ServicePrincipalOperations
-from .operations import UserOperations
+from .operations import ApplicationsApplicationOperations
+from .operations import ApplicationsOperations
+from .operations import GroupsOperations
+from .operations import ServicePrincipalsServicePrincipalOperations
+from .operations import ServicePrincipalsOperations
+from .operations import UsersOperations
 from . import models
 
 
 class Applications(object):
     """Applications.
 
-    :ivar application_application: ApplicationApplicationOperations operations
-    :vartype application_application: applications.operations.ApplicationApplicationOperations
-    :ivar application: ApplicationOperations operations
-    :vartype application: applications.operations.ApplicationOperations
-    :ivar group: GroupOperations operations
-    :vartype group: applications.operations.GroupOperations
-    :ivar service_principal_service_principal: ServicePrincipalServicePrincipalOperations operations
-    :vartype service_principal_service_principal: applications.operations.ServicePrincipalServicePrincipalOperations
-    :ivar service_principal: ServicePrincipalOperations operations
-    :vartype service_principal: applications.operations.ServicePrincipalOperations
-    :ivar user: UserOperations operations
-    :vartype user: applications.operations.UserOperations
+    :ivar applications_application: ApplicationsApplicationOperations operations
+    :vartype applications_application: applications.operations.ApplicationsApplicationOperations
+    :ivar applications: ApplicationsOperations operations
+    :vartype applications: applications.operations.ApplicationsOperations
+    :ivar groups: GroupsOperations operations
+    :vartype groups: applications.operations.GroupsOperations
+    :ivar service_principals_service_principal: ServicePrincipalsServicePrincipalOperations operations
+    :vartype service_principals_service_principal: applications.operations.ServicePrincipalsServicePrincipalOperations
+    :ivar service_principals: ServicePrincipalsOperations operations
+    :vartype service_principals: applications.operations.ServicePrincipalsOperations
+    :ivar users: UsersOperations operations
+    :vartype users: applications.operations.UsersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -55,7 +55,6 @@ class Applications(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -77,19 +76,20 @@ class Applications(object):
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.application_application = ApplicationApplicationOperations(
+        self.applications_application = ApplicationsApplicationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.application = ApplicationOperations(
+        self.applications = ApplicationsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group = GroupOperations(
+        self.groups = GroupsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.service_principal_service_principal = ServicePrincipalServicePrincipalOperations(
+        self.service_principals_service_principal = ServicePrincipalsServicePrincipalOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.service_principal = ServicePrincipalOperations(
+        self.service_principals = ServicePrincipalsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

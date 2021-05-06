@@ -17,16 +17,14 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_devicescloudprint_beta.action import (
-    AddOperations,
-    AddServices,
+    AddDevicescloudprintPrintCreateOperationStatus,
     AddDefaults,
-    AddPrintStatus,
-    AddCapabilitiesCopiesPerJob,
+    AddDevicescloudprintPrintCreatePrinterStatus,
+    AddCopiesPerJob,
     AddDevicescloudprintPrintCreatePrinterAllowedGroups,
     AddDevicescloudprintPrintCreatePrinterAllowedUsers,
     AddDevicescloudprintPrintCreatePrinterShareAllowedGroups,
     AddDevicescloudprintPrintCreatePrinterShareAllowedUsers,
-    AddApplicationSignInDetailedSummary,
     AddCredentialUserRegistrationDetails,
     AddUserCredentialUsageDetails,
     AddDailyPrintUsageSummariesByPrinter,
@@ -36,36 +34,26 @@ from azext_devicescloudprint_beta.action import (
     AddEndpoints,
     AddCreatedBy,
     AddCertificateSigningRequest,
-    AddPrintTaskdefinitionsStatus
+    AddStatus
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('devicescloudprint print-print get-print') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('devicescloudprint print-print show-print') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-print update-print') as c:
         c.argument('connectors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('operations', action=AddOperations, nargs='*', help='')
+        c.argument('operations', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('printers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('printer_shares', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reports', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('services', action=AddServices, nargs='*', help='')
+        c.argument('services', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('shares', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('task_definitions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('settings_document_conversion_enabled', arg_type=get_three_state_flag(), help='')
-
-    with self.argument_context('devicescloudprint print delete') as c:
-        c.argument('print_connector_id', type=str, help='key: id of printConnector')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('print_operation_id', type=str, help='key: id of printOperation')
-        c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('report_root_id', type=str, help='key: id of reportRoot')
-        c.argument('print_service_id', type=str, help='key: id of printService')
-        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
+        c.argument('document_conversion_enabled', arg_type=get_three_state_flag(), help='', arg_group='Settings')
 
     with self.argument_context('devicescloudprint print create-connector') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -76,72 +64,71 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='')
         c.argument('operating_system', type=str, help='')
         c.argument('registered_date_time', help='')
-        c.argument('device_health_last_connection_time', help='')
+        c.argument('last_connection_time', help='', arg_group='Device Health')
 
     with self.argument_context('devicescloudprint print create-operation') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
-        c.argument('status_description', type=str, help='')
-        c.argument('status_state', arg_type=get_enum_type(['notStarted', 'running', 'succeeded', 'failed', ''
-                                                           'unknownFutureValue']), help='')
+        c.argument('status', action=AddDevicescloudprintPrintCreateOperationStatus, nargs='+',
+                   help='printOperationStatus')
 
     with self.argument_context('devicescloudprint print create-printer') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
+        c.argument('defaults', action=AddDefaults, nargs='+', help='printerDefaults')
         c.argument('display_name', type=str, help='')
         c.argument('is_accepting_jobs', arg_type=get_three_state_flag(), help='')
         c.argument('location', arg_type=get_location_type(self.cli_ctx))
         c.argument('manufacturer', type=str, help='')
         c.argument('model', type=str, help='')
         c.argument('name', type=str, help='')
-        c.argument('status', action=AddPrintStatus, nargs='*', help='printerStatus')
+        c.argument('status', action=AddDevicescloudprintPrintCreatePrinterStatus, nargs='+', help='printerStatus')
         c.argument('jobs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('capabilities_bottom_margins', nargs='*', help='')
-        c.argument('capabilities_collation', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_color_modes', nargs='*', help='')
-        c.argument('capabilities_content_types', nargs='*', help='')
-        c.argument('capabilities_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help='integerRange')
-        c.argument('capabilities_dpis', nargs='*', help='')
-        c.argument('capabilities_duplex_modes', nargs='*', help='')
-        c.argument('capabilities_feed_directions', nargs='*', help='')
-        c.argument('capabilities_feed_orientations', nargs='*', help='')
-        c.argument('capabilities_finishings', nargs='*', help='')
-        c.argument('capabilities_input_bins', nargs='*', help='')
-        c.argument('capabilities_is_color_printing_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_is_page_range_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_left_margins', nargs='*', help='')
-        c.argument('capabilities_media_colors', nargs='*', help='')
-        c.argument('capabilities_media_sizes', nargs='*', help='')
-        c.argument('capabilities_media_types', nargs='*', help='')
-        c.argument('capabilities_multipage_layouts', nargs='*', help='')
-        c.argument('capabilities_orientations', nargs='*', help='')
-        c.argument('capabilities_output_bins', nargs='*', help='')
-        c.argument('capabilities_pages_per_sheet', nargs='*', help='')
-        c.argument('capabilities_qualities', nargs='*', help='')
-        c.argument('capabilities_right_margins', nargs='*', help='')
-        c.argument('capabilities_scalings', nargs='*', help='')
-        c.argument('capabilities_supported_color_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_document_mime_types', nargs='*', help='')
-        c.argument('capabilities_supported_duplex_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_finishings', nargs='*', help='')
-        c.argument('capabilities_supported_media_colors', nargs='*', help='')
-        c.argument('capabilities_supported_media_sizes', nargs='*', help='')
-        c.argument('capabilities_supported_media_types', nargs='*', help='')
-        c.argument('capabilities_supported_orientations', nargs='*', help='')
-        c.argument('capabilities_supported_output_bins', nargs='*', help='')
-        c.argument('capabilities_supported_pages_per_sheet', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_presentation_directions', nargs='*', help='')
-        c.argument('capabilities_supported_print_qualities', nargs='*', help='')
-        c.argument('capabilities_supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_top_margins', nargs='*', help='')
+        c.argument('bottom_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('collation', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('color_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('content_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange', arg_group='Capabilities')
+        c.argument('dpis', nargs='+', help='', arg_group='Capabilities')
+        c.argument('duplex_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('input_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('is_color_printing_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('is_page_range_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('left_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('multipage_layouts', nargs='+', help='', arg_group='Capabilities')
+        c.argument('orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('pages_per_sheet', nargs='+', help='', arg_group='Capabilities')
+        c.argument('qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('right_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('scalings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_color_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_document_mime_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_duplex_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_pages_per_sheet', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_presentation_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_print_qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('top_margins', nargs='+', help='', arg_group='Capabilities')
         c.argument('accepting_jobs', arg_type=get_three_state_flag(), help='')
         c.argument('is_shared', arg_type=get_three_state_flag(), help='')
         c.argument('registered_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterAllowedGroups, nargs='*', help='')
-        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterAllowedUsers, nargs='*', help='')
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterAllowedGroups, nargs='+', help='')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterAllowedUsers, nargs='+', help='')
         c.argument('connectors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('share', type=validate_file_or_dict, help='printerShare Expected value: json-string/@json-file.')
         c.argument('shares', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -149,229 +136,261 @@ def load_arguments(self, _):
 
     with self.argument_context('devicescloudprint print create-printer-share') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
+        c.argument('defaults', action=AddDefaults, nargs='+', help='printerDefaults')
         c.argument('display_name', type=str, help='')
         c.argument('is_accepting_jobs', arg_type=get_three_state_flag(), help='')
         c.argument('location', arg_type=get_location_type(self.cli_ctx))
         c.argument('manufacturer', type=str, help='')
         c.argument('model', type=str, help='')
         c.argument('name', type=str, help='')
-        c.argument('status', action=AddPrintStatus, nargs='*', help='printerStatus')
+        c.argument('status', action=AddDevicescloudprintPrintCreatePrinterStatus, nargs='+', help='printerStatus')
         c.argument('jobs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('capabilities_bottom_margins', nargs='*', help='')
-        c.argument('capabilities_collation', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_color_modes', nargs='*', help='')
-        c.argument('capabilities_content_types', nargs='*', help='')
-        c.argument('capabilities_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help='integerRange')
-        c.argument('capabilities_dpis', nargs='*', help='')
-        c.argument('capabilities_duplex_modes', nargs='*', help='')
-        c.argument('capabilities_feed_directions', nargs='*', help='')
-        c.argument('capabilities_feed_orientations', nargs='*', help='')
-        c.argument('capabilities_finishings', nargs='*', help='')
-        c.argument('capabilities_input_bins', nargs='*', help='')
-        c.argument('capabilities_is_color_printing_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_is_page_range_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_left_margins', nargs='*', help='')
-        c.argument('capabilities_media_colors', nargs='*', help='')
-        c.argument('capabilities_media_sizes', nargs='*', help='')
-        c.argument('capabilities_media_types', nargs='*', help='')
-        c.argument('capabilities_multipage_layouts', nargs='*', help='')
-        c.argument('capabilities_orientations', nargs='*', help='')
-        c.argument('capabilities_output_bins', nargs='*', help='')
-        c.argument('capabilities_pages_per_sheet', nargs='*', help='')
-        c.argument('capabilities_qualities', nargs='*', help='')
-        c.argument('capabilities_right_margins', nargs='*', help='')
-        c.argument('capabilities_scalings', nargs='*', help='')
-        c.argument('capabilities_supported_color_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_document_mime_types', nargs='*', help='')
-        c.argument('capabilities_supported_duplex_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_finishings', nargs='*', help='')
-        c.argument('capabilities_supported_media_colors', nargs='*', help='')
-        c.argument('capabilities_supported_media_sizes', nargs='*', help='')
-        c.argument('capabilities_supported_media_types', nargs='*', help='')
-        c.argument('capabilities_supported_orientations', nargs='*', help='')
-        c.argument('capabilities_supported_output_bins', nargs='*', help='')
-        c.argument('capabilities_supported_pages_per_sheet', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_presentation_directions', nargs='*', help='')
-        c.argument('capabilities_supported_print_qualities', nargs='*', help='')
-        c.argument('capabilities_supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_top_margins', nargs='*', help='')
+        c.argument('bottom_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('collation', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('color_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('content_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange', arg_group='Capabilities')
+        c.argument('dpis', nargs='+', help='', arg_group='Capabilities')
+        c.argument('duplex_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('input_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('is_color_printing_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('is_page_range_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('left_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('multipage_layouts', nargs='+', help='', arg_group='Capabilities')
+        c.argument('orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('pages_per_sheet', nargs='+', help='', arg_group='Capabilities')
+        c.argument('qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('right_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('scalings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_color_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_document_mime_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_duplex_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_pages_per_sheet', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_presentation_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_print_qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('top_margins', nargs='+', help='', arg_group='Capabilities')
         c.argument('allow_all_users', arg_type=get_three_state_flag(), help='')
         c.argument('created_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='*', help=''
-                   '')
-        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='*',
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='+',
+                   help='')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='+',
                    help='')
         c.argument('printer', type=validate_file_or_dict, help='printer Expected value: json-string/@json-file.')
 
     with self.argument_context('devicescloudprint print create-report') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('application_sign_in_detailed_summary', action=AddApplicationSignInDetailedSummary, nargs='*',
+        c.argument('application_sign_in_detailed_summary', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
+        c.argument('credential_user_registration_details', action=AddCredentialUserRegistrationDetails, nargs='+',
                    help='')
-        c.argument('credential_user_registration_details', action=AddCredentialUserRegistrationDetails, nargs='*',
+        c.argument('user_credential_usage_details', action=AddUserCredentialUsageDetails, nargs='+', help='')
+        c.argument('daily_print_usage_summaries_by_printer', action=AddDailyPrintUsageSummariesByPrinter, nargs='+',
                    help='')
-        c.argument('user_credential_usage_details', action=AddUserCredentialUsageDetails, nargs='*', help='')
-        c.argument('daily_print_usage_summaries_by_printer', action=AddDailyPrintUsageSummariesByPrinter, nargs='*',
-                   help='')
-        c.argument('daily_print_usage_summaries_by_user', action=AddDailyPrintUsageSummariesByUser, nargs='*',
+        c.argument('daily_print_usage_summaries_by_user', action=AddDailyPrintUsageSummariesByUser, nargs='+',
                    help='')
         c.argument('monthly_print_usage_summaries_by_printer', action=AddMonthlyPrintUsageSummariesByPrinter,
-                   nargs='*', help='')
-        c.argument('monthly_print_usage_summaries_by_user', action=AddMonthlyPrintUsageSummariesByUser, nargs='*',
+                   nargs='+', help='')
+        c.argument('monthly_print_usage_summaries_by_user', action=AddMonthlyPrintUsageSummariesByUser, nargs='+',
                    help='')
 
     with self.argument_context('devicescloudprint print create-service') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('endpoints', action=AddEndpoints, nargs='*', help='')
+        c.argument('endpoints', action=AddEndpoints, nargs='+', help='')
 
     with self.argument_context('devicescloudprint print create-share') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
+        c.argument('defaults', action=AddDefaults, nargs='+', help='printerDefaults')
         c.argument('display_name', type=str, help='')
         c.argument('is_accepting_jobs', arg_type=get_three_state_flag(), help='')
         c.argument('location', arg_type=get_location_type(self.cli_ctx))
         c.argument('manufacturer', type=str, help='')
         c.argument('model', type=str, help='')
         c.argument('name', type=str, help='')
-        c.argument('status', action=AddPrintStatus, nargs='*', help='printerStatus')
+        c.argument('status', action=AddDevicescloudprintPrintCreatePrinterStatus, nargs='+', help='printerStatus')
         c.argument('jobs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('capabilities_bottom_margins', nargs='*', help='')
-        c.argument('capabilities_collation', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_color_modes', nargs='*', help='')
-        c.argument('capabilities_content_types', nargs='*', help='')
-        c.argument('capabilities_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help='integerRange')
-        c.argument('capabilities_dpis', nargs='*', help='')
-        c.argument('capabilities_duplex_modes', nargs='*', help='')
-        c.argument('capabilities_feed_directions', nargs='*', help='')
-        c.argument('capabilities_feed_orientations', nargs='*', help='')
-        c.argument('capabilities_finishings', nargs='*', help='')
-        c.argument('capabilities_input_bins', nargs='*', help='')
-        c.argument('capabilities_is_color_printing_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_is_page_range_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_left_margins', nargs='*', help='')
-        c.argument('capabilities_media_colors', nargs='*', help='')
-        c.argument('capabilities_media_sizes', nargs='*', help='')
-        c.argument('capabilities_media_types', nargs='*', help='')
-        c.argument('capabilities_multipage_layouts', nargs='*', help='')
-        c.argument('capabilities_orientations', nargs='*', help='')
-        c.argument('capabilities_output_bins', nargs='*', help='')
-        c.argument('capabilities_pages_per_sheet', nargs='*', help='')
-        c.argument('capabilities_qualities', nargs='*', help='')
-        c.argument('capabilities_right_margins', nargs='*', help='')
-        c.argument('capabilities_scalings', nargs='*', help='')
-        c.argument('capabilities_supported_color_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_document_mime_types', nargs='*', help='')
-        c.argument('capabilities_supported_duplex_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_finishings', nargs='*', help='')
-        c.argument('capabilities_supported_media_colors', nargs='*', help='')
-        c.argument('capabilities_supported_media_sizes', nargs='*', help='')
-        c.argument('capabilities_supported_media_types', nargs='*', help='')
-        c.argument('capabilities_supported_orientations', nargs='*', help='')
-        c.argument('capabilities_supported_output_bins', nargs='*', help='')
-        c.argument('capabilities_supported_pages_per_sheet', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_presentation_directions', nargs='*', help='')
-        c.argument('capabilities_supported_print_qualities', nargs='*', help='')
-        c.argument('capabilities_supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_top_margins', nargs='*', help='')
+        c.argument('bottom_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('collation', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('color_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('content_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange', arg_group='Capabilities')
+        c.argument('dpis', nargs='+', help='', arg_group='Capabilities')
+        c.argument('duplex_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('input_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('is_color_printing_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('is_page_range_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('left_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('multipage_layouts', nargs='+', help='', arg_group='Capabilities')
+        c.argument('orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('pages_per_sheet', nargs='+', help='', arg_group='Capabilities')
+        c.argument('qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('right_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('scalings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_color_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_document_mime_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_duplex_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_pages_per_sheet', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_presentation_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_print_qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('top_margins', nargs='+', help='', arg_group='Capabilities')
         c.argument('allow_all_users', arg_type=get_three_state_flag(), help='')
         c.argument('created_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='*', help=''
-                   '')
-        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='*',
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='+',
+                   help='')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='+',
                    help='')
         c.argument('printer', type=validate_file_or_dict, help='printer Expected value: json-string/@json-file.')
 
     with self.argument_context('devicescloudprint print create-task-definition') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('created_by', action=AddCreatedBy, nargs='*', help='appIdentity')
+        c.argument('created_by', action=AddCreatedBy, nargs='+', help='appIdentity')
         c.argument('display_name', type=str, help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint print get-connector') as c:
+    with self.argument_context('devicescloudprint print delete-connector') as c:
         c.argument('print_connector_id', type=str, help='key: id of printConnector')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print get-operation') as c:
+    with self.argument_context('devicescloudprint print delete-operation') as c:
         c.argument('print_operation_id', type=str, help='key: id of printOperation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print get-printer') as c:
+    with self.argument_context('devicescloudprint print delete-printer') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print get-printer-share') as c:
+    with self.argument_context('devicescloudprint print delete-printer-share') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print get-report') as c:
+    with self.argument_context('devicescloudprint print delete-report') as c:
         c.argument('report_root_id', type=str, help='key: id of reportRoot')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print get-service') as c:
+    with self.argument_context('devicescloudprint print delete-service') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print get-share') as c:
+    with self.argument_context('devicescloudprint print delete-share') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print get-task-definition') as c:
+    with self.argument_context('devicescloudprint print delete-task-definition') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print list-connector') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print list-operation') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print list-printer') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print list-printer-share') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print list-report') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print list-service') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print list-share') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print list-task-definition') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print show-connector') as c:
+        c.argument('print_connector_id', type=str, help='key: id of printConnector')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print show-operation') as c:
+        c.argument('print_operation_id', type=str, help='key: id of printOperation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print show-printer') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print show-printer-share') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print show-report') as c:
+        c.argument('report_root_id', type=str, help='key: id of reportRoot')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print show-service') as c:
+        c.argument('print_service_id', type=str, help='key: id of printService')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print show-share') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print show-task-definition') as c:
+        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print update-connector') as c:
         c.argument('print_connector_id', type=str, help='key: id of printConnector')
@@ -383,74 +402,73 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='')
         c.argument('operating_system', type=str, help='')
         c.argument('registered_date_time', help='')
-        c.argument('device_health_last_connection_time', help='')
+        c.argument('last_connection_time', help='', arg_group='Device Health')
 
     with self.argument_context('devicescloudprint print update-operation') as c:
         c.argument('print_operation_id', type=str, help='key: id of printOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
-        c.argument('status_description', type=str, help='')
-        c.argument('status_state', arg_type=get_enum_type(['notStarted', 'running', 'succeeded', 'failed', ''
-                                                           'unknownFutureValue']), help='')
+        c.argument('status', action=AddDevicescloudprintPrintCreateOperationStatus, nargs='+',
+                   help='printOperationStatus')
 
     with self.argument_context('devicescloudprint print update-printer') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
+        c.argument('defaults', action=AddDefaults, nargs='+', help='printerDefaults')
         c.argument('display_name', type=str, help='')
         c.argument('is_accepting_jobs', arg_type=get_three_state_flag(), help='')
         c.argument('location', arg_type=get_location_type(self.cli_ctx))
         c.argument('manufacturer', type=str, help='')
         c.argument('model', type=str, help='')
         c.argument('name', type=str, help='')
-        c.argument('status', action=AddPrintStatus, nargs='*', help='printerStatus')
+        c.argument('status', action=AddDevicescloudprintPrintCreatePrinterStatus, nargs='+', help='printerStatus')
         c.argument('jobs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('capabilities_bottom_margins', nargs='*', help='')
-        c.argument('capabilities_collation', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_color_modes', nargs='*', help='')
-        c.argument('capabilities_content_types', nargs='*', help='')
-        c.argument('capabilities_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help='integerRange')
-        c.argument('capabilities_dpis', nargs='*', help='')
-        c.argument('capabilities_duplex_modes', nargs='*', help='')
-        c.argument('capabilities_feed_directions', nargs='*', help='')
-        c.argument('capabilities_feed_orientations', nargs='*', help='')
-        c.argument('capabilities_finishings', nargs='*', help='')
-        c.argument('capabilities_input_bins', nargs='*', help='')
-        c.argument('capabilities_is_color_printing_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_is_page_range_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_left_margins', nargs='*', help='')
-        c.argument('capabilities_media_colors', nargs='*', help='')
-        c.argument('capabilities_media_sizes', nargs='*', help='')
-        c.argument('capabilities_media_types', nargs='*', help='')
-        c.argument('capabilities_multipage_layouts', nargs='*', help='')
-        c.argument('capabilities_orientations', nargs='*', help='')
-        c.argument('capabilities_output_bins', nargs='*', help='')
-        c.argument('capabilities_pages_per_sheet', nargs='*', help='')
-        c.argument('capabilities_qualities', nargs='*', help='')
-        c.argument('capabilities_right_margins', nargs='*', help='')
-        c.argument('capabilities_scalings', nargs='*', help='')
-        c.argument('capabilities_supported_color_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_document_mime_types', nargs='*', help='')
-        c.argument('capabilities_supported_duplex_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_finishings', nargs='*', help='')
-        c.argument('capabilities_supported_media_colors', nargs='*', help='')
-        c.argument('capabilities_supported_media_sizes', nargs='*', help='')
-        c.argument('capabilities_supported_media_types', nargs='*', help='')
-        c.argument('capabilities_supported_orientations', nargs='*', help='')
-        c.argument('capabilities_supported_output_bins', nargs='*', help='')
-        c.argument('capabilities_supported_pages_per_sheet', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_presentation_directions', nargs='*', help='')
-        c.argument('capabilities_supported_print_qualities', nargs='*', help='')
-        c.argument('capabilities_supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_top_margins', nargs='*', help='')
+        c.argument('bottom_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('collation', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('color_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('content_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange', arg_group='Capabilities')
+        c.argument('dpis', nargs='+', help='', arg_group='Capabilities')
+        c.argument('duplex_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('input_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('is_color_printing_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('is_page_range_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('left_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('multipage_layouts', nargs='+', help='', arg_group='Capabilities')
+        c.argument('orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('pages_per_sheet', nargs='+', help='', arg_group='Capabilities')
+        c.argument('qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('right_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('scalings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_color_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_document_mime_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_duplex_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_pages_per_sheet', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_presentation_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_print_qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('top_margins', nargs='+', help='', arg_group='Capabilities')
         c.argument('accepting_jobs', arg_type=get_three_state_flag(), help='')
         c.argument('is_shared', arg_type=get_three_state_flag(), help='')
         c.argument('registered_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterAllowedGroups, nargs='*', help='')
-        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterAllowedUsers, nargs='*', help='')
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterAllowedGroups, nargs='+', help='')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterAllowedUsers, nargs='+', help='')
         c.argument('connectors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('share', type=validate_file_or_dict, help='printerShare Expected value: json-string/@json-file.')
         c.argument('shares', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -459,151 +477,151 @@ def load_arguments(self, _):
     with self.argument_context('devicescloudprint print update-printer-share') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
+        c.argument('defaults', action=AddDefaults, nargs='+', help='printerDefaults')
         c.argument('display_name', type=str, help='')
         c.argument('is_accepting_jobs', arg_type=get_three_state_flag(), help='')
         c.argument('location', arg_type=get_location_type(self.cli_ctx))
         c.argument('manufacturer', type=str, help='')
         c.argument('model', type=str, help='')
         c.argument('name', type=str, help='')
-        c.argument('status', action=AddPrintStatus, nargs='*', help='printerStatus')
+        c.argument('status', action=AddDevicescloudprintPrintCreatePrinterStatus, nargs='+', help='printerStatus')
         c.argument('jobs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('capabilities_bottom_margins', nargs='*', help='')
-        c.argument('capabilities_collation', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_color_modes', nargs='*', help='')
-        c.argument('capabilities_content_types', nargs='*', help='')
-        c.argument('capabilities_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help='integerRange')
-        c.argument('capabilities_dpis', nargs='*', help='')
-        c.argument('capabilities_duplex_modes', nargs='*', help='')
-        c.argument('capabilities_feed_directions', nargs='*', help='')
-        c.argument('capabilities_feed_orientations', nargs='*', help='')
-        c.argument('capabilities_finishings', nargs='*', help='')
-        c.argument('capabilities_input_bins', nargs='*', help='')
-        c.argument('capabilities_is_color_printing_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_is_page_range_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_left_margins', nargs='*', help='')
-        c.argument('capabilities_media_colors', nargs='*', help='')
-        c.argument('capabilities_media_sizes', nargs='*', help='')
-        c.argument('capabilities_media_types', nargs='*', help='')
-        c.argument('capabilities_multipage_layouts', nargs='*', help='')
-        c.argument('capabilities_orientations', nargs='*', help='')
-        c.argument('capabilities_output_bins', nargs='*', help='')
-        c.argument('capabilities_pages_per_sheet', nargs='*', help='')
-        c.argument('capabilities_qualities', nargs='*', help='')
-        c.argument('capabilities_right_margins', nargs='*', help='')
-        c.argument('capabilities_scalings', nargs='*', help='')
-        c.argument('capabilities_supported_color_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_document_mime_types', nargs='*', help='')
-        c.argument('capabilities_supported_duplex_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_finishings', nargs='*', help='')
-        c.argument('capabilities_supported_media_colors', nargs='*', help='')
-        c.argument('capabilities_supported_media_sizes', nargs='*', help='')
-        c.argument('capabilities_supported_media_types', nargs='*', help='')
-        c.argument('capabilities_supported_orientations', nargs='*', help='')
-        c.argument('capabilities_supported_output_bins', nargs='*', help='')
-        c.argument('capabilities_supported_pages_per_sheet', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_presentation_directions', nargs='*', help='')
-        c.argument('capabilities_supported_print_qualities', nargs='*', help='')
-        c.argument('capabilities_supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_top_margins', nargs='*', help='')
+        c.argument('bottom_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('collation', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('color_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('content_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange', arg_group='Capabilities')
+        c.argument('dpis', nargs='+', help='', arg_group='Capabilities')
+        c.argument('duplex_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('input_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('is_color_printing_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('is_page_range_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('left_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('multipage_layouts', nargs='+', help='', arg_group='Capabilities')
+        c.argument('orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('pages_per_sheet', nargs='+', help='', arg_group='Capabilities')
+        c.argument('qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('right_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('scalings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_color_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_document_mime_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_duplex_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_pages_per_sheet', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_presentation_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_print_qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('top_margins', nargs='+', help='', arg_group='Capabilities')
         c.argument('allow_all_users', arg_type=get_three_state_flag(), help='')
         c.argument('created_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='*', help=''
-                   '')
-        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='*',
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='+',
+                   help='')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='+',
                    help='')
         c.argument('printer', type=validate_file_or_dict, help='printer Expected value: json-string/@json-file.')
 
     with self.argument_context('devicescloudprint print update-report') as c:
         c.argument('report_root_id', type=str, help='key: id of reportRoot')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('application_sign_in_detailed_summary', action=AddApplicationSignInDetailedSummary, nargs='*',
+        c.argument('application_sign_in_detailed_summary', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
+        c.argument('credential_user_registration_details', action=AddCredentialUserRegistrationDetails, nargs='+',
                    help='')
-        c.argument('credential_user_registration_details', action=AddCredentialUserRegistrationDetails, nargs='*',
+        c.argument('user_credential_usage_details', action=AddUserCredentialUsageDetails, nargs='+', help='')
+        c.argument('daily_print_usage_summaries_by_printer', action=AddDailyPrintUsageSummariesByPrinter, nargs='+',
                    help='')
-        c.argument('user_credential_usage_details', action=AddUserCredentialUsageDetails, nargs='*', help='')
-        c.argument('daily_print_usage_summaries_by_printer', action=AddDailyPrintUsageSummariesByPrinter, nargs='*',
-                   help='')
-        c.argument('daily_print_usage_summaries_by_user', action=AddDailyPrintUsageSummariesByUser, nargs='*',
+        c.argument('daily_print_usage_summaries_by_user', action=AddDailyPrintUsageSummariesByUser, nargs='+',
                    help='')
         c.argument('monthly_print_usage_summaries_by_printer', action=AddMonthlyPrintUsageSummariesByPrinter,
-                   nargs='*', help='')
-        c.argument('monthly_print_usage_summaries_by_user', action=AddMonthlyPrintUsageSummariesByUser, nargs='*',
+                   nargs='+', help='')
+        c.argument('monthly_print_usage_summaries_by_user', action=AddMonthlyPrintUsageSummariesByUser, nargs='+',
                    help='')
 
     with self.argument_context('devicescloudprint print update-service') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('endpoints', action=AddEndpoints, nargs='*', help='')
+        c.argument('endpoints', action=AddEndpoints, nargs='+', help='')
 
     with self.argument_context('devicescloudprint print update-share') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('defaults', action=AddDefaults, nargs='*', help='printerDefaults')
+        c.argument('defaults', action=AddDefaults, nargs='+', help='printerDefaults')
         c.argument('display_name', type=str, help='')
         c.argument('is_accepting_jobs', arg_type=get_three_state_flag(), help='')
         c.argument('location', arg_type=get_location_type(self.cli_ctx))
         c.argument('manufacturer', type=str, help='')
         c.argument('model', type=str, help='')
         c.argument('name', type=str, help='')
-        c.argument('status', action=AddPrintStatus, nargs='*', help='printerStatus')
+        c.argument('status', action=AddDevicescloudprintPrintCreatePrinterStatus, nargs='+', help='printerStatus')
         c.argument('jobs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('capabilities_bottom_margins', nargs='*', help='')
-        c.argument('capabilities_collation', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_color_modes', nargs='*', help='')
-        c.argument('capabilities_content_types', nargs='*', help='')
-        c.argument('capabilities_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help='integerRange')
-        c.argument('capabilities_dpis', nargs='*', help='')
-        c.argument('capabilities_duplex_modes', nargs='*', help='')
-        c.argument('capabilities_feed_directions', nargs='*', help='')
-        c.argument('capabilities_feed_orientations', nargs='*', help='')
-        c.argument('capabilities_finishings', nargs='*', help='')
-        c.argument('capabilities_input_bins', nargs='*', help='')
-        c.argument('capabilities_is_color_printing_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_is_page_range_supported', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_left_margins', nargs='*', help='')
-        c.argument('capabilities_media_colors', nargs='*', help='')
-        c.argument('capabilities_media_sizes', nargs='*', help='')
-        c.argument('capabilities_media_types', nargs='*', help='')
-        c.argument('capabilities_multipage_layouts', nargs='*', help='')
-        c.argument('capabilities_orientations', nargs='*', help='')
-        c.argument('capabilities_output_bins', nargs='*', help='')
-        c.argument('capabilities_pages_per_sheet', nargs='*', help='')
-        c.argument('capabilities_qualities', nargs='*', help='')
-        c.argument('capabilities_right_margins', nargs='*', help='')
-        c.argument('capabilities_scalings', nargs='*', help='')
-        c.argument('capabilities_supported_color_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_copies_per_job', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_document_mime_types', nargs='*', help='')
-        c.argument('capabilities_supported_duplex_configurations', nargs='*', help='')
-        c.argument('capabilities_supported_finishings', nargs='*', help='')
-        c.argument('capabilities_supported_media_colors', nargs='*', help='')
-        c.argument('capabilities_supported_media_sizes', nargs='*', help='')
-        c.argument('capabilities_supported_media_types', nargs='*', help='')
-        c.argument('capabilities_supported_orientations', nargs='*', help='')
-        c.argument('capabilities_supported_output_bins', nargs='*', help='')
-        c.argument('capabilities_supported_pages_per_sheet', action=AddCapabilitiesCopiesPerJob, nargs='*', help=''
-                   'integerRange')
-        c.argument('capabilities_supported_presentation_directions', nargs='*', help='')
-        c.argument('capabilities_supported_print_qualities', nargs='*', help='')
-        c.argument('capabilities_supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='')
-        c.argument('capabilities_top_margins', nargs='*', help='')
+        c.argument('bottom_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('collation', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('color_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('content_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange', arg_group='Capabilities')
+        c.argument('dpis', nargs='+', help='', arg_group='Capabilities')
+        c.argument('duplex_modes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('feed_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('input_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('is_color_printing_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('is_page_range_supported', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('left_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('multipage_layouts', nargs='+', help='', arg_group='Capabilities')
+        c.argument('orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('pages_per_sheet', nargs='+', help='', arg_group='Capabilities')
+        c.argument('qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('right_margins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('scalings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_color_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_copies_per_job', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_document_mime_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_duplex_configurations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_finishings', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_colors', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_sizes', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_media_types', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_orientations', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_output_bins', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_pages_per_sheet', action=AddCopiesPerJob, nargs='+', help='integerRange',
+                   arg_group='Capabilities')
+        c.argument('supported_presentation_directions', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supported_print_qualities', nargs='+', help='', arg_group='Capabilities')
+        c.argument('supports_fit_pdf_to_page', arg_type=get_three_state_flag(), help='', arg_group='Capabilities')
+        c.argument('top_margins', nargs='+', help='', arg_group='Capabilities')
         c.argument('allow_all_users', arg_type=get_three_state_flag(), help='')
         c.argument('created_date_time', help='')
-        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='*', help=''
-                   '')
-        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='*',
+        c.argument('allowed_groups', action=AddDevicescloudprintPrintCreatePrinterShareAllowedGroups, nargs='+',
+                   help='')
+        c.argument('allowed_users', action=AddDevicescloudprintPrintCreatePrinterShareAllowedUsers, nargs='+',
                    help='')
         c.argument('printer', type=validate_file_or_dict, help='printer Expected value: json-string/@json-file.')
 
     with self.argument_context('devicescloudprint print update-task-definition') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('created_by', action=AddCreatedBy, nargs='*', help='appIdentity')
+        c.argument('created_by', action=AddCreatedBy, nargs='+', help='appIdentity')
         c.argument('display_name', type=str, help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
@@ -613,16 +631,9 @@ def load_arguments(self, _):
         c.argument('model', type=str, help='')
         c.argument('physical_device_id', type=str, help='')
         c.argument('has_physical_device', arg_type=get_three_state_flag(), help='')
-        c.argument('certificate_signing_request', action=AddCertificateSigningRequest, nargs='*', help=''
-                   'printCertificateSigningRequest')
+        c.argument('certificate_signing_request', action=AddCertificateSigningRequest, nargs='+',
+                   help='printCertificateSigningRequest')
         c.argument('connector_id', type=str, help='')
-
-    with self.argument_context('devicescloudprint print-printer delete') as c:
-        c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
-        c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
 
     with self.argument_context('devicescloudprint print-printer create-allowed-group') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
@@ -653,72 +664,62 @@ def load_arguments(self, _):
         c.argument('definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint print-printer get-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-printer delete-allowed-group') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print-printer get-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-printer delete-allowed-user') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print-printer get-capability') as c:
+    with self.argument_context('devicescloudprint print-printer delete-ref-share') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print-printer get-ref-share') as c:
-        c.argument('printer_id', type=str, help='key: id of printer')
-
-    with self.argument_context('devicescloudprint print-printer get-share') as c:
-        c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('devicescloudprint print-printer get-task-trigger') as c:
+    with self.argument_context('devicescloudprint print-printer delete-task-trigger') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-printer list-allowed-group') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-printer list-allowed-user') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-printer list-connector') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-printer list-ref-connector') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('devicescloudprint print-printer list-ref-share') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('devicescloudprint print-printer list-share') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-printer list-task-trigger') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-printer reset-default') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
@@ -730,6 +731,35 @@ def load_arguments(self, _):
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('devicescloudprint print-printer show-allowed-group') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-printer show-allowed-user') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-printer show-capability') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+
+    with self.argument_context('devicescloudprint print-printer show-ref-share') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+
+    with self.argument_context('devicescloudprint print-printer show-share') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-printer show-task-trigger') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-printer update-allowed-group') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
@@ -753,20 +783,10 @@ def load_arguments(self, _):
         c.argument('definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint print-printer-task-trigger delete') as c:
+    with self.argument_context('devicescloudprint print-printer-task-trigger delete-ref-definition') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
         c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('devicescloudprint print-printer-task-trigger get-definition') as c:
-        c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('devicescloudprint print-printer-task-trigger get-ref-definition') as c:
-        c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
 
     with self.argument_context('devicescloudprint print-printer-task-trigger set-ref-definition') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
@@ -774,11 +794,15 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint print-printer-share delete') as c:
-        c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
+    with self.argument_context('devicescloudprint print-printer-task-trigger show-definition') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-printer-task-trigger show-ref-definition') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
 
     with self.argument_context('devicescloudprint print-printer-share create-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
@@ -792,42 +816,56 @@ def load_arguments(self, _):
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint print-printer-share get-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-printer-share delete-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print-printer-share get-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-printer-share delete-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print-printer-share get-printer') as c:
+    with self.argument_context('devicescloudprint print-printer-share delete-ref-printer') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('devicescloudprint print-printer-share get-ref-printer') as c:
-        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-printer-share list-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-printer-share list-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-printer-share set-ref-printer') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('devicescloudprint print-printer-share show-allowed-group') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-printer-share show-allowed-user') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-printer-share show-printer') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-printer-share show-ref-printer') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
     with self.argument_context('devicescloudprint print-printer-share update-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
@@ -843,71 +881,54 @@ def load_arguments(self, _):
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint print-printer-share-printer get-capability') as c:
-        c.argument('printer_share_id', type=str, help='key: id of printerShare')
-
     with self.argument_context('devicescloudprint print-printer-share-printer reset-default') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
     with self.argument_context('devicescloudprint print-printer-share-printer restore-factory-default') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint print-report get-group-archived-print-job') as c:
+    with self.argument_context('devicescloudprint print-printer-share-printer show-capability') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+
+    with self.argument_context('devicescloudprint print-report show-group-archived-print-job') as c:
         c.argument('group_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint print-report get-group-print-usage-summary') as c:
+    with self.argument_context('devicescloudprint print-report show-group-print-usage-summary') as c:
         c.argument('group_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint print-report get-overall-print-usage-summary') as c:
+    with self.argument_context('devicescloudprint print-report show-overall-print-usage-summary') as c:
         c.argument('period_start', help='')
         c.argument('period_end', help='')
         c.argument('top_lists_size', type=int, help='')
 
-    with self.argument_context('devicescloudprint print-report get-print-usage-summary-by-group') as c:
-        c.argument('period_start', help='')
-        c.argument('period_end', help='')
-
-    with self.argument_context('devicescloudprint print-report get-print-usage-summary-by-printer') as c:
-        c.argument('period_start', help='')
-        c.argument('period_end', help='')
-
-    with self.argument_context('devicescloudprint print-report get-print-usage-summary-by-time-span') as c:
+    with self.argument_context('devicescloudprint print-report show-print-usage-summary') as c:
         c.argument('period_start', help='')
         c.argument('period_end', help='')
         c.argument('time_span_in_minutes', type=int, help='')
 
-    with self.argument_context('devicescloudprint print-report get-print-usage-summary-by-user') as c:
-        c.argument('period_start', help='')
-        c.argument('period_end', help='')
-
-    with self.argument_context('devicescloudprint print-report get-printer-archived-print-job') as c:
+    with self.argument_context('devicescloudprint print-report show-printer-archived-print-job') as c:
         c.argument('printer_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint print-report get-printer-usage-summary') as c:
+    with self.argument_context('devicescloudprint print-report show-printer-usage-summary') as c:
         c.argument('printer_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint print-report get-user-archived-print-job') as c:
+    with self.argument_context('devicescloudprint print-report show-user-archived-print-job') as c:
         c.argument('user_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint print-report get-user-print-usage-summary') as c:
+    with self.argument_context('devicescloudprint print-report show-user-print-usage-summary') as c:
         c.argument('user_id', type=str, help='')
         c.argument('period_start', help='')
         c.argument('period_end', help='')
-
-    with self.argument_context('devicescloudprint print-service delete') as c:
-        c.argument('print_service_id', type=str, help='key: id of printService')
-        c.argument('print_service_endpoint_id', type=str, help='key: id of printServiceEndpoint')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-service create-endpoint') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
@@ -915,17 +936,22 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('uri', type=str, help='')
 
-    with self.argument_context('devicescloudprint print-service get-endpoint') as c:
+    with self.argument_context('devicescloudprint print-service delete-endpoint') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('print_service_endpoint_id', type=str, help='key: id of printServiceEndpoint')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-service list-endpoint') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-service show-endpoint') as c:
+        c.argument('print_service_id', type=str, help='key: id of printService')
+        c.argument('print_service_endpoint_id', type=str, help='key: id of printServiceEndpoint')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-service update-endpoint') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
@@ -933,12 +959,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
         c.argument('uri', type=str, help='')
-
-    with self.argument_context('devicescloudprint print-share delete') as c:
-        c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
 
     with self.argument_context('devicescloudprint print-share create-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
@@ -952,42 +972,56 @@ def load_arguments(self, _):
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint print-share get-allowed-group') as c:
+    with self.argument_context('devicescloudprint print-share delete-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_identity_id', type=str, help='key: id of printIdentity')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print-share get-allowed-user') as c:
+    with self.argument_context('devicescloudprint print-share delete-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print-share get-printer') as c:
+    with self.argument_context('devicescloudprint print-share delete-ref-printer') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('devicescloudprint print-share get-ref-printer') as c:
-        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-share list-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-share list-allowed-user') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-share set-ref-printer') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('devicescloudprint print-share show-allowed-group') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-share show-allowed-user') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-share show-printer') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-share show-ref-printer') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
     with self.argument_context('devicescloudprint print-share update-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
@@ -1003,81 +1037,68 @@ def load_arguments(self, _):
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
 
-    with self.argument_context('devicescloudprint print-share-printer get-capability') as c:
-        c.argument('printer_share_id', type=str, help='key: id of printerShare')
-
     with self.argument_context('devicescloudprint print-share-printer reset-default') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
     with self.argument_context('devicescloudprint print-share-printer restore-factory-default') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint print-task-definition delete') as c:
-        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
-        c.argument('print_task_id', type=str, help='key: id of printTask')
-        c.argument('if_match', type=str, help='ETag')
+    with self.argument_context('devicescloudprint print-share-printer show-capability') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
     with self.argument_context('devicescloudprint print-task-definition create-task') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('parent_url', type=str, help='')
-        c.argument('status', action=AddPrintTaskdefinitionsStatus, nargs='*', help='printTaskStatus')
+        c.argument('status', action=AddStatus, nargs='+', help='printTaskStatus')
         c.argument('definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
                    'json-string/@json-file.')
-        c.argument('trigger_id', type=str, help='Read-only.')
-        c.argument('trigger_event', arg_type=get_enum_type(['jobStarted', 'unknownFutureValue']), help='')
-        c.argument('trigger_definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
-                   'json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Trigger')
+        c.argument('event', arg_type=get_enum_type(['jobStarted', 'unknownFutureValue']), help='',
+                   arg_group='Trigger')
+        c.argument('microsoft_graph_print_task_definition', type=validate_file_or_dict, help='printTaskDefinition '
+                   'Expected value: json-string/@json-file.', arg_group='Trigger')
 
-    with self.argument_context('devicescloudprint print-task-definition get-task') as c:
+    with self.argument_context('devicescloudprint print-task-definition delete-task') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-task-definition list-task') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-task-definition show-task') as c:
+        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
+        c.argument('print_task_id', type=str, help='key: id of printTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('devicescloudprint print-task-definition update-task') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('parent_url', type=str, help='')
-        c.argument('status', action=AddPrintTaskdefinitionsStatus, nargs='*', help='printTaskStatus')
+        c.argument('status', action=AddStatus, nargs='+', help='printTaskStatus')
         c.argument('definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
                    'json-string/@json-file.')
-        c.argument('trigger_id', type=str, help='Read-only.')
-        c.argument('trigger_event', arg_type=get_enum_type(['jobStarted', 'unknownFutureValue']), help='')
-        c.argument('trigger_definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
-                   'json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Trigger')
+        c.argument('event', arg_type=get_enum_type(['jobStarted', 'unknownFutureValue']), help='',
+                   arg_group='Trigger')
+        c.argument('microsoft_graph_print_task_definition', type=validate_file_or_dict, help='printTaskDefinition '
+                   'Expected value: json-string/@json-file.', arg_group='Trigger')
 
-    with self.argument_context('devicescloudprint print-task-definition-task delete') as c:
+    with self.argument_context('devicescloudprint print-task-definition-task delete-ref-definition') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescloudprint print-task-definition-task get-definition') as c:
+    with self.argument_context('devicescloudprint print-task-definition-task delete-ref-trigger') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('devicescloudprint print-task-definition-task get-ref-definition') as c:
-        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
-        c.argument('print_task_id', type=str, help='key: id of printTask')
-
-    with self.argument_context('devicescloudprint print-task-definition-task get-ref-trigger') as c:
-        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
-        c.argument('print_task_id', type=str, help='key: id of printTask')
-
-    with self.argument_context('devicescloudprint print-task-definition-task get-trigger') as c:
-        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
-        c.argument('print_task_id', type=str, help='key: id of printTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-task-definition-task set-ref-definition') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
@@ -1090,3 +1111,23 @@ def load_arguments(self, _):
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('devicescloudprint print-task-definition-task show-definition') as c:
+        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
+        c.argument('print_task_id', type=str, help='key: id of printTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('devicescloudprint print-task-definition-task show-ref-definition') as c:
+        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
+        c.argument('print_task_id', type=str, help='key: id of printTask')
+
+    with self.argument_context('devicescloudprint print-task-definition-task show-ref-trigger') as c:
+        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
+        c.argument('print_task_id', type=str, help='key: id of printTask')
+
+    with self.argument_context('devicescloudprint print-task-definition-task show-trigger') as c:
+        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
+        c.argument('print_task_id', type=str, help='key: id of printTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')

@@ -35,6 +35,9 @@ class AddEmailAddresses(argparse._AppendAction):
                 d['address'] = v[0]
             elif kl == 'rank':
                 d['rank'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter email_addresses. All possible keys are: '
+                               'address, rank'.format(k))
         return d
 
 
@@ -59,6 +62,9 @@ class AddPeopleUserCreatePersonPhones(argparse._AppendAction):
                 d['number'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter phones. All possible keys are: number, '
+                               'type'.format(k))
         return d
 
 
@@ -81,6 +87,9 @@ class AddSources(argparse._AppendAction):
             v = properties[k]
             if kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter sources. All possible keys are: type'.
+                format(k))
         return d
 
 
@@ -107,6 +116,9 @@ class AddPeopleUserCreatePersonWebsites(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter websites. All possible keys are: address, '
+                               'display-name, type'.format(k))
         return d
 
 
@@ -133,6 +145,9 @@ class AddSettings(argparse.Action):
                 d['has_license'] = v[0]
             elif kl == 'has-opted-out':
                 d['has_opted_out'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter settings. All possible keys are: '
+                               'has-graph-mailbox, has-license, has-opted-out'.format(k))
         return d
 
 
@@ -165,6 +180,9 @@ class AddActivityStatistics(argparse._AppendAction):
                 d['time_zone_used'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter activity_statistics. All possible keys '
+                               'are: activity, duration, end-date, start-date, time-zone-used, id'.format(k))
         return d
 
 
@@ -200,19 +218,25 @@ class AddAnniversaries(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter anniversaries. All possible keys are: '
+                               'date, type, allowed-audiences, created-date-time, inference, last-modified-date-time, '
+                               'source, application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
@@ -256,19 +280,26 @@ class AddAwards(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter awards. All possible keys are: '
+                               'description, display-name, issued-date, issuing-authority, thumbnail-url, web-url, '
+                               'allowed-audiences, created-date-time, inference, last-modified-date-time, source, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
@@ -320,19 +351,27 @@ class AddCertifications(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter certifications. All possible keys are: '
+                               'certification-id, description, display-name, end-date, issued-date, issuing-authority, '
+                               'issuing-company, start-date, thumbnail-url, web-url, allowed-audiences, '
+                               'created-date-time, inference, last-modified-date-time, source, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
@@ -370,19 +409,26 @@ class AddEmails(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter emails. All possible keys are: address, '
+                               'display-name, type, allowed-audiences, created-date-time, inference, '
+                               'last-modified-date-time, source, application-last-modified-by-application, '
+                               'device-last-modified-by-device, user-last-modified-by-user, '
+                               'application-created-by-application, device-created-by-device, user-created-by-user, id'
+                               .format(k))
         return d
 
 
@@ -424,19 +470,26 @@ class AddInterests(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter interests. All possible keys are: '
+                               'categories, collaboration-tags, description, display-name, web-url, allowed-audiences, '
+                               'created-date-time, inference, last-modified-date-time, source, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
@@ -480,19 +533,26 @@ class AddLanguages(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter languages. All possible keys are: '
+                               'display-name, proficiency, reading, spoken, tag, written, allowed-audiences, '
+                               'created-date-time, inference, last-modified-date-time, source, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
@@ -538,19 +598,26 @@ class AddPatents(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter patents. All possible keys are: '
+                               'description, display-name, is-pending, issued-date, issuing-authority, number, '
+                               'web-url, allowed-audiences, created-date-time, inference, last-modified-date-time, '
+                               'source, application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
@@ -588,19 +655,26 @@ class AddPeopleUserUpdateProfilePhones(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter phones. All possible keys are: '
+                               'display-name, number, type, allowed-audiences, created-date-time, inference, '
+                               'last-modified-date-time, source, application-last-modified-by-application, '
+                               'device-last-modified-by-device, user-last-modified-by-user, '
+                               'application-created-by-application, device-created-by-device, user-created-by-user, id'
+                               .format(k))
         return d
 
 
@@ -644,19 +718,26 @@ class AddPublications(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter publications. All possible keys are: '
+                               'description, display-name, published-date, publisher, thumbnail-url, web-url, '
+                               'allowed-audiences, created-date-time, inference, last-modified-date-time, source, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
@@ -698,19 +779,26 @@ class AddSkills(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter skills. All possible keys are: '
+                               'categories, collaboration-tags, display-name, proficiency, web-url, allowed-audiences, '
+                               'created-date-time, inference, last-modified-date-time, source, '
+                               'application-last-modified-by-application, device-last-modified-by-device, '
+                               'user-last-modified-by-user, application-created-by-application, '
+                               'device-created-by-device, user-created-by-user, id'.format(k))
         return d
 
 
@@ -750,19 +838,26 @@ class AddPeopleUserUpdateProfileWebsites(argparse._AppendAction):
             elif kl == 'source':
                 d['source'] = v[0]
             elif kl == 'application-last-modified-by-application':
-                d['application_last_modified_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-last-modified-by-device':
-                d['device_last_modified_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-last-modified-by-user':
-                d['user_last_modified_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'application-created-by-application':
-                d['application_created_by_application'] = v[0]
+                d['application'] = v[0]
             elif kl == 'device-created-by-device':
-                d['device_created_by_device'] = v[0]
+                d['device'] = v[0]
             elif kl == 'user-created-by-user':
-                d['user_created_by_user'] = v[0]
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter websites. All possible keys are: '
+                               'categories, description, display-name, web-url, allowed-audiences, created-date-time, '
+                               'inference, last-modified-date-time, source, application-last-modified-by-application, '
+                               'device-last-modified-by-device, user-last-modified-by-user, '
+                               'application-created-by-application, device-created-by-device, user-created-by-user, id'
+                               .format(k))
         return d
 
 
@@ -787,6 +882,9 @@ class AddInference(argparse.Action):
                 d['confidence_score'] = v[0]
             elif kl == 'user-has-verified-accuracy':
                 d['user_has_verified_accuracy'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter inference. All possible keys are: '
+                               'confidence-score, user-has-verified-accuracy'.format(k))
         return d
 
 
@@ -809,13 +907,16 @@ class AddSource(argparse.Action):
             v = properties[k]
             if kl == 'type':
                 d['type'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter source. All possible keys are: type'.
+                format(k))
         return d
 
 
-class AddLastModifiedByApplication(argparse.Action):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.last_modified_by_application = action
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -833,6 +934,9 @@ class AddLastModifiedByApplication(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -857,6 +961,9 @@ class AddPreferredLanguageTag(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'locale':
                 d['locale'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter preferred_language_tag. All possible keys '
+                               'are: display-name, locale'.format(k))
         return d
 
 
@@ -891,6 +998,9 @@ class AddPeopleUserProfileCreateAddressDetail(argparse.Action):
                 d['street'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter detail. All possible keys are: city, '
+                               'country-or-region, postal-code, post-office-box, state, street, type'.format(k))
         return d
 
 
@@ -917,6 +1027,9 @@ class AddGeoCoordinates(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter geo_coordinates. All possible keys are: '
+                               'altitude, latitude, longitude'.format(k))
         return d
 
 
@@ -955,6 +1068,10 @@ class AddProgram(argparse.Action):
                 d['notes'] = v[0]
             elif kl == 'web-url':
                 d['web_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter program. All possible keys are: '
+                               'abbreviation, activities, awards, description, display-name, fields-of-study, grade, '
+                               'notes, web-url'.format(k))
         return d
 
 
@@ -985,6 +1102,9 @@ class AddPronunciation(argparse.Action):
                 d['maiden'] = v[0]
             elif kl == 'middle':
                 d['middle'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter pronunciation. All possible keys are: '
+                               'display-name, first, last, maiden, middle'.format(k))
         return d
 
 
@@ -1009,6 +1129,9 @@ class AddPeopleUserProfileCreateNoteDetail(argparse.Action):
                 d['content'] = v[0]
             elif kl == 'content-type':
                 d['content_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter detail. All possible keys are: content, '
+                               'content-type'.format(k))
         return d
 
 
@@ -1035,6 +1158,9 @@ class AddPeopleUserProfileCreatePositionColleagues(argparse._AppendAction):
                 d['relationship'] = v[0]
             elif kl == 'user-principal-name':
                 d['user_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter colleagues. All possible keys are: '
+                               'display-name, relationship, user-principal-name'.format(k))
         return d
 
 
@@ -1061,6 +1187,9 @@ class AddManager(argparse.Action):
                 d['relationship'] = v[0]
             elif kl == 'user-principal-name':
                 d['user_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter manager. All possible keys are: '
+                               'display-name, relationship, user-principal-name'.format(k))
         return d
 
 
@@ -1087,6 +1216,9 @@ class AddPeopleUserProfileCreateProjectColleagues(argparse._AppendAction):
                 d['relationship'] = v[0]
             elif kl == 'user-principal-name':
                 d['user_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter colleagues. All possible keys are: '
+                               'display-name, relationship, user-principal-name'.format(k))
         return d
 
 
@@ -1113,6 +1245,9 @@ class AddSponsors(argparse._AppendAction):
                 d['relationship'] = v[0]
             elif kl == 'user-principal-name':
                 d['user_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter sponsors. All possible keys are: '
+                               'display-name, relationship, user-principal-name'.format(k))
         return d
 
 
@@ -1137,4 +1272,7 @@ class AddService(argparse.Action):
                 d['name'] = v[0]
             elif kl == 'web-url':
                 d['web_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter service. All possible keys are: name, '
+                               'web-url'.format(k))
         return d

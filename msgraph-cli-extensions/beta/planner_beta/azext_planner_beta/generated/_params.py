@@ -16,8 +16,8 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_planner_beta.action import (
-    AddDetailsCategoryDescriptions,
-    AddCreatedByApplication,
+    AddCategoryDescriptions,
+    AddApplication,
     AddBucketTaskBoardFormat,
     AddProgressTaskBoardFormat,
     AddAll
@@ -26,25 +26,20 @@ from azext_planner_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('planner group update') as c:
+    with self.argument_context('planner group delete-planner') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner group show-planner') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group update-planner') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('plans', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans owned by '
                    'the group. Expected value: json-string/@json-file.')
-
-    with self.argument_context('planner group delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('planner group get') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('planner group-planner delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner group-planner create-plan') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -61,28 +56,33 @@ def load_arguments(self, _):
                    'plan. Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Collection of tasks in the plan. '
                    'Expected value: json-string/@json-file.')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_category_descriptions', action=AddDetailsCategoryDescriptions, nargs='*', help=''
-                   'plannerCategoryDescriptions')
-        c.argument('details_context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection '
-                   'Expected value: json-string/@json-file.')
-        c.argument('details_shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
-                   'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('category_descriptions', action=AddCategoryDescriptions, nargs='+',
+                   help='plannerCategoryDescriptions', arg_group='Details')
+        c.argument('context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection Expected '
+                   'value: json-string/@json-file.', arg_group='Details')
+        c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('planner group-planner get-plan') as c:
+    with self.argument_context('planner group-planner delete-plan') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner group-planner list-plan') as c:
         c.argument('group_id', type=str, help='key: id of group')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner show-plan') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner group-planner update-plan') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -100,23 +100,16 @@ def load_arguments(self, _):
                    'plan. Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Collection of tasks in the plan. '
                    'Expected value: json-string/@json-file.')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_category_descriptions', action=AddDetailsCategoryDescriptions, nargs='*', help=''
-                   'plannerCategoryDescriptions')
-        c.argument('details_context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection '
-                   'Expected value: json-string/@json-file.')
-        c.argument('details_shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
-                   'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-
-    with self.argument_context('planner group-planner-plan delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('category_descriptions', action=AddCategoryDescriptions, nargs='+',
+                   help='plannerCategoryDescriptions', arg_group='Details')
+        c.argument('context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection Expected '
+                   'value: json-string/@json-file.', arg_group='Details')
+        c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('planner group-planner-plan create-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -164,7 +157,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -172,65 +165,87 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner group-planner-plan get-bucket') as c:
+    with self.argument_context('planner group-planner-plan delete-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner group-planner-plan get-detail') as c:
+    with self.argument_context('planner group-planner-plan delete-detail') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner group-planner-plan get-task') as c:
+    with self.argument_context('planner group-planner-plan delete-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner group-planner-plan list-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner group-planner-plan list-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner-plan show-bucket') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner-plan show-detail') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner-plan show-task') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner group-planner-plan update-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -248,8 +263,8 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('category_descriptions', action=AddDetailsCategoryDescriptions, nargs='*', help=''
-                   'plannerCategoryDescriptions')
+        c.argument('category_descriptions', action=AddCategoryDescriptions, nargs='+',
+                   help='plannerCategoryDescriptions')
         c.argument('context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection Expected '
                    'value: json-string/@json-file.')
         c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
@@ -291,7 +306,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -299,38 +314,36 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-
-    with self.argument_context('planner group-planner-plan-bucket delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
     with self.argument_context('planner group-planner-plan-bucket create-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -368,7 +381,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -376,47 +389,59 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner group-planner-plan-bucket get-task') as c:
+    with self.argument_context('planner group-planner-plan-bucket delete-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner group-planner-plan-bucket list-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner-plan-bucket show-task') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner group-planner-plan-bucket update-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -455,7 +480,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -463,70 +488,96 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner group-planner-plan-bucket-task delete') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task delete-assigned-to-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner group-planner-plan-bucket-task get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task delete-bucket-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner group-planner-plan-bucket-task get-bucket-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task delete-detail') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner group-planner-plan-bucket-task get-detail') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task delete-progress-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner group-planner-plan-bucket-task get-progress-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task show-assigned-to-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner-plan-bucket-task show-bucket-task-board-format') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner-plan-bucket-task show-detail') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner-plan-bucket-task show-progress-task-board-format') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner group-planner-plan-bucket-task update-assigned-to-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -559,7 +610,7 @@ def load_arguments(self, _):
         c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
                    'json-string/@json-file.')
         c.argument('description', type=str, help='Description of the task')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
@@ -573,39 +624,57 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner group-planner-plan-task delete') as c:
+    with self.argument_context('planner group-planner-plan-task delete-assigned-to-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner group-planner-plan-task get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-task delete-bucket-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner group-planner-plan-task get-bucket-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-task delete-detail') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner group-planner-plan-task get-detail') as c:
+    with self.argument_context('planner group-planner-plan-task delete-progress-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner group-planner-plan-task get-progress-task-board-format') as c:
+    with self.argument_context('planner group-planner-plan-task show-assigned-to-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner-plan-task show-bucket-task-board-format') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner-plan-task show-detail') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner group-planner-plan-task show-progress-task-board-format') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner group-planner-plan-task update-assigned-to-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -635,7 +704,7 @@ def load_arguments(self, _):
         c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
                    'json-string/@json-file.')
         c.argument('description', type=str, help='Description of the task')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
@@ -648,7 +717,7 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner planner update') as c:
+    with self.argument_context('planner planner create') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('buckets', type=validate_file_or_dict, help='Read-only. Nullable. Returns a collection of the '
                    'specified buckets Expected value: json-string/@json-file.')
@@ -657,15 +726,9 @@ def load_arguments(self, _):
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns a collection of the '
                    'specified tasks Expected value: json-string/@json-file.')
 
-    with self.argument_context('planner planner get') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('planner planner delete') as c:
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+    with self.argument_context('planner planner show-planner') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner create-bucket') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -690,16 +753,16 @@ def load_arguments(self, _):
                    'plan. Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Collection of tasks in the plan. '
                    'Expected value: json-string/@json-file.')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_category_descriptions', action=AddDetailsCategoryDescriptions, nargs='*', help=''
-                   'plannerCategoryDescriptions')
-        c.argument('details_context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection '
-                   'Expected value: json-string/@json-file.')
-        c.argument('details_shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
-                   'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('category_descriptions', action=AddCategoryDescriptions, nargs='+',
+                   help='plannerCategoryDescriptions', arg_group='Details')
+        c.argument('context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection Expected '
+                   'value: json-string/@json-file.', arg_group='Details')
+        c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('planner planner create-task') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -734,7 +797,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -742,61 +805,78 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner planner get-bucket') as c:
+    with self.argument_context('planner planner delete-bucket') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner get-plan') as c:
+    with self.argument_context('planner planner delete-plan') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner get-task') as c:
+    with self.argument_context('planner planner delete-task') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner planner list-bucket') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner list-plan') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner list-task') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner show-bucket') as c:
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner show-plan') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner show-task') as c:
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner update-bucket') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -823,16 +903,16 @@ def load_arguments(self, _):
                    'plan. Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Collection of tasks in the plan. '
                    'Expected value: json-string/@json-file.')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_category_descriptions', action=AddDetailsCategoryDescriptions, nargs='*', help=''
-                   'plannerCategoryDescriptions')
-        c.argument('details_context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection '
-                   'Expected value: json-string/@json-file.')
-        c.argument('details_shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
-                   'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('category_descriptions', action=AddCategoryDescriptions, nargs='+',
+                   help='plannerCategoryDescriptions', arg_group='Details')
+        c.argument('context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection Expected '
+                   'value: json-string/@json-file.', arg_group='Details')
+        c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('planner planner update-task') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -868,7 +948,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -876,36 +956,36 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-
-    with self.argument_context('planner planner-bucket delete') as c:
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
     with self.argument_context('planner planner-bucket create-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -941,7 +1021,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -949,43 +1029,53 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner planner-bucket get-task') as c:
+    with self.argument_context('planner planner-bucket delete-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner planner-bucket list-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-bucket show-task') as c:
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner-bucket update-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1022,7 +1112,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -1030,60 +1120,80 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner planner-bucket-task delete') as c:
+    with self.argument_context('planner planner-bucket-task delete-assigned-to-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-bucket-task get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-bucket-task delete-bucket-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-bucket-task get-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-bucket-task delete-detail') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-bucket-task get-detail') as c:
+    with self.argument_context('planner planner-bucket-task delete-progress-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-bucket-task get-progress-task-board-format') as c:
+    with self.argument_context('planner planner-bucket-task show-assigned-to-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-bucket-task show-bucket-task-board-format') as c:
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-bucket-task show-detail') as c:
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-bucket-task show-progress-task-board-format') as c:
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner-bucket-task update-assigned-to-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1110,7 +1220,7 @@ def load_arguments(self, _):
         c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
                    'json-string/@json-file.')
         c.argument('description', type=str, help='Description of the task')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
@@ -1121,12 +1231,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
-
-    with self.argument_context('planner planner-plan delete') as c:
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
     with self.argument_context('planner planner-plan create-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -1172,7 +1276,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -1180,60 +1284,79 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner planner-plan get-bucket') as c:
+    with self.argument_context('planner planner-plan delete-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-plan get-detail') as c:
+    with self.argument_context('planner planner-plan delete-detail') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-plan get-task') as c:
+    with self.argument_context('planner planner-plan delete-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner planner-plan list-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner-plan list-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-plan show-bucket') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-plan show-detail') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-plan show-task') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner-plan update-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -1249,8 +1372,8 @@ def load_arguments(self, _):
     with self.argument_context('planner planner-plan update-detail') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('category_descriptions', action=AddDetailsCategoryDescriptions, nargs='*', help=''
-                   'plannerCategoryDescriptions')
+        c.argument('category_descriptions', action=AddCategoryDescriptions, nargs='+',
+                   help='plannerCategoryDescriptions')
         c.argument('context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection Expected '
                    'value: json-string/@json-file.')
         c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
@@ -1291,7 +1414,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -1299,37 +1422,36 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-
-    with self.argument_context('planner planner-plan-bucket delete') as c:
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
     with self.argument_context('planner planner-plan-bucket create-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -1366,7 +1488,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -1374,45 +1496,56 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner planner-plan-bucket get-task') as c:
+    with self.argument_context('planner planner-plan-bucket delete-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner planner-plan-bucket list-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-plan-bucket show-task') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner-plan-bucket update-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -1450,7 +1583,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -1458,65 +1591,88 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner planner-plan-bucket-task delete') as c:
+    with self.argument_context('planner planner-plan-bucket-task delete-assigned-to-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-plan-bucket-task get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-plan-bucket-task delete-bucket-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-plan-bucket-task get-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-plan-bucket-task delete-detail') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-plan-bucket-task get-detail') as c:
+    with self.argument_context('planner planner-plan-bucket-task delete-progress-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-plan-bucket-task get-progress-task-board-format') as c:
+    with self.argument_context('planner planner-plan-bucket-task show-assigned-to-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-plan-bucket-task show-bucket-task-board-format') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-plan-bucket-task show-detail') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-plan-bucket-task show-progress-task-board-format') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner-plan-bucket-task update-assigned-to-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -1546,7 +1702,7 @@ def load_arguments(self, _):
         c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
                    'json-string/@json-file.')
         c.argument('description', type=str, help='Description of the task')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
@@ -1559,34 +1715,49 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner planner-plan-task delete') as c:
+    with self.argument_context('planner planner-plan-task delete-assigned-to-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-plan-task get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-plan-task delete-bucket-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-plan-task get-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-plan-task delete-detail') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-plan-task get-detail') as c:
+    with self.argument_context('planner planner-plan-task delete-progress-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-plan-task get-progress-task-board-format') as c:
+    with self.argument_context('planner planner-plan-task show-assigned-to-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-plan-task show-bucket-task-board-format') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-plan-task show-detail') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-plan-task show-progress-task-board-format') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner-plan-task update-assigned-to-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -1613,7 +1784,7 @@ def load_arguments(self, _):
         c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
                    'json-string/@json-file.')
         c.argument('description', type=str, help='Description of the task')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
@@ -1625,29 +1796,41 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner planner-task delete') as c:
+    with self.argument_context('planner planner-task delete-assigned-to-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-task get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner planner-task delete-bucket-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-task get-bucket-task-board-format') as c:
+    with self.argument_context('planner planner-task delete-detail') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-task get-detail') as c:
+    with self.argument_context('planner planner-task delete-progress-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner planner-task get-progress-task-board-format') as c:
+    with self.argument_context('planner planner-task show-assigned-to-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-task show-bucket-task-board-format') as c:
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-task show-detail') as c:
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner planner-task show-progress-task-board-format') as c:
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner planner-task update-assigned-to-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -1671,7 +1854,7 @@ def load_arguments(self, _):
         c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
                    'json-string/@json-file.')
         c.argument('description', type=str, help='Description of the task')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
@@ -1682,36 +1865,29 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner user update') as c:
+    with self.argument_context('planner user delete-planner') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user show-planner') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user update-planner') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('favorite_plan_references', type=validate_file_or_dict, help='plannerFavoritePlanReferenceCollection'
                    ' Expected value: json-string/@json-file.')
         c.argument('recent_plan_references', type=validate_file_or_dict, help='plannerRecentPlanReferenceCollection '
                    'Expected value: json-string/@json-file.')
-        c.argument('all_', options_list=['--all'], action=AddAll, nargs='*', help='')
+        c.argument('all_', options_list=['--all'], action=AddAll, nargs='+', help='')
         c.argument('favorite_plans', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('plans', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerTasks assigned '
                    'to the user. Expected value: json-string/@json-file.')
         c.argument('recent_plans', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans shared '
                    'with the user. Expected value: json-string/@json-file.')
-
-    with self.argument_context('planner user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('planner user get') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('planner user-planner delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('planner_delta_id', type=str, help='key: id of plannerDelta')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
     with self.argument_context('planner user-planner create-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1732,16 +1908,16 @@ def load_arguments(self, _):
                    'plan. Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Collection of tasks in the plan. '
                    'Expected value: json-string/@json-file.')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_category_descriptions', action=AddDetailsCategoryDescriptions, nargs='*', help=''
-                   'plannerCategoryDescriptions')
-        c.argument('details_context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection '
-                   'Expected value: json-string/@json-file.')
-        c.argument('details_shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
-                   'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('category_descriptions', action=AddCategoryDescriptions, nargs='+',
+                   help='plannerCategoryDescriptions', arg_group='Details')
+        c.argument('context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection Expected '
+                   'value: json-string/@json-file.', arg_group='Details')
+        c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('planner user-planner create-ref-favorite-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1787,7 +1963,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -1795,87 +1971,107 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner user-planner get-all') as c:
+    with self.argument_context('planner user-planner delete-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_delta_id', type=str, help='key: id of plannerDelta')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner get-plan') as c:
+    with self.argument_context('planner user-planner delete-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner get-task') as c:
+    with self.argument_context('planner user-planner delete-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner user-planner list-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner list-favorite-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner list-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner list-recent-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner list-ref-favorite-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('planner user-planner list-ref-recent-plan') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('planner user-planner list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner show-all') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_delta_id', type=str, help='key: id of plannerDelta')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner show-plan') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner show-task') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner update-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1898,16 +2094,16 @@ def load_arguments(self, _):
                    'plan. Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Collection of tasks in the plan. '
                    'Expected value: json-string/@json-file.')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_category_descriptions', action=AddDetailsCategoryDescriptions, nargs='*', help=''
-                   'plannerCategoryDescriptions')
-        c.argument('details_context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection '
-                   'Expected value: json-string/@json-file.')
-        c.argument('details_shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
-                   'json-string/@json-file.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('category_descriptions', action=AddCategoryDescriptions, nargs='+',
+                   help='plannerCategoryDescriptions', arg_group='Details')
+        c.argument('context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection Expected '
+                   'value: json-string/@json-file.', arg_group='Details')
+        c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('planner user-planner update-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1944,7 +2140,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -1952,38 +2148,36 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-
-    with self.argument_context('planner user-planner-plan delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
     with self.argument_context('planner user-planner-plan create-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2031,7 +2225,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -2039,65 +2233,87 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner user-planner-plan get-bucket') as c:
+    with self.argument_context('planner user-planner-plan delete-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-plan get-detail') as c:
+    with self.argument_context('planner user-planner-plan delete-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-plan get-task') as c:
+    with self.argument_context('planner user-planner-plan delete-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner user-planner-plan list-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner-plan list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-plan show-bucket') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-plan show-detail') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-plan show-task') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner-plan update-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2115,8 +2331,8 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('category_descriptions', action=AddDetailsCategoryDescriptions, nargs='*', help=''
-                   'plannerCategoryDescriptions')
+        c.argument('category_descriptions', action=AddCategoryDescriptions, nargs='+',
+                   help='plannerCategoryDescriptions')
         c.argument('context_details', type=validate_file_or_dict, help='plannerPlanContextDetailsCollection Expected '
                    'value: json-string/@json-file.')
         c.argument('shared_with', type=validate_file_or_dict, help='plannerUserIds Expected value: '
@@ -2158,7 +2374,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -2166,38 +2382,36 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-
-    with self.argument_context('planner user-planner-plan-bucket delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
     with self.argument_context('planner user-planner-plan-bucket create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2235,7 +2449,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -2243,47 +2457,59 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner user-planner-plan-bucket get-task') as c:
+    with self.argument_context('planner user-planner-plan-bucket delete-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner user-planner-plan-bucket list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-plan-bucket show-task') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner-plan-bucket update-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2322,7 +2548,7 @@ def load_arguments(self, _):
         c.argument('percent_complete', type=int, help='Percentage of task completion. When set to 100, the task is '
                    'considered completed.')
         c.argument('plan_id', type=str, help='Plan ID to which the task belongs.')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('priority', type=int, help='')
         c.argument('reference_count', type=int, help='Number of external references that exist on the task.')
@@ -2330,70 +2556,96 @@ def load_arguments(self, _):
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('title', type=str, help='Title of the task.')
-        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='*', help=''
-                   'plannerBucketTaskBoardTaskFormat')
-        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='*', help=''
-                   'plannerProgressTaskBoardTaskFormat')
-        c.argument('details_id', type=str, help='Read-only.')
-        c.argument('details_checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
-                   'json-string/@json-file.')
-        c.argument('details_description', type=str, help='Description of the task')
-        c.argument('details_preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist',
-                                                                   'description', 'reference']), help='')
-        c.argument('details_references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
-                   'json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_id', type=str, help='Read-only.')
-        c.argument('assigned_to_task_board_format_order_hints_by_assignee', type=validate_file_or_dict, help=''
-                   'plannerOrderHintsByAssignee Expected value: json-string/@json-file.')
-        c.argument('assigned_to_task_board_format_unassigned_order_hint', type=str, help='Hint value used to order the '
-                   'task on the AssignedTo view of the Task Board when the task is not assigned to anyone, or if the '
-                   'orderHintsByAssignee dictionary does not provide an order hint for the user the task is assigned '
-                   'to. The format is defined as outlined here.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('completed_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('bucket_task_board_format', action=AddBucketTaskBoardFormat, nargs='+',
+                   help='plannerBucketTaskBoardTaskFormat')
+        c.argument('progress_task_board_format', action=AddProgressTaskBoardFormat, nargs='+',
+                   help='plannerProgressTaskBoardTaskFormat')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Details')
+        c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('description', type=str, help='Description of the task', arg_group='Details')
+        c.argument('microsoft_graph_planner_preview_type', arg_type=get_enum_type(['automatic', 'noPreview',
+                                                                                   'checklist', 'description',
+                                                                                   'reference']), help='',
+                   arg_group='Details')
+        c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
+                   'json-string/@json-file.', arg_group='Details')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Assigned To Task Board Format')
+        c.argument('order_hints_by_assignee', type=validate_file_or_dict, help='plannerOrderHintsByAssignee Expected '
+                   'value: json-string/@json-file.', arg_group='Assigned To Task Board Format')
+        c.argument('unassigned_order_hint', type=str, help='Hint value used to order the task on the AssignedTo view '
+                   'of the Task Board when the task is not assigned to anyone, or if the orderHintsByAssignee '
+                   'dictionary does not provide an order hint for the user the task is assigned to. The format is '
+                   'defined as outlined here.', arg_group='Assigned To Task Board Format')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Completed By')
 
-    with self.argument_context('planner user-planner-plan-bucket-task delete') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task delete-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-plan-bucket-task get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task delete-bucket-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-plan-bucket-task get-bucket-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task delete-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-plan-bucket-task get-detail') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task delete-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-plan-bucket-task get-progress-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task show-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-plan-bucket-task show-bucket-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-plan-bucket-task show-detail') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-plan-bucket-task show-progress-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner-plan-bucket-task update-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2426,7 +2678,7 @@ def load_arguments(self, _):
         c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
                    'json-string/@json-file.')
         c.argument('description', type=str, help='Description of the task')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
@@ -2440,39 +2692,57 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner user-planner-plan-task delete') as c:
+    with self.argument_context('planner user-planner-plan-task delete-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-plan-task get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-task delete-bucket-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-plan-task get-bucket-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-task delete-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-plan-task get-detail') as c:
+    with self.argument_context('planner user-planner-plan-task delete-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-plan-task get-progress-task-board-format') as c:
+    with self.argument_context('planner user-planner-plan-task show-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-plan-task show-bucket-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-plan-task show-detail') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-plan-task show-progress-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner-plan-task update-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2502,7 +2772,7 @@ def load_arguments(self, _):
         c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
                    'json-string/@json-file.')
         c.argument('description', type=str, help='Description of the task')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')
@@ -2515,34 +2785,49 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner user-planner-task delete') as c:
+    with self.argument_context('planner user-planner-task delete-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-task get-assigned-to-task-board-format') as c:
+    with self.argument_context('planner user-planner-task delete-bucket-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-task get-bucket-task-board-format') as c:
+    with self.argument_context('planner user-planner-task delete-detail') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-task get-detail') as c:
+    with self.argument_context('planner user-planner-task delete-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('planner user-planner-task get-progress-task-board-format') as c:
+    with self.argument_context('planner user-planner-task show-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-task show-bucket-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-task show-detail') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('planner user-planner-task show-progress-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('planner user-planner-task update-assigned-to-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2569,7 +2854,7 @@ def load_arguments(self, _):
         c.argument('checklist', type=validate_file_or_dict, help='plannerChecklistItems Expected value: '
                    'json-string/@json-file.')
         c.argument('description', type=str, help='Description of the task')
-        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description', ''
+        c.argument('preview_type', arg_type=get_enum_type(['automatic', 'noPreview', 'checklist', 'description',
                                                            'reference']), help='')
         c.argument('references', type=validate_file_or_dict, help='plannerExternalReferences Expected value: '
                    'json-string/@json-file.')

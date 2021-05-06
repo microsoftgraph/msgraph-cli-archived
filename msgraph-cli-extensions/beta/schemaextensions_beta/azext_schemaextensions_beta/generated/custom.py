@@ -10,13 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def schemaextensions_schema_extension_schema_extension_delete(client,
-                                                              schema_extension_id,
-                                                              if_match=None):
-    return client.delete_schema_extension(schema_extension_id=schema_extension_id,
-                                          if_match=if_match)
-
-
 def schemaextensions_schema_extension_schema_extension_create_schema_extension(client,
                                                                                id_=None,
                                                                                description=None,
@@ -24,21 +17,21 @@ def schemaextensions_schema_extension_schema_extension_create_schema_extension(c
                                                                                properties=None,
                                                                                status=None,
                                                                                target_types=None):
-    return client.create_schema_extension(id=id_,
-                                          description=description,
-                                          owner=owner,
-                                          properties=properties,
-                                          status=status,
-                                          target_types=target_types)
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['owner'] = owner
+    body['properties'] = properties
+    body['status'] = status
+    body['target_types'] = target_types
+    return client.create_schema_extension(body=body)
 
 
-def schemaextensions_schema_extension_schema_extension_get_schema_extension(client,
-                                                                            schema_extension_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_schema_extension(schema_extension_id=schema_extension_id,
-                                       select=select,
-                                       expand=expand)
+def schemaextensions_schema_extension_schema_extension_delete_schema_extension(client,
+                                                                               schema_extension_id,
+                                                                               if_match=None):
+    return client.delete_schema_extension(schema_extension_id=schema_extension_id,
+                                          if_match=if_match)
 
 
 def schemaextensions_schema_extension_schema_extension_list_schema_extension(client,
@@ -50,6 +43,15 @@ def schemaextensions_schema_extension_schema_extension_list_schema_extension(cli
                                         expand=expand)
 
 
+def schemaextensions_schema_extension_schema_extension_show_schema_extension(client,
+                                                                             schema_extension_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_schema_extension(schema_extension_id=schema_extension_id,
+                                       select=select,
+                                       expand=expand)
+
+
 def schemaextensions_schema_extension_schema_extension_update_schema_extension(client,
                                                                                schema_extension_id,
                                                                                id_=None,
@@ -58,10 +60,12 @@ def schemaextensions_schema_extension_schema_extension_update_schema_extension(c
                                                                                properties=None,
                                                                                status=None,
                                                                                target_types=None):
+    body = {}
+    body['id'] = id_
+    body['description'] = description
+    body['owner'] = owner
+    body['properties'] = properties
+    body['status'] = status
+    body['target_types'] = target_types
     return client.update_schema_extension(schema_extension_id=schema_extension_id,
-                                          id=id_,
-                                          description=description,
-                                          owner=owner,
-                                          properties=properties,
-                                          status=status,
-                                          target_types=target_types)
+                                          body=body)

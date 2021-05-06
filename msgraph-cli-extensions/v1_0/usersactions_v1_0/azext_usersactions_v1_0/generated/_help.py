@@ -13,14 +13,19 @@
 from knack.help_files import helps
 
 
+helps['usersactions_v1_0'] = '''
+    type: group
+    short-summary: Manage Users Actions
+'''
+
 helps['usersactions user-calendar-calendar-view-attachment'] = """
     type: group
-    short-summary: usersactions user-calendar-calendar-view-attachment
+    short-summary: Manage user calendar calendar view attachment with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-calendar-view-attachment create-upload-session'] = """
     type: command
-    short-summary: "Invoke action createUploadSession"
+    short-summary: "Invoke action createUploadSession."
     parameters:
       - name: --attachment-item
         short-summary: "attachmentItem"
@@ -36,12 +41,12 @@ actual file name. Required.
 
 helps['usersactions user-calendar-calendar-view-calendar'] = """
     type: group
-    short-summary: usersactions user-calendar-calendar-view-calendar
+    short-summary: Manage user calendar calendar view calendar with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-calendar-view-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -65,27 +70,27 @@ values.
 
 helps['usersactions user-calendar-calendar-view-instance'] = """
     type: group
-    short-summary: usersactions user-calendar-calendar-view-instance
+    short-summary: Manage user calendar calendar view instance with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-calendar-view-instance accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-calendar-view-instance decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-calendar-view-instance dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-calendar-view-instance snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -100,32 +105,32 @@ values.
 
 helps['usersactions user-calendar-calendar-view-instance tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-calendar-view'] = """
     type: group
-    short-summary: usersactions user-calendar-calendar-view
+    short-summary: Manage user calendar calendar view with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-calendar-view accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-calendar-view decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-calendar-view dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-calendar-view snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -140,17 +145,17 @@ values.
 
 helps['usersactions user-calendar-calendar-view tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-event-attachment'] = """
     type: group
-    short-summary: usersactions user-calendar-event-attachment
+    short-summary: Manage user calendar event attachment with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-event-attachment create-upload-session'] = """
     type: command
-    short-summary: "Invoke action createUploadSession"
+    short-summary: "Invoke action createUploadSession."
     parameters:
       - name: --attachment-item
         short-summary: "attachmentItem"
@@ -166,12 +171,12 @@ actual file name. Required.
 
 helps['usersactions user-calendar-event-calendar'] = """
     type: group
-    short-summary: usersactions user-calendar-event-calendar
+    short-summary: Manage user calendar event calendar with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-event-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -195,27 +200,27 @@ values.
 
 helps['usersactions user-calendar-event-instance'] = """
     type: group
-    short-summary: usersactions user-calendar-event-instance
+    short-summary: Manage user calendar event instance with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-event-instance accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-event-instance decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-event-instance dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-event-instance snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -230,32 +235,32 @@ values.
 
 helps['usersactions user-calendar-event-instance tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-event'] = """
     type: group
-    short-summary: usersactions user-calendar-event
+    short-summary: Manage user calendar event with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-event accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-event decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-event dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-event snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -270,17 +275,17 @@ values.
 
 helps['usersactions user-calendar-event tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar'] = """
     type: group
-    short-summary: usersactions user-calendar
+    short-summary: Manage user calendar with usersactions_v1_0
 """
 
 helps['usersactions user-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -304,12 +309,12 @@ values.
 
 helps['usersactions user-calendar-group-calendar-calendar-view-attachment'] = """
     type: group
-    short-summary: usersactions user-calendar-group-calendar-calendar-view-attachment
+    short-summary: Manage user calendar group calendar calendar view attachment with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view-attachment create-upload-session'] = """
     type: command
-    short-summary: "Invoke action createUploadSession"
+    short-summary: "Invoke action createUploadSession."
     parameters:
       - name: --attachment-item
         short-summary: "attachmentItem"
@@ -325,12 +330,12 @@ actual file name. Required.
 
 helps['usersactions user-calendar-group-calendar-calendar-view-calendar'] = """
     type: group
-    short-summary: usersactions user-calendar-group-calendar-calendar-view-calendar
+    short-summary: Manage user calendar group calendar calendar view calendar with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -354,27 +359,27 @@ values.
 
 helps['usersactions user-calendar-group-calendar-calendar-view-instance'] = """
     type: group
-    short-summary: usersactions user-calendar-group-calendar-calendar-view-instance
+    short-summary: Manage user calendar group calendar calendar view instance with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view-instance accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view-instance decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view-instance dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view-instance snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -389,32 +394,32 @@ values.
 
 helps['usersactions user-calendar-group-calendar-calendar-view-instance tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view'] = """
     type: group
-    short-summary: usersactions user-calendar-group-calendar-calendar-view
+    short-summary: Manage user calendar group calendar calendar view with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-group-calendar-calendar-view snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -429,17 +434,17 @@ values.
 
 helps['usersactions user-calendar-group-calendar-calendar-view tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-group-calendar-event-attachment'] = """
     type: group
-    short-summary: usersactions user-calendar-group-calendar-event-attachment
+    short-summary: Manage user calendar group calendar event attachment with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-group-calendar-event-attachment create-upload-session'] = """
     type: command
-    short-summary: "Invoke action createUploadSession"
+    short-summary: "Invoke action createUploadSession."
     parameters:
       - name: --attachment-item
         short-summary: "attachmentItem"
@@ -455,12 +460,12 @@ actual file name. Required.
 
 helps['usersactions user-calendar-group-calendar-event-calendar'] = """
     type: group
-    short-summary: usersactions user-calendar-group-calendar-event-calendar
+    short-summary: Manage user calendar group calendar event calendar with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-group-calendar-event-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -484,27 +489,27 @@ values.
 
 helps['usersactions user-calendar-group-calendar-event-instance'] = """
     type: group
-    short-summary: usersactions user-calendar-group-calendar-event-instance
+    short-summary: Manage user calendar group calendar event instance with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-group-calendar-event-instance accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-group-calendar-event-instance decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-group-calendar-event-instance dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-group-calendar-event-instance snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -519,32 +524,32 @@ values.
 
 helps['usersactions user-calendar-group-calendar-event-instance tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-group-calendar-event'] = """
     type: group
-    short-summary: usersactions user-calendar-group-calendar-event
+    short-summary: Manage user calendar group calendar event with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-group-calendar-event accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-group-calendar-event decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-group-calendar-event dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-group-calendar-event snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -559,17 +564,17 @@ values.
 
 helps['usersactions user-calendar-group-calendar-event tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-group-calendar'] = """
     type: group
-    short-summary: usersactions user-calendar-group-calendar
+    short-summary: Manage user calendar group calendar with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-group-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -593,12 +598,12 @@ values.
 
 helps['usersactions user-calendar-calendar-view-attachment'] = """
     type: group
-    short-summary: usersactions user-calendar-calendar-view-attachment
+    short-summary: Manage user calendar calendar view attachment with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-calendar-view-attachment create-upload-session'] = """
     type: command
-    short-summary: "Invoke action createUploadSession"
+    short-summary: "Invoke action createUploadSession."
     parameters:
       - name: --attachment-item
         short-summary: "attachmentItem"
@@ -614,12 +619,12 @@ actual file name. Required.
 
 helps['usersactions user-calendar-calendar-view-calendar'] = """
     type: group
-    short-summary: usersactions user-calendar-calendar-view-calendar
+    short-summary: Manage user calendar calendar view calendar with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-calendar-view-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -643,27 +648,27 @@ values.
 
 helps['usersactions user-calendar-calendar-view-instance'] = """
     type: group
-    short-summary: usersactions user-calendar-calendar-view-instance
+    short-summary: Manage user calendar calendar view instance with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-calendar-view-instance accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-calendar-view-instance decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-calendar-view-instance dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-calendar-view-instance snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -678,32 +683,32 @@ values.
 
 helps['usersactions user-calendar-calendar-view-instance tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-calendar-view'] = """
     type: group
-    short-summary: usersactions user-calendar-calendar-view
+    short-summary: Manage user calendar calendar view with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-calendar-view accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-calendar-view decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-calendar-view dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-calendar-view snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -718,17 +723,17 @@ values.
 
 helps['usersactions user-calendar-calendar-view tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-event-attachment'] = """
     type: group
-    short-summary: usersactions user-calendar-event-attachment
+    short-summary: Manage user calendar event attachment with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-event-attachment create-upload-session'] = """
     type: command
-    short-summary: "Invoke action createUploadSession"
+    short-summary: "Invoke action createUploadSession."
     parameters:
       - name: --attachment-item
         short-summary: "attachmentItem"
@@ -744,12 +749,12 @@ actual file name. Required.
 
 helps['usersactions user-calendar-event-calendar'] = """
     type: group
-    short-summary: usersactions user-calendar-event-calendar
+    short-summary: Manage user calendar event calendar with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-event-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -773,27 +778,27 @@ values.
 
 helps['usersactions user-calendar-event-instance'] = """
     type: group
-    short-summary: usersactions user-calendar-event-instance
+    short-summary: Manage user calendar event instance with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-event-instance accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-event-instance decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-event-instance dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-event-instance snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -808,32 +813,32 @@ values.
 
 helps['usersactions user-calendar-event-instance tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-event'] = """
     type: group
-    short-summary: usersactions user-calendar-event
+    short-summary: Manage user calendar event with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-event accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-event decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-event dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-event snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -848,17 +853,17 @@ values.
 
 helps['usersactions user-calendar-event tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar'] = """
     type: group
-    short-summary: usersactions user-calendar
+    short-summary: Manage user calendar with usersactions_v1_0
 """
 
 helps['usersactions user-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -882,12 +887,12 @@ values.
 
 helps['usersactions user-calendar-view-attachment'] = """
     type: group
-    short-summary: usersactions user-calendar-view-attachment
+    short-summary: Manage user calendar view attachment with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-view-attachment create-upload-session'] = """
     type: command
-    short-summary: "Invoke action createUploadSession"
+    short-summary: "Invoke action createUploadSession."
     parameters:
       - name: --attachment-item
         short-summary: "attachmentItem"
@@ -903,27 +908,27 @@ actual file name. Required.
 
 helps['usersactions user-calendar-view-calendar-calendar-view'] = """
     type: group
-    short-summary: usersactions user-calendar-view-calendar-calendar-view
+    short-summary: Manage user calendar view calendar calendar view with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-view-calendar-calendar-view accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-view-calendar-calendar-view decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-view-calendar-calendar-view dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-view-calendar-calendar-view snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -938,32 +943,32 @@ values.
 
 helps['usersactions user-calendar-view-calendar-calendar-view tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-view-calendar-event'] = """
     type: group
-    short-summary: usersactions user-calendar-view-calendar-event
+    short-summary: Manage user calendar view calendar event with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-view-calendar-event accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-view-calendar-event decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-view-calendar-event dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-view-calendar-event snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -978,17 +983,17 @@ values.
 
 helps['usersactions user-calendar-view-calendar-event tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-view-calendar'] = """
     type: group
-    short-summary: usersactions user-calendar-view-calendar
+    short-summary: Manage user calendar view calendar with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-view-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -1012,27 +1017,27 @@ values.
 
 helps['usersactions user-calendar-view-instance'] = """
     type: group
-    short-summary: usersactions user-calendar-view-instance
+    short-summary: Manage user calendar view instance with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-view-instance accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-view-instance decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-view-instance dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-view-instance snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -1047,32 +1052,32 @@ values.
 
 helps['usersactions user-calendar-view-instance tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-calendar-view'] = """
     type: group
-    short-summary: usersactions user-calendar-view
+    short-summary: Manage user calendar view with usersactions_v1_0
 """
 
 helps['usersactions user-calendar-view accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-calendar-view decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-calendar-view dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-calendar-view snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -1087,17 +1092,17 @@ values.
 
 helps['usersactions user-calendar-view tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-event-attachment'] = """
     type: group
-    short-summary: usersactions user-event-attachment
+    short-summary: Manage user event attachment with usersactions_v1_0
 """
 
 helps['usersactions user-event-attachment create-upload-session'] = """
     type: command
-    short-summary: "Invoke action createUploadSession"
+    short-summary: "Invoke action createUploadSession."
     parameters:
       - name: --attachment-item
         short-summary: "attachmentItem"
@@ -1113,27 +1118,27 @@ actual file name. Required.
 
 helps['usersactions user-event-calendar-calendar-view'] = """
     type: group
-    short-summary: usersactions user-event-calendar-calendar-view
+    short-summary: Manage user event calendar calendar view with usersactions_v1_0
 """
 
 helps['usersactions user-event-calendar-calendar-view accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-event-calendar-calendar-view decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-event-calendar-calendar-view dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-event-calendar-calendar-view snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -1148,32 +1153,32 @@ values.
 
 helps['usersactions user-event-calendar-calendar-view tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-event-calendar-event'] = """
     type: group
-    short-summary: usersactions user-event-calendar-event
+    short-summary: Manage user event calendar event with usersactions_v1_0
 """
 
 helps['usersactions user-event-calendar-event accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-event-calendar-event decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-event-calendar-event dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-event-calendar-event snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -1188,17 +1193,17 @@ values.
 
 helps['usersactions user-event-calendar-event tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-event-calendar'] = """
     type: group
-    short-summary: usersactions user-event-calendar
+    short-summary: Manage user event calendar with usersactions_v1_0
 """
 
 helps['usersactions user-event-calendar get-schedule'] = """
     type: command
-    short-summary: "Invoke action getSchedule"
+    short-summary: "Invoke action getSchedule."
     parameters:
       - name: --end-time
         short-summary: "dateTimeTimeZone"
@@ -1222,27 +1227,27 @@ values.
 
 helps['usersactions user-event-instance'] = """
     type: group
-    short-summary: usersactions user-event-instance
+    short-summary: Manage user event instance with usersactions_v1_0
 """
 
 helps['usersactions user-event-instance accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-event-instance decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-event-instance dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-event-instance snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -1257,32 +1262,32 @@ values.
 
 helps['usersactions user-event-instance tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-event'] = """
     type: group
-    short-summary: usersactions user-event
+    short-summary: Manage user event with usersactions_v1_0
 """
 
 helps['usersactions user-event accept'] = """
     type: command
-    short-summary: "Invoke action accept"
+    short-summary: "Invoke action accept."
 """
 
 helps['usersactions user-event decline'] = """
     type: command
-    short-summary: "Invoke action decline"
+    short-summary: "Invoke action decline."
 """
 
 helps['usersactions user-event dismiss-reminder'] = """
     type: command
-    short-summary: "Invoke action dismissReminder"
+    short-summary: "Invoke action dismissReminder."
 """
 
 helps['usersactions user-event snooze-reminder'] = """
     type: command
-    short-summary: "Invoke action snoozeReminder"
+    short-summary: "Invoke action snoozeReminder."
     parameters:
       - name: --new-reminder-time
         short-summary: "dateTimeTimeZone"
@@ -1297,32 +1302,32 @@ values.
 
 helps['usersactions user-event tentatively-accept'] = """
     type: command
-    short-summary: "Invoke action tentativelyAccept"
+    short-summary: "Invoke action tentativelyAccept."
 """
 
 helps['usersactions user-mail-folder-child-folder'] = """
     type: group
-    short-summary: usersactions user-mail-folder-child-folder
+    short-summary: Manage user mail folder child folder with usersactions_v1_0
 """
 
 helps['usersactions user-mail-folder-child-folder copy'] = """
     type: command
-    short-summary: "Invoke action copy"
+    short-summary: "Invoke action copy."
 """
 
 helps['usersactions user-mail-folder-child-folder move'] = """
     type: command
-    short-summary: "Invoke action move"
+    short-summary: "Invoke action move."
 """
 
 helps['usersactions user-mail-folder-message-attachment'] = """
     type: group
-    short-summary: usersactions user-mail-folder-message-attachment
+    short-summary: Manage user mail folder message attachment with usersactions_v1_0
 """
 
 helps['usersactions user-mail-folder-message-attachment create-upload-session'] = """
     type: command
-    short-summary: "Invoke action createUploadSession"
+    short-summary: "Invoke action createUploadSession."
     parameters:
       - name: --attachment-item
         short-summary: "attachmentItem"
@@ -1338,103 +1343,45 @@ actual file name. Required.
 
 helps['usersactions user-mail-folder-message'] = """
     type: group
-    short-summary: usersactions user-mail-folder-message
+    short-summary: Manage user mail folder message with usersactions_v1_0
 """
 
 helps['usersactions user-mail-folder-message copy'] = """
     type: command
-    short-summary: "Invoke action copy"
+    short-summary: "Invoke action copy."
 """
 
 helps['usersactions user-mail-folder-message create-forward'] = """
     type: command
-    short-summary: "Invoke action createForward"
+    short-summary: "Invoke action createForward."
     parameters:
-      - name: --to-recipients
-        long-summary: |
-            Usage: --to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --to-recipients argument.
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -1444,118 +1391,66 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-mail-folder-message create-reply'] = """
     type: command
-    short-summary: "Invoke action createReply"
+    short-summary: "Invoke action createReply."
     parameters:
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -1565,118 +1460,66 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-mail-folder-message create-reply-all'] = """
     type: command
-    short-summary: "Invoke action createReplyAll"
+    short-summary: "Invoke action createReplyAll."
     parameters:
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -1686,126 +1529,66 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-mail-folder-message forward'] = """
     type: command
-    short-summary: "Invoke action forward"
+    short-summary: "Invoke action forward."
     parameters:
-      - name: --to-recipients
-        long-summary: |
-            Usage: --to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --to-recipients argument.
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -1815,123 +1598,71 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-mail-folder-message move'] = """
     type: command
-    short-summary: "Invoke action move"
+    short-summary: "Invoke action move."
 """
 
 helps['usersactions user-mail-folder-message reply'] = """
     type: command
-    short-summary: "Invoke action reply"
+    short-summary: "Invoke action reply."
     parameters:
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -1941,118 +1672,66 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-mail-folder-message reply-all'] = """
     type: command
-    short-summary: "Invoke action replyAll"
+    short-summary: "Invoke action replyAll."
     parameters:
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -2062,167 +1741,165 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-mail-folder-message send'] = """
     type: command
-    short-summary: "Invoke action send"
+    short-summary: "Invoke action send."
 """
 
 helps['usersactions user-mail-folder'] = """
     type: group
-    short-summary: usersactions user-mail-folder
+    short-summary: Manage user mail folder with usersactions_v1_0
 """
 
 helps['usersactions user-mail-folder copy'] = """
     type: command
-    short-summary: "Invoke action copy"
+    short-summary: "Invoke action copy."
 """
 
 helps['usersactions user-mail-folder move'] = """
     type: command
-    short-summary: "Invoke action move"
+    short-summary: "Invoke action move."
 """
 
 helps['usersactions user-managed-device'] = """
     type: group
-    short-summary: usersactions user-managed-device
+    short-summary: Manage user managed device with usersactions_v1_0
 """
 
 helps['usersactions user-managed-device bypass-activation-lock'] = """
     type: command
-    short-summary: "Invoke action bypassActivationLock"
+    short-summary: "Invoke action bypassActivationLock."
 """
 
 helps['usersactions user-managed-device clean-window-device'] = """
     type: command
-    short-summary: "Invoke action cleanWindowsDevice"
+    short-summary: "Invoke action cleanWindowsDevice."
 """
 
 helps['usersactions user-managed-device delete-user-from-shared-apple-device'] = """
     type: command
-    short-summary: "Invoke action deleteUserFromSharedAppleDevice"
+    short-summary: "Invoke action deleteUserFromSharedAppleDevice."
 """
 
 helps['usersactions user-managed-device disable-lost-mode'] = """
     type: command
-    short-summary: "Invoke action disableLostMode"
+    short-summary: "Invoke action disableLostMode."
 """
 
 helps['usersactions user-managed-device locate-device'] = """
     type: command
-    short-summary: "Invoke action locateDevice"
+    short-summary: "Invoke action locateDevice."
 """
 
 helps['usersactions user-managed-device logout-shared-apple-device-active-user'] = """
     type: command
-    short-summary: "Invoke action logoutSharedAppleDeviceActiveUser"
+    short-summary: "Invoke action logoutSharedAppleDeviceActiveUser."
 """
 
 helps['usersactions user-managed-device reboot-now'] = """
     type: command
-    short-summary: "Invoke action rebootNow"
+    short-summary: "Invoke action rebootNow."
 """
 
 helps['usersactions user-managed-device recover-passcode'] = """
     type: command
-    short-summary: "Invoke action recoverPasscode"
+    short-summary: "Invoke action recoverPasscode."
 """
 
 helps['usersactions user-managed-device remote-lock'] = """
     type: command
-    short-summary: "Invoke action remoteLock"
+    short-summary: "Invoke action remoteLock."
 """
 
 helps['usersactions user-managed-device request-remote-assistance'] = """
     type: command
-    short-summary: "Invoke action requestRemoteAssistance"
+    short-summary: "Invoke action requestRemoteAssistance."
 """
 
 helps['usersactions user-managed-device reset-passcode'] = """
     type: command
-    short-summary: "Invoke action resetPasscode"
+    short-summary: "Invoke action resetPasscode."
 """
 
 helps['usersactions user-managed-device retire'] = """
     type: command
-    short-summary: "Invoke action retire"
+    short-summary: "Invoke action retire."
 """
 
 helps['usersactions user-managed-device shut-down'] = """
     type: command
-    short-summary: "Invoke action shutDown"
+    short-summary: "Invoke action shutDown."
 """
 
 helps['usersactions user-managed-device sync-device'] = """
     type: command
-    short-summary: "Invoke action syncDevice"
+    short-summary: "Invoke action syncDevice."
 """
 
 helps['usersactions user-managed-device update-window-device-account'] = """
     type: command
-    short-summary: "Invoke action updateWindowsDeviceAccount"
+    short-summary: "Invoke action updateWindowsDeviceAccount."
     parameters:
-      - name: --update-windows-device-account-action-parameter-device-account
+      - name: --device-account
         short-summary: "windowsDeviceAccount"
         long-summary: |
-            Usage: --update-windows-device-account-action-parameter-device-account password=XX
+            Usage: --device-account password=XX
 
             password: Not yet documented
 """
 
 helps['usersactions user-managed-device window-defender-scan'] = """
     type: command
-    short-summary: "Invoke action windowsDefenderScan"
+    short-summary: "Invoke action windowsDefenderScan."
 """
 
 helps['usersactions user-managed-device window-defender-update-signature'] = """
     type: command
-    short-summary: "Invoke action windowsDefenderUpdateSignatures"
+    short-summary: "Invoke action windowsDefenderUpdateSignatures."
 """
 
 helps['usersactions user-managed-device wipe'] = """
     type: command
-    short-summary: "Invoke action wipe"
+    short-summary: "Invoke action wipe."
 """
 
 helps['usersactions user-message-attachment'] = """
     type: group
-    short-summary: usersactions user-message-attachment
+    short-summary: Manage user message attachment with usersactions_v1_0
 """
 
 helps['usersactions user-message-attachment create-upload-session'] = """
     type: command
-    short-summary: "Invoke action createUploadSession"
+    short-summary: "Invoke action createUploadSession."
     parameters:
       - name: --attachment-item
         short-summary: "attachmentItem"
@@ -2238,103 +1915,45 @@ actual file name. Required.
 
 helps['usersactions user-message'] = """
     type: group
-    short-summary: usersactions user-message
+    short-summary: Manage user message with usersactions_v1_0
 """
 
 helps['usersactions user-message copy'] = """
     type: command
-    short-summary: "Invoke action copy"
+    short-summary: "Invoke action copy."
 """
 
 helps['usersactions user-message create-forward'] = """
     type: command
-    short-summary: "Invoke action createForward"
+    short-summary: "Invoke action createForward."
     parameters:
-      - name: --to-recipients
-        long-summary: |
-            Usage: --to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --to-recipients argument.
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -2344,118 +1963,66 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-message create-reply'] = """
     type: command
-    short-summary: "Invoke action createReply"
+    short-summary: "Invoke action createReply."
     parameters:
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -2465,118 +2032,66 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-message create-reply-all'] = """
     type: command
-    short-summary: "Invoke action createReplyAll"
+    short-summary: "Invoke action createReplyAll."
     parameters:
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -2586,126 +2101,66 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-message forward'] = """
     type: command
-    short-summary: "Invoke action forward"
+    short-summary: "Invoke action forward."
     parameters:
-      - name: --to-recipients
-        long-summary: |
-            Usage: --to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --to-recipients argument.
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -2715,123 +2170,71 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-message move'] = """
     type: command
-    short-summary: "Invoke action move"
+    short-summary: "Invoke action move."
 """
 
 helps['usersactions user-message reply'] = """
     type: command
-    short-summary: "Invoke action reply"
+    short-summary: "Invoke action reply."
     parameters:
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -2841,118 +2244,66 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-message reply-all'] = """
     type: command
-    short-summary: "Invoke action replyAll"
+    short-summary: "Invoke action replyAll."
     parameters:
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -2962,50 +2313,48 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user-message send'] = """
     type: command
-    short-summary: "Invoke action send"
+    short-summary: "Invoke action send."
 """
 
 helps['usersactions user'] = """
     type: group
-    short-summary: usersactions user
+    short-summary: Manage user with usersactions_v1_0
 """
 
 helps['usersactions user assign-license'] = """
     type: command
-    short-summary: "Invoke action assignLicense"
+    short-summary: "Invoke action assignLicense."
     parameters:
       - name: --add-licenses
         long-summary: |
@@ -3019,40 +2368,39 @@ helps['usersactions user assign-license'] = """
 
 helps['usersactions user change-password'] = """
     type: command
-    short-summary: "Invoke action changePassword"
+    short-summary: "Invoke action changePassword."
 """
 
 helps['usersactions user check-member-group'] = """
     type: command
-    short-summary: "Invoke action checkMemberGroups"
+    short-summary: "Invoke action checkMemberGroups."
 """
 
 helps['usersactions user check-member-object'] = """
     type: command
-    short-summary: "Invoke action checkMemberObjects"
+    short-summary: "Invoke action checkMemberObjects."
 """
 
 helps['usersactions user export-personal-data'] = """
     type: command
-    short-summary: "Invoke action exportPersonalData"
+    short-summary: "Invoke action exportPersonalData."
 """
 
 helps['usersactions user find-meeting-time'] = """
     type: command
-    short-summary: "Invoke action findMeetingTimes"
+    short-summary: "Invoke action findMeetingTimes."
     parameters:
       - name: --attendees
         long-summary: |
-            Usage: --attendees type=XX address=XX name=XX
+            Usage: --attendees type=XX email-address=XX
 
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
+            email-address: emailAddress
 
             Multiple actions can be specified by using more than one --attendees argument.
-      - name: --location-constraint-locations
+      - name: --locations
         short-summary: "Constraint information for one or more locations that the client requests for the meeting."
         long-summary: |
-            Usage: --location-constraint-locations resolve-availability=XX address=XX coordinates=XX display-name=XX \
+            Usage: --locations resolve-availability=XX address=XX coordinates=XX display-name=XX \
 location-email-address=XX location-type=XX location-uri=XX unique-id=XX unique-id-type=XX
 
             resolve-availability: If set to true and the specified resource is busy, findMeetingTimes looks for \
@@ -3065,135 +2413,85 @@ resource best ranked in the user's cache without checking if it's free. Default 
             location-uri: Optional URI representing the location.
             unique-id: For internal use only.
 
-            Multiple actions can be specified by using more than one --location-constraint-locations argument.
+            Multiple actions can be specified by using more than one --locations argument.
 """
 
 helps['usersactions user get-available-extension-property'] = """
     type: command
-    short-summary: "Invoke action getAvailableExtensionProperties"
+    short-summary: "Invoke action getAvailableExtensionProperties."
 """
 
 helps['usersactions user get-by-id'] = """
     type: command
-    short-summary: "Invoke action getByIds"
+    short-summary: "Invoke action getByIds."
 """
 
 helps['usersactions user get-mail-tip'] = """
     type: command
-    short-summary: "Invoke action getMailTips"
+    short-summary: "Invoke action getMailTips."
 """
 
 helps['usersactions user get-member-group'] = """
     type: command
-    short-summary: "Invoke action getMemberGroups"
+    short-summary: "Invoke action getMemberGroups."
 """
 
 helps['usersactions user get-member-object'] = """
     type: command
-    short-summary: "Invoke action getMemberObjects"
+    short-summary: "Invoke action getMemberObjects."
 """
 
 helps['usersactions user remove-all-device-from-management'] = """
     type: command
-    short-summary: "Invoke action removeAllDevicesFromManagement"
+    short-summary: "Invoke action removeAllDevicesFromManagement."
 """
 
 helps['usersactions user reprocess-license-assignment'] = """
     type: command
-    short-summary: "Invoke action reprocessLicenseAssignment"
+    short-summary: "Invoke action reprocessLicenseAssignment."
 """
 
 helps['usersactions user restore'] = """
     type: command
-    short-summary: "Invoke action restore"
+    short-summary: "Invoke action restore."
 """
 
 helps['usersactions user revoke-sign-in-session'] = """
     type: command
-    short-summary: "Invoke action revokeSignInSessions"
+    short-summary: "Invoke action revokeSignInSessions."
 """
 
 helps['usersactions user send-mail'] = """
     type: command
-    short-summary: "Invoke action sendMail"
+    short-summary: "Invoke action sendMail."
     parameters:
-      - name: --message-bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --message-bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-bcc-recipients argument.
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --message-cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-cc-recipients argument.
-      - name: --message-from
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-from address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-internet-message-headers
+      - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
 headers that hold app data for the message.  Returned only on applying a $select query option. Read-only."
         long-summary: |
-            Usage: --message-internet-message-headers name=XX value=XX
+            Usage: --internet-message-headers name=XX value=XX
 
             name: Represents the key in a key-value pair.
             value: The value in a key-value pair.
 
-            Multiple actions can be specified by using more than one --message-internet-message-headers argument.
-      - name: --message-reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --message-reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-reply-to argument.
-      - name: --message-sender
-        short-summary: "recipient"
-        long-summary: |
-            Usage: --message-sender address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --message-to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --message-to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --message-to-recipients argument.
-      - name: --message-unique-body
+            Multiple actions can be specified by using more than one --internet-message-headers argument.
+      - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-unique-body content=XX content-type=XX
+            Usage: --unique-body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --message-attachments
+      - name: --attachments
         short-summary: "The fileAttachment and itemAttachment attachments for the message."
         long-summary: |
-            Usage: --message-attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
+            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
 
             content-type: The MIME type.
             is-inline: true if the attachment is an inline attachment; otherwise, false.
@@ -3203,105 +2501,103 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             size: The length of the attachment in bytes.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-attachments argument.
-      - name: --message-extensions
+            Multiple actions can be specified by using more than one --attachments argument.
+      - name: --extensions
         short-summary: "The collection of open extensions defined for the message. Nullable."
         long-summary: |
-            Usage: --message-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-extensions argument.
-      - name: --message-multi-value-extended-properties
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-multi-value-extended-properties value=XX id=XX
+            Usage: --multi-value-extended-properties value=XX id=XX
 
             value: A collection of property values.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-multi-value-extended-properties \
-argument.
-      - name: --message-single-value-extended-properties
+            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
+      - name: --single-value-extended-properties
         short-summary: "The collection of single-value extended properties defined for the message. Nullable."
         long-summary: |
-            Usage: --message-single-value-extended-properties value=XX id=XX
+            Usage: --single-value-extended-properties value=XX id=XX
 
             value: A property value.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --message-single-value-extended-properties \
-argument.
+            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
 helps['usersactions user translate-exchange-id'] = """
     type: command
-    short-summary: "Invoke action translateExchangeIds"
+    short-summary: "Invoke action translateExchangeIds."
 """
 
 helps['usersactions user validate-property'] = """
     type: command
-    short-summary: "Invoke action validateProperties"
+    short-summary: "Invoke action validateProperties."
 """
 
 helps['usersactions user wipe-managed-app-registration-by-device-tag'] = """
     type: command
-    short-summary: "Invoke action wipeManagedAppRegistrationsByDeviceTag"
+    short-summary: "Invoke action wipeManagedAppRegistrationsByDeviceTag."
 """
 
 helps['usersactions user-onenote-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook
+    short-summary: Manage user onenote notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-notebook get-notebook-from-web-url'] = """
     type: command
-    short-summary: "Invoke action getNotebookFromWebUrl"
+    short-summary: "Invoke action getNotebookFromWebUrl."
 """
 
 helps['usersactions user-onenote-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-group-parent-notebook
+    short-summary: Manage user onenote notebook section group parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section-group-section'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-group-section
+    short-summary: Manage user onenote notebook section group section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-group-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section-group-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-notebook-section-group-section-page'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-group-section-page
+    short-summary: Manage user onenote notebook section group section page with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-group-section-page copy-to-section'] = """
     type: command
-    short-summary: "Invoke action copyToSection"
+    short-summary: "Invoke action copyToSection."
 """
 
 helps['usersactions user-onenote-notebook-section-group-section-page onenote-patch-content'] = """
     type: command
-    short-summary: "Invoke action onenotePatchContent"
+    short-summary: "Invoke action onenotePatchContent."
     parameters:
       - name: --commands
         long-summary: |
@@ -3310,75 +2606,75 @@ helps['usersactions user-onenote-notebook-section-group-section-page onenote-pat
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
 
 helps['usersactions user-onenote-notebook-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-group-section-page-parent-notebook
+    short-summary: Manage user onenote notebook section group section page parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-group-section-page-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section-group-section-page-parent-section'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-group-section-page-parent-section
+    short-summary: Manage user onenote notebook section group section page parent section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-group-section-page-parent-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section-group-section-page-parent-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-notebook-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-group-section-parent-notebook
+    short-summary: Manage user onenote notebook section group section parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-group-section-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section
+    short-summary: Manage user onenote notebook section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-notebook-section-page'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-page
+    short-summary: Manage user onenote notebook section page with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-page copy-to-section'] = """
     type: command
-    short-summary: "Invoke action copyToSection"
+    short-summary: "Invoke action copyToSection."
 """
 
 helps['usersactions user-onenote-notebook-section-page onenote-patch-content'] = """
     type: command
-    short-summary: "Invoke action onenotePatchContent"
+    short-summary: "Invoke action onenotePatchContent."
     parameters:
       - name: --commands
         long-summary: |
@@ -3387,85 +2683,85 @@ helps['usersactions user-onenote-notebook-section-page onenote-patch-content'] =
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
 
 helps['usersactions user-onenote-notebook-section-page-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-page-parent-notebook
+    short-summary: Manage user onenote notebook section page parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-page-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section-page-parent-section'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-page-parent-section
+    short-summary: Manage user onenote notebook section page parent section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-page-parent-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section-page-parent-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-notebook-section-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-parent-notebook
+    short-summary: Manage user onenote notebook section parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-parent-section-group-parent-notebook
+    short-summary: Manage user onenote notebook section parent section group parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-parent-section-group-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section-parent-section-group-section'] = """
     type: group
-    short-summary: usersactions user-onenote-notebook-section-parent-section-group-section
+    short-summary: Manage user onenote notebook section parent section group section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-notebook-section-parent-section-group-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-notebook-section-parent-section-group-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-page'] = """
     type: group
-    short-summary: usersactions user-onenote-page
+    short-summary: Manage user onenote page with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page copy-to-section'] = """
     type: command
-    short-summary: "Invoke action copyToSection"
+    short-summary: "Invoke action copyToSection."
 """
 
 helps['usersactions user-onenote-page onenote-patch-content'] = """
     type: command
-    short-summary: "Invoke action onenotePatchContent"
+    short-summary: "Invoke action onenotePatchContent."
     parameters:
       - name: --commands
         long-summary: |
@@ -3474,60 +2770,60 @@ helps['usersactions user-onenote-page onenote-patch-content'] = """
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
 
 helps['usersactions user-onenote-page-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-notebook
+    short-summary: Manage user onenote page parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-notebook-section-group-parent-notebook
+    short-summary: Manage user onenote page parent notebook section group parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-notebook-section-group-section
+    short-summary: Manage user onenote page parent notebook section group section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-group-section-page'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-notebook-section-group-section-page
+    short-summary: Manage user onenote page parent notebook section group section page with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-group-section-page copy-to-section'] = """
     type: command
-    short-summary: "Invoke action copyToSection"
+    short-summary: "Invoke action copyToSection."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-group-section-page onenote-patch-content'] = """
     type: command
-    short-summary: "Invoke action onenotePatchContent"
+    short-summary: "Invoke action onenotePatchContent."
     parameters:
       - name: --commands
         long-summary: |
@@ -3536,50 +2832,51 @@ helps['usersactions user-onenote-page-parent-notebook-section-group-section-page
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-notebook-section-group-section-parent-notebook
+    short-summary: Manage user onenote page parent notebook section group section parent notebook with \
+usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-group-section-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-notebook-section
+    short-summary: Manage user onenote page parent notebook section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-page'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-notebook-section-page
+    short-summary: Manage user onenote page parent notebook section page with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-page copy-to-section'] = """
     type: command
-    short-summary: "Invoke action copyToSection"
+    short-summary: "Invoke action copyToSection."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-page onenote-patch-content'] = """
     type: command
-    short-summary: "Invoke action onenotePatchContent"
+    short-summary: "Invoke action onenotePatchContent."
     parameters:
       - name: --commands
         long-summary: |
@@ -3588,75 +2885,77 @@ helps['usersactions user-onenote-page-parent-notebook-section-page onenote-patch
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-notebook-section-parent-notebook
+    short-summary: Manage user onenote page parent notebook section parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-notebook-section-parent-section-group-parent-notebook
+    short-summary: Manage user onenote page parent notebook section parent section group parent notebook with \
+usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-parent-section-group-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-parent-section-group-section'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-notebook-section-parent-section-group-section
+    short-summary: Manage user onenote page parent notebook section parent section group section with \
+usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-parent-section-group-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-notebook-section-parent-section-group-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-page-parent-section'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-section
+    short-summary: Manage user onenote page parent section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-page-parent-section-page'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-section-page
+    short-summary: Manage user onenote page parent section page with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-section-page copy-to-section'] = """
     type: command
-    short-summary: "Invoke action copyToSection"
+    short-summary: "Invoke action copyToSection."
 """
 
 helps['usersactions user-onenote-page-parent-section-page onenote-patch-content'] = """
     type: command
-    short-summary: "Invoke action onenotePatchContent"
+    short-summary: "Invoke action onenotePatchContent."
     parameters:
       - name: --commands
         long-summary: |
@@ -3665,140 +2964,143 @@ helps['usersactions user-onenote-page-parent-section-page onenote-patch-content'
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-section-parent-notebook
+    short-summary: Manage user onenote page parent section parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-section-parent-notebook-section-group-parent-notebook
+    short-summary: Manage user onenote page parent section parent notebook section group parent notebook with \
+usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-section-parent-notebook-section-group-section
+    short-summary: Manage user onenote page parent section parent notebook section group section with \
+usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-notebook-section'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-section-parent-notebook-section
+    short-summary: Manage user onenote page parent section parent notebook section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-notebook-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-notebook-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook
+    short-summary: Manage user onenote page parent section parent section group parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section
+    short-summary: Manage user onenote page parent section parent section group parent notebook section with \
+usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-section-group-section'] = """
     type: group
-    short-summary: usersactions user-onenote-page-parent-section-parent-section-group-section
+    short-summary: Manage user onenote page parent section parent section group section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-section-group-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-page-parent-section-parent-section-group-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-parent-notebook
+    short-summary: Manage user onenote section group parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-parent-notebook-section
+    short-summary: Manage user onenote section group parent notebook section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section-page'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-parent-notebook-section-page
+    short-summary: Manage user onenote section group parent notebook section page with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section-page copy-to-section'] = """
     type: command
-    short-summary: "Invoke action copyToSection"
+    short-summary: "Invoke action copyToSection."
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section-page onenote-patch-content'] = """
     type: command
-    short-summary: "Invoke action onenotePatchContent"
+    short-summary: "Invoke action onenotePatchContent."
     parameters:
       - name: --commands
         long-summary: |
@@ -3807,75 +3109,77 @@ helps['usersactions user-onenote-section-group-parent-notebook-section-page onen
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section-page-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-parent-notebook-section-page-parent-notebook
+    short-summary: Manage user onenote section group parent notebook section page parent notebook with \
+usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section-page-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section-page-parent-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-parent-notebook-section-page-parent-section
+    short-summary: Manage user onenote section group parent notebook section page parent section with \
+usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section-page-parent-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section-page-parent-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-parent-notebook-section-parent-notebook
+    short-summary: Manage user onenote section group parent notebook section parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-parent-notebook-section-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-section-group-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-section
+    short-summary: Manage user onenote section group section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-group-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-group-section-page'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-section-page
+    short-summary: Manage user onenote section group section page with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-section-page copy-to-section'] = """
     type: command
-    short-summary: "Invoke action copyToSection"
+    short-summary: "Invoke action copyToSection."
 """
 
 helps['usersactions user-onenote-section-group-section-page onenote-patch-content'] = """
     type: command
-    short-summary: "Invoke action onenotePatchContent"
+    short-summary: "Invoke action onenotePatchContent."
     parameters:
       - name: --commands
         long-summary: |
@@ -3884,105 +3188,105 @@ helps['usersactions user-onenote-section-group-section-page onenote-patch-conten
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
 
 helps['usersactions user-onenote-section-group-section-page-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-section-page-parent-notebook
+    short-summary: Manage user onenote section group section page parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-section-page-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-section-group-section-page-parent-notebook-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-section-page-parent-notebook-section
+    short-summary: Manage user onenote section group section page parent notebook section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-section-page-parent-notebook-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-group-section-page-parent-notebook-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-group-section-page-parent-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-section-page-parent-section
+    short-summary: Manage user onenote section group section page parent section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-section-page-parent-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-group-section-page-parent-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-group-section-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-section-parent-notebook
+    short-summary: Manage user onenote section group section parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-section-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-section-group-section-parent-notebook-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-group-section-parent-notebook-section
+    short-summary: Manage user onenote section group section parent notebook section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-group-section-parent-notebook-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-group-section-parent-notebook-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section
+    short-summary: Manage user onenote section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-page'] = """
     type: group
-    short-summary: usersactions user-onenote-section-page
+    short-summary: Manage user onenote section page with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-page copy-to-section'] = """
     type: command
-    short-summary: "Invoke action copyToSection"
+    short-summary: "Invoke action copyToSection."
 """
 
 helps['usersactions user-onenote-section-page onenote-patch-content'] = """
     type: command
-    short-summary: "Invoke action onenotePatchContent"
+    short-summary: "Invoke action onenotePatchContent."
     parameters:
       - name: --commands
         long-summary: |
@@ -3991,175 +3295,176 @@ helps['usersactions user-onenote-section-page onenote-patch-content'] = """
             content: A string of well-formed HTML to add to the page, and any image or file binary data. If the \
 content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' \
 part.
-            target: The element to update. Must be the #:code:`<data-id>` or the generated :code:`<id>` of the \
-element, or the body or title keyword.
+            target: The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or \
+title keyword.
 
             Multiple actions can be specified by using more than one --commands argument.
 """
 
 helps['usersactions user-onenote-section-page-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-section-page-parent-notebook
+    short-summary: Manage user onenote section page parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-page-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-section-page-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-section-page-parent-notebook-section-group-parent-notebook
+    short-summary: Manage user onenote section page parent notebook section group parent notebook with \
+usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-page-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-section-page-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-page-parent-notebook-section-group-section
+    short-summary: Manage user onenote section page parent notebook section group section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-page-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-page-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-page-parent-notebook-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-page-parent-notebook-section
+    short-summary: Manage user onenote section page parent notebook section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-page-parent-notebook-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-page-parent-notebook-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-page-parent-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-page-parent-section
+    short-summary: Manage user onenote section page parent section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-page-parent-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-page-parent-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-section-parent-notebook
+    short-summary: Manage user onenote section parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-section-parent-notebook-section-group-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-section-parent-notebook-section-group-parent-notebook
+    short-summary: Manage user onenote section parent notebook section group parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-parent-notebook-section-group-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-section-parent-notebook-section-group-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-parent-notebook-section-group-section
+    short-summary: Manage user onenote section parent notebook section group section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-parent-notebook-section-group-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-parent-notebook-section-group-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-parent-notebook-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-parent-notebook-section
+    short-summary: Manage user onenote section parent notebook section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-parent-notebook-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-parent-notebook-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-parent-section-group-parent-notebook'] = """
     type: group
-    short-summary: usersactions user-onenote-section-parent-section-group-parent-notebook
+    short-summary: Manage user onenote section parent section group parent notebook with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-parent-section-group-parent-notebook copy-notebook'] = """
     type: command
-    short-summary: "Invoke action copyNotebook"
+    short-summary: "Invoke action copyNotebook."
 """
 
 helps['usersactions user-onenote-section-parent-section-group-parent-notebook-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-parent-section-group-parent-notebook-section
+    short-summary: Manage user onenote section parent section group parent notebook section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-parent-section-group-parent-notebook-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-parent-section-group-parent-notebook-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-onenote-section-parent-section-group-section'] = """
     type: group
-    short-summary: usersactions user-onenote-section-parent-section-group-section
+    short-summary: Manage user onenote section parent section group section with usersactions_v1_0
 """
 
 helps['usersactions user-onenote-section-parent-section-group-section copy-to-notebook'] = """
     type: command
-    short-summary: "Invoke action copyToNotebook"
+    short-summary: "Invoke action copyToNotebook."
 """
 
 helps['usersactions user-onenote-section-parent-section-group-section copy-to-section-group'] = """
     type: command
-    short-summary: "Invoke action copyToSectionGroup"
+    short-summary: "Invoke action copyToSectionGroup."
 """
 
 helps['usersactions user-online-meeting'] = """
     type: group
-    short-summary: usersactions user-online-meeting
+    short-summary: Manage user online meeting with usersactions_v1_0
 """
 
 helps['usersactions user-online-meeting create-or-get'] = """
     type: command
-    short-summary: "Invoke action createOrGet"
+    short-summary: "Invoke action createOrGet."
     parameters:
       - name: --chat-info
         short-summary: "chatInfo"

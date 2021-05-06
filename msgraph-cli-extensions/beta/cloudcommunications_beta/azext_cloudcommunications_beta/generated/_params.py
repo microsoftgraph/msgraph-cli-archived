@@ -20,51 +20,39 @@ from azext_cloudcommunications_beta.action import (
     AddChatInfo,
     AddMeetingCapability,
     AddResultInfo,
-    AddCommunicationsTargets,
     AddToneInfo,
     AddTranscription,
     AddAudioRoutingGroups,
-    AddOperations,
-    AddSourceIdentity,
-    AddCommunicationsParticipants,
+    AddApplication,
     AddAudioConferencing,
     AddJoinInformation,
     AddLobbyBypassSettings,
     AddFailureInfo,
-    AddCallerUserAgent,
+    AddUserAgent,
     AddMediaStreams,
-    AddQualityMediaQualityList,
+    AddMediaQualityList,
     AddCloudcommunicationsCommunicationCallPlayPromptPrompts,
     AddCloudcommunicationsCommunicationCallRecordPrompts,
-    AddPrompts,
-    AddCommunicationsCallsTargets,
-    AddCommunicationsCallsParticipantsParticipants
+    AddPrompts
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('cloudcommunications communication-cloud-communication get-cloud-communication') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('cloudcommunications communication-cloud-communication show-cloud-communication') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications communication-cloud-communication update-cloud-communication') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('calls', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('call_records', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('online_meetings', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('presences', action=AddPresences, nargs='*', help='')
-
-    with self.argument_context('cloudcommunications communication delete') as c:
-        c.argument('call_record_id', type=str, help='key: id of callRecord')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('call_id', type=str, help='key: id of call')
-        c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
-        c.argument('presence_id', type=str, help='key: id of presence')
+        c.argument('presences', action=AddPresences, nargs='+', help='')
 
     with self.argument_context('cloudcommunications communication create-call') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('active_modalities', nargs='*', help='')
+        c.argument('active_modalities', nargs='+', help='')
         c.argument('callback_uri', type=str, help='The callback URL on which callbacks will be delivered. Must be '
                    'https.')
         c.argument('call_chain_id', type=str, help='A unique identifier for all the participant calls in a conference '
@@ -74,56 +62,67 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('call_routes', type=validate_file_or_dict, help='The routing information on how the call was '
                    'retargeted. Read-only. Expected value: json-string/@json-file.')
-        c.argument('chat_info', action=AddChatInfo, nargs='*', help='chatInfo')
+        c.argument('chat_info', action=AddChatInfo, nargs='+', help='chatInfo')
         c.argument('direction', arg_type=get_enum_type(['incoming', 'outgoing']), help='')
-        c.argument('meeting_capability', action=AddMeetingCapability, nargs='*', help='meetingCapability')
+        c.argument('meeting_capability', action=AddMeetingCapability, nargs='+', help='meetingCapability')
         c.argument('my_participant_id', type=str, help='')
-        c.argument('requested_modalities', nargs='*', help='')
-        c.argument('result_info', action=AddResultInfo, nargs='*', help='ResultInfo')
+        c.argument('requested_modalities', nargs='+', help='')
+        c.argument('result_info', action=AddResultInfo, nargs='+', help='ResultInfo')
         c.argument('ringing_timeout_in_seconds', type=int, help='')
-        c.argument('routing_policies', nargs='*', help='')
-        c.argument('state', arg_type=get_enum_type(['incoming', 'establishing', 'ringing', 'established', 'hold', ''
-                                                    'transferring', 'transferAccepted', 'redirecting', 'terminating', ''
+        c.argument('routing_policies', nargs='+', help='')
+        c.argument('state', arg_type=get_enum_type(['incoming', 'establishing', 'ringing', 'established', 'hold',
+                                                    'transferring', 'transferAccepted', 'redirecting', 'terminating',
                                                     'terminated', 'unknownFutureValue']), help='')
         c.argument('subject', type=str, help='')
-        c.argument('targets', action=AddCommunicationsTargets, nargs='*', help='')
+        c.argument('targets', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tenant_id', type=str, help='')
         c.argument('termination_reason', type=str, help='')
-        c.argument('tone_info', action=AddToneInfo, nargs='*', help='toneInfo')
-        c.argument('transcription', action=AddTranscription, nargs='*', help='callTranscriptionInfo')
-        c.argument('audio_routing_groups', action=AddAudioRoutingGroups, nargs='*', help='')
-        c.argument('operations', action=AddOperations, nargs='*', help='Read-only. Nullable.')
+        c.argument('tone_info', action=AddToneInfo, nargs='+', help='toneInfo')
+        c.argument('transcription', action=AddTranscription, nargs='+', help='callTranscriptionInfo')
+        c.argument('audio_routing_groups', action=AddAudioRoutingGroups, nargs='+', help='')
+        c.argument('operations', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
+                   'json-string/@json-file.')
         c.argument('participants', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('source_country_code', type=str, help='The ISO 3166-1 Alpha-2 country code of the participant\'s '
-                   'best estimated physical location at the start of the call. Read-only.')
-        c.argument('source_endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness', ''
-                                                                   'skypeForBusinessVoipPhone', 'unknownFutureValue']),
-                   help='')
-        c.argument('source_identity', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('source_language_id', type=str, help='The language culture string. Read-only.')
-        c.argument('source_region', type=str, help='The home region of the participant. This can be a country, a '
-                   'continent, or a larger geographic region. This does not change based on the participant\'s current '
-                   'physical location. Read-only.')
-        c.argument('meeting_info_allow_conversation_without_host', arg_type=get_three_state_flag(), help='')
-        c.argument('media_state_audio', arg_type=get_enum_type(['active', 'inactive', 'unknownFutureValue']), help='')
-        c.argument('media_config_remove_from_default_audio_group', arg_type=get_three_state_flag(), help='')
-        c.argument('incoming_context_observed_participant_id', type=str, help='The ID of the participant that is under '
-                   'observation. Read-only.')
-        c.argument('incoming_context_on_behalf_of', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('incoming_context_source_participant_id', type=str, help='The ID of the participant that triggered '
-                   'the incoming call. Read-only.')
-        c.argument('incoming_context_transferor', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('answered_by_country_code', type=str, help='The ISO 3166-1 Alpha-2 country code of the '
-                   'participant\'s best estimated physical location at the start of the call. Read-only.')
-        c.argument('answered_by_endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness', ''
-                                                                        'skypeForBusinessVoipPhone', ''
-                                                                        'unknownFutureValue']), help='')
-        c.argument('answered_by_identity', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('answered_by_language_id', type=str, help='The language culture string. Read-only.')
-        c.argument('answered_by_region', type=str, help='The home region of the participant. This can be a country, a '
-                   'continent, or a larger geographic region. This does not change based on the participant\'s current '
-                   'physical location. Read-only.')
+        c.argument('country_code', type=str, help='The ISO 3166-1 Alpha-2 country code of the participant\'s best '
+                   'estimated physical location at the start of the call. Read-only.', arg_group='Source')
+        c.argument('endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness',
+                                                            'skypeForBusinessVoipPhone', 'unknownFutureValue']),
+                   help='', arg_group='Source')
+        c.argument('identity', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Source')
+        c.argument('language_id', type=str, help='The language culture string. Read-only.', arg_group='Source')
+        c.argument('region', type=str, help='The home region of the participant. This can be a country, a continent, '
+                   'or a larger geographic region. This does not change based on the participant\'s current physical '
+                   'location. Read-only.', arg_group='Source')
+        c.argument('allow_conversation_without_host', arg_type=get_three_state_flag(), help='', arg_group='Meeting '
+                   'Info')
+        c.argument('audio', arg_type=get_enum_type(['active', 'inactive', 'unknownFutureValue']), help='',
+                   arg_group='Media State')
+        c.argument('remove_from_default_audio_group', arg_type=get_three_state_flag(), help='', arg_group='Media '
+                   'Config')
+        c.argument('observed_participant_id', type=str, help='The ID of the participant that is under observation. '
+                   'Read-only.', arg_group='Incoming Context')
+        c.argument('on_behalf_of', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Incoming Context')
+        c.argument('source_participant_id', type=str, help='The ID of the participant that triggered the incoming '
+                   'call. Read-only.', arg_group='Incoming Context')
+        c.argument('transferor', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Incoming Context')
+        c.argument('microsoft_graph_participant_info_country_code', type=str, help='The ISO 3166-1 Alpha-2 country '
+                   'code of the participant\'s best estimated physical location at the start of the call. Read-only.',
+                   arg_group='Answered By')
+        c.argument('microsoft_graph_endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness',
+                                                                            'skypeForBusinessVoipPhone',
+                                                                            'unknownFutureValue']), help='',
+                   arg_group='Answered By')
+        c.argument('microsoft_graph_identity_set_identity', type=validate_file_or_dict, help='identitySet Expected '
+                   'value: json-string/@json-file.', arg_group='Answered By')
+        c.argument('microsoft_graph_participant_info_language_id', type=str, help='The language culture string. '
+                   'Read-only.', arg_group='Answered By')
+        c.argument('microsoft_graph_participant_info_region', type=str, help='The home region of the participant. This '
+                   'can be a country, a continent, or a larger geographic region. This does not change based on the '
+                   'participant\'s current physical location. Read-only.', arg_group='Answered By')
 
     with self.argument_context('cloudcommunications communication create-call-record') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -135,46 +134,34 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='UTC time when the call record was created. The DatetimeOffset type '
                    'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
                    'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('modalities', nargs='*', help='List of all the modalities used in the call. Possible values are: '
+        c.argument('modalities', nargs='+', help='List of all the modalities used in the call. Possible values are: '
                    'unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.')
-        c.argument('participants', action=AddCommunicationsParticipants, nargs='*', help='List of distinct identities '
-                   'involved in the call.')
+        c.argument('participants', type=validate_file_or_dict, help='List of distinct identities involved in the call. '
+                   'Expected value: json-string/@json-file.')
         c.argument('start_date_time', help='UTC time when the first user joined the call. The DatetimeOffset type '
                    'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
                    'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['unknown', 'groupCall', 'peerToPeer', ''
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['unknown', 'groupCall', 'peerToPeer',
                                                                              'unknownFutureValue']), help='')
         c.argument('version', type=int, help='Monotonically increasing version of the call record. Higher version call '
                    'records with the same id includes additional data compared to the lower version.')
         c.argument('sessions', type=validate_file_or_dict, help='List of sessions involved in the call. Peer-to-peer '
                    'calls typically only have one session, whereas group calls typically have at least one session per '
                    'participant. Read-only. Nullable. Expected value: json-string/@json-file.')
-        c.argument('organizer_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('organizer_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('organizer_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('organizer_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('organizer_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('organizer_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Organizer')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Organizer')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Organizer')
 
     with self.argument_context('cloudcommunications communication create-online-meeting') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise', ''
+        c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise',
                                                            'sameEnterpriseAndFederated']), help='')
-        c.argument('allowed_presenters', arg_type=get_enum_type(['everyone', 'organization', 'roleIsPresenter', ''
+        c.argument('allowed_presenters', arg_type=get_enum_type(['everyone', 'organization', 'roleIsPresenter',
                                                                  'organizer', 'unknownFutureValue']), help='')
-        c.argument('audio_conferencing', action=AddAudioConferencing, nargs='*', help='audioConferencing')
+        c.argument('audio_conferencing', action=AddAudioConferencing, nargs='+', help='audioConferencing')
         c.argument('canceled_date_time', help='')
-        c.argument('capabilities', nargs='*', help='')
-        c.argument('chat_info', action=AddChatInfo, nargs='*', help='chatInfo')
+        c.argument('capabilities', nargs='+', help='')
+        c.argument('chat_info', action=AddChatInfo, nargs='+', help='chatInfo')
         c.argument('creation_date_time', help='The meeting creation time in UTC. Read-only.')
         c.argument('end_date_time', help='The meeting end time in UTC.')
         c.argument('entry_exit_announcement', arg_type=get_three_state_flag(), help='')
@@ -183,73 +170,89 @@ def load_arguments(self, _):
         c.argument('is_broadcast', arg_type=get_three_state_flag(), help='')
         c.argument('is_cancelled', arg_type=get_three_state_flag(), help='')
         c.argument('is_entry_exit_announced', arg_type=get_three_state_flag(), help='')
-        c.argument('join_information', action=AddJoinInformation, nargs='*', help='itemBody')
+        c.argument('join_information', action=AddJoinInformation, nargs='+', help='itemBody')
         c.argument('join_url', type=str, help='')
-        c.argument('lobby_bypass_settings', action=AddLobbyBypassSettings, nargs='*', help='lobbyBypassSettings')
+        c.argument('lobby_bypass_settings', action=AddLobbyBypassSettings, nargs='+', help='lobbyBypassSettings')
         c.argument('start_date_time', help='The meeting start time in UTC.')
         c.argument('subject', type=str, help='The subject of the online meeting.')
         c.argument('video_teleconference_id', type=str, help='The video teleconferencing ID. Read-only.')
-        c.argument('participants_attendees', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_contributors', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_producers', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
+        c.argument('attendees', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
+        c.argument('contributors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
+        c.argument('organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
+                   'json-string/@json-file.', arg_group='Participants')
+        c.argument('producers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
 
     with self.argument_context('cloudcommunications communication create-presence') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity', type=str, help='')
         c.argument('availability', type=str, help='')
 
-    with self.argument_context('cloudcommunications communication get-call') as c:
+    with self.argument_context('cloudcommunications communication delete-call') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('cloudcommunications communication get-call-record') as c:
+    with self.argument_context('cloudcommunications communication delete-call-record') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('cloudcommunications communication get-online-meeting') as c:
+    with self.argument_context('cloudcommunications communication delete-online-meeting') as c:
         c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('cloudcommunications communication get-presence') as c:
+    with self.argument_context('cloudcommunications communication delete-presence') as c:
         c.argument('presence_id', type=str, help='key: id of presence')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('cloudcommunications communication get-presence-by-user-id') as c:
-        c.argument('ids', nargs='*', help='')
+        c.argument('ids', nargs='+', help='')
 
     with self.argument_context('cloudcommunications communication list-call') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications communication list-call-record') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications communication list-online-meeting') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications communication list-presence') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications communication show-call') as c:
+        c.argument('call_id', type=str, help='key: id of call')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications communication show-call-record') as c:
+        c.argument('call_record_id', type=str, help='key: id of callRecord')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications communication show-online-meeting') as c:
+        c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications communication show-presence') as c:
+        c.argument('presence_id', type=str, help='key: id of presence')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications communication update-call') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('active_modalities', nargs='*', help='')
+        c.argument('active_modalities', nargs='+', help='')
         c.argument('callback_uri', type=str, help='The callback URL on which callbacks will be delivered. Must be '
                    'https.')
         c.argument('call_chain_id', type=str, help='A unique identifier for all the participant calls in a conference '
@@ -259,56 +262,67 @@ def load_arguments(self, _):
                    'json-string/@json-file.')
         c.argument('call_routes', type=validate_file_or_dict, help='The routing information on how the call was '
                    'retargeted. Read-only. Expected value: json-string/@json-file.')
-        c.argument('chat_info', action=AddChatInfo, nargs='*', help='chatInfo')
+        c.argument('chat_info', action=AddChatInfo, nargs='+', help='chatInfo')
         c.argument('direction', arg_type=get_enum_type(['incoming', 'outgoing']), help='')
-        c.argument('meeting_capability', action=AddMeetingCapability, nargs='*', help='meetingCapability')
+        c.argument('meeting_capability', action=AddMeetingCapability, nargs='+', help='meetingCapability')
         c.argument('my_participant_id', type=str, help='')
-        c.argument('requested_modalities', nargs='*', help='')
-        c.argument('result_info', action=AddResultInfo, nargs='*', help='ResultInfo')
+        c.argument('requested_modalities', nargs='+', help='')
+        c.argument('result_info', action=AddResultInfo, nargs='+', help='ResultInfo')
         c.argument('ringing_timeout_in_seconds', type=int, help='')
-        c.argument('routing_policies', nargs='*', help='')
-        c.argument('state', arg_type=get_enum_type(['incoming', 'establishing', 'ringing', 'established', 'hold', ''
-                                                    'transferring', 'transferAccepted', 'redirecting', 'terminating', ''
+        c.argument('routing_policies', nargs='+', help='')
+        c.argument('state', arg_type=get_enum_type(['incoming', 'establishing', 'ringing', 'established', 'hold',
+                                                    'transferring', 'transferAccepted', 'redirecting', 'terminating',
                                                     'terminated', 'unknownFutureValue']), help='')
         c.argument('subject', type=str, help='')
-        c.argument('targets', action=AddCommunicationsTargets, nargs='*', help='')
+        c.argument('targets', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tenant_id', type=str, help='')
         c.argument('termination_reason', type=str, help='')
-        c.argument('tone_info', action=AddToneInfo, nargs='*', help='toneInfo')
-        c.argument('transcription', action=AddTranscription, nargs='*', help='callTranscriptionInfo')
-        c.argument('audio_routing_groups', action=AddAudioRoutingGroups, nargs='*', help='')
-        c.argument('operations', action=AddOperations, nargs='*', help='Read-only. Nullable.')
+        c.argument('tone_info', action=AddToneInfo, nargs='+', help='toneInfo')
+        c.argument('transcription', action=AddTranscription, nargs='+', help='callTranscriptionInfo')
+        c.argument('audio_routing_groups', action=AddAudioRoutingGroups, nargs='+', help='')
+        c.argument('operations', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
+                   'json-string/@json-file.')
         c.argument('participants', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
-        c.argument('source_country_code', type=str, help='The ISO 3166-1 Alpha-2 country code of the participant\'s '
-                   'best estimated physical location at the start of the call. Read-only.')
-        c.argument('source_endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness', ''
-                                                                   'skypeForBusinessVoipPhone', 'unknownFutureValue']),
-                   help='')
-        c.argument('source_identity', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('source_language_id', type=str, help='The language culture string. Read-only.')
-        c.argument('source_region', type=str, help='The home region of the participant. This can be a country, a '
-                   'continent, or a larger geographic region. This does not change based on the participant\'s current '
-                   'physical location. Read-only.')
-        c.argument('meeting_info_allow_conversation_without_host', arg_type=get_three_state_flag(), help='')
-        c.argument('media_state_audio', arg_type=get_enum_type(['active', 'inactive', 'unknownFutureValue']), help='')
-        c.argument('media_config_remove_from_default_audio_group', arg_type=get_three_state_flag(), help='')
-        c.argument('incoming_context_observed_participant_id', type=str, help='The ID of the participant that is under '
-                   'observation. Read-only.')
-        c.argument('incoming_context_on_behalf_of', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('incoming_context_source_participant_id', type=str, help='The ID of the participant that triggered '
-                   'the incoming call. Read-only.')
-        c.argument('incoming_context_transferor', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('answered_by_country_code', type=str, help='The ISO 3166-1 Alpha-2 country code of the '
-                   'participant\'s best estimated physical location at the start of the call. Read-only.')
-        c.argument('answered_by_endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness', ''
-                                                                        'skypeForBusinessVoipPhone', ''
-                                                                        'unknownFutureValue']), help='')
-        c.argument('answered_by_identity', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('answered_by_language_id', type=str, help='The language culture string. Read-only.')
-        c.argument('answered_by_region', type=str, help='The home region of the participant. This can be a country, a '
-                   'continent, or a larger geographic region. This does not change based on the participant\'s current '
-                   'physical location. Read-only.')
+        c.argument('country_code', type=str, help='The ISO 3166-1 Alpha-2 country code of the participant\'s best '
+                   'estimated physical location at the start of the call. Read-only.', arg_group='Source')
+        c.argument('endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness',
+                                                            'skypeForBusinessVoipPhone', 'unknownFutureValue']),
+                   help='', arg_group='Source')
+        c.argument('identity', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Source')
+        c.argument('language_id', type=str, help='The language culture string. Read-only.', arg_group='Source')
+        c.argument('region', type=str, help='The home region of the participant. This can be a country, a continent, '
+                   'or a larger geographic region. This does not change based on the participant\'s current physical '
+                   'location. Read-only.', arg_group='Source')
+        c.argument('allow_conversation_without_host', arg_type=get_three_state_flag(), help='', arg_group='Meeting '
+                   'Info')
+        c.argument('audio', arg_type=get_enum_type(['active', 'inactive', 'unknownFutureValue']), help='',
+                   arg_group='Media State')
+        c.argument('remove_from_default_audio_group', arg_type=get_three_state_flag(), help='', arg_group='Media '
+                   'Config')
+        c.argument('observed_participant_id', type=str, help='The ID of the participant that is under observation. '
+                   'Read-only.', arg_group='Incoming Context')
+        c.argument('on_behalf_of', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Incoming Context')
+        c.argument('source_participant_id', type=str, help='The ID of the participant that triggered the incoming '
+                   'call. Read-only.', arg_group='Incoming Context')
+        c.argument('transferor', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Incoming Context')
+        c.argument('microsoft_graph_participant_info_country_code', type=str, help='The ISO 3166-1 Alpha-2 country '
+                   'code of the participant\'s best estimated physical location at the start of the call. Read-only.',
+                   arg_group='Answered By')
+        c.argument('microsoft_graph_endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness',
+                                                                            'skypeForBusinessVoipPhone',
+                                                                            'unknownFutureValue']), help='',
+                   arg_group='Answered By')
+        c.argument('microsoft_graph_identity_set_identity', type=validate_file_or_dict, help='identitySet Expected '
+                   'value: json-string/@json-file.', arg_group='Answered By')
+        c.argument('microsoft_graph_participant_info_language_id', type=str, help='The language culture string. '
+                   'Read-only.', arg_group='Answered By')
+        c.argument('microsoft_graph_participant_info_region', type=str, help='The home region of the participant. This '
+                   'can be a country, a continent, or a larger geographic region. This does not change based on the '
+                   'participant\'s current physical location. Read-only.', arg_group='Answered By')
 
     with self.argument_context('cloudcommunications communication update-call-record') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
@@ -321,47 +335,35 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='UTC time when the call record was created. The DatetimeOffset type '
                    'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
                    'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('modalities', nargs='*', help='List of all the modalities used in the call. Possible values are: '
+        c.argument('modalities', nargs='+', help='List of all the modalities used in the call. Possible values are: '
                    'unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.')
-        c.argument('participants', action=AddCommunicationsParticipants, nargs='*', help='List of distinct identities '
-                   'involved in the call.')
+        c.argument('participants', type=validate_file_or_dict, help='List of distinct identities involved in the call. '
+                   'Expected value: json-string/@json-file.')
         c.argument('start_date_time', help='UTC time when the first user joined the call. The DatetimeOffset type '
                    'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
                    'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['unknown', 'groupCall', 'peerToPeer', ''
+        c.argument('type_', options_list=['--type'], arg_type=get_enum_type(['unknown', 'groupCall', 'peerToPeer',
                                                                              'unknownFutureValue']), help='')
         c.argument('version', type=int, help='Monotonically increasing version of the call record. Higher version call '
                    'records with the same id includes additional data compared to the lower version.')
         c.argument('sessions', type=validate_file_or_dict, help='List of sessions involved in the call. Peer-to-peer '
                    'calls typically only have one session, whereas group calls typically have at least one session per '
                    'participant. Read-only. Nullable. Expected value: json-string/@json-file.')
-        c.argument('organizer_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('organizer_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('organizer_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('organizer_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('organizer_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('organizer_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Organizer')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Organizer')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Organizer')
 
     with self.argument_context('cloudcommunications communication update-online-meeting') as c:
         c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise', ''
+        c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise',
                                                            'sameEnterpriseAndFederated']), help='')
-        c.argument('allowed_presenters', arg_type=get_enum_type(['everyone', 'organization', 'roleIsPresenter', ''
+        c.argument('allowed_presenters', arg_type=get_enum_type(['everyone', 'organization', 'roleIsPresenter',
                                                                  'organizer', 'unknownFutureValue']), help='')
-        c.argument('audio_conferencing', action=AddAudioConferencing, nargs='*', help='audioConferencing')
+        c.argument('audio_conferencing', action=AddAudioConferencing, nargs='+', help='audioConferencing')
         c.argument('canceled_date_time', help='')
-        c.argument('capabilities', nargs='*', help='')
-        c.argument('chat_info', action=AddChatInfo, nargs='*', help='chatInfo')
+        c.argument('capabilities', nargs='+', help='')
+        c.argument('chat_info', action=AddChatInfo, nargs='+', help='chatInfo')
         c.argument('creation_date_time', help='The meeting creation time in UTC. Read-only.')
         c.argument('end_date_time', help='The meeting end time in UTC.')
         c.argument('entry_exit_announcement', arg_type=get_three_state_flag(), help='')
@@ -370,20 +372,20 @@ def load_arguments(self, _):
         c.argument('is_broadcast', arg_type=get_three_state_flag(), help='')
         c.argument('is_cancelled', arg_type=get_three_state_flag(), help='')
         c.argument('is_entry_exit_announced', arg_type=get_three_state_flag(), help='')
-        c.argument('join_information', action=AddJoinInformation, nargs='*', help='itemBody')
+        c.argument('join_information', action=AddJoinInformation, nargs='+', help='itemBody')
         c.argument('join_url', type=str, help='')
-        c.argument('lobby_bypass_settings', action=AddLobbyBypassSettings, nargs='*', help='lobbyBypassSettings')
+        c.argument('lobby_bypass_settings', action=AddLobbyBypassSettings, nargs='+', help='lobbyBypassSettings')
         c.argument('start_date_time', help='The meeting start time in UTC.')
         c.argument('subject', type=str, help='The subject of the online meeting.')
         c.argument('video_teleconference_id', type=str, help='The video teleconferencing ID. Read-only.')
-        c.argument('participants_attendees', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_contributors', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_producers', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
+        c.argument('attendees', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
+        c.argument('contributors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
+        c.argument('organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
+                   'json-string/@json-file.', arg_group='Participants')
+        c.argument('producers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
 
     with self.argument_context('cloudcommunications communication update-presence') as c:
         c.argument('presence_id', type=str, help='key: id of presence')
@@ -391,39 +393,40 @@ def load_arguments(self, _):
         c.argument('activity', type=str, help='')
         c.argument('availability', type=str, help='')
 
-    with self.argument_context('cloudcommunications communication-call-record delete') as c:
-        c.argument('call_record_id', type=str, help='key: id of callRecord')
-        c.argument('session_id', type=str, help='key: id of session')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('cloudcommunications communication-call-record create-session') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('end_date_time', help='UTC time when the last user left the session. The DateTimeOffset type '
                    'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
                    'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('failure_info', action=AddFailureInfo, nargs='*', help='failureInfo')
-        c.argument('modalities', nargs='*', help='List of modalities present in the session. Possible values are: '
+        c.argument('failure_info', action=AddFailureInfo, nargs='+', help='failureInfo')
+        c.argument('modalities', nargs='+', help='List of modalities present in the session. Possible values are: '
                    'unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.')
         c.argument('start_date_time', help='UTC fime when the first user joined the session. The DateTimeOffset type '
                    'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
                    'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('segments', type=validate_file_or_dict, help='The list of segments involved in the session. '
                    'Read-only. Nullable. Expected value: json-string/@json-file.')
-        c.argument('caller_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
-        c.argument('callee_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
+        c.argument('user_agent', action=AddUserAgent, nargs='+', help='userAgent', arg_group='Caller')
+        c.argument('microsoft_graph_call_records_user_agent', action=AddUserAgent, nargs='+', help='userAgent',
+                   arg_group='Callee')
 
-    with self.argument_context('cloudcommunications communication-call-record get-session') as c:
+    with self.argument_context('cloudcommunications communication-call-record delete-session') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('cloudcommunications communication-call-record list-session') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications communication-call-record show-session') as c:
+        c.argument('call_record_id', type=str, help='key: id of callRecord')
+        c.argument('session_id', type=str, help='key: id of session')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications communication-call-record update-session') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
@@ -432,22 +435,17 @@ def load_arguments(self, _):
         c.argument('end_date_time', help='UTC time when the last user left the session. The DateTimeOffset type '
                    'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
                    'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('failure_info', action=AddFailureInfo, nargs='*', help='failureInfo')
-        c.argument('modalities', nargs='*', help='List of modalities present in the session. Possible values are: '
+        c.argument('failure_info', action=AddFailureInfo, nargs='+', help='failureInfo')
+        c.argument('modalities', nargs='+', help='List of modalities present in the session. Possible values are: '
                    'unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.')
         c.argument('start_date_time', help='UTC fime when the first user joined the session. The DateTimeOffset type '
                    'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
                    'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
         c.argument('segments', type=validate_file_or_dict, help='The list of segments involved in the session. '
                    'Read-only. Nullable. Expected value: json-string/@json-file.')
-        c.argument('caller_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
-        c.argument('callee_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
-
-    with self.argument_context('cloudcommunications communication-call-record-session delete') as c:
-        c.argument('call_record_id', type=str, help='key: id of callRecord')
-        c.argument('session_id', type=str, help='key: id of session')
-        c.argument('segment_id', type=str, help='key: id of segment')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('user_agent', action=AddUserAgent, nargs='+', help='userAgent', arg_group='Caller')
+        c.argument('microsoft_graph_call_records_user_agent', action=AddUserAgent, nargs='+', help='userAgent',
+                   arg_group='Callee')
 
     with self.argument_context('cloudcommunications communication-call-record-session create-segment') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
@@ -456,28 +454,35 @@ def load_arguments(self, _):
         c.argument('end_date_time', help='UTC time when the segment ended. The DateTimeOffset type represents date and '
                    'time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan '
                    '1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('failure_info', action=AddFailureInfo, nargs='*', help='failureInfo')
+        c.argument('failure_info', action=AddFailureInfo, nargs='+', help='failureInfo')
         c.argument('media', type=validate_file_or_dict, help='Media associated with this segment. Expected value: '
                    'json-string/@json-file.')
         c.argument('start_date_time', help='UTC time when the segment started. The DateTimeOffset type represents date '
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('caller_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
-        c.argument('callee_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
+        c.argument('user_agent', action=AddUserAgent, nargs='+', help='userAgent', arg_group='Caller')
+        c.argument('microsoft_graph_call_records_user_agent', action=AddUserAgent, nargs='+', help='userAgent',
+                   arg_group='Callee')
 
-    with self.argument_context('cloudcommunications communication-call-record-session get-segment') as c:
+    with self.argument_context('cloudcommunications communication-call-record-session delete-segment') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
         c.argument('segment_id', type=str, help='key: id of segment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('cloudcommunications communication-call-record-session list-segment') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
         c.argument('session_id', type=str, help='key: id of session')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications communication-call-record-session show-segment') as c:
+        c.argument('call_record_id', type=str, help='key: id of callRecord')
+        c.argument('session_id', type=str, help='key: id of session')
+        c.argument('segment_id', type=str, help='key: id of segment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications communication-call-record-session update-segment') as c:
         c.argument('call_record_id', type=str, help='key: id of callRecord')
@@ -487,27 +492,22 @@ def load_arguments(self, _):
         c.argument('end_date_time', help='UTC time when the segment ended. The DateTimeOffset type represents date and '
                    'time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan '
                    '1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('failure_info', action=AddFailureInfo, nargs='*', help='failureInfo')
+        c.argument('failure_info', action=AddFailureInfo, nargs='+', help='failureInfo')
         c.argument('media', type=validate_file_or_dict, help='Media associated with this segment. Expected value: '
                    'json-string/@json-file.')
         c.argument('start_date_time', help='UTC time when the segment started. The DateTimeOffset type represents date '
                    'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
                    'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('caller_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
-        c.argument('callee_user_agent', action=AddCallerUserAgent, nargs='*', help='userAgent')
-
-    with self.argument_context('cloudcommunications communication-call delete') as c:
-        c.argument('call_id', type=str, help='key: id of call')
-        c.argument('audio_routing_group_id', type=str, help='key: id of audioRoutingGroup')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('comms_operation_id', type=str, help='key: id of commsOperation')
-        c.argument('participant_id', type=str, help='key: id of participant')
+        c.argument('user_agent', action=AddUserAgent, nargs='+', help='userAgent', arg_group='Caller')
+        c.argument('microsoft_graph_call_records_user_agent', action=AddUserAgent, nargs='+', help='userAgent',
+                   arg_group='Callee')
 
     with self.argument_context('cloudcommunications communication-call answer') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('callback_uri', type=str, help='')
-        c.argument('accepted_modalities', nargs='*', help='')
-        c.argument('media_config_remove_from_default_audio_group', arg_type=get_three_state_flag(), help='')
+        c.argument('accepted_modalities', nargs='+', help='')
+        c.argument('remove_from_default_audio_group', arg_type=get_three_state_flag(), help='', arg_group='Media '
+                   'Config')
 
     with self.argument_context('cloudcommunications communication-call cancel-media-processing') as c:
         c.argument('call_id', type=str, help='key: id of call')
@@ -520,18 +520,16 @@ def load_arguments(self, _):
     with self.argument_context('cloudcommunications communication-call create-audio-routing-group') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('receivers', nargs='*', help='')
+        c.argument('receivers', nargs='+', help='')
         c.argument('routing_mode', arg_type=get_enum_type(['oneToOne', 'multicast']), help='')
-        c.argument('sources', nargs='*', help='')
+        c.argument('sources', nargs='+', help='')
 
     with self.argument_context('cloudcommunications communication-call create-operation') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('client_context', type=str, help='Unique Client Context string. Max limit is 256 chars.')
+        c.argument('result_info', action=AddResultInfo, nargs='+', help='ResultInfo')
         c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
-        c.argument('result_info_code', type=int, help='')
-        c.argument('result_info_message', type=str, help='')
-        c.argument('result_info_subcode', type=int, help='')
 
     with self.argument_context('cloudcommunications communication-call create-participant') as c:
         c.argument('call_id', type=str, help='key: id of call')
@@ -539,86 +537,87 @@ def load_arguments(self, _):
         c.argument('is_in_lobby', arg_type=get_three_state_flag(), help='true if the participant is in lobby.')
         c.argument('is_muted', arg_type=get_three_state_flag(), help='true if the participant is muted (client or '
                    'server muted).')
-        c.argument('media_streams', action=AddMediaStreams, nargs='*', help='The list of media streams.')
+        c.argument('media_streams', action=AddMediaStreams, nargs='+', help='The list of media streams.')
         c.argument('metadata', type=str, help='')
-        c.argument('recording_info_initiated_by', type=validate_file_or_dict, help='participantInfo Expected value: '
-                   'json-string/@json-file.')
-        c.argument('recording_info_initiator', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('recording_info_recording_status', arg_type=get_enum_type(['unknown', 'notRecording', 'recording', ''
-                                                                              'failed', 'unknownFutureValue']),
-                   help='')
-        c.argument('info_country_code', type=str, help='The ISO 3166-1 Alpha-2 country code of the participant\'s best '
-                   'estimated physical location at the start of the call. Read-only.')
-        c.argument('info_endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness', ''
-                                                                 'skypeForBusinessVoipPhone', 'unknownFutureValue']),
-                   help='')
-        c.argument('info_identity', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('info_language_id', type=str, help='The language culture string. Read-only.')
-        c.argument('info_region', type=str, help='The home region of the participant. This can be a country, a '
-                   'continent, or a larger geographic region. This does not change based on the participant\'s current '
-                   'physical location. Read-only.')
+        c.argument('initiated_by', type=validate_file_or_dict, help='participantInfo Expected value: '
+                   'json-string/@json-file.', arg_group='Recording Info')
+        c.argument('initiator', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Recording Info')
+        c.argument('recording_status', arg_type=get_enum_type(['unknown', 'notRecording', 'recording', 'failed',
+                                                               'unknownFutureValue']), help='', arg_group='Recording '
+                   'Info')
+        c.argument('country_code', type=str, help='The ISO 3166-1 Alpha-2 country code of the participant\'s best '
+                   'estimated physical location at the start of the call. Read-only.', arg_group='Info')
+        c.argument('endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness',
+                                                            'skypeForBusinessVoipPhone', 'unknownFutureValue']),
+                   help='', arg_group='Info')
+        c.argument('identity', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Info')
+        c.argument('language_id', type=str, help='The language culture string. Read-only.', arg_group='Info')
+        c.argument('region', type=str, help='The home region of the participant. This can be a country, a continent, '
+                   'or a larger geographic region. This does not change based on the participant\'s current physical '
+                   'location. Read-only.', arg_group='Info')
 
-    with self.argument_context('cloudcommunications communication-call get-audio-routing-group') as c:
+    with self.argument_context('cloudcommunications communication-call delete-audio-routing-group') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('audio_routing_group_id', type=str, help='key: id of audioRoutingGroup')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('cloudcommunications communication-call get-operation') as c:
+    with self.argument_context('cloudcommunications communication-call delete-operation') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('comms_operation_id', type=str, help='key: id of commsOperation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('cloudcommunications communication-call get-participant') as c:
+    with self.argument_context('cloudcommunications communication-call delete-participant') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('participant_id', type=str, help='key: id of participant')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('cloudcommunications communication-call keep-alive') as c:
         c.argument('call_id', type=str, help='key: id of call')
 
     with self.argument_context('cloudcommunications communication-call list-audio-routing-group') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications communication-call list-operation') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications communication-call list-participant') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications communication-call log-teleconference-device-quality') as c:
-        c.argument('quality_call_chain_id', help='A unique identifier for all  the participant calls in a conference '
-                   'or a unique identifier for two participant calls in P2P call. This needs to be copied over from '
-                   'Microsoft.Graph.Call.CallChainId.')
-        c.argument('quality_cloud_service_deployment_environment', type=str, help='A geo-region where the service is '
-                   'deployed, such as ProdNoam.')
-        c.argument('quality_cloud_service_deployment_id', type=str, help='A unique deployment identifier assigned by '
-                   'Azure.')
-        c.argument('quality_cloud_service_instance_name', type=str, help='The Azure deployed cloud service instance '
-                   'name, such as FrontEnd_IN_3.')
-        c.argument('quality_cloud_service_name', type=str, help='The Azure deployed cloud service name, such as '
-                   'contoso.cloudapp.net.')
-        c.argument('quality_device_description', type=str, help='Any additional description, such as VTC Bldg 30/21.')
-        c.argument('quality_device_name', type=str, help='The user media agent name, such as Cisco SX80.')
-        c.argument('quality_media_leg_id', help='A unique identifier for a specific media leg of a participant in a '
+        c.argument('call_chain_id', help='A unique identifier for all  the participant calls in a conference or a '
+                   'unique identifier for two participant calls in P2P call. This needs to be copied over from '
+                   'Microsoft.Graph.Call.CallChainId.', arg_group='Quality')
+        c.argument('cloud_service_deployment_environment', type=str, help='A geo-region where the service is deployed, '
+                   'such as ProdNoam.', arg_group='Quality')
+        c.argument('cloud_service_deployment_id', type=str, help='A unique deployment identifier assigned by Azure.',
+                   arg_group='Quality')
+        c.argument('cloud_service_instance_name', type=str, help='The Azure deployed cloud service instance name, such '
+                   'as FrontEnd_IN_3.', arg_group='Quality')
+        c.argument('cloud_service_name', type=str, help='The Azure deployed cloud service name, such as '
+                   'contoso.cloudapp.net.', arg_group='Quality')
+        c.argument('device_description', type=str, help='Any additional description, such as VTC Bldg 30/21.',
+                   arg_group='Quality')
+        c.argument('device_name', type=str, help='The user media agent name, such as Cisco SX80.',
+                   arg_group='Quality')
+        c.argument('media_leg_id', help='A unique identifier for a specific media leg of a participant in a '
                    'conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI '
-                   'partner assigns this value.')
-        c.argument('quality_media_quality_list', action=AddQualityMediaQualityList, nargs='*', help='The list of media '
-                   'qualities in a media session (call), such as audio quality, video quality, and/or screen sharing '
-                   'quality.')
-        c.argument('quality_participant_id', help='A unique identifier for a specific participant in a conference. The '
-                   'CVI partner needs to copy over Call.MyParticipantId to this property.')
+                   'partner assigns this value.', arg_group='Quality')
+        c.argument('media_quality_list', action=AddMediaQualityList, nargs='+', help='The list of media qualities in a '
+                   'media session (call), such as audio quality, video quality, and/or screen sharing quality.',
+                   arg_group='Quality')
+        c.argument('participant_id', help='A unique identifier for a specific participant in a conference. The CVI '
+                   'partner needs to copy over Call.MyParticipantId to this property.', arg_group='Quality')
 
     with self.argument_context('cloudcommunications communication-call mute') as c:
         c.argument('call_id', type=str, help='key: id of call')
@@ -626,14 +625,14 @@ def load_arguments(self, _):
 
     with self.argument_context('cloudcommunications communication-call play-prompt') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('prompts', action=AddCloudcommunicationsCommunicationCallPlayPromptPrompts, nargs='*', help=' '
+        c.argument('prompts', action=AddCloudcommunicationsCommunicationCallPlayPromptPrompts, nargs='+', help=' '
                    'Expect value: KEY1=VALUE1 KEY2=VALUE2 ...')
         c.argument('loop', arg_type=get_three_state_flag(), help='')
         c.argument('client_context', type=str, help='')
 
     with self.argument_context('cloudcommunications communication-call record') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('prompts', action=AddCloudcommunicationsCommunicationCallRecordPrompts, nargs='*', help=' Expect '
+        c.argument('prompts', action=AddCloudcommunicationsCommunicationCallRecordPrompts, nargs='+', help=' Expect '
                    'value: KEY1=VALUE1 KEY2=VALUE2 ...')
         c.argument('barge_in_allowed', arg_type=get_three_state_flag(), help='')
         c.argument('initial_silence_timeout_in_seconds', type=int, help='')
@@ -641,24 +640,24 @@ def load_arguments(self, _):
         c.argument('max_record_duration_in_seconds', type=int, help='')
         c.argument('play_beep', arg_type=get_three_state_flag(), help='')
         c.argument('stream_while_recording', arg_type=get_three_state_flag(), help='')
-        c.argument('stop_tones', nargs='*', help='')
+        c.argument('stop_tones', nargs='+', help='')
         c.argument('client_context', type=str, help='')
 
     with self.argument_context('cloudcommunications communication-call record-response') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('prompts', action=AddPrompts, nargs='*', help=' Expect value: KEY1=VALUE1 KEY2=VALUE2 ...')
+        c.argument('prompts', action=AddPrompts, nargs='+', help=' Expect value: KEY1=VALUE1 KEY2=VALUE2 ...')
         c.argument('barge_in_allowed', arg_type=get_three_state_flag(), help='')
         c.argument('initial_silence_timeout_in_seconds', type=int, help='')
         c.argument('max_silence_timeout_in_seconds', type=int, help='')
         c.argument('max_record_duration_in_seconds', type=int, help='')
         c.argument('play_beep', arg_type=get_three_state_flag(), help='')
         c.argument('stream_while_recording', arg_type=get_three_state_flag(), help='')
-        c.argument('stop_tones', nargs='*', help='')
+        c.argument('stop_tones', nargs='+', help='')
         c.argument('client_context', type=str, help='')
 
     with self.argument_context('cloudcommunications communication-call redirect') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('targets', action=AddCommunicationsCallsTargets, nargs='*', help='')
+        c.argument('targets', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('target_disposition', arg_type=get_enum_type(['default', 'simultaneousRing', 'forward']), help='')
         c.argument('timeout', type=int, help='')
         c.argument('mask_callee', arg_type=get_three_state_flag(), help='')
@@ -670,32 +669,39 @@ def load_arguments(self, _):
         c.argument('reason', arg_type=get_enum_type(['none', 'busy', 'forbidden', 'unknownFutureValue']), help='')
         c.argument('callback_uri', type=str, help='')
 
+    with self.argument_context('cloudcommunications communication-call show-audio-routing-group') as c:
+        c.argument('call_id', type=str, help='key: id of call')
+        c.argument('audio_routing_group_id', type=str, help='key: id of audioRoutingGroup')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications communication-call show-operation') as c:
+        c.argument('call_id', type=str, help='key: id of call')
+        c.argument('comms_operation_id', type=str, help='key: id of commsOperation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications communication-call show-participant') as c:
+        c.argument('call_id', type=str, help='key: id of call')
+        c.argument('participant_id', type=str, help='key: id of participant')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
     with self.argument_context('cloudcommunications communication-call subscribe-to-tone') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('client_context', type=str, help='')
 
     with self.argument_context('cloudcommunications communication-call transfer') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('transfer_target_endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness',
-                                                                            'skypeForBusinessVoipPhone', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('transfer_target_replaces_call_id', type=str, help='Optional. The call which the target identity is '
-                   'currently a part of. This call will be dropped once the participant is added.')
-        c.argument('transfer_target_identity_user_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('transfer_target_identity_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('transfer_target_identity_device_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('transfer_target_identity_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('transfer_target_identity_application_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('transfer_target_identity_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness',
+                                                            'skypeForBusinessVoipPhone', 'unknownFutureValue']),
+                   help='', arg_group='Transfer Target')
+        c.argument('replaces_call_id', type=str, help='Optional. The call which the target identity is currently a '
+                   'part of. This call will be dropped once the participant is added.', arg_group='Transfer Target')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Transfer Target '
+                   'Identity')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Transfer Target Identity')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Transfer Target Identity')
 
     with self.argument_context('cloudcommunications communication-call unmute') as c:
         c.argument('call_id', type=str, help='key: id of call')
@@ -705,19 +711,17 @@ def load_arguments(self, _):
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('audio_routing_group_id', type=str, help='key: id of audioRoutingGroup')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('receivers', nargs='*', help='')
+        c.argument('receivers', nargs='+', help='')
         c.argument('routing_mode', arg_type=get_enum_type(['oneToOne', 'multicast']), help='')
-        c.argument('sources', nargs='*', help='')
+        c.argument('sources', nargs='+', help='')
 
     with self.argument_context('cloudcommunications communication-call update-operation') as c:
         c.argument('call_id', type=str, help='key: id of call')
         c.argument('comms_operation_id', type=str, help='key: id of commsOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('client_context', type=str, help='Unique Client Context string. Max limit is 256 chars.')
+        c.argument('result_info', action=AddResultInfo, nargs='+', help='ResultInfo')
         c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
-        c.argument('result_info_code', type=int, help='')
-        c.argument('result_info_message', type=str, help='')
-        c.argument('result_info_subcode', type=int, help='')
 
     with self.argument_context('cloudcommunications communication-call update-participant') as c:
         c.argument('call_id', type=str, help='key: id of call')
@@ -726,34 +730,36 @@ def load_arguments(self, _):
         c.argument('is_in_lobby', arg_type=get_three_state_flag(), help='true if the participant is in lobby.')
         c.argument('is_muted', arg_type=get_three_state_flag(), help='true if the participant is muted (client or '
                    'server muted).')
-        c.argument('media_streams', action=AddMediaStreams, nargs='*', help='The list of media streams.')
+        c.argument('media_streams', action=AddMediaStreams, nargs='+', help='The list of media streams.')
         c.argument('metadata', type=str, help='')
-        c.argument('recording_info_initiated_by', type=validate_file_or_dict, help='participantInfo Expected value: '
-                   'json-string/@json-file.')
-        c.argument('recording_info_initiator', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('recording_info_recording_status', arg_type=get_enum_type(['unknown', 'notRecording', 'recording', ''
-                                                                              'failed', 'unknownFutureValue']),
-                   help='')
-        c.argument('info_country_code', type=str, help='The ISO 3166-1 Alpha-2 country code of the participant\'s best '
-                   'estimated physical location at the start of the call. Read-only.')
-        c.argument('info_endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness', ''
-                                                                 'skypeForBusinessVoipPhone', 'unknownFutureValue']),
-                   help='')
-        c.argument('info_identity', action=AddSourceIdentity, nargs='*', help='identitySet')
-        c.argument('info_language_id', type=str, help='The language culture string. Read-only.')
-        c.argument('info_region', type=str, help='The home region of the participant. This can be a country, a '
-                   'continent, or a larger geographic region. This does not change based on the participant\'s current '
-                   'physical location. Read-only.')
+        c.argument('initiated_by', type=validate_file_or_dict, help='participantInfo Expected value: '
+                   'json-string/@json-file.', arg_group='Recording Info')
+        c.argument('initiator', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Recording Info')
+        c.argument('recording_status', arg_type=get_enum_type(['unknown', 'notRecording', 'recording', 'failed',
+                                                               'unknownFutureValue']), help='', arg_group='Recording '
+                   'Info')
+        c.argument('country_code', type=str, help='The ISO 3166-1 Alpha-2 country code of the participant\'s best '
+                   'estimated physical location at the start of the call. Read-only.', arg_group='Info')
+        c.argument('endpoint_type', arg_type=get_enum_type(['default', 'voicemail', 'skypeForBusiness',
+                                                            'skypeForBusinessVoipPhone', 'unknownFutureValue']),
+                   help='', arg_group='Info')
+        c.argument('identity', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Info')
+        c.argument('language_id', type=str, help='The language culture string. Read-only.', arg_group='Info')
+        c.argument('region', type=str, help='The home region of the participant. This can be a country, a continent, '
+                   'or a larger geographic region. This does not change based on the participant\'s current physical '
+                   'location. Read-only.', arg_group='Info')
 
     with self.argument_context('cloudcommunications communication-call update-recording-status') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('status', arg_type=get_enum_type(['unknown', 'notRecording', 'recording', 'failed', ''
+        c.argument('status', arg_type=get_enum_type(['unknown', 'notRecording', 'recording', 'failed',
                                                      'unknownFutureValue']), help='')
         c.argument('client_context', type=str, help='')
 
     with self.argument_context('cloudcommunications communication-call-participant invite') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('participants', action=AddCommunicationsCallsParticipantsParticipants, nargs='*', help='')
+        c.argument('participants', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('client_context', type=str, help='')
 
     with self.argument_context('cloudcommunications communication-call-participant mute') as c:
@@ -763,40 +769,35 @@ def load_arguments(self, _):
 
     with self.argument_context('cloudcommunications communication-call-participant mute-all') as c:
         c.argument('call_id', type=str, help='key: id of call')
-        c.argument('participants', nargs='*', help='')
+        c.argument('participants', nargs='+', help='')
         c.argument('client_context', type=str, help='')
 
     with self.argument_context('cloudcommunications communication-online-meeting create-or-get') as c:
-        c.argument('chat_info', action=AddChatInfo, nargs='*', help='chatInfo')
+        c.argument('chat_info', action=AddChatInfo, nargs='+', help='chatInfo')
         c.argument('end_date_time', help='')
         c.argument('external_id', type=str, help='')
         c.argument('start_date_time', help='')
         c.argument('subject', type=str, help='')
-        c.argument('participants_attendees', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_contributors', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_producers', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-
-    with self.argument_context('cloudcommunications user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('attendees', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
+        c.argument('contributors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
+        c.argument('organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
+                   'json-string/@json-file.', arg_group='Participants')
+        c.argument('producers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
 
     with self.argument_context('cloudcommunications user create-online-meeting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise', ''
+        c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise',
                                                            'sameEnterpriseAndFederated']), help='')
-        c.argument('allowed_presenters', arg_type=get_enum_type(['everyone', 'organization', 'roleIsPresenter', ''
+        c.argument('allowed_presenters', arg_type=get_enum_type(['everyone', 'organization', 'roleIsPresenter',
                                                                  'organizer', 'unknownFutureValue']), help='')
-        c.argument('audio_conferencing', action=AddAudioConferencing, nargs='*', help='audioConferencing')
+        c.argument('audio_conferencing', action=AddAudioConferencing, nargs='+', help='audioConferencing')
         c.argument('canceled_date_time', help='')
-        c.argument('capabilities', nargs='*', help='')
-        c.argument('chat_info', action=AddChatInfo, nargs='*', help='chatInfo')
+        c.argument('capabilities', nargs='+', help='')
+        c.argument('chat_info', action=AddChatInfo, nargs='+', help='chatInfo')
         c.argument('creation_date_time', help='The meeting creation time in UTC. Read-only.')
         c.argument('end_date_time', help='The meeting end time in UTC.')
         c.argument('entry_exit_announcement', arg_type=get_three_state_flag(), help='')
@@ -805,50 +806,59 @@ def load_arguments(self, _):
         c.argument('is_broadcast', arg_type=get_three_state_flag(), help='')
         c.argument('is_cancelled', arg_type=get_three_state_flag(), help='')
         c.argument('is_entry_exit_announced', arg_type=get_three_state_flag(), help='')
-        c.argument('join_information', action=AddJoinInformation, nargs='*', help='itemBody')
+        c.argument('join_information', action=AddJoinInformation, nargs='+', help='itemBody')
         c.argument('join_url', type=str, help='')
-        c.argument('lobby_bypass_settings', action=AddLobbyBypassSettings, nargs='*', help='lobbyBypassSettings')
+        c.argument('lobby_bypass_settings', action=AddLobbyBypassSettings, nargs='+', help='lobbyBypassSettings')
         c.argument('start_date_time', help='The meeting start time in UTC.')
         c.argument('subject', type=str, help='The subject of the online meeting.')
         c.argument('video_teleconference_id', type=str, help='The video teleconferencing ID. Read-only.')
-        c.argument('participants_attendees', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_contributors', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_producers', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
+        c.argument('attendees', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
+        c.argument('contributors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
+        c.argument('organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
+                   'json-string/@json-file.', arg_group='Participants')
+        c.argument('producers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
 
-    with self.argument_context('cloudcommunications user get-online-meeting') as c:
+    with self.argument_context('cloudcommunications user delete-online-meeting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('cloudcommunications user get-presence') as c:
+    with self.argument_context('cloudcommunications user delete-presence') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('cloudcommunications user list-online-meeting') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications user show-online-meeting') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('cloudcommunications user show-presence') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('cloudcommunications user update-online-meeting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise', ''
+        c.argument('access_level', arg_type=get_enum_type(['everyone', 'invited', 'locked', 'sameEnterprise',
                                                            'sameEnterpriseAndFederated']), help='')
-        c.argument('allowed_presenters', arg_type=get_enum_type(['everyone', 'organization', 'roleIsPresenter', ''
+        c.argument('allowed_presenters', arg_type=get_enum_type(['everyone', 'organization', 'roleIsPresenter',
                                                                  'organizer', 'unknownFutureValue']), help='')
-        c.argument('audio_conferencing', action=AddAudioConferencing, nargs='*', help='audioConferencing')
+        c.argument('audio_conferencing', action=AddAudioConferencing, nargs='+', help='audioConferencing')
         c.argument('canceled_date_time', help='')
-        c.argument('capabilities', nargs='*', help='')
-        c.argument('chat_info', action=AddChatInfo, nargs='*', help='chatInfo')
+        c.argument('capabilities', nargs='+', help='')
+        c.argument('chat_info', action=AddChatInfo, nargs='+', help='chatInfo')
         c.argument('creation_date_time', help='The meeting creation time in UTC. Read-only.')
         c.argument('end_date_time', help='The meeting end time in UTC.')
         c.argument('entry_exit_announcement', arg_type=get_three_state_flag(), help='')
@@ -857,20 +867,20 @@ def load_arguments(self, _):
         c.argument('is_broadcast', arg_type=get_three_state_flag(), help='')
         c.argument('is_cancelled', arg_type=get_three_state_flag(), help='')
         c.argument('is_entry_exit_announced', arg_type=get_three_state_flag(), help='')
-        c.argument('join_information', action=AddJoinInformation, nargs='*', help='itemBody')
+        c.argument('join_information', action=AddJoinInformation, nargs='+', help='itemBody')
         c.argument('join_url', type=str, help='')
-        c.argument('lobby_bypass_settings', action=AddLobbyBypassSettings, nargs='*', help='lobbyBypassSettings')
+        c.argument('lobby_bypass_settings', action=AddLobbyBypassSettings, nargs='+', help='lobbyBypassSettings')
         c.argument('start_date_time', help='The meeting start time in UTC.')
         c.argument('subject', type=str, help='The subject of the online meeting.')
         c.argument('video_teleconference_id', type=str, help='The video teleconferencing ID. Read-only.')
-        c.argument('participants_attendees', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_contributors', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
-                   'json-string/@json-file.')
-        c.argument('participants_producers', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
+        c.argument('attendees', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
+        c.argument('contributors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
+        c.argument('organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
+                   'json-string/@json-file.', arg_group='Participants')
+        c.argument('producers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Participants')
 
     with self.argument_context('cloudcommunications user update-presence') as c:
         c.argument('user_id', type=str, help='key: id of user')

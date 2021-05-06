@@ -1910,9 +1910,6 @@ class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
 class MicrosoftGraphAdministrativeUnit(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -1941,7 +1938,6 @@ class MicrosoftGraphAdministrativeUnit(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -1958,7 +1954,6 @@ class MicrosoftGraphAdministrativeUnit(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphAdministrativeUnit, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
@@ -2546,9 +2541,6 @@ class MicrosoftGraphAttendeeBase(MicrosoftGraphRecipient):
 class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
     """attendee.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param email_address: emailAddress.
     :type email_address: ~education.models.MicrosoftGraphEmailAddress
     :param type:  Possible values include: "required", "optional", "resource".
@@ -2563,7 +2555,6 @@ class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'type': {'key': 'type', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -2576,7 +2567,6 @@ class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
         **kwargs
     ):
         super(MicrosoftGraphAttendee, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.proposed_new_time = kwargs.get('proposed_new_time', None)
         self.status = kwargs.get('status', None)
@@ -4371,9 +4361,6 @@ class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
 class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     """contact.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -4480,7 +4467,6 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -4531,7 +4517,6 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphContact, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assistant_name = kwargs.get('assistant_name', None)
         self.birthday = kwargs.get('birthday', None)
@@ -5141,9 +5126,6 @@ class MicrosoftGraphDetectedApp(MicrosoftGraphEntity):
 class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -5262,7 +5244,6 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -5312,7 +5293,6 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphDevice, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.account_enabled = kwargs.get('account_enabled', None)
         self.alternative_security_ids = kwargs.get('alternative_security_ids', None)
@@ -6200,9 +6180,6 @@ class MicrosoftGraphDirectorySetting(MicrosoftGraphEntity):
 class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     """drive.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -6259,7 +6236,6 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -6293,7 +6269,6 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphDrive, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.drive_type = kwargs.get('drive_type', None)
         self.owner = kwargs.get('owner', None)
         self.quota = kwargs.get('quota', None)
@@ -6311,9 +6286,6 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
 class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     """driveItem.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -6413,7 +6385,6 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -6467,7 +6438,6 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphDriveItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.audio = kwargs.get('audio', None)
         self.bundle = kwargs.get('bundle', None)
         self.content = kwargs.get('content', None)
@@ -6505,9 +6475,6 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
 class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
     """driveItemVersion.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param last_modified_by: identitySet.
@@ -6526,7 +6493,6 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
@@ -6541,7 +6507,6 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
         **kwargs
     ):
         super(MicrosoftGraphDriveItemVersion, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.size = kwargs.get('size', None)
@@ -6602,9 +6567,6 @@ class MicrosoftGraphItemFacet(MicrosoftGraphEntity):
 class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     """educationalActivity.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -6638,7 +6600,6 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -6660,7 +6621,6 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphEducationalActivity, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.completion_month_year = kwargs.get('completion_month_year', None)
         self.end_month_year = kwargs.get('end_month_year', None)
@@ -6747,6 +6707,8 @@ class MicrosoftGraphEducationAssignment(MicrosoftGraphEntity):
     :type class_id: str
     :param close_date_time:
     :type close_date_time: ~datetime.datetime
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param display_name:
@@ -6757,6 +6719,8 @@ class MicrosoftGraphEducationAssignment(MicrosoftGraphEntity):
     :type grading: dict[str, object]
     :param instructions: educationItemBody.
     :type instructions: ~education.models.MicrosoftGraphEducationItemBody
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param status:  Possible values include: "draft", "published", "assigned",
@@ -6766,108 +6730,10 @@ class MicrosoftGraphEducationAssignment(MicrosoftGraphEntity):
     :type categories: list[~education.models.MicrosoftGraphEducationCategory]
     :param resources:
     :type resources: list[~education.models.MicrosoftGraphEducationAssignmentResource]
+    :param rubric: educationRubric.
+    :type rubric: ~education.models.MicrosoftGraphEducationRubric
     :param submissions:
     :type submissions: list[~education.models.MicrosoftGraphEducationSubmission]
-    :param id_rubric_id: Read-only.
-    :type id_rubric_id: str
-    :param created_date_time_rubric_created_date_time:
-    :type created_date_time_rubric_created_date_time: ~datetime.datetime
-    :param description: educationItemBody.
-    :type description: ~education.models.MicrosoftGraphEducationItemBody
-    :param display_name_rubric_display_name:
-    :type display_name_rubric_display_name: str
-    :param grading_rubric_grading: educationAssignmentGradeType.
-    :type grading_rubric_grading: dict[str, object]
-    :param last_modified_date_time_rubric_last_modified_date_time:
-    :type last_modified_date_time_rubric_last_modified_date_time: ~datetime.datetime
-    :param levels:
-    :type levels: list[~education.models.MicrosoftGraphRubricLevel]
-    :param qualities:
-    :type qualities: list[~education.models.MicrosoftGraphRubricQuality]
-    :param display_name_rubric_last_modified_by_user_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_rubric_last_modified_by_user_display_name: str
-    :param id_rubric_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_rubric_last_modified_by_user_id: str
-    :param display_name_rubric_last_modified_by_device_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_rubric_last_modified_by_device_display_name: str
-    :param id_rubric_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_rubric_last_modified_by_device_id: str
-    :param display_name_rubric_last_modified_by_application_display_name: The identity's display
-     name. Note that this may not always be available or up to date. For example, if a user changes
-     their display name, the API may show the new value in a future response, but the items
-     associated with the user won't show up as having changed when using delta.
-    :type display_name_rubric_last_modified_by_application_display_name: str
-    :param id_rubric_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_rubric_last_modified_by_application_id: str
-    :param display_name_rubric_created_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_rubric_created_by_user_display_name: str
-    :param id_rubric_created_by_user_id: Unique identifier for the identity.
-    :type id_rubric_created_by_user_id: str
-    :param display_name_rubric_created_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_rubric_created_by_device_display_name: str
-    :param id_rubric_created_by_device_id: Unique identifier for the identity.
-    :type id_rubric_created_by_device_id: str
-    :param display_name_rubric_created_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_rubric_created_by_application_display_name: str
-    :param id_rubric_created_by_application_id: Unique identifier for the identity.
-    :type id_rubric_created_by_application_id: str
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     """
 
     _attribute_map = {
@@ -6880,48 +6746,19 @@ class MicrosoftGraphEducationAssignment(MicrosoftGraphEntity):
         'assign_to': {'key': 'assignTo', 'type': '{object}'},
         'class_id': {'key': 'classId', 'type': 'str'},
         'close_date_time': {'key': 'closeDateTime', 'type': 'iso-8601'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'due_date_time': {'key': 'dueDateTime', 'type': 'iso-8601'},
         'grading': {'key': 'grading', 'type': '{object}'},
         'instructions': {'key': 'instructions', 'type': 'MicrosoftGraphEducationItemBody'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[MicrosoftGraphEducationCategory]'},
         'resources': {'key': 'resources', 'type': '[MicrosoftGraphEducationAssignmentResource]'},
+        'rubric': {'key': 'rubric', 'type': 'MicrosoftGraphEducationRubric'},
         'submissions': {'key': 'submissions', 'type': '[MicrosoftGraphEducationSubmission]'},
-        'id_rubric_id': {'key': 'rubric.id', 'type': 'str'},
-        'created_date_time_rubric_created_date_time': {'key': 'rubric.createdDateTime', 'type': 'iso-8601'},
-        'description': {'key': 'rubric.description', 'type': 'MicrosoftGraphEducationItemBody'},
-        'display_name_rubric_display_name': {'key': 'rubric.displayName', 'type': 'str'},
-        'grading_rubric_grading': {'key': 'rubric.grading', 'type': '{object}'},
-        'last_modified_date_time_rubric_last_modified_date_time': {'key': 'rubric.lastModifiedDateTime', 'type': 'iso-8601'},
-        'levels': {'key': 'rubric.levels', 'type': '[MicrosoftGraphRubricLevel]'},
-        'qualities': {'key': 'rubric.qualities', 'type': '[MicrosoftGraphRubricQuality]'},
-        'display_name_rubric_last_modified_by_user_display_name': {'key': 'rubric.lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_rubric_last_modified_by_user_id': {'key': 'rubric.lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_rubric_last_modified_by_device_display_name': {'key': 'rubric.lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_rubric_last_modified_by_device_id': {'key': 'rubric.lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_rubric_last_modified_by_application_display_name': {'key': 'rubric.lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_rubric_last_modified_by_application_id': {'key': 'rubric.lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_rubric_created_by_user_display_name': {'key': 'rubric.createdBy.user.displayName', 'type': 'str'},
-        'id_rubric_created_by_user_id': {'key': 'rubric.createdBy.user.id', 'type': 'str'},
-        'display_name_rubric_created_by_device_display_name': {'key': 'rubric.createdBy.device.displayName', 'type': 'str'},
-        'id_rubric_created_by_device_id': {'key': 'rubric.createdBy.device.id', 'type': 'str'},
-        'display_name_rubric_created_by_application_display_name': {'key': 'rubric.createdBy.application.displayName', 'type': 'str'},
-        'id_rubric_created_by_application_id': {'key': 'rubric.createdBy.application.id', 'type': 'str'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -6937,48 +6774,19 @@ class MicrosoftGraphEducationAssignment(MicrosoftGraphEntity):
         self.assign_to = kwargs.get('assign_to', None)
         self.class_id = kwargs.get('class_id', None)
         self.close_date_time = kwargs.get('close_date_time', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.display_name = kwargs.get('display_name', None)
         self.due_date_time = kwargs.get('due_date_time', None)
         self.grading = kwargs.get('grading', None)
         self.instructions = kwargs.get('instructions', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.status = kwargs.get('status', None)
         self.categories = kwargs.get('categories', None)
         self.resources = kwargs.get('resources', None)
+        self.rubric = kwargs.get('rubric', None)
         self.submissions = kwargs.get('submissions', None)
-        self.id_rubric_id = kwargs.get('id_rubric_id', None)
-        self.created_date_time_rubric_created_date_time = kwargs.get('created_date_time_rubric_created_date_time', None)
-        self.description = kwargs.get('description', None)
-        self.display_name_rubric_display_name = kwargs.get('display_name_rubric_display_name', None)
-        self.grading_rubric_grading = kwargs.get('grading_rubric_grading', None)
-        self.last_modified_date_time_rubric_last_modified_date_time = kwargs.get('last_modified_date_time_rubric_last_modified_date_time', None)
-        self.levels = kwargs.get('levels', None)
-        self.qualities = kwargs.get('qualities', None)
-        self.display_name_rubric_last_modified_by_user_display_name = kwargs.get('display_name_rubric_last_modified_by_user_display_name', None)
-        self.id_rubric_last_modified_by_user_id = kwargs.get('id_rubric_last_modified_by_user_id', None)
-        self.display_name_rubric_last_modified_by_device_display_name = kwargs.get('display_name_rubric_last_modified_by_device_display_name', None)
-        self.id_rubric_last_modified_by_device_id = kwargs.get('id_rubric_last_modified_by_device_id', None)
-        self.display_name_rubric_last_modified_by_application_display_name = kwargs.get('display_name_rubric_last_modified_by_application_display_name', None)
-        self.id_rubric_last_modified_by_application_id = kwargs.get('id_rubric_last_modified_by_application_id', None)
-        self.display_name_rubric_created_by_user_display_name = kwargs.get('display_name_rubric_created_by_user_display_name', None)
-        self.id_rubric_created_by_user_id = kwargs.get('id_rubric_created_by_user_id', None)
-        self.display_name_rubric_created_by_device_display_name = kwargs.get('display_name_rubric_created_by_device_display_name', None)
-        self.id_rubric_created_by_device_id = kwargs.get('id_rubric_created_by_device_id', None)
-        self.display_name_rubric_created_by_application_display_name = kwargs.get('display_name_rubric_created_by_application_display_name', None)
-        self.id_rubric_created_by_application_id = kwargs.get('id_rubric_created_by_application_id', None)
-        self.display_name_last_modified_by_user_display_name = kwargs.get('display_name_last_modified_by_user_display_name', None)
-        self.id_last_modified_by_user_id = kwargs.get('id_last_modified_by_user_id', None)
-        self.display_name_last_modified_by_device_display_name = kwargs.get('display_name_last_modified_by_device_display_name', None)
-        self.id_last_modified_by_device_id = kwargs.get('id_last_modified_by_device_id', None)
-        self.display_name_last_modified_by_application_display_name = kwargs.get('display_name_last_modified_by_application_display_name', None)
-        self.id_last_modified_by_application_id = kwargs.get('id_last_modified_by_application_id', None)
-        self.display_name_created_by_user_display_name = kwargs.get('display_name_created_by_user_display_name', None)
-        self.id_created_by_user_id = kwargs.get('id_created_by_user_id', None)
-        self.display_name_created_by_device_display_name = kwargs.get('display_name_created_by_device_display_name', None)
-        self.id_created_by_device_id = kwargs.get('id_created_by_device_id', None)
-        self.display_name_created_by_application_display_name = kwargs.get('display_name_created_by_application_display_name', None)
-        self.id_created_by_application_id = kwargs.get('id_created_by_application_id', None)
 
 
 class MicrosoftGraphEducationAssignmentResource(MicrosoftGraphEntity):
@@ -6991,27 +6799,15 @@ class MicrosoftGraphEducationAssignmentResource(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param distribute_for_student_work:
     :type distribute_for_student_work: bool
-    :param created_by: identitySet.
-    :type created_by: ~education.models.MicrosoftGraphIdentitySet
-    :param created_date_time:
-    :type created_date_time: ~datetime.datetime
-    :param display_name:
-    :type display_name: str
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
-    :param last_modified_date_time:
-    :type last_modified_date_time: ~datetime.datetime
+    :param resource: educationResource.
+    :type resource: ~education.models.MicrosoftGraphEducationResource
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'distribute_for_student_work': {'key': 'distributeForStudentWork', 'type': 'bool'},
-        'created_by': {'key': 'resource.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'created_date_time': {'key': 'resource.createdDateTime', 'type': 'iso-8601'},
-        'display_name': {'key': 'resource.displayName', 'type': 'str'},
-        'last_modified_by': {'key': 'resource.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'last_modified_date_time': {'key': 'resource.lastModifiedDateTime', 'type': 'iso-8601'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEducationResource'},
     }
 
     def __init__(
@@ -7021,11 +6817,7 @@ class MicrosoftGraphEducationAssignmentResource(MicrosoftGraphEntity):
         super(MicrosoftGraphEducationAssignmentResource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.distribute_for_student_work = kwargs.get('distribute_for_student_work', None)
-        self.created_by = kwargs.get('created_by', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.last_modified_by = kwargs.get('last_modified_by', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
+        self.resource = kwargs.get('resource', None)
 
 
 class MicrosoftGraphEducationCategory(MicrosoftGraphEntity):
@@ -7067,6 +6859,8 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
     :type class_code: str
     :param course: educationCourse.
     :type course: ~education.models.MicrosoftGraphEducationCourse
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param description: Description of the class.
     :type description: str
     :param display_name: Name of the class.
@@ -7098,27 +6892,6 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
     :type schools: list[~education.models.MicrosoftGraphEducationSchool]
     :param teachers: All teachers in the class. Nullable.
     :type teachers: list[~education.models.MicrosoftGraphEducationUser]
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     """
 
     _attribute_map = {
@@ -7126,6 +6899,7 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'class_code': {'key': 'classCode', 'type': 'str'},
         'course': {'key': 'course', 'type': 'MicrosoftGraphEducationCourse'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'external_id': {'key': 'externalId', 'type': 'str'},
@@ -7141,12 +6915,6 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         'members': {'key': 'members', 'type': '[MicrosoftGraphEducationUser]'},
         'schools': {'key': 'schools', 'type': '[MicrosoftGraphEducationSchool]'},
         'teachers': {'key': 'teachers', 'type': '[MicrosoftGraphEducationUser]'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -7157,6 +6925,7 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.class_code = kwargs.get('class_code', None)
         self.course = kwargs.get('course', None)
+        self.created_by = kwargs.get('created_by', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.external_id = kwargs.get('external_id', None)
@@ -7172,12 +6941,6 @@ class MicrosoftGraphEducationClass(MicrosoftGraphEntity):
         self.members = kwargs.get('members', None)
         self.schools = kwargs.get('schools', None)
         self.teachers = kwargs.get('teachers', None)
-        self.display_name_created_by_user_display_name = kwargs.get('display_name_created_by_user_display_name', None)
-        self.id_created_by_user_id = kwargs.get('id_created_by_user_id', None)
-        self.display_name_created_by_device_display_name = kwargs.get('display_name_created_by_device_display_name', None)
-        self.id_created_by_device_id = kwargs.get('id_created_by_device_id', None)
-        self.display_name_created_by_application_display_name = kwargs.get('display_name_created_by_application_display_name', None)
-        self.id_created_by_application_id = kwargs.get('id_created_by_application_id', None)
 
 
 class MicrosoftGraphEducationCourse(msrest.serialization.Model):
@@ -7351,41 +7114,17 @@ class MicrosoftGraphEducationOutcome(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -7394,13 +7133,8 @@ class MicrosoftGraphEducationOutcome(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphEducationOutcome, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
-        self.display_name_last_modified_by_user_display_name = kwargs.get('display_name_last_modified_by_user_display_name', None)
-        self.id_last_modified_by_user_id = kwargs.get('id_last_modified_by_user_id', None)
-        self.display_name_last_modified_by_device_display_name = kwargs.get('display_name_last_modified_by_device_display_name', None)
-        self.id_last_modified_by_device_id = kwargs.get('id_last_modified_by_device_id', None)
-        self.display_name_last_modified_by_application_display_name = kwargs.get('display_name_last_modified_by_application_display_name', None)
-        self.id_last_modified_by_application_id = kwargs.get('id_last_modified_by_application_id', None)
 
 
 class MicrosoftGraphEducationResource(msrest.serialization.Model):
@@ -7495,6 +7229,8 @@ class MicrosoftGraphEducationRubric(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param description: educationItemBody.
@@ -7503,78 +7239,28 @@ class MicrosoftGraphEducationRubric(MicrosoftGraphEntity):
     :type display_name: str
     :param grading: educationAssignmentGradeType.
     :type grading: dict[str, object]
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time:
     :type last_modified_date_time: ~datetime.datetime
     :param levels:
     :type levels: list[~education.models.MicrosoftGraphRubricLevel]
     :param qualities:
     :type qualities: list[~education.models.MicrosoftGraphRubricQuality]
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'MicrosoftGraphEducationItemBody'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'grading': {'key': 'grading', 'type': '{object}'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'levels': {'key': 'levels', 'type': '[MicrosoftGraphRubricLevel]'},
         'qualities': {'key': 'qualities', 'type': '[MicrosoftGraphRubricQuality]'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -7583,33 +7269,20 @@ class MicrosoftGraphEducationRubric(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphEducationRubric, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.grading = kwargs.get('grading', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.levels = kwargs.get('levels', None)
         self.qualities = kwargs.get('qualities', None)
-        self.display_name_last_modified_by_user_display_name = kwargs.get('display_name_last_modified_by_user_display_name', None)
-        self.id_last_modified_by_user_id = kwargs.get('id_last_modified_by_user_id', None)
-        self.display_name_last_modified_by_device_display_name = kwargs.get('display_name_last_modified_by_device_display_name', None)
-        self.id_last_modified_by_device_id = kwargs.get('id_last_modified_by_device_id', None)
-        self.display_name_last_modified_by_application_display_name = kwargs.get('display_name_last_modified_by_application_display_name', None)
-        self.id_last_modified_by_application_id = kwargs.get('id_last_modified_by_application_id', None)
-        self.display_name_created_by_user_display_name = kwargs.get('display_name_created_by_user_display_name', None)
-        self.id_created_by_user_id = kwargs.get('id_created_by_user_id', None)
-        self.display_name_created_by_device_display_name = kwargs.get('display_name_created_by_device_display_name', None)
-        self.id_created_by_device_id = kwargs.get('id_created_by_device_id', None)
-        self.display_name_created_by_application_display_name = kwargs.get('display_name_created_by_application_display_name', None)
-        self.id_created_by_application_id = kwargs.get('id_created_by_application_id', None)
 
 
 class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
     """educationSchool.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param description: Organization description.
@@ -7625,6 +7298,8 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
     :type additional_properties: dict[str, object]
     :param address: physicalAddress.
     :type address: ~education.models.MicrosoftGraphPhysicalAddress
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param external_id: ID of school in syncing system.
     :type external_id: str
     :param external_principal_id: ID of principal in syncing system.
@@ -7643,58 +7318,16 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
     :type principal_name: str
     :param school_number: School Number.
     :type school_number: str
+    :param administrative_unit: Represents an Azure Active Directory object. The directoryObject
+     type is the base type for many other directory entity types.
+    :type administrative_unit: ~education.models.MicrosoftGraphAdministrativeUnit
     :param classes: Classes taught at the school. Nullable.
     :type classes: list[~education.models.MicrosoftGraphEducationClass]
     :param users: Users in the school. Nullable.
     :type users: list[~education.models.MicrosoftGraphEducationUser]
-    :param id_administrative_unit_id: Read-only.
-    :type id_administrative_unit_id: str
-    :param deleted_date_time:
-    :type deleted_date_time: ~datetime.datetime
-    :param description_administrative_unit_description: An optional description for the
-     administrative unit.
-    :type description_administrative_unit_description: str
-    :param display_name_administrative_unit_display_name: Display name for the administrative unit.
-    :type display_name_administrative_unit_display_name: str
-    :param visibility: Controls whether the administrative unit and its members are hidden or
-     public. Can be set to HiddenMembership or Public. If not set, default behavior is Public. When
-     set to HiddenMembership, only members of the administrative unit can list other members of the
-     adminstrative unit.
-    :type visibility: str
-    :param members: Users and groups that are members of this Adminsitrative Unit. HTTP Methods:
-     GET (list members), POST (add members), DELETE (remove members).
-    :type members: list[~education.models.MicrosoftGraphDirectoryObject]
-    :param scoped_role_members: Scoped-role members of this Administrative Unit.  HTTP Methods: GET
-     (list scopedRoleMemberships), POST (add scopedRoleMembership), DELETE (remove
-     scopedRoleMembership).
-    :type scoped_role_members: list[~education.models.MicrosoftGraphScopedRoleMembership]
-    :param extensions:
-    :type extensions: list[~education.models.MicrosoftGraphExtension]
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -7702,6 +7335,7 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         'external_source_detail': {'key': 'externalSourceDetail', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'address': {'key': 'address', 'type': 'MicrosoftGraphPhysicalAddress'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'external_id': {'key': 'externalId', 'type': 'str'},
         'external_principal_id': {'key': 'externalPrincipalId', 'type': 'str'},
         'fax': {'key': 'fax', 'type': 'str'},
@@ -7711,22 +7345,9 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         'principal_email': {'key': 'principalEmail', 'type': 'str'},
         'principal_name': {'key': 'principalName', 'type': 'str'},
         'school_number': {'key': 'schoolNumber', 'type': 'str'},
+        'administrative_unit': {'key': 'administrativeUnit', 'type': 'MicrosoftGraphAdministrativeUnit'},
         'classes': {'key': 'classes', 'type': '[MicrosoftGraphEducationClass]'},
         'users': {'key': 'users', 'type': '[MicrosoftGraphEducationUser]'},
-        'id_administrative_unit_id': {'key': 'administrativeUnit.id', 'type': 'str'},
-        'deleted_date_time': {'key': 'administrativeUnit.deletedDateTime', 'type': 'iso-8601'},
-        'description_administrative_unit_description': {'key': 'administrativeUnit.description', 'type': 'str'},
-        'display_name_administrative_unit_display_name': {'key': 'administrativeUnit.displayName', 'type': 'str'},
-        'visibility': {'key': 'administrativeUnit.visibility', 'type': 'str'},
-        'members': {'key': 'administrativeUnit.members', 'type': '[MicrosoftGraphDirectoryObject]'},
-        'scoped_role_members': {'key': 'administrativeUnit.scopedRoleMembers', 'type': '[MicrosoftGraphScopedRoleMembership]'},
-        'extensions': {'key': 'administrativeUnit.extensions', 'type': '[MicrosoftGraphExtension]'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -7735,8 +7356,8 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
     ):
         super(MicrosoftGraphEducationSchool, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
+        self.created_by = kwargs.get('created_by', None)
         self.external_id = kwargs.get('external_id', None)
         self.external_principal_id = kwargs.get('external_principal_id', None)
         self.fax = kwargs.get('fax', None)
@@ -7746,22 +7367,9 @@ class MicrosoftGraphEducationSchool(MicrosoftGraphEducationOrganization):
         self.principal_email = kwargs.get('principal_email', None)
         self.principal_name = kwargs.get('principal_name', None)
         self.school_number = kwargs.get('school_number', None)
+        self.administrative_unit = kwargs.get('administrative_unit', None)
         self.classes = kwargs.get('classes', None)
         self.users = kwargs.get('users', None)
-        self.id_administrative_unit_id = kwargs.get('id_administrative_unit_id', None)
-        self.deleted_date_time = kwargs.get('deleted_date_time', None)
-        self.description_administrative_unit_description = kwargs.get('description_administrative_unit_description', None)
-        self.display_name_administrative_unit_display_name = kwargs.get('display_name_administrative_unit_display_name', None)
-        self.visibility = kwargs.get('visibility', None)
-        self.members = kwargs.get('members', None)
-        self.scoped_role_members = kwargs.get('scoped_role_members', None)
-        self.extensions = kwargs.get('extensions', None)
-        self.display_name_created_by_user_display_name = kwargs.get('display_name_created_by_user_display_name', None)
-        self.id_created_by_user_id = kwargs.get('id_created_by_user_id', None)
-        self.display_name_created_by_device_display_name = kwargs.get('display_name_created_by_device_display_name', None)
-        self.id_created_by_device_id = kwargs.get('id_created_by_device_id', None)
-        self.display_name_created_by_application_display_name = kwargs.get('display_name_created_by_application_display_name', None)
-        self.id_created_by_application_id = kwargs.get('id_created_by_application_id', None)
 
 
 class MicrosoftGraphEducationStudent(msrest.serialization.Model):
@@ -7818,17 +7426,25 @@ class MicrosoftGraphEducationSubmission(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param recipient: educationSubmissionRecipient.
     :type recipient: dict[str, object]
+    :param released_by: identitySet.
+    :type released_by: ~education.models.MicrosoftGraphIdentitySet
     :param released_date_time:
     :type released_date_time: ~datetime.datetime
     :param resources_folder_url:
     :type resources_folder_url: str
+    :param returned_by: identitySet.
+    :type returned_by: ~education.models.MicrosoftGraphIdentitySet
     :param returned_date_time:
     :type returned_date_time: ~datetime.datetime
     :param status:  Possible values include: "working", "submitted", "released", "returned",
      "unknownFutureValue".
     :type status: str or ~education.models.MicrosoftGraphEducationSubmissionStatus
+    :param submitted_by: identitySet.
+    :type submitted_by: ~education.models.MicrosoftGraphIdentitySet
     :param submitted_date_time:
     :type submitted_date_time: ~datetime.datetime
+    :param unsubmitted_by: identitySet.
+    :type unsubmitted_by: ~education.models.MicrosoftGraphIdentitySet
     :param unsubmitted_date_time:
     :type unsubmitted_date_time: ~datetime.datetime
     :param outcomes:
@@ -7837,129 +7453,25 @@ class MicrosoftGraphEducationSubmission(MicrosoftGraphEntity):
     :type resources: list[~education.models.MicrosoftGraphEducationSubmissionResource]
     :param submitted_resources:
     :type submitted_resources: list[~education.models.MicrosoftGraphEducationSubmissionResource]
-    :param display_name_unsubmitted_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_unsubmitted_by_user_display_name: str
-    :param id_unsubmitted_by_user_id: Unique identifier for the identity.
-    :type id_unsubmitted_by_user_id: str
-    :param display_name_unsubmitted_by_device_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_unsubmitted_by_device_display_name: str
-    :param id_unsubmitted_by_device_id: Unique identifier for the identity.
-    :type id_unsubmitted_by_device_id: str
-    :param display_name_unsubmitted_by_application_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_unsubmitted_by_application_display_name: str
-    :param id_unsubmitted_by_application_id: Unique identifier for the identity.
-    :type id_unsubmitted_by_application_id: str
-    :param display_name_submitted_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_submitted_by_user_display_name: str
-    :param id_submitted_by_user_id: Unique identifier for the identity.
-    :type id_submitted_by_user_id: str
-    :param display_name_submitted_by_device_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_submitted_by_device_display_name: str
-    :param id_submitted_by_device_id: Unique identifier for the identity.
-    :type id_submitted_by_device_id: str
-    :param display_name_submitted_by_application_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_submitted_by_application_display_name: str
-    :param id_submitted_by_application_id: Unique identifier for the identity.
-    :type id_submitted_by_application_id: str
-    :param display_name_returned_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_returned_by_user_display_name: str
-    :param id_returned_by_user_id: Unique identifier for the identity.
-    :type id_returned_by_user_id: str
-    :param display_name_returned_by_device_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_returned_by_device_display_name: str
-    :param id_returned_by_device_id: Unique identifier for the identity.
-    :type id_returned_by_device_id: str
-    :param display_name_returned_by_application_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_returned_by_application_display_name: str
-    :param id_returned_by_application_id: Unique identifier for the identity.
-    :type id_returned_by_application_id: str
-    :param display_name_released_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_released_by_user_display_name: str
-    :param id_released_by_user_id: Unique identifier for the identity.
-    :type id_released_by_user_id: str
-    :param display_name_released_by_device_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_released_by_device_display_name: str
-    :param id_released_by_device_id: Unique identifier for the identity.
-    :type id_released_by_device_id: str
-    :param display_name_released_by_application_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_released_by_application_display_name: str
-    :param id_released_by_application_id: Unique identifier for the identity.
-    :type id_released_by_application_id: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'recipient': {'key': 'recipient', 'type': '{object}'},
+        'released_by': {'key': 'releasedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'released_date_time': {'key': 'releasedDateTime', 'type': 'iso-8601'},
         'resources_folder_url': {'key': 'resourcesFolderUrl', 'type': 'str'},
+        'returned_by': {'key': 'returnedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'returned_date_time': {'key': 'returnedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
+        'submitted_by': {'key': 'submittedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'submitted_date_time': {'key': 'submittedDateTime', 'type': 'iso-8601'},
+        'unsubmitted_by': {'key': 'unsubmittedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'unsubmitted_date_time': {'key': 'unsubmittedDateTime', 'type': 'iso-8601'},
         'outcomes': {'key': 'outcomes', 'type': '[MicrosoftGraphEducationOutcome]'},
         'resources': {'key': 'resources', 'type': '[MicrosoftGraphEducationSubmissionResource]'},
         'submitted_resources': {'key': 'submittedResources', 'type': '[MicrosoftGraphEducationSubmissionResource]'},
-        'display_name_unsubmitted_by_user_display_name': {'key': 'unsubmittedBy.user.displayName', 'type': 'str'},
-        'id_unsubmitted_by_user_id': {'key': 'unsubmittedBy.user.id', 'type': 'str'},
-        'display_name_unsubmitted_by_device_display_name': {'key': 'unsubmittedBy.device.displayName', 'type': 'str'},
-        'id_unsubmitted_by_device_id': {'key': 'unsubmittedBy.device.id', 'type': 'str'},
-        'display_name_unsubmitted_by_application_display_name': {'key': 'unsubmittedBy.application.displayName', 'type': 'str'},
-        'id_unsubmitted_by_application_id': {'key': 'unsubmittedBy.application.id', 'type': 'str'},
-        'display_name_submitted_by_user_display_name': {'key': 'submittedBy.user.displayName', 'type': 'str'},
-        'id_submitted_by_user_id': {'key': 'submittedBy.user.id', 'type': 'str'},
-        'display_name_submitted_by_device_display_name': {'key': 'submittedBy.device.displayName', 'type': 'str'},
-        'id_submitted_by_device_id': {'key': 'submittedBy.device.id', 'type': 'str'},
-        'display_name_submitted_by_application_display_name': {'key': 'submittedBy.application.displayName', 'type': 'str'},
-        'id_submitted_by_application_id': {'key': 'submittedBy.application.id', 'type': 'str'},
-        'display_name_returned_by_user_display_name': {'key': 'returnedBy.user.displayName', 'type': 'str'},
-        'id_returned_by_user_id': {'key': 'returnedBy.user.id', 'type': 'str'},
-        'display_name_returned_by_device_display_name': {'key': 'returnedBy.device.displayName', 'type': 'str'},
-        'id_returned_by_device_id': {'key': 'returnedBy.device.id', 'type': 'str'},
-        'display_name_returned_by_application_display_name': {'key': 'returnedBy.application.displayName', 'type': 'str'},
-        'id_returned_by_application_id': {'key': 'returnedBy.application.id', 'type': 'str'},
-        'display_name_released_by_user_display_name': {'key': 'releasedBy.user.displayName', 'type': 'str'},
-        'id_released_by_user_id': {'key': 'releasedBy.user.id', 'type': 'str'},
-        'display_name_released_by_device_display_name': {'key': 'releasedBy.device.displayName', 'type': 'str'},
-        'id_released_by_device_id': {'key': 'releasedBy.device.id', 'type': 'str'},
-        'display_name_released_by_application_display_name': {'key': 'releasedBy.application.displayName', 'type': 'str'},
-        'id_released_by_application_id': {'key': 'releasedBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -7969,39 +7481,19 @@ class MicrosoftGraphEducationSubmission(MicrosoftGraphEntity):
         super(MicrosoftGraphEducationSubmission, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.recipient = kwargs.get('recipient', None)
+        self.released_by = kwargs.get('released_by', None)
         self.released_date_time = kwargs.get('released_date_time', None)
         self.resources_folder_url = kwargs.get('resources_folder_url', None)
+        self.returned_by = kwargs.get('returned_by', None)
         self.returned_date_time = kwargs.get('returned_date_time', None)
         self.status = kwargs.get('status', None)
+        self.submitted_by = kwargs.get('submitted_by', None)
         self.submitted_date_time = kwargs.get('submitted_date_time', None)
+        self.unsubmitted_by = kwargs.get('unsubmitted_by', None)
         self.unsubmitted_date_time = kwargs.get('unsubmitted_date_time', None)
         self.outcomes = kwargs.get('outcomes', None)
         self.resources = kwargs.get('resources', None)
         self.submitted_resources = kwargs.get('submitted_resources', None)
-        self.display_name_unsubmitted_by_user_display_name = kwargs.get('display_name_unsubmitted_by_user_display_name', None)
-        self.id_unsubmitted_by_user_id = kwargs.get('id_unsubmitted_by_user_id', None)
-        self.display_name_unsubmitted_by_device_display_name = kwargs.get('display_name_unsubmitted_by_device_display_name', None)
-        self.id_unsubmitted_by_device_id = kwargs.get('id_unsubmitted_by_device_id', None)
-        self.display_name_unsubmitted_by_application_display_name = kwargs.get('display_name_unsubmitted_by_application_display_name', None)
-        self.id_unsubmitted_by_application_id = kwargs.get('id_unsubmitted_by_application_id', None)
-        self.display_name_submitted_by_user_display_name = kwargs.get('display_name_submitted_by_user_display_name', None)
-        self.id_submitted_by_user_id = kwargs.get('id_submitted_by_user_id', None)
-        self.display_name_submitted_by_device_display_name = kwargs.get('display_name_submitted_by_device_display_name', None)
-        self.id_submitted_by_device_id = kwargs.get('id_submitted_by_device_id', None)
-        self.display_name_submitted_by_application_display_name = kwargs.get('display_name_submitted_by_application_display_name', None)
-        self.id_submitted_by_application_id = kwargs.get('id_submitted_by_application_id', None)
-        self.display_name_returned_by_user_display_name = kwargs.get('display_name_returned_by_user_display_name', None)
-        self.id_returned_by_user_id = kwargs.get('id_returned_by_user_id', None)
-        self.display_name_returned_by_device_display_name = kwargs.get('display_name_returned_by_device_display_name', None)
-        self.id_returned_by_device_id = kwargs.get('id_returned_by_device_id', None)
-        self.display_name_returned_by_application_display_name = kwargs.get('display_name_returned_by_application_display_name', None)
-        self.id_returned_by_application_id = kwargs.get('id_returned_by_application_id', None)
-        self.display_name_released_by_user_display_name = kwargs.get('display_name_released_by_user_display_name', None)
-        self.id_released_by_user_id = kwargs.get('id_released_by_user_id', None)
-        self.display_name_released_by_device_display_name = kwargs.get('display_name_released_by_device_display_name', None)
-        self.id_released_by_device_id = kwargs.get('id_released_by_device_id', None)
-        self.display_name_released_by_application_display_name = kwargs.get('display_name_released_by_application_display_name', None)
-        self.id_released_by_application_id = kwargs.get('id_released_by_application_id', None)
 
 
 class MicrosoftGraphEducationSubmissionResource(MicrosoftGraphEntity):
@@ -8014,27 +7506,15 @@ class MicrosoftGraphEducationSubmissionResource(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param assignment_resource_url:
     :type assignment_resource_url: str
-    :param created_by: identitySet.
-    :type created_by: ~education.models.MicrosoftGraphIdentitySet
-    :param created_date_time:
-    :type created_date_time: ~datetime.datetime
-    :param display_name:
-    :type display_name: str
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~education.models.MicrosoftGraphIdentitySet
-    :param last_modified_date_time:
-    :type last_modified_date_time: ~datetime.datetime
+    :param resource: educationResource.
+    :type resource: ~education.models.MicrosoftGraphEducationResource
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'assignment_resource_url': {'key': 'assignmentResourceUrl', 'type': 'str'},
-        'created_by': {'key': 'resource.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'created_date_time': {'key': 'resource.createdDateTime', 'type': 'iso-8601'},
-        'display_name': {'key': 'resource.displayName', 'type': 'str'},
-        'last_modified_by': {'key': 'resource.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'last_modified_date_time': {'key': 'resource.lastModifiedDateTime', 'type': 'iso-8601'},
+        'resource': {'key': 'resource', 'type': 'MicrosoftGraphEducationResource'},
     }
 
     def __init__(
@@ -8044,11 +7524,7 @@ class MicrosoftGraphEducationSubmissionResource(MicrosoftGraphEntity):
         super(MicrosoftGraphEducationSubmissionResource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assignment_resource_url = kwargs.get('assignment_resource_url', None)
-        self.created_by = kwargs.get('created_by', None)
-        self.created_date_time = kwargs.get('created_date_time', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.last_modified_by = kwargs.get('last_modified_by', None)
-        self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
+        self.resource = kwargs.get('resource', None)
 
 
 class MicrosoftGraphEducationSynchronizationError(MicrosoftGraphEntity):
@@ -8305,6 +7781,8 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :param business_phones: The telephone numbers for the user. Note: Although this is a string
      collection, only one number can be set for this property.
     :type business_phones: list[str]
+    :param created_by: identitySet.
+    :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param department: The name for the department in which the user works. Supports $filter.
     :type department: str
     :param display_name: The name displayed in the address book for the user. This is usually the
@@ -8331,6 +7809,8 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :type mobile_phone: str
     :param office_location:
     :type office_location: str
+    :param on_premises_info: educationOnPremisesInfo.
+    :type on_premises_info: ~education.models.MicrosoftGraphEducationOnPremisesInfo
     :param password_policies: Specifies password policies for the user. This value is an
      enumeration with one possible value being 'DisableStrongPassword', which allows weaker
      passwords than the default policy to be specified. 'DisablePasswordExpiration' can also be
@@ -8385,29 +7865,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
     :type taught_classes: list[~education.models.MicrosoftGraphEducationClass]
     :param user: Represents an Azure Active Directory user object.
     :type user: ~education.models.MicrosoftGraphUser
-    :param immutable_id:
-    :type immutable_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     """
 
     _attribute_map = {
@@ -8418,6 +7875,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'assigned_licenses': {'key': 'assignedLicenses', 'type': '[MicrosoftGraphAssignedLicense]'},
         'assigned_plans': {'key': 'assignedPlans', 'type': '[MicrosoftGraphAssignedPlan]'},
         'business_phones': {'key': 'businessPhones', 'type': '[str]'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'department': {'key': 'department', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'external_source': {'key': 'externalSource', 'type': 'str'},
@@ -8429,6 +7887,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'middle_name': {'key': 'middleName', 'type': 'str'},
         'mobile_phone': {'key': 'mobilePhone', 'type': 'str'},
         'office_location': {'key': 'officeLocation', 'type': 'str'},
+        'on_premises_info': {'key': 'onPremisesInfo', 'type': 'MicrosoftGraphEducationOnPremisesInfo'},
         'password_policies': {'key': 'passwordPolicies', 'type': 'str'},
         'password_profile': {'key': 'passwordProfile', 'type': 'MicrosoftGraphPasswordProfile'},
         'preferred_language': {'key': 'preferredLanguage', 'type': 'str'},
@@ -8449,13 +7908,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         'schools': {'key': 'schools', 'type': '[MicrosoftGraphEducationSchool]'},
         'taught_classes': {'key': 'taughtClasses', 'type': '[MicrosoftGraphEducationClass]'},
         'user': {'key': 'user', 'type': 'MicrosoftGraphUser'},
-        'immutable_id': {'key': 'onPremisesInfo.immutableId', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -8469,6 +7921,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.assigned_licenses = kwargs.get('assigned_licenses', None)
         self.assigned_plans = kwargs.get('assigned_plans', None)
         self.business_phones = kwargs.get('business_phones', None)
+        self.created_by = kwargs.get('created_by', None)
         self.department = kwargs.get('department', None)
         self.display_name = kwargs.get('display_name', None)
         self.external_source = kwargs.get('external_source', None)
@@ -8480,6 +7933,7 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.middle_name = kwargs.get('middle_name', None)
         self.mobile_phone = kwargs.get('mobile_phone', None)
         self.office_location = kwargs.get('office_location', None)
+        self.on_premises_info = kwargs.get('on_premises_info', None)
         self.password_policies = kwargs.get('password_policies', None)
         self.password_profile = kwargs.get('password_profile', None)
         self.preferred_language = kwargs.get('preferred_language', None)
@@ -8500,13 +7954,6 @@ class MicrosoftGraphEducationUser(MicrosoftGraphEntity):
         self.schools = kwargs.get('schools', None)
         self.taught_classes = kwargs.get('taught_classes', None)
         self.user = kwargs.get('user', None)
-        self.immutable_id = kwargs.get('immutable_id', None)
-        self.display_name_created_by_user_display_name = kwargs.get('display_name_created_by_user_display_name', None)
-        self.id_created_by_user_id = kwargs.get('id_created_by_user_id', None)
-        self.display_name_created_by_device_display_name = kwargs.get('display_name_created_by_device_display_name', None)
-        self.id_created_by_device_id = kwargs.get('id_created_by_device_id', None)
-        self.display_name_created_by_application_display_name = kwargs.get('display_name_created_by_application_display_name', None)
-        self.id_created_by_application_id = kwargs.get('id_created_by_application_id', None)
 
 
 class MicrosoftGraphEmailAddress(msrest.serialization.Model):
@@ -8540,9 +7987,6 @@ class MicrosoftGraphEmailAddress(msrest.serialization.Model):
 class MicrosoftGraphEmailAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """emailAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -8551,7 +7995,6 @@ class MicrosoftGraphEmailAuthenticationMethod(MicrosoftGraphAuthenticationMethod
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -8561,7 +8004,6 @@ class MicrosoftGraphEmailAuthenticationMethod(MicrosoftGraphAuthenticationMethod
         **kwargs
     ):
         super(MicrosoftGraphEmailAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -8598,9 +8040,6 @@ class MicrosoftGraphEmployeeOrgData(msrest.serialization.Model):
 class MicrosoftGraphEndpoint(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -8624,7 +8063,6 @@ class MicrosoftGraphEndpoint(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -8640,7 +8078,6 @@ class MicrosoftGraphEndpoint(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphEndpoint, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.capability = kwargs.get('capability', None)
         self.provider_id = kwargs.get('provider_id', None)
@@ -8687,9 +8124,6 @@ class MicrosoftGraphEnrollmentConfigurationAssignment(MicrosoftGraphEntity):
 class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     """event.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -8840,7 +8274,6 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -8899,7 +8332,6 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphEvent, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.allow_new_time_proposals = kwargs.get('allow_new_time_proposals', None)
         self.attendees = kwargs.get('attendees', None)
@@ -8998,9 +8430,6 @@ class MicrosoftGraphExternalLink(msrest.serialization.Model):
 class MicrosoftGraphFido2AuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """fido2AuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -9009,7 +8438,6 @@ class MicrosoftGraphFido2AuthenticationMethod(MicrosoftGraphAuthenticationMethod
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -9019,7 +8447,6 @@ class MicrosoftGraphFido2AuthenticationMethod(MicrosoftGraphAuthenticationMethod
         **kwargs
     ):
         super(MicrosoftGraphFido2AuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -9249,9 +8676,6 @@ class MicrosoftGraphGeoCoordinates(msrest.serialization.Model):
 class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -9496,7 +8920,6 @@ class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -9582,7 +9005,6 @@ class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphGroup, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assigned_labels = kwargs.get('assigned_labels', None)
         self.assigned_licenses = kwargs.get('assigned_licenses', None)
@@ -9934,37 +9356,19 @@ class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param display_name_user_display_name: The identity's display name. Note that this may not
-     always be available or up to date. For example, if a user changes their display name, the API
-     may show the new value in a future response, but the items associated with the user won't show
-     up as having changed when using delta.
-    :type display_name_user_display_name: str
-    :param id_user_id: Unique identifier for the identity.
-    :type id_user_id: str
-    :param display_name_device_display_name: The identity's display name. Note that this may not
-     always be available or up to date. For example, if a user changes their display name, the API
-     may show the new value in a future response, but the items associated with the user won't show
-     up as having changed when using delta.
-    :type display_name_device_display_name: str
-    :param id_device_id: Unique identifier for the identity.
-    :type id_device_id: str
-    :param display_name_application_display_name: The identity's display name. Note that this may
-     not always be available or up to date. For example, if a user changes their display name, the
-     API may show the new value in a future response, but the items associated with the user won't
-     show up as having changed when using delta.
-    :type display_name_application_display_name: str
-    :param id_application_id: Unique identifier for the identity.
-    :type id_application_id: str
+    :param application: identity.
+    :type application: ~education.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~education.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~education.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'display_name_user_display_name': {'key': 'user.displayName', 'type': 'str'},
-        'id_user_id': {'key': 'user.id', 'type': 'str'},
-        'display_name_device_display_name': {'key': 'device.displayName', 'type': 'str'},
-        'id_device_id': {'key': 'device.id', 'type': 'str'},
-        'display_name_application_display_name': {'key': 'application.displayName', 'type': 'str'},
-        'id_application_id': {'key': 'application.id', 'type': 'str'},
+        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -9973,12 +9377,9 @@ class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     ):
         super(MicrosoftGraphIdentitySet, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.display_name_user_display_name = kwargs.get('display_name_user_display_name', None)
-        self.id_user_id = kwargs.get('id_user_id', None)
-        self.display_name_device_display_name = kwargs.get('display_name_device_display_name', None)
-        self.id_device_id = kwargs.get('id_device_id', None)
-        self.display_name_application_display_name = kwargs.get('display_name_application_display_name', None)
-        self.id_application_id = kwargs.get('id_application_id', None)
+        self.application = kwargs.get('application', None)
+        self.device = kwargs.get('device', None)
+        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphImage(msrest.serialization.Model):
@@ -10663,9 +10064,6 @@ class MicrosoftGraphItemActivityTimeSet(msrest.serialization.Model):
 class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     """itemAddress.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -10695,7 +10093,6 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -10715,7 +10112,6 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphItemAddress, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.detail = kwargs.get('detail', None)
         self.display_name = kwargs.get('display_name', None)
@@ -10788,9 +10184,6 @@ class MicrosoftGraphItemBody(msrest.serialization.Model):
 class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     """itemEmail.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -10820,7 +10213,6 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -10840,7 +10232,6 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphItemEmail, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.display_name = kwargs.get('display_name', None)
@@ -10892,9 +10283,6 @@ class MicrosoftGraphOfficeGraphInsights(MicrosoftGraphEntity):
 class MicrosoftGraphItemInsights(MicrosoftGraphOfficeGraphInsights):
     """itemInsights.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param shared: Calculated relationship identifying documents shared with or by the user. This
@@ -10916,7 +10304,6 @@ class MicrosoftGraphItemInsights(MicrosoftGraphOfficeGraphInsights):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'shared': {'key': 'shared', 'type': '[MicrosoftGraphSharedInsight]'},
         'trending': {'key': 'trending', 'type': '[MicrosoftGraphTrending]'},
@@ -10930,15 +10317,11 @@ class MicrosoftGraphItemInsights(MicrosoftGraphOfficeGraphInsights):
     ):
         super(MicrosoftGraphItemInsights, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
 
 
 class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     """itemPatent.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -10976,7 +10359,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -11001,7 +10383,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemPatent, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.is_pending = kwargs.get('is_pending', None)
@@ -11014,9 +10395,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
 class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     """itemPhone.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -11047,7 +10425,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -11068,7 +10445,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemPhone, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.number = kwargs.get('number', None)
         self.type = kwargs.get('type', None)
@@ -11077,9 +10453,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
 class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     """itemPublication.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -11115,7 +10488,6 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -11138,7 +10510,6 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphItemPublication, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
@@ -11284,9 +10655,6 @@ class MicrosoftGraphLabelPolicy(msrest.serialization.Model):
 class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     """languageProficiency.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -11326,7 +10694,6 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -11349,7 +10716,6 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphLanguageProficiency, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.proficiency = kwargs.get('proficiency', None)
@@ -11503,9 +10869,6 @@ class MicrosoftGraphLinkedResource(MicrosoftGraphEntity):
 class MicrosoftGraphList(MicrosoftGraphBaseItem):
     """list.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -11556,7 +10919,6 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -11587,7 +10949,6 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
         **kwargs
     ):
         super(MicrosoftGraphList, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.list = kwargs.get('list', None)
@@ -11639,9 +11000,6 @@ class MicrosoftGraphListInfo(msrest.serialization.Model):
 class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     """listItem.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -11686,7 +11044,6 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -11715,7 +11072,6 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphListItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.content_type = kwargs.get('content_type', None)
         self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
         self.activities = kwargs.get('activities', None)
@@ -11728,9 +11084,6 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
 class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
     """listItemVersion.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param last_modified_by: identitySet.
@@ -11747,7 +11100,6 @@ class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
@@ -11761,7 +11113,6 @@ class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
         **kwargs
     ):
         super(MicrosoftGraphListItemVersion, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.fields = kwargs.get('fields', None)
 
@@ -13077,9 +12428,6 @@ class MicrosoftGraphMentionsPreview(msrest.serialization.Model):
 class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     """message.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -13190,7 +12538,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -13238,7 +12585,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphMessage, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.bcc_recipients = kwargs.get('bcc_recipients', None)
         self.body = kwargs.get('body', None)
@@ -13575,9 +12921,6 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
 class MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """microsoftAuthenticatorAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -13586,7 +12929,6 @@ class MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod(MicrosoftGraphAut
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -13596,7 +12938,6 @@ class MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod(MicrosoftGraphAut
         **kwargs
     ):
         super(MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -13721,9 +13062,6 @@ class MicrosoftGraphMobileAppSupportedDeviceType(msrest.serialization.Model):
 class MicrosoftGraphMobileAppTroubleshootingEvent(MicrosoftGraphDeviceManagementTroubleshootingEvent):
     """MobileAppTroubleshootingEvent Entity.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_information: A set of string key and string value pairs which provides
@@ -13757,7 +13095,6 @@ class MicrosoftGraphMobileAppTroubleshootingEvent(MicrosoftGraphDeviceManagement
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_information': {'key': 'additionalInformation', 'type': '[MicrosoftGraphKeyValuePair]'},
         'correlation_id': {'key': 'correlationId', 'type': 'str'},
@@ -13777,7 +13114,6 @@ class MicrosoftGraphMobileAppTroubleshootingEvent(MicrosoftGraphDeviceManagement
         **kwargs
     ):
         super(MicrosoftGraphMobileAppTroubleshootingEvent, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.application_id = kwargs.get('application_id', None)
         self.history = kwargs.get('history', None)
@@ -13901,9 +13237,6 @@ class MicrosoftGraphOnenoteEntityBaseModel(MicrosoftGraphEntity):
 class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBaseModel):
     """onenoteEntitySchemaObjectModel.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -13918,7 +13251,6 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -13931,18 +13263,12 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
     ):
         super(MicrosoftGraphOnenoteEntitySchemaObjectModel, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.created_date_time = kwargs.get('created_date_time', None)
 
 
 class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     """onenoteEntityHierarchyModel.
 
-    :param id: Read-only.
-    :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -13969,8 +13295,6 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
-        'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -13986,7 +13310,6 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
     ):
         super(MicrosoftGraphOnenoteEntityHierarchyModel, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.created_by = kwargs.get('created_by', None)
         self.display_name = kwargs.get('display_name', None)
         self.last_modified_by = kwargs.get('last_modified_by', None)
@@ -13996,16 +13319,10 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
 class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     """notebook.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
@@ -14046,10 +13363,8 @@ class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -14071,8 +13386,6 @@ class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
         **kwargs
     ):
         super(MicrosoftGraphNotebook, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_default = kwargs.get('is_default', None)
         self.is_shared = kwargs.get('is_shared', None)
@@ -14254,9 +13567,6 @@ class MicrosoftGraphObjectIdentity(msrest.serialization.Model):
 class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     """scheduleChangeRequest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -14295,7 +13605,6 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -14318,7 +13627,6 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     ):
         super(MicrosoftGraphScheduleChangeRequest, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.assigned_to = kwargs.get('assigned_to', None)
         self.manager_action_date_time = kwargs.get('manager_action_date_time', None)
         self.manager_action_message = kwargs.get('manager_action_message', None)
@@ -14334,9 +13642,6 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_by: identitySet.
     :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -14384,7 +13689,6 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -14409,7 +13713,6 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
         **kwargs
     ):
         super(MicrosoftGraphOfferShiftRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.recipient_action_date_time = kwargs.get('recipient_action_date_time', None)
         self.recipient_action_message = kwargs.get('recipient_action_message', None)
@@ -14510,9 +13813,6 @@ class MicrosoftGraphOperation(MicrosoftGraphEntity):
 class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     """onenoteOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The start time of the operation.
@@ -14537,7 +13837,6 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_action_date_time': {'key': 'lastActionDateTime', 'type': 'iso-8601'},
@@ -14554,7 +13853,6 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
         **kwargs
     ):
         super(MicrosoftGraphOnenoteOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs.get('error', None)
         self.percent_complete = kwargs.get('percent_complete', None)
@@ -14595,9 +13893,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
     :param created_date_time: The date and time when the page was created. The timestamp represents
@@ -14642,7 +13937,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -14665,7 +13959,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     ):
         super(MicrosoftGraphOnenotePage, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_url = kwargs.get('content_url', None)
         self.created_by_app_id = kwargs.get('created_by_app_id', None)
@@ -14682,9 +13975,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     """onenoteResource.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -14699,7 +13989,6 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -14713,7 +14002,6 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     ):
         super(MicrosoftGraphOnenoteResource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_url = kwargs.get('content_url', None)
 
@@ -14721,16 +14009,10 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
 class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     """onenoteSection.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
@@ -14765,10 +14047,8 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -14788,8 +14068,6 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
         **kwargs
     ):
         super(MicrosoftGraphOnenoteSection, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_default = kwargs.get('is_default', None)
         self.links = kwargs.get('links', None)
@@ -15075,9 +14353,6 @@ class MicrosoftGraphOnPremisesProvisioningError(msrest.serialization.Model):
 class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     """openShift.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -15106,7 +14381,6 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -15125,7 +14399,6 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     ):
         super(MicrosoftGraphOpenShift, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.draft_open_shift = kwargs.get('draft_open_shift', None)
         self.is_staged_for_deletion = kwargs.get('is_staged_for_deletion', None)
         self.scheduling_group_id = kwargs.get('scheduling_group_id', None)
@@ -15137,9 +14410,6 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_by: identitySet.
     :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -15179,7 +14449,6 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -15201,7 +14470,6 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
         **kwargs
     ):
         super(MicrosoftGraphOpenShiftChangeRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.open_shift_id = kwargs.get('open_shift_id', None)
 
@@ -15286,9 +14554,6 @@ class MicrosoftGraphShiftItem(MicrosoftGraphScheduleEntity):
 class MicrosoftGraphOpenShiftItem(MicrosoftGraphShiftItem):
     """openShiftItem.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param end_date_time:
     :type end_date_time: ~datetime.datetime
     :param start_date_time:
@@ -15316,7 +14581,6 @@ class MicrosoftGraphOpenShiftItem(MicrosoftGraphShiftItem):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'theme': {'key': 'theme', 'type': 'str'},
@@ -15332,7 +14596,6 @@ class MicrosoftGraphOpenShiftItem(MicrosoftGraphShiftItem):
         **kwargs
     ):
         super(MicrosoftGraphOpenShiftItem, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.open_slot_count = kwargs.get('open_slot_count', None)
 
@@ -15444,9 +14707,6 @@ class MicrosoftGraphOutlookGeoCoordinates(msrest.serialization.Model):
 class MicrosoftGraphOutlookTask(MicrosoftGraphOutlookItem):
     """outlookTask.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -15508,7 +14768,6 @@ class MicrosoftGraphOutlookTask(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -15540,7 +14799,6 @@ class MicrosoftGraphOutlookTask(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphOutlookTask, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assigned_to = kwargs.get('assigned_to', None)
         self.body = kwargs.get('body', None)
@@ -15810,9 +15068,6 @@ class MicrosoftGraphParentLabelDetails(msrest.serialization.Model):
 class MicrosoftGraphPasswordAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """passwordAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -15825,7 +15080,6 @@ class MicrosoftGraphPasswordAuthenticationMethod(MicrosoftGraphAuthenticationMet
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'creation_date_time': {'key': 'creationDateTime', 'type': 'iso-8601'},
@@ -15838,7 +15092,6 @@ class MicrosoftGraphPasswordAuthenticationMethod(MicrosoftGraphAuthenticationMet
     ):
         super(MicrosoftGraphPasswordAuthenticationMethod, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.creation_date_time = kwargs.get('creation_date_time', None)
         self.password = kwargs.get('password', None)
 
@@ -15846,9 +15099,6 @@ class MicrosoftGraphPasswordAuthenticationMethod(MicrosoftGraphAuthenticationMet
 class MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """passwordlessMicrosoftAuthenticatorAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -15857,7 +15107,6 @@ class MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod(Micro
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -15867,7 +15116,6 @@ class MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod(Micro
         **kwargs
     ):
         super(MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -16212,9 +15460,6 @@ class MicrosoftGraphPerson(MicrosoftGraphEntity):
 class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     """personAnniversary.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -16242,7 +15487,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -16262,7 +15506,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAnniversary, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.date = kwargs.get('date', None)
         self.type = kwargs.get('type', None)
 
@@ -16270,9 +15513,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     """personAnnotation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -16300,7 +15540,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -16320,7 +15559,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAnnotation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.detail = kwargs.get('detail', None)
         self.display_name = kwargs.get('display_name', None)
 
@@ -16328,9 +15566,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     """personAward.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -16366,7 +15601,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -16390,7 +15624,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAward, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.issued_date = kwargs.get('issued_date', None)
@@ -16402,9 +15635,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     """personCertification.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -16448,7 +15678,6 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -16475,7 +15704,6 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphPersonCertification, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.certification_id = kwargs.get('certification_id', None)
         self.description = kwargs.get('description', None)
@@ -16540,9 +15768,6 @@ class MicrosoftGraphPersonDataSources(msrest.serialization.Model):
 class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     """personInterest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -16576,7 +15801,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -16599,7 +15823,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonInterest, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.collaboration_tags = kwargs.get('collaboration_tags', None)
         self.description = kwargs.get('description', None)
@@ -16610,9 +15833,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     """personName.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -16658,7 +15878,6 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -16686,7 +15905,6 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphPersonName, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.first = kwargs.get('first', None)
@@ -16738,9 +15956,6 @@ class MicrosoftGraphPersonOrGroupColumn(msrest.serialization.Model):
 class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     """personWebsite.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -16772,7 +15987,6 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -16793,7 +16007,6 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphPersonWebsite, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.description = kwargs.get('description', None)
@@ -16833,9 +16046,6 @@ class MicrosoftGraphPhone(msrest.serialization.Model):
 class MicrosoftGraphPhoneAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """phoneAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -16852,7 +16062,6 @@ class MicrosoftGraphPhoneAuthenticationMethod(MicrosoftGraphAuthenticationMethod
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'phone_number': {'key': 'phoneNumber', 'type': 'str'},
@@ -16865,7 +16074,6 @@ class MicrosoftGraphPhoneAuthenticationMethod(MicrosoftGraphAuthenticationMethod
         **kwargs
     ):
         super(MicrosoftGraphPhoneAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.phone_number = kwargs.get('phone_number', None)
         self.phone_type = kwargs.get('phone_type', None)
@@ -17010,9 +16218,6 @@ class MicrosoftGraphPlannerDelta(MicrosoftGraphEntity):
 class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerAssignedToTaskBoardTaskFormat.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17028,7 +16233,6 @@ class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDe
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'order_hints_by_assignee': {'key': 'orderHintsByAssignee', 'type': '{object}'},
@@ -17041,7 +16245,6 @@ class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDe
     ):
         super(MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.order_hints_by_assignee = kwargs.get('order_hints_by_assignee', None)
         self.unassigned_order_hint = kwargs.get('unassigned_order_hint', None)
 
@@ -17049,9 +16252,6 @@ class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDe
 class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     """plannerBucket.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17069,7 +16269,6 @@ class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'name': {'key': 'name', 'type': 'str'},
@@ -17084,7 +16283,6 @@ class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerBucket, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.name = kwargs.get('name', None)
         self.order_hint = kwargs.get('order_hint', None)
         self.plan_id = kwargs.get('plan_id', None)
@@ -17094,9 +16292,6 @@ class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerBucketTaskBoardTaskFormat.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17108,7 +16303,6 @@ class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphPlannerDelta)
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'order_hint': {'key': 'orderHint', 'type': 'str'},
@@ -17119,7 +16313,6 @@ class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphPlannerDelta)
         **kwargs
     ):
         super(MicrosoftGraphPlannerBucketTaskBoardTaskFormat, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.order_hint = kwargs.get('order_hint', None)
 
@@ -17198,9 +16391,6 @@ class MicrosoftGraphPlannerGroup(MicrosoftGraphEntity):
 class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
     """plannerPlan.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17228,7 +16418,6 @@ class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'contexts': {'key': 'contexts', 'type': '{object}'},
@@ -17247,7 +16436,6 @@ class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerPlan, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.contexts = kwargs.get('contexts', None)
         self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
@@ -17261,9 +16449,6 @@ class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     """plannerPlanDetails.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17278,7 +16463,6 @@ class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'category_descriptions': {'key': 'categoryDescriptions', 'type': 'MicrosoftGraphPlannerCategoryDescriptions'},
@@ -17292,7 +16476,6 @@ class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerPlanDetails, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.category_descriptions = kwargs.get('category_descriptions', None)
         self.context_details = kwargs.get('context_details', None)
         self.shared_with = kwargs.get('shared_with', None)
@@ -17301,9 +16484,6 @@ class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerProgressTaskBoardTaskFormat.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17315,7 +16495,6 @@ class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelt
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'order_hint': {'key': 'orderHint', 'type': 'str'},
@@ -17327,16 +16506,12 @@ class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelt
     ):
         super(MicrosoftGraphPlannerProgressTaskBoardTaskFormat, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.order_hint = kwargs.get('order_hint', None)
 
 
 class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     """plannerTask.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17424,7 +16599,6 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'active_checklist_item_count': {'key': 'activeChecklistItemCount', 'type': 'int'},
@@ -17460,7 +16634,6 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerTask, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.active_checklist_item_count = kwargs.get('active_checklist_item_count', None)
         self.applied_categories = kwargs.get('applied_categories', None)
         self.assignee_priority = kwargs.get('assignee_priority', None)
@@ -17491,9 +16664,6 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     """plannerTaskDetails.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17511,7 +16681,6 @@ class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'checklist': {'key': 'checklist', 'type': '{object}'},
@@ -17526,7 +16695,6 @@ class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerTaskDetails, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.checklist = kwargs.get('checklist', None)
         self.description = kwargs.get('description', None)
         self.preview_type = kwargs.get('preview_type', None)
@@ -17536,9 +16704,6 @@ class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
     """plannerUser.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17561,7 +16726,6 @@ class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'favorite_plan_references': {'key': 'favoritePlanReferences', 'type': '{object}'},
@@ -17578,7 +16742,6 @@ class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
         **kwargs
     ):
         super(MicrosoftGraphPlannerUser, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.favorite_plan_references = kwargs.get('favorite_plan_references', None)
         self.recent_plan_references = kwargs.get('recent_plan_references', None)
@@ -17640,9 +16803,6 @@ class MicrosoftGraphPositionDetail(msrest.serialization.Model):
 class MicrosoftGraphPost(MicrosoftGraphOutlookItem):
     """post.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -17703,7 +16863,6 @@ class MicrosoftGraphPost(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -17732,7 +16891,6 @@ class MicrosoftGraphPost(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphPost, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.body = kwargs.get('body', None)
         self.conversation_id = kwargs.get('conversation_id', None)
@@ -17920,9 +17078,6 @@ class MicrosoftGraphProfilePhoto(MicrosoftGraphEntity):
 class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     """projectParticipation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -17960,7 +17115,6 @@ class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -17984,7 +17138,6 @@ class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphProjectParticipation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.client = kwargs.get('client', None)
@@ -18602,9 +17755,6 @@ class MicrosoftGraphResourceReference(msrest.serialization.Model):
 class MicrosoftGraphResourceSpecificPermissionGrant(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -18625,7 +17775,6 @@ class MicrosoftGraphResourceSpecificPermissionGrant(MicrosoftGraphDirectoryObjec
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -18641,7 +17790,6 @@ class MicrosoftGraphResourceSpecificPermissionGrant(MicrosoftGraphDirectoryObjec
         **kwargs
     ):
         super(MicrosoftGraphResourceSpecificPermissionGrant, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.client_app_id = kwargs.get('client_app_id', None)
         self.client_id = kwargs.get('client_id', None)
@@ -18954,9 +18102,6 @@ class MicrosoftGraphSchedule(MicrosoftGraphEntity):
 class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
     """schedulingGroup.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -18984,7 +18129,6 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -19001,7 +18145,6 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphSchedulingGroup, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.is_active = kwargs.get('is_active', None)
@@ -19073,16 +18216,10 @@ class MicrosoftGraphSearchResult(msrest.serialization.Model):
 class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
     """sectionGroup.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
@@ -19118,10 +18255,8 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -19141,8 +18276,6 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
         **kwargs
     ):
         super(MicrosoftGraphSectionGroup, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.section_groups_url = kwargs.get('section_groups_url', None)
         self.sections_url = kwargs.get('sections_url', None)
@@ -19316,9 +18449,6 @@ class MicrosoftGraphSecurityBaselineState(MicrosoftGraphEntity):
 class MicrosoftGraphSecurityQuestionAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """securityQuestionAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -19327,7 +18457,6 @@ class MicrosoftGraphSecurityQuestionAuthenticationMethod(MicrosoftGraphAuthentic
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -19337,7 +18466,6 @@ class MicrosoftGraphSecurityQuestionAuthenticationMethod(MicrosoftGraphAuthentic
         **kwargs
     ):
         super(MicrosoftGraphSecurityQuestionAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -19954,9 +19082,6 @@ class MicrosoftGraphSharingLink(msrest.serialization.Model):
 class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     """shift.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -19987,7 +19112,6 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -20006,7 +19130,6 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphShift, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.draft_shift = kwargs.get('draft_shift', None)
         self.is_staged_for_deletion = kwargs.get('is_staged_for_deletion', None)
@@ -20100,9 +19223,6 @@ class MicrosoftGraphShiftAvailability(msrest.serialization.Model):
 class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
     """shiftPreferences.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -20126,7 +19246,6 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -20141,7 +19260,6 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphShiftPreferences, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.availability = kwargs.get('availability', None)
 
@@ -20204,9 +19322,6 @@ class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):
 class MicrosoftGraphSite(MicrosoftGraphBaseItem):
     """site.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -20268,7 +19383,6 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -20304,7 +19418,6 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
         **kwargs
     ):
         super(MicrosoftGraphSite, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.deleted = kwargs.get('deleted', None)
         self.display_name = kwargs.get('display_name', None)
@@ -20359,9 +19472,6 @@ class MicrosoftGraphSiteCollection(msrest.serialization.Model):
 class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
     """sitePage.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -20402,7 +19512,6 @@ class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -20428,7 +19537,6 @@ class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
         **kwargs
     ):
         super(MicrosoftGraphSitePage, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content_type = kwargs.get('content_type', None)
         self.page_layout_type = kwargs.get('page_layout_type', None)
@@ -20475,9 +19583,6 @@ class MicrosoftGraphSizeRange(msrest.serialization.Model):
 class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     """skillProficiency.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -20512,7 +19617,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -20535,7 +19639,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphSkillProficiency, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.collaboration_tags = kwargs.get('collaboration_tags', None)
         self.display_name = kwargs.get('display_name', None)
@@ -20546,9 +19649,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
 class MicrosoftGraphSoftwareOathAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """softwareOathAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -20557,7 +19657,6 @@ class MicrosoftGraphSoftwareOathAuthenticationMethod(MicrosoftGraphAuthenticatio
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -20567,7 +19666,6 @@ class MicrosoftGraphSoftwareOathAuthenticationMethod(MicrosoftGraphAuthenticatio
         **kwargs
     ):
         super(MicrosoftGraphSoftwareOathAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -20731,9 +19829,6 @@ class MicrosoftGraphSubscription(MicrosoftGraphEntity):
 class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
     """swapShiftsChangeRequest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -20748,9 +19843,6 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -20801,13 +19893,11 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -20834,8 +19924,6 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
         **kwargs
     ):
         super(MicrosoftGraphSwapShiftsChangeRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.recipient_shift_id = kwargs.get('recipient_shift_id', None)
 
@@ -21482,9 +20570,6 @@ class MicrosoftGraphTeamsTemplate(MicrosoftGraphEntity):
 class MicrosoftGraphTemporaryAccessPassAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """temporaryAccessPassAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -21493,7 +20578,6 @@ class MicrosoftGraphTemporaryAccessPassAuthenticationMethod(MicrosoftGraphAuthen
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -21503,7 +20587,6 @@ class MicrosoftGraphTemporaryAccessPassAuthenticationMethod(MicrosoftGraphAuthen
         **kwargs
     ):
         super(MicrosoftGraphTemporaryAccessPassAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -21737,9 +20820,6 @@ class MicrosoftGraphThumbnailSet(MicrosoftGraphEntity):
 class MicrosoftGraphTimeCard(MicrosoftGraphChangeTrackedEntity):
     """timeCard.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -21777,7 +20857,6 @@ class MicrosoftGraphTimeCard(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -21799,7 +20878,6 @@ class MicrosoftGraphTimeCard(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphTimeCard, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.breaks = kwargs.get('breaks', None)
         self.clock_in_event = kwargs.get('clock_in_event', None)
@@ -21938,9 +21016,6 @@ class MicrosoftGraphTimeClockSettings(msrest.serialization.Model):
 class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
     """timeOff.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -21969,7 +21044,6 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -21987,7 +21061,6 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphTimeOff, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.draft_time_off = kwargs.get('draft_time_off', None)
         self.is_staged_for_deletion = kwargs.get('is_staged_for_deletion', None)
@@ -22032,9 +21105,6 @@ class MicrosoftGraphTimeOffItem(MicrosoftGraphScheduleEntity):
 class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     """timeOffReason.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -22064,7 +21134,6 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -22082,7 +21151,6 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     ):
         super(MicrosoftGraphTimeOffReason, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.icon_type = kwargs.get('icon_type', None)
         self.is_active = kwargs.get('is_active', None)
@@ -22093,9 +21161,6 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_by: identitySet.
     :type created_by: ~education.models.MicrosoftGraphIdentitySet
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -22143,7 +21208,6 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -22167,7 +21231,6 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
         **kwargs
     ):
         super(MicrosoftGraphTimeOffRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.end_date_time = kwargs.get('end_date_time', None)
         self.start_date_time = kwargs.get('start_date_time', None)
@@ -22565,9 +21628,6 @@ class MicrosoftGraphUsedInsight(MicrosoftGraphEntity):
 class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory user object.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -22953,7 +22013,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -23097,7 +22156,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     ):
         super(MicrosoftGraphUser, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.sign_in_activity = kwargs.get('sign_in_activity', None)
         self.account_enabled = kwargs.get('account_enabled', None)
         self.age_group = kwargs.get('age_group', None)
@@ -23235,9 +22293,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
 class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     """userAccountInformation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -23269,7 +22324,6 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -23290,7 +22344,6 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphUserAccountInformation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.age_group = kwargs.get('age_group', None)
         self.country_code = kwargs.get('country_code', None)
@@ -23457,9 +22510,6 @@ class MicrosoftGraphUserConfiguration(MicrosoftGraphEntity):
 class MicrosoftGraphUserConsentRequest(MicrosoftGraphRequest):
     """userConsentRequest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param approval: approval.
@@ -23478,7 +22528,6 @@ class MicrosoftGraphUserConsentRequest(MicrosoftGraphRequest):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'approval': {'key': 'approval', 'type': 'MicrosoftGraphApproval'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -23493,7 +22542,6 @@ class MicrosoftGraphUserConsentRequest(MicrosoftGraphRequest):
         **kwargs
     ):
         super(MicrosoftGraphUserConsentRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
@@ -23567,9 +22615,6 @@ class MicrosoftGraphUserPurpose(msrest.serialization.Model):
 class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstallation):
     """userScopeTeamsAppInstallation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param teams_app: teamsApp.
@@ -23584,7 +22629,6 @@ class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstalla
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'teams_app': {'key': 'teamsApp', 'type': 'MicrosoftGraphTeamsApp'},
         'teams_app_definition': {'key': 'teamsAppDefinition', 'type': 'MicrosoftGraphTeamsAppDefinition'},
@@ -23597,7 +22641,6 @@ class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstalla
         **kwargs
     ):
         super(MicrosoftGraphUserScopeTeamsAppInstallation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.chat = kwargs.get('chat', None)
 
@@ -23836,9 +22879,6 @@ class MicrosoftGraphVisualProperties(msrest.serialization.Model):
 class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     """webAccount.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -23872,7 +22912,6 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -23894,7 +22933,6 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphWebAccount, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.service = kwargs.get('service', None)
@@ -25891,9 +24929,6 @@ class MicrosoftGraphWorkingHours(msrest.serialization.Model):
 class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     """workPosition.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -25927,7 +24962,6 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -25949,7 +24983,6 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphWorkPosition, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.colleagues = kwargs.get('colleagues', None)

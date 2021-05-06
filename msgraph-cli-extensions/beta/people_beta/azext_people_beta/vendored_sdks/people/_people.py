@@ -18,21 +18,21 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import PeopleConfiguration
-from .operations import UserOperations
-from .operations import UserAnalyticOperations
-from .operations import UserProfileOperations
+from .operations import UsersOperations
+from .operations import UsersAnalyticsOperations
+from .operations import UsersProfileOperations
 from . import models
 
 
 class People(object):
     """People.
 
-    :ivar user: UserOperations operations
-    :vartype user: people.operations.UserOperations
-    :ivar user_analytic: UserAnalyticOperations operations
-    :vartype user_analytic: people.operations.UserAnalyticOperations
-    :ivar user_profile: UserProfileOperations operations
-    :vartype user_profile: people.operations.UserProfileOperations
+    :ivar users: UsersOperations operations
+    :vartype users: people.operations.UsersOperations
+    :ivar users_analytics: UsersAnalyticsOperations operations
+    :vartype users_analytics: people.operations.UsersAnalyticsOperations
+    :ivar users_profile: UsersProfileOperations operations
+    :vartype users_profile: people.operations.UsersProfileOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -46,7 +46,6 @@ class People(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -68,13 +67,14 @@ class People(object):
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = UsersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_analytic = UserAnalyticOperations(
+        self.users_analytics = UsersAnalyticsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_profile = UserProfileOperations(
+        self.users_profile = UsersProfileOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

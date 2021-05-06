@@ -1,5 +1,127 @@
-Microsoft Azure CLI 'notes_beta' Extension
-==========================================
+# Azure CLI notes_beta Extension #
+This is the extension for notes_beta
 
-This package is for the 'notes_beta' extension.
-i.e. 'az notes_beta'
+### How to use ###
+Install this extension using the below CLI command
+```
+az extension add --name notes_beta
+```
+
+### Included Features ###
+#### notes group ####
+#### notes group-onenote ####
+#### notes group-onenotebook ####
+#### notes group-onenotebook-section-group ####
+#### notes group-onenotebook-section-group-section ####
+#### notes group-onenotebook-section-group-section-page ####
+#### notes group-onenotebook-section ####
+#### notes group-onenotebook-section-page ####
+#### notes group-onenotebook-section-parent-section-group ####
+#### notes group-onenote-page ####
+#### notes group-onenote-page-parent-notebook ####
+#### notes group-onenote-page-parent-notebook-section-group ####
+#### notes group-onenote-page-parent-notebook-section-group-section ####
+#### notes group-onenote-parent-notebook-section-group-section-page ####
+#### notes group-onenote-page-parent-notebook-section ####
+#### notes group-onenote-parent-notebook-section-page ####
+#### notes group-onenote-page-parent-notebook-section-parent-section-group ####
+#### notes group-onenote-page-parent-section ####
+#### notes group-onenote-parent-section-page ####
+#### notes group-onenote-page-parent-section-parent-notebook ####
+#### notes group-onenote-page-parent-section-parent-notebook-section-group ####
+#### notes group-onenote-page-parent-section-parent-section-group ####
+#### notes group-onenote-page-parent-section-parent-section-group-parent-notebook ####
+#### notes group-onenote-section-group ####
+#### notes group-onenote-section-group-parent-notebook ####
+#### notes group-onenote-section-group-parent-notebook-section ####
+#### notes group-onenote-section-group-parent-notebook-section-page ####
+#### notes group-onenote-section-group-section ####
+#### notes group-onenote-section-group-section-page ####
+#### notes group-onenote-section-group-section-page-parent-notebook ####
+#### notes group-onenote-section-group-section-parent-notebook ####
+#### notes group-onenote-section ####
+#### notes group-onenote-section-page ####
+#### notes group-onenote-section-page-parent-notebook ####
+#### notes group-onenote-section-page-parent-notebook-section-group ####
+#### notes group-onenote-section-parent-notebook ####
+#### notes group-onenote-section-parent-notebook-section-group ####
+#### notes group-onenote-section-parent-section-group ####
+#### notes group-onenote-section-parent-section-group-parent-notebook ####
+#### notes site ####
+#### notes site-onenote ####
+#### notes site-onenotebook ####
+#### notes site-onenotebook-section-group ####
+#### notes site-onenotebook-section-group-section ####
+#### notes site-onenotebook-section-group-section-page ####
+#### notes site-onenotebook-section ####
+#### notes site-onenotebook-section-page ####
+#### notes site-onenotebook-section-parent-section-group ####
+#### notes site-onenote-page ####
+#### notes site-onenote-page-parent-notebook ####
+#### notes site-onenote-page-parent-notebook-section-group ####
+#### notes site-onenote-page-parent-notebook-section-group-section ####
+#### notes site-onenote-parent-notebook-section-group-section-page ####
+#### notes site-onenote-page-parent-notebook-section ####
+#### notes site-onenote-parent-notebook-section-page ####
+#### notes site-onenote-page-parent-notebook-section-parent-section-group ####
+#### notes site-onenote-page-parent-section ####
+#### notes site-onenote-parent-section-page ####
+#### notes site-onenote-page-parent-section-parent-notebook ####
+#### notes site-onenote-page-parent-section-parent-notebook-section-group ####
+#### notes site-onenote-page-parent-section-parent-section-group ####
+#### notes site-onenote-page-parent-section-parent-section-group-parent-notebook ####
+#### notes site-onenote-section-group ####
+#### notes site-onenote-section-group-parent-notebook ####
+#### notes site-onenote-section-group-parent-notebook-section ####
+#### notes site-onenote-section-group-parent-notebook-section-page ####
+#### notes site-onenote-section-group-section ####
+#### notes site-onenote-section-group-section-page ####
+#### notes site-onenote-section-group-section-page-parent-notebook ####
+#### notes site-onenote-section-group-section-parent-notebook ####
+#### notes site-onenote-section ####
+#### notes site-onenote-section-page ####
+#### notes site-onenote-section-page-parent-notebook ####
+#### notes site-onenote-section-page-parent-notebook-section-group ####
+#### notes site-onenote-section-parent-notebook ####
+#### notes site-onenote-section-parent-notebook-section-group ####
+#### notes site-onenote-section-parent-section-group ####
+#### notes site-onenote-section-parent-section-group-parent-notebook ####
+#### notes user ####
+#### notes user-onenote ####
+#### notes user-onenotebook ####
+#### notes user-onenotebook-section-group ####
+#### notes user-onenotebook-section-group-section ####
+#### notes user-onenotebook-section-group-section-page ####
+#### notes user-onenotebook-section ####
+#### notes user-onenotebook-section-page ####
+#### notes user-onenotebook-section-parent-section-group ####
+#### notes user-onenote-page ####
+#### notes user-onenote-page-parent-notebook ####
+#### notes user-onenote-page-parent-notebook-section-group ####
+#### notes user-onenote-page-parent-notebook-section-group-section ####
+#### notes user-onenote-parent-notebook-section-group-section-page ####
+#### notes user-onenote-page-parent-notebook-section ####
+#### notes user-onenote-parent-notebook-section-page ####
+#### notes user-onenote-page-parent-notebook-section-parent-section-group ####
+#### notes user-onenote-page-parent-section ####
+#### notes user-onenote-parent-section-page ####
+#### notes user-onenote-page-parent-section-parent-notebook ####
+#### notes user-onenote-page-parent-section-parent-notebook-section-group ####
+#### notes user-onenote-page-parent-section-parent-section-group ####
+#### notes user-onenote-page-parent-section-parent-section-group-parent-notebook ####
+#### notes user-onenote-section-group ####
+#### notes user-onenote-section-group-parent-notebook ####
+#### notes user-onenote-section-group-parent-notebook-section ####
+#### notes user-onenote-section-group-parent-notebook-section-page ####
+#### notes user-onenote-section-group-section ####
+#### notes user-onenote-section-group-section-page ####
+#### notes user-onenote-section-group-section-page-parent-notebook ####
+#### notes user-onenote-section-group-section-parent-notebook ####
+#### notes user-onenote-section ####
+#### notes user-onenote-section-page ####
+#### notes user-onenote-section-page-parent-notebook ####
+#### notes user-onenote-section-page-parent-notebook-section-group ####
+#### notes user-onenote-section-parent-notebook ####
+#### notes user-onenote-section-parent-notebook-section-group ####
+#### notes user-onenote-section-parent-section-group ####
+#### notes user-onenote-section-parent-section-group-parent-notebook ####

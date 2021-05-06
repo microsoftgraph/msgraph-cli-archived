@@ -41,6 +41,9 @@ class AddCourse(argparse.Action):
                 d['external_id'] = v[0]
             elif kl == 'subject':
                 d['subject'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter course. All possible keys are: '
+                               'course-number, description, display-name, external-id, subject'.format(k))
         return d
 
 
@@ -69,6 +72,9 @@ class AddTerm(argparse.Action):
                 d['external_id'] = v[0]
             elif kl == 'start-date':
                 d['start_date'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter term. All possible keys are: '
+                               'display-name, end-date, external-id, start-date'.format(k))
         return d
 
 
@@ -93,6 +99,36 @@ class AddAssignmentCategories(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter assignment_categories. All possible keys '
+                               'are: display-name, id'.format(k))
+        return d
+
+
+class AddApplication(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.application = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -127,13 +163,16 @@ class AddMailingAddress(argparse.Action):
                 d['street'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter address. All possible keys are: city, '
+                               'country-or-region, postal-code, post-office-box, state, street, type'.format(k))
         return d
 
 
-class AddAdministrativeUnitMembers(argparse._AppendAction):
+class AddMembers(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddAdministrativeUnitMembers, self).__call__(parser, namespace, action, option_string)
+        super(AddMembers, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -151,13 +190,16 @@ class AddAdministrativeUnitMembers(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter members. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
-class AddAdministrativeUnitExtensions(argparse._AppendAction):
+class AddExtensions(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddAdministrativeUnitExtensions, self).__call__(parser, namespace, action, option_string)
+        super(AddExtensions, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -173,6 +215,9 @@ class AddAdministrativeUnitExtensions(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter extensions. All possible keys are: id'.
+                format(k))
         return d
 
 
@@ -197,6 +242,9 @@ class AddLicensesToAssign(argparse._AppendAction):
                 d['applies_to'] = v[0]
             elif kl == 'sku-ids':
                 d['sku_ids'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter licenses_to_assign. All possible keys '
+                               'are: applies-to, sku-ids'.format(k))
         return d
 
 
@@ -231,6 +279,10 @@ class AddErrors(argparse._AppendAction):
                 d['reportable_identifier'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter errors. All possible keys are: '
+                               'entry-type, error-code, error-message, joining-value, recorded-date-time, '
+                               'reportable-identifier, id'.format(k))
         return d
 
 
@@ -257,6 +309,9 @@ class AddProfileStatus(argparse.Action):
                 d['status'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter profile_status. All possible keys are: '
+                               'last-synchronization-date-time, status, id'.format(k))
         return d
 
 
@@ -289,6 +344,9 @@ class AddRelatedContacts(argparse._AppendAction):
                 d['mobile_phone'] = v[0]
             elif kl == 'relationship':
                 d['relationship'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter related_contacts. All possible keys are: '
+                               'access-consent, display-name, email-address, id, mobile-phone, relationship'.format(k))
         return d
 
 
@@ -313,6 +371,9 @@ class AddAssignedLicenses(argparse._AppendAction):
                 d['disabled_plans'] = v
             elif kl == 'sku-id':
                 d['sku_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter assigned_licenses. All possible keys are: '
+                               'disabled-plans, sku-id'.format(k))
         return d
 
 
@@ -341,6 +402,9 @@ class AddAssignedPlans(argparse._AppendAction):
                 d['service'] = v[0]
             elif kl == 'service-plan-id':
                 d['service_plan_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter assigned_plans. All possible keys are: '
+                               'assigned-date-time, capability-status, service, service-plan-id'.format(k))
         return d
 
 
@@ -367,6 +431,10 @@ class AddPasswordProfile(argparse.Action):
                 d['force_change_password_next_sign_in_with_mfa'] = v[0]
             elif kl == 'password':
                 d['password'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter password_profile. All possible keys are: '
+                               'force-change-password-next-sign-in, force-change-password-next-sign-in-with-mfa, '
+                               'password'.format(k))
         return d
 
 
@@ -393,6 +461,9 @@ class AddProvisionedPlans(argparse._AppendAction):
                 d['provisioning_status'] = v[0]
             elif kl == 'service':
                 d['service'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter provisioned_plans. All possible keys are: '
+                               'capability-status, provisioning-status, service'.format(k))
         return d
 
 
@@ -425,6 +496,9 @@ class AddStudent(argparse.Action):
                 d['graduation_year'] = v[0]
             elif kl == 'student-number':
                 d['student_number'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter student. All possible keys are: '
+                               'birth-date, external-id, gender, grade, graduation-year, student-number'.format(k))
         return d
 
 
@@ -449,6 +523,9 @@ class AddTeacher(argparse.Action):
                 d['external_id'] = v[0]
             elif kl == 'teacher-number':
                 d['teacher_number'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter teacher. All possible keys are: '
+                               'external-id, teacher-number'.format(k))
         return d
 
 
@@ -473,6 +550,9 @@ class AddInstructions(argparse.Action):
                 d['content'] = v[0]
             elif kl == 'content-type':
                 d['content_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter instructions. All possible keys are: '
+                               'content, content-type'.format(k))
         return d
 
 
@@ -497,72 +577,7 @@ class AddCategories(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
-        return d
-
-
-class AddResourceCreatedBy(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.resource_created_by = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name-user-display-name':
-                d['display_name_user_display_name'] = v[0]
-            elif kl == 'id-user-id':
-                d['id_user_id'] = v[0]
-            elif kl == 'display-name-device-display-name':
-                d['display_name_device_display_name'] = v[0]
-            elif kl == 'id-device-id':
-                d['id_device_id'] = v[0]
-            elif kl == 'display-name-application-display-name':
-                d['display_name_application_display_name'] = v[0]
-            elif kl == 'id-application-id':
-                d['id_application_id'] = v[0]
-        return d
-
-
-class AddOutcomes(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddOutcomes, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter categories. All possible keys are: '
+                               'display-name, id'.format(k))
         return d

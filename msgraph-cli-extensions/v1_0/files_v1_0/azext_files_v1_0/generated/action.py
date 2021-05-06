@@ -14,10 +14,10 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddParentReferenceSharepointIds(argparse.Action):
+class AddSharepointIds(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.parent_reference_sharepoint_ids = action
+        namespace.sharepoint_ids = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -45,13 +45,44 @@ class AddParentReferenceSharepointIds(argparse.Action):
                 d['tenant_id'] = v[0]
             elif kl == 'web-id':
                 d['web_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter sharepoint_ids. All possible keys are: '
+                               'list-id, list-item-id, list-item-unique-id, site-id, site-url, tenant-id, web-id'.
+                               format(k))
         return d
 
 
-class AddListList(argparse.Action):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.list_list = action
+        namespace.application = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'display-name':
+                d['display_name'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
+        return d
+
+
+class AddList(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.list = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -71,13 +102,16 @@ class AddListList(argparse.Action):
                 d['hidden'] = v[0]
             elif kl == 'template':
                 d['template'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter list. All possible keys are: '
+                               'content-types-enabled, hidden, template'.format(k))
         return d
 
 
-class AddFilesDriveUpdateListSubscriptions(argparse._AppendAction):
+class AddDrivesDriveSubscriptions(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFilesDriveUpdateListSubscriptions, self).__call__(parser, namespace, action, option_string)
+        super(AddDrivesDriveSubscriptions, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -117,13 +151,19 @@ class AddFilesDriveUpdateListSubscriptions(argparse._AppendAction):
                 d['resource'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter subscriptions. All possible keys are: '
+                               'application-id, change-type, client-state, creator-id, encryption-certificate, '
+                               'encryption-certificate-id, expiration-date-time, include-resource-data, '
+                               'latest-supported-tls-version, lifecycle-notification-url, notification-url, resource, '
+                               'id'.format(k))
         return d
 
 
-class AddQuotaStoragePlanInformation(argparse.Action):
+class AddStoragePlanInformation(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.quota_storage_plan_information = action
+        namespace.storage_plan_information = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -139,6 +179,9 @@ class AddQuotaStoragePlanInformation(argparse.Action):
             v = properties[k]
             if kl == 'upgrade-available':
                 d['upgrade_available'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter storage_plan_information. All possible '
+                               'keys are: upgrade-available'.format(k))
         return d
 
 
@@ -191,6 +234,10 @@ class AddAudio(argparse.Action):
                 d['track_count'] = v[0]
             elif kl == 'year':
                 d['year'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter audio. All possible keys are: album, '
+                               'album-artist, artist, bitrate, composers, copyright, disc, disc-count, duration, '
+                               'genre, has-drm, is-variable-bitrate, title, track, track-count, year'.format(k))
         return d
 
 
@@ -217,6 +264,9 @@ class AddFileSystemInfo(argparse.Action):
                 d['last_accessed_date_time'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter file_system_info. All possible keys are: '
+                               'created-date-time, last-accessed-date-time, last-modified-date-time'.format(k))
         return d
 
 
@@ -241,6 +291,9 @@ class AddImage(argparse.Action):
                 d['height'] = v[0]
             elif kl == 'width':
                 d['width'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter image. All possible keys are: height, '
+                               'width'.format(k))
         return d
 
 
@@ -267,6 +320,9 @@ class AddLocation(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter location. All possible keys are: '
+                               'altitude, latitude, longitude'.format(k))
         return d
 
 
@@ -305,6 +361,10 @@ class AddPhoto(argparse.Action):
                 d['orientation'] = v[0]
             elif kl == 'taken-date-time':
                 d['taken_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter photo. All possible keys are: '
+                               'camera-make, camera-model, exposure-denominator, exposure-numerator, f-number, '
+                               'focal-length, iso, orientation, taken-date-time'.format(k))
         return d
 
 
@@ -329,6 +389,9 @@ class AddPublication(argparse.Action):
                 d['level'] = v[0]
             elif kl == 'version-id':
                 d['version_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter publication. All possible keys are: '
+                               'level, version-id'.format(k))
         return d
 
 
@@ -369,13 +432,17 @@ class AddVideo(argparse.Action):
                 d['height'] = v[0]
             elif kl == 'width':
                 d['width'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter video. All possible keys are: '
+                               'audio-bits-per-sample, audio-channels, audio-format, audio-samples-per-second, '
+                               'bitrate, duration, four-cc, frame-rate, height, width'.format(k))
         return d
 
 
-class AddFilesDriveCreateFollowingSubscriptions(argparse._AppendAction):
+class AddDrivesSubscriptions(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFilesDriveCreateFollowingSubscriptions, self).__call__(parser, namespace, action, option_string)
+        super(AddDrivesSubscriptions, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -415,6 +482,12 @@ class AddFilesDriveCreateFollowingSubscriptions(argparse._AppendAction):
                 d['resource'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter subscriptions. All possible keys are: '
+                               'application-id, change-type, client-state, creator-id, encryption-certificate, '
+                               'encryption-certificate-id, expiration-date-time, include-resource-data, '
+                               'latest-supported-tls-version, lifecycle-notification-url, notification-url, resource, '
+                               'id'.format(k))
         return d
 
 
@@ -443,27 +516,24 @@ class AddDrivesVersions(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'publication':
                 d['publication'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
+            elif kl == 'application':
+                d['application'] = v[0]
+            elif kl == 'device':
+                d['device'] = v[0]
+            elif kl == 'user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter versions. All possible keys are: content, '
+                               'size, last-modified-date-time, publication, application, device, user, id'.format(k))
         return d
 
 
-class AddListItemContentType(argparse.Action):
+class AddContentType(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.list_item_content_type = action
+        namespace.content_type = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -481,6 +551,9 @@ class AddListItemContentType(argparse.Action):
                 d['id'] = v[0]
             elif kl == 'name':
                 d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter content_type. All possible keys are: id, '
+                               'name'.format(k))
         return d
 
 
@@ -502,32 +575,30 @@ class AddDrivesListVersions(argparse._AppendAction):
             kl = k.lower()
             v = properties[k]
             if kl == 'id-fields-id':
-                d['id_fields_id'] = v[0]
+                d['id'] = v[0]
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
             elif kl == 'publication':
                 d['publication'] = v[0]
-            elif kl == 'display-name-last-modified-by-user-display-name':
-                d['display_name_last_modified_by_user_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-user-id':
-                d['id_last_modified_by_user_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-device-display-name':
-                d['display_name_last_modified_by_device_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-device-id':
-                d['id_last_modified_by_device_id'] = v[0]
-            elif kl == 'display-name-last-modified-by-application-display-name':
-                d['display_name_last_modified_by_application_display_name'] = v[0]
-            elif kl == 'id-last-modified-by-application-id':
-                d['id_last_modified_by_application_id'] = v[0]
+            elif kl == 'application':
+                d['application'] = v[0]
+            elif kl == 'device':
+                d['device'] = v[0]
+            elif kl == 'user':
+                d['user'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter microsoft_graph_list_item_versions. All '
+                               'possible keys are: id-fields-id, last-modified-date-time, publication, application, '
+                               'device, user, id'.format(k))
         return d
 
 
-class AddWorkbookApplication(argparse.Action):
+class AddMicrosoftGraphWorkbookApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.workbook_application = action
+        namespace.microsoft_graph_workbook_application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -545,41 +616,16 @@ class AddWorkbookApplication(argparse.Action):
                 d['calculation_mode'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter microsoft_graph_workbook_application. All '
+                               'possible keys are: calculation-mode, id'.format(k))
         return d
 
 
-class AddWorkbookComments(argparse._AppendAction):
+class AddFunctions(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddWorkbookComments, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'content':
-                d['content'] = v[0]
-            elif kl == 'content-type':
-                d['content_type'] = v[0]
-            elif kl == 'replies':
-                d['replies'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddWorkbookFunctions(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.workbook_functions = action
+        namespace.functions = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -595,45 +641,16 @@ class AddWorkbookFunctions(argparse.Action):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter functions. All possible keys are: id'.
+                format(k))
         return d
 
 
-class AddSharedOwner(argparse.Action):
+class AddPackage(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.shared_owner = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name-user-display-name':
-                d['display_name_user_display_name'] = v[0]
-            elif kl == 'id-user-id':
-                d['id_user_id'] = v[0]
-            elif kl == 'display-name-device-display-name':
-                d['display_name_device_display_name'] = v[0]
-            elif kl == 'id-device-id':
-                d['id_device_id'] = v[0]
-            elif kl == 'display-name-application-display-name':
-                d['display_name_application_display_name'] = v[0]
-            elif kl == 'id-application-id':
-                d['id_application_id'] = v[0]
-        return d
-
-
-class AddRemoteItemPackage(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.remote_item_package = action
+        namespace.package = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -649,13 +666,16 @@ class AddRemoteItemPackage(argparse.Action):
             v = properties[k]
             if kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter package. All possible keys are: type'.
+                format(k))
         return d
 
 
-class AddRemoteItemSpecialFolder(argparse.Action):
+class AddSpecialFolder(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.remote_item_special_folder = action
+        namespace.special_folder = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -671,13 +691,16 @@ class AddRemoteItemSpecialFolder(argparse.Action):
             v = properties[k]
             if kl == 'name':
                 d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter special_folder. All possible keys are: '
+                               'name'.format(k))
         return d
 
 
-class AddFolderView(argparse.Action):
+class AddView(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.folder_view = action
+        namespace.view = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -697,13 +720,16 @@ class AddFolderView(argparse.Action):
                 d['sort_order'] = v[0]
             elif kl == 'view-type':
                 d['view_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter view. All possible keys are: sort-by, '
+                               'sort-order, view-type'.format(k))
         return d
 
 
-class AddFileHashes(argparse.Action):
+class AddHashes(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.file_hashes = action
+        namespace.hashes = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -725,6 +751,9 @@ class AddFileHashes(argparse.Action):
                 d['sha1_hash'] = v[0]
             elif kl == 'sha256-hash':
                 d['sha256_hash'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter hashes. All possible keys are: '
+                               'crc32-hash, quick-xor-hash, sha1-hash, sha256-hash'.format(k))
         return d
 
 
@@ -751,6 +780,9 @@ class AddCalculated(argparse.Action):
                 d['formula'] = v[0]
             elif kl == 'output-type':
                 d['output_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter calculated. All possible keys are: '
+                               'format, formula, output-type'.format(k))
         return d
 
 
@@ -777,6 +809,9 @@ class AddChoice(argparse.Action):
                 d['choices'] = v
             elif kl == 'display-as':
                 d['display_as'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter choice. All possible keys are: '
+                               'allow-text-entry, choices, display-as'.format(k))
         return d
 
 
@@ -801,6 +836,9 @@ class AddDateTime(argparse.Action):
                 d['display_as'] = v[0]
             elif kl == 'format':
                 d['format'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter date_time. All possible keys are: '
+                               'display-as, format'.format(k))
         return d
 
 
@@ -825,6 +863,9 @@ class AddDefaultValue(argparse.Action):
                 d['formula'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter default_value. All possible keys are: '
+                               'formula, value'.format(k))
         return d
 
 
@@ -855,6 +896,10 @@ class AddLookup(argparse.Action):
                 d['list_id'] = v[0]
             elif kl == 'primary-lookup-column-id':
                 d['primary_lookup_column_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter lookup. All possible keys are: '
+                               'allow-multiple-values, allow-unlimited-length, column-name, list-id, '
+                               'primary-lookup-column-id'.format(k))
         return d
 
 
@@ -883,6 +928,9 @@ class AddNumber(argparse.Action):
                 d['maximum'] = v[0]
             elif kl == 'minimum':
                 d['minimum'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter number. All possible keys are: '
+                               'decimal-places, display-as, maximum, minimum'.format(k))
         return d
 
 
@@ -909,6 +957,9 @@ class AddPersonOrGroup(argparse.Action):
                 d['choose_from_type'] = v[0]
             elif kl == 'display-as':
                 d['display_as'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter person_or_group. All possible keys are: '
+                               'allow-multiple-selection, choose-from-type, display-as'.format(k))
         return d
 
 
@@ -939,6 +990,10 @@ class AddText(argparse.Action):
                 d['max_length'] = v[0]
             elif kl == 'text-type':
                 d['text_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter text. All possible keys are: '
+                               'allow-multiple-lines, append-changes-to-existing-text, lines-for-editing, max-length, '
+                               'text-type'.format(k))
         return d
 
 
@@ -963,6 +1018,9 @@ class AddOrder(argparse.Action):
                 d['default'] = v[0]
             elif kl == 'position':
                 d['position'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter order. All possible keys are: default, '
+                               'position'.format(k))
         return d
 
 
@@ -987,69 +1045,16 @@ class AddColumnLinks(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter column_links. All possible keys are: '
+                               'name, id'.format(k))
         return d
 
 
-class AddPermissionGrantedToIdentities(argparse._AppendAction):
+class AddResources(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddPermissionGrantedToIdentities, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name-user-display-name':
-                d['display_name_user_display_name'] = v[0]
-            elif kl == 'id-user-id':
-                d['id_user_id'] = v[0]
-            elif kl == 'display-name-device-display-name':
-                d['display_name_device_display_name'] = v[0]
-            elif kl == 'id-device-id':
-                d['id_device_id'] = v[0]
-            elif kl == 'display-name-application-display-name':
-                d['display_name_application_display_name'] = v[0]
-            elif kl == 'id-application-id':
-                d['id_application_id'] = v[0]
-        return d
-
-
-class AddPermissionLinkApplication(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.permission_link_application = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddOnenoteResources(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddOnenoteResources, self).__call__(parser, namespace, action, option_string)
+        super(AddResources, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1071,13 +1076,16 @@ class AddOnenoteResources(argparse._AppendAction):
                 d['self_property'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter resources. All possible keys are: '
+                               'content, content-url, self, id'.format(k))
         return d
 
 
-class AddErrorDetails(argparse._AppendAction):
+class AddDetails(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddErrorDetails, self).__call__(parser, namespace, action, option_string)
+        super(AddDetails, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1097,13 +1105,16 @@ class AddErrorDetails(argparse._AppendAction):
                 d['message'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter details. All possible keys are: code, '
+                               'message, target'.format(k))
         return d
 
 
-class AddErrorInnerError(argparse.Action):
+class AddInnerError(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.error_inner_error = action
+        namespace.inner_error = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -1125,6 +1136,9 @@ class AddErrorInnerError(argparse.Action):
                 d['message'] = v[0]
             elif kl == 'target':
                 d['target'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter inner_error. All possible keys are: code, '
+                               'details, message, target'.format(k))
         return d
 
 
@@ -1151,4 +1165,7 @@ class AddRecipients(argparse._AppendAction):
                 d['email'] = v[0]
             elif kl == 'object-id':
                 d['object_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter recipients. All possible keys are: alias, '
+                               'email, object-id'.format(k))
         return d

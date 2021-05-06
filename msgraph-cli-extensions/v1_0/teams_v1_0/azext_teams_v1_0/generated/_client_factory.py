@@ -11,7 +11,7 @@
 
 def cf_teams_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.teams import Teams
+    from azext_teams_v1_0.vendored_sdks.teams import Teams
     return get_mgmt_service_client(cli_ctx,
                                    Teams,
                                    subscription_bound=False,
@@ -19,55 +19,55 @@ def cf_teams_v1_0_cl(cli_ctx, *_):
 
 
 def cf_chat_chat(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).chat_chat
+    return cf_teams_v1_0_cl(cli_ctx).chats_chat
 
 
 def cf_chat(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).chat
+    return cf_teams_v1_0_cl(cli_ctx).chats
 
 
 def cf_group(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).group
+    return cf_teams_v1_0_cl(cli_ctx).groups
 
 
 def cf_team_team(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).team_team
+    return cf_teams_v1_0_cl(cli_ctx).teams_team
 
 
 def cf_team(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).team
+    return cf_teams_v1_0_cl(cli_ctx).teams
 
 
 def cf_team_channel(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).team_channel
+    return cf_teams_v1_0_cl(cli_ctx).teams_channels
 
 
 def cf_team_channel_message(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).team_channel_message
+    return cf_teams_v1_0_cl(cli_ctx).teams_channels_messages
 
 
 def cf_team_channel_tab(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).team_channel_tab
+    return cf_teams_v1_0_cl(cli_ctx).teams_channels_tabs
 
 
 def cf_team_installed_app(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).team_installed_app
+    return cf_teams_v1_0_cl(cli_ctx).teams_installed_apps
 
 
 def cf_team_primary_channel(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).team_primary_channel
+    return cf_teams_v1_0_cl(cli_ctx).teams_primary_channel
 
 
 def cf_team_primary_channel_message(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).team_primary_channel_message
+    return cf_teams_v1_0_cl(cli_ctx).teams_primary_channel_messages
 
 
 def cf_team_primary_channel_tab(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).team_primary_channel_tab
+    return cf_teams_v1_0_cl(cli_ctx).teams_primary_channel_tabs
 
 
 def cf_team_schedule(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).team_schedule
+    return cf_teams_v1_0_cl(cli_ctx).teams_schedule
 
 
 def cf_teamwork_teamwork(cli_ctx, *_):
@@ -79,4 +79,4 @@ def cf_teamwork(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_teams_v1_0_cl(cli_ctx).user
+    return cf_teams_v1_0_cl(cli_ctx).users

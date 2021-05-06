@@ -19,7 +19,6 @@ from azext_financials_beta.action import (
     AddAgedAccountsReceivable,
     AddCountriesRegions,
     AddCurrencies,
-    AddDimensions,
     AddFinancialsDimensionValues,
     AddItemCategories,
     AddPaymentMethods,
@@ -30,32 +29,28 @@ from azext_financials_beta.action import (
     AddTaxGroups,
     AddUnitsOfMeasure,
     AddAddress,
-    AddCustomerCurrency,
-    AddCustomerPaymentMethod,
-    AddCustomerPaymentTerm,
+    AddCurrency,
+    AddPaymentMethod,
+    AddPaymentTerm,
     AddFinancialsCompaniesPicture,
-    AddCustomerShipmentMethod,
+    AddShipmentMethod,
     AddAccount,
     AddFinancialsCompaniesDimensionValues,
     AddFinancialsFinancialCompanyCreateEmployeePicture,
     AddItemCategory,
-    AddFinancialsFinancialCompanyCreateItemPicture,
-    AddVendorPicture
+    AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture,
+    AddFinancialsFinancialCompanyCreatePurchaseInvoicePicture
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('financials financial update') as c:
+    with self.argument_context('financials financial create') as c:
         c.argument('companies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('financials financial get') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('if_match', type=str, help='ETag')
+    with self.argument_context('financials financial show-financial') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial create-company') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -63,28 +58,28 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('name', type=str, help='')
         c.argument('system_version', type=str, help='')
-        c.argument('accounts', action=AddAccounts, nargs='*', help='')
-        c.argument('aged_accounts_payable', action=AddAgedAccountsPayable, nargs='*', help='')
-        c.argument('aged_accounts_receivable', action=AddAgedAccountsReceivable, nargs='*', help='')
+        c.argument('accounts', action=AddAccounts, nargs='+', help='')
+        c.argument('aged_accounts_payable', action=AddAgedAccountsPayable, nargs='+', help='')
+        c.argument('aged_accounts_receivable', action=AddAgedAccountsReceivable, nargs='+', help='')
         c.argument('company_information', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('countries_regions', action=AddCountriesRegions, nargs='*', help='')
-        c.argument('currencies', action=AddCurrencies, nargs='*', help='')
+        c.argument('countries_regions', action=AddCountriesRegions, nargs='+', help='')
+        c.argument('currencies', action=AddCurrencies, nargs='+', help='')
         c.argument('customer_payment_journals', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
         c.argument('customer_payments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('customers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('dimensions', action=AddDimensions, nargs='*', help='')
-        c.argument('dimension_values', action=AddFinancialsDimensionValues, nargs='*', help='')
+        c.argument('dimensions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('dimension_values', action=AddFinancialsDimensionValues, nargs='+', help='')
         c.argument('employees', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('general_ledger_entries', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
-        c.argument('item_categories', action=AddItemCategories, nargs='*', help='')
+        c.argument('item_categories', action=AddItemCategories, nargs='+', help='')
         c.argument('items', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('journal_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('journals', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('payment_methods', action=AddPaymentMethods, nargs='*', help='')
-        c.argument('payment_terms', action=AddPaymentTerms, nargs='*', help='')
-        c.argument('picture', action=AddFinancialsPicture, nargs='*', help='')
+        c.argument('payment_methods', action=AddPaymentMethods, nargs='+', help='')
+        c.argument('payment_terms', action=AddPaymentTerms, nargs='+', help='')
+        c.argument('picture', action=AddFinancialsPicture, nargs='+', help='')
         c.argument('purchase_invoice_lines', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
         c.argument('purchase_invoices', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -97,21 +92,25 @@ def load_arguments(self, _):
         c.argument('sales_orders', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('sales_quote_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('sales_quotes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('shipment_methods', action=AddShipmentMethods, nargs='*', help='')
-        c.argument('tax_areas', action=AddTaxAreas, nargs='*', help='')
-        c.argument('tax_groups', action=AddTaxGroups, nargs='*', help='')
-        c.argument('units_of_measure', action=AddUnitsOfMeasure, nargs='*', help='')
+        c.argument('shipment_methods', action=AddShipmentMethods, nargs='+', help='')
+        c.argument('tax_areas', action=AddTaxAreas, nargs='+', help='')
+        c.argument('tax_groups', action=AddTaxGroups, nargs='+', help='')
+        c.argument('units_of_measure', action=AddUnitsOfMeasure, nargs='+', help='')
         c.argument('vendors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('financials financial get-company') as c:
+    with self.argument_context('financials financial delete-company') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial list-company') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial show-company') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial update-company') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -120,28 +119,28 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('name', type=str, help='')
         c.argument('system_version', type=str, help='')
-        c.argument('accounts', action=AddAccounts, nargs='*', help='')
-        c.argument('aged_accounts_payable', action=AddAgedAccountsPayable, nargs='*', help='')
-        c.argument('aged_accounts_receivable', action=AddAgedAccountsReceivable, nargs='*', help='')
+        c.argument('accounts', action=AddAccounts, nargs='+', help='')
+        c.argument('aged_accounts_payable', action=AddAgedAccountsPayable, nargs='+', help='')
+        c.argument('aged_accounts_receivable', action=AddAgedAccountsReceivable, nargs='+', help='')
         c.argument('company_information', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('countries_regions', action=AddCountriesRegions, nargs='*', help='')
-        c.argument('currencies', action=AddCurrencies, nargs='*', help='')
+        c.argument('countries_regions', action=AddCountriesRegions, nargs='+', help='')
+        c.argument('currencies', action=AddCurrencies, nargs='+', help='')
         c.argument('customer_payment_journals', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
         c.argument('customer_payments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('customers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('dimensions', action=AddDimensions, nargs='*', help='')
-        c.argument('dimension_values', action=AddFinancialsDimensionValues, nargs='*', help='')
+        c.argument('dimensions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('dimension_values', action=AddFinancialsDimensionValues, nargs='+', help='')
         c.argument('employees', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('general_ledger_entries', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
-        c.argument('item_categories', action=AddItemCategories, nargs='*', help='')
+        c.argument('item_categories', action=AddItemCategories, nargs='+', help='')
         c.argument('items', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('journal_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('journals', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('payment_methods', action=AddPaymentMethods, nargs='*', help='')
-        c.argument('payment_terms', action=AddPaymentTerms, nargs='*', help='')
-        c.argument('picture', action=AddFinancialsPicture, nargs='*', help='')
+        c.argument('payment_methods', action=AddPaymentMethods, nargs='+', help='')
+        c.argument('payment_terms', action=AddPaymentTerms, nargs='+', help='')
+        c.argument('picture', action=AddFinancialsPicture, nargs='+', help='')
         c.argument('purchase_invoice_lines', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
         c.argument('purchase_invoices', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
@@ -154,50 +153,11 @@ def load_arguments(self, _):
         c.argument('sales_orders', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('sales_quote_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('sales_quotes', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('shipment_methods', action=AddShipmentMethods, nargs='*', help='')
-        c.argument('tax_areas', action=AddTaxAreas, nargs='*', help='')
-        c.argument('tax_groups', action=AddTaxGroups, nargs='*', help='')
-        c.argument('units_of_measure', action=AddUnitsOfMeasure, nargs='*', help='')
+        c.argument('shipment_methods', action=AddShipmentMethods, nargs='+', help='')
+        c.argument('tax_areas', action=AddTaxAreas, nargs='+', help='')
+        c.argument('tax_groups', action=AddTaxGroups, nargs='+', help='')
+        c.argument('units_of_measure', action=AddUnitsOfMeasure, nargs='+', help='')
         c.argument('vendors', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-
-    with self.argument_context('financials financial-company delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('account_id', type=str, help='key: id of account')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('aged_accounts_payable_id', type=str, help='key: id of agedAccountsPayable')
-        c.argument('aged_accounts_receivable_id', type=str, help='key: id of agedAccountsReceivable')
-        c.argument('company_information_id', type=str, help='key: id of companyInformation')
-        c.argument('country_region_id', type=str, help='key: id of countryRegion')
-        c.argument('currency_id', type=str, help='key: id of currency')
-        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
-        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('customer_id', type=str, help='key: id of customer')
-        c.argument('dimension_id', type=str, help='key: id of dimension')
-        c.argument('dimension_value_id', type=str, help='key: id of dimensionValue')
-        c.argument('employee_id', type=str, help='key: id of employee')
-        c.argument('general_ledger_entry_id', type=str, help='key: id of generalLedgerEntry')
-        c.argument('item_category_id', type=str, help='key: id of itemCategory')
-        c.argument('item_id', type=str, help='key: id of item')
-        c.argument('journal_line_id', type=str, help='key: id of journalLine')
-        c.argument('journal_id', type=str, help='key: id of journal')
-        c.argument('payment_method_id', type=str, help='key: id of paymentMethod')
-        c.argument('payment_term_id', type=str, help='key: id of paymentTerm')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('shipment_method_id', type=str, help='key: id of shipmentMethod')
-        c.argument('tax_area_id', type=str, help='key: id of taxArea')
-        c.argument('tax_group_id', type=str, help='key: id of taxGroup')
-        c.argument('unit_of_measure_id', type=str, help='key: id of unitOfMeasure')
-        c.argument('vendor_id', type=str, help='key: id of vendor')
 
     with self.argument_context('financials financial-company create-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -240,7 +200,7 @@ def load_arguments(self, _):
     with self.argument_context('financials financial-company create-company-information') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('currency_code', type=str, help='')
         c.argument('current_fiscal_year_start_date', help='')
         c.argument('display_name', type=str, help='')
@@ -274,7 +234,7 @@ def load_arguments(self, _):
     with self.argument_context('financials financial-company create-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
         c.argument('currency_id', help='')
@@ -292,11 +252,11 @@ def load_arguments(self, _):
         c.argument('tax_registration_number', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
 
     with self.argument_context('financials financial-company create-customer-payment') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -315,30 +275,32 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('line_number', type=int, help='')
         c.argument('posting_date', help='')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('currency_code', type=str, help='', arg_group='Customer')
+        c.argument('currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('payment_terms_id', help='', arg_group='Customer')
+        c.argument('phone_number', type=str, help='', arg_group='Customer')
+        c.argument('shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm', arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
     with self.argument_context('financials financial-company create-customer-payment-journal') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -348,7 +310,7 @@ def load_arguments(self, _):
         c.argument('code', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
         c.argument('customer_payments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('financials financial-company create-dimension') as c:
@@ -357,7 +319,7 @@ def load_arguments(self, _):
         c.argument('code', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
-        c.argument('dimension_values', action=AddFinancialsCompaniesDimensionValues, nargs='*', help='')
+        c.argument('dimension_values', action=AddFinancialsCompaniesDimensionValues, nargs='+', help='')
 
     with self.argument_context('financials financial-company create-dimension-value') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -369,7 +331,7 @@ def load_arguments(self, _):
     with self.argument_context('financials financial-company create-employee') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('birth_date', help='')
         c.argument('display_name', type=str, help='')
         c.argument('email', type=str, help='')
@@ -386,7 +348,7 @@ def load_arguments(self, _):
         c.argument('status', type=str, help='')
         c.argument('surname', type=str, help='')
         c.argument('termination_date', help='')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateEmployeePicture, nargs='*', help='')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateEmployeePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company create-general-ledger-entry') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -400,7 +362,7 @@ def load_arguments(self, _):
         c.argument('document_type', type=str, help='')
         c.argument('last_modified_date_time', help='')
         c.argument('posting_date', help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
 
     with self.argument_context('financials financial-company create-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -420,8 +382,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company create-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -438,7 +400,7 @@ def load_arguments(self, _):
         c.argument('code', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
         c.argument('journal_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('financials financial-company create-journal-line') as c:
@@ -455,7 +417,7 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('line_number', type=int, help='')
         c.argument('posting_date', help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
 
     with self.argument_context('financials financial-company create-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -486,7 +448,7 @@ def load_arguments(self, _):
     with self.argument_context('financials financial-company create-purchase-invoice') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('buy_from_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('buy_from_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('currency_code', type=str, help='')
         c.argument('currency_id', help='')
         c.argument('discount_amount', type=float, help='')
@@ -495,13 +457,13 @@ def load_arguments(self, _):
         c.argument('invoice_date', help='')
         c.argument('last_modified_date_time', help='')
         c.argument('number', type=str, help='')
-        c.argument('pay_to_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('pay_to_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('pay_to_contact', type=str, help='')
         c.argument('pay_to_name', type=str, help='')
         c.argument('pay_to_vendor_id', help='')
         c.argument('pay_to_vendor_number', type=str, help='')
         c.argument('prices_include_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('ship_to_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('ship_to_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('ship_to_contact', type=str, help='')
         c.argument('ship_to_name', type=str, help='')
         c.argument('status', type=str, help='')
@@ -512,29 +474,31 @@ def load_arguments(self, _):
         c.argument('vendor_invoice_number', type=str, help='')
         c.argument('vendor_name', type=str, help='')
         c.argument('vendor_number', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
         c.argument('purchase_invoice_lines', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('vendor_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('vendor_balance', type=float, help='')
-        c.argument('vendor_blocked', type=str, help='')
-        c.argument('vendor_currency_code', type=str, help='')
-        c.argument('vendor_currency_id', help='')
-        c.argument('vendor_display_name', type=str, help='')
-        c.argument('vendor_email', type=str, help='')
-        c.argument('vendor_last_modified_date_time', help='')
-        c.argument('microsoft_graph_vendor_number', type=str, help='')
-        c.argument('vendor_payment_method_id', help='')
-        c.argument('vendor_payment_terms_id', help='')
-        c.argument('vendor_phone_number', type=str, help='')
-        c.argument('vendor_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('vendor_tax_registration_number', type=str, help='')
-        c.argument('vendor_website', type=str, help='')
-        c.argument('vendor_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('vendor_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('vendor_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('vendor_picture', action=AddVendorPicture, nargs='*', help='')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Vendor')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Vendor')
+        c.argument('balance', type=float, help='', arg_group='Vendor')
+        c.argument('blocked', type=str, help='', arg_group='Vendor')
+        c.argument('microsoft_graph_vendor_currency_code', type=str, help='', arg_group='Vendor')
+        c.argument('microsoft_graph_vendor_currency_id', help='', arg_group='Vendor')
+        c.argument('display_name', type=str, help='', arg_group='Vendor')
+        c.argument('email', type=str, help='', arg_group='Vendor')
+        c.argument('microsoft_graph_vendor_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Vendor')
+        c.argument('microsoft_graph_vendor_number', type=str, help='', arg_group='Vendor')
+        c.argument('payment_method_id', help='', arg_group='Vendor')
+        c.argument('payment_terms_id', help='', arg_group='Vendor')
+        c.argument('phone_number', type=str, help='', arg_group='Vendor')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Vendor')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Vendor')
+        c.argument('website', type=str, help='', arg_group='Vendor')
+        c.argument('microsoft_graph_currency', action=AddCurrency, nargs='+', help='currency', arg_group='Vendor')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Vendor')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm', arg_group='Vendor')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreatePurchaseInvoicePicture, nargs='+', help='',
+                   arg_group='Vendor')
 
     with self.argument_context('financials financial-company create-purchase-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -560,30 +524,31 @@ def load_arguments(self, _):
         c.argument('tax_percent', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_cost', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('number_unit_cost', type=float, help='', arg_group='Item')
+        c.argument('unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company create-sale-credit-memo') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('billing_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('billing_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('bill_to_customer_id', help='')
         c.argument('bill_to_customer_number', type=str, help='')
         c.argument('bill_to_name', type=str, help='')
@@ -606,39 +571,42 @@ def load_arguments(self, _):
         c.argument('phone_number', type=str, help='')
         c.argument('prices_include_tax', arg_type=get_three_state_flag(), help='')
         c.argument('salesperson', type=str, help='')
-        c.argument('selling_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('selling_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('status', type=str, help='')
         c.argument('total_amount_excluding_tax', type=float, help='')
         c.argument('total_amount_including_tax', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
         c.argument('sales_credit_memo_lines', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('microsoft_graph_customer_number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_code', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('microsoft_graph_customer_number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_payment_terms_id_payment_terms_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_phone_number', type=str, help='', arg_group='Customer')
+        c.argument('shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('microsoft_graph_payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm',
+                   arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
     with self.argument_context('financials financial-company create-sale-credit-memo-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -665,30 +633,31 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company create-sale-invoice') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('billing_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('billing_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('bill_to_customer_id', help='')
         c.argument('bill_to_customer_number', type=str, help='')
         c.argument('bill_to_name', type=str, help='')
@@ -712,43 +681,46 @@ def load_arguments(self, _):
         c.argument('phone_number', type=str, help='')
         c.argument('prices_include_tax', arg_type=get_three_state_flag(), help='')
         c.argument('salesperson', type=str, help='')
-        c.argument('selling_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('selling_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('shipment_method_id', help='')
-        c.argument('shipping_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('shipping_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('ship_to_contact', type=str, help='')
         c.argument('ship_to_name', type=str, help='')
         c.argument('status', type=str, help='')
         c.argument('total_amount_excluding_tax', type=float, help='')
         c.argument('total_amount_including_tax', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
         c.argument('sales_invoice_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('microsoft_graph_customer_number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_code', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('microsoft_graph_customer_number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_payment_terms_id_payment_terms_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_phone_number', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_shipment_method_id_shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('microsoft_graph_payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm',
+                   arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('microsoft_graph_shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
     with self.argument_context('financials financial-company create-sale-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -775,30 +747,31 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company create-sale-order') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('billing_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('billing_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('bill_to_customer_id', help='')
         c.argument('bill_to_customer_number', type=str, help='')
         c.argument('bill_to_name', type=str, help='')
@@ -821,41 +794,44 @@ def load_arguments(self, _):
         c.argument('prices_include_tax', arg_type=get_three_state_flag(), help='')
         c.argument('requested_delivery_date', help='')
         c.argument('salesperson', type=str, help='')
-        c.argument('selling_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('shipping_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('selling_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
+        c.argument('shipping_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('ship_to_contact', type=str, help='')
         c.argument('ship_to_name', type=str, help='')
         c.argument('status', type=str, help='')
         c.argument('total_amount_excluding_tax', type=float, help='')
         c.argument('total_amount_including_tax', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
         c.argument('sales_order_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('microsoft_graph_customer_number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_code', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('microsoft_graph_customer_number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_payment_terms_id_payment_terms_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_phone_number', type=str, help='', arg_group='Customer')
+        c.argument('shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('microsoft_graph_payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm',
+                   arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
     with self.argument_context('financials financial-company create-sale-order-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -886,31 +862,32 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company create-sale-quote') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('accepted_date', help='')
-        c.argument('billing_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('billing_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('bill_to_customer_id', help='')
         c.argument('bill_to_customer_number', type=str, help='')
         c.argument('bill_to_name', type=str, help='')
@@ -929,10 +906,10 @@ def load_arguments(self, _):
         c.argument('payment_terms_id', help='')
         c.argument('phone_number', type=str, help='')
         c.argument('salesperson', type=str, help='')
-        c.argument('selling_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('selling_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('sent_date', help='')
         c.argument('shipment_method_id', help='')
-        c.argument('shipping_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('shipping_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('ship_to_contact', type=str, help='')
         c.argument('ship_to_name', type=str, help='')
         c.argument('status', type=str, help='')
@@ -940,34 +917,37 @@ def load_arguments(self, _):
         c.argument('total_amount_including_tax', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
         c.argument('valid_until_date', help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
         c.argument('sales_quote_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('microsoft_graph_customer_number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_code', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('microsoft_graph_customer_number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_payment_terms_id_payment_terms_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_phone_number', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_shipment_method_id_shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('microsoft_graph_payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm',
+                   arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('microsoft_graph_shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
     with self.argument_context('financials financial-company create-sale-quote-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -992,25 +972,26 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company create-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1046,7 +1027,7 @@ def load_arguments(self, _):
     with self.argument_context('financials financial-company create-vendor') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('balance', type=float, help='')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
@@ -1061,438 +1042,395 @@ def load_arguments(self, _):
         c.argument('tax_liable', arg_type=get_three_state_flag(), help='')
         c.argument('tax_registration_number', type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddVendorPicture, nargs='*', help='')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreatePurchaseInvoicePicture, nargs='+', help='')
 
-    with self.argument_context('financials financial-company get-account') as c:
+    with self.argument_context('financials financial-company delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('account_id', type=str, help='key: id of account')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-aged-account-payable') as c:
+    with self.argument_context('financials financial-company delete-aged-account-payable') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('aged_accounts_payable_id', type=str, help='key: id of agedAccountsPayable')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-aged-account-receivable') as c:
+    with self.argument_context('financials financial-company delete-aged-account-receivable') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('aged_accounts_receivable_id', type=str, help='key: id of agedAccountsReceivable')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-company-information') as c:
+    with self.argument_context('financials financial-company delete-company-information') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('company_information_id', type=str, help='key: id of companyInformation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-company-information-picture') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('company_information_id', type=str, help='key: id of companyInformation')
-
-    with self.argument_context('financials financial-company get-country-region') as c:
+    with self.argument_context('financials financial-company delete-country-region') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('country_region_id', type=str, help='key: id of countryRegion')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-currency') as c:
+    with self.argument_context('financials financial-company delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('currency_id', type=str, help='key: id of currency')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-customer') as c:
+    with self.argument_context('financials financial-company delete-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_id', type=str, help='key: id of customer')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-customer-payment') as c:
+    with self.argument_context('financials financial-company delete-customer-payment') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-customer-payment-journal') as c:
+    with self.argument_context('financials financial-company delete-customer-payment-journal') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-dimension') as c:
+    with self.argument_context('financials financial-company delete-dimension') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('dimension_id', type=str, help='key: id of dimension')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-dimension-value') as c:
+    with self.argument_context('financials financial-company delete-dimension-value') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('dimension_value_id', type=str, help='key: id of dimensionValue')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-employee') as c:
+    with self.argument_context('financials financial-company delete-employee') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('employee_id', type=str, help='key: id of employee')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-general-ledger-entry') as c:
+    with self.argument_context('financials financial-company delete-general-ledger-entry') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('general_ledger_entry_id', type=str, help='key: id of generalLedgerEntry')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-item') as c:
+    with self.argument_context('financials financial-company delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('item_id', type=str, help='key: id of item')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-item-category') as c:
+    with self.argument_context('financials financial-company delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('item_category_id', type=str, help='key: id of itemCategory')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-journal') as c:
+    with self.argument_context('financials financial-company delete-journal') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('journal_id', type=str, help='key: id of journal')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-journal-line') as c:
+    with self.argument_context('financials financial-company delete-journal-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('journal_line_id', type=str, help='key: id of journalLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-payment-method') as c:
+    with self.argument_context('financials financial-company delete-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('payment_method_id', type=str, help='key: id of paymentMethod')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-payment-term') as c:
+    with self.argument_context('financials financial-company delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('payment_term_id', type=str, help='key: id of paymentTerm')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-picture') as c:
+    with self.argument_context('financials financial-company delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('picture_id', type=str, help='key: id of picture')
-
-    with self.argument_context('financials financial-company get-purchase-invoice') as c:
+    with self.argument_context('financials financial-company delete-purchase-invoice') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-purchase-invoice-line') as c:
+    with self.argument_context('financials financial-company delete-purchase-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-sale-credit-memo') as c:
+    with self.argument_context('financials financial-company delete-sale-credit-memo') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-sale-credit-memo-line') as c:
+    with self.argument_context('financials financial-company delete-sale-credit-memo-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-sale-invoice') as c:
+    with self.argument_context('financials financial-company delete-sale-invoice') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-sale-invoice-line') as c:
+    with self.argument_context('financials financial-company delete-sale-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-sale-order') as c:
+    with self.argument_context('financials financial-company delete-sale-order') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-sale-order-line') as c:
+    with self.argument_context('financials financial-company delete-sale-order-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-sale-quote') as c:
+    with self.argument_context('financials financial-company delete-sale-quote') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-sale-quote-line') as c:
+    with self.argument_context('financials financial-company delete-sale-quote-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-shipment-method') as c:
+    with self.argument_context('financials financial-company delete-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('shipment_method_id', type=str, help='key: id of shipmentMethod')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-tax-area') as c:
+    with self.argument_context('financials financial-company delete-tax-area') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('tax_area_id', type=str, help='key: id of taxArea')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-tax-group') as c:
+    with self.argument_context('financials financial-company delete-tax-group') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('tax_group_id', type=str, help='key: id of taxGroup')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-unit-of-measure') as c:
+    with self.argument_context('financials financial-company delete-unit-of-measure') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('unit_of_measure_id', type=str, help='key: id of unitOfMeasure')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company get-vendor') as c:
+    with self.argument_context('financials financial-company delete-vendor') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('vendor_id', type=str, help='key: id of vendor')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company list-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-aged-account-payable') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-aged-account-receivable') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-company-information') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-country-region') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-customer-payment') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-customer-payment-journal') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-dimension') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-dimension-value') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-employee') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-general-ledger-entry') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-journal') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-journal-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-purchase-invoice') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-purchase-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-sale-credit-memo') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-sale-credit-memo-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-sale-invoice') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-sale-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-sale-order') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-sale-order-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-sale-quote') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-sale-quote-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-tax-area') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-tax-group') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-unit-of-measure') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company list-vendor') as c:
         c.argument('company_id', type=str, help='key: id of company')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company set-company-information-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1503,6 +1441,224 @@ def load_arguments(self, _):
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company show-account') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('account_id', type=str, help='key: id of account')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-aged-account-payable') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('aged_accounts_payable_id', type=str, help='key: id of agedAccountsPayable')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-aged-account-receivable') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('aged_accounts_receivable_id', type=str, help='key: id of agedAccountsReceivable')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-company-information') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('company_information_id', type=str, help='key: id of companyInformation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-company-information-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('company_information_id', type=str, help='key: id of companyInformation')
+
+    with self.argument_context('financials financial-company show-country-region') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('country_region_id', type=str, help='key: id of countryRegion')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('currency_id', type=str, help='key: id of currency')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-customer') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_id', type=str, help='key: id of customer')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-customer-payment') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-customer-payment-journal') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-dimension') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('dimension_id', type=str, help='key: id of dimension')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-dimension-value') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('dimension_value_id', type=str, help='key: id of dimensionValue')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-employee') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('employee_id', type=str, help='key: id of employee')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-general-ledger-entry') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('general_ledger_entry_id', type=str, help='key: id of generalLedgerEntry')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('item_id', type=str, help='key: id of item')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('item_category_id', type=str, help='key: id of itemCategory')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-journal') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('journal_id', type=str, help='key: id of journal')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-journal-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('journal_line_id', type=str, help='key: id of journalLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-payment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('payment_method_id', type=str, help='key: id of paymentMethod')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('payment_term_id', type=str, help='key: id of paymentTerm')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('picture_id', type=str, help='key: id of picture')
+
+    with self.argument_context('financials financial-company show-purchase-invoice') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-purchase-invoice-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-sale-credit-memo') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-sale-credit-memo-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-sale-invoice') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-sale-invoice-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-sale-order') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-sale-order-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-sale-quote') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-sale-quote-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-shipment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('shipment_method_id', type=str, help='key: id of shipmentMethod')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-tax-area') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('tax_area_id', type=str, help='key: id of taxArea')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-tax-group') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('tax_group_id', type=str, help='key: id of taxGroup')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-unit-of-measure') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('unit_of_measure_id', type=str, help='key: id of unitOfMeasure')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company show-vendor') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('vendor_id', type=str, help='key: id of vendor')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1549,7 +1705,7 @@ def load_arguments(self, _):
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('company_information_id', type=str, help='key: id of companyInformation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('currency_code', type=str, help='')
         c.argument('current_fiscal_year_start_date', help='')
         c.argument('display_name', type=str, help='')
@@ -1586,7 +1742,7 @@ def load_arguments(self, _):
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_id', type=str, help='key: id of customer')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
         c.argument('currency_id', help='')
@@ -1604,11 +1760,11 @@ def load_arguments(self, _):
         c.argument('tax_registration_number', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
 
     with self.argument_context('financials financial-company update-customer-payment') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1628,30 +1784,32 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('line_number', type=int, help='')
         c.argument('posting_date', help='')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('currency_code', type=str, help='', arg_group='Customer')
+        c.argument('currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('payment_terms_id', help='', arg_group='Customer')
+        c.argument('phone_number', type=str, help='', arg_group='Customer')
+        c.argument('shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm', arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
     with self.argument_context('financials financial-company update-customer-payment-journal') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1662,7 +1820,7 @@ def load_arguments(self, _):
         c.argument('code', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
         c.argument('customer_payments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('financials financial-company update-dimension') as c:
@@ -1672,7 +1830,7 @@ def load_arguments(self, _):
         c.argument('code', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
-        c.argument('dimension_values', action=AddFinancialsCompaniesDimensionValues, nargs='*', help='')
+        c.argument('dimension_values', action=AddFinancialsCompaniesDimensionValues, nargs='+', help='')
 
     with self.argument_context('financials financial-company update-dimension-value') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1686,7 +1844,7 @@ def load_arguments(self, _):
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('employee_id', type=str, help='key: id of employee')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('birth_date', help='')
         c.argument('display_name', type=str, help='')
         c.argument('email', type=str, help='')
@@ -1703,7 +1861,7 @@ def load_arguments(self, _):
         c.argument('status', type=str, help='')
         c.argument('surname', type=str, help='')
         c.argument('termination_date', help='')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateEmployeePicture, nargs='*', help='')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateEmployeePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company update-general-ledger-entry') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1718,7 +1876,7 @@ def load_arguments(self, _):
         c.argument('document_type', type=str, help='')
         c.argument('last_modified_date_time', help='')
         c.argument('posting_date', help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
 
     with self.argument_context('financials financial-company update-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1739,8 +1897,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1759,7 +1917,7 @@ def load_arguments(self, _):
         c.argument('code', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
         c.argument('journal_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('financials financial-company update-journal-line') as c:
@@ -1777,7 +1935,7 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('line_number', type=int, help='')
         c.argument('posting_date', help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
 
     with self.argument_context('financials financial-company update-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1812,7 +1970,7 @@ def load_arguments(self, _):
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('buy_from_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('buy_from_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('currency_code', type=str, help='')
         c.argument('currency_id', help='')
         c.argument('discount_amount', type=float, help='')
@@ -1821,13 +1979,13 @@ def load_arguments(self, _):
         c.argument('invoice_date', help='')
         c.argument('last_modified_date_time', help='')
         c.argument('number', type=str, help='')
-        c.argument('pay_to_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('pay_to_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('pay_to_contact', type=str, help='')
         c.argument('pay_to_name', type=str, help='')
         c.argument('pay_to_vendor_id', help='')
         c.argument('pay_to_vendor_number', type=str, help='')
         c.argument('prices_include_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('ship_to_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('ship_to_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('ship_to_contact', type=str, help='')
         c.argument('ship_to_name', type=str, help='')
         c.argument('status', type=str, help='')
@@ -1838,29 +1996,31 @@ def load_arguments(self, _):
         c.argument('vendor_invoice_number', type=str, help='')
         c.argument('vendor_name', type=str, help='')
         c.argument('vendor_number', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
         c.argument('purchase_invoice_lines', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('vendor_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('vendor_balance', type=float, help='')
-        c.argument('vendor_blocked', type=str, help='')
-        c.argument('vendor_currency_code', type=str, help='')
-        c.argument('vendor_currency_id', help='')
-        c.argument('vendor_display_name', type=str, help='')
-        c.argument('vendor_email', type=str, help='')
-        c.argument('vendor_last_modified_date_time', help='')
-        c.argument('microsoft_graph_vendor_number', type=str, help='')
-        c.argument('vendor_payment_method_id', help='')
-        c.argument('vendor_payment_terms_id', help='')
-        c.argument('vendor_phone_number', type=str, help='')
-        c.argument('vendor_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('vendor_tax_registration_number', type=str, help='')
-        c.argument('vendor_website', type=str, help='')
-        c.argument('vendor_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('vendor_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('vendor_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('vendor_picture', action=AddVendorPicture, nargs='*', help='')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Vendor')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Vendor')
+        c.argument('balance', type=float, help='', arg_group='Vendor')
+        c.argument('blocked', type=str, help='', arg_group='Vendor')
+        c.argument('microsoft_graph_vendor_currency_code', type=str, help='', arg_group='Vendor')
+        c.argument('microsoft_graph_vendor_currency_id', help='', arg_group='Vendor')
+        c.argument('display_name', type=str, help='', arg_group='Vendor')
+        c.argument('email', type=str, help='', arg_group='Vendor')
+        c.argument('microsoft_graph_vendor_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Vendor')
+        c.argument('microsoft_graph_vendor_number', type=str, help='', arg_group='Vendor')
+        c.argument('payment_method_id', help='', arg_group='Vendor')
+        c.argument('payment_terms_id', help='', arg_group='Vendor')
+        c.argument('phone_number', type=str, help='', arg_group='Vendor')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Vendor')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Vendor')
+        c.argument('website', type=str, help='', arg_group='Vendor')
+        c.argument('microsoft_graph_currency', action=AddCurrency, nargs='+', help='currency', arg_group='Vendor')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Vendor')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm', arg_group='Vendor')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreatePurchaseInvoicePicture, nargs='+', help='',
+                   arg_group='Vendor')
 
     with self.argument_context('financials financial-company update-purchase-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1887,31 +2047,32 @@ def load_arguments(self, _):
         c.argument('tax_percent', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_cost', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('number_unit_cost', type=float, help='', arg_group='Item')
+        c.argument('unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company update-sale-credit-memo') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('billing_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('billing_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('bill_to_customer_id', help='')
         c.argument('bill_to_customer_number', type=str, help='')
         c.argument('bill_to_name', type=str, help='')
@@ -1934,39 +2095,42 @@ def load_arguments(self, _):
         c.argument('phone_number', type=str, help='')
         c.argument('prices_include_tax', arg_type=get_three_state_flag(), help='')
         c.argument('salesperson', type=str, help='')
-        c.argument('selling_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('selling_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('status', type=str, help='')
         c.argument('total_amount_excluding_tax', type=float, help='')
         c.argument('total_amount_including_tax', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
         c.argument('sales_credit_memo_lines', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('microsoft_graph_customer_number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_code', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('microsoft_graph_customer_number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_payment_terms_id_payment_terms_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_phone_number', type=str, help='', arg_group='Customer')
+        c.argument('shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('microsoft_graph_payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm',
+                   arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
     with self.argument_context('financials financial-company update-sale-credit-memo-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -1994,31 +2158,32 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company update-sale-invoice') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('billing_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('billing_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('bill_to_customer_id', help='')
         c.argument('bill_to_customer_number', type=str, help='')
         c.argument('bill_to_name', type=str, help='')
@@ -2042,43 +2207,46 @@ def load_arguments(self, _):
         c.argument('phone_number', type=str, help='')
         c.argument('prices_include_tax', arg_type=get_three_state_flag(), help='')
         c.argument('salesperson', type=str, help='')
-        c.argument('selling_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('selling_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('shipment_method_id', help='')
-        c.argument('shipping_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('shipping_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('ship_to_contact', type=str, help='')
         c.argument('ship_to_name', type=str, help='')
         c.argument('status', type=str, help='')
         c.argument('total_amount_excluding_tax', type=float, help='')
         c.argument('total_amount_including_tax', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
         c.argument('sales_invoice_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('microsoft_graph_customer_number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_code', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('microsoft_graph_customer_number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_payment_terms_id_payment_terms_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_phone_number', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_shipment_method_id_shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('microsoft_graph_payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm',
+                   arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('microsoft_graph_shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
     with self.argument_context('financials financial-company update-sale-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2106,31 +2274,32 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company update-sale-order') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('billing_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('billing_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('bill_to_customer_id', help='')
         c.argument('bill_to_customer_number', type=str, help='')
         c.argument('bill_to_name', type=str, help='')
@@ -2153,41 +2322,44 @@ def load_arguments(self, _):
         c.argument('prices_include_tax', arg_type=get_three_state_flag(), help='')
         c.argument('requested_delivery_date', help='')
         c.argument('salesperson', type=str, help='')
-        c.argument('selling_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('shipping_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('selling_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
+        c.argument('shipping_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('ship_to_contact', type=str, help='')
         c.argument('ship_to_name', type=str, help='')
         c.argument('status', type=str, help='')
         c.argument('total_amount_excluding_tax', type=float, help='')
         c.argument('total_amount_including_tax', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
         c.argument('sales_order_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('microsoft_graph_customer_number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_code', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('microsoft_graph_customer_number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_payment_terms_id_payment_terms_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_phone_number', type=str, help='', arg_group='Customer')
+        c.argument('shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('microsoft_graph_payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm',
+                   arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
     with self.argument_context('financials financial-company update-sale-order-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2219,32 +2391,33 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company update-sale-quote') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('accepted_date', help='')
-        c.argument('billing_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('billing_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('bill_to_customer_id', help='')
         c.argument('bill_to_customer_number', type=str, help='')
         c.argument('bill_to_name', type=str, help='')
@@ -2263,10 +2436,10 @@ def load_arguments(self, _):
         c.argument('payment_terms_id', help='')
         c.argument('phone_number', type=str, help='')
         c.argument('salesperson', type=str, help='')
-        c.argument('selling_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('selling_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('sent_date', help='')
         c.argument('shipment_method_id', help='')
-        c.argument('shipping_postal_address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('shipping_postal_address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('ship_to_contact', type=str, help='')
         c.argument('ship_to_name', type=str, help='')
         c.argument('status', type=str, help='')
@@ -2274,34 +2447,37 @@ def load_arguments(self, _):
         c.argument('total_amount_including_tax', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
         c.argument('valid_until_date', help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
         c.argument('sales_quote_lines', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('microsoft_graph_customer_number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_code', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('microsoft_graph_customer_number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_payment_terms_id_payment_terms_id', help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_phone_number', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_shipment_method_id_shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('microsoft_graph_payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm',
+                   arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('microsoft_graph_shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
     with self.argument_context('financials financial-company update-sale-quote-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2327,25 +2503,26 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company update-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2386,7 +2563,7 @@ def load_arguments(self, _):
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('vendor_id', type=str, help='key: id of vendor')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('balance', type=float, help='')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
@@ -2401,16 +2578,10 @@ def load_arguments(self, _):
         c.argument('tax_liable', arg_type=get_three_state_flag(), help='')
         c.argument('tax_registration_number', type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddVendorPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-customer-payment-journal delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
-        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreatePurchaseInvoicePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-customer-payment-journal create-customer-payment') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2430,50 +2601,63 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('line_number', type=int, help='')
         c.argument('posting_date', help='')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('currency_code', type=str, help='', arg_group='Customer')
+        c.argument('currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('payment_terms_id', help='', arg_group='Customer')
+        c.argument('phone_number', type=str, help='', arg_group='Customer')
+        c.argument('shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm', arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
-    with self.argument_context('financials financial-company-customer-payment-journal get-account') as c:
+    with self.argument_context('financials financial-company-customer-payment-journal delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment-journal get-customer-payment') as c:
+    with self.argument_context('financials financial-company-customer-payment-journal delete-customer-payment') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-customer-payment-journal list-customer-payment') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer-payment-journal show-account') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer-payment-journal show-customer-payment') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-customer-payment-journal update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2505,50 +2689,52 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('line_number', type=int, help='')
         c.argument('posting_date', help='')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('customer_address', action=AddAddress, nargs='*', help='postalAddressType')
-        c.argument('customer_blocked', type=str, help='')
-        c.argument('customer_currency_code', type=str, help='')
-        c.argument('customer_currency_id', help='')
-        c.argument('customer_display_name', type=str, help='')
-        c.argument('customer_email', type=str, help='')
-        c.argument('customer_last_modified_date_time', help='')
-        c.argument('number', type=str, help='')
-        c.argument('customer_payment_method_id', help='')
-        c.argument('customer_payment_terms_id', help='')
-        c.argument('customer_phone_number', type=str, help='')
-        c.argument('customer_shipment_method_id', help='')
-        c.argument('customer_tax_area_display_name', type=str, help='')
-        c.argument('customer_tax_area_id', help='')
-        c.argument('customer_tax_liable', arg_type=get_three_state_flag(), help='')
-        c.argument('customer_tax_registration_number', type=str, help='')
-        c.argument('customer_type', type=str, help='')
-        c.argument('customer_website', type=str, help='')
-        c.argument('customer_currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('customer_payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('customer_payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('customer_picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('customer_shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Customer')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType', arg_group='Customer')
+        c.argument('blocked', type=str, help='', arg_group='Customer')
+        c.argument('currency_code', type=str, help='', arg_group='Customer')
+        c.argument('currency_id', help='', arg_group='Customer')
+        c.argument('display_name', type=str, help='', arg_group='Customer')
+        c.argument('email', type=str, help='', arg_group='Customer')
+        c.argument('microsoft_graph_customer_last_modified_date_time_last_modified_date_time', help='',
+                   arg_group='Customer')
+        c.argument('number', type=str, help='', arg_group='Customer')
+        c.argument('payment_method_id', help='', arg_group='Customer')
+        c.argument('payment_terms_id', help='', arg_group='Customer')
+        c.argument('phone_number', type=str, help='', arg_group='Customer')
+        c.argument('shipment_method_id', help='', arg_group='Customer')
+        c.argument('tax_area_display_name', type=str, help='', arg_group='Customer')
+        c.argument('tax_area_id', help='', arg_group='Customer')
+        c.argument('tax_liable', arg_type=get_three_state_flag(), help='', arg_group='Customer')
+        c.argument('tax_registration_number', type=str, help='', arg_group='Customer')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Customer')
+        c.argument('website', type=str, help='', arg_group='Customer')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency', arg_group='Customer')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod', arg_group='Customer')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm', arg_group='Customer')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='', arg_group='Customer')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod',
+                   arg_group='Customer')
 
-    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment delete') as c:
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment delete-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment get-customer') as c:
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment show-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-customer-payment-journal-customer-payment update-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
         c.argument('currency_id', help='')
@@ -2566,18 +2752,11 @@ def load_arguments(self, _):
         c.argument('tax_registration_number', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
-
-    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
-        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
 
     with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2589,55 +2768,44 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer get-currency') as c:
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer get-payment-method') as c:
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer delete-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer get-payment-term') as c:
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer get-picture') as c:
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer get-picture-content') as c:
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer delete-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('picture_id', type=str, help='key: id of picture')
-
-    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer get-shipment-method') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
-        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2645,6 +2813,48 @@ def load_arguments(self, _):
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer show-payment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('picture_id', type=str, help='key: id of picture')
+
+    with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer show-shipment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_journal_id', type=str, help='key: id of customerPaymentJournal')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-customer-payment-journal-customer-payment-customer update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2700,22 +2910,22 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
 
-    with self.argument_context('financials financial-company-customer-payment delete') as c:
+    with self.argument_context('financials financial-company-customer-payment delete-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment get-customer') as c:
+    with self.argument_context('financials financial-company-customer-payment show-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-customer-payment update-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
         c.argument('currency_id', help='')
@@ -2733,17 +2943,11 @@ def load_arguments(self, _):
         c.argument('tax_registration_number', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
-
-    with self.argument_context('financials financial-company-customer-payment-customer delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
 
     with self.argument_context('financials financial-company-customer-payment-customer create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2754,54 +2958,80 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-customer-payment-customer get-currency') as c:
+    with self.argument_context('financials financial-company-customer-payment-customer delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment-customer get-payment-method') as c:
+    with self.argument_context('financials financial-company-customer-payment-customer delete-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment-customer get-payment-term') as c:
+    with self.argument_context('financials financial-company-customer-payment-customer delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment-customer get-picture') as c:
+    with self.argument_context('financials financial-company-customer-payment-customer delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer-payment-customer get-picture-content') as c:
+    with self.argument_context('financials financial-company-customer-payment-customer delete-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('picture_id', type=str, help='key: id of picture')
-
-    with self.argument_context('financials financial-company-customer-payment-customer get-shipment-method') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-customer-payment-customer list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-customer-payment-customer set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-customer-payment-customer show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer-payment-customer show-payment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer-payment-customer show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer-payment-customer show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer-payment-customer show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('picture_id', type=str, help='key: id of picture')
+
+    with self.argument_context('financials financial-company-customer-payment-customer show-shipment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_payment_id', type=str, help='key: id of customerPayment')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-customer-payment-customer update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2852,12 +3082,6 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
 
-    with self.argument_context('financials financial-company-customer delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('customer_id', type=str, help='key: id of customer')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('financials financial-company-customer create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_id', type=str, help='key: id of customer')
@@ -2867,54 +3091,80 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-customer get-currency') as c:
+    with self.argument_context('financials financial-company-customer delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_id', type=str, help='key: id of customer')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer get-payment-method') as c:
+    with self.argument_context('financials financial-company-customer delete-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_id', type=str, help='key: id of customer')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer get-payment-term') as c:
+    with self.argument_context('financials financial-company-customer delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_id', type=str, help='key: id of customer')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer get-picture') as c:
+    with self.argument_context('financials financial-company-customer delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_id', type=str, help='key: id of customer')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-customer get-picture-content') as c:
+    with self.argument_context('financials financial-company-customer delete-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_id', type=str, help='key: id of customer')
-        c.argument('picture_id', type=str, help='key: id of picture')
-
-    with self.argument_context('financials financial-company-customer get-shipment-method') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('customer_id', type=str, help='key: id of customer')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-customer list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_id', type=str, help='key: id of customer')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-customer set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('customer_id', type=str, help='key: id of customer')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-customer show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_id', type=str, help='key: id of customer')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer show-payment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_id', type=str, help='key: id of customer')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_id', type=str, help='key: id of customer')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_id', type=str, help='key: id of customer')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-customer show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_id', type=str, help='key: id of customer')
+        c.argument('picture_id', type=str, help='key: id of picture')
+
+    with self.argument_context('financials financial-company-customer show-shipment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('customer_id', type=str, help='key: id of customer')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-customer update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -2965,12 +3215,6 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
 
-    with self.argument_context('financials financial-company-dimension delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('dimension_id', type=str, help='key: id of dimension')
-        c.argument('dimension_value_id', type=str, help='key: id of dimensionValue')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('financials financial-company-dimension create-dimension-value') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('dimension_id', type=str, help='key: id of dimension')
@@ -2979,19 +3223,25 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
 
-    with self.argument_context('financials financial-company-dimension get-dimension-value') as c:
+    with self.argument_context('financials financial-company-dimension delete-dimension-value') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('dimension_id', type=str, help='key: id of dimension')
         c.argument('dimension_value_id', type=str, help='key: id of dimensionValue')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-dimension list-dimension-value') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('dimension_id', type=str, help='key: id of dimension')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-dimension show-dimension-value') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('dimension_id', type=str, help='key: id of dimension')
+        c.argument('dimension_value_id', type=str, help='key: id of dimensionValue')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-dimension update-dimension-value') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3002,12 +3252,6 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
 
-    with self.argument_context('financials financial-company-employee delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('employee_id', type=str, help='key: id of employee')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('financials financial-company-employee create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('employee_id', type=str, help='key: id of employee')
@@ -3017,30 +3261,36 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-employee get-picture') as c:
+    with self.argument_context('financials financial-company-employee delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('employee_id', type=str, help='key: id of employee')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-employee get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('employee_id', type=str, help='key: id of employee')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-employee list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('employee_id', type=str, help='key: id of employee')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-employee set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('employee_id', type=str, help='key: id of employee')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-employee show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('employee_id', type=str, help='key: id of employee')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-employee show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('employee_id', type=str, help='key: id of employee')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-employee update-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3052,16 +3302,16 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-general-ledger-entry delete') as c:
+    with self.argument_context('financials financial-company-general-ledger-entry delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('general_ledger_entry_id', type=str, help='key: id of generalLedgerEntry')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-general-ledger-entry get-account') as c:
+    with self.argument_context('financials financial-company-general-ledger-entry show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('general_ledger_entry_id', type=str, help='key: id of generalLedgerEntry')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-general-ledger-entry update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3074,12 +3324,6 @@ def load_arguments(self, _):
         c.argument('number', type=str, help='')
         c.argument('sub_category', type=str, help='')
 
-    with self.argument_context('financials financial-company-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('item_id', type=str, help='key: id of item')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('financials financial-company-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('item_id', type=str, help='key: id of item')
@@ -3089,36 +3333,47 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-item get-item-category') as c:
+    with self.argument_context('financials financial-company-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('item_id', type=str, help='key: id of item')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-item get-picture') as c:
+    with self.argument_context('financials financial-company-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('item_id', type=str, help='key: id of item')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('item_id', type=str, help='key: id of item')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('item_id', type=str, help='key: id of item')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('item_id', type=str, help='key: id of item')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('item_id', type=str, help='key: id of item')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('item_id', type=str, help='key: id of item')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('item_id', type=str, help='key: id of item')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3138,16 +3393,16 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-journal-line delete') as c:
+    with self.argument_context('financials financial-company-journal-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('journal_line_id', type=str, help='key: id of journalLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-journal-line get-account') as c:
+    with self.argument_context('financials financial-company-journal-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('journal_line_id', type=str, help='key: id of journalLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-journal-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3159,12 +3414,6 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('number', type=str, help='')
         c.argument('sub_category', type=str, help='')
-
-    with self.argument_context('financials financial-company-journal delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('journal_id', type=str, help='key: id of journal')
-        c.argument('journal_line_id', type=str, help='key: id of journalLine')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-journal create-journal-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3181,31 +3430,42 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('line_number', type=int, help='')
         c.argument('posting_date', help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
 
-    with self.argument_context('financials financial-company-journal get-account') as c:
+    with self.argument_context('financials financial-company-journal delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('journal_id', type=str, help='key: id of journal')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-journal get-journal-line') as c:
+    with self.argument_context('financials financial-company-journal delete-journal-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('journal_id', type=str, help='key: id of journal')
         c.argument('journal_line_id', type=str, help='key: id of journalLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-journal list-journal-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('journal_id', type=str, help='key: id of journal')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-journal post') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('journal_id', type=str, help='key: id of journal')
+
+    with self.argument_context('financials financial-company-journal show-account') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('journal_id', type=str, help='key: id of journal')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-journal show-journal-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('journal_id', type=str, help='key: id of journal')
+        c.argument('journal_line_id', type=str, help='key: id of journalLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-journal update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3234,20 +3494,20 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='')
         c.argument('line_number', type=int, help='')
         c.argument('posting_date', help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
 
-    with self.argument_context('financials financial-company-journal-journal-line delete') as c:
+    with self.argument_context('financials financial-company-journal-journal-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('journal_id', type=str, help='key: id of journal')
         c.argument('journal_line_id', type=str, help='key: id of journalLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-journal-journal-line get-account') as c:
+    with self.argument_context('financials financial-company-journal-journal-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('journal_id', type=str, help='key: id of journal')
         c.argument('journal_line_id', type=str, help='key: id of journalLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-journal-journal-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3261,22 +3521,27 @@ def load_arguments(self, _):
         c.argument('number', type=str, help='')
         c.argument('sub_category', type=str, help='')
 
-    with self.argument_context('financials financial-company-purchase-invoice-line delete') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice-line get-account') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-line delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice-line get-item') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice-line show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-purchase-invoice-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3308,14 +3573,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-purchase-invoice-line-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-purchase-invoice-line-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3326,36 +3585,47 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-purchase-invoice-line-item get-item-category') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-line-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice-line-item get-picture') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-line-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-purchase-invoice-line-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-purchase-invoice-line-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-purchase-invoice-line-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-purchase-invoice-line-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice-line-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice-line-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-purchase-invoice-line-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3374,12 +3644,6 @@ def load_arguments(self, _):
         c.argument('content_type', type=str, help='')
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
-
-    with self.argument_context('financials financial-company-purchase-invoice delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-purchase-invoice create-purchase-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3406,55 +3670,72 @@ def load_arguments(self, _):
         c.argument('tax_percent', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_cost', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('number_unit_cost', type=float, help='', arg_group='Item')
+        c.argument('unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
-    with self.argument_context('financials financial-company-purchase-invoice get-currency') as c:
+    with self.argument_context('financials financial-company-purchase-invoice delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice get-purchase-invoice-line') as c:
+    with self.argument_context('financials financial-company-purchase-invoice delete-purchase-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice get-vendor') as c:
+    with self.argument_context('financials financial-company-purchase-invoice delete-vendor') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-purchase-invoice list-purchase-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-purchase-invoice post') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+
+    with self.argument_context('financials financial-company-purchase-invoice show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice show-purchase-invoice-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice show-vendor') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-purchase-invoice update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3493,31 +3774,32 @@ def load_arguments(self, _):
         c.argument('tax_percent', type=float, help='')
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_cost', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('number_unit_cost', type=float, help='', arg_group='Item')
+        c.argument('unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company-purchase-invoice update-vendor') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('balance', type=float, help='')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
@@ -3532,30 +3814,36 @@ def load_arguments(self, _):
         c.argument('tax_liable', arg_type=get_three_state_flag(), help='')
         c.argument('tax_registration_number', type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddVendorPicture, nargs='*', help='')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreatePurchaseInvoicePicture, nargs='+', help='')
 
-    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line delete') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line get-account') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line get-item') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3589,15 +3877,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3609,34 +3890,26 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item get-item-category') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item get-picture') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3644,6 +3917,27 @@ def load_arguments(self, _):
         c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('purchase_invoice_line_id', type=str, help='key: id of purchaseInvoiceLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-purchase-invoice-purchase-invoice-line-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3665,12 +3959,6 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-purchase-invoice-vendor delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('financials financial-company-purchase-invoice-vendor create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
@@ -3680,48 +3968,69 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-purchase-invoice-vendor get-currency') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-vendor delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice-vendor get-payment-method') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-vendor delete-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice-vendor get-payment-term') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-vendor delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-purchase-invoice-vendor get-picture') as c:
+    with self.argument_context('financials financial-company-purchase-invoice-vendor delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-purchase-invoice-vendor get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-purchase-invoice-vendor list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-purchase-invoice-vendor set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-purchase-invoice-vendor show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice-vendor show-payment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice-vendor show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice-vendor show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-purchase-invoice-vendor show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('purchase_invoice_id', type=str, help='key: id of purchaseInvoice')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-purchase-invoice-vendor update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3764,22 +4073,27 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-line delete') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-line get-account') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-line delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-line get-item') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-line show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-credit-memo-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3811,14 +4125,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-sale-credit-memo-line-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-sale-credit-memo-line-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3829,36 +4137,47 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-line-item get-item-category') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-line-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-line-item get-picture') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-line-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-sale-credit-memo-line-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-credit-memo-line-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-credit-memo-line-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-line-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-line-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-line-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-sale-credit-memo-line-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3877,12 +4196,6 @@ def load_arguments(self, _):
         c.argument('content_type', type=str, help='')
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
-
-    with self.argument_context('financials financial-company-sale-credit-memo delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-credit-memo create-sale-credit-memo-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3910,57 +4223,79 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
-    with self.argument_context('financials financial-company-sale-credit-memo get-currency') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo get-customer') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo delete-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo get-payment-term') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo get-sale-credit-memo-line') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo delete-sale-credit-memo-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-credit-memo list-sale-credit-memo-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo show-customer') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo show-sale-credit-memo-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-credit-memo update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -3977,7 +4312,7 @@ def load_arguments(self, _):
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
         c.argument('currency_id', help='')
@@ -3995,11 +4330,11 @@ def load_arguments(self, _):
         c.argument('tax_registration_number', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
 
     with self.argument_context('financials financial-company-sale-credit-memo update-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4040,31 +4375,26 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-sale-credit-memo-customer delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company-sale-credit-memo-customer create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4075,54 +4405,80 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-customer get-currency') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-customer delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-customer get-payment-method') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-customer delete-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-customer get-payment-term') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-customer delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-customer get-picture') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-customer delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-customer get-picture-content') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-customer delete-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('picture_id', type=str, help='key: id of picture')
-
-    with self.argument_context('financials financial-company-sale-credit-memo-customer get-shipment-method') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-credit-memo-customer list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-credit-memo-customer set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-customer show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-customer show-payment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-customer show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-customer show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-customer show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('picture_id', type=str, help='key: id of picture')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-customer show-shipment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-credit-memo-customer update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4173,25 +4529,31 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line delete') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line get-account') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line get-item') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4225,15 +4587,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4245,34 +4600,26 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item get-item-category') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item get-picture') as c:
+    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
-        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4280,6 +4627,27 @@ def load_arguments(self, _):
         c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_credit_memo_id', type=str, help='key: id of salesCreditMemo')
+        c.argument('sales_credit_memo_line_id', type=str, help='key: id of salesCreditMemoLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-sale-credit-memo-sale-credit-memo-line-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4301,22 +4669,27 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-invoice-line delete') as c:
+    with self.argument_context('financials financial-company-sale-invoice-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice-line get-account') as c:
+    with self.argument_context('financials financial-company-sale-invoice-line delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice-line get-item') as c:
+    with self.argument_context('financials financial-company-sale-invoice-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice-line show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-invoice-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4348,14 +4721,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-sale-invoice-line-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-sale-invoice-line-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4366,36 +4733,47 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-invoice-line-item get-item-category') as c:
+    with self.argument_context('financials financial-company-sale-invoice-line-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice-line-item get-picture') as c:
+    with self.argument_context('financials financial-company-sale-invoice-line-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-sale-invoice-line-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-invoice-line-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-invoice-line-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-invoice-line-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice-line-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice-line-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-sale-invoice-line-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4414,12 +4792,6 @@ def load_arguments(self, _):
         c.argument('content_type', type=str, help='')
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
-
-    with self.argument_context('financials financial-company-sale-invoice delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-invoice cancel') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4455,63 +4827,59 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
-    with self.argument_context('financials financial-company-sale-invoice get-currency') as c:
+    with self.argument_context('financials financial-company-sale-invoice delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice get-customer') as c:
+    with self.argument_context('financials financial-company-sale-invoice delete-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice get-payment-term') as c:
+    with self.argument_context('financials financial-company-sale-invoice delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice get-sale-invoice-line') as c:
+    with self.argument_context('financials financial-company-sale-invoice delete-sale-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice get-shipment-method') as c:
+    with self.argument_context('financials financial-company-sale-invoice delete-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-invoice list-sale-invoice-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-invoice post') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4524,6 +4892,37 @@ def load_arguments(self, _):
     with self.argument_context('financials financial-company-sale-invoice send') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+
+    with self.argument_context('financials financial-company-sale-invoice show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice show-customer') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice show-sale-invoice-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice show-shipment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-invoice update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4540,7 +4939,7 @@ def load_arguments(self, _):
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
         c.argument('currency_id', help='')
@@ -4558,11 +4957,11 @@ def load_arguments(self, _):
         c.argument('tax_registration_number', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
 
     with self.argument_context('financials financial-company-sale-invoice update-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4603,25 +5002,26 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company-sale-invoice update-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4630,12 +5030,6 @@ def load_arguments(self, _):
         c.argument('code', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
-
-    with self.argument_context('financials financial-company-sale-invoice-customer delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-invoice-customer create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4646,54 +5040,80 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-invoice-customer get-currency') as c:
+    with self.argument_context('financials financial-company-sale-invoice-customer delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice-customer get-payment-method') as c:
+    with self.argument_context('financials financial-company-sale-invoice-customer delete-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice-customer get-payment-term') as c:
+    with self.argument_context('financials financial-company-sale-invoice-customer delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice-customer get-picture') as c:
+    with self.argument_context('financials financial-company-sale-invoice-customer delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice-customer get-picture-content') as c:
+    with self.argument_context('financials financial-company-sale-invoice-customer delete-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('picture_id', type=str, help='key: id of picture')
-
-    with self.argument_context('financials financial-company-sale-invoice-customer get-shipment-method') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-invoice-customer list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-invoice-customer set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-invoice-customer show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice-customer show-payment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice-customer show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice-customer show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice-customer show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('picture_id', type=str, help='key: id of picture')
+
+    with self.argument_context('financials financial-company-sale-invoice-customer show-shipment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-invoice-customer update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4744,25 +5164,31 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
 
-    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line delete') as c:
+    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line get-account') as c:
+    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line get-item') as c:
+    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4796,15 +5222,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4816,34 +5235,26 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item get-item-category') as c:
+    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item get-picture') as c:
+    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
-        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4851,6 +5262,27 @@ def load_arguments(self, _):
         c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_invoice_id', type=str, help='key: id of salesInvoice')
+        c.argument('sales_invoice_line_id', type=str, help='key: id of salesInvoiceLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-sale-invoice-sale-invoice-line-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4872,22 +5304,27 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-order-line delete') as c:
+    with self.argument_context('financials financial-company-sale-order-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order-line get-account') as c:
+    with self.argument_context('financials financial-company-sale-order-line delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order-line get-item') as c:
+    with self.argument_context('financials financial-company-sale-order-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order-line show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-order-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4919,14 +5356,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-sale-order-line-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-sale-order-line-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4937,36 +5368,47 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-order-line-item get-item-category') as c:
+    with self.argument_context('financials financial-company-sale-order-line-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order-line-item get-picture') as c:
+    with self.argument_context('financials financial-company-sale-order-line-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-sale-order-line-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-order-line-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-order-line-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-order-line-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order-line-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order-line-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-sale-order-line-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -4985,12 +5427,6 @@ def load_arguments(self, _):
         c.argument('content_type', type=str, help='')
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
-
-    with self.argument_context('financials financial-company-sale-order delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-order create-sale-order-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5022,57 +5458,79 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
-    with self.argument_context('financials financial-company-sale-order get-currency') as c:
+    with self.argument_context('financials financial-company-sale-order delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order get-customer') as c:
+    with self.argument_context('financials financial-company-sale-order delete-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order get-payment-term') as c:
+    with self.argument_context('financials financial-company-sale-order delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order get-sale-order-line') as c:
+    with self.argument_context('financials financial-company-sale-order delete-sale-order-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-order list-sale-order-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order show-customer') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order show-sale-order-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-order update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5089,7 +5547,7 @@ def load_arguments(self, _):
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
         c.argument('currency_id', help='')
@@ -5107,11 +5565,11 @@ def load_arguments(self, _):
         c.argument('tax_registration_number', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
 
     with self.argument_context('financials financial-company-sale-order update-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5156,31 +5614,26 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-sale-order-customer delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company-sale-order-customer create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5191,54 +5644,80 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-order-customer get-currency') as c:
+    with self.argument_context('financials financial-company-sale-order-customer delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order-customer get-payment-method') as c:
+    with self.argument_context('financials financial-company-sale-order-customer delete-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order-customer get-payment-term') as c:
+    with self.argument_context('financials financial-company-sale-order-customer delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order-customer get-picture') as c:
+    with self.argument_context('financials financial-company-sale-order-customer delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order-customer get-picture-content') as c:
+    with self.argument_context('financials financial-company-sale-order-customer delete-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('picture_id', type=str, help='key: id of picture')
-
-    with self.argument_context('financials financial-company-sale-order-customer get-shipment-method') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-order-customer list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-order-customer set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-order-customer show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order-customer show-payment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order-customer show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order-customer show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order-customer show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('picture_id', type=str, help='key: id of picture')
+
+    with self.argument_context('financials financial-company-sale-order-customer show-shipment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-order-customer update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5289,25 +5768,31 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
 
-    with self.argument_context('financials financial-company-sale-order-sale-order-line delete') as c:
+    with self.argument_context('financials financial-company-sale-order-sale-order-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order-sale-order-line get-account') as c:
+    with self.argument_context('financials financial-company-sale-order-sale-order-line delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order-sale-order-line get-item') as c:
+    with self.argument_context('financials financial-company-sale-order-sale-order-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order-sale-order-line show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-order-sale-order-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5341,15 +5826,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-sale-order-sale-order-line-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-sale-order-sale-order-line-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5361,34 +5839,26 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-order-sale-order-line-item get-item-category') as c:
+    with self.argument_context('financials financial-company-sale-order-sale-order-line-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-order-sale-order-line-item get-picture') as c:
+    with self.argument_context('financials financial-company-sale-order-sale-order-line-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-sale-order-sale-order-line-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
-        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-order-sale-order-line-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_order_id', type=str, help='key: id of salesOrder')
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-order-sale-order-line-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5396,6 +5866,27 @@ def load_arguments(self, _):
         c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-order-sale-order-line-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order-sale-order-line-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-order-sale-order-line-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_order_id', type=str, help='key: id of salesOrder')
+        c.argument('sales_order_line_id', type=str, help='key: id of salesOrderLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-sale-order-sale-order-line-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5417,22 +5908,27 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-quote-line delete') as c:
+    with self.argument_context('financials financial-company-sale-quote-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote-line get-account') as c:
+    with self.argument_context('financials financial-company-sale-quote-line delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote-line get-item') as c:
+    with self.argument_context('financials financial-company-sale-quote-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote-line show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-quote-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5464,14 +5960,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-sale-quote-line-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-sale-quote-line-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5482,36 +5972,47 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-quote-line-item get-item-category') as c:
+    with self.argument_context('financials financial-company-sale-quote-line-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote-line-item get-picture') as c:
+    with self.argument_context('financials financial-company-sale-quote-line-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-sale-quote-line-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-quote-line-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-quote-line-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-quote-line-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote-line-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote-line-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-sale-quote-line-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5530,12 +6031,6 @@ def load_arguments(self, _):
         c.argument('content_type', type=str, help='')
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
-
-    with self.argument_context('financials financial-company-sale-quote delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-quote create-sale-quote-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5561,63 +6056,59 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
-    with self.argument_context('financials financial-company-sale-quote get-currency') as c:
+    with self.argument_context('financials financial-company-sale-quote delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote get-customer') as c:
+    with self.argument_context('financials financial-company-sale-quote delete-customer') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote get-payment-term') as c:
+    with self.argument_context('financials financial-company-sale-quote delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote get-sale-quote-line') as c:
+    with self.argument_context('financials financial-company-sale-quote delete-sale-quote-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote get-shipment-method') as c:
+    with self.argument_context('financials financial-company-sale-quote delete-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-quote list-sale-quote-line') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-quote make-invoice') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5626,6 +6117,37 @@ def load_arguments(self, _):
     with self.argument_context('financials financial-company-sale-quote send') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+
+    with self.argument_context('financials financial-company-sale-quote show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote show-customer') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote show-sale-quote-line') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote show-shipment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-quote update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5642,7 +6164,7 @@ def load_arguments(self, _):
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('address', action=AddAddress, nargs='*', help='postalAddressType')
+        c.argument('address', action=AddAddress, nargs='+', help='postalAddressType')
         c.argument('blocked', type=str, help='')
         c.argument('currency_code', type=str, help='')
         c.argument('currency_id', help='')
@@ -5660,11 +6182,11 @@ def load_arguments(self, _):
         c.argument('tax_registration_number', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('website', type=str, help='')
-        c.argument('currency', action=AddCustomerCurrency, nargs='*', help='currency')
-        c.argument('payment_method', action=AddCustomerPaymentMethod, nargs='*', help='paymentMethod')
-        c.argument('payment_term', action=AddCustomerPaymentTerm, nargs='*', help='paymentTerm')
-        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='*', help='')
-        c.argument('shipment_method', action=AddCustomerShipmentMethod, nargs='*', help='shipmentMethod')
+        c.argument('currency', action=AddCurrency, nargs='+', help='currency')
+        c.argument('payment_method', action=AddPaymentMethod, nargs='+', help='paymentMethod')
+        c.argument('payment_term', action=AddPaymentTerm, nargs='+', help='paymentTerm')
+        c.argument('picture', action=AddFinancialsCompaniesPicture, nargs='+', help='')
+        c.argument('shipment_method', action=AddShipmentMethod, nargs='+', help='shipmentMethod')
 
     with self.argument_context('financials financial-company-sale-quote update-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5703,25 +6225,26 @@ def load_arguments(self, _):
         c.argument('total_tax_amount', type=float, help='')
         c.argument('unit_of_measure_id', help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('account', action=AddAccount, nargs='*', help='account')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('item_base_unit_of_measure_id', help='')
-        c.argument('item_blocked', arg_type=get_three_state_flag(), help='')
-        c.argument('item_display_name', type=str, help='')
-        c.argument('item_gtin', type=str, help='')
-        c.argument('item_inventory', type=float, help='')
-        c.argument('item_item_category_code', type=str, help='')
-        c.argument('item_item_category_id', help='')
-        c.argument('item_last_modified_date_time', help='')
-        c.argument('item_number', type=str, help='')
-        c.argument('item_price_includes_tax', arg_type=get_three_state_flag(), help='')
-        c.argument('item_tax_group_code', type=str, help='')
-        c.argument('item_tax_group_id', help='')
-        c.argument('item_type', type=str, help='')
-        c.argument('item_unit_cost', type=float, help='')
-        c.argument('item_unit_price', type=float, help='')
-        c.argument('item_item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('item_picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
+        c.argument('account', action=AddAccount, nargs='+', help='account')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Item')
+        c.argument('base_unit_of_measure_id', help='', arg_group='Item')
+        c.argument('blocked', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('display_name', type=str, help='', arg_group='Item')
+        c.argument('gtin', type=str, help='', arg_group='Item')
+        c.argument('inventory', type=float, help='', arg_group='Item')
+        c.argument('item_category_code', type=str, help='', arg_group='Item')
+        c.argument('item_category_id', help='', arg_group='Item')
+        c.argument('last_modified_date_time', help='', arg_group='Item')
+        c.argument('number', type=str, help='', arg_group='Item')
+        c.argument('price_includes_tax', arg_type=get_three_state_flag(), help='', arg_group='Item')
+        c.argument('tax_group_code', type=str, help='', arg_group='Item')
+        c.argument('tax_group_id', help='', arg_group='Item')
+        c.argument('type_', options_list=['--type'], type=str, help='', arg_group='Item')
+        c.argument('unit_cost', type=float, help='', arg_group='Item')
+        c.argument('number_unit_price', type=float, help='', arg_group='Item')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory', arg_group='Item')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='',
+                   arg_group='Item')
 
     with self.argument_context('financials financial-company-sale-quote update-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5730,12 +6253,6 @@ def load_arguments(self, _):
         c.argument('code', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
-
-    with self.argument_context('financials financial-company-sale-quote-customer delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-quote-customer create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5746,54 +6263,80 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-quote-customer get-currency') as c:
+    with self.argument_context('financials financial-company-sale-quote-customer delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote-customer get-payment-method') as c:
+    with self.argument_context('financials financial-company-sale-quote-customer delete-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote-customer get-payment-term') as c:
+    with self.argument_context('financials financial-company-sale-quote-customer delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote-customer get-picture') as c:
+    with self.argument_context('financials financial-company-sale-quote-customer delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote-customer get-picture-content') as c:
+    with self.argument_context('financials financial-company-sale-quote-customer delete-shipment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('picture_id', type=str, help='key: id of picture')
-
-    with self.argument_context('financials financial-company-sale-quote-customer get-shipment-method') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-quote-customer list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-quote-customer set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-quote-customer show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote-customer show-payment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote-customer show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote-customer show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote-customer show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('picture_id', type=str, help='key: id of picture')
+
+    with self.argument_context('financials financial-company-sale-quote-customer show-shipment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-quote-customer update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5844,25 +6387,31 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('last_modified_date_time', help='')
 
-    with self.argument_context('financials financial-company-sale-quote-sale-quote-line delete') as c:
+    with self.argument_context('financials financial-company-sale-quote-sale-quote-line delete-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote-sale-quote-line get-account') as c:
+    with self.argument_context('financials financial-company-sale-quote-sale-quote-line delete-item') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote-sale-quote-line get-item') as c:
+    with self.argument_context('financials financial-company-sale-quote-sale-quote-line show-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote-sale-quote-line show-item') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-quote-sale-quote-line update-account') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5896,15 +6445,8 @@ def load_arguments(self, _):
         c.argument('type_', options_list=['--type'], type=str, help='')
         c.argument('unit_cost', type=float, help='')
         c.argument('unit_price', type=float, help='')
-        c.argument('item_category', action=AddItemCategory, nargs='*', help='itemCategory')
-        c.argument('picture', action=AddFinancialsFinancialCompanyCreateItemPicture, nargs='*', help='')
-
-    with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('item_category', action=AddItemCategory, nargs='+', help='itemCategory')
+        c.argument('picture', action=AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, nargs='+', help='')
 
     with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5916,34 +6458,26 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item get-item-category') as c:
+    with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item delete-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item get-picture') as c:
+    with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
-        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5951,6 +6485,27 @@ def load_arguments(self, _):
         c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item show-item-category') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('sales_quote_id', type=str, help='key: id of salesQuote')
+        c.argument('sales_quote_line_id', type=str, help='key: id of salesQuoteLine')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-sale-quote-sale-quote-line-item update-item-category') as c:
         c.argument('company_id', type=str, help='key: id of company')
@@ -5972,12 +6527,6 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-vendor delete') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('vendor_id', type=str, help='key: id of vendor')
-        c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('financials financial-company-vendor create-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('vendor_id', type=str, help='key: id of vendor')
@@ -5987,48 +6536,69 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='')
         c.argument('width', type=int, help='')
 
-    with self.argument_context('financials financial-company-vendor get-currency') as c:
+    with self.argument_context('financials financial-company-vendor delete-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('vendor_id', type=str, help='key: id of vendor')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-vendor get-payment-method') as c:
+    with self.argument_context('financials financial-company-vendor delete-payment-method') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('vendor_id', type=str, help='key: id of vendor')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-vendor get-payment-term') as c:
+    with self.argument_context('financials financial-company-vendor delete-payment-term') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('vendor_id', type=str, help='key: id of vendor')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('financials financial-company-vendor get-picture') as c:
+    with self.argument_context('financials financial-company-vendor delete-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('vendor_id', type=str, help='key: id of vendor')
         c.argument('picture_id', type=str, help='key: id of picture')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('financials financial-company-vendor get-picture-content') as c:
-        c.argument('company_id', type=str, help='key: id of company')
-        c.argument('vendor_id', type=str, help='key: id of vendor')
-        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('financials financial-company-vendor list-picture') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('vendor_id', type=str, help='key: id of vendor')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('financials financial-company-vendor set-picture-content') as c:
         c.argument('company_id', type=str, help='key: id of company')
         c.argument('vendor_id', type=str, help='key: id of vendor')
         c.argument('picture_id', type=str, help='key: id of picture')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('financials financial-company-vendor show-currency') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('vendor_id', type=str, help='key: id of vendor')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-vendor show-payment-method') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('vendor_id', type=str, help='key: id of vendor')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-vendor show-payment-term') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('vendor_id', type=str, help='key: id of vendor')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-vendor show-picture') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('vendor_id', type=str, help='key: id of vendor')
+        c.argument('picture_id', type=str, help='key: id of picture')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('financials financial-company-vendor show-picture-content') as c:
+        c.argument('company_id', type=str, help='key: id of company')
+        c.argument('vendor_id', type=str, help='key: id of vendor')
+        c.argument('picture_id', type=str, help='key: id of picture')
 
     with self.argument_context('financials financial-company-vendor update-currency') as c:
         c.argument('company_id', type=str, help='key: id of company')

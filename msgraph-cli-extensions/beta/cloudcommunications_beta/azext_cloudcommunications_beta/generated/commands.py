@@ -9,153 +9,204 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_cloudcommunications_beta.generated._client_factory import (
+    cf_communication_cloud_communication,
+    cf_communication,
+    cf_communication_call_record,
+    cf_communication_call_record_session,
+    cf_communication_call,
+    cf_communication_call_participant,
+    cf_communication_online_meeting,
+    cf_user,
+)
+
+
+cloudcommunications_beta_communication_cloud_communication = CliCommandType(
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_cloud_communications_operations#CommunicationsCloudCommunicationsOperations.{}',
+    client_factory=cf_communication_cloud_communication,
+)
+
+
+cloudcommunications_beta_communication = CliCommandType(
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_operations#CommunicationsOperations.{}',
+    client_factory=cf_communication,
+)
+
+
+cloudcommunications_beta_communication_call_record = CliCommandType(
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_call_records_operations#CommunicationsCallRecordsOperations.{}',
+    client_factory=cf_communication_call_record,
+)
+
+
+cloudcommunications_beta_communication_call_record_session = CliCommandType(
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_call_records_sessions_operations#CommunicationsCallRecordsSessionsOperations.{}',
+    client_factory=cf_communication_call_record_session,
+)
+
+
+cloudcommunications_beta_communication_call = CliCommandType(
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_calls_operations#CommunicationsCallsOperations.{}',
+    client_factory=cf_communication_call,
+)
+
+
+cloudcommunications_beta_communication_call_participant = CliCommandType(
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_calls_participants_operations#CommunicationsCallsParticipantsOperations.{}',
+    client_factory=cf_communication_call_participant,
+)
+
+
+cloudcommunications_beta_communication_online_meeting = CliCommandType(
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communications_online_meetings_operations#CommunicationsOnlineMeetingsOperations.{}',
+    client_factory=cf_communication_online_meeting,
+)
+
+
+cloudcommunications_beta_user = CliCommandType(
+    operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._users_operations#UsersOperations.{}',
+    client_factory=cf_user,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_cloudcommunications_beta.generated._client_factory import cf_communication_cloud_communication
-    cloudcommunications_beta_communication_cloud_communication = CliCommandType(
-        operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_clo'
-        'ud_communication_operations#CommunicationCloudCommunicationOperations.{}',
-        client_factory=cf_communication_cloud_communication)
-    with self.command_group('cloudcommunications communication-cloud-communication',
-                            cloudcommunications_beta_communication_cloud_communication,
-                            client_factory=cf_communication_cloud_communication, is_experimental=True) as g:
-        g.custom_command('get-cloud-communication', 'cloudcommunications_communication_cloud_communication_get_cloud_co'
-                         'mmunication')
-        g.custom_command('update-cloud-communication', 'cloudcommunications_communication_cloud_communication_update_cl'
-                         'oud_communication')
+    with self.command_group(
+        'cloudcommunications communication-cloud-communication',
+        cloudcommunications_beta_communication_cloud_communication,
+        client_factory=cf_communication_cloud_communication,
+    ) as g:
+        g.custom_command(
+            'show-cloud-communication', 'cloudcommunications_communication_cloud_communication_show_cloud_communication'
+        )
+        g.custom_command(
+            'update-cloud-communication',
+            'cloudcommunications_communication_cloud_communication_update_cloud_communication',
+        )
 
-    from azext_cloudcommunications_beta.generated._client_factory import cf_communication
-    cloudcommunications_beta_communication = CliCommandType(
-        operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_ope'
-        'rations#CommunicationOperations.{}',
-        client_factory=cf_communication)
-    with self.command_group('cloudcommunications communication', cloudcommunications_beta_communication,
-                            client_factory=cf_communication, is_experimental=True) as g:
-        g.custom_command('delete', 'cloudcommunications_communication_delete', confirmation=True)
+    with self.command_group(
+        'cloudcommunications communication', cloudcommunications_beta_communication, client_factory=cf_communication
+    ) as g:
         g.custom_command('create-call', 'cloudcommunications_communication_create_call')
         g.custom_command('create-call-record', 'cloudcommunications_communication_create_call_record')
         g.custom_command('create-online-meeting', 'cloudcommunications_communication_create_online_meeting')
         g.custom_command('create-presence', 'cloudcommunications_communication_create_presence')
-        g.custom_command('get-call', 'cloudcommunications_communication_get_call')
-        g.custom_command('get-call-record', 'cloudcommunications_communication_get_call_record')
-        g.custom_command('get-online-meeting', 'cloudcommunications_communication_get_online_meeting')
-        g.custom_command('get-presence', 'cloudcommunications_communication_get_presence')
+        g.custom_command('delete-call', 'cloudcommunications_communication_delete_call')
+        g.custom_command('delete-call-record', 'cloudcommunications_communication_delete_call_record')
+        g.custom_command('delete-online-meeting', 'cloudcommunications_communication_delete_online_meeting')
+        g.custom_command('delete-presence', 'cloudcommunications_communication_delete_presence')
         g.custom_command('get-presence-by-user-id', 'cloudcommunications_communication_get_presence_by_user_id')
         g.custom_command('list-call', 'cloudcommunications_communication_list_call')
         g.custom_command('list-call-record', 'cloudcommunications_communication_list_call_record')
         g.custom_command('list-online-meeting', 'cloudcommunications_communication_list_online_meeting')
         g.custom_command('list-presence', 'cloudcommunications_communication_list_presence')
+        g.custom_command('show-call', 'cloudcommunications_communication_show_call')
+        g.custom_command('show-call-record', 'cloudcommunications_communication_show_call_record')
+        g.custom_command('show-online-meeting', 'cloudcommunications_communication_show_online_meeting')
+        g.custom_command('show-presence', 'cloudcommunications_communication_show_presence')
         g.custom_command('update-call', 'cloudcommunications_communication_update_call')
         g.custom_command('update-call-record', 'cloudcommunications_communication_update_call_record')
         g.custom_command('update-online-meeting', 'cloudcommunications_communication_update_online_meeting')
         g.custom_command('update-presence', 'cloudcommunications_communication_update_presence')
 
-    from azext_cloudcommunications_beta.generated._client_factory import cf_communication_call_record
-    cloudcommunications_beta_communication_call_record = CliCommandType(
-        operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_cal'
-        'l_record_operations#CommunicationCallRecordOperations.{}',
-        client_factory=cf_communication_call_record)
-    with self.command_group('cloudcommunications communication-call-record',
-                            cloudcommunications_beta_communication_call_record,
-                            client_factory=cf_communication_call_record, is_experimental=True) as g:
-        g.custom_command('delete', 'cloudcommunications_communication_call_record_delete', confirmation=True)
+    with self.command_group(
+        'cloudcommunications communication-call-record',
+        cloudcommunications_beta_communication_call_record,
+        client_factory=cf_communication_call_record,
+    ) as g:
         g.custom_command('create-session', 'cloudcommunications_communication_call_record_create_session')
-        g.custom_command('get-session', 'cloudcommunications_communication_call_record_get_session')
+        g.custom_command('delete-session', 'cloudcommunications_communication_call_record_delete_session')
         g.custom_command('list-session', 'cloudcommunications_communication_call_record_list_session')
+        g.custom_command('show-session', 'cloudcommunications_communication_call_record_show_session')
         g.custom_command('update-session', 'cloudcommunications_communication_call_record_update_session')
 
-    from azext_cloudcommunications_beta.generated._client_factory import cf_communication_call_record_session
-    cloudcommunications_beta_communication_call_record_session = CliCommandType(
-        operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_cal'
-        'l_record_session_operations#CommunicationCallRecordSessionOperations.{}',
-        client_factory=cf_communication_call_record_session)
-    with self.command_group('cloudcommunications communication-call-record-session',
-                            cloudcommunications_beta_communication_call_record_session,
-                            client_factory=cf_communication_call_record_session, is_experimental=True) as g:
-        g.custom_command('delete', 'cloudcommunications_communication_call_record_session_delete', confirmation=True)
+    with self.command_group(
+        'cloudcommunications communication-call-record-session',
+        cloudcommunications_beta_communication_call_record_session,
+        client_factory=cf_communication_call_record_session,
+    ) as g:
         g.custom_command('create-segment', 'cloudcommunications_communication_call_record_session_create_segment')
-        g.custom_command('get-segment', 'cloudcommunications_communication_call_record_session_get_segment')
+        g.custom_command('delete-segment', 'cloudcommunications_communication_call_record_session_delete_segment')
         g.custom_command('list-segment', 'cloudcommunications_communication_call_record_session_list_segment')
+        g.custom_command('show-segment', 'cloudcommunications_communication_call_record_session_show_segment')
         g.custom_command('update-segment', 'cloudcommunications_communication_call_record_session_update_segment')
 
-    from azext_cloudcommunications_beta.generated._client_factory import cf_communication_call
-    cloudcommunications_beta_communication_call = CliCommandType(
-        operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_cal'
-        'l_operations#CommunicationCallOperations.{}',
-        client_factory=cf_communication_call)
-    with self.command_group('cloudcommunications communication-call', cloudcommunications_beta_communication_call,
-                            client_factory=cf_communication_call, is_experimental=True) as g:
-        g.custom_command('delete', 'cloudcommunications_communication_call_delete', confirmation=True)
+    with self.command_group(
+        'cloudcommunications communication-call',
+        cloudcommunications_beta_communication_call,
+        client_factory=cf_communication_call,
+    ) as g:
         g.custom_command('answer', 'cloudcommunications_communication_call_answer')
         g.custom_command('cancel-media-processing', 'cloudcommunications_communication_call_cancel_media_processing')
-        g.custom_command('change-screen-sharing-role', 'cloudcommunications_communication_call_change_screen_sharing_ro'
-                         'le')
-        g.custom_command('create-audio-routing-group', 'cloudcommunications_communication_call_create_audio_routing_gro'
-                         'up')
+        g.custom_command(
+            'change-screen-sharing-role', 'cloudcommunications_communication_call_change_screen_sharing_role'
+        )
+        g.custom_command(
+            'create-audio-routing-group', 'cloudcommunications_communication_call_create_audio_routing_group'
+        )
         g.custom_command('create-operation', 'cloudcommunications_communication_call_create_operation')
         g.custom_command('create-participant', 'cloudcommunications_communication_call_create_participant')
-        g.custom_command('get-audio-routing-group', 'cloudcommunications_communication_call_get_audio_routing_group')
-        g.custom_command('get-operation', 'cloudcommunications_communication_call_get_operation')
-        g.custom_command('get-participant', 'cloudcommunications_communication_call_get_participant')
+        g.custom_command(
+            'delete-audio-routing-group', 'cloudcommunications_communication_call_delete_audio_routing_group'
+        )
+        g.custom_command('delete-operation', 'cloudcommunications_communication_call_delete_operation')
+        g.custom_command('delete-participant', 'cloudcommunications_communication_call_delete_participant')
         g.custom_command('keep-alive', 'cloudcommunications_communication_call_keep_alive')
-        g.custom_command('list-audio-routing-group',
-                         'cloudcommunications_communication_call_list_audio_routing_group')
+        g.custom_command('list-audio-routing-group', 'cloudcommunications_communication_call_list_audio_routing_group')
         g.custom_command('list-operation', 'cloudcommunications_communication_call_list_operation')
         g.custom_command('list-participant', 'cloudcommunications_communication_call_list_participant')
-        g.custom_command('log-teleconference-device-quality', 'cloudcommunications_communication_call_log_teleconferenc'
-                         'e_device_quality')
+        g.custom_command(
+            'log-teleconference-device-quality',
+            'cloudcommunications_communication_call_log_teleconference_device_quality',
+        )
         g.custom_command('mute', 'cloudcommunications_communication_call_mute')
         g.custom_command('play-prompt', 'cloudcommunications_communication_call_play_prompt')
         g.custom_command('record', 'cloudcommunications_communication_call_record')
         g.custom_command('record-response', 'cloudcommunications_communication_call_record_response')
         g.custom_command('redirect', 'cloudcommunications_communication_call_redirect')
         g.custom_command('reject', 'cloudcommunications_communication_call_reject')
+        g.custom_command('show-audio-routing-group', 'cloudcommunications_communication_call_show_audio_routing_group')
+        g.custom_command('show-operation', 'cloudcommunications_communication_call_show_operation')
+        g.custom_command('show-participant', 'cloudcommunications_communication_call_show_participant')
         g.custom_command('subscribe-to-tone', 'cloudcommunications_communication_call_subscribe_to_tone')
         g.custom_command('transfer', 'cloudcommunications_communication_call_transfer')
         g.custom_command('unmute', 'cloudcommunications_communication_call_unmute')
-        g.custom_command('update-audio-routing-group', 'cloudcommunications_communication_call_update_audio_routing_gro'
-                         'up')
+        g.custom_command(
+            'update-audio-routing-group', 'cloudcommunications_communication_call_update_audio_routing_group'
+        )
         g.custom_command('update-operation', 'cloudcommunications_communication_call_update_operation')
         g.custom_command('update-participant', 'cloudcommunications_communication_call_update_participant')
         g.custom_command('update-recording-status', 'cloudcommunications_communication_call_update_recording_status')
 
-    from azext_cloudcommunications_beta.generated._client_factory import cf_communication_call_participant
-    cloudcommunications_beta_communication_call_participant = CliCommandType(
-        operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_cal'
-        'l_participant_operations#CommunicationCallParticipantOperations.{}',
-        client_factory=cf_communication_call_participant)
-    with self.command_group('cloudcommunications communication-call-participant',
-                            cloudcommunications_beta_communication_call_participant,
-                            client_factory=cf_communication_call_participant, is_experimental=True) as g:
+    with self.command_group(
+        'cloudcommunications communication-call-participant',
+        cloudcommunications_beta_communication_call_participant,
+        client_factory=cf_communication_call_participant,
+    ) as g:
         g.custom_command('invite', 'cloudcommunications_communication_call_participant_invite')
         g.custom_command('mute', 'cloudcommunications_communication_call_participant_mute')
         g.custom_command('mute-all', 'cloudcommunications_communication_call_participant_mute_all')
 
-    from azext_cloudcommunications_beta.generated._client_factory import cf_communication_online_meeting
-    cloudcommunications_beta_communication_online_meeting = CliCommandType(
-        operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._communication_onl'
-        'ine_meeting_operations#CommunicationOnlineMeetingOperations.{}',
-        client_factory=cf_communication_online_meeting)
-    with self.command_group('cloudcommunications communication-online-meeting',
-                            cloudcommunications_beta_communication_online_meeting,
-                            client_factory=cf_communication_online_meeting, is_experimental=True) as g:
+    with self.command_group(
+        'cloudcommunications communication-online-meeting',
+        cloudcommunications_beta_communication_online_meeting,
+        client_factory=cf_communication_online_meeting,
+    ) as g:
         g.custom_command('create-or-get', 'cloudcommunications_communication_online_meeting_create_or_get')
 
-    from azext_cloudcommunications_beta.generated._client_factory import cf_user
-    cloudcommunications_beta_user = CliCommandType(
-        operations_tmpl='azext_cloudcommunications_beta.vendored_sdks.cloudcommunications.operations._user_operations#U'
-        'serOperations.{}',
-        client_factory=cf_user)
-    with self.command_group('cloudcommunications user', cloudcommunications_beta_user, client_factory=cf_user,
-                            is_experimental=True) as g:
-        g.custom_command('delete', 'cloudcommunications_user_delete', confirmation=True)
+    with self.command_group('cloudcommunications user', cloudcommunications_beta_user, client_factory=cf_user) as g:
         g.custom_command('create-online-meeting', 'cloudcommunications_user_create_online_meeting')
-        g.custom_command('get-online-meeting', 'cloudcommunications_user_get_online_meeting')
-        g.custom_command('get-presence', 'cloudcommunications_user_get_presence')
+        g.custom_command('delete-online-meeting', 'cloudcommunications_user_delete_online_meeting')
+        g.custom_command('delete-presence', 'cloudcommunications_user_delete_presence')
         g.custom_command('list-online-meeting', 'cloudcommunications_user_list_online_meeting')
+        g.custom_command('show-online-meeting', 'cloudcommunications_user_show_online_meeting')
+        g.custom_command('show-presence', 'cloudcommunications_user_show_presence')
         g.custom_command('update-online-meeting', 'cloudcommunications_user_update_online_meeting')
         g.custom_command('update-presence', 'cloudcommunications_user_update_presence')
+
+    with self.command_group('cloudcommunications_beta', is_experimental=True):
+        pass

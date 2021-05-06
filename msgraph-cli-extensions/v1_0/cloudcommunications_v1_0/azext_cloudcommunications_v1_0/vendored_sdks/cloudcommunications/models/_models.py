@@ -300,16 +300,14 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
     :type join_information: ~cloud_communications.models.MicrosoftGraphItemBody
     :param join_web_url: The join URL of the online meeting. Read-only.
     :type join_web_url: str
+    :param participants: meetingParticipants.
+    :type participants: ~cloud_communications.models.MicrosoftGraphMeetingParticipants
     :param start_date_time: The meeting start time in UTC.
     :type start_date_time: ~datetime.datetime
     :param subject: The subject of the online meeting.
     :type subject: str
     :param video_teleconference_id: The video teleconferencing ID. Read-only.
     :type video_teleconference_id: str
-    :param attendees:
-    :type attendees: list[~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo]
-    :param organizer: meetingParticipantInfo.
-    :type organizer: ~cloud_communications.models.MicrosoftGraphMeetingParticipantInfo
     """
 
     _attribute_map = {
@@ -322,11 +320,10 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
         'external_id': {'key': 'externalId', 'type': 'str'},
         'join_information': {'key': 'joinInformation', 'type': 'MicrosoftGraphItemBody'},
         'join_web_url': {'key': 'joinWebUrl', 'type': 'str'},
+        'participants': {'key': 'participants', 'type': 'MicrosoftGraphMeetingParticipants'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
         'video_teleconference_id': {'key': 'videoTeleconferenceId', 'type': 'str'},
-        'attendees': {'key': 'participants.attendees', 'type': '[MicrosoftGraphMeetingParticipantInfo]'},
-        'organizer': {'key': 'participants.organizer', 'type': 'MicrosoftGraphMeetingParticipantInfo'},
     }
 
     def __init__(
@@ -342,11 +339,10 @@ class MicrosoftGraphOnlineMeeting(MicrosoftGraphEntity):
         self.external_id = kwargs.get('external_id', None)
         self.join_information = kwargs.get('join_information', None)
         self.join_web_url = kwargs.get('join_web_url', None)
+        self.participants = kwargs.get('participants', None)
         self.start_date_time = kwargs.get('start_date_time', None)
         self.subject = kwargs.get('subject', None)
         self.video_teleconference_id = kwargs.get('video_teleconference_id', None)
-        self.attendees = kwargs.get('attendees', None)
-        self.organizer = kwargs.get('organizer', None)
 
 
 class OdataError(msrest.serialization.Model):

@@ -17,16 +17,13 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_teams_beta.action import (
-    AddAppDefinitions,
-    AddChatsChatInstalledApps,
+    AddApplication,
     AddUsersMembers,
     AddAttachments,
     AddBody,
     AddChannelIdentity,
-    AddMentions,
-    AddReactions,
     AddHostedContents,
-    AddPolicyViolationPolicyTip,
+    AddPolicyTip,
     AddConfiguration,
     AddTopic,
     AddChatsTemplateParameters,
@@ -35,22 +32,20 @@ from azext_teams_beta.action import (
     AddGuestSettings,
     AddMemberSettings,
     AddMessagingSettings,
-    AddGroupsInstalledApps,
     AddGroupsMembers,
     AddGroupsPhoto,
-    AddScheduleOfferShiftRequests,
-    AddScheduleOpenShiftChangeRequests,
-    AddScheduleSchedulingGroups,
-    AddScheduleShifts,
-    AddScheduleSwapShiftsChangeRequests,
-    AddScheduleTimeOffReasons,
-    AddScheduleTimeOffRequests,
-    AddScheduleTimeClockSettingsApprovedLocation,
+    AddOfferShiftRequests,
+    AddOpenShiftChangeRequests,
+    AddSchedulingGroups,
+    AddSwapShiftsChangeRequests,
+    AddTimeOffReasons,
+    AddTimeOffRequests,
+    AddApprovedLocation,
     AddModerationSettings,
     AddTeamsMembers,
     AddError,
     AddTeamsTemplateParameters,
-    AddParentReferenceSharepointIds,
+    AddSharepointIds,
     AddAudio,
     AddFileSystemInfo,
     AddImage,
@@ -59,20 +54,18 @@ from azext_teams_beta.action import (
     AddVideo,
     AddSubscriptions,
     AddVersions,
-    AddWorkbookApplication,
-    AddWorkbookComments,
-    AddWorkbookFunctions,
-    AddSharedOwner,
-    AddRemoteItemPackage,
-    AddRemoteItemSpecialFolder,
-    AddFolderView,
-    AddFileHashes,
-    AddBundleAlbum,
+    AddMicrosoftGraphWorkbookApplication,
+    AddFunctions,
+    AddPackage,
+    AddSpecialFolder,
+    AddView,
+    AddHashes,
+    AddAlbum,
     AddTeamsChannelsMembersValues,
     AddTeamsMembersValues,
     AddTeamsPrimarychannelMembersValues,
     AddDraftOpenShift,
-    AddSharedShiftActivities,
+    AddActivities,
     AddDraftTimeOff,
     AddEncryption
 )
@@ -80,47 +73,42 @@ from azext_teams_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('teams app-catalog delete') as c:
-        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('teams app-catalog create-app') as c:
+    with self.argument_context('teams app-catalog create-team-app') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The name of the catalog app provided by the app developer in the '
                    'Microsoft Teams zip app package.')
-        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
                                                                   'unknownFutureValue']), help='')
         c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
                    'Teams zip app package.')
-        c.argument('app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each version of the '
-                   'app.')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams app-catalog get-app') as c:
+    with self.argument_context('teams app-catalog delete-team-app') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams app-catalog list-app') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('teams app-catalog list-team-app') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('teams app-catalog update-app') as c:
+    with self.argument_context('teams app-catalog show-team-app') as c:
+        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams app-catalog update-team-app') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The name of the catalog app provided by the app developer in the '
                    'Microsoft Teams zip app package.')
-        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
                                                                   'unknownFutureValue']), help='')
         c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
                    'Teams zip app package.')
-        c.argument('app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each version of the '
-                   'app.')
-
-    with self.argument_context('teams app-catalog-team-app delete') as c:
-        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
-        c.argument('teams_app_definition_id', type=str, help='key: id of teamsAppDefinition')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.')
 
     with self.argument_context('teams app-catalog-team-app create-app-definition') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
@@ -129,39 +117,32 @@ def load_arguments(self, _):
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='The name of the app provided by the app developer.')
         c.argument('last_modified_date_time', help='')
-        c.argument('publishing_state', arg_type=get_enum_type(['submitted', 'rejected', 'published', ''
+        c.argument('publishing_state', arg_type=get_enum_type(['submitted', 'rejected', 'published',
                                                                'unknownFutureValue']), help='')
         c.argument('shortdescription', type=str, help='')
         c.argument('microsoft_graph_teams_app_definition_teams_app_id_teams_app_id', type=str, help='The ID from the '
                    'Teams app manifest.')
         c.argument('version', type=str, help='The version number of the application.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
-    with self.argument_context('teams app-catalog-team-app get-app-definition') as c:
+    with self.argument_context('teams app-catalog-team-app delete-app-definition') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
         c.argument('teams_app_definition_id', type=str, help='key: id of teamsAppDefinition')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams app-catalog-team-app list-app-definition') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams app-catalog-team-app show-app-definition') as c:
+        c.argument('teams_app_id', type=str, help='key: id of teamsApp')
+        c.argument('teams_app_definition_id', type=str, help='key: id of teamsAppDefinition')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams app-catalog-team-app update-app-definition') as c:
         c.argument('teams_app_id', type=str, help='key: id of teamsApp')
@@ -171,51 +152,39 @@ def load_arguments(self, _):
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='The name of the app provided by the app developer.')
         c.argument('last_modified_date_time', help='')
-        c.argument('publishing_state', arg_type=get_enum_type(['submitted', 'rejected', 'published', ''
+        c.argument('publishing_state', arg_type=get_enum_type(['submitted', 'rejected', 'published',
                                                                'unknownFutureValue']), help='')
         c.argument('shortdescription', type=str, help='')
         c.argument('microsoft_graph_teams_app_definition_teams_app_id_teams_app_id', type=str, help='The ID from the '
                    'Teams app manifest.')
         c.argument('version', type=str, help='The version number of the application.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-
-    with self.argument_context('teams chat-chat delete') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('if_match', type=str, help='ETag')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('teams chat-chat create-chat') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='')
         c.argument('last_updated_date_time', help='')
         c.argument('topic', type=str, help='')
-        c.argument('installed_apps', action=AddChatsChatInstalledApps, nargs='*', help='')
-        c.argument('members', action=AddUsersMembers, nargs='*', help='')
+        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('members', action=AddUsersMembers, nargs='+', help='')
         c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams chat-chat get-chat') as c:
+    with self.argument_context('teams chat-chat delete-chat') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams chat-chat list-chat') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams chat-chat show-chat') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams chat-chat update-chat') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
@@ -223,73 +192,58 @@ def load_arguments(self, _):
         c.argument('created_date_time', help='')
         c.argument('last_updated_date_time', help='')
         c.argument('topic', type=str, help='')
-        c.argument('installed_apps', action=AddChatsChatInstalledApps, nargs='*', help='')
-        c.argument('members', action=AddUsersMembers, nargs='*', help='')
+        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('members', action=AddUsersMembers, nargs='+', help='')
         c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-
-    with self.argument_context('teams chat delete') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
     with self.argument_context('teams chat create-installed-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('teams_app_definition_id', type=str, help='Read-only.')
-        c.argument('teams_app_definition_azure_adapp_id', type=str, help='')
-        c.argument('teams_app_definition_description', type=str, help='')
-        c.argument('teams_app_definition_display_name', type=str, help='The name of the app provided by the app '
-                   'developer.')
-        c.argument('teams_app_definition_last_modified_date_time', help='')
-        c.argument('teams_app_definition_publishing_state', arg_type=get_enum_type(['submitted', 'rejected', ''
-                                                                                    'published',
-                   'unknownFutureValue']), help='')
-        c.argument('teams_app_definition_shortdescription', type=str, help='')
-        c.argument('teams_app_definition_teams_app_id', type=str, help='The ID from the Teams app manifest.')
-        c.argument('teams_app_definition_version', type=str, help='The version number of the application.')
-        c.argument('teams_app_definition_created_by_user_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_device_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_application_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_application_id', type=str, help='Unique identifier for the '
-                   'identity.')
-        c.argument('teams_app_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App Definition')
+        c.argument('azure_ad_app_id', type=str, help='', arg_group='Teams App Definition')
+        c.argument('description', type=str, help='', arg_group='Teams App Definition')
+        c.argument('display_name', type=str, help='The name of the app provided by the app developer.',
+                   arg_group='Teams App Definition')
+        c.argument('last_modified_date_time', help='', arg_group='Teams App Definition')
+        c.argument('publishing_state', arg_type=get_enum_type(['submitted', 'rejected', 'published',
+                                                               'unknownFutureValue']), help='', arg_group='Teams App '
+                   'Definition')
+        c.argument('shortdescription', type=str, help='', arg_group='Teams App Definition')
+        c.argument('teams_app_id', type=str, help='The ID from the Teams app manifest.', arg_group='Teams App '
+                   'Definition')
+        c.argument('version', type=str, help='The version number of the application.',
+                   arg_group='Teams App Definition')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition Created '
+                   'By')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
 
     with self.argument_context('teams chat create-member') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
-        c.argument('roles', nargs='*', help='The roles for that user.')
+        c.argument('roles', nargs='+', help='The roles for that user.')
 
     with self.argument_context('teams chat create-message') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('microsoft_graph_chat_message_chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -301,10 +255,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -312,170 +266,173 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
 
     with self.argument_context('teams chat create-tab') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('configuration', action=AddConfiguration, nargs='*', help='teamsTabConfiguration')
+        c.argument('configuration', action=AddConfiguration, nargs='+', help='teamsTabConfiguration')
         c.argument('display_name', type=str, help='Name of the tab.')
         c.argument('message_id', type=str, help='')
         c.argument('sort_order_index', type=str, help='')
         c.argument('teams_app_id', type=str, help='')
         c.argument('web_url', type=str, help='Deep link URL of the tab instance. Read only.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
 
-    with self.argument_context('teams chat get-installed-app') as c:
+    with self.argument_context('teams chat delete-installed-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams chat get-member') as c:
+    with self.argument_context('teams chat delete-member') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams chat get-message') as c:
+    with self.argument_context('teams chat delete-message') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams chat get-tab') as c:
+    with self.argument_context('teams chat delete-tab') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams chat list-installed-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams chat list-member') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams chat list-message') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams chat list-tab') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams chat send-activity-notification') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('topic', action=AddTopic, nargs='*', help='teamworkActivityTopic')
+        c.argument('topic', action=AddTopic, nargs='+', help='teamworkActivityTopic')
         c.argument('activity_type', type=str, help='')
         c.argument('chain_id', type=int, help='')
-        c.argument('preview_text', action=AddBody, nargs='*', help='itemBody')
-        c.argument('template_parameters', action=AddChatsTemplateParameters, nargs='*', help='')
+        c.argument('preview_text', action=AddBody, nargs='+', help='itemBody')
+        c.argument('template_parameters', action=AddChatsTemplateParameters, nargs='+', help='')
         c.argument('recipient', type=validate_file_or_dict, help='teamworkNotificationRecipient Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('teams chat show-installed-app') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams chat show-member') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams chat show-message') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams chat show-tab') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams chat update-installed-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('teams_app_definition_id', type=str, help='Read-only.')
-        c.argument('teams_app_definition_azure_adapp_id', type=str, help='')
-        c.argument('teams_app_definition_description', type=str, help='')
-        c.argument('teams_app_definition_display_name', type=str, help='The name of the app provided by the app '
-                   'developer.')
-        c.argument('teams_app_definition_last_modified_date_time', help='')
-        c.argument('teams_app_definition_publishing_state', arg_type=get_enum_type(['submitted', 'rejected', ''
-                                                                                    'published',
-                   'unknownFutureValue']), help='')
-        c.argument('teams_app_definition_shortdescription', type=str, help='')
-        c.argument('teams_app_definition_teams_app_id', type=str, help='The ID from the Teams app manifest.')
-        c.argument('teams_app_definition_version', type=str, help='The version number of the application.')
-        c.argument('teams_app_definition_created_by_user_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_device_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_application_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_application_id', type=str, help='Unique identifier for the '
-                   'identity.')
-        c.argument('teams_app_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App Definition')
+        c.argument('azure_ad_app_id', type=str, help='', arg_group='Teams App Definition')
+        c.argument('description', type=str, help='', arg_group='Teams App Definition')
+        c.argument('display_name', type=str, help='The name of the app provided by the app developer.',
+                   arg_group='Teams App Definition')
+        c.argument('last_modified_date_time', help='', arg_group='Teams App Definition')
+        c.argument('publishing_state', arg_type=get_enum_type(['submitted', 'rejected', 'published',
+                                                               'unknownFutureValue']), help='', arg_group='Teams App '
+                   'Definition')
+        c.argument('shortdescription', type=str, help='', arg_group='Teams App Definition')
+        c.argument('teams_app_id', type=str, help='The ID from the Teams app manifest.', arg_group='Teams App '
+                   'Definition')
+        c.argument('version', type=str, help='The version number of the application.',
+                   arg_group='Teams App Definition')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition Created '
+                   'By')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
 
     with self.argument_context('teams chat update-member') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
-        c.argument('roles', nargs='*', help='The roles for that user.')
+        c.argument('roles', nargs='+', help='The roles for that user.')
 
     with self.argument_context('teams chat update-message') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('microsoft_graph_chat_message_chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -487,10 +444,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -498,80 +455,55 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
 
     with self.argument_context('teams chat update-tab') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('configuration', action=AddConfiguration, nargs='*', help='teamsTabConfiguration')
+        c.argument('configuration', action=AddConfiguration, nargs='+', help='teamsTabConfiguration')
         c.argument('display_name', type=str, help='Name of the tab.')
         c.argument('message_id', type=str, help='')
         c.argument('sort_order_index', type=str, help='')
         c.argument('teams_app_id', type=str, help='')
         c.argument('web_url', type=str, help='Deep link URL of the tab instance. Read only.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
 
-    with self.argument_context('teams chat-installed-app delete') as c:
+    with self.argument_context('teams chat-installed-app delete-ref-team-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams chat-installed-app get-app') as c:
+    with self.argument_context('teams chat-installed-app delete-ref-team-app-definition') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams chat-installed-app get-app-definition') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams chat-installed-app get-ref-team-app') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-
-    with self.argument_context('teams chat-installed-app get-ref-team-app-definition') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams chat-installed-app set-ref-team-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
@@ -585,20 +517,33 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
+    with self.argument_context('teams chat-installed-app show-ref-team-app') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+
+    with self.argument_context('teams chat-installed-app show-ref-team-app-definition') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+
+    with self.argument_context('teams chat-installed-app show-team-app') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams chat-installed-app show-team-app-definition') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
     with self.argument_context('teams chat-installed-app upgrade') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
 
     with self.argument_context('teams chat-member add') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('values', action=AddChatsMembersValues, nargs='*', help='')
-
-    with self.argument_context('teams chat-message delete') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
+        c.argument('values', action=AddChatsMembersValues, nargs='+', help='')
 
     with self.argument_context('teams chat-message create-hosted-content') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
@@ -611,10 +556,10 @@ def load_arguments(self, _):
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('microsoft_graph_chat_message_chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -626,10 +571,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -637,77 +582,78 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
+
+    with self.argument_context('teams chat-message delete-hosted-content') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('teams chat-message delete-reply') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams chat-message delta') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
 
-    with self.argument_context('teams chat-message get-hosted-content') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams chat-message get-hosted-content-content') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
-
-    with self.argument_context('teams chat-message get-reply') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('teams chat-message list-hosted-content') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams chat-message list-reply') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams chat-message set-hosted-content-content') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('teams chat-message show-hosted-content') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams chat-message show-hosted-content-content') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+
+    with self.argument_context('teams chat-message show-reply') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams chat-message update-hosted-content') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
@@ -722,10 +668,10 @@ def load_arguments(self, _):
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('microsoft_graph_chat_message_chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -737,10 +683,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -748,54 +694,33 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
 
     with self.argument_context('teams chat-message-reply delta') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
 
-    with self.argument_context('teams chat-tab delete') as c:
+    with self.argument_context('teams chat-tab delete-ref-team-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('teams chat-tab get-app') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams chat-tab get-ref-team-app') as c:
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
     with self.argument_context('teams chat-tab set-ref-team-app') as c:
         c.argument('chat_id', type=str, help='key: id of chat')
@@ -803,7 +728,26 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams group update') as c:
+    with self.argument_context('teams chat-tab show-ref-team-app') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+
+    with self.argument_context('teams chat-tab show-team-app') as c:
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams group delete-team') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('teams group show-team') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams group update-team') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
@@ -811,17 +755,17 @@ def load_arguments(self, _):
         c.argument('created_date_time', help='')
         c.argument('description', type=str, help='An optional description for the team.')
         c.argument('display_name', type=str, help='The name of the team.')
-        c.argument('fun_settings', action=AddFunSettings, nargs='*', help='teamFunSettings')
-        c.argument('guest_settings', action=AddGuestSettings, nargs='*', help='teamGuestSettings')
+        c.argument('fun_settings', action=AddFunSettings, nargs='+', help='teamFunSettings')
+        c.argument('guest_settings', action=AddGuestSettings, nargs='+', help='teamGuestSettings')
         c.argument('internal_id', type=str, help='A unique ID for the team that has been used in a few places such as '
                    'the audit log/Office 365 Management Activity API.')
         c.argument('is_archived', arg_type=get_three_state_flag(), help='Whether this team is in read-only mode.')
         c.argument('is_membership_limited_to_owners', arg_type=get_three_state_flag(), help='')
-        c.argument('member_settings', action=AddMemberSettings, nargs='*', help='teamMemberSettings')
-        c.argument('messaging_settings', action=AddMessagingSettings, nargs='*', help='teamMessagingSettings')
-        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass', ''
+        c.argument('member_settings', action=AddMemberSettings, nargs='+', help='teamMemberSettings')
+        c.argument('messaging_settings', action=AddMessagingSettings, nargs='+', help='teamMessagingSettings')
+        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass',
                                                              'educationProfessionalLearningCommunity',
-                                                             'educationStaff', 'healthcareStandard', ''
+                                                             'educationStaff', 'healthcareStandard',
                                                              'healthcareCareCoordination', 'unknownFutureValue']),
                    help='')
         c.argument('visibility', arg_type=get_enum_type(['private', 'public', 'hiddenMembership',
@@ -834,89 +778,83 @@ def load_arguments(self, _):
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
                    'json-string/@json-file.')
-        c.argument('installed_apps', action=AddGroupsInstalledApps, nargs='*',
-                   help='The apps installed in this team.')
-        c.argument('members', action=AddGroupsMembers, nargs='*', help='Members and owners of the team.')
+        c.argument('installed_apps', type=validate_file_or_dict, help='The apps installed in this team. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('members', action=AddGroupsMembers, nargs='+', help='Members and owners of the team.')
         c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
                    'this team. Expected value: json-string/@json-file.')
         c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddGroupsPhoto, nargs='*', help='profilePhoto')
+        c.argument('photo', action=AddGroupsPhoto, nargs='+', help='profilePhoto')
         c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
                    'json-string/@json-file.')
-        c.argument('template_id', type=str, help='Read-only.')
-        c.argument('schedule_id', type=str, help='Read-only.')
-        c.argument('schedule_enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is '
-                   'enabled for the team. Required.')
-        c.argument('schedule_offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'offer shift requests are enabled for the schedule.')
-        c.argument('schedule_open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open '
-                   'shifts are enabled for the schedule.')
-        c.argument('schedule_provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed',
-                                                                       'Failed']), help='')
-        c.argument('schedule_provision_status_code', type=str, help='Additional information about why schedule '
-                   'provisioning failed.')
-        c.argument('schedule_swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'swap shifts requests are enabled for the schedule.')
-        c.argument('schedule_time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock '
-                   'is enabled for the schedule.')
-        c.argument('schedule_time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time '
-                   'off requests are enabled for the schedule.')
-        c.argument('schedule_time_zone', type=str, help='Indicates the time zone of the schedule team using tz '
-                   'database format. Required.')
-        c.argument('schedule_workforce_integration_ids', nargs='*', help='')
-        c.argument('schedule_offer_shift_requests', action=AddScheduleOfferShiftRequests, nargs='*', help='')
-        c.argument('schedule_open_shift_change_requests', action=AddScheduleOpenShiftChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_open_shifts', type=validate_file_or_dict,
-                   help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
-                   'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
-        c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
-                   'for a time off in the schedule.')
-        c.argument('schedule_time_off_requests', action=AddScheduleTimeOffRequests, nargs='*', help='')
-        c.argument('schedule_times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('schedule_time_clock_settings_approved_location',
-                   action=AddScheduleTimeClockSettingsApprovedLocation, nargs='*', help='geoCoordinates')
-        c.argument('discovery_settings_show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(),
-                   help='')
-
-    with self.argument_context('teams group delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('teams group get') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Template')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Schedule')
+        c.argument('enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is enabled for the '
+                   'team. Required.', arg_group='Schedule')
+        c.argument('offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether offer '
+                   'shift requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open shifts are '
+                   'enabled for the schedule.', arg_group='Schedule')
+        c.argument('provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']),
+                   help='', arg_group='Schedule')
+        c.argument('provision_status_code', type=str, help='Additional information about why schedule provisioning '
+                   'failed.', arg_group='Schedule')
+        c.argument('swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether swap '
+                   'shifts requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock is '
+                   'enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time off '
+                   'requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_zone', type=str, help='Indicates the time zone of the schedule team using tz database format. '
+                   'Required.', arg_group='Schedule')
+        c.argument('workforce_integration_ids', nargs='+', help='', arg_group='Schedule')
+        c.argument('offer_shift_requests', action=AddOfferShiftRequests, nargs='+', help='', arg_group='Schedule')
+        c.argument('open_shift_change_requests', action=AddOpenShiftChangeRequests, nargs='+', help='',
+                   arg_group='Schedule')
+        c.argument('open_shifts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Schedule')
+        c.argument('scheduling_groups', action=AddSchedulingGroups, nargs='+', help='The logical grouping of users in '
+                   'the schedule (usually by role).', arg_group='Schedule')
+        c.argument('shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
+                   'json-string/@json-file.', arg_group='Schedule')
+        c.argument('swap_shifts_change_requests', action=AddSwapShiftsChangeRequests, nargs='+', help='',
+                   arg_group='Schedule')
+        c.argument('time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Schedule')
+        c.argument('time_off_reasons', action=AddTimeOffReasons, nargs='+', help='The set of reasons for a time off in '
+                   'the schedule.', arg_group='Schedule')
+        c.argument('time_off_requests', action=AddTimeOffRequests, nargs='+', help='', arg_group='Schedule')
+        c.argument('times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. Expected '
+                   'value: json-string/@json-file.', arg_group='Schedule')
+        c.argument('approved_location', action=AddApprovedLocation, nargs='+', help='geoCoordinates',
+                   arg_group='Schedule Time Clock Settings')
+        c.argument('show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(), help='',
+                   arg_group='Discovery Settings')
 
     with self.argument_context('teams team list') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team create') as c:
+        c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
                    'sensitivity of the team. Must match one of a pre-configured set in the tenant\'s directory.')
         c.argument('created_date_time', help='')
         c.argument('description', type=str, help='An optional description for the team.')
         c.argument('display_name', type=str, help='The name of the team.')
-        c.argument('fun_settings', action=AddFunSettings, nargs='*', help='teamFunSettings')
-        c.argument('guest_settings', action=AddGuestSettings, nargs='*', help='teamGuestSettings')
+        c.argument('fun_settings', action=AddFunSettings, nargs='+', help='teamFunSettings')
+        c.argument('guest_settings', action=AddGuestSettings, nargs='+', help='teamGuestSettings')
         c.argument('internal_id', type=str, help='A unique ID for the team that has been used in a few places such as '
                    'the audit log/Office 365 Management Activity API.')
         c.argument('is_archived', arg_type=get_three_state_flag(), help='Whether this team is in read-only mode.')
         c.argument('is_membership_limited_to_owners', arg_type=get_three_state_flag(), help='')
-        c.argument('member_settings', action=AddMemberSettings, nargs='*', help='teamMemberSettings')
-        c.argument('messaging_settings', action=AddMessagingSettings, nargs='*', help='teamMessagingSettings')
-        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass', ''
+        c.argument('member_settings', action=AddMemberSettings, nargs='+', help='teamMemberSettings')
+        c.argument('messaging_settings', action=AddMessagingSettings, nargs='+', help='teamMessagingSettings')
+        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass',
                                                              'educationProfessionalLearningCommunity',
-                                                             'educationStaff', 'healthcareStandard', ''
+                                                             'educationStaff', 'healthcareStandard',
                                                              'healthcareCareCoordination', 'unknownFutureValue']),
                    help='')
         c.argument('visibility', arg_type=get_enum_type(['private', 'public', 'hiddenMembership',
@@ -929,155 +867,67 @@ def load_arguments(self, _):
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
                    'json-string/@json-file.')
-        c.argument('installed_apps', action=AddGroupsInstalledApps, nargs='*',
-                   help='The apps installed in this team.')
-        c.argument('members', action=AddGroupsMembers, nargs='*', help='Members and owners of the team.')
+        c.argument('installed_apps', type=validate_file_or_dict, help='The apps installed in this team. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('members', action=AddGroupsMembers, nargs='+', help='Members and owners of the team.')
         c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
                    'this team. Expected value: json-string/@json-file.')
         c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddGroupsPhoto, nargs='*', help='profilePhoto')
+        c.argument('photo', action=AddGroupsPhoto, nargs='+', help='profilePhoto')
         c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
                    'json-string/@json-file.')
-        c.argument('template_id', type=str, help='Read-only.')
-        c.argument('schedule_id', type=str, help='Read-only.')
-        c.argument('schedule_enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is '
-                   'enabled for the team. Required.')
-        c.argument('schedule_offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'offer shift requests are enabled for the schedule.')
-        c.argument('schedule_open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open '
-                   'shifts are enabled for the schedule.')
-        c.argument('schedule_provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed',
-                                                                       'Failed']), help='')
-        c.argument('schedule_provision_status_code', type=str, help='Additional information about why schedule '
-                   'provisioning failed.')
-        c.argument('schedule_swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'swap shifts requests are enabled for the schedule.')
-        c.argument('schedule_time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock '
-                   'is enabled for the schedule.')
-        c.argument('schedule_time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time '
-                   'off requests are enabled for the schedule.')
-        c.argument('schedule_time_zone', type=str, help='Indicates the time zone of the schedule team using tz '
-                   'database format. Required.')
-        c.argument('schedule_workforce_integration_ids', nargs='*', help='')
-        c.argument('schedule_offer_shift_requests', action=AddScheduleOfferShiftRequests, nargs='*', help='')
-        c.argument('schedule_open_shift_change_requests', action=AddScheduleOpenShiftChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_open_shifts', type=validate_file_or_dict,
-                   help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
-                   'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
-        c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
-                   'for a time off in the schedule.')
-        c.argument('schedule_time_off_requests', action=AddScheduleTimeOffRequests, nargs='*', help='')
-        c.argument('schedule_times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('schedule_time_clock_settings_approved_location',
-                   action=AddScheduleTimeClockSettingsApprovedLocation, nargs='*', help='geoCoordinates')
-        c.argument('discovery_settings_show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(),
-                   help='')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Template')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Schedule')
+        c.argument('enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is enabled for the '
+                   'team. Required.', arg_group='Schedule')
+        c.argument('offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether offer '
+                   'shift requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open shifts are '
+                   'enabled for the schedule.', arg_group='Schedule')
+        c.argument('provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']),
+                   help='', arg_group='Schedule')
+        c.argument('provision_status_code', type=str, help='Additional information about why schedule provisioning '
+                   'failed.', arg_group='Schedule')
+        c.argument('swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether swap '
+                   'shifts requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock is '
+                   'enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time off '
+                   'requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_zone', type=str, help='Indicates the time zone of the schedule team using tz database format. '
+                   'Required.', arg_group='Schedule')
+        c.argument('workforce_integration_ids', nargs='+', help='', arg_group='Schedule')
+        c.argument('offer_shift_requests', action=AddOfferShiftRequests, nargs='+', help='', arg_group='Schedule')
+        c.argument('open_shift_change_requests', action=AddOpenShiftChangeRequests, nargs='+', help='',
+                   arg_group='Schedule')
+        c.argument('open_shifts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Schedule')
+        c.argument('scheduling_groups', action=AddSchedulingGroups, nargs='+', help='The logical grouping of users in '
+                   'the schedule (usually by role).', arg_group='Schedule')
+        c.argument('shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
+                   'json-string/@json-file.', arg_group='Schedule')
+        c.argument('swap_shifts_change_requests', action=AddSwapShiftsChangeRequests, nargs='+', help='',
+                   arg_group='Schedule')
+        c.argument('time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Schedule')
+        c.argument('time_off_reasons', action=AddTimeOffReasons, nargs='+', help='The set of reasons for a time off in '
+                   'the schedule.', arg_group='Schedule')
+        c.argument('time_off_requests', action=AddTimeOffRequests, nargs='+', help='', arg_group='Schedule')
+        c.argument('times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. Expected '
+                   'value: json-string/@json-file.', arg_group='Schedule')
+        c.argument('approved_location', action=AddApprovedLocation, nargs='+', help='geoCoordinates',
+                   arg_group='Schedule Time Clock Settings')
+        c.argument('show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(), help='',
+                   arg_group='Discovery Settings')
 
-    with self.argument_context('teams team update') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
-                   'sensitivity of the team. Must match one of a pre-configured set in the tenant\'s directory.')
-        c.argument('created_date_time', help='')
-        c.argument('description', type=str, help='An optional description for the team.')
-        c.argument('display_name', type=str, help='The name of the team.')
-        c.argument('fun_settings', action=AddFunSettings, nargs='*', help='teamFunSettings')
-        c.argument('guest_settings', action=AddGuestSettings, nargs='*', help='teamGuestSettings')
-        c.argument('internal_id', type=str, help='A unique ID for the team that has been used in a few places such as '
-                   'the audit log/Office 365 Management Activity API.')
-        c.argument('is_archived', arg_type=get_three_state_flag(), help='Whether this team is in read-only mode.')
-        c.argument('is_membership_limited_to_owners', arg_type=get_three_state_flag(), help='')
-        c.argument('member_settings', action=AddMemberSettings, nargs='*', help='teamMemberSettings')
-        c.argument('messaging_settings', action=AddMessagingSettings, nargs='*', help='teamMessagingSettings')
-        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass', ''
-                                                             'educationProfessionalLearningCommunity',
-                                                             'educationStaff', 'healthcareStandard', ''
-                                                             'healthcareCareCoordination', 'unknownFutureValue']),
-                   help='')
-        c.argument('visibility', arg_type=get_enum_type(['private', 'public', 'hiddenMembership',
-                                                        'unknownFutureValue']), help='')
-        c.argument('web_url', type=str, help='A hyperlink that will go to the team in the Microsoft Teams client. This '
-                   'is the URL that you get when you right-click a team in the Microsoft Teams client and select Get '
-                   'link to team. This URL should be treated as an opaque blob, and not parsed.')
-        c.argument('channels', type=validate_file_or_dict, help='The collection of channels & messages associated with '
-                   'the team. Expected value: json-string/@json-file.')
-        c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
-                   'directoryObject type is the base type for many other directory entity types. Expected value: '
-                   'json-string/@json-file.')
-        c.argument('installed_apps', action=AddGroupsInstalledApps, nargs='*',
-                   help='The apps installed in this team.')
-        c.argument('members', action=AddGroupsMembers, nargs='*', help='Members and owners of the team.')
-        c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
-                   'this team. Expected value: json-string/@json-file.')
-        c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddGroupsPhoto, nargs='*', help='profilePhoto')
-        c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
-                   'json-string/@json-file.')
-        c.argument('template_id', type=str, help='Read-only.')
-        c.argument('schedule_id', type=str, help='Read-only.')
-        c.argument('schedule_enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is '
-                   'enabled for the team. Required.')
-        c.argument('schedule_offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'offer shift requests are enabled for the schedule.')
-        c.argument('schedule_open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open '
-                   'shifts are enabled for the schedule.')
-        c.argument('schedule_provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed',
-                                                                       'Failed']), help='')
-        c.argument('schedule_provision_status_code', type=str, help='Additional information about why schedule '
-                   'provisioning failed.')
-        c.argument('schedule_swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'swap shifts requests are enabled for the schedule.')
-        c.argument('schedule_time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock '
-                   'is enabled for the schedule.')
-        c.argument('schedule_time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time '
-                   'off requests are enabled for the schedule.')
-        c.argument('schedule_time_zone', type=str, help='Indicates the time zone of the schedule team using tz '
-                   'database format. Required.')
-        c.argument('schedule_workforce_integration_ids', nargs='*', help='')
-        c.argument('schedule_offer_shift_requests', action=AddScheduleOfferShiftRequests, nargs='*', help='')
-        c.argument('schedule_open_shift_change_requests', action=AddScheduleOpenShiftChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_open_shifts', type=validate_file_or_dict,
-                   help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
-                   'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
-        c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
-                   'for a time off in the schedule.')
-        c.argument('schedule_time_off_requests', action=AddScheduleTimeOffRequests, nargs='*', help='')
-        c.argument('schedule_times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('schedule_time_clock_settings_approved_location',
-                   action=AddScheduleTimeClockSettingsApprovedLocation, nargs='*', help='geoCoordinates')
-        c.argument('discovery_settings_show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(),
-                   help='')
-
-    with self.argument_context('teams team delete') as c:
+    with self.argument_context('teams team delete-team') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team get') as c:
+    with self.argument_context('teams team show-team') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams team delete') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
-        c.argument('teams_async_operation_id', type=str, help='key: id of teamsAsyncOperation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team archive') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1108,13 +958,13 @@ def load_arguments(self, _):
                    'should automatically be marked \'favorite\' for all members of the team. Can only be set '
                    'programmatically with Create team. Default: false.')
         c.argument('membership_type', arg_type=get_enum_type(['standard', 'private', 'unknownFutureValue']), help='')
-        c.argument('moderation_settings', action=AddModerationSettings, nargs='*', help='channelModerationSettings')
+        c.argument('moderation_settings', action=AddModerationSettings, nargs='+', help='channelModerationSettings')
         c.argument('web_url', type=str, help='A hyperlink that will go to the channel in Microsoft Teams. This is the '
                    'URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. '
                    'This URL should be treated as an opaque blob, and not parsed. Read-only.')
         c.argument('files_folder', type=validate_file_or_dict,
                    help='driveItem Expected value: json-string/@json-file.')
-        c.argument('members', action=AddTeamsMembers, nargs='*', help='')
+        c.argument('members', action=AddTeamsMembers, nargs='+', help='')
         c.argument('messages', type=validate_file_or_dict, help='A collection of all the messages in the channel. A '
                    'navigation property. Nullable. Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help='A collection of all the tabs in the channel. A navigation '
@@ -1123,49 +973,42 @@ def load_arguments(self, _):
     with self.argument_context('teams team create-installed-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('teams_app_definition_id', type=str, help='Read-only.')
-        c.argument('teams_app_definition_azure_adapp_id', type=str, help='')
-        c.argument('teams_app_definition_description', type=str, help='')
-        c.argument('teams_app_definition_display_name', type=str, help='The name of the app provided by the app '
-                   'developer.')
-        c.argument('teams_app_definition_last_modified_date_time', help='')
-        c.argument('teams_app_definition_publishing_state', arg_type=get_enum_type(['submitted', 'rejected', ''
-                                                                                    'published',
-                   'unknownFutureValue']), help='')
-        c.argument('teams_app_definition_shortdescription', type=str, help='')
-        c.argument('teams_app_definition_teams_app_id', type=str, help='The ID from the Teams app manifest.')
-        c.argument('teams_app_definition_version', type=str, help='The version number of the application.')
-        c.argument('teams_app_definition_created_by_user_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_device_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_application_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_application_id', type=str, help='Unique identifier for the '
-                   'identity.')
-        c.argument('teams_app_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App Definition')
+        c.argument('azure_ad_app_id', type=str, help='', arg_group='Teams App Definition')
+        c.argument('description', type=str, help='', arg_group='Teams App Definition')
+        c.argument('display_name', type=str, help='The name of the app provided by the app developer.',
+                   arg_group='Teams App Definition')
+        c.argument('last_modified_date_time', help='', arg_group='Teams App Definition')
+        c.argument('publishing_state', arg_type=get_enum_type(['submitted', 'rejected', 'published',
+                                                               'unknownFutureValue']), help='', arg_group='Teams App '
+                   'Definition')
+        c.argument('shortdescription', type=str, help='', arg_group='Teams App Definition')
+        c.argument('teams_app_id', type=str, help='The ID from the Teams app manifest.', arg_group='Teams App '
+                   'Definition')
+        c.argument('version', type=str, help='The version number of the application.',
+                   arg_group='Teams App Definition')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition Created '
+                   'By')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
 
     with self.argument_context('teams team create-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
-        c.argument('roles', nargs='*', help='The roles for that user.')
+        c.argument('roles', nargs='+', help='The roles for that user.')
 
     with self.argument_context('teams team create-operation') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1173,11 +1016,11 @@ def load_arguments(self, _):
         c.argument('attempts_count', type=int, help='Number of times the operation was attempted before being marked '
                    'successful or failed.')
         c.argument('created_date_time', help='Time when the operation was created.')
-        c.argument('error', action=AddError, nargs='*', help='operationError')
+        c.argument('error', action=AddError, nargs='+', help='operationError')
         c.argument('last_action_date_time', help='Time when the async operation was last updated.')
-        c.argument('operation_type', arg_type=get_enum_type(['invalid', 'cloneTeam', 'archiveTeam', 'unarchiveTeam', ''
+        c.argument('operation_type', arg_type=get_enum_type(['invalid', 'cloneTeam', 'archiveTeam', 'unarchiveTeam',
                                                              'createTeam', 'unknownFutureValue']), help='')
-        c.argument('status', arg_type=get_enum_type(['invalid', 'notStarted', 'inProgress', 'succeeded', 'failed', ''
+        c.argument('status', arg_type=get_enum_type(['invalid', 'notStarted', 'inProgress', 'succeeded', 'failed',
                                                      'unknownFutureValue']), help='')
         c.argument('target_resource_id', type=str, help='The ID of the object that\'s created or modified as result of '
                    'this async operation, typically a team.')
@@ -1190,105 +1033,87 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams team get-channel') as c:
+    with self.argument_context('teams team delete-channel') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team get-group') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams team get-installed-app') as c:
+    with self.argument_context('teams team delete-installed-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team get-member') as c:
+    with self.argument_context('teams team delete-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team get-operation') as c:
+    with self.argument_context('teams team delete-operation') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_async_operation_id', type=str, help='key: id of teamsAsyncOperation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team get-photo') as c:
+    with self.argument_context('teams team delete-photo') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team get-photo-content') as c:
+    with self.argument_context('teams team delete-primary-channel') as c:
         c.argument('team_id', type=str, help='key: id of team')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team get-primary-channel') as c:
+    with self.argument_context('teams team delete-ref-group') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team get-ref-group') as c:
+    with self.argument_context('teams team delete-ref-template') as c:
         c.argument('team_id', type=str, help='key: id of team')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team get-ref-template') as c:
+    with self.argument_context('teams team delete-schedule') as c:
         c.argument('team_id', type=str, help='key: id of team')
-
-    with self.argument_context('teams team get-schedule') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams team get-template') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams team list-channel') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team list-installed-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team list-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team list-operation') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team list-owner') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team list-ref-owner') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
     with self.argument_context('teams team send-activity-notification') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('topic', action=AddTopic, nargs='*', help='teamworkActivityTopic')
+        c.argument('topic', action=AddTopic, nargs='+', help='teamworkActivityTopic')
         c.argument('activity_type', type=str, help='')
         c.argument('chain_id', type=int, help='')
-        c.argument('preview_text', action=AddBody, nargs='*', help='itemBody')
-        c.argument('template_parameters', action=AddTeamsTemplateParameters, nargs='*', help='')
+        c.argument('preview_text', action=AddBody, nargs='+', help='itemBody')
+        c.argument('template_parameters', action=AddTeamsTemplateParameters, nargs='+', help='')
         c.argument('recipient', type=validate_file_or_dict, help='teamworkNotificationRecipient Expected value: '
                    'json-string/@json-file.')
 
@@ -1306,6 +1131,64 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
+    with self.argument_context('teams team show-channel') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team show-group') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team show-installed-app') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team show-member') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team show-operation') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_async_operation_id', type=str, help='key: id of teamsAsyncOperation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team show-photo') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team show-photo-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+
+    with self.argument_context('teams team show-primary-channel') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team show-ref-group') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+
+    with self.argument_context('teams team show-ref-template') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+
+    with self.argument_context('teams team show-schedule') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team show-template') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
     with self.argument_context('teams team unarchive') as c:
         c.argument('team_id', type=str, help='key: id of team')
 
@@ -1321,13 +1204,13 @@ def load_arguments(self, _):
                    'should automatically be marked \'favorite\' for all members of the team. Can only be set '
                    'programmatically with Create team. Default: false.')
         c.argument('membership_type', arg_type=get_enum_type(['standard', 'private', 'unknownFutureValue']), help='')
-        c.argument('moderation_settings', action=AddModerationSettings, nargs='*', help='channelModerationSettings')
+        c.argument('moderation_settings', action=AddModerationSettings, nargs='+', help='channelModerationSettings')
         c.argument('web_url', type=str, help='A hyperlink that will go to the channel in Microsoft Teams. This is the '
                    'URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. '
                    'This URL should be treated as an opaque blob, and not parsed. Read-only.')
         c.argument('files_folder', type=validate_file_or_dict,
                    help='driveItem Expected value: json-string/@json-file.')
-        c.argument('members', action=AddTeamsMembers, nargs='*', help='')
+        c.argument('members', action=AddTeamsMembers, nargs='+', help='')
         c.argument('messages', type=validate_file_or_dict, help='A collection of all the messages in the channel. A '
                    'navigation property. Nullable. Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help='A collection of all the tabs in the channel. A navigation '
@@ -1337,50 +1220,43 @@ def load_arguments(self, _):
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('teams_app_definition_id', type=str, help='Read-only.')
-        c.argument('teams_app_definition_azure_adapp_id', type=str, help='')
-        c.argument('teams_app_definition_description', type=str, help='')
-        c.argument('teams_app_definition_display_name', type=str, help='The name of the app provided by the app '
-                   'developer.')
-        c.argument('teams_app_definition_last_modified_date_time', help='')
-        c.argument('teams_app_definition_publishing_state', arg_type=get_enum_type(['submitted', 'rejected', ''
-                                                                                    'published',
-                   'unknownFutureValue']), help='')
-        c.argument('teams_app_definition_shortdescription', type=str, help='')
-        c.argument('teams_app_definition_teams_app_id', type=str, help='The ID from the Teams app manifest.')
-        c.argument('teams_app_definition_version', type=str, help='The version number of the application.')
-        c.argument('teams_app_definition_created_by_user_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_device_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_application_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_application_id', type=str, help='Unique identifier for the '
-                   'identity.')
-        c.argument('teams_app_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App Definition')
+        c.argument('azure_ad_app_id', type=str, help='', arg_group='Teams App Definition')
+        c.argument('description', type=str, help='', arg_group='Teams App Definition')
+        c.argument('display_name', type=str, help='The name of the app provided by the app developer.',
+                   arg_group='Teams App Definition')
+        c.argument('last_modified_date_time', help='', arg_group='Teams App Definition')
+        c.argument('publishing_state', arg_type=get_enum_type(['submitted', 'rejected', 'published',
+                                                               'unknownFutureValue']), help='', arg_group='Teams App '
+                   'Definition')
+        c.argument('shortdescription', type=str, help='', arg_group='Teams App Definition')
+        c.argument('teams_app_id', type=str, help='The ID from the Teams app manifest.', arg_group='Teams App '
+                   'Definition')
+        c.argument('version', type=str, help='The version number of the application.',
+                   arg_group='Teams App Definition')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition Created '
+                   'By')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
 
     with self.argument_context('teams team update-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
-        c.argument('roles', nargs='*', help='The roles for that user.')
+        c.argument('roles', nargs='+', help='The roles for that user.')
 
     with self.argument_context('teams team update-operation') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1389,11 +1265,11 @@ def load_arguments(self, _):
         c.argument('attempts_count', type=int, help='Number of times the operation was attempted before being marked '
                    'successful or failed.')
         c.argument('created_date_time', help='Time when the operation was created.')
-        c.argument('error', action=AddError, nargs='*', help='operationError')
+        c.argument('error', action=AddError, nargs='+', help='operationError')
         c.argument('last_action_date_time', help='Time when the async operation was last updated.')
-        c.argument('operation_type', arg_type=get_enum_type(['invalid', 'cloneTeam', 'archiveTeam', 'unarchiveTeam', ''
+        c.argument('operation_type', arg_type=get_enum_type(['invalid', 'cloneTeam', 'archiveTeam', 'unarchiveTeam',
                                                              'createTeam', 'unknownFutureValue']), help='')
-        c.argument('status', arg_type=get_enum_type(['invalid', 'notStarted', 'inProgress', 'succeeded', 'failed', ''
+        c.argument('status', arg_type=get_enum_type(['invalid', 'notStarted', 'inProgress', 'succeeded', 'failed',
                                                      'unknownFutureValue']), help='')
         c.argument('target_resource_id', type=str, help='The ID of the object that\'s created or modified as result of '
                    'this async operation, typically a team.')
@@ -1418,13 +1294,13 @@ def load_arguments(self, _):
                    'should automatically be marked \'favorite\' for all members of the team. Can only be set '
                    'programmatically with Create team. Default: false.')
         c.argument('membership_type', arg_type=get_enum_type(['standard', 'private', 'unknownFutureValue']), help='')
-        c.argument('moderation_settings', action=AddModerationSettings, nargs='*', help='channelModerationSettings')
+        c.argument('moderation_settings', action=AddModerationSettings, nargs='+', help='channelModerationSettings')
         c.argument('web_url', type=str, help='A hyperlink that will go to the channel in Microsoft Teams. This is the '
                    'URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. '
                    'This URL should be treated as an opaque blob, and not parsed. Read-only.')
         c.argument('files_folder', type=validate_file_or_dict,
                    help='driveItem Expected value: json-string/@json-file.')
-        c.argument('members', action=AddTeamsMembers, nargs='*', help='')
+        c.argument('members', action=AddTeamsMembers, nargs='+', help='')
         c.argument('messages', type=validate_file_or_dict, help='A collection of all the messages in the channel. A '
                    'navigation property. Nullable. Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help='A collection of all the tabs in the channel. A navigation '
@@ -1439,8 +1315,8 @@ def load_arguments(self, _):
                    'shift requests are enabled for the schedule.')
         c.argument('open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open shifts are '
                    'enabled for the schedule.')
-        c.argument('provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help=''
-                   '')
+        c.argument('provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']),
+                   help='')
         c.argument('provision_status_code', type=str, help='Additional information about why schedule provisioning '
                    'failed.')
         c.argument('swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether swap '
@@ -1451,30 +1327,23 @@ def load_arguments(self, _):
                    'requests are enabled for the schedule.')
         c.argument('time_zone', type=str, help='Indicates the time zone of the schedule team using tz database format. '
                    'Required.')
-        c.argument('workforce_integration_ids', nargs='*', help='')
-        c.argument('offer_shift_requests', action=AddScheduleOfferShiftRequests, nargs='*', help='')
-        c.argument('open_shift_change_requests', action=AddScheduleOpenShiftChangeRequests, nargs='*', help='')
+        c.argument('workforce_integration_ids', nargs='+', help='')
+        c.argument('offer_shift_requests', action=AddOfferShiftRequests, nargs='+', help='')
+        c.argument('open_shift_change_requests', action=AddOpenShiftChangeRequests, nargs='+', help='')
         c.argument('open_shifts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical grouping of '
-                   'users in the schedule (usually by role).')
-        c.argument('shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
-        c.argument('swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*', help='')
+        c.argument('scheduling_groups', action=AddSchedulingGroups, nargs='+', help='The logical grouping of users in '
+                   'the schedule (usually by role).')
+        c.argument('shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('swap_shifts_change_requests', action=AddSwapShiftsChangeRequests, nargs='+', help='')
         c.argument('time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons for a '
-                   'time off in the schedule.')
-        c.argument('time_off_requests', action=AddScheduleTimeOffRequests, nargs='*', help='')
+        c.argument('time_off_reasons', action=AddTimeOffReasons, nargs='+', help='The set of reasons for a time off in '
+                   'the schedule.')
+        c.argument('time_off_requests', action=AddTimeOffRequests, nargs='+', help='')
         c.argument('times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. Expected '
                    'value: json-string/@json-file.')
-        c.argument('time_clock_settings_approved_location', action=AddScheduleTimeClockSettingsApprovedLocation,
-                   nargs='*', help='geoCoordinates')
-
-    with self.argument_context('teams team-channel delete') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+        c.argument('approved_location', action=AddApprovedLocation, nargs='+', help='geoCoordinates', arg_group='Time '
+                   'Clock Settings')
 
     with self.argument_context('teams team-channel all-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1488,16 +1357,16 @@ def load_arguments(self, _):
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
-        c.argument('roles', nargs='*', help='The roles for that user.')
+        c.argument('roles', nargs='+', help='The roles for that user.')
 
     with self.argument_context('teams team-channel create-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -1509,10 +1378,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -1520,112 +1389,125 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
 
     with self.argument_context('teams team-channel create-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('configuration', action=AddConfiguration, nargs='*', help='teamsTabConfiguration')
+        c.argument('configuration', action=AddConfiguration, nargs='+', help='teamsTabConfiguration')
         c.argument('display_name', type=str, help='Name of the tab.')
         c.argument('message_id', type=str, help='')
         c.argument('sort_order_index', type=str, help='')
         c.argument('teams_app_id', type=str, help='')
         c.argument('web_url', type=str, help='Deep link URL of the tab instance. Read only.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
 
-    with self.argument_context('teams team-channel get-file-folder') as c:
+    with self.argument_context('teams team-channel delete-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-channel get-file-folder-content') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('channel_id', type=str, help='key: id of channel')
-
-    with self.argument_context('teams team-channel get-member') as c:
+    with self.argument_context('teams team-channel delete-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-channel get-message') as c:
+    with self.argument_context('teams team-channel delete-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-channel get-tab') as c:
+    with self.argument_context('teams team-channel delete-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams team-channel list-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-channel list-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-channel list-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-channel set-file-folder-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('teams team-channel show-file-folder') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-channel show-file-folder-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+
+    with self.argument_context('teams team-channel show-member') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-channel show-message') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-channel show-tab') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-channel update-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1641,63 +1523,43 @@ def load_arguments(self, _):
                    'object. Expected value: json-string/@json-file.')
         c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
                    'user object. Expected value: json-string/@json-file.')
-        c.argument('parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that contains '
-                   'the item. Read-only.')
-        c.argument('parent_reference_drive_type', type=str, help='Identifies the type of drive. See [drive][] resource '
-                   'for values.')
-        c.argument('parent_reference_id', type=str, help='Unique identifier of the item in the drive. Read-only.')
-        c.argument('parent_reference_name', type=str, help='The name of the item being referenced. Read-only.')
-        c.argument('parent_reference_path', type=str,
-                   help='Path that can be used to navigate to the item. Read-only.')
-        c.argument('parent_reference_share_id', type=str, help='A unique identifier for a shared resource that can be '
-                   'accessed via the [Shares][] API.')
-        c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
-                   'sharepointIds')
-        c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('audio', action=AddAudio, nargs='*', help='audio')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
                    'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
-        c.argument('file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
-        c.argument('image', action=AddImage, nargs='*', help='image')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
         c.argument('location', arg_type=get_location_type(self.cli_ctx))
-        c.argument('photo', action=AddTeamsChannelsPhoto, nargs='*', help='photo')
-        c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
+        c.argument('photo', action=AddTeamsChannelsPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
         c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
-        c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
-                   'sharepointIds')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
         c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
-        c.argument('video', action=AddVideo, nargs='*', help='video')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
         c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
         c.argument('activities', type=validate_file_or_dict, help='The list of recent activities that took place on '
                    'this item. Expected value: json-string/@json-file.')
@@ -1707,83 +1569,99 @@ def load_arguments(self, _):
         c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
         c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='*', help='The set of subscriptions on the item. '
+        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the item. '
                    'Only supported on the root of a drive.')
         c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
                    'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
                    'value: json-string/@json-file.')
-        c.argument('versions', action=AddVersions, nargs='*', help='The list of previous versions of the item. For '
+        c.argument('versions', action=AddVersions, nargs='+', help='The list of previous versions of the item. For '
                    'more info, see [getting previous versions][]. Read-only. Nullable.')
-        c.argument('analytics_id', type=str, help='Read-only.')
-        c.argument('analytics_all_time', type=validate_file_or_dict, help='itemActivityStat Expected value: '
-                   'json-string/@json-file.')
-        c.argument('analytics_item_activity_stats', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('analytics_last_seven_days', type=validate_file_or_dict, help='itemActivityStat Expected value: '
-                   'json-string/@json-file.')
-        c.argument('workbook_id', type=str, help='Read-only.')
-        c.argument('workbook_application', action=AddWorkbookApplication, nargs='*', help='workbookApplication')
-        c.argument('workbook_comments', action=AddWorkbookComments, nargs='*', help='')
-        c.argument('workbook_functions', action=AddWorkbookFunctions, nargs='*', help='workbookFunctions')
-        c.argument('workbook_names', type=validate_file_or_dict, help='Represents a collection of workbook scoped '
-                   'named items (named ranges and constants). Read-only. Expected value: json-string/@json-file.')
-        c.argument('workbook_operations', type=validate_file_or_dict, help='The status of workbook operations. Getting '
-                   'an operation collection is not supported, but you can get the status of a long-running operation '
-                   'if the Location header is returned in the response. Read-only. Expected value: '
-                   'json-string/@json-file.')
-        c.argument('workbook_tables', type=validate_file_or_dict, help='Represents a collection of tables associated '
-                   'with the workbook. Read-only. Expected value: json-string/@json-file.')
-        c.argument('workbook_worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets '
-                   'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
-        c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
-                   'collection')
-        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
-        c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
-                   'organization, or users. Read-only.')
-        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
-        c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
-        c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
-                   'telemetry information. The application should issue a GET on this URL if the user interacts with '
-                   'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
-        c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
-        c.argument('remote_item_file', type=validate_file_or_dict,
-                   help='file Expected value: json-string/@json-file.')
-        c.argument('remote_item_file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
-        c.argument('remote_item_folder', type=validate_file_or_dict, help='folder Expected value: '
-                   'json-string/@json-file.')
-        c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
-        c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
-        c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
-        c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
-        c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
-        c.argument('remote_item_parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
-                   'json-string/@json-file.')
-        c.argument('remote_item_shared', type=validate_file_or_dict, help='shared Expected value: '
-                   'json-string/@json-file.')
-        c.argument('remote_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
-                   'sharepointIds')
-        c.argument('remote_item_size', type=int, help='Size of the remote item. Read-only.')
-        c.argument('remote_item_special_folder', action=AddRemoteItemSpecialFolder, nargs='*', help='specialFolder')
-        c.argument('remote_item_video', action=AddVideo, nargs='*', help='video')
-        c.argument('remote_item_web_dav_url', type=str, help='DAV compatible URL for the item.')
-        c.argument('remote_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
-        c.argument('pending_operations_pending_content_update_queued_date_time', help='Date and time the pending '
-                   'binary operation was queued in UTC time. Read-only.')
-        c.argument('package_type', type=str, help='A string indicating the type of package. While oneNote is the only '
-                   'currently defined value, you should expect other package types to be returned and handle them '
-                   'accordingly.')
-        c.argument('folder_child_count', type=int, help='Number of children contained immediately within this '
-                   'container.')
-        c.argument('folder_view', action=AddFolderView, nargs='*', help='folderView')
-        c.argument('file_hashes', action=AddFileHashes, nargs='*', help='hashes')
-        c.argument('file_mime_type', type=str, help='The MIME type for the file. This is determined by logic on the '
-                   'server and might not be the value provided when the file was uploaded. Read-only.')
-        c.argument('file_processing_metadata', arg_type=get_three_state_flag(), help='')
-        c.argument('deleted_state', type=str, help='Represents the state of the deleted item.')
-        c.argument('bundle_album', action=AddBundleAlbum, nargs='*', help='album')
-        c.argument('bundle_child_count', type=int, help='')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Analytics')
+        c.argument('all_time', type=validate_file_or_dict, help='itemActivityStat Expected value: '
+                   'json-string/@json-file.', arg_group='Analytics')
+        c.argument('item_activity_stats', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Analytics')
+        c.argument('last_seven_days', type=validate_file_or_dict, help='itemActivityStat Expected value: '
+                   'json-string/@json-file.', arg_group='Analytics')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
+        c.argument('album', action=AddAlbum, nargs='+', help='album', arg_group='Bundle')
+        c.argument('integer_child_count', type=int, help='', arg_group='Bundle')
 
     with self.argument_context('teams team-channel update-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1791,17 +1669,17 @@ def load_arguments(self, _):
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
-        c.argument('roles', nargs='*', help='The roles for that user.')
+        c.argument('roles', nargs='+', help='The roles for that user.')
 
     with self.argument_context('teams team-channel update-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -1813,10 +1691,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -1824,69 +1702,51 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
 
     with self.argument_context('teams team-channel update-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('configuration', action=AddConfiguration, nargs='*', help='teamsTabConfiguration')
+        c.argument('configuration', action=AddConfiguration, nargs='+', help='teamsTabConfiguration')
         c.argument('display_name', type=str, help='Name of the tab.')
         c.argument('message_id', type=str, help='')
         c.argument('sort_order_index', type=str, help='')
         c.argument('teams_app_id', type=str, help='')
         c.argument('web_url', type=str, help='Deep link URL of the tab instance. Read only.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
 
     with self.argument_context('teams team-channel-member add') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('values', action=AddTeamsChannelsMembersValues, nargs='*', help='')
-
-    with self.argument_context('teams team-channel-message delete') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
+        c.argument('values', action=AddTeamsChannelsMembersValues, nargs='+', help='')
 
     with self.argument_context('teams team-channel-message create-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -1901,10 +1761,10 @@ def load_arguments(self, _):
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -1916,10 +1776,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -1927,77 +1787,58 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
+
+    with self.argument_context('teams team-channel-message delete-hosted-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('teams team-channel-message delete-reply') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams team-channel-message delta') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
 
-    with self.argument_context('teams team-channel-message get-hosted-content') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams team-channel-message get-hosted-content-content') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
-
-    with self.argument_context('teams team-channel-message get-reply') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('teams team-channel-message list-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-channel-message list-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-channel-message set-hosted-content-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2005,6 +1846,28 @@ def load_arguments(self, _):
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('teams team-channel-message show-hosted-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-channel-message show-hosted-content-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+
+    with self.argument_context('teams team-channel-message show-reply') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-channel-message update-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2021,10 +1884,10 @@ def load_arguments(self, _):
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -2036,10 +1899,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -2047,58 +1910,35 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
 
     with self.argument_context('teams team-channel-message-reply delta') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
 
-    with self.argument_context('teams team-channel-tab delete') as c:
+    with self.argument_context('teams team-channel-tab delete-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('channel_id', type=str, help='key: id of channel')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('teams team-channel-tab get-app') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams team-channel-tab get-ref-team-app') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('channel_id', type=str, help='key: id of channel')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
     with self.argument_context('teams team-channel-tab set-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2107,30 +1947,27 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams team-installed-app delete') as c:
+    with self.argument_context('teams team-channel-tab show-ref-team-app') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+
+    with self.argument_context('teams team-channel-tab show-team-app') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('channel_id', type=str, help='key: id of channel')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-installed-app delete-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-installed-app get-app') as c:
+    with self.argument_context('teams team-installed-app delete-ref-team-app-definition') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams team-installed-app get-app-definition') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams team-installed-app get-ref-team-app') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
-
-    with self.argument_context('teams team-installed-app get-ref-team-app-definition') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams team-installed-app set-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2144,20 +1981,33 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
+    with self.argument_context('teams team-installed-app show-ref-team-app') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+
+    with self.argument_context('teams team-installed-app show-ref-team-app-definition') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+
+    with self.argument_context('teams team-installed-app show-team-app') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-installed-app show-team-app-definition') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
     with self.argument_context('teams team-installed-app upgrade') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_app_installation_id', type=str, help='key: id of teamsAppInstallation')
 
     with self.argument_context('teams team-member add') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('values', action=AddTeamsMembersValues, nargs='*', help='')
-
-    with self.argument_context('teams team-primary-channel delete') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+        c.argument('values', action=AddTeamsMembersValues, nargs='+', help='')
 
     with self.argument_context('teams team-primary-channel complete-migration') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2166,15 +2016,15 @@ def load_arguments(self, _):
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
-        c.argument('roles', nargs='*', help='The roles for that user.')
+        c.argument('roles', nargs='+', help='The roles for that user.')
 
     with self.argument_context('teams team-primary-channel create-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -2186,10 +2036,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -2197,102 +2047,111 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
 
     with self.argument_context('teams team-primary-channel create-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('configuration', action=AddConfiguration, nargs='*', help='teamsTabConfiguration')
+        c.argument('configuration', action=AddConfiguration, nargs='+', help='teamsTabConfiguration')
         c.argument('display_name', type=str, help='Name of the tab.')
         c.argument('message_id', type=str, help='')
         c.argument('sort_order_index', type=str, help='')
         c.argument('teams_app_id', type=str, help='')
         c.argument('web_url', type=str, help='Deep link URL of the tab instance. Read only.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
 
-    with self.argument_context('teams team-primary-channel get-file-folder') as c:
+    with self.argument_context('teams team-primary-channel delete-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-primary-channel get-file-folder-content') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-
-    with self.argument_context('teams team-primary-channel get-member') as c:
+    with self.argument_context('teams team-primary-channel delete-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-primary-channel get-message') as c:
+    with self.argument_context('teams team-primary-channel delete-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-primary-channel get-tab') as c:
+    with self.argument_context('teams team-primary-channel delete-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams team-primary-channel list-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-primary-channel list-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-primary-channel list-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-primary-channel set-file-folder-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('teams team-primary-channel show-file-folder') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-primary-channel show-file-folder-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+
+    with self.argument_context('teams team-primary-channel show-member') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-primary-channel show-message') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-primary-channel show-tab') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-primary-channel update-file-folder') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2307,63 +2166,43 @@ def load_arguments(self, _):
                    'object. Expected value: json-string/@json-file.')
         c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
                    'user object. Expected value: json-string/@json-file.')
-        c.argument('parent_reference_drive_id', type=str, help='Unique identifier of the drive instance that contains '
-                   'the item. Read-only.')
-        c.argument('parent_reference_drive_type', type=str, help='Identifies the type of drive. See [drive][] resource '
-                   'for values.')
-        c.argument('parent_reference_id', type=str, help='Unique identifier of the item in the drive. Read-only.')
-        c.argument('parent_reference_name', type=str, help='The name of the item being referenced. Read-only.')
-        c.argument('parent_reference_path', type=str,
-                   help='Path that can be used to navigate to the item. Read-only.')
-        c.argument('parent_reference_share_id', type=str, help='A unique identifier for a shared resource that can be '
-                   'accessed via the [Shares][] API.')
-        c.argument('parent_reference_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
-                   'sharepointIds')
-        c.argument('parent_reference_site_id', type=str, help='')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('audio', action=AddAudio, nargs='*', help='audio')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('audio', action=AddAudio, nargs='+', help='audio')
         c.argument('content', help='The content stream, if the item represents a file.')
         c.argument('c_tag', type=str, help='An eTag for the content of the item. This eTag is not changed if only the '
                    'metadata is changed. Note This property is not returned if the item is a folder. Read-only.')
-        c.argument('file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
-        c.argument('image', action=AddImage, nargs='*', help='image')
+        c.argument('file_system_info', action=AddFileSystemInfo, nargs='+', help='fileSystemInfo')
+        c.argument('image', action=AddImage, nargs='+', help='image')
         c.argument('location', arg_type=get_location_type(self.cli_ctx))
-        c.argument('photo', action=AddTeamsChannelsPhoto, nargs='*', help='photo')
-        c.argument('publication', action=AddPublication, nargs='*', help='publicationFacet')
+        c.argument('photo', action=AddTeamsChannelsPhoto, nargs='+', help='photo')
+        c.argument('publication', action=AddPublication, nargs='+', help='publicationFacet')
         c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
-        c.argument('microsoft_graph_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
-                   'sharepointIds')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
         c.argument('size', type=int, help='Size of the item in bytes. Read-only.')
-        c.argument('video', action=AddVideo, nargs='*', help='video')
+        c.argument('video', action=AddVideo, nargs='+', help='video')
         c.argument('web_dav_url', type=str, help='WebDAV compatible URL for the item.')
         c.argument('activities', type=validate_file_or_dict, help='The list of recent activities that took place on '
                    'this item. Expected value: json-string/@json-file.')
@@ -2373,99 +2212,115 @@ def load_arguments(self, _):
         c.argument('list_item', type=validate_file_or_dict, help='listItem Expected value: json-string/@json-file.')
         c.argument('permissions', type=validate_file_or_dict, help='The set of permissions for the item. Read-only. '
                    'Nullable. Expected value: json-string/@json-file.')
-        c.argument('subscriptions', action=AddSubscriptions, nargs='*', help='The set of subscriptions on the item. '
+        c.argument('subscriptions', action=AddSubscriptions, nargs='+', help='The set of subscriptions on the item. '
                    'Only supported on the root of a drive.')
         c.argument('thumbnails', type=validate_file_or_dict, help='Collection containing [ThumbnailSet][] objects '
                    'associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. Expected '
                    'value: json-string/@json-file.')
-        c.argument('versions', action=AddVersions, nargs='*', help='The list of previous versions of the item. For '
+        c.argument('versions', action=AddVersions, nargs='+', help='The list of previous versions of the item. For '
                    'more info, see [getting previous versions][]. Read-only. Nullable.')
-        c.argument('analytics_id', type=str, help='Read-only.')
-        c.argument('analytics_all_time', type=validate_file_or_dict, help='itemActivityStat Expected value: '
-                   'json-string/@json-file.')
-        c.argument('analytics_item_activity_stats', type=validate_file_or_dict, help=' Expected value: '
-                   'json-string/@json-file.')
-        c.argument('analytics_last_seven_days', type=validate_file_or_dict, help='itemActivityStat Expected value: '
-                   'json-string/@json-file.')
-        c.argument('workbook_id', type=str, help='Read-only.')
-        c.argument('workbook_application', action=AddWorkbookApplication, nargs='*', help='workbookApplication')
-        c.argument('workbook_comments', action=AddWorkbookComments, nargs='*', help='')
-        c.argument('workbook_functions', action=AddWorkbookFunctions, nargs='*', help='workbookFunctions')
-        c.argument('workbook_names', type=validate_file_or_dict, help='Represents a collection of workbook scoped '
-                   'named items (named ranges and constants). Read-only. Expected value: json-string/@json-file.')
-        c.argument('workbook_operations', type=validate_file_or_dict, help='The status of workbook operations. Getting '
-                   'an operation collection is not supported, but you can get the status of a long-running operation '
-                   'if the Location header is returned in the response. Read-only. Expected value: '
-                   'json-string/@json-file.')
-        c.argument('workbook_tables', type=validate_file_or_dict, help='Represents a collection of tables associated '
-                   'with the workbook. Read-only. Expected value: json-string/@json-file.')
-        c.argument('workbook_worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets '
-                   'associated with the workbook. Read-only. Expected value: json-string/@json-file.')
-        c.argument('special_folder_name', type=str, help='The unique identifier for this item in the /drive/special '
-                   'collection')
-        c.argument('shared_owner', action=AddSharedOwner, nargs='*', help='identitySet')
-        c.argument('shared_scope', type=str, help='Indicates the scope of how the item is shared: anonymous, '
-                   'organization, or users. Read-only.')
-        c.argument('shared_shared_by', action=AddSharedOwner, nargs='*', help='identitySet')
-        c.argument('shared_shared_date_time', help='The UTC date and time when the item was shared. Read-only.')
-        c.argument('search_result_on_click_telemetry_url', type=str, help='A callback URL that can be used to record '
-                   'telemetry information. The application should issue a GET on this URL if the user interacts with '
-                   'this item to improve the quality of results.')
-        c.argument('remote_item_created_by', action=AddSharedOwner, nargs='*', help='identitySet')
-        c.argument('remote_item_created_date_time', help='Date and time of item creation. Read-only.')
-        c.argument('remote_item_file', type=validate_file_or_dict,
-                   help='file Expected value: json-string/@json-file.')
-        c.argument('remote_item_file_system_info', action=AddFileSystemInfo, nargs='*', help='fileSystemInfo')
-        c.argument('remote_item_folder', type=validate_file_or_dict, help='folder Expected value: '
-                   'json-string/@json-file.')
-        c.argument('remote_item_id', type=str, help='Unique identifier for the remote item in its drive. Read-only.')
-        c.argument('remote_item_image', action=AddImage, nargs='*', help='image')
-        c.argument('remote_item_last_modified_by', action=AddSharedOwner, nargs='*', help='identitySet')
-        c.argument('remote_item_last_modified_date_time', help='Date and time the item was last modified. Read-only.')
-        c.argument('remote_item_name', type=str, help='Optional. Filename of the remote item. Read-only.')
-        c.argument('remote_item_package', action=AddRemoteItemPackage, nargs='*', help='package')
-        c.argument('remote_item_parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
-                   'json-string/@json-file.')
-        c.argument('remote_item_shared', type=validate_file_or_dict, help='shared Expected value: '
-                   'json-string/@json-file.')
-        c.argument('remote_item_sharepoint_ids', action=AddParentReferenceSharepointIds, nargs='*', help=''
-                   'sharepointIds')
-        c.argument('remote_item_size', type=int, help='Size of the remote item. Read-only.')
-        c.argument('remote_item_special_folder', action=AddRemoteItemSpecialFolder, nargs='*', help='specialFolder')
-        c.argument('remote_item_video', action=AddVideo, nargs='*', help='video')
-        c.argument('remote_item_web_dav_url', type=str, help='DAV compatible URL for the item.')
-        c.argument('remote_item_web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
-        c.argument('pending_operations_pending_content_update_queued_date_time', help='Date and time the pending '
-                   'binary operation was queued in UTC time. Read-only.')
-        c.argument('package_type', type=str, help='A string indicating the type of package. While oneNote is the only '
-                   'currently defined value, you should expect other package types to be returned and handle them '
-                   'accordingly.')
-        c.argument('folder_child_count', type=int, help='Number of children contained immediately within this '
-                   'container.')
-        c.argument('folder_view', action=AddFolderView, nargs='*', help='folderView')
-        c.argument('file_hashes', action=AddFileHashes, nargs='*', help='hashes')
-        c.argument('file_mime_type', type=str, help='The MIME type for the file. This is determined by logic on the '
-                   'server and might not be the value provided when the file was uploaded. Read-only.')
-        c.argument('file_processing_metadata', arg_type=get_three_state_flag(), help='')
-        c.argument('deleted_state', type=str, help='Represents the state of the deleted item.')
-        c.argument('bundle_album', action=AddBundleAlbum, nargs='*', help='album')
-        c.argument('bundle_child_count', type=int, help='')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Analytics')
+        c.argument('all_time', type=validate_file_or_dict, help='itemActivityStat Expected value: '
+                   'json-string/@json-file.', arg_group='Analytics')
+        c.argument('item_activity_stats', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Analytics')
+        c.argument('last_seven_days', type=validate_file_or_dict, help='itemActivityStat Expected value: '
+                   'json-string/@json-file.', arg_group='Analytics')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Workbook')
+        c.argument('microsoft_graph_workbook_application', action=AddMicrosoftGraphWorkbookApplication, nargs='+',
+                   help='workbookApplication', arg_group='Workbook')
+        c.argument('comments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('functions', action=AddFunctions, nargs='+', help='workbookFunctions', arg_group='Workbook')
+        c.argument('names', type=validate_file_or_dict, help='Represents a collection of workbook scoped named items '
+                   '(named ranges and constants). Read-only. Expected value: json-string/@json-file.',
+                   arg_group='Workbook')
+        c.argument('operations', type=validate_file_or_dict, help='The status of workbook operations. Getting an '
+                   'operation collection is not supported, but you can get the status of a long-running operation if '
+                   'the Location header is returned in the response. Read-only. Expected value: '
+                   'json-string/@json-file.', arg_group='Workbook')
+        c.argument('tables', type=validate_file_or_dict, help='Represents a collection of tables associated with the '
+                   'workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('worksheets', type=validate_file_or_dict, help='Represents a collection of worksheets associated '
+                   'with the workbook. Read-only. Expected value: json-string/@json-file.', arg_group='Workbook')
+        c.argument('microsoft_graph_special_folder_name', type=str, help='The unique identifier for this item in the '
+                   '/drive/special collection', arg_group='Special Folder')
+        c.argument('owner', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('scope', type=str, help='Indicates the scope of how the item is shared: anonymous, organization, or '
+                   'users. Read-only.', arg_group='Shared')
+        c.argument('shared_by', type=validate_file_or_dict, help='identitySet Expected value: json-string/@json-file.',
+                   arg_group='Shared')
+        c.argument('shared_date_time', help='The UTC date and time when the item was shared. Read-only.',
+                   arg_group='Shared')
+        c.argument('on_click_telemetry_url', type=str, help='A callback URL that can be used to record telemetry '
+                   'information. The application should issue a GET on this URL if the user interacts with this item '
+                   'to improve the quality of results.', arg_group='Search Result')
+        c.argument('created_by', type=validate_file_or_dict,
+                   help='identitySet Expected value: json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_created_date_time_created_date_time', help='Date and time of item '
+                   'creation. Read-only.', arg_group='Remote Item')
+        c.argument('file', type=validate_file_or_dict, help='file Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_file_system_info_file_system_info', action=AddFileSystemInfo, nargs='+',
+                   help='fileSystemInfo', arg_group='Remote Item')
+        c.argument('folder', type=validate_file_or_dict, help='folder Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_id', type=str, help='Unique identifier for the remote item in its '
+                   'drive. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_image', action=AddImage, nargs='+', help='image', arg_group='Remote Item')
+        c.argument('last_modified_by', type=validate_file_or_dict, help='identitySet Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_last_modified_date_time_last_modified_date_time', help='Date and time '
+                   'the item was last modified. Read-only.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_name', type=str, help='Optional. Filename of the remote item. '
+                   'Read-only.', arg_group='Remote Item')
+        c.argument('package', action=AddPackage, nargs='+', help='package', arg_group='Remote Item')
+        c.argument('parent_reference', type=validate_file_or_dict, help='itemReference Expected value: '
+                   'json-string/@json-file.', arg_group='Remote Item')
+        c.argument('shared', type=validate_file_or_dict, help='shared Expected value: json-string/@json-file.',
+                   arg_group='Remote Item')
+        c.argument('sharepoint_ids1', action=AddSharepointIds, nargs='+', help='sharepointIds',
+                   arg_group='Remote Item')
+        c.argument('integer_size', type=int, help='Size of the remote item. Read-only.', arg_group='Remote Item')
+        c.argument('special_folder', action=AddSpecialFolder, nargs='+', help='specialFolder',
+                   arg_group='Remote Item')
+        c.argument('microsoft_graph_video', action=AddVideo, nargs='+', help='video', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_dav_url_web_dav_url', type=str, help='DAV compatible URL for the '
+                   'item.', arg_group='Remote Item')
+        c.argument('microsoft_graph_remote_item_web_url', type=str, help='URL that displays the resource in the '
+                   'browser. Read-only.', arg_group='Remote Item')
+        c.argument('queued_date_time', help='Date and time the pending binary operation was queued in UTC time. '
+                   'Read-only.', arg_group='Pending Operations Pending Content Update')
+        c.argument('type_', options_list=['--type'], type=str, help='A string indicating the type of package. While '
+                   'oneNote is the only currently defined value, you should expect other package types to be returned '
+                   'and handle them accordingly.', arg_group='Package')
+        c.argument('child_count', type=int, help='Number of children contained immediately within this container.',
+                   arg_group='Folder')
+        c.argument('view', action=AddView, nargs='+', help='folderView', arg_group='Folder')
+        c.argument('hashes', action=AddHashes, nargs='+', help='hashes', arg_group='File')
+        c.argument('mime_type', type=str, help='The MIME type for the file. This is determined by logic on the server '
+                   'and might not be the value provided when the file was uploaded. Read-only.', arg_group='File')
+        c.argument('processing_metadata', arg_type=get_three_state_flag(), help='', arg_group='File')
+        c.argument('state', type=str, help='Represents the state of the deleted item.', arg_group='Deleted')
+        c.argument('album', action=AddAlbum, nargs='+', help='album', arg_group='Bundle')
+        c.argument('integer_child_count', type=int, help='', arg_group='Bundle')
 
     with self.argument_context('teams team-primary-channel update-member') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('conversation_member_id', type=str, help='key: id of conversationMember')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The display name of the user.')
-        c.argument('roles', nargs='*', help='The roles for that user.')
+        c.argument('roles', nargs='+', help='The roles for that user.')
 
     with self.argument_context('teams team-primary-channel update-message') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -2477,10 +2332,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -2488,66 +2343,49 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
 
     with self.argument_context('teams team-primary-channel update-tab') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('configuration', action=AddConfiguration, nargs='*', help='teamsTabConfiguration')
+        c.argument('configuration', action=AddConfiguration, nargs='+', help='teamsTabConfiguration')
         c.argument('display_name', type=str, help='Name of the tab.')
         c.argument('message_id', type=str, help='')
         c.argument('sort_order_index', type=str, help='')
         c.argument('teams_app_id', type=str, help='')
         c.argument('web_url', type=str, help='Deep link URL of the tab instance. Read only.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
 
     with self.argument_context('teams team-primary-channel-member add') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('values', action=AddTeamsPrimarychannelMembersValues, nargs='*', help='')
-
-    with self.argument_context('teams team-primary-channel-message delete') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
+        c.argument('values', action=AddTeamsPrimarychannelMembersValues, nargs='+', help='')
 
     with self.argument_context('teams team-primary-channel-message create-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2560,10 +2398,10 @@ def load_arguments(self, _):
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -2575,10 +2413,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -2586,77 +2424,78 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
+
+    with self.argument_context('teams team-primary-channel-message delete-hosted-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('teams team-primary-channel-message delete-reply') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams team-primary-channel-message delta') as c:
         c.argument('team_id', type=str, help='key: id of team')
 
-    with self.argument_context('teams team-primary-channel-message get-hosted-content') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams team-primary-channel-message get-hosted-content-content') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
-
-    with self.argument_context('teams team-primary-channel-message get-reply') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('teams team-primary-channel-message list-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-primary-channel-message list-reply') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-primary-channel-message set-hosted-content-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
         c.argument('data', help='New media content.')
+
+    with self.argument_context('teams team-primary-channel-message show-hosted-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-primary-channel-message show-hosted-content-content') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_hosted_content_id', type=str, help='key: id of chatMessageHostedContent')
+
+    with self.argument_context('teams team-primary-channel-message show-reply') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('chat_message_id', type=str, help='key: id of chatMessage')
+        c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-primary-channel-message update-hosted-content') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2671,10 +2510,10 @@ def load_arguments(self, _):
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
         c.argument('chat_message_id1', type=str, help='key: id of chatMessage')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('attachments', action=AddAttachments, nargs='*', help='Attached files. Attachments are currently '
+        c.argument('attachments', action=AddAttachments, nargs='+', help='Attached files. Attachments are currently '
                    'read-only – sending attachments is not supported.')
-        c.argument('body', action=AddBody, nargs='*', help='itemBody')
-        c.argument('channel_identity', action=AddChannelIdentity, nargs='*', help='channelIdentity')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody')
+        c.argument('channel_identity', action=AddChannelIdentity, nargs='+', help='channelIdentity')
         c.argument('chat_id', type=str, help='')
         c.argument('created_date_time', help='Read only. Timestamp of when the chat message was created.')
         c.argument('deleted_date_time', help='Read only. Timestamp at which the chat message was deleted, or null if '
@@ -2686,10 +2525,10 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Read only. Timestamp when the chat message is created (initial '
                    'setting) or edited, including when a reaction is added or removed.')
         c.argument('locale', type=str, help='Locale of the chat message set by the client.')
-        c.argument('mentions', action=AddMentions, nargs='*', help='List of entities mentioned in the chat message. '
-                   'Currently supports user, bot, team, channel.')
+        c.argument('mentions', type=validate_file_or_dict, help='List of entities mentioned in the chat message. '
+                   'Currently supports user, bot, team, channel. Expected value: json-string/@json-file.')
         c.argument('message_type', arg_type=get_enum_type(['message', 'chatEvent', 'typing']), help='')
-        c.argument('reactions', action=AddReactions, nargs='*', help='')
+        c.argument('reactions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reply_to_id', type=str, help='Read-only. Id of the parent chat message or root chat message of the '
                    'thread. (Only applies to chat messages in channels not chats)')
         c.argument('subject', type=str, help='The subject of the chat message, in plaintext.')
@@ -2697,54 +2536,33 @@ def load_arguments(self, _):
                    'notifications and summary views or fall back views. Only applies to channel chat messages, not '
                    'chat messages in a chat.')
         c.argument('web_url', type=str, help='')
-        c.argument('hosted_contents', action=AddHostedContents, nargs='*', help='')
+        c.argument('hosted_contents', action=AddHostedContents, nargs='+', help='')
         c.argument('replies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('policy_violation_dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess', ''
-                                                                          'blockAccessExternal']), help='')
-        c.argument('policy_violation_justification_text', type=str, help='Justification text provided by the sender of '
-                   'the message when overriding a policy violation.')
-        c.argument('policy_violation_policy_tip', action=AddPolicyViolationPolicyTip, nargs='*', help=''
-                   'chatMessagePolicyViolationPolicyTip')
-        c.argument('policy_violation_user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']),
-                   help='')
-        c.argument('policy_violation_verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride', ''
-                                                                               'allowOverrideWithoutJustification', ''
-                                                                               'allowOverrideWithJustification']),
-                   help='')
-        c.argument('from_user_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_device_display_name', type=str, help='The identity\'s display name. Note that this may not '
-                   'always be available or up to date. For example, if a user changes their display name, the API may '
-                   'show the new value in a future response, but the items associated with the user won\'t show up as '
-                   'having changed when using delta.')
-        c.argument('from_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('from_application_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('from_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('dlp_action', arg_type=get_enum_type(['none', 'notifySender', 'blockAccess',
+                                                         'blockAccessExternal']), help='',
+                                                         arg_group='Policy Violation')
+        c.argument('justification_text', type=str, help='Justification text provided by the sender of the message when '
+                   'overriding a policy violation.', arg_group='Policy Violation')
+        c.argument('policy_tip', action=AddPolicyTip, nargs='+', help='chatMessagePolicyViolationPolicyTip',
+                   arg_group='Policy Violation')
+        c.argument('user_action', arg_type=get_enum_type(['none', 'override', 'reportFalsePositive']), help='',
+                   arg_group='Policy Violation')
+        c.argument('verdict_details', arg_type=get_enum_type(['none', 'allowFalsePositiveOverride',
+                                                              'allowOverrideWithoutJustification',
+                                                              'allowOverrideWithJustification']), help='',
+                   arg_group='Policy Violation')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='From')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='From')
 
     with self.argument_context('teams team-primary-channel-message-reply delta') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('chat_message_id', type=str, help='key: id of chatMessage')
 
-    with self.argument_context('teams team-primary-channel-tab delete') as c:
+    with self.argument_context('teams team-primary-channel-tab delete-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
         c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('teams team-primary-channel-tab get-app') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams team-primary-channel-tab get-ref-team-app') as c:
-        c.argument('team_id', type=str, help='key: id of team')
-        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
 
     with self.argument_context('teams team-primary-channel-tab set-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2752,19 +2570,15 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('teams team-schedule delete') as c:
+    with self.argument_context('teams team-primary-channel-tab show-ref-team-app') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('offer_shift_request_id', type=str, help='key: id of offerShiftRequest')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('open_shift_change_request_id', type=str, help='key: id of openShiftChangeRequest')
-        c.argument('open_shift_id', type=str, help='key: id of openShift')
-        c.argument('scheduling_group_id', type=str, help='key: id of schedulingGroup')
-        c.argument('shift_id', type=str, help='key: id of shift')
-        c.argument('swap_shifts_change_request_id', type=str, help='key: id of swapShiftsChangeRequest')
-        c.argument('time_card_id', type=str, help='key: id of timeCard')
-        c.argument('time_off_reason_id', type=str, help='key: id of timeOffReason')
-        c.argument('time_off_request_id', type=str, help='key: id of timeOffRequest')
-        c.argument('time_off_id', type=str, help='key: id of timeOff')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+
+    with self.argument_context('teams team-primary-channel-tab show-team-app') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('teams_tab_id', type=str, help='key: id of teamsTab')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule create-offer-shift-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2775,37 +2589,16 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system', ''
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system',
                                                           'unknownFutureValue']), help='')
         c.argument('manager_action_date_time', help='')
         c.argument('manager_action_message', type=str, help='')
@@ -2832,41 +2625,20 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('draft_open_shift', action=AddDraftOpenShift, nargs='*', help='openShiftItem')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('draft_open_shift', action=AddDraftOpenShift, nargs='+', help='openShiftItem')
         c.argument('is_staged_for_deletion', arg_type=get_three_state_flag(), help='')
         c.argument('scheduling_group_id', type=str,
                    help='ID for the scheduling group that the open shift belongs to.')
-        c.argument('shared_open_shift', action=AddDraftOpenShift, nargs='*', help='openShiftItem')
+        c.argument('shared_open_shift', action=AddDraftOpenShift, nargs='+', help='openShiftItem')
 
     with self.argument_context('teams team-schedule create-open-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -2877,37 +2649,16 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system', ''
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system',
                                                           'unknownFutureValue']), help='')
         c.argument('manager_action_date_time', help='')
         c.argument('manager_action_message', type=str, help='')
@@ -2928,41 +2679,19 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('microsoft_graph_scheduling_group_display_name', type=str, help='The display name for the '
-                   'schedulingGroup. Required.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('display_name', type=str, help='The display name for the schedulingGroup. Required.')
         c.argument('is_active', arg_type=get_three_state_flag(), help='Indicates whether the schedulingGroup can be '
                    'used when creating new entities or updating existing ones. Required.')
-        c.argument('user_ids', nargs='*', help='The list of user IDs that are a member of the schedulingGroup. '
+        c.argument('user_ids', nargs='+', help='The list of user IDs that are a member of the schedulingGroup. '
                    'Required.')
 
     with self.argument_context('teams team-schedule create-shift') as c:
@@ -2974,61 +2703,45 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('is_staged_for_deletion', arg_type=get_three_state_flag(), help='')
         c.argument('scheduling_group_id', type=str, help='ID of the scheduling group the shift is part of. Required.')
         c.argument('user_id', type=str, help='ID of the user assigned to the shift. Required.')
-        c.argument('shared_shift_end_date_time', help='')
-        c.argument('shared_shift_start_date_time', help='')
-        c.argument('shared_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow',
-                                                                 'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
-                                                                 'darkPink', 'darkYellow', 'unknownFutureValue']),
-                   help='')
-        c.argument('shared_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
-                   'a shift which can cover details of when and where an employee is during their shift. For example, '
-                   'an assignment or a scheduled break or lunch. Required.')
-        c.argument('shared_shift_display_name', type=str, help='The shift label of the shiftItem.')
-        c.argument('shared_shift_notes', type=str, help='The shift notes for the shiftItem.')
-        c.argument('draft_shift_end_date_time', help='')
-        c.argument('draft_shift_start_date_time', help='')
-        c.argument('draft_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow', ''
-                                                                'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
-                                                                'darkPink', 'darkYellow', 'unknownFutureValue']),
-                   help='')
-        c.argument('draft_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
-                   'a shift which can cover details of when and where an employee is during their shift. For example, '
-                   'an assignment or a scheduled break or lunch. Required.')
-        c.argument('draft_shift_display_name', type=str, help='The shift label of the shiftItem.')
-        c.argument('draft_shift_notes', type=str, help='The shift notes for the shiftItem.')
+        c.argument('end_date_time', help='', arg_group='Shared Shift')
+        c.argument('start_date_time', help='', arg_group='Shared Shift')
+        c.argument('theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow', 'gray',
+                                                    'darkBlue', 'darkGreen', 'darkPurple', 'darkPink', 'darkYellow',
+                                                    'unknownFutureValue']), help='', arg_group='Shared Shift')
+        c.argument('activities', action=AddActivities, nargs='+', help='An incremental part of a shift which can cover '
+                   'details of when and where an employee is during their shift. For example, an assignment or a '
+                   'scheduled break or lunch. Required.', arg_group='Shared Shift')
+        c.argument('display_name', type=str, help='The shift label of the shiftItem.', arg_group='Shared Shift')
+        c.argument('notes', type=str, help='The shift notes for the shiftItem.', arg_group='Shared Shift')
+        c.argument('microsoft_graph_schedule_entity_end_date_time_end_date_time', help='', arg_group='Draft Shift')
+        c.argument('microsoft_graph_schedule_entity_start_date_time_start_date_time', help='',
+                   arg_group='Draft Shift')
+        c.argument('microsoft_graph_schedule_entity_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple',
+                                                                                    'pink', 'yellow', 'gray',
+                                                                                    'darkBlue', 'darkGreen',
+                                                                                    'darkPurple', 'darkPink',
+                                                                                    'darkYellow',
+                                                                                   'unknownFutureValue']), help='',
+                   arg_group='Draft Shift')
+        c.argument('microsoft_graph_shift_item_activities', action=AddActivities, nargs='+', help='An incremental part '
+                   'of a shift which can cover details of when and where an employee is during their shift. For '
+                   'example, an assignment or a scheduled break or lunch. Required.', arg_group='Draft Shift')
+        c.argument('microsoft_graph_shift_item_display_name', type=str, help='The shift label of the shiftItem.',
+                   arg_group='Draft Shift')
+        c.argument('microsoft_graph_shift_item_notes', type=str, help='The shift notes for the shiftItem.',
+                   arg_group='Draft Shift')
 
     with self.argument_context('teams team-schedule create-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3039,37 +2752,16 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system', ''
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system',
                                                           'unknownFutureValue']), help='')
         c.argument('manager_action_date_time', help='')
         c.argument('manager_action_message', type=str, help='')
@@ -3098,54 +2790,35 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('breaks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('confirmed_by', arg_type=get_enum_type(['none', 'user', 'manager', 'unknownFutureValue']), help='')
-        c.argument('notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('notes', action=AddBody, nargs='+', help='itemBody')
         c.argument('state', arg_type=get_enum_type(['clockedIn', 'onBreak', 'clockedOut', 'unknownFutureValue']),
                    help='')
         c.argument('user_id', type=str, help='')
-        c.argument('original_entry_breaks', type=validate_file_or_dict,
-                   help=' Expected value: json-string/@json-file.')
-        c.argument('original_entry_clock_in_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
-                   'json-string/@json-file.')
-        c.argument('original_entry_clock_out_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
-                   'json-string/@json-file.')
-        c.argument('clock_out_event_at_approved_location', arg_type=get_three_state_flag(), help='')
-        c.argument('clock_out_event_date_time', help='')
-        c.argument('clock_out_event_notes', action=AddBody, nargs='*', help='itemBody')
-        c.argument('clock_in_event_at_approved_location', arg_type=get_three_state_flag(), help='')
-        c.argument('clock_in_event_date_time', help='')
-        c.argument('clock_in_event_notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('microsoft_graph_time_card_entry_breaks', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.', arg_group='Original Entry')
+        c.argument('clock_in_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
+                   'json-string/@json-file.', arg_group='Original Entry')
+        c.argument('clock_out_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
+                   'json-string/@json-file.', arg_group='Original Entry')
+        c.argument('at_approved_location', arg_type=get_three_state_flag(), help='', arg_group='Clock Out Event')
+        c.argument('date_time', help='', arg_group='Clock Out Event')
+        c.argument('microsoft_graph_item_body_notes', action=AddBody, nargs='+', help='itemBody', arg_group='Clock Out '
+                   'Event')
+        c.argument('boolean_at_approved_location', arg_type=get_three_state_flag(), help='',
+                   arg_group='Clock In Event')
+        c.argument('microsoft_graph_time_card_event_date_time', help='', arg_group='Clock In Event')
+        c.argument('notes1', action=AddBody, nargs='+', help='itemBody', arg_group='Clock In Event')
 
     with self.argument_context('teams team-schedule create-time-off') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3156,39 +2829,18 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('draft_time_off', action=AddDraftTimeOff, nargs='*', help='timeOffItem')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('draft_time_off', action=AddDraftTimeOff, nargs='+', help='timeOffItem')
         c.argument('is_staged_for_deletion', arg_type=get_three_state_flag(), help='')
-        c.argument('shared_time_off', action=AddDraftTimeOff, nargs='*', help='timeOffItem')
+        c.argument('shared_time_off', action=AddDraftTimeOff, nargs='+', help='timeOffItem')
         c.argument('user_id', type=str, help='ID of the user assigned to the timeOff. Required.')
 
     with self.argument_context('teams team-schedule create-time-off-reason') as c:
@@ -3200,41 +2852,19 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('microsoft_graph_time_off_reason_display_name', type=str, help='The name of the timeOffReason. '
-                   'Required.')
-        c.argument('icon_type', arg_type=get_enum_type(['none', 'car', 'calendar', 'running', 'plane', 'firstAid', ''
-                                                        'doctor', 'notWorking', 'clock', 'juryDuty', 'globe', 'cup', ''
-                                                        'phone', 'weather', 'umbrella', 'piggyBank', 'dog', 'cake', ''
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('display_name', type=str, help='The name of the timeOffReason. Required.')
+        c.argument('icon_type', arg_type=get_enum_type(['none', 'car', 'calendar', 'running', 'plane', 'firstAid',
+                                                        'doctor', 'notWorking', 'clock', 'juryDuty', 'globe', 'cup',
+                                                        'phone', 'weather', 'umbrella', 'piggyBank', 'dog', 'cake',
                                                         'trafficCone', 'pin', 'sunny', 'unknownFutureValue']),
                                                         help='')
         c.argument('is_active', arg_type=get_three_state_flag(), help='Indicates whether the timeOffReason can be used '
@@ -3249,37 +2879,16 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system', ''
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system',
                                                           'unknownFutureValue']), help='')
         c.argument('manager_action_date_time', help='')
         c.argument('manager_action_message', type=str, help='')
@@ -3297,131 +2906,181 @@ def load_arguments(self, _):
                    '\'2014-01-01T00:00:00Z\'')
         c.argument('time_off_reason_id', type=str, help='The reason for the time off.')
 
-    with self.argument_context('teams team-schedule get-offer-shift-request') as c:
+    with self.argument_context('teams team-schedule delete-offer-shift-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('offer_shift_request_id', type=str, help='key: id of offerShiftRequest')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-schedule get-open-shift') as c:
+    with self.argument_context('teams team-schedule delete-open-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('open_shift_id', type=str, help='key: id of openShift')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-schedule get-open-shift-change-request') as c:
+    with self.argument_context('teams team-schedule delete-open-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('open_shift_change_request_id', type=str, help='key: id of openShiftChangeRequest')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-schedule get-scheduling-group') as c:
+    with self.argument_context('teams team-schedule delete-scheduling-group') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('scheduling_group_id', type=str, help='key: id of schedulingGroup')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-schedule get-shift') as c:
+    with self.argument_context('teams team-schedule delete-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('shift_id', type=str, help='key: id of shift')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-schedule get-swap-shift-change-request') as c:
+    with self.argument_context('teams team-schedule delete-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('swap_shifts_change_request_id', type=str, help='key: id of swapShiftsChangeRequest')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-schedule get-time-card') as c:
+    with self.argument_context('teams team-schedule delete-time-card') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_card_id', type=str, help='key: id of timeCard')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-schedule get-time-off') as c:
+    with self.argument_context('teams team-schedule delete-time-off') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_off_id', type=str, help='key: id of timeOff')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-schedule get-time-off-reason') as c:
+    with self.argument_context('teams team-schedule delete-time-off-reason') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_off_reason_id', type=str, help='key: id of timeOffReason')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams team-schedule get-time-off-request') as c:
+    with self.argument_context('teams team-schedule delete-time-off-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_off_request_id', type=str, help='key: id of timeOffRequest')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams team-schedule list-offer-shift-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule list-open-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule list-open-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule list-scheduling-group') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule list-shift') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule list-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule list-time-card') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule list-time-off') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule list-time-off-reason') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule list-time-off-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule share') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('notify_team', arg_type=get_three_state_flag(), help='')
         c.argument('start_date_time', help='')
         c.argument('end_date_time', help='')
+
+    with self.argument_context('teams team-schedule show-offer-shift-request') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('offer_shift_request_id', type=str, help='key: id of offerShiftRequest')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-schedule show-open-shift') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('open_shift_id', type=str, help='key: id of openShift')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-schedule show-open-shift-change-request') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('open_shift_change_request_id', type=str, help='key: id of openShiftChangeRequest')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-schedule show-scheduling-group') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('scheduling_group_id', type=str, help='key: id of schedulingGroup')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-schedule show-shift') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('shift_id', type=str, help='key: id of shift')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-schedule show-swap-shift-change-request') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('swap_shifts_change_request_id', type=str, help='key: id of swapShiftsChangeRequest')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-schedule show-time-card') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('time_card_id', type=str, help='key: id of timeCard')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-schedule show-time-off') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('time_off_id', type=str, help='key: id of timeOff')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-schedule show-time-off-reason') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('time_off_reason_id', type=str, help='key: id of timeOffReason')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams team-schedule show-time-off-request') as c:
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('time_off_request_id', type=str, help='key: id of timeOffRequest')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team-schedule update-offer-shift-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3433,37 +3092,16 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system', ''
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system',
                                                           'unknownFutureValue']), help='')
         c.argument('manager_action_date_time', help='')
         c.argument('manager_action_message', type=str, help='')
@@ -3491,41 +3129,20 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('draft_open_shift', action=AddDraftOpenShift, nargs='*', help='openShiftItem')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('draft_open_shift', action=AddDraftOpenShift, nargs='+', help='openShiftItem')
         c.argument('is_staged_for_deletion', arg_type=get_three_state_flag(), help='')
         c.argument('scheduling_group_id', type=str,
                    help='ID for the scheduling group that the open shift belongs to.')
-        c.argument('shared_open_shift', action=AddDraftOpenShift, nargs='*', help='openShiftItem')
+        c.argument('shared_open_shift', action=AddDraftOpenShift, nargs='+', help='openShiftItem')
 
     with self.argument_context('teams team-schedule update-open-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3537,37 +3154,16 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system', ''
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system',
                                                           'unknownFutureValue']), help='')
         c.argument('manager_action_date_time', help='')
         c.argument('manager_action_message', type=str, help='')
@@ -3589,41 +3185,19 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('microsoft_graph_scheduling_group_display_name', type=str, help='The display name for the '
-                   'schedulingGroup. Required.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('display_name', type=str, help='The display name for the schedulingGroup. Required.')
         c.argument('is_active', arg_type=get_three_state_flag(), help='Indicates whether the schedulingGroup can be '
                    'used when creating new entities or updating existing ones. Required.')
-        c.argument('user_ids', nargs='*', help='The list of user IDs that are a member of the schedulingGroup. '
+        c.argument('user_ids', nargs='+', help='The list of user IDs that are a member of the schedulingGroup. '
                    'Required.')
 
     with self.argument_context('teams team-schedule update-shift') as c:
@@ -3636,61 +3210,45 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('is_staged_for_deletion', arg_type=get_three_state_flag(), help='')
         c.argument('scheduling_group_id', type=str, help='ID of the scheduling group the shift is part of. Required.')
         c.argument('user_id', type=str, help='ID of the user assigned to the shift. Required.')
-        c.argument('shared_shift_end_date_time', help='')
-        c.argument('shared_shift_start_date_time', help='')
-        c.argument('shared_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow',
-                                                                 'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
-                                                                 'darkPink', 'darkYellow', 'unknownFutureValue']),
-                   help='')
-        c.argument('shared_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
-                   'a shift which can cover details of when and where an employee is during their shift. For example, '
-                   'an assignment or a scheduled break or lunch. Required.')
-        c.argument('shared_shift_display_name', type=str, help='The shift label of the shiftItem.')
-        c.argument('shared_shift_notes', type=str, help='The shift notes for the shiftItem.')
-        c.argument('draft_shift_end_date_time', help='')
-        c.argument('draft_shift_start_date_time', help='')
-        c.argument('draft_shift_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow', ''
-                                                                'gray', 'darkBlue', 'darkGreen', 'darkPurple', ''
-                                                                'darkPink', 'darkYellow', 'unknownFutureValue']),
-                   help='')
-        c.argument('draft_shift_activities', action=AddSharedShiftActivities, nargs='*', help='An incremental part of '
-                   'a shift which can cover details of when and where an employee is during their shift. For example, '
-                   'an assignment or a scheduled break or lunch. Required.')
-        c.argument('draft_shift_display_name', type=str, help='The shift label of the shiftItem.')
-        c.argument('draft_shift_notes', type=str, help='The shift notes for the shiftItem.')
+        c.argument('end_date_time', help='', arg_group='Shared Shift')
+        c.argument('start_date_time', help='', arg_group='Shared Shift')
+        c.argument('theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple', 'pink', 'yellow', 'gray',
+                                                    'darkBlue', 'darkGreen', 'darkPurple', 'darkPink', 'darkYellow',
+                                                    'unknownFutureValue']), help='', arg_group='Shared Shift')
+        c.argument('activities', action=AddActivities, nargs='+', help='An incremental part of a shift which can cover '
+                   'details of when and where an employee is during their shift. For example, an assignment or a '
+                   'scheduled break or lunch. Required.', arg_group='Shared Shift')
+        c.argument('display_name', type=str, help='The shift label of the shiftItem.', arg_group='Shared Shift')
+        c.argument('notes', type=str, help='The shift notes for the shiftItem.', arg_group='Shared Shift')
+        c.argument('microsoft_graph_schedule_entity_end_date_time_end_date_time', help='', arg_group='Draft Shift')
+        c.argument('microsoft_graph_schedule_entity_start_date_time_start_date_time', help='',
+                   arg_group='Draft Shift')
+        c.argument('microsoft_graph_schedule_entity_theme', arg_type=get_enum_type(['white', 'blue', 'green', 'purple',
+                                                                                    'pink', 'yellow', 'gray',
+                                                                                    'darkBlue', 'darkGreen',
+                                                                                    'darkPurple', 'darkPink',
+                                                                                    'darkYellow',
+                                                                                   'unknownFutureValue']), help='',
+                   arg_group='Draft Shift')
+        c.argument('microsoft_graph_shift_item_activities', action=AddActivities, nargs='+', help='An incremental part '
+                   'of a shift which can cover details of when and where an employee is during their shift. For '
+                   'example, an assignment or a scheduled break or lunch. Required.', arg_group='Draft Shift')
+        c.argument('microsoft_graph_shift_item_display_name', type=str, help='The shift label of the shiftItem.',
+                   arg_group='Draft Shift')
+        c.argument('microsoft_graph_shift_item_notes', type=str, help='The shift notes for the shiftItem.',
+                   arg_group='Draft Shift')
 
     with self.argument_context('teams team-schedule update-swap-shift-change-request') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3702,37 +3260,16 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system', ''
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system',
                                                           'unknownFutureValue']), help='')
         c.argument('manager_action_date_time', help='')
         c.argument('manager_action_message', type=str, help='')
@@ -3762,54 +3299,35 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('breaks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('confirmed_by', arg_type=get_enum_type(['none', 'user', 'manager', 'unknownFutureValue']), help='')
-        c.argument('notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('notes', action=AddBody, nargs='+', help='itemBody')
         c.argument('state', arg_type=get_enum_type(['clockedIn', 'onBreak', 'clockedOut', 'unknownFutureValue']),
                    help='')
         c.argument('user_id', type=str, help='')
-        c.argument('original_entry_breaks', type=validate_file_or_dict,
-                   help=' Expected value: json-string/@json-file.')
-        c.argument('original_entry_clock_in_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
-                   'json-string/@json-file.')
-        c.argument('original_entry_clock_out_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
-                   'json-string/@json-file.')
-        c.argument('clock_out_event_at_approved_location', arg_type=get_three_state_flag(), help='')
-        c.argument('clock_out_event_date_time', help='')
-        c.argument('clock_out_event_notes', action=AddBody, nargs='*', help='itemBody')
-        c.argument('clock_in_event_at_approved_location', arg_type=get_three_state_flag(), help='')
-        c.argument('clock_in_event_date_time', help='')
-        c.argument('clock_in_event_notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('microsoft_graph_time_card_entry_breaks', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.', arg_group='Original Entry')
+        c.argument('clock_in_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
+                   'json-string/@json-file.', arg_group='Original Entry')
+        c.argument('clock_out_event', type=validate_file_or_dict, help='timeCardEvent Expected value: '
+                   'json-string/@json-file.', arg_group='Original Entry')
+        c.argument('at_approved_location', arg_type=get_three_state_flag(), help='', arg_group='Clock Out Event')
+        c.argument('date_time', help='', arg_group='Clock Out Event')
+        c.argument('microsoft_graph_item_body_notes', action=AddBody, nargs='+', help='itemBody', arg_group='Clock Out '
+                   'Event')
+        c.argument('boolean_at_approved_location', arg_type=get_three_state_flag(), help='',
+                   arg_group='Clock In Event')
+        c.argument('microsoft_graph_time_card_event_date_time', help='', arg_group='Clock In Event')
+        c.argument('notes1', action=AddBody, nargs='+', help='itemBody', arg_group='Clock In Event')
 
     with self.argument_context('teams team-schedule update-time-off') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3821,39 +3339,18 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('draft_time_off', action=AddDraftTimeOff, nargs='*', help='timeOffItem')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('draft_time_off', action=AddDraftTimeOff, nargs='+', help='timeOffItem')
         c.argument('is_staged_for_deletion', arg_type=get_three_state_flag(), help='')
-        c.argument('shared_time_off', action=AddDraftTimeOff, nargs='*', help='timeOffItem')
+        c.argument('shared_time_off', action=AddDraftTimeOff, nargs='+', help='timeOffItem')
         c.argument('user_id', type=str, help='ID of the user assigned to the timeOff. Required.')
 
     with self.argument_context('teams team-schedule update-time-off-reason') as c:
@@ -3866,41 +3363,19 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('microsoft_graph_time_off_reason_display_name', type=str, help='The name of the timeOffReason. '
-                   'Required.')
-        c.argument('icon_type', arg_type=get_enum_type(['none', 'car', 'calendar', 'running', 'plane', 'firstAid', ''
-                                                        'doctor', 'notWorking', 'clock', 'juryDuty', 'globe', 'cup', ''
-                                                        'phone', 'weather', 'umbrella', 'piggyBank', 'dog', 'cake', ''
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('display_name', type=str, help='The name of the timeOffReason. Required.')
+        c.argument('icon_type', arg_type=get_enum_type(['none', 'car', 'calendar', 'running', 'plane', 'firstAid',
+                                                        'doctor', 'notWorking', 'clock', 'juryDuty', 'globe', 'cup',
+                                                        'phone', 'weather', 'umbrella', 'piggyBank', 'dog', 'cake',
                                                         'trafficCone', 'pin', 'sunny', 'unknownFutureValue']),
                                                         help='')
         c.argument('is_active', arg_type=get_three_state_flag(), help='Indicates whether the timeOffReason can be used '
@@ -3916,37 +3391,16 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system', ''
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('assigned_to', arg_type=get_enum_type(['sender', 'recipient', 'manager', 'system',
                                                           'unknownFutureValue']), help='')
         c.argument('manager_action_date_time', help='')
         c.argument('manager_action_message', type=str, help='')
@@ -3968,13 +3422,13 @@ def load_arguments(self, _):
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('at_approved_location', arg_type=get_three_state_flag(), help='')
         c.argument('on_behalf_of_user_id', type=str, help='')
-        c.argument('notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('notes', action=AddBody, nargs='+', help='itemBody')
 
     with self.argument_context('teams team-schedule-time-card clock-out') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_card_id', type=str, help='key: id of timeCard')
         c.argument('at_approved_location', arg_type=get_three_state_flag(), help='')
-        c.argument('notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('notes', action=AddBody, nargs='+', help='itemBody')
 
     with self.argument_context('teams team-schedule-time-card confirm') as c:
         c.argument('team_id', type=str, help='key: id of team')
@@ -3984,26 +3438,22 @@ def load_arguments(self, _):
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_card_id', type=str, help='key: id of timeCard')
         c.argument('at_approved_location', arg_type=get_three_state_flag(), help='')
-        c.argument('notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('notes', action=AddBody, nargs='+', help='itemBody')
 
     with self.argument_context('teams team-schedule-time-card start-break') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('time_card_id', type=str, help='key: id of timeCard')
         c.argument('at_approved_location', arg_type=get_three_state_flag(), help='')
-        c.argument('notes', action=AddBody, nargs='*', help='itemBody')
+        c.argument('notes', action=AddBody, nargs='+', help='itemBody')
 
-    with self.argument_context('teams teamwork-teamwork getwork') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('teams teamwork-teamwork show-teamwork') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('teams teamwork-teamwork updatework') as c:
+    with self.argument_context('teams teamwork-teamwork update-teamwork') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('workforce_integrations', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
-
-    with self.argument_context('teams teamwork delete') as c:
-        c.argument('workforce_integration_id', type=str, help='key: id of workforceIntegration')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams teamwork create-workforce-integration') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -4013,63 +3463,45 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('api_version', type=int, help='API version for the call back URL. Start with 1.')
-        c.argument('microsoft_graph_workforce_integration_display_name', type=str, help='Name of the workforce '
-                   'integration.')
-        c.argument('eligibility_filtering_enabled_entities', arg_type=get_enum_type(['none', 'swapRequest', ''
-                                                                                     'offerShiftRequest', ''
+        c.argument('display_name', type=str, help='Name of the workforce integration.')
+        c.argument('eligibility_filtering_enabled_entities', arg_type=get_enum_type(['none', 'swapRequest',
+                                                                                     'offerShiftRequest',
                                                                                      'unknownFutureValue']), help='')
-        c.argument('encryption', action=AddEncryption, nargs='*', help='workforceIntegrationEncryption')
+        c.argument('encryption', action=AddEncryption, nargs='+', help='workforceIntegrationEncryption')
         c.argument('is_active', arg_type=get_three_state_flag(), help='Indicates whether this workforce integration is '
                    'currently active and available.')
         c.argument('supported_entities', arg_type=get_enum_type(['none', 'shift', 'swapRequest',
-                                                                 'userShiftPreferences', 'openShift', ''
-                                                                 'openShiftRequest', 'offerShiftRequest', ''
+                                                                 'userShiftPreferences', 'openShift',
+                                                                 'openShiftRequest', 'offerShiftRequest',
                                                                  'unknownFutureValue']), help='')
-        c.argument('supports', arg_type=get_enum_type(['none', 'shift', 'swapRequest', 'userShiftPreferences', ''
-                                                       'openShift', 'openShiftRequest', 'offerShiftRequest', ''
+        c.argument('supports', arg_type=get_enum_type(['none', 'shift', 'swapRequest', 'userShiftPreferences',
+                                                       'openShift', 'openShiftRequest', 'offerShiftRequest',
                                                        'unknownFutureValue']), help='')
         c.argument('url', type=str, help='Workforce Integration URL for callbacks from the Shifts service.')
 
-    with self.argument_context('teams teamwork get-workforce-integration') as c:
+    with self.argument_context('teams teamwork delete-workforce-integration') as c:
         c.argument('workforce_integration_id', type=str, help='key: id of workforceIntegration')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams teamwork list-workforce-integration') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams teamwork show-workforce-integration') as c:
+        c.argument('workforce_integration_id', type=str, help='key: id of workforceIntegration')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams teamwork update-workforce-integration') as c:
         c.argument('workforce_integration_id', type=str, help='key: id of workforceIntegration')
@@ -4080,59 +3512,31 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
                    '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
                    'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_by_user_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_device_display_name', type=str, help='The identity\'s display name. Note that '
-                   'this may not always be available or up to date. For example, if a user changes their display name, '
-                   'the API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('last_modified_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('last_modified_by_application_display_name', type=str, help='The identity\'s display name. Note '
-                   'that this may not always be available or up to date. For example, if a user changes their display '
-                   'name, the API may show the new value in a future response, but the items associated with the user '
-                   'won\'t show up as having changed when using delta.')
-        c.argument('last_modified_by_application_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_user_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_device_display_name', type=str, help='The identity\'s display name. Note that this may '
-                   'not always be available or up to date. For example, if a user changes their display name, the API '
-                   'may show the new value in a future response, but the items associated with the user won\'t show up '
-                   'as having changed when using delta.')
-        c.argument('created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('created_by_application_display_name', type=str, help='The identity\'s display name. Note that this '
-                   'may not always be available or up to date. For example, if a user changes their display name, the '
-                   'API may show the new value in a future response, but the items associated with the user won\'t '
-                   'show up as having changed when using delta.')
-        c.argument('created_by_application_id', type=str, help='Unique identifier for the identity.')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
         c.argument('api_version', type=int, help='API version for the call back URL. Start with 1.')
-        c.argument('microsoft_graph_workforce_integration_display_name', type=str, help='Name of the workforce '
-                   'integration.')
-        c.argument('eligibility_filtering_enabled_entities', arg_type=get_enum_type(['none', 'swapRequest', ''
-                                                                                     'offerShiftRequest', ''
+        c.argument('display_name', type=str, help='Name of the workforce integration.')
+        c.argument('eligibility_filtering_enabled_entities', arg_type=get_enum_type(['none', 'swapRequest',
+                                                                                     'offerShiftRequest',
                                                                                      'unknownFutureValue']), help='')
-        c.argument('encryption', action=AddEncryption, nargs='*', help='workforceIntegrationEncryption')
+        c.argument('encryption', action=AddEncryption, nargs='+', help='workforceIntegrationEncryption')
         c.argument('is_active', arg_type=get_three_state_flag(), help='Indicates whether this workforce integration is '
                    'currently active and available.')
         c.argument('supported_entities', arg_type=get_enum_type(['none', 'shift', 'swapRequest',
-                                                                 'userShiftPreferences', 'openShift', ''
-                                                                 'openShiftRequest', 'offerShiftRequest', ''
+                                                                 'userShiftPreferences', 'openShift',
+                                                                 'openShiftRequest', 'offerShiftRequest',
                                                                  'unknownFutureValue']), help='')
-        c.argument('supports', arg_type=get_enum_type(['none', 'shift', 'swapRequest', 'userShiftPreferences', ''
-                                                       'openShift', 'openShiftRequest', 'offerShiftRequest', ''
+        c.argument('supports', arg_type=get_enum_type(['none', 'shift', 'swapRequest', 'userShiftPreferences',
+                                                       'openShift', 'openShiftRequest', 'offerShiftRequest',
                                                        'unknownFutureValue']), help='')
         c.argument('url', type=str, help='Workforce Integration URL for callbacks from the Shifts service.')
-
-    with self.argument_context('teams user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('team_id', type=str, help='key: id of team')
 
     with self.argument_context('teams user create-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4140,8 +3544,8 @@ def load_arguments(self, _):
         c.argument('created_date_time', help='')
         c.argument('last_updated_date_time', help='')
         c.argument('topic', type=str, help='')
-        c.argument('installed_apps', action=AddChatsChatInstalledApps, nargs='*', help='')
-        c.argument('members', action=AddUsersMembers, nargs='*', help='')
+        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('members', action=AddUsersMembers, nargs='+', help='')
         c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
@@ -4153,17 +3557,17 @@ def load_arguments(self, _):
         c.argument('created_date_time', help='')
         c.argument('description', type=str, help='An optional description for the team.')
         c.argument('display_name', type=str, help='The name of the team.')
-        c.argument('fun_settings', action=AddFunSettings, nargs='*', help='teamFunSettings')
-        c.argument('guest_settings', action=AddGuestSettings, nargs='*', help='teamGuestSettings')
+        c.argument('fun_settings', action=AddFunSettings, nargs='+', help='teamFunSettings')
+        c.argument('guest_settings', action=AddGuestSettings, nargs='+', help='teamGuestSettings')
         c.argument('internal_id', type=str, help='A unique ID for the team that has been used in a few places such as '
                    'the audit log/Office 365 Management Activity API.')
         c.argument('is_archived', arg_type=get_three_state_flag(), help='Whether this team is in read-only mode.')
         c.argument('is_membership_limited_to_owners', arg_type=get_three_state_flag(), help='')
-        c.argument('member_settings', action=AddMemberSettings, nargs='*', help='teamMemberSettings')
-        c.argument('messaging_settings', action=AddMessagingSettings, nargs='*', help='teamMessagingSettings')
-        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass', ''
+        c.argument('member_settings', action=AddMemberSettings, nargs='+', help='teamMemberSettings')
+        c.argument('messaging_settings', action=AddMessagingSettings, nargs='+', help='teamMessagingSettings')
+        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass',
                                                              'educationProfessionalLearningCommunity',
-                                                             'educationStaff', 'healthcareStandard', ''
+                                                             'educationStaff', 'healthcareStandard',
                                                              'healthcareCareCoordination', 'unknownFutureValue']),
                    help='')
         c.argument('visibility', arg_type=get_enum_type(['private', 'public', 'hiddenMembership',
@@ -4176,85 +3580,101 @@ def load_arguments(self, _):
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
                    'json-string/@json-file.')
-        c.argument('installed_apps', action=AddGroupsInstalledApps, nargs='*',
-                   help='The apps installed in this team.')
-        c.argument('members', action=AddGroupsMembers, nargs='*', help='Members and owners of the team.')
+        c.argument('installed_apps', type=validate_file_or_dict, help='The apps installed in this team. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('members', action=AddGroupsMembers, nargs='+', help='Members and owners of the team.')
         c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
                    'this team. Expected value: json-string/@json-file.')
         c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddGroupsPhoto, nargs='*', help='profilePhoto')
+        c.argument('photo', action=AddGroupsPhoto, nargs='+', help='profilePhoto')
         c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
                    'json-string/@json-file.')
-        c.argument('template_id', type=str, help='Read-only.')
-        c.argument('schedule_id', type=str, help='Read-only.')
-        c.argument('schedule_enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is '
-                   'enabled for the team. Required.')
-        c.argument('schedule_offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'offer shift requests are enabled for the schedule.')
-        c.argument('schedule_open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open '
-                   'shifts are enabled for the schedule.')
-        c.argument('schedule_provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed',
-                                                                       'Failed']), help='')
-        c.argument('schedule_provision_status_code', type=str, help='Additional information about why schedule '
-                   'provisioning failed.')
-        c.argument('schedule_swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'swap shifts requests are enabled for the schedule.')
-        c.argument('schedule_time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock '
-                   'is enabled for the schedule.')
-        c.argument('schedule_time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time '
-                   'off requests are enabled for the schedule.')
-        c.argument('schedule_time_zone', type=str, help='Indicates the time zone of the schedule team using tz '
-                   'database format. Required.')
-        c.argument('schedule_workforce_integration_ids', nargs='*', help='')
-        c.argument('schedule_offer_shift_requests', action=AddScheduleOfferShiftRequests, nargs='*', help='')
-        c.argument('schedule_open_shift_change_requests', action=AddScheduleOpenShiftChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_open_shifts', type=validate_file_or_dict,
-                   help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
-                   'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
-        c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
-                   'for a time off in the schedule.')
-        c.argument('schedule_time_off_requests', action=AddScheduleTimeOffRequests, nargs='*', help='')
-        c.argument('schedule_times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('schedule_time_clock_settings_approved_location',
-                   action=AddScheduleTimeClockSettingsApprovedLocation, nargs='*', help='geoCoordinates')
-        c.argument('discovery_settings_show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(),
-                   help='')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Template')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Schedule')
+        c.argument('enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is enabled for the '
+                   'team. Required.', arg_group='Schedule')
+        c.argument('offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether offer '
+                   'shift requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open shifts are '
+                   'enabled for the schedule.', arg_group='Schedule')
+        c.argument('provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']),
+                   help='', arg_group='Schedule')
+        c.argument('provision_status_code', type=str, help='Additional information about why schedule provisioning '
+                   'failed.', arg_group='Schedule')
+        c.argument('swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether swap '
+                   'shifts requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock is '
+                   'enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time off '
+                   'requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_zone', type=str, help='Indicates the time zone of the schedule team using tz database format. '
+                   'Required.', arg_group='Schedule')
+        c.argument('workforce_integration_ids', nargs='+', help='', arg_group='Schedule')
+        c.argument('offer_shift_requests', action=AddOfferShiftRequests, nargs='+', help='', arg_group='Schedule')
+        c.argument('open_shift_change_requests', action=AddOpenShiftChangeRequests, nargs='+', help='',
+                   arg_group='Schedule')
+        c.argument('open_shifts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Schedule')
+        c.argument('scheduling_groups', action=AddSchedulingGroups, nargs='+', help='The logical grouping of users in '
+                   'the schedule (usually by role).', arg_group='Schedule')
+        c.argument('shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
+                   'json-string/@json-file.', arg_group='Schedule')
+        c.argument('swap_shifts_change_requests', action=AddSwapShiftsChangeRequests, nargs='+', help='',
+                   arg_group='Schedule')
+        c.argument('time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Schedule')
+        c.argument('time_off_reasons', action=AddTimeOffReasons, nargs='+', help='The set of reasons for a time off in '
+                   'the schedule.', arg_group='Schedule')
+        c.argument('time_off_requests', action=AddTimeOffRequests, nargs='+', help='', arg_group='Schedule')
+        c.argument('times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. Expected '
+                   'value: json-string/@json-file.', arg_group='Schedule')
+        c.argument('approved_location', action=AddApprovedLocation, nargs='+', help='geoCoordinates',
+                   arg_group='Schedule Time Clock Settings')
+        c.argument('show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(), help='',
+                   arg_group='Discovery Settings')
 
-    with self.argument_context('teams user get-chat') as c:
+    with self.argument_context('teams user delete-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('chat_id', type=str, help='key: id of chat')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams user get-joined-team') as c:
+    with self.argument_context('teams user delete-joined-team') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('team_id', type=str, help='key: id of team')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams user getwork') as c:
+    with self.argument_context('teams user delete-teamwork') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('teams user list-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams user list-joined-team') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams user show-chat') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('chat_id', type=str, help='key: id of chat')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams user show-joined-team') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('team_id', type=str, help='key: id of team')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams user show-teamwork') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams user update-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4263,8 +3683,8 @@ def load_arguments(self, _):
         c.argument('created_date_time', help='')
         c.argument('last_updated_date_time', help='')
         c.argument('topic', type=str, help='')
-        c.argument('installed_apps', action=AddChatsChatInstalledApps, nargs='*', help='')
-        c.argument('members', action=AddUsersMembers, nargs='*', help='')
+        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('members', action=AddUsersMembers, nargs='+', help='')
         c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
@@ -4277,17 +3697,17 @@ def load_arguments(self, _):
         c.argument('created_date_time', help='')
         c.argument('description', type=str, help='An optional description for the team.')
         c.argument('display_name', type=str, help='The name of the team.')
-        c.argument('fun_settings', action=AddFunSettings, nargs='*', help='teamFunSettings')
-        c.argument('guest_settings', action=AddGuestSettings, nargs='*', help='teamGuestSettings')
+        c.argument('fun_settings', action=AddFunSettings, nargs='+', help='teamFunSettings')
+        c.argument('guest_settings', action=AddGuestSettings, nargs='+', help='teamGuestSettings')
         c.argument('internal_id', type=str, help='A unique ID for the team that has been used in a few places such as '
                    'the audit log/Office 365 Management Activity API.')
         c.argument('is_archived', arg_type=get_three_state_flag(), help='Whether this team is in read-only mode.')
         c.argument('is_membership_limited_to_owners', arg_type=get_three_state_flag(), help='')
-        c.argument('member_settings', action=AddMemberSettings, nargs='*', help='teamMemberSettings')
-        c.argument('messaging_settings', action=AddMessagingSettings, nargs='*', help='teamMessagingSettings')
-        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass', ''
+        c.argument('member_settings', action=AddMemberSettings, nargs='+', help='teamMemberSettings')
+        c.argument('messaging_settings', action=AddMessagingSettings, nargs='+', help='teamMessagingSettings')
+        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass',
                                                              'educationProfessionalLearningCommunity',
-                                                             'educationStaff', 'healthcareStandard', ''
+                                                             'educationStaff', 'healthcareStandard',
                                                              'healthcareCareCoordination', 'unknownFutureValue']),
                    help='')
         c.argument('visibility', arg_type=get_enum_type(['private', 'public', 'hiddenMembership',
@@ -4300,196 +3720,190 @@ def load_arguments(self, _):
         c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
                    'directoryObject type is the base type for many other directory entity types. Expected value: '
                    'json-string/@json-file.')
-        c.argument('installed_apps', action=AddGroupsInstalledApps, nargs='*',
-                   help='The apps installed in this team.')
-        c.argument('members', action=AddGroupsMembers, nargs='*', help='Members and owners of the team.')
+        c.argument('installed_apps', type=validate_file_or_dict, help='The apps installed in this team. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('members', action=AddGroupsMembers, nargs='+', help='Members and owners of the team.')
         c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
                    'this team. Expected value: json-string/@json-file.')
         c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddGroupsPhoto, nargs='*', help='profilePhoto')
+        c.argument('photo', action=AddGroupsPhoto, nargs='+', help='profilePhoto')
         c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
                    'json-string/@json-file.')
-        c.argument('template_id', type=str, help='Read-only.')
-        c.argument('schedule_id', type=str, help='Read-only.')
-        c.argument('schedule_enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is '
-                   'enabled for the team. Required.')
-        c.argument('schedule_offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'offer shift requests are enabled for the schedule.')
-        c.argument('schedule_open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open '
-                   'shifts are enabled for the schedule.')
-        c.argument('schedule_provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed',
-                                                                       'Failed']), help='')
-        c.argument('schedule_provision_status_code', type=str, help='Additional information about why schedule '
-                   'provisioning failed.')
-        c.argument('schedule_swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'swap shifts requests are enabled for the schedule.')
-        c.argument('schedule_time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock '
-                   'is enabled for the schedule.')
-        c.argument('schedule_time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time '
-                   'off requests are enabled for the schedule.')
-        c.argument('schedule_time_zone', type=str, help='Indicates the time zone of the schedule team using tz '
-                   'database format. Required.')
-        c.argument('schedule_workforce_integration_ids', nargs='*', help='')
-        c.argument('schedule_offer_shift_requests', action=AddScheduleOfferShiftRequests, nargs='*', help='')
-        c.argument('schedule_open_shift_change_requests', action=AddScheduleOpenShiftChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_open_shifts', type=validate_file_or_dict,
-                   help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_scheduling_groups', action=AddScheduleSchedulingGroups, nargs='*', help='The logical '
-                   'grouping of users in the schedule (usually by role).')
-        c.argument('schedule_shifts', action=AddScheduleShifts, nargs='*', help='The shifts in the schedule.')
-        c.argument('schedule_swap_shifts_change_requests', action=AddScheduleSwapShiftsChangeRequests, nargs='*',
-                   help='')
-        c.argument('schedule_time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('schedule_time_off_reasons', action=AddScheduleTimeOffReasons, nargs='*', help='The set of reasons '
-                   'for a time off in the schedule.')
-        c.argument('schedule_time_off_requests', action=AddScheduleTimeOffRequests, nargs='*', help='')
-        c.argument('schedule_times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('schedule_time_clock_settings_approved_location',
-                   action=AddScheduleTimeClockSettingsApprovedLocation, nargs='*', help='geoCoordinates')
-        c.argument('discovery_settings_show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(),
-                   help='')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Template')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Schedule')
+        c.argument('enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is enabled for the '
+                   'team. Required.', arg_group='Schedule')
+        c.argument('offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether offer '
+                   'shift requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open shifts are '
+                   'enabled for the schedule.', arg_group='Schedule')
+        c.argument('provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']),
+                   help='', arg_group='Schedule')
+        c.argument('provision_status_code', type=str, help='Additional information about why schedule provisioning '
+                   'failed.', arg_group='Schedule')
+        c.argument('swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether swap '
+                   'shifts requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock is '
+                   'enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time off '
+                   'requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_zone', type=str, help='Indicates the time zone of the schedule team using tz database format. '
+                   'Required.', arg_group='Schedule')
+        c.argument('workforce_integration_ids', nargs='+', help='', arg_group='Schedule')
+        c.argument('offer_shift_requests', action=AddOfferShiftRequests, nargs='+', help='', arg_group='Schedule')
+        c.argument('open_shift_change_requests', action=AddOpenShiftChangeRequests, nargs='+', help='',
+                   arg_group='Schedule')
+        c.argument('open_shifts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Schedule')
+        c.argument('scheduling_groups', action=AddSchedulingGroups, nargs='+', help='The logical grouping of users in '
+                   'the schedule (usually by role).', arg_group='Schedule')
+        c.argument('shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
+                   'json-string/@json-file.', arg_group='Schedule')
+        c.argument('swap_shifts_change_requests', action=AddSwapShiftsChangeRequests, nargs='+', help='',
+                   arg_group='Schedule')
+        c.argument('time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Schedule')
+        c.argument('time_off_reasons', action=AddTimeOffReasons, nargs='+', help='The set of reasons for a time off in '
+                   'the schedule.', arg_group='Schedule')
+        c.argument('time_off_requests', action=AddTimeOffRequests, nargs='+', help='', arg_group='Schedule')
+        c.argument('times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. Expected '
+                   'value: json-string/@json-file.', arg_group='Schedule')
+        c.argument('approved_location', action=AddApprovedLocation, nargs='+', help='geoCoordinates',
+                   arg_group='Schedule Time Clock Settings')
+        c.argument('show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(), help='',
+                   arg_group='Discovery Settings')
 
-    with self.argument_context('teams user updatework') as c:
+    with self.argument_context('teams user update-teamwork') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('installed_apps', type=validate_file_or_dict, help='The apps installed in the personal scope of '
                    'this user. Expected value: json-string/@json-file.')
 
-    with self.argument_context('teams user-teamwork delete') as c:
+    with self.argument_context('teams user-teamwork create-installed-app') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App Definition')
+        c.argument('azure_ad_app_id', type=str, help='', arg_group='Teams App Definition')
+        c.argument('description', type=str, help='', arg_group='Teams App Definition')
+        c.argument('display_name', type=str, help='The name of the app provided by the app developer.',
+                   arg_group='Teams App Definition')
+        c.argument('last_modified_date_time', help='', arg_group='Teams App Definition')
+        c.argument('publishing_state', arg_type=get_enum_type(['submitted', 'rejected', 'published',
+                                                               'unknownFutureValue']), help='', arg_group='Teams App '
+                   'Definition')
+        c.argument('shortdescription', type=str, help='', arg_group='Teams App Definition')
+        c.argument('teams_app_id', type=str, help='The ID from the Teams app manifest.', arg_group='Teams App '
+                   'Definition')
+        c.argument('version', type=str, help='The version number of the application.',
+                   arg_group='Teams App Definition')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition Created '
+                   'By')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
+        c.argument('id2', type=str, help='Read-only.', arg_group='Chat')
+        c.argument('created_date_time', help='', arg_group='Chat')
+        c.argument('last_updated_date_time', help='', arg_group='Chat')
+        c.argument('topic', type=str, help='', arg_group='Chat')
+        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Chat')
+        c.argument('members', action=AddUsersMembers, nargs='+', help='', arg_group='Chat')
+        c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Chat')
+        c.argument('tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Chat')
+
+    with self.argument_context('teams user-teamwork delete-installed-app') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('teams user-teamwork create-installed-app') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('teams_app_definition_id', type=str, help='Read-only.')
-        c.argument('teams_app_definition_azure_adapp_id', type=str, help='')
-        c.argument('teams_app_definition_description', type=str, help='')
-        c.argument('teams_app_definition_display_name', type=str, help='The name of the app provided by the app '
-                   'developer.')
-        c.argument('teams_app_definition_last_modified_date_time', help='')
-        c.argument('teams_app_definition_publishing_state', arg_type=get_enum_type(['submitted', 'rejected', ''
-                                                                                    'published',
-                   'unknownFutureValue']), help='')
-        c.argument('teams_app_definition_shortdescription', type=str, help='')
-        c.argument('teams_app_definition_teams_app_id', type=str, help='The ID from the Teams app manifest.')
-        c.argument('teams_app_definition_version', type=str, help='The version number of the application.')
-        c.argument('teams_app_definition_created_by_user_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_device_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_application_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_application_id', type=str, help='Unique identifier for the '
-                   'identity.')
-        c.argument('teams_app_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
-        c.argument('chat_id', type=str, help='Read-only.')
-        c.argument('chat_created_date_time', help='')
-        c.argument('chat_last_updated_date_time', help='')
-        c.argument('chat_topic', type=str, help='')
-        c.argument('chat_installed_apps', action=AddChatsChatInstalledApps, nargs='*', help='')
-        c.argument('chat_members', action=AddUsersMembers, nargs='*', help='')
-        c.argument('chat_messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('chat_tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-
-    with self.argument_context('teams user-teamwork get-installed-app') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('teams user-teamwork list-installed-app') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams user-teamwork show-installed-app') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams user-teamwork update-installed-app') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('teams_app_definition_id', type=str, help='Read-only.')
-        c.argument('teams_app_definition_azure_adapp_id', type=str, help='')
-        c.argument('teams_app_definition_description', type=str, help='')
-        c.argument('teams_app_definition_display_name', type=str, help='The name of the app provided by the app '
-                   'developer.')
-        c.argument('teams_app_definition_last_modified_date_time', help='')
-        c.argument('teams_app_definition_publishing_state', arg_type=get_enum_type(['submitted', 'rejected', ''
-                                                                                    'published',
-                   'unknownFutureValue']), help='')
-        c.argument('teams_app_definition_shortdescription', type=str, help='')
-        c.argument('teams_app_definition_teams_app_id', type=str, help='The ID from the Teams app manifest.')
-        c.argument('teams_app_definition_version', type=str, help='The version number of the application.')
-        c.argument('teams_app_definition_created_by_user_display_name', type=str, help='The identity\'s display name. '
-                   'Note that this may not always be available or up to date. For example, if a user changes their '
-                   'display name, the API may show the new value in a future response, but the items associated with '
-                   'the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_user_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_device_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_device_id', type=str, help='Unique identifier for the identity.')
-        c.argument('teams_app_definition_created_by_application_display_name', type=str, help='The identity\'s display '
-                   'name. Note that this may not always be available or up to date. For example, if a user changes '
-                   'their display name, the API may show the new value in a future response, but the items associated '
-                   'with the user won\'t show up as having changed when using delta.')
-        c.argument('teams_app_definition_created_by_application_id', type=str, help='Unique identifier for the '
-                   'identity.')
-        c.argument('teams_app_id', type=str, help='Read-only.')
-        c.argument('teams_app_display_name', type=str, help='The name of the catalog app provided by the app developer '
-                   'in the Microsoft Teams zip app package.')
-        c.argument('teams_app_distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded', ''
-                                                                            'unknownFutureValue']), help='')
-        c.argument('teams_app_external_id', type=str, help='The ID of the catalog provided by the app developer in the '
-                   'Microsoft Teams zip app package.')
-        c.argument('teams_app_app_definitions', action=AddAppDefinitions, nargs='*', help='The details for each '
-                   'version of the app.')
-        c.argument('chat_id', type=str, help='Read-only.')
-        c.argument('chat_created_date_time', help='')
-        c.argument('chat_last_updated_date_time', help='')
-        c.argument('chat_topic', type=str, help='')
-        c.argument('chat_installed_apps', action=AddChatsChatInstalledApps, nargs='*', help='')
-        c.argument('chat_members', action=AddUsersMembers, nargs='*', help='')
-        c.argument('chat_messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('chat_tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Teams App Definition')
+        c.argument('azure_ad_app_id', type=str, help='', arg_group='Teams App Definition')
+        c.argument('description', type=str, help='', arg_group='Teams App Definition')
+        c.argument('display_name', type=str, help='The name of the app provided by the app developer.',
+                   arg_group='Teams App Definition')
+        c.argument('last_modified_date_time', help='', arg_group='Teams App Definition')
+        c.argument('publishing_state', arg_type=get_enum_type(['submitted', 'rejected', 'published',
+                                                               'unknownFutureValue']), help='', arg_group='Teams App '
+                   'Definition')
+        c.argument('shortdescription', type=str, help='', arg_group='Teams App Definition')
+        c.argument('teams_app_id', type=str, help='The ID from the Teams app manifest.', arg_group='Teams App '
+                   'Definition')
+        c.argument('version', type=str, help='The version number of the application.',
+                   arg_group='Teams App Definition')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition '
+                   'Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Teams App Definition Created '
+                   'By')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Teams App')
+        c.argument('microsoft_graph_teams_app_display_name', type=str, help='The name of the catalog app provided by '
+                   'the app developer in the Microsoft Teams zip app package.', arg_group='Teams App')
+        c.argument('distribution_method', arg_type=get_enum_type(['store', 'organization', 'sideloaded',
+                                                                  'unknownFutureValue']), help='', arg_group='Teams '
+                   'App')
+        c.argument('external_id', type=str, help='The ID of the catalog provided by the app developer in the Microsoft '
+                   'Teams zip app package.', arg_group='Teams App')
+        c.argument('app_definitions', type=validate_file_or_dict, help='The details for each version of the app. '
+                   'Expected value: json-string/@json-file.', arg_group='Teams App')
+        c.argument('id2', type=str, help='Read-only.', arg_group='Chat')
+        c.argument('created_date_time', help='', arg_group='Chat')
+        c.argument('last_updated_date_time', help='', arg_group='Chat')
+        c.argument('topic', type=str, help='', arg_group='Chat')
+        c.argument('installed_apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Chat')
+        c.argument('members', action=AddUsersMembers, nargs='+', help='', arg_group='Chat')
+        c.argument('messages', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Chat')
+        c.argument('tabs', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Chat')
 
-    with self.argument_context('teams user-teamwork-installed-app delete') as c:
+    with self.argument_context('teams user-teamwork-installed-app delete-ref-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
         c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('teams user-teamwork-installed-app get-chat') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('teams user-teamwork-installed-app get-ref-chat') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
 
     with self.argument_context('teams user-teamwork-installed-app set-ref-chat') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('teams user-teamwork-installed-app show-chat') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('teams user-teamwork-installed-app show-ref-chat') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_scope_teams_app_installation_id', type=str, help='key: id of userScopeTeamsAppInstallation')

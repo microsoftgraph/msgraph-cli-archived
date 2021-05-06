@@ -1,20 +1,57 @@
 # Azure CLI Module Creation Report
 
-### crossdeviceexperiences user create-activity
-
-create-activity a crossdeviceexperiences user.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|crossdeviceexperiences user|users|
+|az crossdeviceexperiences_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-activity|CreateActivities|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az crossdeviceexperiences_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az crossdeviceexperiences user|users|[commands](#CommandsInusers)|
+|az crossdeviceexperiences user-activity|users.activities|[commands](#CommandsInusers.activities)|
+|az crossdeviceexperiences user-activity-history-item|users.activities.historyItems|[commands](#CommandsInusers.activities.historyItems)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInusers">Commands in `az crossdeviceexperiences user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az crossdeviceexperiences user create-activity](#usersCreateActivities)|CreateActivities|[Parameters](#ParametersusersCreateActivities)|Not Found|
+|[az crossdeviceexperiences user create-device](#usersCreateDevices)|CreateDevices|[Parameters](#ParametersusersCreateDevices)|Not Found|
+|[az crossdeviceexperiences user delete-activity](#usersDeleteActivities)|DeleteActivities|[Parameters](#ParametersusersDeleteActivities)|Not Found|
+|[az crossdeviceexperiences user delete-device](#usersDeleteDevices)|DeleteDevices|[Parameters](#ParametersusersDeleteDevices)|Not Found|
+|[az crossdeviceexperiences user list-activity](#usersListActivities)|ListActivities|[Parameters](#ParametersusersListActivities)|Not Found|
+|[az crossdeviceexperiences user list-device](#usersListDevices)|ListDevices|[Parameters](#ParametersusersListDevices)|Not Found|
+|[az crossdeviceexperiences user show-activity](#usersGetActivities)|GetActivities|[Parameters](#ParametersusersGetActivities)|Not Found|
+|[az crossdeviceexperiences user show-device](#usersGetDevices)|GetDevices|[Parameters](#ParametersusersGetDevices)|Not Found|
+|[az crossdeviceexperiences user update-activity](#usersUpdateActivities)|UpdateActivities|[Parameters](#ParametersusersUpdateActivities)|Not Found|
+|[az crossdeviceexperiences user update-device](#usersUpdateDevices)|UpdateDevices|[Parameters](#ParametersusersUpdateDevices)|Not Found|
+
+### <a name="CommandsInusers.activities">Commands in `az crossdeviceexperiences user-activity` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az crossdeviceexperiences user-activity create-history-item](#users.activitiesCreateHistoryItems)|CreateHistoryItems|[Parameters](#Parametersusers.activitiesCreateHistoryItems)|Not Found|
+|[az crossdeviceexperiences user-activity delete-history-item](#users.activitiesDeleteHistoryItems)|DeleteHistoryItems|[Parameters](#Parametersusers.activitiesDeleteHistoryItems)|Not Found|
+|[az crossdeviceexperiences user-activity list-history-item](#users.activitiesListHistoryItems)|ListHistoryItems|[Parameters](#Parametersusers.activitiesListHistoryItems)|Not Found|
+|[az crossdeviceexperiences user-activity show-history-item](#users.activitiesGetHistoryItems)|GetHistoryItems|[Parameters](#Parametersusers.activitiesGetHistoryItems)|Not Found|
+|[az crossdeviceexperiences user-activity update-history-item](#users.activitiesUpdateHistoryItems)|UpdateHistoryItems|[Parameters](#Parametersusers.activitiesUpdateHistoryItems)|Not Found|
+
+### <a name="CommandsInusers.activities.historyItems">Commands in `az crossdeviceexperiences user-activity-history-item` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az crossdeviceexperiences user-activity-history-item delete-ref-activity](#users.activities.historyItemsDeleteRefActivity)|DeleteRefActivity|[Parameters](#Parametersusers.activities.historyItemsDeleteRefActivity)|Not Found|
+|[az crossdeviceexperiences user-activity-history-item set-ref-activity](#users.activities.historyItemsSetRefActivity)|SetRefActivity|[Parameters](#Parametersusers.activities.historyItemsSetRefActivity)|Not Found|
+|[az crossdeviceexperiences user-activity-history-item show-activity](#users.activities.historyItemsGetActivity)|GetActivity|[Parameters](#Parametersusers.activities.historyItemsGetActivity)|Not Found|
+|[az crossdeviceexperiences user-activity-history-item show-ref-activity](#users.activities.historyItemsGetRefActivity)|GetRefActivity|[Parameters](#Parametersusers.activities.historyItemsGetRefActivity)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az crossdeviceexperiences user`
+#### <a name="usersCreateActivities">Command `az crossdeviceexperiences user create-activity`</a>
+
+##### <a name="ParametersusersCreateActivities">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -32,27 +69,15 @@ create-activity a crossdeviceexperiences user.
 |**--status**|choice||status|status|
 |**--user-timezone**|string|Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation.|user_timezone|userTimezone|
 |**--history-items**|array|Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.|history_items|historyItems|
-|**--visual-elements-attribution**|object|imageInfo|attribution|attribution|
-|**--visual-elements-background-color**|string|Optional. Background color used to render the activity in the UI - brand color for the application source of the activity. Must be a valid hex color|background_color|backgroundColor|
-|**--visual-elements-content**|dictionary|Json|content|content|
-|**--visual-elements-description**|string|Optional. Longer text description of the user's unique activity (example: document name, first sentence, and/or metadata)|description|description|
-|**--visual-elements-display-text**|string|Required. Short text description of the user's unique activity (for example, document name in cases where an activity refers to document creation)|display_text|displayText|
+|**--attribution**|object|imageInfo|attribution|attribution|
+|**--background-color**|string|Optional. Background color used to render the activity in the UI - brand color for the application source of the activity. Must be a valid hex color|background_color|backgroundColor|
+|**--content**|dictionary|Json|content|content|
+|**--description**|string|Optional. Longer text description of the user's unique activity (example: document name, first sentence, and/or metadata)|description|description|
+|**--display-text**|string|Required. Short text description of the user's unique activity (for example, document name in cases where an activity refers to document creation)|display_text|displayText|
 
-### crossdeviceexperiences user create-device
+#### <a name="usersCreateDevices">Command `az crossdeviceexperiences user create-device`</a>
 
-create-device a crossdeviceexperiences user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-device|CreateDevices|
-
-#### Parameters
+##### <a name="ParametersusersCreateDevices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -98,44 +123,47 @@ create-device a crossdeviceexperiences user.
 |**--extensions**|array|The collection of open extensions defined for the device. Read-only. Nullable.|extensions|extensions|
 |**--commands**|array||commands|commands|
 
-### crossdeviceexperiences user delete
+#### <a name="usersDeleteActivities">Command `az crossdeviceexperiences user delete-activity`</a>
 
-delete a crossdeviceexperiences user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteActivities|
-|delete|DeleteDevices|
-
-#### Parameters
+##### <a name="ParametersusersDeleteActivities">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--user-activity-id**|string|key: id of userActivity|user_activity_id|userActivity-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteDevices">Command `az crossdeviceexperiences user delete-device`</a>
+
+##### <a name="ParametersusersDeleteDevices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--device-id**|string|key: id of device|device_id|device-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### crossdeviceexperiences user get-activity
+#### <a name="usersListActivities">Command `az crossdeviceexperiences user list-activity`</a>
 
-get-activity a crossdeviceexperiences user.
+##### <a name="ParametersusersListActivities">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user|users|
+#### <a name="usersListDevices">Command `az crossdeviceexperiences user list-device`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-activity|GetActivities|
+##### <a name="ParametersusersListDevices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="usersGetActivities">Command `az crossdeviceexperiences user show-activity`</a>
+
+##### <a name="ParametersusersGetActivities">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -143,21 +171,9 @@ get-activity a crossdeviceexperiences user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### crossdeviceexperiences user get-device
+#### <a name="usersGetDevices">Command `az crossdeviceexperiences user show-device`</a>
 
-get-device a crossdeviceexperiences user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device|GetDevices|
-
-#### Parameters
+##### <a name="ParametersusersGetDevices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -165,65 +181,9 @@ get-device a crossdeviceexperiences user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### crossdeviceexperiences user list-activity
+#### <a name="usersUpdateActivities">Command `az crossdeviceexperiences user update-activity`</a>
 
-list-activity a crossdeviceexperiences user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-activity|ListActivities|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### crossdeviceexperiences user list-device
-
-list-device a crossdeviceexperiences user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-device|ListDevices|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### crossdeviceexperiences user update-activity
-
-update-activity a crossdeviceexperiences user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-activity|UpdateActivities|
-
-#### Parameters
+##### <a name="ParametersusersUpdateActivities">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -242,27 +202,15 @@ update-activity a crossdeviceexperiences user.
 |**--status**|choice||status|status|
 |**--user-timezone**|string|Optional. The timezone in which the user's device used to generate the activity was located at activity creation time; values supplied as Olson IDs in order to support cross-platform representation.|user_timezone|userTimezone|
 |**--history-items**|array|Optional. NavigationProperty/Containment; navigation property to the activity's historyItems.|history_items|historyItems|
-|**--visual-elements-attribution**|object|imageInfo|attribution|attribution|
-|**--visual-elements-background-color**|string|Optional. Background color used to render the activity in the UI - brand color for the application source of the activity. Must be a valid hex color|background_color|backgroundColor|
-|**--visual-elements-content**|dictionary|Json|content|content|
-|**--visual-elements-description**|string|Optional. Longer text description of the user's unique activity (example: document name, first sentence, and/or metadata)|description|description|
-|**--visual-elements-display-text**|string|Required. Short text description of the user's unique activity (for example, document name in cases where an activity refers to document creation)|display_text|displayText|
+|**--attribution**|object|imageInfo|attribution|attribution|
+|**--background-color**|string|Optional. Background color used to render the activity in the UI - brand color for the application source of the activity. Must be a valid hex color|background_color|backgroundColor|
+|**--content**|dictionary|Json|content|content|
+|**--description**|string|Optional. Longer text description of the user's unique activity (example: document name, first sentence, and/or metadata)|description|description|
+|**--display-text**|string|Required. Short text description of the user's unique activity (for example, document name in cases where an activity refers to document creation)|display_text|displayText|
 
-### crossdeviceexperiences user update-device
+#### <a name="usersUpdateDevices">Command `az crossdeviceexperiences user update-device`</a>
 
-update-device a crossdeviceexperiences user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device|UpdateDevices|
-
-#### Parameters
+##### <a name="ParametersusersUpdateDevices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -309,21 +257,10 @@ update-device a crossdeviceexperiences user.
 |**--extensions**|array|The collection of open extensions defined for the device. Read-only. Nullable.|extensions|extensions|
 |**--commands**|array||commands|commands|
 
-### crossdeviceexperiences user-activity create-history-item
+### group `az crossdeviceexperiences user-activity`
+#### <a name="users.activitiesCreateHistoryItems">Command `az crossdeviceexperiences user-activity create-history-item`</a>
 
-create-history-item a crossdeviceexperiences user-activity.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user-activity|users.activities|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-history-item|CreateHistoryItems|
-
-#### Parameters
+##### <a name="Parametersusers.activitiesCreateHistoryItems">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -339,21 +276,9 @@ create-history-item a crossdeviceexperiences user-activity.
 |**--user-timezone**|string|Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation.|user_timezone|userTimezone|
 |**--activity**|object|userActivity|activity|activity|
 
-### crossdeviceexperiences user-activity delete
+#### <a name="users.activitiesDeleteHistoryItems">Command `az crossdeviceexperiences user-activity delete-history-item`</a>
 
-delete a crossdeviceexperiences user-activity.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user-activity|users.activities|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteHistoryItems|
-
-#### Parameters
+##### <a name="Parametersusers.activitiesDeleteHistoryItems">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -361,44 +286,9 @@ delete a crossdeviceexperiences user-activity.
 |**--activity-history-item-id**|string|key: id of activityHistoryItem|activity_history_item_id|activityHistoryItem-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### crossdeviceexperiences user-activity get-history-item
+#### <a name="users.activitiesListHistoryItems">Command `az crossdeviceexperiences user-activity list-history-item`</a>
 
-get-history-item a crossdeviceexperiences user-activity.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user-activity|users.activities|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-history-item|GetHistoryItems|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--user-activity-id**|string|key: id of userActivity|user_activity_id|userActivity-id|
-|**--activity-history-item-id**|string|key: id of activityHistoryItem|activity_history_item_id|activityHistoryItem-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### crossdeviceexperiences user-activity list-history-item
-
-list-history-item a crossdeviceexperiences user-activity.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user-activity|users.activities|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-history-item|ListHistoryItems|
-
-#### Parameters
+##### <a name="Parametersusers.activitiesListHistoryItems">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -407,21 +297,20 @@ list-history-item a crossdeviceexperiences user-activity.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### crossdeviceexperiences user-activity update-history-item
+#### <a name="users.activitiesGetHistoryItems">Command `az crossdeviceexperiences user-activity show-history-item`</a>
 
-update-history-item a crossdeviceexperiences user-activity.
+##### <a name="Parametersusers.activitiesGetHistoryItems">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-activity-id**|string|key: id of userActivity|user_activity_id|userActivity-id|
+|**--activity-history-item-id**|string|key: id of activityHistoryItem|activity_history_item_id|activityHistoryItem-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user-activity|users.activities|
+#### <a name="users.activitiesUpdateHistoryItems">Command `az crossdeviceexperiences user-activity update-history-item`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-history-item|UpdateHistoryItems|
-
-#### Parameters
+##### <a name="Parametersusers.activitiesUpdateHistoryItems">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -438,21 +327,10 @@ update-history-item a crossdeviceexperiences user-activity.
 |**--user-timezone**|string|Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation.|user_timezone|userTimezone|
 |**--activity**|object|userActivity|activity|activity|
 
-### crossdeviceexperiences user-activity-history-item delete
+### group `az crossdeviceexperiences user-activity-history-item`
+#### <a name="users.activities.historyItemsDeleteRefActivity">Command `az crossdeviceexperiences user-activity-history-item delete-ref-activity`</a>
 
-delete a crossdeviceexperiences user-activity-history-item.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user-activity-history-item|users.activities.historyItems|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefActivity|
-
-#### Parameters
+##### <a name="Parametersusers.activities.historyItemsDeleteRefActivity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -460,21 +338,19 @@ delete a crossdeviceexperiences user-activity-history-item.
 |**--activity-history-item-id**|string|key: id of activityHistoryItem|activity_history_item_id|activityHistoryItem-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### crossdeviceexperiences user-activity-history-item get-activity
+#### <a name="users.activities.historyItemsSetRefActivity">Command `az crossdeviceexperiences user-activity-history-item set-ref-activity`</a>
 
-get-activity a crossdeviceexperiences user-activity-history-item.
+##### <a name="Parametersusers.activities.historyItemsSetRefActivity">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-activity-id**|string|key: id of userActivity|user_activity_id|userActivity-id|
+|**--activity-history-item-id**|string|key: id of activityHistoryItem|activity_history_item_id|activityHistoryItem-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user-activity-history-item|users.activities.historyItems|
+#### <a name="users.activities.historyItemsGetActivity">Command `az crossdeviceexperiences user-activity-history-item show-activity`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-activity|GetActivity|
-
-#### Parameters
+##### <a name="Parametersusers.activities.historyItemsGetActivity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -483,45 +359,11 @@ get-activity a crossdeviceexperiences user-activity-history-item.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### crossdeviceexperiences user-activity-history-item get-ref-activity
+#### <a name="users.activities.historyItemsGetRefActivity">Command `az crossdeviceexperiences user-activity-history-item show-ref-activity`</a>
 
-get-ref-activity a crossdeviceexperiences user-activity-history-item.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user-activity-history-item|users.activities.historyItems|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-activity|GetRefActivity|
-
-#### Parameters
+##### <a name="Parametersusers.activities.historyItemsGetRefActivity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--user-activity-id**|string|key: id of userActivity|user_activity_id|userActivity-id|
 |**--activity-history-item-id**|string|key: id of activityHistoryItem|activity_history_item_id|activityHistoryItem-id|
-
-### crossdeviceexperiences user-activity-history-item set-ref-activity
-
-set-ref-activity a crossdeviceexperiences user-activity-history-item.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|crossdeviceexperiences user-activity-history-item|users.activities.historyItems|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-activity|SetRefActivity|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--user-activity-id**|string|key: id of userActivity|user_activity_id|userActivity-id|
-|**--activity-history-item-id**|string|key: id of activityHistoryItem|activity_history_item_id|activityHistoryItem-id|
-|**--body**|dictionary|New navigation property ref values|body|body|

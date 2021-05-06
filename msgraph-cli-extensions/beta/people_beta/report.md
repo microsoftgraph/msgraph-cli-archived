@@ -1,20 +1,149 @@
 # Azure CLI Module Creation Report
 
-### people user create-person
-
-create-person a people user.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|people user|users|
+|az people_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-person|CreatePeople|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az people_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az people user|users|[commands](#CommandsInusers)|
+|az people user-analytic|users.analytics|[commands](#CommandsInusers.analytics)|
+|az people user-profile|users.profile|[commands](#CommandsInusers.profile)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInusers">Commands in `az people user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az people user create-person](#usersCreatePeople)|CreatePeople|[Parameters](#ParametersusersCreatePeople)|Not Found|
+|[az people user delete-analytic](#usersDeleteAnalytics)|DeleteAnalytics|[Parameters](#ParametersusersDeleteAnalytics)|Not Found|
+|[az people user delete-person](#usersDeletePeople)|DeletePeople|[Parameters](#ParametersusersDeletePeople)|Not Found|
+|[az people user delete-profile](#usersDeleteProfile)|DeleteProfile|[Parameters](#ParametersusersDeleteProfile)|Not Found|
+|[az people user list-person](#usersListPeople)|ListPeople|[Parameters](#ParametersusersListPeople)|Not Found|
+|[az people user show-analytic](#usersGetAnalytics)|GetAnalytics|[Parameters](#ParametersusersGetAnalytics)|Not Found|
+|[az people user show-person](#usersGetPeople)|GetPeople|[Parameters](#ParametersusersGetPeople)|Not Found|
+|[az people user show-profile](#usersGetProfile)|GetProfile|[Parameters](#ParametersusersGetProfile)|Not Found|
+|[az people user update-analytic](#usersUpdateAnalytics)|UpdateAnalytics|[Parameters](#ParametersusersUpdateAnalytics)|Not Found|
+|[az people user update-person](#usersUpdatePeople)|UpdatePeople|[Parameters](#ParametersusersUpdatePeople)|Not Found|
+|[az people user update-profile](#usersUpdateProfile)|UpdateProfile|[Parameters](#ParametersusersUpdateProfile)|Not Found|
+
+### <a name="CommandsInusers.analytics">Commands in `az people user-analytic` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az people user-analytic create-activity-statistics](#users.analyticsCreateActivityStatistics)|CreateActivityStatistics|[Parameters](#Parametersusers.analyticsCreateActivityStatistics)|Not Found|
+|[az people user-analytic delete-activity-statistics](#users.analyticsDeleteActivityStatistics)|DeleteActivityStatistics|[Parameters](#Parametersusers.analyticsDeleteActivityStatistics)|Not Found|
+|[az people user-analytic list-activity-statistics](#users.analyticsListActivityStatistics)|ListActivityStatistics|[Parameters](#Parametersusers.analyticsListActivityStatistics)|Not Found|
+|[az people user-analytic show-activity-statistics](#users.analyticsGetActivityStatistics)|GetActivityStatistics|[Parameters](#Parametersusers.analyticsGetActivityStatistics)|Not Found|
+|[az people user-analytic update-activity-statistics](#users.analyticsUpdateActivityStatistics)|UpdateActivityStatistics|[Parameters](#Parametersusers.analyticsUpdateActivityStatistics)|Not Found|
+
+### <a name="CommandsInusers.profile">Commands in `az people user-profile` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az people user-profile create-account](#users.profileCreateAccount)|CreateAccount|[Parameters](#Parametersusers.profileCreateAccount)|Not Found|
+|[az people user-profile create-address](#users.profileCreateAddresses)|CreateAddresses|[Parameters](#Parametersusers.profileCreateAddresses)|Not Found|
+|[az people user-profile create-anniversary](#users.profileCreateAnniversaries)|CreateAnniversaries|[Parameters](#Parametersusers.profileCreateAnniversaries)|Not Found|
+|[az people user-profile create-award](#users.profileCreateAwards)|CreateAwards|[Parameters](#Parametersusers.profileCreateAwards)|Not Found|
+|[az people user-profile create-certification](#users.profileCreateCertifications)|CreateCertifications|[Parameters](#Parametersusers.profileCreateCertifications)|Not Found|
+|[az people user-profile create-educational-activity](#users.profileCreateEducationalActivities)|CreateEducationalActivities|[Parameters](#Parametersusers.profileCreateEducationalActivities)|Not Found|
+|[az people user-profile create-email](#users.profileCreateEmails)|CreateEmails|[Parameters](#Parametersusers.profileCreateEmails)|Not Found|
+|[az people user-profile create-interest](#users.profileCreateInterests)|CreateInterests|[Parameters](#Parametersusers.profileCreateInterests)|Not Found|
+|[az people user-profile create-language](#users.profileCreateLanguages)|CreateLanguages|[Parameters](#Parametersusers.profileCreateLanguages)|Not Found|
+|[az people user-profile create-name](#users.profileCreateNames)|CreateNames|[Parameters](#Parametersusers.profileCreateNames)|Not Found|
+|[az people user-profile create-note](#users.profileCreateNotes)|CreateNotes|[Parameters](#Parametersusers.profileCreateNotes)|Not Found|
+|[az people user-profile create-patent](#users.profileCreatePatents)|CreatePatents|[Parameters](#Parametersusers.profileCreatePatents)|Not Found|
+|[az people user-profile create-phone](#users.profileCreatePhones)|CreatePhones|[Parameters](#Parametersusers.profileCreatePhones)|Not Found|
+|[az people user-profile create-position](#users.profileCreatePositions)|CreatePositions|[Parameters](#Parametersusers.profileCreatePositions)|Not Found|
+|[az people user-profile create-project](#users.profileCreateProjects)|CreateProjects|[Parameters](#Parametersusers.profileCreateProjects)|Not Found|
+|[az people user-profile create-publication](#users.profileCreatePublications)|CreatePublications|[Parameters](#Parametersusers.profileCreatePublications)|Not Found|
+|[az people user-profile create-skill](#users.profileCreateSkills)|CreateSkills|[Parameters](#Parametersusers.profileCreateSkills)|Not Found|
+|[az people user-profile create-web-account](#users.profileCreateWebAccounts)|CreateWebAccounts|[Parameters](#Parametersusers.profileCreateWebAccounts)|Not Found|
+|[az people user-profile create-website](#users.profileCreateWebsites)|CreateWebsites|[Parameters](#Parametersusers.profileCreateWebsites)|Not Found|
+|[az people user-profile delete-account](#users.profileDeleteAccount)|DeleteAccount|[Parameters](#Parametersusers.profileDeleteAccount)|Not Found|
+|[az people user-profile delete-address](#users.profileDeleteAddresses)|DeleteAddresses|[Parameters](#Parametersusers.profileDeleteAddresses)|Not Found|
+|[az people user-profile delete-anniversary](#users.profileDeleteAnniversaries)|DeleteAnniversaries|[Parameters](#Parametersusers.profileDeleteAnniversaries)|Not Found|
+|[az people user-profile delete-award](#users.profileDeleteAwards)|DeleteAwards|[Parameters](#Parametersusers.profileDeleteAwards)|Not Found|
+|[az people user-profile delete-certification](#users.profileDeleteCertifications)|DeleteCertifications|[Parameters](#Parametersusers.profileDeleteCertifications)|Not Found|
+|[az people user-profile delete-educational-activity](#users.profileDeleteEducationalActivities)|DeleteEducationalActivities|[Parameters](#Parametersusers.profileDeleteEducationalActivities)|Not Found|
+|[az people user-profile delete-email](#users.profileDeleteEmails)|DeleteEmails|[Parameters](#Parametersusers.profileDeleteEmails)|Not Found|
+|[az people user-profile delete-interest](#users.profileDeleteInterests)|DeleteInterests|[Parameters](#Parametersusers.profileDeleteInterests)|Not Found|
+|[az people user-profile delete-language](#users.profileDeleteLanguages)|DeleteLanguages|[Parameters](#Parametersusers.profileDeleteLanguages)|Not Found|
+|[az people user-profile delete-name](#users.profileDeleteNames)|DeleteNames|[Parameters](#Parametersusers.profileDeleteNames)|Not Found|
+|[az people user-profile delete-note](#users.profileDeleteNotes)|DeleteNotes|[Parameters](#Parametersusers.profileDeleteNotes)|Not Found|
+|[az people user-profile delete-patent](#users.profileDeletePatents)|DeletePatents|[Parameters](#Parametersusers.profileDeletePatents)|Not Found|
+|[az people user-profile delete-phone](#users.profileDeletePhones)|DeletePhones|[Parameters](#Parametersusers.profileDeletePhones)|Not Found|
+|[az people user-profile delete-position](#users.profileDeletePositions)|DeletePositions|[Parameters](#Parametersusers.profileDeletePositions)|Not Found|
+|[az people user-profile delete-project](#users.profileDeleteProjects)|DeleteProjects|[Parameters](#Parametersusers.profileDeleteProjects)|Not Found|
+|[az people user-profile delete-publication](#users.profileDeletePublications)|DeletePublications|[Parameters](#Parametersusers.profileDeletePublications)|Not Found|
+|[az people user-profile delete-skill](#users.profileDeleteSkills)|DeleteSkills|[Parameters](#Parametersusers.profileDeleteSkills)|Not Found|
+|[az people user-profile delete-web-account](#users.profileDeleteWebAccounts)|DeleteWebAccounts|[Parameters](#Parametersusers.profileDeleteWebAccounts)|Not Found|
+|[az people user-profile delete-website](#users.profileDeleteWebsites)|DeleteWebsites|[Parameters](#Parametersusers.profileDeleteWebsites)|Not Found|
+|[az people user-profile list-account](#users.profileListAccount)|ListAccount|[Parameters](#Parametersusers.profileListAccount)|Not Found|
+|[az people user-profile list-address](#users.profileListAddresses)|ListAddresses|[Parameters](#Parametersusers.profileListAddresses)|Not Found|
+|[az people user-profile list-anniversary](#users.profileListAnniversaries)|ListAnniversaries|[Parameters](#Parametersusers.profileListAnniversaries)|Not Found|
+|[az people user-profile list-award](#users.profileListAwards)|ListAwards|[Parameters](#Parametersusers.profileListAwards)|Not Found|
+|[az people user-profile list-certification](#users.profileListCertifications)|ListCertifications|[Parameters](#Parametersusers.profileListCertifications)|Not Found|
+|[az people user-profile list-educational-activity](#users.profileListEducationalActivities)|ListEducationalActivities|[Parameters](#Parametersusers.profileListEducationalActivities)|Not Found|
+|[az people user-profile list-email](#users.profileListEmails)|ListEmails|[Parameters](#Parametersusers.profileListEmails)|Not Found|
+|[az people user-profile list-interest](#users.profileListInterests)|ListInterests|[Parameters](#Parametersusers.profileListInterests)|Not Found|
+|[az people user-profile list-language](#users.profileListLanguages)|ListLanguages|[Parameters](#Parametersusers.profileListLanguages)|Not Found|
+|[az people user-profile list-name](#users.profileListNames)|ListNames|[Parameters](#Parametersusers.profileListNames)|Not Found|
+|[az people user-profile list-note](#users.profileListNotes)|ListNotes|[Parameters](#Parametersusers.profileListNotes)|Not Found|
+|[az people user-profile list-patent](#users.profileListPatents)|ListPatents|[Parameters](#Parametersusers.profileListPatents)|Not Found|
+|[az people user-profile list-phone](#users.profileListPhones)|ListPhones|[Parameters](#Parametersusers.profileListPhones)|Not Found|
+|[az people user-profile list-position](#users.profileListPositions)|ListPositions|[Parameters](#Parametersusers.profileListPositions)|Not Found|
+|[az people user-profile list-project](#users.profileListProjects)|ListProjects|[Parameters](#Parametersusers.profileListProjects)|Not Found|
+|[az people user-profile list-publication](#users.profileListPublications)|ListPublications|[Parameters](#Parametersusers.profileListPublications)|Not Found|
+|[az people user-profile list-skill](#users.profileListSkills)|ListSkills|[Parameters](#Parametersusers.profileListSkills)|Not Found|
+|[az people user-profile list-web-account](#users.profileListWebAccounts)|ListWebAccounts|[Parameters](#Parametersusers.profileListWebAccounts)|Not Found|
+|[az people user-profile list-website](#users.profileListWebsites)|ListWebsites|[Parameters](#Parametersusers.profileListWebsites)|Not Found|
+|[az people user-profile show-account](#users.profileGetAccount)|GetAccount|[Parameters](#Parametersusers.profileGetAccount)|Not Found|
+|[az people user-profile show-address](#users.profileGetAddresses)|GetAddresses|[Parameters](#Parametersusers.profileGetAddresses)|Not Found|
+|[az people user-profile show-anniversary](#users.profileGetAnniversaries)|GetAnniversaries|[Parameters](#Parametersusers.profileGetAnniversaries)|Not Found|
+|[az people user-profile show-award](#users.profileGetAwards)|GetAwards|[Parameters](#Parametersusers.profileGetAwards)|Not Found|
+|[az people user-profile show-certification](#users.profileGetCertifications)|GetCertifications|[Parameters](#Parametersusers.profileGetCertifications)|Not Found|
+|[az people user-profile show-educational-activity](#users.profileGetEducationalActivities)|GetEducationalActivities|[Parameters](#Parametersusers.profileGetEducationalActivities)|Not Found|
+|[az people user-profile show-email](#users.profileGetEmails)|GetEmails|[Parameters](#Parametersusers.profileGetEmails)|Not Found|
+|[az people user-profile show-interest](#users.profileGetInterests)|GetInterests|[Parameters](#Parametersusers.profileGetInterests)|Not Found|
+|[az people user-profile show-language](#users.profileGetLanguages)|GetLanguages|[Parameters](#Parametersusers.profileGetLanguages)|Not Found|
+|[az people user-profile show-name](#users.profileGetNames)|GetNames|[Parameters](#Parametersusers.profileGetNames)|Not Found|
+|[az people user-profile show-note](#users.profileGetNotes)|GetNotes|[Parameters](#Parametersusers.profileGetNotes)|Not Found|
+|[az people user-profile show-patent](#users.profileGetPatents)|GetPatents|[Parameters](#Parametersusers.profileGetPatents)|Not Found|
+|[az people user-profile show-phone](#users.profileGetPhones)|GetPhones|[Parameters](#Parametersusers.profileGetPhones)|Not Found|
+|[az people user-profile show-position](#users.profileGetPositions)|GetPositions|[Parameters](#Parametersusers.profileGetPositions)|Not Found|
+|[az people user-profile show-project](#users.profileGetProjects)|GetProjects|[Parameters](#Parametersusers.profileGetProjects)|Not Found|
+|[az people user-profile show-publication](#users.profileGetPublications)|GetPublications|[Parameters](#Parametersusers.profileGetPublications)|Not Found|
+|[az people user-profile show-skill](#users.profileGetSkills)|GetSkills|[Parameters](#Parametersusers.profileGetSkills)|Not Found|
+|[az people user-profile show-web-account](#users.profileGetWebAccounts)|GetWebAccounts|[Parameters](#Parametersusers.profileGetWebAccounts)|Not Found|
+|[az people user-profile show-website](#users.profileGetWebsites)|GetWebsites|[Parameters](#Parametersusers.profileGetWebsites)|Not Found|
+|[az people user-profile update-account](#users.profileUpdateAccount)|UpdateAccount|[Parameters](#Parametersusers.profileUpdateAccount)|Not Found|
+|[az people user-profile update-address](#users.profileUpdateAddresses)|UpdateAddresses|[Parameters](#Parametersusers.profileUpdateAddresses)|Not Found|
+|[az people user-profile update-anniversary](#users.profileUpdateAnniversaries)|UpdateAnniversaries|[Parameters](#Parametersusers.profileUpdateAnniversaries)|Not Found|
+|[az people user-profile update-award](#users.profileUpdateAwards)|UpdateAwards|[Parameters](#Parametersusers.profileUpdateAwards)|Not Found|
+|[az people user-profile update-certification](#users.profileUpdateCertifications)|UpdateCertifications|[Parameters](#Parametersusers.profileUpdateCertifications)|Not Found|
+|[az people user-profile update-educational-activity](#users.profileUpdateEducationalActivities)|UpdateEducationalActivities|[Parameters](#Parametersusers.profileUpdateEducationalActivities)|Not Found|
+|[az people user-profile update-email](#users.profileUpdateEmails)|UpdateEmails|[Parameters](#Parametersusers.profileUpdateEmails)|Not Found|
+|[az people user-profile update-interest](#users.profileUpdateInterests)|UpdateInterests|[Parameters](#Parametersusers.profileUpdateInterests)|Not Found|
+|[az people user-profile update-language](#users.profileUpdateLanguages)|UpdateLanguages|[Parameters](#Parametersusers.profileUpdateLanguages)|Not Found|
+|[az people user-profile update-name](#users.profileUpdateNames)|UpdateNames|[Parameters](#Parametersusers.profileUpdateNames)|Not Found|
+|[az people user-profile update-note](#users.profileUpdateNotes)|UpdateNotes|[Parameters](#Parametersusers.profileUpdateNotes)|Not Found|
+|[az people user-profile update-patent](#users.profileUpdatePatents)|UpdatePatents|[Parameters](#Parametersusers.profileUpdatePatents)|Not Found|
+|[az people user-profile update-phone](#users.profileUpdatePhones)|UpdatePhones|[Parameters](#Parametersusers.profileUpdatePhones)|Not Found|
+|[az people user-profile update-position](#users.profileUpdatePositions)|UpdatePositions|[Parameters](#Parametersusers.profileUpdatePositions)|Not Found|
+|[az people user-profile update-project](#users.profileUpdateProjects)|UpdateProjects|[Parameters](#Parametersusers.profileUpdateProjects)|Not Found|
+|[az people user-profile update-publication](#users.profileUpdatePublications)|UpdatePublications|[Parameters](#Parametersusers.profileUpdatePublications)|Not Found|
+|[az people user-profile update-skill](#users.profileUpdateSkills)|UpdateSkills|[Parameters](#Parametersusers.profileUpdateSkills)|Not Found|
+|[az people user-profile update-web-account](#users.profileUpdateWebAccounts)|UpdateWebAccounts|[Parameters](#Parametersusers.profileUpdateWebAccounts)|Not Found|
+|[az people user-profile update-website](#users.profileUpdateWebsites)|UpdateWebsites|[Parameters](#Parametersusers.profileUpdateWebsites)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az people user`
+#### <a name="usersCreatePeople">Command `az people user create-person`</a>
+
+##### <a name="ParametersusersCreatePeople">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -40,108 +169,34 @@ create-person a people user.
 |**--websites**|array|The person's websites.|websites|websites|
 |**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
 
-### people user delete
+#### <a name="usersDeleteAnalytics">Command `az people user delete-analytic`</a>
 
-delete a people user.
+##### <a name="ParametersusersDeleteAnalytics">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
+#### <a name="usersDeletePeople">Command `az people user delete-person`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeletePeople|
-|delete|DeleteAnalytics|
-|delete|DeleteProfile|
-
-#### Parameters
+##### <a name="ParametersusersDeletePeople">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--person-id**|string|key: id of person|person_id|person-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### people user get-analytic
+#### <a name="usersDeleteProfile">Command `az people user delete-profile`</a>
 
-get-analytic a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-analytic|GetAnalytics|
-
-#### Parameters
+##### <a name="ParametersusersDeleteProfile">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-### people user get-person
+#### <a name="usersListPeople">Command `az people user list-person`</a>
 
-get-person a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-person|GetPeople|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--person-id**|string|key: id of person|person_id|person-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user get-profile
-
-get-profile a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-profile|GetProfile|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user list-person
-
-list-person a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-person|ListPeople|
-
-#### Parameters
+##### <a name="ParametersusersListPeople">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -149,21 +204,37 @@ list-person a people user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user update-analytic
+#### <a name="usersGetAnalytics">Command `az people user show-analytic`</a>
 
-update-analytic a people user.
+##### <a name="ParametersusersGetAnalytics">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
+#### <a name="usersGetPeople">Command `az people user show-person`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-analytic|UpdateAnalytics|
+##### <a name="ParametersusersGetPeople">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-id**|string|key: id of person|person_id|person-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="usersGetProfile">Command `az people user show-profile`</a>
+
+##### <a name="ParametersusersGetProfile">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="usersUpdateAnalytics">Command `az people user update-analytic`</a>
+
+##### <a name="ParametersusersUpdateAnalytics">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -171,21 +242,9 @@ update-analytic a people user.
 |**--settings**|object|settings|settings|settings|
 |**--activity-statistics**|array||activity_statistics|activityStatistics|
 
-### people user update-person
+#### <a name="usersUpdatePeople">Command `az people user update-person`</a>
 
-update-person a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-person|UpdatePeople|
-
-#### Parameters
+##### <a name="ParametersusersUpdatePeople">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -212,21 +271,9 @@ update-person a people user.
 |**--websites**|array|The person's websites.|websites|websites|
 |**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
 
-### people user update-profile
+#### <a name="usersUpdateProfile">Command `az people user update-profile`</a>
 
-update-profile a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-profile|UpdateProfile|
-
-#### Parameters
+##### <a name="ParametersusersUpdateProfile">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -251,21 +298,10 @@ update-profile a people user.
 |**--web-accounts**|array||web_accounts|webAccounts|
 |**--websites**|array||websites|websites|
 
-### people user-analytic create-activity-statistics
+### group `az people user-analytic`
+#### <a name="users.analyticsCreateActivityStatistics">Command `az people user-analytic create-activity-statistics`</a>
 
-create-activity-statistics a people user-analytic.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-analytic|users.analytics|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-activity-statistics|CreateActivityStatistics|
-
-#### Parameters
+##### <a name="Parametersusers.analyticsCreateActivityStatistics">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -276,64 +312,18 @@ create-activity-statistics a people user-analytic.
 |**--start-date**|date||start_date|startDate|
 |**--time-zone-used**|string||time_zone_used|timeZoneUsed|
 
-### people user-analytic delete
+#### <a name="users.analyticsDeleteActivityStatistics">Command `az people user-analytic delete-activity-statistics`</a>
 
-delete a people user-analytic.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-analytic|users.analytics|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteActivityStatistics|
-
-#### Parameters
+##### <a name="Parametersusers.analyticsDeleteActivityStatistics">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--activity-statistics-id**|string|key: id of activityStatistics|activity_statistics_id|activityStatistics-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### people user-analytic get-activity-statistics
+#### <a name="users.analyticsListActivityStatistics">Command `az people user-analytic list-activity-statistics`</a>
 
-get-activity-statistics a people user-analytic.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-analytic|users.analytics|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-activity-statistics|GetActivityStatistics|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--activity-statistics-id**|string|key: id of activityStatistics|activity_statistics_id|activityStatistics-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-analytic list-activity-statistics
-
-list-activity-statistics a people user-analytic.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-analytic|users.analytics|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-activity-statistics|ListActivityStatistics|
-
-#### Parameters
+##### <a name="Parametersusers.analyticsListActivityStatistics">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -341,21 +331,19 @@ list-activity-statistics a people user-analytic.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-analytic update-activity-statistics
+#### <a name="users.analyticsGetActivityStatistics">Command `az people user-analytic show-activity-statistics`</a>
 
-update-activity-statistics a people user-analytic.
+##### <a name="Parametersusers.analyticsGetActivityStatistics">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--activity-statistics-id**|string|key: id of activityStatistics|activity_statistics_id|activityStatistics-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-analytic|users.analytics|
+#### <a name="users.analyticsUpdateActivityStatistics">Command `az people user-analytic update-activity-statistics`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-activity-statistics|UpdateActivityStatistics|
-
-#### Parameters
+##### <a name="Parametersusers.analyticsUpdateActivityStatistics">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -367,21 +355,10 @@ update-activity-statistics a people user-analytic.
 |**--start-date**|date||start_date|startDate|
 |**--time-zone-used**|string||time_zone_used|timeZoneUsed|
 
-### people user-profile create-account
+### group `az people user-profile`
+#### <a name="users.profileCreateAccount">Command `az people user-profile create-account`</a>
 
-create-account a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-account|CreateAccount|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -391,32 +368,20 @@ create-account a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--age-group**|string||age_group|ageGroup|
 |**--country-code**|string||country_code|countryCode|
 |**--preferred-language-tag**|object|localeInfo|preferred_language_tag|preferredLanguageTag|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### people user-profile create-address
+#### <a name="users.profileCreateAddresses">Command `az people user-profile create-address`</a>
 
-create-address a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-address|CreateAddresses|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateAddresses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -426,31 +391,19 @@ create-address a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--detail**|object|physicalAddress|detail|detail|
 |**--display-name**|string||display_name|displayName|
 |**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
 
-### people user-profile create-anniversary
+#### <a name="users.profileCreateAnniversaries">Command `az people user-profile create-anniversary`</a>
 
-create-anniversary a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-anniversary|CreateAnniversaries|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateAnniversaries">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -460,30 +413,18 @@ create-anniversary a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--date**|date||date|date|
 |**--type**|choice||type|type|
 
-### people user-profile create-award
+#### <a name="users.profileCreateAwards">Command `az people user-profile create-award`</a>
 
-create-award a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-award|CreateAwards|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateAwards">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -493,12 +434,12 @@ create-award a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
 |**--issued-date**|date||issued_date|issuedDate|
@@ -506,21 +447,9 @@ create-award a people user-profile.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile create-certification
+#### <a name="users.profileCreateCertifications">Command `az people user-profile create-certification`</a>
 
-create-certification a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-certification|CreateCertifications|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateCertifications">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -530,12 +459,12 @@ create-certification a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--certification-id**|string||certification_id|certificationId|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
@@ -547,21 +476,9 @@ create-certification a people user-profile.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile create-educational-activity
+#### <a name="users.profileCreateEducationalActivities">Command `az people user-profile create-educational-activity`</a>
 
-create-educational-activity a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-educational-activity|CreateEducationalActivities|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateEducationalActivities">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -571,36 +488,24 @@ create-educational-activity a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--completion-month-year**|date||completion_month_year|completionMonthYear|
 |**--end-month-year**|date||end_month_year|endMonthYear|
 |**--program**|object|educationalActivityDetail|program|program|
 |**--start-month-year**|date||start_month_year|startMonthYear|
-|**--institution-description**|string||description|description|
-|**--institution-display-name**|string||display_name|displayName|
-|**--institution-location**|object|physicalAddress|location|location|
-|**--institution-web-url**|string||web_url|webUrl|
+|**--description**|string||description|description|
+|**--display-name**|string||display_name|displayName|
+|**--location**|object|physicalAddress|location|location|
+|**--web-url**|string||web_url|webUrl|
 
-### people user-profile create-email
+#### <a name="users.profileCreateEmails">Command `az people user-profile create-email`</a>
 
-create-email a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-email|CreateEmails|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateEmails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -610,31 +515,19 @@ create-email a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--address**|string||address|address|
 |**--display-name**|string||display_name|displayName|
 |**--type**|choice||type|type|
 
-### people user-profile create-interest
+#### <a name="users.profileCreateInterests">Command `az people user-profile create-interest`</a>
 
-create-interest a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-interest|CreateInterests|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateInterests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -644,33 +537,21 @@ create-interest a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--categories**|array||categories|categories|
 |**--collaboration-tags**|array||collaboration_tags|collaborationTags|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile create-language
+#### <a name="users.profileCreateLanguages">Command `az people user-profile create-language`</a>
 
-create-language a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-language|CreateLanguages|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateLanguages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -680,12 +561,12 @@ create-language a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--display-name**|string||display_name|displayName|
 |**--proficiency**|choice||proficiency|proficiency|
 |**--reading**|choice||reading|reading|
@@ -693,21 +574,9 @@ create-language a people user-profile.
 |**--tag**|string||tag|tag|
 |**--written**|choice||written|written|
 
-### people user-profile create-name
+#### <a name="users.profileCreateNames">Command `az people user-profile create-name`</a>
 
-create-name a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-name|CreateNames|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateNames">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -717,12 +586,12 @@ create-name a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--display-name**|string||display_name|displayName|
 |**--first**|string||first|first|
 |**--initials**|string||initials|initials|
@@ -735,21 +604,9 @@ create-name a people user-profile.
 |**--suffix**|string||suffix|suffix|
 |**--title**|string||title|title|
 
-### people user-profile create-note
+#### <a name="users.profileCreateNotes">Command `az people user-profile create-note`</a>
 
-create-note a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-note|CreateNotes|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateNotes">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -759,30 +616,18 @@ create-note a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--detail**|object|itemBody|detail|detail|
 |**--display-name**|string||display_name|displayName|
 
-### people user-profile create-patent
+#### <a name="users.profileCreatePatents">Command `az people user-profile create-patent`</a>
 
-create-patent a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-patent|CreatePatents|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreatePatents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -792,12 +637,12 @@ create-patent a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
 |**--is-pending**|boolean||is_pending|isPending|
@@ -806,21 +651,9 @@ create-patent a people user-profile.
 |**--number**|string||number|number|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile create-phone
+#### <a name="users.profileCreatePhones">Command `az people user-profile create-phone`</a>
 
-create-phone a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-phone|CreatePhones|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreatePhones">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -830,31 +663,19 @@ create-phone a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--display-name**|string||display_name|displayName|
 |**--number**|string||number|number|
 |**--type**|choice||type|type|
 
-### people user-profile create-position
+#### <a name="users.profileCreatePositions">Command `az people user-profile create-position`</a>
 
-create-position a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-position|CreatePositions|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreatePositions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -864,39 +685,27 @@ create-position a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--categories**|array||categories|categories|
 |**--colleagues**|array||colleagues|colleagues|
 |**--is-current**|boolean||is_current|isCurrent|
 |**--manager**|object|relatedPerson|manager|manager|
-|**--detail-company**|object|companyDetail|company|company|
-|**--detail-description**|string||description|description|
-|**--detail-end-month-year**|date||end_month_year|endMonthYear|
-|**--detail-job-title**|string||job_title|jobTitle|
-|**--detail-role**|string||role|role|
-|**--detail-start-month-year**|date||start_month_year|startMonthYear|
-|**--detail-summary**|string||summary|summary|
+|**--company**|object|companyDetail|company|company|
+|**--description**|string||description|description|
+|**--end-month-year**|date||end_month_year|endMonthYear|
+|**--job-title**|string||job_title|jobTitle|
+|**--role**|string||role|role|
+|**--start-month-year**|date||start_month_year|startMonthYear|
+|**--summary**|string||summary|summary|
 
-### people user-profile create-project
+#### <a name="users.profileCreateProjects">Command `az people user-profile create-project`</a>
 
-create-project a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-project|CreateProjects|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateProjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -906,46 +715,34 @@ create-project a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--categories**|array||categories|categories|
 |**--collaboration-tags**|array||collaboration_tags|collaborationTags|
 |**--colleagues**|array||colleagues|colleagues|
 |**--display-name**|string||display_name|displayName|
 |**--sponsors**|array||sponsors|sponsors|
-|**--detail-company**|object|companyDetail|company|company|
-|**--detail-description**|string||description|description|
-|**--detail-end-month-year**|date||end_month_year|endMonthYear|
-|**--detail-job-title**|string||job_title|jobTitle|
-|**--detail-role**|string||role|role|
-|**--detail-start-month-year**|date||start_month_year|startMonthYear|
-|**--detail-summary**|string||summary|summary|
-|**--client-address**|object|physicalAddress|address|address|
-|**--client-department**|string||department|department|
-|**--client-display-name**|string||microsoft_graph_company_detail_display_name|displayName|
-|**--client-office-location**|string||office_location|officeLocation|
-|**--client-pronunciation**|string||pronunciation|pronunciation|
-|**--client-web-url**|string||web_url|webUrl|
+|**--company**|object|companyDetail|company|company|
+|**--description**|string||description|description|
+|**--end-month-year**|date||end_month_year|endMonthYear|
+|**--job-title**|string||job_title|jobTitle|
+|**--role**|string||role|role|
+|**--start-month-year**|date||start_month_year|startMonthYear|
+|**--summary**|string||summary|summary|
+|**--address**|object|physicalAddress|address|address|
+|**--department**|string||department|department|
+|**--microsoft-graph-company-detail-display-name**|string||microsoft_graph_company_detail_display_name|displayName|
+|**--office-location**|string||office_location|officeLocation|
+|**--pronunciation**|string||pronunciation|pronunciation|
+|**--web-url**|string||web_url|webUrl|
 
-### people user-profile create-publication
+#### <a name="users.profileCreatePublications">Command `az people user-profile create-publication`</a>
 
-create-publication a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-publication|CreatePublications|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreatePublications">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -955,12 +752,12 @@ create-publication a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
 |**--published-date**|date||published_date|publishedDate|
@@ -968,21 +765,9 @@ create-publication a people user-profile.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile create-skill
+#### <a name="users.profileCreateSkills">Command `az people user-profile create-skill`</a>
 
-create-skill a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-skill|CreateSkills|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateSkills">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -992,33 +777,21 @@ create-skill a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--categories**|array||categories|categories|
 |**--collaboration-tags**|array||collaboration_tags|collaborationTags|
 |**--display-name**|string||display_name|displayName|
 |**--proficiency**|choice||proficiency|proficiency|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile create-web-account
+#### <a name="users.profileCreateWebAccounts">Command `az people user-profile create-web-account`</a>
 
-create-web-account a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-web-account|CreateWebAccounts|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateWebAccounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1028,33 +801,21 @@ create-web-account a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--description**|string||description|description|
 |**--service**|object|serviceInformation|service|service|
 |**--status-message**|string||status_message|statusMessage|
 |**--microsoft-graph-web-account-user-id**|string||microsoft_graph_web_account_user_id|userId|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile create-website
+#### <a name="users.profileCreateWebsites">Command `az people user-profile create-website`</a>
 
-create-website a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-website|CreateWebsites|
-
-#### Parameters
+##### <a name="Parametersusers.profileCreateWebsites">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1064,89 +825,381 @@ create-website a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--categories**|array||categories|categories|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile delete
+#### <a name="users.profileDeleteAccount">Command `az people user-profile delete-account`</a>
 
-delete a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAccount|
-|delete|DeleteAddresses|
-|delete|DeleteAnniversaries|
-|delete|DeleteAwards|
-|delete|DeleteCertifications|
-|delete|DeleteEducationalActivities|
-|delete|DeleteEmails|
-|delete|DeleteInterests|
-|delete|DeleteLanguages|
-|delete|DeleteNames|
-|delete|DeleteNotes|
-|delete|DeletePatents|
-|delete|DeletePhones|
-|delete|DeletePositions|
-|delete|DeleteProjects|
-|delete|DeletePublications|
-|delete|DeleteSkills|
-|delete|DeleteWebAccounts|
-|delete|DeleteWebsites|
-
-#### Parameters
+##### <a name="Parametersusers.profileDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--user-account-information-id**|string|key: id of userAccountInformation|user_account_information_id|userAccountInformation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteAddresses">Command `az people user-profile delete-address`</a>
+
+##### <a name="Parametersusers.profileDeleteAddresses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--item-address-id**|string|key: id of itemAddress|item_address_id|itemAddress-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteAnniversaries">Command `az people user-profile delete-anniversary`</a>
+
+##### <a name="Parametersusers.profileDeleteAnniversaries">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--person-anniversary-id**|string|key: id of personAnniversary|person_anniversary_id|personAnniversary-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteAwards">Command `az people user-profile delete-award`</a>
+
+##### <a name="Parametersusers.profileDeleteAwards">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--person-award-id**|string|key: id of personAward|person_award_id|personAward-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteCertifications">Command `az people user-profile delete-certification`</a>
+
+##### <a name="Parametersusers.profileDeleteCertifications">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--person-certification-id**|string|key: id of personCertification|person_certification_id|personCertification-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteEducationalActivities">Command `az people user-profile delete-educational-activity`</a>
+
+##### <a name="Parametersusers.profileDeleteEducationalActivities">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--educational-activity-id**|string|key: id of educationalActivity|educational_activity_id|educationalActivity-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteEmails">Command `az people user-profile delete-email`</a>
+
+##### <a name="Parametersusers.profileDeleteEmails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--item-email-id**|string|key: id of itemEmail|item_email_id|itemEmail-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteInterests">Command `az people user-profile delete-interest`</a>
+
+##### <a name="Parametersusers.profileDeleteInterests">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--person-interest-id**|string|key: id of personInterest|person_interest_id|personInterest-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteLanguages">Command `az people user-profile delete-language`</a>
+
+##### <a name="Parametersusers.profileDeleteLanguages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--language-proficiency-id**|string|key: id of languageProficiency|language_proficiency_id|languageProficiency-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteNames">Command `az people user-profile delete-name`</a>
+
+##### <a name="Parametersusers.profileDeleteNames">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--person-name-id**|string|key: id of personName|person_name_id|personName-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteNotes">Command `az people user-profile delete-note`</a>
+
+##### <a name="Parametersusers.profileDeleteNotes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--person-annotation-id**|string|key: id of personAnnotation|person_annotation_id|personAnnotation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeletePatents">Command `az people user-profile delete-patent`</a>
+
+##### <a name="Parametersusers.profileDeletePatents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--item-patent-id**|string|key: id of itemPatent|item_patent_id|itemPatent-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeletePhones">Command `az people user-profile delete-phone`</a>
+
+##### <a name="Parametersusers.profileDeletePhones">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--item-phone-id**|string|key: id of itemPhone|item_phone_id|itemPhone-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeletePositions">Command `az people user-profile delete-position`</a>
+
+##### <a name="Parametersusers.profileDeletePositions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--work-position-id**|string|key: id of workPosition|work_position_id|workPosition-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteProjects">Command `az people user-profile delete-project`</a>
+
+##### <a name="Parametersusers.profileDeleteProjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--project-participation-id**|string|key: id of projectParticipation|project_participation_id|projectParticipation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeletePublications">Command `az people user-profile delete-publication`</a>
+
+##### <a name="Parametersusers.profileDeletePublications">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--item-publication-id**|string|key: id of itemPublication|item_publication_id|itemPublication-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteSkills">Command `az people user-profile delete-skill`</a>
+
+##### <a name="Parametersusers.profileDeleteSkills">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--skill-proficiency-id**|string|key: id of skillProficiency|skill_proficiency_id|skillProficiency-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteWebAccounts">Command `az people user-profile delete-web-account`</a>
+
+##### <a name="Parametersusers.profileDeleteWebAccounts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--web-account-id**|string|key: id of webAccount|web_account_id|webAccount-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteWebsites">Command `az people user-profile delete-website`</a>
+
+##### <a name="Parametersusers.profileDeleteWebsites">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
 |**--person-website-id**|string|key: id of personWebsite|person_website_id|personWebsite-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### people user-profile get-account
+#### <a name="users.profileListAccount">Command `az people user-profile list-account`</a>
 
-get-account a people user-profile.
+##### <a name="Parametersusers.profileListAccount">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
+#### <a name="users.profileListAddresses">Command `az people user-profile list-address`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-account|GetAccount|
+##### <a name="Parametersusers.profileListAddresses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="users.profileListAnniversaries">Command `az people user-profile list-anniversary`</a>
+
+##### <a name="Parametersusers.profileListAnniversaries">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListAwards">Command `az people user-profile list-award`</a>
+
+##### <a name="Parametersusers.profileListAwards">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListCertifications">Command `az people user-profile list-certification`</a>
+
+##### <a name="Parametersusers.profileListCertifications">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListEducationalActivities">Command `az people user-profile list-educational-activity`</a>
+
+##### <a name="Parametersusers.profileListEducationalActivities">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListEmails">Command `az people user-profile list-email`</a>
+
+##### <a name="Parametersusers.profileListEmails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListInterests">Command `az people user-profile list-interest`</a>
+
+##### <a name="Parametersusers.profileListInterests">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListLanguages">Command `az people user-profile list-language`</a>
+
+##### <a name="Parametersusers.profileListLanguages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListNames">Command `az people user-profile list-name`</a>
+
+##### <a name="Parametersusers.profileListNames">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListNotes">Command `az people user-profile list-note`</a>
+
+##### <a name="Parametersusers.profileListNotes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListPatents">Command `az people user-profile list-patent`</a>
+
+##### <a name="Parametersusers.profileListPatents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListPhones">Command `az people user-profile list-phone`</a>
+
+##### <a name="Parametersusers.profileListPhones">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListPositions">Command `az people user-profile list-position`</a>
+
+##### <a name="Parametersusers.profileListPositions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListProjects">Command `az people user-profile list-project`</a>
+
+##### <a name="Parametersusers.profileListProjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListPublications">Command `az people user-profile list-publication`</a>
+
+##### <a name="Parametersusers.profileListPublications">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListSkills">Command `az people user-profile list-skill`</a>
+
+##### <a name="Parametersusers.profileListSkills">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListWebAccounts">Command `az people user-profile list-web-account`</a>
+
+##### <a name="Parametersusers.profileListWebAccounts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileListWebsites">Command `az people user-profile list-website`</a>
+
+##### <a name="Parametersusers.profileListWebsites">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.profileGetAccount">Command `az people user-profile show-account`</a>
+
+##### <a name="Parametersusers.profileGetAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1154,21 +1207,9 @@ get-account a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-address
+#### <a name="users.profileGetAddresses">Command `az people user-profile show-address`</a>
 
-get-address a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-address|GetAddresses|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetAddresses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1176,21 +1217,9 @@ get-address a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-anniversary
+#### <a name="users.profileGetAnniversaries">Command `az people user-profile show-anniversary`</a>
 
-get-anniversary a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-anniversary|GetAnniversaries|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetAnniversaries">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1198,21 +1227,9 @@ get-anniversary a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-award
+#### <a name="users.profileGetAwards">Command `az people user-profile show-award`</a>
 
-get-award a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-award|GetAwards|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetAwards">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1220,21 +1237,9 @@ get-award a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-certification
+#### <a name="users.profileGetCertifications">Command `az people user-profile show-certification`</a>
 
-get-certification a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-certification|GetCertifications|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetCertifications">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1242,21 +1247,9 @@ get-certification a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-educational-activity
+#### <a name="users.profileGetEducationalActivities">Command `az people user-profile show-educational-activity`</a>
 
-get-educational-activity a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-educational-activity|GetEducationalActivities|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetEducationalActivities">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1264,21 +1257,9 @@ get-educational-activity a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-email
+#### <a name="users.profileGetEmails">Command `az people user-profile show-email`</a>
 
-get-email a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-email|GetEmails|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetEmails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1286,21 +1267,9 @@ get-email a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-interest
+#### <a name="users.profileGetInterests">Command `az people user-profile show-interest`</a>
 
-get-interest a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-interest|GetInterests|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetInterests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1308,21 +1277,9 @@ get-interest a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-language
+#### <a name="users.profileGetLanguages">Command `az people user-profile show-language`</a>
 
-get-language a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-language|GetLanguages|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetLanguages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1330,21 +1287,9 @@ get-language a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-name
+#### <a name="users.profileGetNames">Command `az people user-profile show-name`</a>
 
-get-name a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-name|GetNames|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetNames">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1352,21 +1297,9 @@ get-name a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-note
+#### <a name="users.profileGetNotes">Command `az people user-profile show-note`</a>
 
-get-note a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-note|GetNotes|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetNotes">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1374,21 +1307,9 @@ get-note a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-patent
+#### <a name="users.profileGetPatents">Command `az people user-profile show-patent`</a>
 
-get-patent a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-patent|GetPatents|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetPatents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1396,21 +1317,9 @@ get-patent a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-phone
+#### <a name="users.profileGetPhones">Command `az people user-profile show-phone`</a>
 
-get-phone a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-phone|GetPhones|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetPhones">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1418,21 +1327,9 @@ get-phone a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-position
+#### <a name="users.profileGetPositions">Command `az people user-profile show-position`</a>
 
-get-position a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-position|GetPositions|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetPositions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1440,21 +1337,9 @@ get-position a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-project
+#### <a name="users.profileGetProjects">Command `az people user-profile show-project`</a>
 
-get-project a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-project|GetProjects|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetProjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1462,21 +1347,9 @@ get-project a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-publication
+#### <a name="users.profileGetPublications">Command `az people user-profile show-publication`</a>
 
-get-publication a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-publication|GetPublications|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetPublications">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1484,21 +1357,9 @@ get-publication a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-skill
+#### <a name="users.profileGetSkills">Command `az people user-profile show-skill`</a>
 
-get-skill a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skill|GetSkills|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetSkills">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1506,21 +1367,9 @@ get-skill a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-web-account
+#### <a name="users.profileGetWebAccounts">Command `az people user-profile show-web-account`</a>
 
-get-web-account a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-web-account|GetWebAccounts|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetWebAccounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1528,21 +1377,9 @@ get-web-account a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile get-website
+#### <a name="users.profileGetWebsites">Command `az people user-profile show-website`</a>
 
-get-website a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-website|GetWebsites|
-
-#### Parameters
+##### <a name="Parametersusers.profileGetWebsites">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1550,439 +1387,9 @@ get-website a people user-profile.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-profile list-account
+#### <a name="users.profileUpdateAccount">Command `az people user-profile update-account`</a>
 
-list-account a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-account|ListAccount|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-address
-
-list-address a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-address|ListAddresses|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-anniversary
-
-list-anniversary a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-anniversary|ListAnniversaries|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-award
-
-list-award a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-award|ListAwards|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-certification
-
-list-certification a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-certification|ListCertifications|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-educational-activity
-
-list-educational-activity a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-educational-activity|ListEducationalActivities|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-email
-
-list-email a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-email|ListEmails|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-interest
-
-list-interest a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-interest|ListInterests|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-language
-
-list-language a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-language|ListLanguages|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-name
-
-list-name a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-name|ListNames|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-note
-
-list-note a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-note|ListNotes|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-patent
-
-list-patent a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-patent|ListPatents|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-phone
-
-list-phone a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-phone|ListPhones|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-position
-
-list-position a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-position|ListPositions|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-project
-
-list-project a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-project|ListProjects|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-publication
-
-list-publication a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-publication|ListPublications|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-skill
-
-list-skill a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-skill|ListSkills|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-web-account
-
-list-web-account a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-web-account|ListWebAccounts|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile list-website
-
-list-website a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-website|ListWebsites|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-profile update-account
-
-update-account a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-account|UpdateAccount|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -1993,32 +1400,20 @@ update-account a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--age-group**|string||age_group|ageGroup|
 |**--country-code**|string||country_code|countryCode|
 |**--preferred-language-tag**|object|localeInfo|preferred_language_tag|preferredLanguageTag|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### people user-profile update-address
+#### <a name="users.profileUpdateAddresses">Command `az people user-profile update-address`</a>
 
-update-address a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-address|UpdateAddresses|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateAddresses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2029,31 +1424,19 @@ update-address a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--detail**|object|physicalAddress|detail|detail|
 |**--display-name**|string||display_name|displayName|
 |**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
 
-### people user-profile update-anniversary
+#### <a name="users.profileUpdateAnniversaries">Command `az people user-profile update-anniversary`</a>
 
-update-anniversary a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-anniversary|UpdateAnniversaries|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateAnniversaries">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2064,30 +1447,18 @@ update-anniversary a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--date**|date||date|date|
 |**--type**|choice||type|type|
 
-### people user-profile update-award
+#### <a name="users.profileUpdateAwards">Command `az people user-profile update-award`</a>
 
-update-award a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-award|UpdateAwards|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateAwards">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2098,12 +1469,12 @@ update-award a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
 |**--issued-date**|date||issued_date|issuedDate|
@@ -2111,21 +1482,9 @@ update-award a people user-profile.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile update-certification
+#### <a name="users.profileUpdateCertifications">Command `az people user-profile update-certification`</a>
 
-update-certification a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-certification|UpdateCertifications|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateCertifications">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2136,12 +1495,12 @@ update-certification a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--certification-id**|string||certification_id|certificationId|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
@@ -2153,21 +1512,9 @@ update-certification a people user-profile.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile update-educational-activity
+#### <a name="users.profileUpdateEducationalActivities">Command `az people user-profile update-educational-activity`</a>
 
-update-educational-activity a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-educational-activity|UpdateEducationalActivities|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateEducationalActivities">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2178,36 +1525,24 @@ update-educational-activity a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--completion-month-year**|date||completion_month_year|completionMonthYear|
 |**--end-month-year**|date||end_month_year|endMonthYear|
 |**--program**|object|educationalActivityDetail|program|program|
 |**--start-month-year**|date||start_month_year|startMonthYear|
-|**--institution-description**|string||description|description|
-|**--institution-display-name**|string||display_name|displayName|
-|**--institution-location**|object|physicalAddress|location|location|
-|**--institution-web-url**|string||web_url|webUrl|
+|**--description**|string||description|description|
+|**--display-name**|string||display_name|displayName|
+|**--location**|object|physicalAddress|location|location|
+|**--web-url**|string||web_url|webUrl|
 
-### people user-profile update-email
+#### <a name="users.profileUpdateEmails">Command `az people user-profile update-email`</a>
 
-update-email a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-email|UpdateEmails|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateEmails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2218,31 +1553,19 @@ update-email a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--address**|string||address|address|
 |**--display-name**|string||display_name|displayName|
 |**--type**|choice||type|type|
 
-### people user-profile update-interest
+#### <a name="users.profileUpdateInterests">Command `az people user-profile update-interest`</a>
 
-update-interest a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-interest|UpdateInterests|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateInterests">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2253,33 +1576,21 @@ update-interest a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--categories**|array||categories|categories|
 |**--collaboration-tags**|array||collaboration_tags|collaborationTags|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile update-language
+#### <a name="users.profileUpdateLanguages">Command `az people user-profile update-language`</a>
 
-update-language a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-language|UpdateLanguages|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateLanguages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2290,12 +1601,12 @@ update-language a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--display-name**|string||display_name|displayName|
 |**--proficiency**|choice||proficiency|proficiency|
 |**--reading**|choice||reading|reading|
@@ -2303,21 +1614,9 @@ update-language a people user-profile.
 |**--tag**|string||tag|tag|
 |**--written**|choice||written|written|
 
-### people user-profile update-name
+#### <a name="users.profileUpdateNames">Command `az people user-profile update-name`</a>
 
-update-name a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-name|UpdateNames|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateNames">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2328,12 +1627,12 @@ update-name a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--display-name**|string||display_name|displayName|
 |**--first**|string||first|first|
 |**--initials**|string||initials|initials|
@@ -2346,21 +1645,9 @@ update-name a people user-profile.
 |**--suffix**|string||suffix|suffix|
 |**--title**|string||title|title|
 
-### people user-profile update-note
+#### <a name="users.profileUpdateNotes">Command `az people user-profile update-note`</a>
 
-update-note a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-note|UpdateNotes|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateNotes">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2371,30 +1658,18 @@ update-note a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--detail**|object|itemBody|detail|detail|
 |**--display-name**|string||display_name|displayName|
 
-### people user-profile update-patent
+#### <a name="users.profileUpdatePatents">Command `az people user-profile update-patent`</a>
 
-update-patent a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-patent|UpdatePatents|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdatePatents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2405,12 +1680,12 @@ update-patent a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
 |**--is-pending**|boolean||is_pending|isPending|
@@ -2419,21 +1694,9 @@ update-patent a people user-profile.
 |**--number**|string||number|number|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile update-phone
+#### <a name="users.profileUpdatePhones">Command `az people user-profile update-phone`</a>
 
-update-phone a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-phone|UpdatePhones|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdatePhones">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2444,31 +1707,19 @@ update-phone a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--display-name**|string||display_name|displayName|
 |**--number**|string||number|number|
 |**--type**|choice||type|type|
 
-### people user-profile update-position
+#### <a name="users.profileUpdatePositions">Command `az people user-profile update-position`</a>
 
-update-position a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-position|UpdatePositions|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdatePositions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2479,39 +1730,27 @@ update-position a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--categories**|array||categories|categories|
 |**--colleagues**|array||colleagues|colleagues|
 |**--is-current**|boolean||is_current|isCurrent|
 |**--manager**|object|relatedPerson|manager|manager|
-|**--detail-company**|object|companyDetail|company|company|
-|**--detail-description**|string||description|description|
-|**--detail-end-month-year**|date||end_month_year|endMonthYear|
-|**--detail-job-title**|string||job_title|jobTitle|
-|**--detail-role**|string||role|role|
-|**--detail-start-month-year**|date||start_month_year|startMonthYear|
-|**--detail-summary**|string||summary|summary|
+|**--company**|object|companyDetail|company|company|
+|**--description**|string||description|description|
+|**--end-month-year**|date||end_month_year|endMonthYear|
+|**--job-title**|string||job_title|jobTitle|
+|**--role**|string||role|role|
+|**--start-month-year**|date||start_month_year|startMonthYear|
+|**--summary**|string||summary|summary|
 
-### people user-profile update-project
+#### <a name="users.profileUpdateProjects">Command `az people user-profile update-project`</a>
 
-update-project a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-project|UpdateProjects|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateProjects">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2522,46 +1761,34 @@ update-project a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--categories**|array||categories|categories|
 |**--collaboration-tags**|array||collaboration_tags|collaborationTags|
 |**--colleagues**|array||colleagues|colleagues|
 |**--display-name**|string||display_name|displayName|
 |**--sponsors**|array||sponsors|sponsors|
-|**--detail-company**|object|companyDetail|company|company|
-|**--detail-description**|string||description|description|
-|**--detail-end-month-year**|date||end_month_year|endMonthYear|
-|**--detail-job-title**|string||job_title|jobTitle|
-|**--detail-role**|string||role|role|
-|**--detail-start-month-year**|date||start_month_year|startMonthYear|
-|**--detail-summary**|string||summary|summary|
-|**--client-address**|object|physicalAddress|address|address|
-|**--client-department**|string||department|department|
-|**--client-display-name**|string||microsoft_graph_company_detail_display_name|displayName|
-|**--client-office-location**|string||office_location|officeLocation|
-|**--client-pronunciation**|string||pronunciation|pronunciation|
-|**--client-web-url**|string||web_url|webUrl|
+|**--company**|object|companyDetail|company|company|
+|**--description**|string||description|description|
+|**--end-month-year**|date||end_month_year|endMonthYear|
+|**--job-title**|string||job_title|jobTitle|
+|**--role**|string||role|role|
+|**--start-month-year**|date||start_month_year|startMonthYear|
+|**--summary**|string||summary|summary|
+|**--address**|object|physicalAddress|address|address|
+|**--department**|string||department|department|
+|**--microsoft-graph-company-detail-display-name**|string||microsoft_graph_company_detail_display_name|displayName|
+|**--office-location**|string||office_location|officeLocation|
+|**--pronunciation**|string||pronunciation|pronunciation|
+|**--web-url**|string||web_url|webUrl|
 
-### people user-profile update-publication
+#### <a name="users.profileUpdatePublications">Command `az people user-profile update-publication`</a>
 
-update-publication a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-publication|UpdatePublications|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdatePublications">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2572,12 +1799,12 @@ update-publication a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
 |**--published-date**|date||published_date|publishedDate|
@@ -2585,21 +1812,9 @@ update-publication a people user-profile.
 |**--thumbnail-url**|string||thumbnail_url|thumbnailUrl|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile update-skill
+#### <a name="users.profileUpdateSkills">Command `az people user-profile update-skill`</a>
 
-update-skill a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-skill|UpdateSkills|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateSkills">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2610,33 +1825,21 @@ update-skill a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--categories**|array||categories|categories|
 |**--collaboration-tags**|array||collaboration_tags|collaborationTags|
 |**--display-name**|string||display_name|displayName|
 |**--proficiency**|choice||proficiency|proficiency|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile update-web-account
+#### <a name="users.profileUpdateWebAccounts">Command `az people user-profile update-web-account`</a>
 
-update-web-account a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-web-account|UpdateWebAccounts|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateWebAccounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2647,33 +1850,21 @@ update-web-account a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--description**|string||description|description|
 |**--service**|object|serviceInformation|service|service|
 |**--status-message**|string||status_message|statusMessage|
 |**--microsoft-graph-web-account-user-id**|string||microsoft_graph_web_account_user_id|userId|
 |**--web-url**|string||web_url|webUrl|
 
-### people user-profile update-website
+#### <a name="users.profileUpdateWebsites">Command `az people user-profile update-website`</a>
 
-update-website a people user-profile.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-profile|users.profile|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-website|UpdateWebsites|
-
-#### Parameters
+##### <a name="Parametersusers.profileUpdateWebsites">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -2684,12 +1875,12 @@ update-website a people user-profile.
 |**--inference**|object|inferenceData|inference|inference|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 |**--source**|object|personDataSources|source|source|
-|**--last-modified-by-application**|object|identity|application|application|
-|**--last-modified-by-device**|object|identity|device|device|
-|**--last-modified-by-user**|object|identity|user|user|
-|**--created-by-application**|object|identity|microsoft_graph_identity_application|application|
-|**--created-by-device**|object|identity|microsoft_graph_identity_device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 |**--categories**|array||categories|categories|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|

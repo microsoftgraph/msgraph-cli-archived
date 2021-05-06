@@ -1982,9 +1982,6 @@ class MicrosoftGraphAttendeeBase(MicrosoftGraphRecipient):
 class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
     """attendee.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param email_address: emailAddress.
     :type email_address: ~files.models.MicrosoftGraphEmailAddress
     :param type:  Possible values include: "required", "optional", "resource".
@@ -1999,7 +1996,6 @@ class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'type': {'key': 'type', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -2012,7 +2008,6 @@ class MicrosoftGraphAttendee(MicrosoftGraphAttendeeBase):
         **kwargs
     ):
         super(MicrosoftGraphAttendee, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.proposed_new_time = kwargs.get('proposed_new_time', None)
         self.status = kwargs.get('status', None)
@@ -2323,114 +2318,44 @@ class MicrosoftGraphBaseItem(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param created_by: identitySet.
+    :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~files.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~files.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~files.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -2439,34 +2364,17 @@ class MicrosoftGraphBaseItem(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphBaseItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
         self.description = kwargs.get('description', None)
         self.e_tag = kwargs.get('e_tag', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.name = kwargs.get('name', None)
+        self.parent_reference = kwargs.get('parent_reference', None)
         self.web_url = kwargs.get('web_url', None)
         self.created_by_user = kwargs.get('created_by_user', None)
         self.last_modified_by_user = kwargs.get('last_modified_by_user', None)
-        self.drive_id = kwargs.get('drive_id', None)
-        self.drive_type = kwargs.get('drive_type', None)
-        self.id_parent_reference_id = kwargs.get('id_parent_reference_id', None)
-        self.name_parent_reference_name = kwargs.get('name_parent_reference_name', None)
-        self.path = kwargs.get('path', None)
-        self.share_id = kwargs.get('share_id', None)
-        self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
-        self.site_id = kwargs.get('site_id', None)
-        self.display_name_last_modified_by_user_display_name = kwargs.get('display_name_last_modified_by_user_display_name', None)
-        self.id_last_modified_by_user_id = kwargs.get('id_last_modified_by_user_id', None)
-        self.display_name_last_modified_by_device_display_name = kwargs.get('display_name_last_modified_by_device_display_name', None)
-        self.id_last_modified_by_device_id = kwargs.get('id_last_modified_by_device_id', None)
-        self.display_name_last_modified_by_application_display_name = kwargs.get('display_name_last_modified_by_application_display_name', None)
-        self.id_last_modified_by_application_id = kwargs.get('id_last_modified_by_application_id', None)
-        self.display_name_created_by_user_display_name = kwargs.get('display_name_created_by_user_display_name', None)
-        self.id_created_by_user_id = kwargs.get('id_created_by_user_id', None)
-        self.display_name_created_by_device_display_name = kwargs.get('display_name_created_by_device_display_name', None)
-        self.id_created_by_device_id = kwargs.get('id_created_by_device_id', None)
-        self.display_name_created_by_application_display_name = kwargs.get('display_name_created_by_application_display_name', None)
-        self.id_created_by_application_id = kwargs.get('id_created_by_application_id', None)
 
 
 class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
@@ -2477,44 +2385,20 @@ class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the version was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
     :type publication: ~files.models.MicrosoftGraphPublicationFacet
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -2523,14 +2407,9 @@ class MicrosoftGraphBaseItemVersion(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphBaseItemVersion, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.last_modified_by = kwargs.get('last_modified_by', None)
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.publication = kwargs.get('publication', None)
-        self.display_name_last_modified_by_user_display_name = kwargs.get('display_name_last_modified_by_user_display_name', None)
-        self.id_last_modified_by_user_id = kwargs.get('id_last_modified_by_user_id', None)
-        self.display_name_last_modified_by_device_display_name = kwargs.get('display_name_last_modified_by_device_display_name', None)
-        self.id_last_modified_by_device_id = kwargs.get('id_last_modified_by_device_id', None)
-        self.display_name_last_modified_by_application_display_name = kwargs.get('display_name_last_modified_by_application_display_name', None)
-        self.id_last_modified_by_application_id = kwargs.get('id_last_modified_by_application_id', None)
 
 
 class MicrosoftGraphBundle(msrest.serialization.Model):
@@ -3505,6 +3384,8 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
     :param column_group: For site columns, the name of the group this column belongs to. Helps
      organize related columns.
     :type column_group: str
+    :param currency: currencyColumn.
+    :type currency: ~files.models.MicrosoftGraphCurrencyColumn
     :param date_time: dateTimeColumn.
     :type date_time: ~files.models.MicrosoftGraphDateTimeColumn
     :param default_value: defaultColumnValue.
@@ -3537,8 +3418,6 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
     :type required: bool
     :param text: textColumn.
     :type text: ~files.models.MicrosoftGraphTextColumn
-    :param locale: Specifies the locale from which to infer the currency symbol.
-    :type locale: str
     """
 
     _attribute_map = {
@@ -3548,6 +3427,7 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
         'calculated': {'key': 'calculated', 'type': 'MicrosoftGraphCalculatedColumn'},
         'choice': {'key': 'choice', 'type': 'MicrosoftGraphChoiceColumn'},
         'column_group': {'key': 'columnGroup', 'type': 'str'},
+        'currency': {'key': 'currency', 'type': 'MicrosoftGraphCurrencyColumn'},
         'date_time': {'key': 'dateTime', 'type': 'MicrosoftGraphDateTimeColumn'},
         'default_value': {'key': 'defaultValue', 'type': 'MicrosoftGraphDefaultColumnValue'},
         'description': {'key': 'description', 'type': 'str'},
@@ -3563,7 +3443,6 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
         'read_only': {'key': 'readOnly', 'type': 'bool'},
         'required': {'key': 'required', 'type': 'bool'},
         'text': {'key': 'text', 'type': 'MicrosoftGraphTextColumn'},
-        'locale': {'key': 'currency.locale', 'type': 'str'},
     }
 
     def __init__(
@@ -3576,6 +3455,7 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
         self.calculated = kwargs.get('calculated', None)
         self.choice = kwargs.get('choice', None)
         self.column_group = kwargs.get('column_group', None)
+        self.currency = kwargs.get('currency', None)
         self.date_time = kwargs.get('date_time', None)
         self.default_value = kwargs.get('default_value', None)
         self.description = kwargs.get('description', None)
@@ -3591,7 +3471,6 @@ class MicrosoftGraphColumnDefinition(MicrosoftGraphEntity):
         self.read_only = kwargs.get('read_only', None)
         self.required = kwargs.get('required', None)
         self.text = kwargs.get('text', None)
-        self.locale = kwargs.get('locale', None)
 
 
 class MicrosoftGraphColumnLink(MicrosoftGraphEntity):
@@ -3921,9 +3800,6 @@ class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
 class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     """contact.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -4030,7 +3906,6 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -4081,7 +3956,6 @@ class MicrosoftGraphContact(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphContact, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assistant_name = kwargs.get('assistant_name', None)
         self.birthday = kwargs.get('birthday', None)
@@ -4193,6 +4067,8 @@ class MicrosoftGraphContentType(MicrosoftGraphEntity):
     :type group: str
     :param hidden: Indicates whether the content type is hidden in the list's 'New' menu.
     :type hidden: bool
+    :param inherited_from: itemReference.
+    :type inherited_from: ~files.models.MicrosoftGraphItemReference
     :param name: The name of the content type.
     :type name: str
     :param order: contentTypeOrder.
@@ -4207,23 +4083,6 @@ class MicrosoftGraphContentType(MicrosoftGraphEntity):
     :type sealed: bool
     :param column_links: The collection of columns that are required by this content type.
     :type column_links: list[~files.models.MicrosoftGraphColumnLink]
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_inherited_from_id: Unique identifier of the item in the drive. Read-only.
-    :type id_inherited_from_id: str
-    :param name_inherited_from_name: The name of the item being referenced. Read-only.
-    :type name_inherited_from_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
     """
 
     _attribute_map = {
@@ -4232,20 +4091,13 @@ class MicrosoftGraphContentType(MicrosoftGraphEntity):
         'description': {'key': 'description', 'type': 'str'},
         'group': {'key': 'group', 'type': 'str'},
         'hidden': {'key': 'hidden', 'type': 'bool'},
+        'inherited_from': {'key': 'inheritedFrom', 'type': 'MicrosoftGraphItemReference'},
         'name': {'key': 'name', 'type': 'str'},
         'order': {'key': 'order', 'type': 'MicrosoftGraphContentTypeOrder'},
         'parent_id': {'key': 'parentId', 'type': 'str'},
         'read_only': {'key': 'readOnly', 'type': 'bool'},
         'sealed': {'key': 'sealed', 'type': 'bool'},
         'column_links': {'key': 'columnLinks', 'type': '[MicrosoftGraphColumnLink]'},
-        'drive_id': {'key': 'inheritedFrom.driveId', 'type': 'str'},
-        'drive_type': {'key': 'inheritedFrom.driveType', 'type': 'str'},
-        'id_inherited_from_id': {'key': 'inheritedFrom.id', 'type': 'str'},
-        'name_inherited_from_name': {'key': 'inheritedFrom.name', 'type': 'str'},
-        'path': {'key': 'inheritedFrom.path', 'type': 'str'},
-        'share_id': {'key': 'inheritedFrom.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'inheritedFrom.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'inheritedFrom.siteId', 'type': 'str'},
     }
 
     def __init__(
@@ -4257,20 +4109,13 @@ class MicrosoftGraphContentType(MicrosoftGraphEntity):
         self.description = kwargs.get('description', None)
         self.group = kwargs.get('group', None)
         self.hidden = kwargs.get('hidden', None)
+        self.inherited_from = kwargs.get('inherited_from', None)
         self.name = kwargs.get('name', None)
         self.order = kwargs.get('order', None)
         self.parent_id = kwargs.get('parent_id', None)
         self.read_only = kwargs.get('read_only', None)
         self.sealed = kwargs.get('sealed', None)
         self.column_links = kwargs.get('column_links', None)
-        self.drive_id = kwargs.get('drive_id', None)
-        self.drive_type = kwargs.get('drive_type', None)
-        self.id_inherited_from_id = kwargs.get('id_inherited_from_id', None)
-        self.name_inherited_from_name = kwargs.get('name_inherited_from_name', None)
-        self.path = kwargs.get('path', None)
-        self.share_id = kwargs.get('share_id', None)
-        self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
-        self.site_id = kwargs.get('site_id', None)
 
 
 class MicrosoftGraphContentTypeInfo(msrest.serialization.Model):
@@ -4747,9 +4592,6 @@ class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
 class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -4868,7 +4710,6 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -4918,7 +4759,6 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphDevice, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.account_enabled = kwargs.get('account_enabled', None)
         self.alternative_security_ids = kwargs.get('alternative_security_ids', None)
@@ -5805,84 +5645,30 @@ class MicrosoftGraphDirectorySetting(MicrosoftGraphEntity):
 class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     """drive.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~files.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~files.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~files.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -5890,6 +5676,10 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
      drives will return personal. OneDrive for Business will return business. SharePoint document
      libraries will return documentLibrary. Read-only.
     :type drive_type: str
+    :param owner: identitySet.
+    :type owner: ~files.models.MicrosoftGraphIdentitySet
+    :param quota: quota.
+    :type quota: ~files.models.MicrosoftGraphQuota
     :param share_point_ids: sharepointIds.
     :type share_point_ids: ~files.models.MicrosoftGraphSharepointIds
     :param system: systemFacet.
@@ -5902,239 +5692,40 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     :type following: list[~files.models.MicrosoftGraphDriveItem]
     :param items: All items contained in the drive. Read-only. Nullable.
     :type items: list[~files.models.MicrosoftGraphDriveItem]
+    :param list: list.
+    :type list: ~files.models.MicrosoftGraphList
     :param root: driveItem.
     :type root: ~files.models.MicrosoftGraphDriveItem
     :param special: Collection of common folders available in OneDrive. Read-only. Nullable.
     :type special: list[~files.models.MicrosoftGraphDriveItem]
-    :param id_list_id: Read-only.
-    :type id_list_id: str
-    :param created_date_time_list_created_date_time: Date and time of item creation. Read-only.
-    :type created_date_time_list_created_date_time: ~datetime.datetime
-    :param description_list_description: Provides a user-visible description of the item. Optional.
-    :type description_list_description: str
-    :param e_tag_list_e_tag: ETag for the item. Read-only.
-    :type e_tag_list_e_tag: str
-    :param last_modified_date_time_list_last_modified_date_time: Date and time the item was last
-     modified. Read-only.
-    :type last_modified_date_time_list_last_modified_date_time: ~datetime.datetime
-    :param name_list_name: The name of the item. Read-write.
-    :type name_list_name: str
-    :param web_url_list_web_url: URL that displays the resource in the browser. Read-only.
-    :type web_url_list_web_url: str
-    :param created_by_user_list_created_by_user: Represents an Azure Active Directory user object.
-    :type created_by_user_list_created_by_user: ~files.models.MicrosoftGraphUser
-    :param last_modified_by_user_list_last_modified_by_user: Represents an Azure Active Directory
-     user object.
-    :type last_modified_by_user_list_last_modified_by_user: ~files.models.MicrosoftGraphUser
-    :param drive_id_list_parent_reference_drive_id: Unique identifier of the drive instance that
-     contains the item. Read-only.
-    :type drive_id_list_parent_reference_drive_id: str
-    :param drive_type_list_parent_reference_drive_type: Identifies the type of drive. See [drive][]
-     resource for values.
-    :type drive_type_list_parent_reference_drive_type: str
-    :param id_list_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_list_parent_reference_id: str
-    :param name_list_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_list_parent_reference_name: str
-    :param path_list_parent_reference_path: Path that can be used to navigate to the item. Read-
-     only.
-    :type path_list_parent_reference_path: str
-    :param share_id_list_parent_reference_share_id: A unique identifier for a shared resource that
-     can be accessed via the [Shares][] API.
-    :type share_id_list_parent_reference_share_id: str
-    :param sharepoint_ids_list_parent_reference_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_list_parent_reference_sharepoint_ids:
-     ~files.models.MicrosoftGraphSharepointIds
-    :param site_id_list_parent_reference_site_id:
-    :type site_id_list_parent_reference_site_id: str
-    :param display_name_list_last_modified_by_user_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_list_last_modified_by_user_display_name: str
-    :param id_list_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_list_last_modified_by_user_id: str
-    :param display_name_list_last_modified_by_device_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_list_last_modified_by_device_display_name: str
-    :param id_list_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_list_last_modified_by_device_id: str
-    :param display_name_list_last_modified_by_application_display_name: The identity's display
-     name. Note that this may not always be available or up to date. For example, if a user changes
-     their display name, the API may show the new value in a future response, but the items
-     associated with the user won't show up as having changed when using delta.
-    :type display_name_list_last_modified_by_application_display_name: str
-    :param id_list_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_list_last_modified_by_application_id: str
-    :param display_name_list_created_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_list_created_by_user_display_name: str
-    :param id_list_created_by_user_id: Unique identifier for the identity.
-    :type id_list_created_by_user_id: str
-    :param display_name_list_created_by_device_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_list_created_by_device_display_name: str
-    :param id_list_created_by_device_id: Unique identifier for the identity.
-    :type id_list_created_by_device_id: str
-    :param display_name_list_created_by_application_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_list_created_by_application_display_name: str
-    :param id_list_created_by_application_id: Unique identifier for the identity.
-    :type id_list_created_by_application_id: str
-    :param display_name_list_display_name: The displayable title of the list.
-    :type display_name_list_display_name: str
-    :param list: listInfo.
-    :type list: ~files.models.MicrosoftGraphListInfo
-    :param sharepoint_ids_list_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_list_sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
-    :param system_list_system: systemFacet.
-    :type system_list_system: dict[str, object]
-    :param activities_list_activities:
-    :type activities_list_activities: list[~files.models.MicrosoftGraphItemActivityOld]
-    :param columns: The collection of field definitions for this list.
-    :type columns: list[~files.models.MicrosoftGraphColumnDefinition]
-    :param content_types: The collection of content types present in this list.
-    :type content_types: list[~files.models.MicrosoftGraphContentType]
-    :param drive: drive.
-    :type drive: ~files.models.MicrosoftGraphDrive
-    :param items_list_items: All items contained in the list.
-    :type items_list_items: list[~files.models.MicrosoftGraphListItem]
-    :param subscriptions: The set of subscriptions on the list.
-    :type subscriptions: list[~files.models.MicrosoftGraphSubscription]
-    :param deleted: Total space consumed by files in the recycle bin, in bytes. Read-only.
-    :type deleted: long
-    :param remaining: Total space remaining before reaching the quota limit, in bytes. Read-only.
-    :type remaining: long
-    :param state: Enumeration value that indicates the state of the storage space. Read-only.
-    :type state: str
-    :param storage_plan_information: storagePlanInformation.
-    :type storage_plan_information: ~files.models.MicrosoftGraphStoragePlanInformation
-    :param total: Total allowed storage space, in bytes. Read-only.
-    :type total: long
-    :param used: Total space used, in bytes. Read-only.
-    :type used: long
-    :param display_name_owner_user_display_name: The identity's display name. Note that this may
-     not always be available or up to date. For example, if a user changes their display name, the
-     API may show the new value in a future response, but the items associated with the user won't
-     show up as having changed when using delta.
-    :type display_name_owner_user_display_name: str
-    :param id_owner_user_id: Unique identifier for the identity.
-    :type id_owner_user_id: str
-    :param display_name_owner_device_display_name: The identity's display name. Note that this may
-     not always be available or up to date. For example, if a user changes their display name, the
-     API may show the new value in a future response, but the items associated with the user won't
-     show up as having changed when using delta.
-    :type display_name_owner_device_display_name: str
-    :param id_owner_device_id: Unique identifier for the identity.
-    :type id_owner_device_id: str
-    :param display_name_owner_application_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_owner_application_display_name: str
-    :param id_owner_application_id: Unique identifier for the identity.
-    :type id_owner_application_id: str
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'drive_type': {'key': 'driveType', 'type': 'str'},
+        'owner': {'key': 'owner', 'type': 'MicrosoftGraphIdentitySet'},
+        'quota': {'key': 'quota', 'type': 'MicrosoftGraphQuota'},
         'share_point_ids': {'key': 'sharePointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'system': {'key': 'system', 'type': '{object}'},
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphItemActivityOld]'},
         'bundles': {'key': 'bundles', 'type': '[MicrosoftGraphDriveItem]'},
         'following': {'key': 'following', 'type': '[MicrosoftGraphDriveItem]'},
         'items': {'key': 'items', 'type': '[MicrosoftGraphDriveItem]'},
+        'list': {'key': 'list', 'type': 'MicrosoftGraphList'},
         'root': {'key': 'root', 'type': 'MicrosoftGraphDriveItem'},
         'special': {'key': 'special', 'type': '[MicrosoftGraphDriveItem]'},
-        'id_list_id': {'key': 'list.id', 'type': 'str'},
-        'created_date_time_list_created_date_time': {'key': 'list.createdDateTime', 'type': 'iso-8601'},
-        'description_list_description': {'key': 'list.description', 'type': 'str'},
-        'e_tag_list_e_tag': {'key': 'list.eTag', 'type': 'str'},
-        'last_modified_date_time_list_last_modified_date_time': {'key': 'list.lastModifiedDateTime', 'type': 'iso-8601'},
-        'name_list_name': {'key': 'list.name', 'type': 'str'},
-        'web_url_list_web_url': {'key': 'list.webUrl', 'type': 'str'},
-        'created_by_user_list_created_by_user': {'key': 'list.createdByUser', 'type': 'MicrosoftGraphUser'},
-        'last_modified_by_user_list_last_modified_by_user': {'key': 'list.lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id_list_parent_reference_drive_id': {'key': 'list.parentReference.driveId', 'type': 'str'},
-        'drive_type_list_parent_reference_drive_type': {'key': 'list.parentReference.driveType', 'type': 'str'},
-        'id_list_parent_reference_id': {'key': 'list.parentReference.id', 'type': 'str'},
-        'name_list_parent_reference_name': {'key': 'list.parentReference.name', 'type': 'str'},
-        'path_list_parent_reference_path': {'key': 'list.parentReference.path', 'type': 'str'},
-        'share_id_list_parent_reference_share_id': {'key': 'list.parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids_list_parent_reference_sharepoint_ids': {'key': 'list.parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id_list_parent_reference_site_id': {'key': 'list.parentReference.siteId', 'type': 'str'},
-        'display_name_list_last_modified_by_user_display_name': {'key': 'list.lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_list_last_modified_by_user_id': {'key': 'list.lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_list_last_modified_by_device_display_name': {'key': 'list.lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_list_last_modified_by_device_id': {'key': 'list.lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_list_last_modified_by_application_display_name': {'key': 'list.lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_list_last_modified_by_application_id': {'key': 'list.lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_list_created_by_user_display_name': {'key': 'list.createdBy.user.displayName', 'type': 'str'},
-        'id_list_created_by_user_id': {'key': 'list.createdBy.user.id', 'type': 'str'},
-        'display_name_list_created_by_device_display_name': {'key': 'list.createdBy.device.displayName', 'type': 'str'},
-        'id_list_created_by_device_id': {'key': 'list.createdBy.device.id', 'type': 'str'},
-        'display_name_list_created_by_application_display_name': {'key': 'list.createdBy.application.displayName', 'type': 'str'},
-        'id_list_created_by_application_id': {'key': 'list.createdBy.application.id', 'type': 'str'},
-        'display_name_list_display_name': {'key': 'list.displayName', 'type': 'str'},
-        'list': {'key': 'list.list', 'type': 'MicrosoftGraphListInfo'},
-        'sharepoint_ids_list_sharepoint_ids': {'key': 'list.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'system_list_system': {'key': 'list.system', 'type': '{object}'},
-        'activities_list_activities': {'key': 'list.activities', 'type': '[MicrosoftGraphItemActivityOld]'},
-        'columns': {'key': 'list.columns', 'type': '[MicrosoftGraphColumnDefinition]'},
-        'content_types': {'key': 'list.contentTypes', 'type': '[MicrosoftGraphContentType]'},
-        'drive': {'key': 'list.drive', 'type': 'MicrosoftGraphDrive'},
-        'items_list_items': {'key': 'list.items', 'type': '[MicrosoftGraphListItem]'},
-        'subscriptions': {'key': 'list.subscriptions', 'type': '[MicrosoftGraphSubscription]'},
-        'deleted': {'key': 'quota.deleted', 'type': 'long'},
-        'remaining': {'key': 'quota.remaining', 'type': 'long'},
-        'state': {'key': 'quota.state', 'type': 'str'},
-        'storage_plan_information': {'key': 'quota.storagePlanInformation', 'type': 'MicrosoftGraphStoragePlanInformation'},
-        'total': {'key': 'quota.total', 'type': 'long'},
-        'used': {'key': 'quota.used', 'type': 'long'},
-        'display_name_owner_user_display_name': {'key': 'owner.user.displayName', 'type': 'str'},
-        'id_owner_user_id': {'key': 'owner.user.id', 'type': 'str'},
-        'display_name_owner_device_display_name': {'key': 'owner.device.displayName', 'type': 'str'},
-        'id_owner_device_id': {'key': 'owner.device.id', 'type': 'str'},
-        'display_name_owner_application_display_name': {'key': 'owner.application.displayName', 'type': 'str'},
-        'id_owner_application_id': {'key': 'owner.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -6143,180 +5734,99 @@ class MicrosoftGraphDrive(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphDrive, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.drive_type = kwargs.get('drive_type', None)
+        self.owner = kwargs.get('owner', None)
+        self.quota = kwargs.get('quota', None)
         self.share_point_ids = kwargs.get('share_point_ids', None)
         self.system = kwargs.get('system', None)
         self.activities = kwargs.get('activities', None)
         self.bundles = kwargs.get('bundles', None)
         self.following = kwargs.get('following', None)
         self.items = kwargs.get('items', None)
+        self.list = kwargs.get('list', None)
         self.root = kwargs.get('root', None)
         self.special = kwargs.get('special', None)
-        self.id_list_id = kwargs.get('id_list_id', None)
-        self.created_date_time_list_created_date_time = kwargs.get('created_date_time_list_created_date_time', None)
-        self.description_list_description = kwargs.get('description_list_description', None)
-        self.e_tag_list_e_tag = kwargs.get('e_tag_list_e_tag', None)
-        self.last_modified_date_time_list_last_modified_date_time = kwargs.get('last_modified_date_time_list_last_modified_date_time', None)
-        self.name_list_name = kwargs.get('name_list_name', None)
-        self.web_url_list_web_url = kwargs.get('web_url_list_web_url', None)
-        self.created_by_user_list_created_by_user = kwargs.get('created_by_user_list_created_by_user', None)
-        self.last_modified_by_user_list_last_modified_by_user = kwargs.get('last_modified_by_user_list_last_modified_by_user', None)
-        self.drive_id_list_parent_reference_drive_id = kwargs.get('drive_id_list_parent_reference_drive_id', None)
-        self.drive_type_list_parent_reference_drive_type = kwargs.get('drive_type_list_parent_reference_drive_type', None)
-        self.id_list_parent_reference_id = kwargs.get('id_list_parent_reference_id', None)
-        self.name_list_parent_reference_name = kwargs.get('name_list_parent_reference_name', None)
-        self.path_list_parent_reference_path = kwargs.get('path_list_parent_reference_path', None)
-        self.share_id_list_parent_reference_share_id = kwargs.get('share_id_list_parent_reference_share_id', None)
-        self.sharepoint_ids_list_parent_reference_sharepoint_ids = kwargs.get('sharepoint_ids_list_parent_reference_sharepoint_ids', None)
-        self.site_id_list_parent_reference_site_id = kwargs.get('site_id_list_parent_reference_site_id', None)
-        self.display_name_list_last_modified_by_user_display_name = kwargs.get('display_name_list_last_modified_by_user_display_name', None)
-        self.id_list_last_modified_by_user_id = kwargs.get('id_list_last_modified_by_user_id', None)
-        self.display_name_list_last_modified_by_device_display_name = kwargs.get('display_name_list_last_modified_by_device_display_name', None)
-        self.id_list_last_modified_by_device_id = kwargs.get('id_list_last_modified_by_device_id', None)
-        self.display_name_list_last_modified_by_application_display_name = kwargs.get('display_name_list_last_modified_by_application_display_name', None)
-        self.id_list_last_modified_by_application_id = kwargs.get('id_list_last_modified_by_application_id', None)
-        self.display_name_list_created_by_user_display_name = kwargs.get('display_name_list_created_by_user_display_name', None)
-        self.id_list_created_by_user_id = kwargs.get('id_list_created_by_user_id', None)
-        self.display_name_list_created_by_device_display_name = kwargs.get('display_name_list_created_by_device_display_name', None)
-        self.id_list_created_by_device_id = kwargs.get('id_list_created_by_device_id', None)
-        self.display_name_list_created_by_application_display_name = kwargs.get('display_name_list_created_by_application_display_name', None)
-        self.id_list_created_by_application_id = kwargs.get('id_list_created_by_application_id', None)
-        self.display_name_list_display_name = kwargs.get('display_name_list_display_name', None)
-        self.list = kwargs.get('list', None)
-        self.sharepoint_ids_list_sharepoint_ids = kwargs.get('sharepoint_ids_list_sharepoint_ids', None)
-        self.system_list_system = kwargs.get('system_list_system', None)
-        self.activities_list_activities = kwargs.get('activities_list_activities', None)
-        self.columns = kwargs.get('columns', None)
-        self.content_types = kwargs.get('content_types', None)
-        self.drive = kwargs.get('drive', None)
-        self.items_list_items = kwargs.get('items_list_items', None)
-        self.subscriptions = kwargs.get('subscriptions', None)
-        self.deleted = kwargs.get('deleted', None)
-        self.remaining = kwargs.get('remaining', None)
-        self.state = kwargs.get('state', None)
-        self.storage_plan_information = kwargs.get('storage_plan_information', None)
-        self.total = kwargs.get('total', None)
-        self.used = kwargs.get('used', None)
-        self.display_name_owner_user_display_name = kwargs.get('display_name_owner_user_display_name', None)
-        self.id_owner_user_id = kwargs.get('id_owner_user_id', None)
-        self.display_name_owner_device_display_name = kwargs.get('display_name_owner_device_display_name', None)
-        self.id_owner_device_id = kwargs.get('id_owner_device_id', None)
-        self.display_name_owner_application_display_name = kwargs.get('display_name_owner_application_display_name', None)
-        self.id_owner_application_id = kwargs.get('id_owner_application_id', None)
 
 
 class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     """driveItem.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~files.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~files.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~files.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param audio: audio.
     :type audio: ~files.models.MicrosoftGraphAudio
+    :param bundle: bundle.
+    :type bundle: ~files.models.MicrosoftGraphBundle
     :param content: The content stream, if the item represents a file.
     :type content: bytes
     :param c_tag: An eTag for the content of the item. This eTag is not changed if only the
      metadata is changed. Note This property is not returned if the item is a folder. Read-only.
     :type c_tag: str
+    :param deleted: deleted.
+    :type deleted: ~files.models.MicrosoftGraphDeleted
+    :param file: file.
+    :type file: ~files.models.MicrosoftGraphFile
     :param file_system_info: fileSystemInfo.
     :type file_system_info: ~files.models.MicrosoftGraphFileSystemInfo
+    :param folder: folder.
+    :type folder: ~files.models.MicrosoftGraphFolder
     :param image: image.
     :type image: ~files.models.MicrosoftGraphImage
     :param location: geoCoordinates.
     :type location: ~files.models.MicrosoftGraphGeoCoordinates
+    :param package: package.
+    :type package: ~files.models.MicrosoftGraphPackage
+    :param pending_operations: pendingOperations.
+    :type pending_operations: ~files.models.MicrosoftGraphPendingOperations
     :param photo: photo.
     :type photo: ~files.models.MicrosoftGraphPhoto
     :param publication: publicationFacet.
     :type publication: ~files.models.MicrosoftGraphPublicationFacet
+    :param remote_item: remoteItem.
+    :type remote_item: ~files.models.MicrosoftGraphRemoteItem
     :param root: root.
     :type root: dict[str, object]
+    :param search_result: searchResult.
+    :type search_result: ~files.models.MicrosoftGraphSearchResult
+    :param shared: shared.
+    :type shared: ~files.models.MicrosoftGraphShared
     :param sharepoint_ids: sharepointIds.
     :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
     :param size: Size of the item in bytes. Read-only.
     :type size: long
+    :param special_folder: specialFolder.
+    :type special_folder: ~files.models.MicrosoftGraphSpecialFolder
     :param video: video.
     :type video: ~files.models.MicrosoftGraphVideo
     :param web_dav_url: WebDAV compatible URL for the item.
     :type web_dav_url: str
+    :param workbook: workbook.
+    :type workbook: ~files.models.MicrosoftGraphWorkbook
     :param activities: The list of recent activities that took place on this item.
     :type activities: list[~files.models.MicrosoftGraphItemActivityOld]
     :param analytics: itemAnalytics.
@@ -6337,158 +5847,46 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     :param versions: The list of previous versions of the item. For more info, see [getting
      previous versions][]. Read-only. Nullable.
     :type versions: list[~files.models.MicrosoftGraphDriveItemVersion]
-    :param id_workbook_id: Read-only.
-    :type id_workbook_id: str
-    :param application: workbookApplication.
-    :type application: ~files.models.MicrosoftGraphWorkbookApplication
-    :param comments:
-    :type comments: list[~files.models.MicrosoftGraphWorkbookComment]
-    :param functions: workbookFunctions.
-    :type functions: ~files.models.MicrosoftGraphWorkbookFunctions
-    :param names: Represents a collection of workbook scoped named items (named ranges and
-     constants). Read-only.
-    :type names: list[~files.models.MicrosoftGraphWorkbookNamedItem]
-    :param operations: The status of workbook operations. Getting an operation collection is not
-     supported, but you can get the status of a long-running operation if the Location header is
-     returned in the response. Read-only.
-    :type operations: list[~files.models.MicrosoftGraphWorkbookOperation]
-    :param tables: Represents a collection of tables associated with the workbook. Read-only.
-    :type tables: list[~files.models.MicrosoftGraphWorkbookTable]
-    :param worksheets: Represents a collection of worksheets associated with the workbook. Read-
-     only.
-    :type worksheets: list[~files.models.MicrosoftGraphWorkbookWorksheet]
-    :param name_special_folder_name: The unique identifier for this item in the /drive/special
-     collection.
-    :type name_special_folder_name: str
-    :param owner: identitySet.
-    :type owner: ~files.models.MicrosoftGraphIdentitySet
-    :param scope: Indicates the scope of how the item is shared: anonymous, organization, or users.
-     Read-only.
-    :type scope: str
-    :param shared_by: identitySet.
-    :type shared_by: ~files.models.MicrosoftGraphIdentitySet
-    :param shared_date_time: The UTC date and time when the item was shared. Read-only.
-    :type shared_date_time: ~datetime.datetime
-    :param on_click_telemetry_url: A callback URL that can be used to record telemetry information.
-     The application should issue a GET on this URL if the user interacts with this item to improve
-     the quality of results.
-    :type on_click_telemetry_url: str
-    :param created_by: identitySet.
-    :type created_by: ~files.models.MicrosoftGraphIdentitySet
-    :param created_date_time_remote_item_created_date_time: Date and time of item creation. Read-
-     only.
-    :type created_date_time_remote_item_created_date_time: ~datetime.datetime
-    :param file: file.
-    :type file: ~files.models.MicrosoftGraphFile
-    :param file_system_info_remote_item_file_system_info: fileSystemInfo.
-    :type file_system_info_remote_item_file_system_info: ~files.models.MicrosoftGraphFileSystemInfo
-    :param folder: folder.
-    :type folder: ~files.models.MicrosoftGraphFolder
-    :param id_remote_item_id: Unique identifier for the remote item in its drive. Read-only.
-    :type id_remote_item_id: str
-    :param image_remote_item_image: image.
-    :type image_remote_item_image: ~files.models.MicrosoftGraphImage
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
-    :param last_modified_date_time_remote_item_last_modified_date_time: Date and time the item was
-     last modified. Read-only.
-    :type last_modified_date_time_remote_item_last_modified_date_time: ~datetime.datetime
-    :param name_remote_item_name: Optional. Filename of the remote item. Read-only.
-    :type name_remote_item_name: str
-    :param package: package.
-    :type package: ~files.models.MicrosoftGraphPackage
-    :param parent_reference: itemReference.
-    :type parent_reference: ~files.models.MicrosoftGraphItemReference
-    :param shared: shared.
-    :type shared: ~files.models.MicrosoftGraphShared
-    :param sharepoint_ids_remote_item_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_remote_item_sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
-    :param size_remote_item_size: Size of the remote item. Read-only.
-    :type size_remote_item_size: long
-    :param special_folder: specialFolder.
-    :type special_folder: ~files.models.MicrosoftGraphSpecialFolder
-    :param video_remote_item_video: video.
-    :type video_remote_item_video: ~files.models.MicrosoftGraphVideo
-    :param web_dav_url_remote_item_web_dav_url: DAV compatible URL for the item.
-    :type web_dav_url_remote_item_web_dav_url: str
-    :param web_url_remote_item_web_url: URL that displays the resource in the browser. Read-only.
-    :type web_url_remote_item_web_url: str
-    :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
-     Read-only.
-    :type queued_date_time: ~datetime.datetime
-    :param type: A string indicating the type of package. While oneNote is the only currently
-     defined value, you should expect other package types to be returned and handle them
-     accordingly.
-    :type type: str
-    :param child_count_folder_child_count: Number of children contained immediately within this
-     container.
-    :type child_count_folder_child_count: int
-    :param view: folderView.
-    :type view: ~files.models.MicrosoftGraphFolderView
-    :param hashes: hashes.
-    :type hashes: ~files.models.MicrosoftGraphHashes
-    :param mime_type: The MIME type for the file. This is determined by logic on the server and
-     might not be the value provided when the file was uploaded. Read-only.
-    :type mime_type: str
-    :param processing_metadata:
-    :type processing_metadata: bool
-    :param state: Represents the state of the deleted item.
-    :type state: str
-    :param album: album.
-    :type album: ~files.models.MicrosoftGraphAlbum
-    :param child_count_bundle_child_count:
-    :type child_count_bundle_child_count: int
     """
 
-    _validation = {
-        'child_count_folder_child_count': {'maximum': 2147483647, 'minimum': -2147483648},
-        'child_count_bundle_child_count': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'audio': {'key': 'audio', 'type': 'MicrosoftGraphAudio'},
+        'bundle': {'key': 'bundle', 'type': 'MicrosoftGraphBundle'},
         'content': {'key': 'content', 'type': 'base64'},
         'c_tag': {'key': 'cTag', 'type': 'str'},
+        'deleted': {'key': 'deleted', 'type': 'MicrosoftGraphDeleted'},
+        'file': {'key': 'file', 'type': 'MicrosoftGraphFile'},
         'file_system_info': {'key': 'fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
+        'folder': {'key': 'folder', 'type': 'MicrosoftGraphFolder'},
         'image': {'key': 'image', 'type': 'MicrosoftGraphImage'},
         'location': {'key': 'location', 'type': 'MicrosoftGraphGeoCoordinates'},
+        'package': {'key': 'package', 'type': 'MicrosoftGraphPackage'},
+        'pending_operations': {'key': 'pendingOperations', 'type': 'MicrosoftGraphPendingOperations'},
         'photo': {'key': 'photo', 'type': 'MicrosoftGraphPhoto'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
+        'remote_item': {'key': 'remoteItem', 'type': 'MicrosoftGraphRemoteItem'},
         'root': {'key': 'root', 'type': '{object}'},
+        'search_result': {'key': 'searchResult', 'type': 'MicrosoftGraphSearchResult'},
+        'shared': {'key': 'shared', 'type': 'MicrosoftGraphShared'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'size': {'key': 'size', 'type': 'long'},
+        'special_folder': {'key': 'specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
         'video': {'key': 'video', 'type': 'MicrosoftGraphVideo'},
         'web_dav_url': {'key': 'webDavUrl', 'type': 'str'},
+        'workbook': {'key': 'workbook', 'type': 'MicrosoftGraphWorkbook'},
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphItemActivityOld]'},
         'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
         'children': {'key': 'children', 'type': '[MicrosoftGraphDriveItem]'},
@@ -6497,49 +5895,6 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         'subscriptions': {'key': 'subscriptions', 'type': '[MicrosoftGraphSubscription]'},
         'thumbnails': {'key': 'thumbnails', 'type': '[MicrosoftGraphThumbnailSet]'},
         'versions': {'key': 'versions', 'type': '[MicrosoftGraphDriveItemVersion]'},
-        'id_workbook_id': {'key': 'workbook.id', 'type': 'str'},
-        'application': {'key': 'workbook.application', 'type': 'MicrosoftGraphWorkbookApplication'},
-        'comments': {'key': 'workbook.comments', 'type': '[MicrosoftGraphWorkbookComment]'},
-        'functions': {'key': 'workbook.functions', 'type': 'MicrosoftGraphWorkbookFunctions'},
-        'names': {'key': 'workbook.names', 'type': '[MicrosoftGraphWorkbookNamedItem]'},
-        'operations': {'key': 'workbook.operations', 'type': '[MicrosoftGraphWorkbookOperation]'},
-        'tables': {'key': 'workbook.tables', 'type': '[MicrosoftGraphWorkbookTable]'},
-        'worksheets': {'key': 'workbook.worksheets', 'type': '[MicrosoftGraphWorkbookWorksheet]'},
-        'name_special_folder_name': {'key': 'specialFolder.name', 'type': 'str'},
-        'owner': {'key': 'shared.owner', 'type': 'MicrosoftGraphIdentitySet'},
-        'scope': {'key': 'shared.scope', 'type': 'str'},
-        'shared_by': {'key': 'shared.sharedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'shared_date_time': {'key': 'shared.sharedDateTime', 'type': 'iso-8601'},
-        'on_click_telemetry_url': {'key': 'searchResult.onClickTelemetryUrl', 'type': 'str'},
-        'created_by': {'key': 'remoteItem.createdBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'created_date_time_remote_item_created_date_time': {'key': 'remoteItem.createdDateTime', 'type': 'iso-8601'},
-        'file': {'key': 'remoteItem.file', 'type': 'MicrosoftGraphFile'},
-        'file_system_info_remote_item_file_system_info': {'key': 'remoteItem.fileSystemInfo', 'type': 'MicrosoftGraphFileSystemInfo'},
-        'folder': {'key': 'remoteItem.folder', 'type': 'MicrosoftGraphFolder'},
-        'id_remote_item_id': {'key': 'remoteItem.id', 'type': 'str'},
-        'image_remote_item_image': {'key': 'remoteItem.image', 'type': 'MicrosoftGraphImage'},
-        'last_modified_by': {'key': 'remoteItem.lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'last_modified_date_time_remote_item_last_modified_date_time': {'key': 'remoteItem.lastModifiedDateTime', 'type': 'iso-8601'},
-        'name_remote_item_name': {'key': 'remoteItem.name', 'type': 'str'},
-        'package': {'key': 'remoteItem.package', 'type': 'MicrosoftGraphPackage'},
-        'parent_reference': {'key': 'remoteItem.parentReference', 'type': 'MicrosoftGraphItemReference'},
-        'shared': {'key': 'remoteItem.shared', 'type': 'MicrosoftGraphShared'},
-        'sharepoint_ids_remote_item_sharepoint_ids': {'key': 'remoteItem.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'size_remote_item_size': {'key': 'remoteItem.size', 'type': 'long'},
-        'special_folder': {'key': 'remoteItem.specialFolder', 'type': 'MicrosoftGraphSpecialFolder'},
-        'video_remote_item_video': {'key': 'remoteItem.video', 'type': 'MicrosoftGraphVideo'},
-        'web_dav_url_remote_item_web_dav_url': {'key': 'remoteItem.webDavUrl', 'type': 'str'},
-        'web_url_remote_item_web_url': {'key': 'remoteItem.webUrl', 'type': 'str'},
-        'queued_date_time': {'key': 'pendingOperations.pendingContentUpdate.queuedDateTime', 'type': 'iso-8601'},
-        'type': {'key': 'package.type', 'type': 'str'},
-        'child_count_folder_child_count': {'key': 'folder.childCount', 'type': 'int'},
-        'view': {'key': 'folder.view', 'type': 'MicrosoftGraphFolderView'},
-        'hashes': {'key': 'file.hashes', 'type': 'MicrosoftGraphHashes'},
-        'mime_type': {'key': 'file.mimeType', 'type': 'str'},
-        'processing_metadata': {'key': 'file.processingMetadata', 'type': 'bool'},
-        'state': {'key': 'deleted.state', 'type': 'str'},
-        'album': {'key': 'bundle.album', 'type': 'MicrosoftGraphAlbum'},
-        'child_count_bundle_child_count': {'key': 'bundle.childCount', 'type': 'int'},
     }
 
     def __init__(
@@ -6548,20 +5903,30 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphDriveItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.audio = kwargs.get('audio', None)
+        self.bundle = kwargs.get('bundle', None)
         self.content = kwargs.get('content', None)
         self.c_tag = kwargs.get('c_tag', None)
+        self.deleted = kwargs.get('deleted', None)
+        self.file = kwargs.get('file', None)
         self.file_system_info = kwargs.get('file_system_info', None)
+        self.folder = kwargs.get('folder', None)
         self.image = kwargs.get('image', None)
         self.location = kwargs.get('location', None)
+        self.package = kwargs.get('package', None)
+        self.pending_operations = kwargs.get('pending_operations', None)
         self.photo = kwargs.get('photo', None)
         self.publication = kwargs.get('publication', None)
+        self.remote_item = kwargs.get('remote_item', None)
         self.root = kwargs.get('root', None)
+        self.search_result = kwargs.get('search_result', None)
+        self.shared = kwargs.get('shared', None)
         self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
         self.size = kwargs.get('size', None)
+        self.special_folder = kwargs.get('special_folder', None)
         self.video = kwargs.get('video', None)
         self.web_dav_url = kwargs.get('web_dav_url', None)
+        self.workbook = kwargs.get('workbook', None)
         self.activities = kwargs.get('activities', None)
         self.analytics = kwargs.get('analytics', None)
         self.children = kwargs.get('children', None)
@@ -6570,84 +5935,19 @@ class MicrosoftGraphDriveItem(MicrosoftGraphBaseItem):
         self.subscriptions = kwargs.get('subscriptions', None)
         self.thumbnails = kwargs.get('thumbnails', None)
         self.versions = kwargs.get('versions', None)
-        self.id_workbook_id = kwargs.get('id_workbook_id', None)
-        self.application = kwargs.get('application', None)
-        self.comments = kwargs.get('comments', None)
-        self.functions = kwargs.get('functions', None)
-        self.names = kwargs.get('names', None)
-        self.operations = kwargs.get('operations', None)
-        self.tables = kwargs.get('tables', None)
-        self.worksheets = kwargs.get('worksheets', None)
-        self.name_special_folder_name = kwargs.get('name_special_folder_name', None)
-        self.owner = kwargs.get('owner', None)
-        self.scope = kwargs.get('scope', None)
-        self.shared_by = kwargs.get('shared_by', None)
-        self.shared_date_time = kwargs.get('shared_date_time', None)
-        self.on_click_telemetry_url = kwargs.get('on_click_telemetry_url', None)
-        self.created_by = kwargs.get('created_by', None)
-        self.created_date_time_remote_item_created_date_time = kwargs.get('created_date_time_remote_item_created_date_time', None)
-        self.file = kwargs.get('file', None)
-        self.file_system_info_remote_item_file_system_info = kwargs.get('file_system_info_remote_item_file_system_info', None)
-        self.folder = kwargs.get('folder', None)
-        self.id_remote_item_id = kwargs.get('id_remote_item_id', None)
-        self.image_remote_item_image = kwargs.get('image_remote_item_image', None)
-        self.last_modified_by = kwargs.get('last_modified_by', None)
-        self.last_modified_date_time_remote_item_last_modified_date_time = kwargs.get('last_modified_date_time_remote_item_last_modified_date_time', None)
-        self.name_remote_item_name = kwargs.get('name_remote_item_name', None)
-        self.package = kwargs.get('package', None)
-        self.parent_reference = kwargs.get('parent_reference', None)
-        self.shared = kwargs.get('shared', None)
-        self.sharepoint_ids_remote_item_sharepoint_ids = kwargs.get('sharepoint_ids_remote_item_sharepoint_ids', None)
-        self.size_remote_item_size = kwargs.get('size_remote_item_size', None)
-        self.special_folder = kwargs.get('special_folder', None)
-        self.video_remote_item_video = kwargs.get('video_remote_item_video', None)
-        self.web_dav_url_remote_item_web_dav_url = kwargs.get('web_dav_url_remote_item_web_dav_url', None)
-        self.web_url_remote_item_web_url = kwargs.get('web_url_remote_item_web_url', None)
-        self.queued_date_time = kwargs.get('queued_date_time', None)
-        self.type = kwargs.get('type', None)
-        self.child_count_folder_child_count = kwargs.get('child_count_folder_child_count', None)
-        self.view = kwargs.get('view', None)
-        self.hashes = kwargs.get('hashes', None)
-        self.mime_type = kwargs.get('mime_type', None)
-        self.processing_metadata = kwargs.get('processing_metadata', None)
-        self.state = kwargs.get('state', None)
-        self.album = kwargs.get('album', None)
-        self.child_count_bundle_child_count = kwargs.get('child_count_bundle_child_count', None)
 
 
 class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
     """driveItemVersion.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the version was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
     :type publication: ~files.models.MicrosoftGraphPublicationFacet
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -6658,16 +5958,10 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content': {'key': 'content', 'type': 'base64'},
         'size': {'key': 'size', 'type': 'long'},
@@ -6678,7 +5972,6 @@ class MicrosoftGraphDriveItemVersion(MicrosoftGraphBaseItemVersion):
         **kwargs
     ):
         super(MicrosoftGraphDriveItemVersion, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.size = kwargs.get('size', None)
@@ -6773,9 +6066,6 @@ class MicrosoftGraphItemFacet(MicrosoftGraphEntity):
 class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     """educationalActivity.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -6809,7 +6099,6 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -6831,7 +6120,6 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphEducationalActivity, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.completion_month_year = kwargs.get('completion_month_year', None)
         self.end_month_year = kwargs.get('end_month_year', None)
@@ -6927,9 +6215,6 @@ class MicrosoftGraphEmailAddress(msrest.serialization.Model):
 class MicrosoftGraphEmailAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """emailAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -6938,7 +6223,6 @@ class MicrosoftGraphEmailAuthenticationMethod(MicrosoftGraphAuthenticationMethod
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -6948,7 +6232,6 @@ class MicrosoftGraphEmailAuthenticationMethod(MicrosoftGraphAuthenticationMethod
         **kwargs
     ):
         super(MicrosoftGraphEmailAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -6985,9 +6268,6 @@ class MicrosoftGraphEmployeeOrgData(msrest.serialization.Model):
 class MicrosoftGraphEndpoint(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -7011,7 +6291,6 @@ class MicrosoftGraphEndpoint(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -7027,7 +6306,6 @@ class MicrosoftGraphEndpoint(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphEndpoint, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.capability = kwargs.get('capability', None)
         self.provider_id = kwargs.get('provider_id', None)
@@ -7074,9 +6352,6 @@ class MicrosoftGraphEnrollmentConfigurationAssignment(MicrosoftGraphEntity):
 class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     """event.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -7227,7 +6502,6 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -7286,7 +6560,6 @@ class MicrosoftGraphEvent(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphEvent, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.allow_new_time_proposals = kwargs.get('allow_new_time_proposals', None)
         self.attendees = kwargs.get('attendees', None)
@@ -7385,9 +6658,6 @@ class MicrosoftGraphExternalLink(msrest.serialization.Model):
 class MicrosoftGraphFido2AuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """fido2AuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -7396,7 +6666,6 @@ class MicrosoftGraphFido2AuthenticationMethod(MicrosoftGraphAuthenticationMethod
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -7406,7 +6675,6 @@ class MicrosoftGraphFido2AuthenticationMethod(MicrosoftGraphAuthenticationMethod
         **kwargs
     ):
         super(MicrosoftGraphFido2AuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -7636,9 +6904,6 @@ class MicrosoftGraphGeoCoordinates(msrest.serialization.Model):
 class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -7883,7 +7148,6 @@ class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -7969,7 +7233,6 @@ class MicrosoftGraphGroup(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphGroup, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assigned_labels = kwargs.get('assigned_labels', None)
         self.assigned_licenses = kwargs.get('assigned_licenses', None)
@@ -8321,37 +7584,19 @@ class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param display_name_user_display_name: The identity's display name. Note that this may not
-     always be available or up to date. For example, if a user changes their display name, the API
-     may show the new value in a future response, but the items associated with the user won't show
-     up as having changed when using delta.
-    :type display_name_user_display_name: str
-    :param id_user_id: Unique identifier for the identity.
-    :type id_user_id: str
-    :param display_name_device_display_name: The identity's display name. Note that this may not
-     always be available or up to date. For example, if a user changes their display name, the API
-     may show the new value in a future response, but the items associated with the user won't show
-     up as having changed when using delta.
-    :type display_name_device_display_name: str
-    :param id_device_id: Unique identifier for the identity.
-    :type id_device_id: str
-    :param display_name_application_display_name: The identity's display name. Note that this may
-     not always be available or up to date. For example, if a user changes their display name, the
-     API may show the new value in a future response, but the items associated with the user won't
-     show up as having changed when using delta.
-    :type display_name_application_display_name: str
-    :param id_application_id: Unique identifier for the identity.
-    :type id_application_id: str
+    :param application: identity.
+    :type application: ~files.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~files.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~files.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'display_name_user_display_name': {'key': 'user.displayName', 'type': 'str'},
-        'id_user_id': {'key': 'user.id', 'type': 'str'},
-        'display_name_device_display_name': {'key': 'device.displayName', 'type': 'str'},
-        'id_device_id': {'key': 'device.id', 'type': 'str'},
-        'display_name_application_display_name': {'key': 'application.displayName', 'type': 'str'},
-        'id_application_id': {'key': 'application.id', 'type': 'str'},
+        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -8360,12 +7605,9 @@ class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     ):
         super(MicrosoftGraphIdentitySet, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.display_name_user_display_name = kwargs.get('display_name_user_display_name', None)
-        self.id_user_id = kwargs.get('id_user_id', None)
-        self.display_name_device_display_name = kwargs.get('display_name_device_display_name', None)
-        self.id_device_id = kwargs.get('id_device_id', None)
-        self.display_name_application_display_name = kwargs.get('display_name_application_display_name', None)
-        self.id_application_id = kwargs.get('id_application_id', None)
+        self.application = kwargs.get('application', None)
+        self.device = kwargs.get('device', None)
+        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphImage(msrest.serialization.Model):
@@ -8916,77 +8158,26 @@ class MicrosoftGraphItemActivityOld(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param action: itemActionSet.
+    :type action: ~files.models.MicrosoftGraphItemActionSet
+    :param actor: identitySet.
+    :type actor: ~files.models.MicrosoftGraphIdentitySet
     :param times: itemActivityTimeSet.
     :type times: ~files.models.MicrosoftGraphItemActivityTimeSet
     :param drive_item: driveItem.
     :type drive_item: ~files.models.MicrosoftGraphDriveItem
     :param list_item: listItem.
     :type list_item: ~files.models.MicrosoftGraphListItem
-    :param display_name_actor_user_display_name: The identity's display name. Note that this may
-     not always be available or up to date. For example, if a user changes their display name, the
-     API may show the new value in a future response, but the items associated with the user won't
-     show up as having changed when using delta.
-    :type display_name_actor_user_display_name: str
-    :param id_actor_user_id: Unique identifier for the identity.
-    :type id_actor_user_id: str
-    :param display_name_actor_device_display_name: The identity's display name. Note that this may
-     not always be available or up to date. For example, if a user changes their display name, the
-     API may show the new value in a future response, but the items associated with the user won't
-     show up as having changed when using delta.
-    :type display_name_actor_device_display_name: str
-    :param id_actor_device_id: Unique identifier for the identity.
-    :type id_actor_device_id: str
-    :param display_name_actor_application_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_actor_application_display_name: str
-    :param id_actor_application_id: Unique identifier for the identity.
-    :type id_actor_application_id: str
-    :param comment: commentAction.
-    :type comment: ~files.models.MicrosoftGraphCommentAction
-    :param create: createAction.
-    :type create: dict[str, object]
-    :param delete: deleteAction.
-    :type delete: ~files.models.MicrosoftGraphDeleteAction
-    :param edit: editAction.
-    :type edit: dict[str, object]
-    :param mention: mentionAction.
-    :type mention: ~files.models.MicrosoftGraphMentionAction
-    :param move: moveAction.
-    :type move: ~files.models.MicrosoftGraphMoveAction
-    :param rename: renameAction.
-    :type rename: ~files.models.MicrosoftGraphRenameAction
-    :param restore: restoreAction.
-    :type restore: dict[str, object]
-    :param share: shareAction.
-    :type share: ~files.models.MicrosoftGraphShareAction
-    :param version: versionAction.
-    :type version: ~files.models.MicrosoftGraphVersionAction
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'action': {'key': 'action', 'type': 'MicrosoftGraphItemActionSet'},
+        'actor': {'key': 'actor', 'type': 'MicrosoftGraphIdentitySet'},
         'times': {'key': 'times', 'type': 'MicrosoftGraphItemActivityTimeSet'},
         'drive_item': {'key': 'driveItem', 'type': 'MicrosoftGraphDriveItem'},
         'list_item': {'key': 'listItem', 'type': 'MicrosoftGraphListItem'},
-        'display_name_actor_user_display_name': {'key': 'actor.user.displayName', 'type': 'str'},
-        'id_actor_user_id': {'key': 'actor.user.id', 'type': 'str'},
-        'display_name_actor_device_display_name': {'key': 'actor.device.displayName', 'type': 'str'},
-        'id_actor_device_id': {'key': 'actor.device.id', 'type': 'str'},
-        'display_name_actor_application_display_name': {'key': 'actor.application.displayName', 'type': 'str'},
-        'id_actor_application_id': {'key': 'actor.application.id', 'type': 'str'},
-        'comment': {'key': 'action.comment', 'type': 'MicrosoftGraphCommentAction'},
-        'create': {'key': 'action.create', 'type': '{object}'},
-        'delete': {'key': 'action.delete', 'type': 'MicrosoftGraphDeleteAction'},
-        'edit': {'key': 'action.edit', 'type': '{object}'},
-        'mention': {'key': 'action.mention', 'type': 'MicrosoftGraphMentionAction'},
-        'move': {'key': 'action.move', 'type': 'MicrosoftGraphMoveAction'},
-        'rename': {'key': 'action.rename', 'type': 'MicrosoftGraphRenameAction'},
-        'restore': {'key': 'action.restore', 'type': '{object}'},
-        'share': {'key': 'action.share', 'type': 'MicrosoftGraphShareAction'},
-        'version': {'key': 'action.version', 'type': 'MicrosoftGraphVersionAction'},
     }
 
     def __init__(
@@ -8995,25 +8186,11 @@ class MicrosoftGraphItemActivityOld(MicrosoftGraphEntity):
     ):
         super(MicrosoftGraphItemActivityOld, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.action = kwargs.get('action', None)
+        self.actor = kwargs.get('actor', None)
         self.times = kwargs.get('times', None)
         self.drive_item = kwargs.get('drive_item', None)
         self.list_item = kwargs.get('list_item', None)
-        self.display_name_actor_user_display_name = kwargs.get('display_name_actor_user_display_name', None)
-        self.id_actor_user_id = kwargs.get('id_actor_user_id', None)
-        self.display_name_actor_device_display_name = kwargs.get('display_name_actor_device_display_name', None)
-        self.id_actor_device_id = kwargs.get('id_actor_device_id', None)
-        self.display_name_actor_application_display_name = kwargs.get('display_name_actor_application_display_name', None)
-        self.id_actor_application_id = kwargs.get('id_actor_application_id', None)
-        self.comment = kwargs.get('comment', None)
-        self.create = kwargs.get('create', None)
-        self.delete = kwargs.get('delete', None)
-        self.edit = kwargs.get('edit', None)
-        self.mention = kwargs.get('mention', None)
-        self.move = kwargs.get('move', None)
-        self.rename = kwargs.get('rename', None)
-        self.restore = kwargs.get('restore', None)
-        self.share = kwargs.get('share', None)
-        self.version = kwargs.get('version', None)
 
 
 class MicrosoftGraphItemActivityStat(MicrosoftGraphEntity):
@@ -9114,9 +8291,6 @@ class MicrosoftGraphItemActivityTimeSet(msrest.serialization.Model):
 class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     """itemAddress.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -9146,7 +8320,6 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -9166,7 +8339,6 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphItemAddress, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.detail = kwargs.get('detail', None)
         self.display_name = kwargs.get('display_name', None)
@@ -9239,9 +8411,6 @@ class MicrosoftGraphItemBody(msrest.serialization.Model):
 class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     """itemEmail.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -9271,7 +8440,6 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -9291,7 +8459,6 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphItemEmail, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.display_name = kwargs.get('display_name', None)
@@ -9343,9 +8510,6 @@ class MicrosoftGraphOfficeGraphInsights(MicrosoftGraphEntity):
 class MicrosoftGraphItemInsights(MicrosoftGraphOfficeGraphInsights):
     """itemInsights.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param shared: Calculated relationship identifying documents shared with or by the user. This
@@ -9367,7 +8531,6 @@ class MicrosoftGraphItemInsights(MicrosoftGraphOfficeGraphInsights):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'shared': {'key': 'shared', 'type': '[MicrosoftGraphSharedInsight]'},
         'trending': {'key': 'trending', 'type': '[MicrosoftGraphTrending]'},
@@ -9381,15 +8544,11 @@ class MicrosoftGraphItemInsights(MicrosoftGraphOfficeGraphInsights):
     ):
         super(MicrosoftGraphItemInsights, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
 
 
 class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     """itemPatent.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -9427,7 +8586,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -9452,7 +8610,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemPatent, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.is_pending = kwargs.get('is_pending', None)
@@ -9465,9 +8622,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
 class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     """itemPhone.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -9498,7 +8652,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -9519,7 +8672,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemPhone, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.number = kwargs.get('number', None)
         self.type = kwargs.get('type', None)
@@ -9528,9 +8680,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
 class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     """itemPublication.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -9566,7 +8715,6 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -9589,7 +8737,6 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphItemPublication, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
@@ -9735,9 +8882,6 @@ class MicrosoftGraphLabelPolicy(msrest.serialization.Model):
 class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     """languageProficiency.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -9777,7 +8921,6 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -9800,7 +8943,6 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphLanguageProficiency, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.proficiency = kwargs.get('proficiency', None)
@@ -9954,84 +9096,30 @@ class MicrosoftGraphLinkedResource(MicrosoftGraphEntity):
 class MicrosoftGraphList(MicrosoftGraphBaseItem):
     """list.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~files.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~files.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~files.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -10058,35 +9146,18 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'list': {'key': 'list', 'type': 'MicrosoftGraphListInfo'},
@@ -10105,7 +9176,6 @@ class MicrosoftGraphList(MicrosoftGraphBaseItem):
         **kwargs
     ):
         super(MicrosoftGraphList, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.list = kwargs.get('list', None)
@@ -10157,84 +9227,30 @@ class MicrosoftGraphListInfo(msrest.serialization.Model):
 class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     """listItem.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~files.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~files.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~files.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -10248,50 +9264,33 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     :type analytics: ~files.models.MicrosoftGraphItemAnalytics
     :param drive_item: driveItem.
     :type drive_item: ~files.models.MicrosoftGraphDriveItem
+    :param fields: fieldValueSet.
+    :type fields: ~files.models.MicrosoftGraphFieldValueSet
     :param versions: The list of previous versions of the list item.
     :type versions: list[~files.models.MicrosoftGraphListItemVersion]
-    :param id_fields_id: Read-only.
-    :type id_fields_id: str
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content_type': {'key': 'contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphItemActivityOld]'},
         'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
         'drive_item': {'key': 'driveItem', 'type': 'MicrosoftGraphDriveItem'},
+        'fields': {'key': 'fields', 'type': 'MicrosoftGraphFieldValueSet'},
         'versions': {'key': 'versions', 'type': '[MicrosoftGraphListItemVersion]'},
-        'id_fields_id': {'key': 'fields.id', 'type': 'str'},
     }
 
     def __init__(
@@ -10300,69 +9299,40 @@ class MicrosoftGraphListItem(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphListItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.content_type = kwargs.get('content_type', None)
         self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
         self.activities = kwargs.get('activities', None)
         self.analytics = kwargs.get('analytics', None)
         self.drive_item = kwargs.get('drive_item', None)
+        self.fields = kwargs.get('fields', None)
         self.versions = kwargs.get('versions', None)
-        self.id_fields_id = kwargs.get('id_fields_id', None)
 
 
 class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
     """listItemVersion.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the version was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param publication: publicationFacet.
     :type publication: ~files.models.MicrosoftGraphPublicationFacet
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param id_fields_id: Read-only.
-    :type id_fields_id: str
+    :param fields: fieldValueSet.
+    :type fields: ~files.models.MicrosoftGraphFieldValueSet
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'publication': {'key': 'publication', 'type': 'MicrosoftGraphPublicationFacet'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'id_fields_id': {'key': 'fields.id', 'type': 'str'},
+        'fields': {'key': 'fields', 'type': 'MicrosoftGraphFieldValueSet'},
     }
 
     def __init__(
@@ -10371,8 +9341,7 @@ class MicrosoftGraphListItemVersion(MicrosoftGraphBaseItemVersion):
     ):
         super(MicrosoftGraphListItemVersion, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.id_fields_id = kwargs.get('id_fields_id', None)
+        self.fields = kwargs.get('fields', None)
 
 
 class MicrosoftGraphLobbyBypassSettings(msrest.serialization.Model):
@@ -11682,9 +10651,6 @@ class MicrosoftGraphMentionsPreview(msrest.serialization.Model):
 class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     """message.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -11794,7 +10760,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -11842,7 +10807,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphMessage, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.bcc_recipients = kwargs.get('bcc_recipients', None)
         self.body = kwargs.get('body', None)
@@ -12179,9 +11143,6 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
 class MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """microsoftAuthenticatorAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -12190,7 +11151,6 @@ class MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod(MicrosoftGraphAut
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -12200,7 +11160,6 @@ class MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod(MicrosoftGraphAut
         **kwargs
     ):
         super(MicrosoftGraphMicrosoftAuthenticatorAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -12324,9 +11283,6 @@ class MicrosoftGraphMobileAppSupportedDeviceType(msrest.serialization.Model):
 class MicrosoftGraphMobileAppTroubleshootingEvent(MicrosoftGraphDeviceManagementTroubleshootingEvent):
     """MobileAppTroubleshootingEvent Entity.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_information: A set of string key and string value pairs which provides
@@ -12359,7 +11315,6 @@ class MicrosoftGraphMobileAppTroubleshootingEvent(MicrosoftGraphDeviceManagement
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_information': {'key': 'additionalInformation', 'type': '[MicrosoftGraphKeyValuePair]'},
         'correlation_id': {'key': 'correlationId', 'type': 'str'},
@@ -12379,7 +11334,6 @@ class MicrosoftGraphMobileAppTroubleshootingEvent(MicrosoftGraphDeviceManagement
         **kwargs
     ):
         super(MicrosoftGraphMobileAppTroubleshootingEvent, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.application_id = kwargs.get('application_id', None)
         self.history = kwargs.get('history', None)
@@ -12503,9 +11457,6 @@ class MicrosoftGraphOnenoteEntityBaseModel(MicrosoftGraphEntity):
 class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBaseModel):
     """onenoteEntitySchemaObjectModel.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -12520,7 +11471,6 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -12533,18 +11483,12 @@ class MicrosoftGraphOnenoteEntitySchemaObjectModel(MicrosoftGraphOnenoteEntityBa
     ):
         super(MicrosoftGraphOnenoteEntitySchemaObjectModel, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.created_date_time = kwargs.get('created_date_time', None)
 
 
 class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     """onenoteEntityHierarchyModel.
 
-    :param id: Read-only.
-    :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -12571,8 +11515,6 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
-        'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -12588,7 +11530,6 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
     ):
         super(MicrosoftGraphOnenoteEntityHierarchyModel, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.created_by = kwargs.get('created_by', None)
         self.display_name = kwargs.get('display_name', None)
         self.last_modified_by = kwargs.get('last_modified_by', None)
@@ -12598,16 +11539,10 @@ class MicrosoftGraphOnenoteEntityHierarchyModel(MicrosoftGraphOnenoteEntitySchem
 class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     """notebook.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
@@ -12648,10 +11583,8 @@ class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -12673,8 +11606,6 @@ class MicrosoftGraphNotebook(MicrosoftGraphOnenoteEntityHierarchyModel):
         **kwargs
     ):
         super(MicrosoftGraphNotebook, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_default = kwargs.get('is_default', None)
         self.is_shared = kwargs.get('is_shared', None)
@@ -12856,9 +11787,6 @@ class MicrosoftGraphObjectIdentity(msrest.serialization.Model):
 class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     """scheduleChangeRequest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -12897,7 +11825,6 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -12920,7 +11847,6 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     ):
         super(MicrosoftGraphScheduleChangeRequest, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.assigned_to = kwargs.get('assigned_to', None)
         self.manager_action_date_time = kwargs.get('manager_action_date_time', None)
         self.manager_action_message = kwargs.get('manager_action_message', None)
@@ -12936,9 +11862,6 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_by: identitySet.
     :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -12986,7 +11909,6 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -13011,7 +11933,6 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
         **kwargs
     ):
         super(MicrosoftGraphOfferShiftRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.recipient_action_date_time = kwargs.get('recipient_action_date_time', None)
         self.recipient_action_message = kwargs.get('recipient_action_message', None)
@@ -13112,9 +12033,6 @@ class MicrosoftGraphOperation(MicrosoftGraphEntity):
 class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     """onenoteOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The start time of the operation.
@@ -13139,7 +12057,6 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_action_date_time': {'key': 'lastActionDateTime', 'type': 'iso-8601'},
@@ -13156,7 +12073,6 @@ class MicrosoftGraphOnenoteOperation(MicrosoftGraphOperation):
         **kwargs
     ):
         super(MicrosoftGraphOnenoteOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs.get('error', None)
         self.percent_complete = kwargs.get('percent_complete', None)
@@ -13197,9 +12113,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
     :param created_date_time: The date and time when the page was created. The timestamp represents
@@ -13244,7 +12157,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'self_property': {'key': 'self', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -13267,7 +12179,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
     ):
         super(MicrosoftGraphOnenotePage, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_url = kwargs.get('content_url', None)
         self.created_by_app_id = kwargs.get('created_by_app_id', None)
@@ -13284,9 +12195,6 @@ class MicrosoftGraphOnenotePage(MicrosoftGraphOnenoteEntitySchemaObjectModel):
 class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     """onenoteResource.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
@@ -13301,7 +12209,6 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -13315,7 +12222,6 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
     ):
         super(MicrosoftGraphOnenoteResource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_url = kwargs.get('content_url', None)
 
@@ -13323,16 +12229,10 @@ class MicrosoftGraphOnenoteResource(MicrosoftGraphOnenoteEntityBaseModel):
 class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     """onenoteSection.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
@@ -13367,10 +12267,8 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -13390,8 +12288,6 @@ class MicrosoftGraphOnenoteSection(MicrosoftGraphOnenoteEntityHierarchyModel):
         **kwargs
     ):
         super(MicrosoftGraphOnenoteSection, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.is_default = kwargs.get('is_default', None)
         self.links = kwargs.get('links', None)
@@ -13677,9 +12573,6 @@ class MicrosoftGraphOnPremisesProvisioningError(msrest.serialization.Model):
 class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     """openShift.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -13708,7 +12601,6 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -13727,7 +12619,6 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     ):
         super(MicrosoftGraphOpenShift, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.draft_open_shift = kwargs.get('draft_open_shift', None)
         self.is_staged_for_deletion = kwargs.get('is_staged_for_deletion', None)
         self.scheduling_group_id = kwargs.get('scheduling_group_id', None)
@@ -13739,9 +12630,6 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_by: identitySet.
     :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -13781,7 +12669,6 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -13803,7 +12690,6 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
         **kwargs
     ):
         super(MicrosoftGraphOpenShiftChangeRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.open_shift_id = kwargs.get('open_shift_id', None)
 
@@ -13888,9 +12774,6 @@ class MicrosoftGraphShiftItem(MicrosoftGraphScheduleEntity):
 class MicrosoftGraphOpenShiftItem(MicrosoftGraphShiftItem):
     """openShiftItem.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param end_date_time:
     :type end_date_time: ~datetime.datetime
     :param start_date_time:
@@ -13918,7 +12801,6 @@ class MicrosoftGraphOpenShiftItem(MicrosoftGraphShiftItem):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'end_date_time': {'key': 'endDateTime', 'type': 'iso-8601'},
         'start_date_time': {'key': 'startDateTime', 'type': 'iso-8601'},
         'theme': {'key': 'theme', 'type': 'str'},
@@ -13934,7 +12816,6 @@ class MicrosoftGraphOpenShiftItem(MicrosoftGraphShiftItem):
         **kwargs
     ):
         super(MicrosoftGraphOpenShiftItem, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.open_slot_count = kwargs.get('open_slot_count', None)
 
@@ -14046,9 +12927,6 @@ class MicrosoftGraphOutlookGeoCoordinates(msrest.serialization.Model):
 class MicrosoftGraphOutlookTask(MicrosoftGraphOutlookItem):
     """outlookTask.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -14110,7 +12988,6 @@ class MicrosoftGraphOutlookTask(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -14142,7 +13019,6 @@ class MicrosoftGraphOutlookTask(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphOutlookTask, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assigned_to = kwargs.get('assigned_to', None)
         self.body = kwargs.get('body', None)
@@ -14412,9 +13288,6 @@ class MicrosoftGraphParentLabelDetails(msrest.serialization.Model):
 class MicrosoftGraphPasswordAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """passwordAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -14427,7 +13300,6 @@ class MicrosoftGraphPasswordAuthenticationMethod(MicrosoftGraphAuthenticationMet
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'creation_date_time': {'key': 'creationDateTime', 'type': 'iso-8601'},
@@ -14440,7 +13312,6 @@ class MicrosoftGraphPasswordAuthenticationMethod(MicrosoftGraphAuthenticationMet
     ):
         super(MicrosoftGraphPasswordAuthenticationMethod, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.creation_date_time = kwargs.get('creation_date_time', None)
         self.password = kwargs.get('password', None)
 
@@ -14448,9 +13319,6 @@ class MicrosoftGraphPasswordAuthenticationMethod(MicrosoftGraphAuthenticationMet
 class MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """passwordlessMicrosoftAuthenticatorAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -14459,7 +13327,6 @@ class MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod(Micro
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -14469,7 +13336,6 @@ class MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod(Micro
         **kwargs
     ):
         super(MicrosoftGraphPasswordlessMicrosoftAuthenticatorAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -14623,14 +13489,13 @@ class MicrosoftGraphPendingOperations(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param queued_date_time: Date and time the pending binary operation was queued in UTC time.
-     Read-only.
-    :type queued_date_time: ~datetime.datetime
+    :param pending_content_update: pendingContentUpdate.
+    :type pending_content_update: ~files.models.MicrosoftGraphPendingContentUpdate
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'queued_date_time': {'key': 'pendingContentUpdate.queuedDateTime', 'type': 'iso-8601'},
+        'pending_content_update': {'key': 'pendingContentUpdate', 'type': 'MicrosoftGraphPendingContentUpdate'},
     }
 
     def __init__(
@@ -14639,7 +13504,7 @@ class MicrosoftGraphPendingOperations(msrest.serialization.Model):
     ):
         super(MicrosoftGraphPendingOperations, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.queued_date_time = kwargs.get('queued_date_time', None)
+        self.pending_content_update = kwargs.get('pending_content_update', None)
 
 
 class MicrosoftGraphPermission(MicrosoftGraphEntity):
@@ -14654,120 +13519,40 @@ class MicrosoftGraphPermission(MicrosoftGraphEntity):
      expiration time of the permission. DateTime.MinValue indicates there is no expiration set for
      this permission. Optional.
     :type expiration_date_time: ~datetime.datetime
+    :param granted_to: identitySet.
+    :type granted_to: ~files.models.MicrosoftGraphIdentitySet
     :param granted_to_identities: For link type permissions, the details of the users to whom
      permission was granted. Read-only.
     :type granted_to_identities: list[~files.models.MicrosoftGraphIdentitySet]
     :param has_password: This indicates whether password is set for this permission, it's only
      showing in response. Optional and Read-only and for OneDrive Personal only.
     :type has_password: bool
+    :param inherited_from: itemReference.
+    :type inherited_from: ~files.models.MicrosoftGraphItemReference
+    :param invitation: sharingInvitation.
+    :type invitation: ~files.models.MicrosoftGraphSharingInvitation
+    :param link: sharingLink.
+    :type link: ~files.models.MicrosoftGraphSharingLink
     :param roles: The type of permission, e.g. read. See below for the full list of roles. Read-
      only.
     :type roles: list[str]
     :param share_id: A unique token that can be used to access this shared item via the **shares**
      API. Read-only.
     :type share_id: str
-    :param application: identity.
-    :type application: ~files.models.MicrosoftGraphIdentity
-    :param configurator_url:
-    :type configurator_url: str
-    :param prevents_download: If true then the user can only use this link to view the item on the
-     web, and cannot use it to download the contents of the item. Only for OneDrive for Business and
-     SharePoint.
-    :type prevents_download: bool
-    :param scope: The scope of the link represented by this permission. Value anonymous indicates
-     the link is usable by anyone, organization indicates the link is only usable for users signed
-     into the same tenant.
-    :type scope: str
-    :param type: The type of the link created.
-    :type type: str
-    :param web_html: For embed links, this property contains the HTML code for an :code:`<iframe>`
-     element that will embed the item in a webpage.
-    :type web_html: str
-    :param web_url: A URL that opens the item in the browser on the OneDrive website.
-    :type web_url: str
-    :param email: The email address provided for the recipient of the sharing invitation. Read-
-     only.
-    :type email: str
-    :param invited_by: identitySet.
-    :type invited_by: ~files.models.MicrosoftGraphIdentitySet
-    :param redeemed_by:
-    :type redeemed_by: str
-    :param sign_in_required: If true the recipient of the invitation needs to sign in in order to
-     access the shared item. Read-only.
-    :type sign_in_required: bool
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_inherited_from_id: Unique identifier of the item in the drive. Read-only.
-    :type id_inherited_from_id: str
-    :param name: The name of the item being referenced. Read-only.
-    :type name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id_inherited_from_share_id: A unique identifier for a shared resource that can be
-     accessed via the [Shares][] API.
-    :type share_id_inherited_from_share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param display_name_granted_to_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_granted_to_user_display_name: str
-    :param id_granted_to_user_id: Unique identifier for the identity.
-    :type id_granted_to_user_id: str
-    :param display_name_granted_to_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_granted_to_device_display_name: str
-    :param id_granted_to_device_id: Unique identifier for the identity.
-    :type id_granted_to_device_id: str
-    :param display_name_granted_to_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_granted_to_application_display_name: str
-    :param id_granted_to_application_id: Unique identifier for the identity.
-    :type id_granted_to_application_id: str
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'expiration_date_time': {'key': 'expirationDateTime', 'type': 'iso-8601'},
+        'granted_to': {'key': 'grantedTo', 'type': 'MicrosoftGraphIdentitySet'},
         'granted_to_identities': {'key': 'grantedToIdentities', 'type': '[MicrosoftGraphIdentitySet]'},
         'has_password': {'key': 'hasPassword', 'type': 'bool'},
+        'inherited_from': {'key': 'inheritedFrom', 'type': 'MicrosoftGraphItemReference'},
+        'invitation': {'key': 'invitation', 'type': 'MicrosoftGraphSharingInvitation'},
+        'link': {'key': 'link', 'type': 'MicrosoftGraphSharingLink'},
         'roles': {'key': 'roles', 'type': '[str]'},
         'share_id': {'key': 'shareId', 'type': 'str'},
-        'application': {'key': 'link.application', 'type': 'MicrosoftGraphIdentity'},
-        'configurator_url': {'key': 'link.configuratorUrl', 'type': 'str'},
-        'prevents_download': {'key': 'link.preventsDownload', 'type': 'bool'},
-        'scope': {'key': 'link.scope', 'type': 'str'},
-        'type': {'key': 'link.type', 'type': 'str'},
-        'web_html': {'key': 'link.webHtml', 'type': 'str'},
-        'web_url': {'key': 'link.webUrl', 'type': 'str'},
-        'email': {'key': 'invitation.email', 'type': 'str'},
-        'invited_by': {'key': 'invitation.invitedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'redeemed_by': {'key': 'invitation.redeemedBy', 'type': 'str'},
-        'sign_in_required': {'key': 'invitation.signInRequired', 'type': 'bool'},
-        'drive_id': {'key': 'inheritedFrom.driveId', 'type': 'str'},
-        'drive_type': {'key': 'inheritedFrom.driveType', 'type': 'str'},
-        'id_inherited_from_id': {'key': 'inheritedFrom.id', 'type': 'str'},
-        'name': {'key': 'inheritedFrom.name', 'type': 'str'},
-        'path': {'key': 'inheritedFrom.path', 'type': 'str'},
-        'share_id_inherited_from_share_id': {'key': 'inheritedFrom.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'inheritedFrom.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'inheritedFrom.siteId', 'type': 'str'},
-        'display_name_granted_to_user_display_name': {'key': 'grantedTo.user.displayName', 'type': 'str'},
-        'id_granted_to_user_id': {'key': 'grantedTo.user.id', 'type': 'str'},
-        'display_name_granted_to_device_display_name': {'key': 'grantedTo.device.displayName', 'type': 'str'},
-        'id_granted_to_device_id': {'key': 'grantedTo.device.id', 'type': 'str'},
-        'display_name_granted_to_application_display_name': {'key': 'grantedTo.application.displayName', 'type': 'str'},
-        'id_granted_to_application_id': {'key': 'grantedTo.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -14777,35 +13562,14 @@ class MicrosoftGraphPermission(MicrosoftGraphEntity):
         super(MicrosoftGraphPermission, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.expiration_date_time = kwargs.get('expiration_date_time', None)
+        self.granted_to = kwargs.get('granted_to', None)
         self.granted_to_identities = kwargs.get('granted_to_identities', None)
         self.has_password = kwargs.get('has_password', None)
+        self.inherited_from = kwargs.get('inherited_from', None)
+        self.invitation = kwargs.get('invitation', None)
+        self.link = kwargs.get('link', None)
         self.roles = kwargs.get('roles', None)
         self.share_id = kwargs.get('share_id', None)
-        self.application = kwargs.get('application', None)
-        self.configurator_url = kwargs.get('configurator_url', None)
-        self.prevents_download = kwargs.get('prevents_download', None)
-        self.scope = kwargs.get('scope', None)
-        self.type = kwargs.get('type', None)
-        self.web_html = kwargs.get('web_html', None)
-        self.web_url = kwargs.get('web_url', None)
-        self.email = kwargs.get('email', None)
-        self.invited_by = kwargs.get('invited_by', None)
-        self.redeemed_by = kwargs.get('redeemed_by', None)
-        self.sign_in_required = kwargs.get('sign_in_required', None)
-        self.drive_id = kwargs.get('drive_id', None)
-        self.drive_type = kwargs.get('drive_type', None)
-        self.id_inherited_from_id = kwargs.get('id_inherited_from_id', None)
-        self.name = kwargs.get('name', None)
-        self.path = kwargs.get('path', None)
-        self.share_id_inherited_from_share_id = kwargs.get('share_id_inherited_from_share_id', None)
-        self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
-        self.site_id = kwargs.get('site_id', None)
-        self.display_name_granted_to_user_display_name = kwargs.get('display_name_granted_to_user_display_name', None)
-        self.id_granted_to_user_id = kwargs.get('id_granted_to_user_id', None)
-        self.display_name_granted_to_device_display_name = kwargs.get('display_name_granted_to_device_display_name', None)
-        self.id_granted_to_device_id = kwargs.get('id_granted_to_device_id', None)
-        self.display_name_granted_to_application_display_name = kwargs.get('display_name_granted_to_application_display_name', None)
-        self.id_granted_to_application_id = kwargs.get('id_granted_to_application_id', None)
 
 
 class MicrosoftGraphPerson(MicrosoftGraphEntity):
@@ -14916,9 +13680,6 @@ class MicrosoftGraphPerson(MicrosoftGraphEntity):
 class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     """personAnniversary.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -14946,7 +13707,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -14966,7 +13726,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAnniversary, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.date = kwargs.get('date', None)
         self.type = kwargs.get('type', None)
 
@@ -14974,9 +13733,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     """personAnnotation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -15004,7 +13760,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -15024,7 +13779,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAnnotation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.detail = kwargs.get('detail', None)
         self.display_name = kwargs.get('display_name', None)
 
@@ -15032,9 +13786,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     """personAward.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -15070,7 +13821,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -15094,7 +13844,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAward, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.issued_date = kwargs.get('issued_date', None)
@@ -15106,9 +13855,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     """personCertification.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -15152,7 +13898,6 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -15179,7 +13924,6 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphPersonCertification, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.certification_id = kwargs.get('certification_id', None)
         self.description = kwargs.get('description', None)
@@ -15244,9 +13988,6 @@ class MicrosoftGraphPersonDataSources(msrest.serialization.Model):
 class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     """personInterest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -15280,7 +14021,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -15303,7 +14043,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonInterest, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.collaboration_tags = kwargs.get('collaboration_tags', None)
         self.description = kwargs.get('description', None)
@@ -15314,9 +14053,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     """personName.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -15362,7 +14098,6 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -15390,7 +14125,6 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphPersonName, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.first = kwargs.get('first', None)
@@ -15442,9 +14176,6 @@ class MicrosoftGraphPersonOrGroupColumn(msrest.serialization.Model):
 class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     """personWebsite.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -15476,7 +14207,6 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -15497,7 +14227,6 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphPersonWebsite, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.description = kwargs.get('description', None)
@@ -15537,9 +14266,6 @@ class MicrosoftGraphPhone(msrest.serialization.Model):
 class MicrosoftGraphPhoneAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """phoneAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -15556,7 +14282,6 @@ class MicrosoftGraphPhoneAuthenticationMethod(MicrosoftGraphAuthenticationMethod
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'phone_number': {'key': 'phoneNumber', 'type': 'str'},
@@ -15569,7 +14294,6 @@ class MicrosoftGraphPhoneAuthenticationMethod(MicrosoftGraphAuthenticationMethod
         **kwargs
     ):
         super(MicrosoftGraphPhoneAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.phone_number = kwargs.get('phone_number', None)
         self.phone_type = kwargs.get('phone_type', None)
@@ -15714,9 +14438,6 @@ class MicrosoftGraphPlannerDelta(MicrosoftGraphEntity):
 class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerAssignedToTaskBoardTaskFormat.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -15732,7 +14453,6 @@ class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDe
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'order_hints_by_assignee': {'key': 'orderHintsByAssignee', 'type': '{object}'},
@@ -15745,7 +14465,6 @@ class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDe
     ):
         super(MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.order_hints_by_assignee = kwargs.get('order_hints_by_assignee', None)
         self.unassigned_order_hint = kwargs.get('unassigned_order_hint', None)
 
@@ -15753,9 +14472,6 @@ class MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat(MicrosoftGraphPlannerDe
 class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     """plannerBucket.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -15773,7 +14489,6 @@ class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'name': {'key': 'name', 'type': 'str'},
@@ -15788,7 +14503,6 @@ class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerBucket, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.name = kwargs.get('name', None)
         self.order_hint = kwargs.get('order_hint', None)
         self.plan_id = kwargs.get('plan_id', None)
@@ -15798,9 +14512,6 @@ class MicrosoftGraphPlannerBucket(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerBucketTaskBoardTaskFormat.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -15812,7 +14523,6 @@ class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphPlannerDelta)
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'order_hint': {'key': 'orderHint', 'type': 'str'},
@@ -15823,7 +14533,6 @@ class MicrosoftGraphPlannerBucketTaskBoardTaskFormat(MicrosoftGraphPlannerDelta)
         **kwargs
     ):
         super(MicrosoftGraphPlannerBucketTaskBoardTaskFormat, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.order_hint = kwargs.get('order_hint', None)
 
@@ -15902,9 +14611,6 @@ class MicrosoftGraphPlannerGroup(MicrosoftGraphEntity):
 class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
     """plannerPlan.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -15932,7 +14638,6 @@ class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'contexts': {'key': 'contexts', 'type': '{object}'},
@@ -15951,7 +14656,6 @@ class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerPlan, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.contexts = kwargs.get('contexts', None)
         self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
@@ -15965,9 +14669,6 @@ class MicrosoftGraphPlannerPlan(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     """plannerPlanDetails.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -15982,7 +14683,6 @@ class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'category_descriptions': {'key': 'categoryDescriptions', 'type': 'MicrosoftGraphPlannerCategoryDescriptions'},
@@ -15996,7 +14696,6 @@ class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerPlanDetails, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.category_descriptions = kwargs.get('category_descriptions', None)
         self.context_details = kwargs.get('context_details', None)
         self.shared_with = kwargs.get('shared_with', None)
@@ -16005,9 +14704,6 @@ class MicrosoftGraphPlannerPlanDetails(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelta):
     """plannerProgressTaskBoardTaskFormat.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -16019,7 +14715,6 @@ class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelt
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'order_hint': {'key': 'orderHint', 'type': 'str'},
@@ -16031,16 +14726,12 @@ class MicrosoftGraphPlannerProgressTaskBoardTaskFormat(MicrosoftGraphPlannerDelt
     ):
         super(MicrosoftGraphPlannerProgressTaskBoardTaskFormat, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.order_hint = kwargs.get('order_hint', None)
 
 
 class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     """plannerTask.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -16127,7 +14818,6 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'active_checklist_item_count': {'key': 'activeChecklistItemCount', 'type': 'int'},
@@ -16163,7 +14853,6 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerTask, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.active_checklist_item_count = kwargs.get('active_checklist_item_count', None)
         self.applied_categories = kwargs.get('applied_categories', None)
         self.assignee_priority = kwargs.get('assignee_priority', None)
@@ -16194,9 +14883,6 @@ class MicrosoftGraphPlannerTask(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     """plannerTaskDetails.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -16214,7 +14900,6 @@ class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'checklist': {'key': 'checklist', 'type': '{object}'},
@@ -16229,7 +14914,6 @@ class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
     ):
         super(MicrosoftGraphPlannerTaskDetails, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.checklist = kwargs.get('checklist', None)
         self.description = kwargs.get('description', None)
         self.preview_type = kwargs.get('preview_type', None)
@@ -16239,9 +14923,6 @@ class MicrosoftGraphPlannerTaskDetails(MicrosoftGraphPlannerDelta):
 class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
     """plannerUser.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -16264,7 +14945,6 @@ class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'favorite_plan_references': {'key': 'favoritePlanReferences', 'type': '{object}'},
@@ -16281,7 +14961,6 @@ class MicrosoftGraphPlannerUser(MicrosoftGraphPlannerDelta):
         **kwargs
     ):
         super(MicrosoftGraphPlannerUser, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.favorite_plan_references = kwargs.get('favorite_plan_references', None)
         self.recent_plan_references = kwargs.get('recent_plan_references', None)
@@ -16343,9 +15022,6 @@ class MicrosoftGraphPositionDetail(msrest.serialization.Model):
 class MicrosoftGraphPost(MicrosoftGraphOutlookItem):
     """post.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -16406,7 +15082,6 @@ class MicrosoftGraphPost(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -16435,7 +15110,6 @@ class MicrosoftGraphPost(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphPost, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.body = kwargs.get('body', None)
         self.conversation_id = kwargs.get('conversation_id', None)
@@ -16623,9 +15297,6 @@ class MicrosoftGraphProfilePhoto(MicrosoftGraphEntity):
 class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     """projectParticipation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -16663,7 +15334,6 @@ class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -16687,7 +15357,6 @@ class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphProjectParticipation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.client = kwargs.get('client', None)
@@ -17260,9 +15929,6 @@ class MicrosoftGraphResourceReference(msrest.serialization.Model):
 class MicrosoftGraphResourceSpecificPermissionGrant(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -17283,7 +15949,6 @@ class MicrosoftGraphResourceSpecificPermissionGrant(MicrosoftGraphDirectoryObjec
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -17299,7 +15964,6 @@ class MicrosoftGraphResourceSpecificPermissionGrant(MicrosoftGraphDirectoryObjec
         **kwargs
     ):
         super(MicrosoftGraphResourceSpecificPermissionGrant, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.client_app_id = kwargs.get('client_app_id', None)
         self.client_id = kwargs.get('client_id', None)
@@ -17511,9 +16175,6 @@ class MicrosoftGraphSchedule(MicrosoftGraphEntity):
 class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
     """schedulingGroup.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -17541,7 +16202,6 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -17558,7 +16218,6 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphSchedulingGroup, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.is_active = kwargs.get('is_active', None)
@@ -17630,16 +16289,10 @@ class MicrosoftGraphSearchResult(msrest.serialization.Model):
 class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
     """sectionGroup.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param self_property: The endpoint where you can get details about the page. Read-only.
     :type self_property: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time when the page was created. The timestamp represents
      date and time information using ISO 8601 format and is always in UTC time. For example,
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Read-only.
@@ -17675,10 +16328,8 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'self_property': {'key': 'self', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -17698,8 +16349,6 @@ class MicrosoftGraphSectionGroup(MicrosoftGraphOnenoteEntityHierarchyModel):
         **kwargs
     ):
         super(MicrosoftGraphSectionGroup, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.section_groups_url = kwargs.get('section_groups_url', None)
         self.sections_url = kwargs.get('sections_url', None)
@@ -17873,9 +16522,6 @@ class MicrosoftGraphSecurityBaselineState(MicrosoftGraphEntity):
 class MicrosoftGraphSecurityQuestionAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """securityQuestionAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -17884,7 +16530,6 @@ class MicrosoftGraphSecurityQuestionAuthenticationMethod(MicrosoftGraphAuthentic
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -17894,7 +16539,6 @@ class MicrosoftGraphSecurityQuestionAuthenticationMethod(MicrosoftGraphAuthentic
         **kwargs
     ):
         super(MicrosoftGraphSecurityQuestionAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -18281,429 +16925,74 @@ class MicrosoftGraphSharedAppleDeviceUser(msrest.serialization.Model):
 class MicrosoftGraphSharedDriveItem(MicrosoftGraphBaseItem):
     """sharedDriveItem.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~files.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~files.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~files.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param owner: identitySet.
+    :type owner: ~files.models.MicrosoftGraphIdentitySet
     :param drive_item: driveItem.
     :type drive_item: ~files.models.MicrosoftGraphDriveItem
     :param items: All driveItems contained in the sharing root. This collection cannot be
      enumerated.
     :type items: list[~files.models.MicrosoftGraphDriveItem]
+    :param list: list.
+    :type list: ~files.models.MicrosoftGraphList
     :param list_item: listItem.
     :type list_item: ~files.models.MicrosoftGraphListItem
+    :param permission: permission.
+    :type permission: ~files.models.MicrosoftGraphPermission
     :param root: driveItem.
     :type root: ~files.models.MicrosoftGraphDriveItem
     :param site: site.
     :type site: ~files.models.MicrosoftGraphSite
-    :param id_permission_id: Read-only.
-    :type id_permission_id: str
-    :param expiration_date_time: A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the
-     expiration time of the permission. DateTime.MinValue indicates there is no expiration set for
-     this permission. Optional.
-    :type expiration_date_time: ~datetime.datetime
-    :param granted_to_identities: For link type permissions, the details of the users to whom
-     permission was granted. Read-only.
-    :type granted_to_identities: list[~files.models.MicrosoftGraphIdentitySet]
-    :param has_password: This indicates whether password is set for this permission, it's only
-     showing in response. Optional and Read-only and for OneDrive Personal only.
-    :type has_password: bool
-    :param roles: The type of permission, e.g. read. See below for the full list of roles. Read-
-     only.
-    :type roles: list[str]
-    :param share_id_permission_share_id: A unique token that can be used to access this shared item
-     via the **shares** API. Read-only.
-    :type share_id_permission_share_id: str
-    :param application: identity.
-    :type application: ~files.models.MicrosoftGraphIdentity
-    :param configurator_url:
-    :type configurator_url: str
-    :param prevents_download: If true then the user can only use this link to view the item on the
-     web, and cannot use it to download the contents of the item. Only for OneDrive for Business and
-     SharePoint.
-    :type prevents_download: bool
-    :param scope: The scope of the link represented by this permission. Value anonymous indicates
-     the link is usable by anyone, organization indicates the link is only usable for users signed
-     into the same tenant.
-    :type scope: str
-    :param type: The type of the link created.
-    :type type: str
-    :param web_html: For embed links, this property contains the HTML code for an :code:`<iframe>`
-     element that will embed the item in a webpage.
-    :type web_html: str
-    :param web_url_permission_link_web_url: A URL that opens the item in the browser on the
-     OneDrive website.
-    :type web_url_permission_link_web_url: str
-    :param email: The email address provided for the recipient of the sharing invitation. Read-
-     only.
-    :type email: str
-    :param invited_by: identitySet.
-    :type invited_by: ~files.models.MicrosoftGraphIdentitySet
-    :param redeemed_by:
-    :type redeemed_by: str
-    :param sign_in_required: If true the recipient of the invitation needs to sign in in order to
-     access the shared item. Read-only.
-    :type sign_in_required: bool
-    :param drive_id_permission_inherited_from_drive_id: Unique identifier of the drive instance
-     that contains the item. Read-only.
-    :type drive_id_permission_inherited_from_drive_id: str
-    :param drive_type_permission_inherited_from_drive_type: Identifies the type of drive. See
-     [drive][] resource for values.
-    :type drive_type_permission_inherited_from_drive_type: str
-    :param id_permission_inherited_from_id: Unique identifier of the item in the drive. Read-only.
-    :type id_permission_inherited_from_id: str
-    :param name_permission_inherited_from_name: The name of the item being referenced. Read-only.
-    :type name_permission_inherited_from_name: str
-    :param path_permission_inherited_from_path: Path that can be used to navigate to the item.
-     Read-only.
-    :type path_permission_inherited_from_path: str
-    :param share_id_permission_inherited_from_share_id: A unique identifier for a shared resource
-     that can be accessed via the [Shares][] API.
-    :type share_id_permission_inherited_from_share_id: str
-    :param sharepoint_ids_permission_inherited_from_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_permission_inherited_from_sharepoint_ids:
-     ~files.models.MicrosoftGraphSharepointIds
-    :param site_id_permission_inherited_from_site_id:
-    :type site_id_permission_inherited_from_site_id: str
-    :param display_name_permission_granted_to_user_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_permission_granted_to_user_display_name: str
-    :param id_permission_granted_to_user_id: Unique identifier for the identity.
-    :type id_permission_granted_to_user_id: str
-    :param display_name_permission_granted_to_device_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_permission_granted_to_device_display_name: str
-    :param id_permission_granted_to_device_id: Unique identifier for the identity.
-    :type id_permission_granted_to_device_id: str
-    :param display_name_permission_granted_to_application_display_name: The identity's display
-     name. Note that this may not always be available or up to date. For example, if a user changes
-     their display name, the API may show the new value in a future response, but the items
-     associated with the user won't show up as having changed when using delta.
-    :type display_name_permission_granted_to_application_display_name: str
-    :param id_permission_granted_to_application_id: Unique identifier for the identity.
-    :type id_permission_granted_to_application_id: str
-    :param id_list_id: Read-only.
-    :type id_list_id: str
-    :param created_date_time_list_created_date_time: Date and time of item creation. Read-only.
-    :type created_date_time_list_created_date_time: ~datetime.datetime
-    :param description_list_description: Provides a user-visible description of the item. Optional.
-    :type description_list_description: str
-    :param e_tag_list_e_tag: ETag for the item. Read-only.
-    :type e_tag_list_e_tag: str
-    :param last_modified_date_time_list_last_modified_date_time: Date and time the item was last
-     modified. Read-only.
-    :type last_modified_date_time_list_last_modified_date_time: ~datetime.datetime
-    :param name_list_name: The name of the item. Read-write.
-    :type name_list_name: str
-    :param web_url_list_web_url: URL that displays the resource in the browser. Read-only.
-    :type web_url_list_web_url: str
-    :param created_by_user_list_created_by_user: Represents an Azure Active Directory user object.
-    :type created_by_user_list_created_by_user: ~files.models.MicrosoftGraphUser
-    :param last_modified_by_user_list_last_modified_by_user: Represents an Azure Active Directory
-     user object.
-    :type last_modified_by_user_list_last_modified_by_user: ~files.models.MicrosoftGraphUser
-    :param drive_id_list_parent_reference_drive_id: Unique identifier of the drive instance that
-     contains the item. Read-only.
-    :type drive_id_list_parent_reference_drive_id: str
-    :param drive_type_list_parent_reference_drive_type: Identifies the type of drive. See [drive][]
-     resource for values.
-    :type drive_type_list_parent_reference_drive_type: str
-    :param id_list_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_list_parent_reference_id: str
-    :param name_list_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_list_parent_reference_name: str
-    :param path_list_parent_reference_path: Path that can be used to navigate to the item. Read-
-     only.
-    :type path_list_parent_reference_path: str
-    :param share_id_list_parent_reference_share_id: A unique identifier for a shared resource that
-     can be accessed via the [Shares][] API.
-    :type share_id_list_parent_reference_share_id: str
-    :param sharepoint_ids_list_parent_reference_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_list_parent_reference_sharepoint_ids:
-     ~files.models.MicrosoftGraphSharepointIds
-    :param site_id_list_parent_reference_site_id:
-    :type site_id_list_parent_reference_site_id: str
-    :param display_name_list_last_modified_by_user_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_list_last_modified_by_user_display_name: str
-    :param id_list_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_list_last_modified_by_user_id: str
-    :param display_name_list_last_modified_by_device_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_list_last_modified_by_device_display_name: str
-    :param id_list_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_list_last_modified_by_device_id: str
-    :param display_name_list_last_modified_by_application_display_name: The identity's display
-     name. Note that this may not always be available or up to date. For example, if a user changes
-     their display name, the API may show the new value in a future response, but the items
-     associated with the user won't show up as having changed when using delta.
-    :type display_name_list_last_modified_by_application_display_name: str
-    :param id_list_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_list_last_modified_by_application_id: str
-    :param display_name_list_created_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_list_created_by_user_display_name: str
-    :param id_list_created_by_user_id: Unique identifier for the identity.
-    :type id_list_created_by_user_id: str
-    :param display_name_list_created_by_device_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_list_created_by_device_display_name: str
-    :param id_list_created_by_device_id: Unique identifier for the identity.
-    :type id_list_created_by_device_id: str
-    :param display_name_list_created_by_application_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_list_created_by_application_display_name: str
-    :param id_list_created_by_application_id: Unique identifier for the identity.
-    :type id_list_created_by_application_id: str
-    :param display_name_list_display_name: The displayable title of the list.
-    :type display_name_list_display_name: str
-    :param list: listInfo.
-    :type list: ~files.models.MicrosoftGraphListInfo
-    :param sharepoint_ids_list_sharepoint_ids: sharepointIds.
-    :type sharepoint_ids_list_sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
-    :param system: systemFacet.
-    :type system: dict[str, object]
-    :param activities:
-    :type activities: list[~files.models.MicrosoftGraphItemActivityOld]
-    :param columns: The collection of field definitions for this list.
-    :type columns: list[~files.models.MicrosoftGraphColumnDefinition]
-    :param content_types: The collection of content types present in this list.
-    :type content_types: list[~files.models.MicrosoftGraphContentType]
-    :param drive: drive.
-    :type drive: ~files.models.MicrosoftGraphDrive
-    :param items_list_items: All items contained in the list.
-    :type items_list_items: list[~files.models.MicrosoftGraphListItem]
-    :param subscriptions: The set of subscriptions on the list.
-    :type subscriptions: list[~files.models.MicrosoftGraphSubscription]
-    :param display_name_owner_user_display_name: The identity's display name. Note that this may
-     not always be available or up to date. For example, if a user changes their display name, the
-     API may show the new value in a future response, but the items associated with the user won't
-     show up as having changed when using delta.
-    :type display_name_owner_user_display_name: str
-    :param id_owner_user_id: Unique identifier for the identity.
-    :type id_owner_user_id: str
-    :param display_name_owner_device_display_name: The identity's display name. Note that this may
-     not always be available or up to date. For example, if a user changes their display name, the
-     API may show the new value in a future response, but the items associated with the user won't
-     show up as having changed when using delta.
-    :type display_name_owner_device_display_name: str
-    :param id_owner_device_id: Unique identifier for the identity.
-    :type id_owner_device_id: str
-    :param display_name_owner_application_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_owner_application_display_name: str
-    :param id_owner_application_id: Unique identifier for the identity.
-    :type id_owner_application_id: str
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'owner': {'key': 'owner', 'type': 'MicrosoftGraphIdentitySet'},
         'drive_item': {'key': 'driveItem', 'type': 'MicrosoftGraphDriveItem'},
         'items': {'key': 'items', 'type': '[MicrosoftGraphDriveItem]'},
+        'list': {'key': 'list', 'type': 'MicrosoftGraphList'},
         'list_item': {'key': 'listItem', 'type': 'MicrosoftGraphListItem'},
+        'permission': {'key': 'permission', 'type': 'MicrosoftGraphPermission'},
         'root': {'key': 'root', 'type': 'MicrosoftGraphDriveItem'},
         'site': {'key': 'site', 'type': 'MicrosoftGraphSite'},
-        'id_permission_id': {'key': 'permission.id', 'type': 'str'},
-        'expiration_date_time': {'key': 'permission.expirationDateTime', 'type': 'iso-8601'},
-        'granted_to_identities': {'key': 'permission.grantedToIdentities', 'type': '[MicrosoftGraphIdentitySet]'},
-        'has_password': {'key': 'permission.hasPassword', 'type': 'bool'},
-        'roles': {'key': 'permission.roles', 'type': '[str]'},
-        'share_id_permission_share_id': {'key': 'permission.shareId', 'type': 'str'},
-        'application': {'key': 'permission.link.application', 'type': 'MicrosoftGraphIdentity'},
-        'configurator_url': {'key': 'permission.link.configuratorUrl', 'type': 'str'},
-        'prevents_download': {'key': 'permission.link.preventsDownload', 'type': 'bool'},
-        'scope': {'key': 'permission.link.scope', 'type': 'str'},
-        'type': {'key': 'permission.link.type', 'type': 'str'},
-        'web_html': {'key': 'permission.link.webHtml', 'type': 'str'},
-        'web_url_permission_link_web_url': {'key': 'permission.link.webUrl', 'type': 'str'},
-        'email': {'key': 'permission.invitation.email', 'type': 'str'},
-        'invited_by': {'key': 'permission.invitation.invitedBy', 'type': 'MicrosoftGraphIdentitySet'},
-        'redeemed_by': {'key': 'permission.invitation.redeemedBy', 'type': 'str'},
-        'sign_in_required': {'key': 'permission.invitation.signInRequired', 'type': 'bool'},
-        'drive_id_permission_inherited_from_drive_id': {'key': 'permission.inheritedFrom.driveId', 'type': 'str'},
-        'drive_type_permission_inherited_from_drive_type': {'key': 'permission.inheritedFrom.driveType', 'type': 'str'},
-        'id_permission_inherited_from_id': {'key': 'permission.inheritedFrom.id', 'type': 'str'},
-        'name_permission_inherited_from_name': {'key': 'permission.inheritedFrom.name', 'type': 'str'},
-        'path_permission_inherited_from_path': {'key': 'permission.inheritedFrom.path', 'type': 'str'},
-        'share_id_permission_inherited_from_share_id': {'key': 'permission.inheritedFrom.shareId', 'type': 'str'},
-        'sharepoint_ids_permission_inherited_from_sharepoint_ids': {'key': 'permission.inheritedFrom.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id_permission_inherited_from_site_id': {'key': 'permission.inheritedFrom.siteId', 'type': 'str'},
-        'display_name_permission_granted_to_user_display_name': {'key': 'permission.grantedTo.user.displayName', 'type': 'str'},
-        'id_permission_granted_to_user_id': {'key': 'permission.grantedTo.user.id', 'type': 'str'},
-        'display_name_permission_granted_to_device_display_name': {'key': 'permission.grantedTo.device.displayName', 'type': 'str'},
-        'id_permission_granted_to_device_id': {'key': 'permission.grantedTo.device.id', 'type': 'str'},
-        'display_name_permission_granted_to_application_display_name': {'key': 'permission.grantedTo.application.displayName', 'type': 'str'},
-        'id_permission_granted_to_application_id': {'key': 'permission.grantedTo.application.id', 'type': 'str'},
-        'id_list_id': {'key': 'list.id', 'type': 'str'},
-        'created_date_time_list_created_date_time': {'key': 'list.createdDateTime', 'type': 'iso-8601'},
-        'description_list_description': {'key': 'list.description', 'type': 'str'},
-        'e_tag_list_e_tag': {'key': 'list.eTag', 'type': 'str'},
-        'last_modified_date_time_list_last_modified_date_time': {'key': 'list.lastModifiedDateTime', 'type': 'iso-8601'},
-        'name_list_name': {'key': 'list.name', 'type': 'str'},
-        'web_url_list_web_url': {'key': 'list.webUrl', 'type': 'str'},
-        'created_by_user_list_created_by_user': {'key': 'list.createdByUser', 'type': 'MicrosoftGraphUser'},
-        'last_modified_by_user_list_last_modified_by_user': {'key': 'list.lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id_list_parent_reference_drive_id': {'key': 'list.parentReference.driveId', 'type': 'str'},
-        'drive_type_list_parent_reference_drive_type': {'key': 'list.parentReference.driveType', 'type': 'str'},
-        'id_list_parent_reference_id': {'key': 'list.parentReference.id', 'type': 'str'},
-        'name_list_parent_reference_name': {'key': 'list.parentReference.name', 'type': 'str'},
-        'path_list_parent_reference_path': {'key': 'list.parentReference.path', 'type': 'str'},
-        'share_id_list_parent_reference_share_id': {'key': 'list.parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids_list_parent_reference_sharepoint_ids': {'key': 'list.parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id_list_parent_reference_site_id': {'key': 'list.parentReference.siteId', 'type': 'str'},
-        'display_name_list_last_modified_by_user_display_name': {'key': 'list.lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_list_last_modified_by_user_id': {'key': 'list.lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_list_last_modified_by_device_display_name': {'key': 'list.lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_list_last_modified_by_device_id': {'key': 'list.lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_list_last_modified_by_application_display_name': {'key': 'list.lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_list_last_modified_by_application_id': {'key': 'list.lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_list_created_by_user_display_name': {'key': 'list.createdBy.user.displayName', 'type': 'str'},
-        'id_list_created_by_user_id': {'key': 'list.createdBy.user.id', 'type': 'str'},
-        'display_name_list_created_by_device_display_name': {'key': 'list.createdBy.device.displayName', 'type': 'str'},
-        'id_list_created_by_device_id': {'key': 'list.createdBy.device.id', 'type': 'str'},
-        'display_name_list_created_by_application_display_name': {'key': 'list.createdBy.application.displayName', 'type': 'str'},
-        'id_list_created_by_application_id': {'key': 'list.createdBy.application.id', 'type': 'str'},
-        'display_name_list_display_name': {'key': 'list.displayName', 'type': 'str'},
-        'list': {'key': 'list.list', 'type': 'MicrosoftGraphListInfo'},
-        'sharepoint_ids_list_sharepoint_ids': {'key': 'list.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'system': {'key': 'list.system', 'type': '{object}'},
-        'activities': {'key': 'list.activities', 'type': '[MicrosoftGraphItemActivityOld]'},
-        'columns': {'key': 'list.columns', 'type': '[MicrosoftGraphColumnDefinition]'},
-        'content_types': {'key': 'list.contentTypes', 'type': '[MicrosoftGraphContentType]'},
-        'drive': {'key': 'list.drive', 'type': 'MicrosoftGraphDrive'},
-        'items_list_items': {'key': 'list.items', 'type': '[MicrosoftGraphListItem]'},
-        'subscriptions': {'key': 'list.subscriptions', 'type': '[MicrosoftGraphSubscription]'},
-        'display_name_owner_user_display_name': {'key': 'owner.user.displayName', 'type': 'str'},
-        'id_owner_user_id': {'key': 'owner.user.id', 'type': 'str'},
-        'display_name_owner_device_display_name': {'key': 'owner.device.displayName', 'type': 'str'},
-        'id_owner_device_id': {'key': 'owner.device.id', 'type': 'str'},
-        'display_name_owner_application_display_name': {'key': 'owner.application.displayName', 'type': 'str'},
-        'id_owner_application_id': {'key': 'owner.application.id', 'type': 'str'},
     }
 
     def __init__(
@@ -18712,88 +17001,14 @@ class MicrosoftGraphSharedDriveItem(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphSharedDriveItem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        self.owner = kwargs.get('owner', None)
         self.drive_item = kwargs.get('drive_item', None)
         self.items = kwargs.get('items', None)
+        self.list = kwargs.get('list', None)
         self.list_item = kwargs.get('list_item', None)
+        self.permission = kwargs.get('permission', None)
         self.root = kwargs.get('root', None)
         self.site = kwargs.get('site', None)
-        self.id_permission_id = kwargs.get('id_permission_id', None)
-        self.expiration_date_time = kwargs.get('expiration_date_time', None)
-        self.granted_to_identities = kwargs.get('granted_to_identities', None)
-        self.has_password = kwargs.get('has_password', None)
-        self.roles = kwargs.get('roles', None)
-        self.share_id_permission_share_id = kwargs.get('share_id_permission_share_id', None)
-        self.application = kwargs.get('application', None)
-        self.configurator_url = kwargs.get('configurator_url', None)
-        self.prevents_download = kwargs.get('prevents_download', None)
-        self.scope = kwargs.get('scope', None)
-        self.type = kwargs.get('type', None)
-        self.web_html = kwargs.get('web_html', None)
-        self.web_url_permission_link_web_url = kwargs.get('web_url_permission_link_web_url', None)
-        self.email = kwargs.get('email', None)
-        self.invited_by = kwargs.get('invited_by', None)
-        self.redeemed_by = kwargs.get('redeemed_by', None)
-        self.sign_in_required = kwargs.get('sign_in_required', None)
-        self.drive_id_permission_inherited_from_drive_id = kwargs.get('drive_id_permission_inherited_from_drive_id', None)
-        self.drive_type_permission_inherited_from_drive_type = kwargs.get('drive_type_permission_inherited_from_drive_type', None)
-        self.id_permission_inherited_from_id = kwargs.get('id_permission_inherited_from_id', None)
-        self.name_permission_inherited_from_name = kwargs.get('name_permission_inherited_from_name', None)
-        self.path_permission_inherited_from_path = kwargs.get('path_permission_inherited_from_path', None)
-        self.share_id_permission_inherited_from_share_id = kwargs.get('share_id_permission_inherited_from_share_id', None)
-        self.sharepoint_ids_permission_inherited_from_sharepoint_ids = kwargs.get('sharepoint_ids_permission_inherited_from_sharepoint_ids', None)
-        self.site_id_permission_inherited_from_site_id = kwargs.get('site_id_permission_inherited_from_site_id', None)
-        self.display_name_permission_granted_to_user_display_name = kwargs.get('display_name_permission_granted_to_user_display_name', None)
-        self.id_permission_granted_to_user_id = kwargs.get('id_permission_granted_to_user_id', None)
-        self.display_name_permission_granted_to_device_display_name = kwargs.get('display_name_permission_granted_to_device_display_name', None)
-        self.id_permission_granted_to_device_id = kwargs.get('id_permission_granted_to_device_id', None)
-        self.display_name_permission_granted_to_application_display_name = kwargs.get('display_name_permission_granted_to_application_display_name', None)
-        self.id_permission_granted_to_application_id = kwargs.get('id_permission_granted_to_application_id', None)
-        self.id_list_id = kwargs.get('id_list_id', None)
-        self.created_date_time_list_created_date_time = kwargs.get('created_date_time_list_created_date_time', None)
-        self.description_list_description = kwargs.get('description_list_description', None)
-        self.e_tag_list_e_tag = kwargs.get('e_tag_list_e_tag', None)
-        self.last_modified_date_time_list_last_modified_date_time = kwargs.get('last_modified_date_time_list_last_modified_date_time', None)
-        self.name_list_name = kwargs.get('name_list_name', None)
-        self.web_url_list_web_url = kwargs.get('web_url_list_web_url', None)
-        self.created_by_user_list_created_by_user = kwargs.get('created_by_user_list_created_by_user', None)
-        self.last_modified_by_user_list_last_modified_by_user = kwargs.get('last_modified_by_user_list_last_modified_by_user', None)
-        self.drive_id_list_parent_reference_drive_id = kwargs.get('drive_id_list_parent_reference_drive_id', None)
-        self.drive_type_list_parent_reference_drive_type = kwargs.get('drive_type_list_parent_reference_drive_type', None)
-        self.id_list_parent_reference_id = kwargs.get('id_list_parent_reference_id', None)
-        self.name_list_parent_reference_name = kwargs.get('name_list_parent_reference_name', None)
-        self.path_list_parent_reference_path = kwargs.get('path_list_parent_reference_path', None)
-        self.share_id_list_parent_reference_share_id = kwargs.get('share_id_list_parent_reference_share_id', None)
-        self.sharepoint_ids_list_parent_reference_sharepoint_ids = kwargs.get('sharepoint_ids_list_parent_reference_sharepoint_ids', None)
-        self.site_id_list_parent_reference_site_id = kwargs.get('site_id_list_parent_reference_site_id', None)
-        self.display_name_list_last_modified_by_user_display_name = kwargs.get('display_name_list_last_modified_by_user_display_name', None)
-        self.id_list_last_modified_by_user_id = kwargs.get('id_list_last_modified_by_user_id', None)
-        self.display_name_list_last_modified_by_device_display_name = kwargs.get('display_name_list_last_modified_by_device_display_name', None)
-        self.id_list_last_modified_by_device_id = kwargs.get('id_list_last_modified_by_device_id', None)
-        self.display_name_list_last_modified_by_application_display_name = kwargs.get('display_name_list_last_modified_by_application_display_name', None)
-        self.id_list_last_modified_by_application_id = kwargs.get('id_list_last_modified_by_application_id', None)
-        self.display_name_list_created_by_user_display_name = kwargs.get('display_name_list_created_by_user_display_name', None)
-        self.id_list_created_by_user_id = kwargs.get('id_list_created_by_user_id', None)
-        self.display_name_list_created_by_device_display_name = kwargs.get('display_name_list_created_by_device_display_name', None)
-        self.id_list_created_by_device_id = kwargs.get('id_list_created_by_device_id', None)
-        self.display_name_list_created_by_application_display_name = kwargs.get('display_name_list_created_by_application_display_name', None)
-        self.id_list_created_by_application_id = kwargs.get('id_list_created_by_application_id', None)
-        self.display_name_list_display_name = kwargs.get('display_name_list_display_name', None)
-        self.list = kwargs.get('list', None)
-        self.sharepoint_ids_list_sharepoint_ids = kwargs.get('sharepoint_ids_list_sharepoint_ids', None)
-        self.system = kwargs.get('system', None)
-        self.activities = kwargs.get('activities', None)
-        self.columns = kwargs.get('columns', None)
-        self.content_types = kwargs.get('content_types', None)
-        self.drive = kwargs.get('drive', None)
-        self.items_list_items = kwargs.get('items_list_items', None)
-        self.subscriptions = kwargs.get('subscriptions', None)
-        self.display_name_owner_user_display_name = kwargs.get('display_name_owner_user_display_name', None)
-        self.id_owner_user_id = kwargs.get('id_owner_user_id', None)
-        self.display_name_owner_device_display_name = kwargs.get('display_name_owner_device_display_name', None)
-        self.id_owner_device_id = kwargs.get('id_owner_device_id', None)
-        self.display_name_owner_application_display_name = kwargs.get('display_name_owner_application_display_name', None)
-        self.id_owner_application_id = kwargs.get('id_owner_application_id', None)
 
 
 class MicrosoftGraphSharedInsight(MicrosoftGraphEntity):
@@ -19029,9 +17244,6 @@ class MicrosoftGraphSharingLink(msrest.serialization.Model):
 class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     """shift.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -19062,7 +17274,6 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -19081,7 +17292,6 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphShift, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.draft_shift = kwargs.get('draft_shift', None)
         self.is_staged_for_deletion = kwargs.get('is_staged_for_deletion', None)
@@ -19175,9 +17385,6 @@ class MicrosoftGraphShiftAvailability(msrest.serialization.Model):
 class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
     """shiftPreferences.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -19201,7 +17408,6 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -19216,7 +17422,6 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphShiftPreferences, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.availability = kwargs.get('availability', None)
 
@@ -19279,93 +17484,43 @@ class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):
 class MicrosoftGraphSite(MicrosoftGraphBaseItem):
     """site.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~files.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~files.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~files.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param site_id:
-    :type site_id: str
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param deleted: deleted.
+    :type deleted: ~files.models.MicrosoftGraphDeleted
     :param display_name: The full title for the site. Read-only.
     :type display_name: str
     :param root: root.
     :type root: dict[str, object]
     :param sharepoint_ids: sharepointIds.
     :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
+    :param site_collection: siteCollection.
+    :type site_collection: ~files.models.MicrosoftGraphSiteCollection
     :param analytics: itemAnalytics.
     :type analytics: ~files.models.MicrosoftGraphItemAnalytics
     :param columns: The collection of column definitions reusable across lists under this site.
@@ -19385,73 +17540,29 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
     :type pages: list[~files.models.MicrosoftGraphSitePage]
     :param sites: The collection of the sub-sites under this site.
     :type sites: list[~files.models.MicrosoftGraphSite]
-    :param id_onenote_id: Read-only.
-    :type id_onenote_id: str
-    :param notebooks: The collection of OneNote notebooks that are owned by the user or group.
-     Read-only. Nullable.
-    :type notebooks: list[~files.models.MicrosoftGraphNotebook]
-    :param operations: The status of OneNote operations. Getting an operations collection is not
-     supported, but you can get the status of long-running operations if the Operation-Location
-     header is returned in the response. Read-only. Nullable.
-    :type operations: list[~files.models.MicrosoftGraphOnenoteOperation]
-    :param pages_onenote_pages: The pages in all OneNote notebooks that are owned by the user or
-     group.  Read-only. Nullable.
-    :type pages_onenote_pages: list[~files.models.MicrosoftGraphOnenotePage]
-    :param resources: The image and other file resources in OneNote pages. Getting a resources
-     collection is not supported, but you can get the binary content of a specific resource. Read-
-     only. Nullable.
-    :type resources: list[~files.models.MicrosoftGraphOnenoteResource]
-    :param section_groups: The section groups in all OneNote notebooks that are owned by the user
-     or group.  Read-only. Nullable.
-    :type section_groups: list[~files.models.MicrosoftGraphSectionGroup]
-    :param sections: The sections in all OneNote notebooks that are owned by the user or group.
-     Read-only. Nullable.
-    :type sections: list[~files.models.MicrosoftGraphOnenoteSection]
-    :param data_location_code: The geographic region code for where this site collection resides.
-     Read-only.
-    :type data_location_code: str
-    :param hostname: The hostname for the site collection. Read-only.
-    :type hostname: str
-    :param root_site_collection_root: root.
-    :type root_site_collection_root: dict[str, object]
-    :param state: Represents the state of the deleted item.
-    :type state: str
+    :param onenote: onenote.
+    :type onenote: ~files.models.MicrosoftGraphOnenote
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'deleted': {'key': 'deleted', 'type': 'MicrosoftGraphDeleted'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'root': {'key': 'root', 'type': '{object}'},
         'sharepoint_ids': {'key': 'sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
+        'site_collection': {'key': 'siteCollection', 'type': 'MicrosoftGraphSiteCollection'},
         'analytics': {'key': 'analytics', 'type': 'MicrosoftGraphItemAnalytics'},
         'columns': {'key': 'columns', 'type': '[MicrosoftGraphColumnDefinition]'},
         'content_types': {'key': 'contentTypes', 'type': '[MicrosoftGraphContentType]'},
@@ -19461,17 +17572,7 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
         'lists': {'key': 'lists', 'type': '[MicrosoftGraphList]'},
         'pages': {'key': 'pages', 'type': '[MicrosoftGraphSitePage]'},
         'sites': {'key': 'sites', 'type': '[MicrosoftGraphSite]'},
-        'id_onenote_id': {'key': 'onenote.id', 'type': 'str'},
-        'notebooks': {'key': 'onenote.notebooks', 'type': '[MicrosoftGraphNotebook]'},
-        'operations': {'key': 'onenote.operations', 'type': '[MicrosoftGraphOnenoteOperation]'},
-        'pages_onenote_pages': {'key': 'onenote.pages', 'type': '[MicrosoftGraphOnenotePage]'},
-        'resources': {'key': 'onenote.resources', 'type': '[MicrosoftGraphOnenoteResource]'},
-        'section_groups': {'key': 'onenote.sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
-        'sections': {'key': 'onenote.sections', 'type': '[MicrosoftGraphOnenoteSection]'},
-        'data_location_code': {'key': 'siteCollection.dataLocationCode', 'type': 'str'},
-        'hostname': {'key': 'siteCollection.hostname', 'type': 'str'},
-        'root_site_collection_root': {'key': 'siteCollection.root', 'type': '{object}'},
-        'state': {'key': 'deleted.state', 'type': 'str'},
+        'onenote': {'key': 'onenote', 'type': 'MicrosoftGraphOnenote'},
     }
 
     def __init__(
@@ -19480,10 +17581,11 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
     ):
         super(MicrosoftGraphSite, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
+        self.deleted = kwargs.get('deleted', None)
         self.display_name = kwargs.get('display_name', None)
         self.root = kwargs.get('root', None)
         self.sharepoint_ids = kwargs.get('sharepoint_ids', None)
+        self.site_collection = kwargs.get('site_collection', None)
         self.analytics = kwargs.get('analytics', None)
         self.columns = kwargs.get('columns', None)
         self.content_types = kwargs.get('content_types', None)
@@ -19493,17 +17595,7 @@ class MicrosoftGraphSite(MicrosoftGraphBaseItem):
         self.lists = kwargs.get('lists', None)
         self.pages = kwargs.get('pages', None)
         self.sites = kwargs.get('sites', None)
-        self.id_onenote_id = kwargs.get('id_onenote_id', None)
-        self.notebooks = kwargs.get('notebooks', None)
-        self.operations = kwargs.get('operations', None)
-        self.pages_onenote_pages = kwargs.get('pages_onenote_pages', None)
-        self.resources = kwargs.get('resources', None)
-        self.section_groups = kwargs.get('section_groups', None)
-        self.sections = kwargs.get('sections', None)
-        self.data_location_code = kwargs.get('data_location_code', None)
-        self.hostname = kwargs.get('hostname', None)
-        self.root_site_collection_root = kwargs.get('root_site_collection_root', None)
-        self.state = kwargs.get('state', None)
+        self.onenote = kwargs.get('onenote', None)
 
 
 class MicrosoftGraphSiteCollection(msrest.serialization.Model):
@@ -19542,86 +17634,30 @@ class MicrosoftGraphSiteCollection(msrest.serialization.Model):
 class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
     """sitePage.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
+    :param created_by: identitySet.
+    :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: Date and time of item creation. Read-only.
     :type created_date_time: ~datetime.datetime
     :param description: Provides a user-visible description of the item. Optional.
     :type description: str
     :param e_tag: ETag for the item. Read-only.
     :type e_tag: str
+    :param last_modified_by: identitySet.
+    :type last_modified_by: ~files.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: Date and time the item was last modified. Read-only.
     :type last_modified_date_time: ~datetime.datetime
     :param name: The name of the item. Read-write.
     :type name: str
+    :param parent_reference: itemReference.
+    :type parent_reference: ~files.models.MicrosoftGraphItemReference
     :param web_url: URL that displays the resource in the browser. Read-only.
     :type web_url: str
     :param created_by_user: Represents an Azure Active Directory user object.
     :type created_by_user: ~files.models.MicrosoftGraphUser
     :param last_modified_by_user: Represents an Azure Active Directory user object.
     :type last_modified_by_user: ~files.models.MicrosoftGraphUser
-    :param drive_id: Unique identifier of the drive instance that contains the item. Read-only.
-    :type drive_id: str
-    :param drive_type: Identifies the type of drive. See [drive][] resource for values.
-    :type drive_type: str
-    :param id_parent_reference_id: Unique identifier of the item in the drive. Read-only.
-    :type id_parent_reference_id: str
-    :param name_parent_reference_name: The name of the item being referenced. Read-only.
-    :type name_parent_reference_name: str
-    :param path: Path that can be used to navigate to the item. Read-only.
-    :type path: str
-    :param share_id: A unique identifier for a shared resource that can be accessed via the
-     [Shares][] API.
-    :type share_id: str
-    :param sharepoint_ids: sharepointIds.
-    :type sharepoint_ids: ~files.models.MicrosoftGraphSharepointIds
-    :param site_id:
-    :type site_id: str
-    :param display_name_last_modified_by_user_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_user_display_name: str
-    :param id_last_modified_by_user_id: Unique identifier for the identity.
-    :type id_last_modified_by_user_id: str
-    :param display_name_last_modified_by_device_display_name: The identity's display name. Note
-     that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_device_display_name: str
-    :param id_last_modified_by_device_id: Unique identifier for the identity.
-    :type id_last_modified_by_device_id: str
-    :param display_name_last_modified_by_application_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_last_modified_by_application_display_name: str
-    :param id_last_modified_by_application_id: Unique identifier for the identity.
-    :type id_last_modified_by_application_id: str
-    :param display_name_created_by_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_user_display_name: str
-    :param id_created_by_user_id: Unique identifier for the identity.
-    :type id_created_by_user_id: str
-    :param display_name_created_by_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_created_by_device_display_name: str
-    :param id_created_by_device_id: Unique identifier for the identity.
-    :type id_created_by_device_id: str
-    :param display_name_created_by_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_created_by_application_display_name: str
-    :param id_created_by_application_id: Unique identifier for the identity.
-    :type id_created_by_application_id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -19638,36 +17674,18 @@ class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
+        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'e_tag': {'key': 'eTag', 'type': 'str'},
+        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'name': {'key': 'name', 'type': 'str'},
+        'parent_reference': {'key': 'parentReference', 'type': 'MicrosoftGraphItemReference'},
         'web_url': {'key': 'webUrl', 'type': 'str'},
         'created_by_user': {'key': 'createdByUser', 'type': 'MicrosoftGraphUser'},
         'last_modified_by_user': {'key': 'lastModifiedByUser', 'type': 'MicrosoftGraphUser'},
-        'drive_id': {'key': 'parentReference.driveId', 'type': 'str'},
-        'drive_type': {'key': 'parentReference.driveType', 'type': 'str'},
-        'id_parent_reference_id': {'key': 'parentReference.id', 'type': 'str'},
-        'name_parent_reference_name': {'key': 'parentReference.name', 'type': 'str'},
-        'path': {'key': 'parentReference.path', 'type': 'str'},
-        'share_id': {'key': 'parentReference.shareId', 'type': 'str'},
-        'sharepoint_ids': {'key': 'parentReference.sharepointIds', 'type': 'MicrosoftGraphSharepointIds'},
-        'site_id': {'key': 'parentReference.siteId', 'type': 'str'},
-        'display_name_last_modified_by_user_display_name': {'key': 'lastModifiedBy.user.displayName', 'type': 'str'},
-        'id_last_modified_by_user_id': {'key': 'lastModifiedBy.user.id', 'type': 'str'},
-        'display_name_last_modified_by_device_display_name': {'key': 'lastModifiedBy.device.displayName', 'type': 'str'},
-        'id_last_modified_by_device_id': {'key': 'lastModifiedBy.device.id', 'type': 'str'},
-        'display_name_last_modified_by_application_display_name': {'key': 'lastModifiedBy.application.displayName', 'type': 'str'},
-        'id_last_modified_by_application_id': {'key': 'lastModifiedBy.application.id', 'type': 'str'},
-        'display_name_created_by_user_display_name': {'key': 'createdBy.user.displayName', 'type': 'str'},
-        'id_created_by_user_id': {'key': 'createdBy.user.id', 'type': 'str'},
-        'display_name_created_by_device_display_name': {'key': 'createdBy.device.displayName', 'type': 'str'},
-        'id_created_by_device_id': {'key': 'createdBy.device.id', 'type': 'str'},
-        'display_name_created_by_application_display_name': {'key': 'createdBy.application.displayName', 'type': 'str'},
-        'id_created_by_application_id': {'key': 'createdBy.application.id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'content_type': {'key': 'contentType', 'type': 'MicrosoftGraphContentTypeInfo'},
         'page_layout_type': {'key': 'pageLayoutType', 'type': 'str'},
@@ -19681,7 +17699,6 @@ class MicrosoftGraphSitePage(MicrosoftGraphBaseItem):
         **kwargs
     ):
         super(MicrosoftGraphSitePage, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content_type = kwargs.get('content_type', None)
         self.page_layout_type = kwargs.get('page_layout_type', None)
@@ -19728,9 +17745,6 @@ class MicrosoftGraphSizeRange(msrest.serialization.Model):
 class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     """skillProficiency.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -19765,7 +17779,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -19788,7 +17801,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphSkillProficiency, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.collaboration_tags = kwargs.get('collaboration_tags', None)
         self.display_name = kwargs.get('display_name', None)
@@ -19799,9 +17811,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
 class MicrosoftGraphSoftwareOathAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """softwareOathAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -19810,7 +17819,6 @@ class MicrosoftGraphSoftwareOathAuthenticationMethod(MicrosoftGraphAuthenticatio
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -19820,7 +17828,6 @@ class MicrosoftGraphSoftwareOathAuthenticationMethod(MicrosoftGraphAuthenticatio
         **kwargs
     ):
         super(MicrosoftGraphSoftwareOathAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -19984,9 +17991,6 @@ class MicrosoftGraphSubscription(MicrosoftGraphEntity):
 class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
     """swapShiftsChangeRequest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -20001,9 +18005,6 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -20054,13 +18055,11 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -20087,8 +18086,6 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
         **kwargs
     ):
         super(MicrosoftGraphSwapShiftsChangeRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.recipient_shift_id = kwargs.get('recipient_shift_id', None)
 
@@ -20735,9 +18732,6 @@ class MicrosoftGraphTeamsTemplate(MicrosoftGraphEntity):
 class MicrosoftGraphTemporaryAccessPassAuthenticationMethod(MicrosoftGraphAuthenticationMethod):
     """temporaryAccessPassAuthenticationMethod.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -20746,7 +18740,6 @@ class MicrosoftGraphTemporaryAccessPassAuthenticationMethod(MicrosoftGraphAuthen
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
@@ -20756,7 +18749,6 @@ class MicrosoftGraphTemporaryAccessPassAuthenticationMethod(MicrosoftGraphAuthen
         **kwargs
     ):
         super(MicrosoftGraphTemporaryAccessPassAuthenticationMethod, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -20990,9 +18982,6 @@ class MicrosoftGraphThumbnailSet(MicrosoftGraphEntity):
 class MicrosoftGraphTimeCard(MicrosoftGraphChangeTrackedEntity):
     """timeCard.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -21030,7 +19019,6 @@ class MicrosoftGraphTimeCard(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -21052,7 +19040,6 @@ class MicrosoftGraphTimeCard(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphTimeCard, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.breaks = kwargs.get('breaks', None)
         self.clock_in_event = kwargs.get('clock_in_event', None)
@@ -21191,9 +19178,6 @@ class MicrosoftGraphTimeClockSettings(msrest.serialization.Model):
 class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
     """timeOff.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -21222,7 +19206,6 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -21240,7 +19223,6 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
         **kwargs
     ):
         super(MicrosoftGraphTimeOff, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.draft_time_off = kwargs.get('draft_time_off', None)
         self.is_staged_for_deletion = kwargs.get('is_staged_for_deletion', None)
@@ -21285,9 +19267,6 @@ class MicrosoftGraphTimeOffItem(MicrosoftGraphScheduleEntity):
 class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     """timeOffReason.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_by: identitySet.
@@ -21317,7 +19296,6 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -21335,7 +19313,6 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     ):
         super(MicrosoftGraphTimeOffReason, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.display_name = kwargs.get('display_name', None)
         self.icon_type = kwargs.get('icon_type', None)
         self.is_active = kwargs.get('is_active', None)
@@ -21346,9 +19323,6 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_by: identitySet.
     :type created_by: ~files.models.MicrosoftGraphIdentitySet
     :param created_date_time: The Timestamp type represents date and time information using ISO
@@ -21396,7 +19370,6 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -21420,7 +19393,6 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
         **kwargs
     ):
         super(MicrosoftGraphTimeOffRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.end_date_time = kwargs.get('end_date_time', None)
         self.start_date_time = kwargs.get('start_date_time', None)
@@ -21818,9 +19790,6 @@ class MicrosoftGraphUsedInsight(MicrosoftGraphEntity):
 class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory user object.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -22203,7 +20172,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -22347,7 +20315,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     ):
         super(MicrosoftGraphUser, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.sign_in_activity = kwargs.get('sign_in_activity', None)
         self.account_enabled = kwargs.get('account_enabled', None)
         self.age_group = kwargs.get('age_group', None)
@@ -22485,9 +20452,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
 class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     """userAccountInformation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -22519,7 +20483,6 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -22540,7 +20503,6 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphUserAccountInformation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.age_group = kwargs.get('age_group', None)
         self.country_code = kwargs.get('country_code', None)
@@ -22707,9 +20669,6 @@ class MicrosoftGraphUserConfiguration(MicrosoftGraphEntity):
 class MicrosoftGraphUserConsentRequest(MicrosoftGraphRequest):
     """userConsentRequest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param approval: approval.
@@ -22728,7 +20687,6 @@ class MicrosoftGraphUserConsentRequest(MicrosoftGraphRequest):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'approval': {'key': 'approval', 'type': 'MicrosoftGraphApproval'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -22743,7 +20701,6 @@ class MicrosoftGraphUserConsentRequest(MicrosoftGraphRequest):
         **kwargs
     ):
         super(MicrosoftGraphUserConsentRequest, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.created_by = kwargs.get('created_by', None)
         self.created_date_time = kwargs.get('created_date_time', None)
@@ -22817,9 +20774,6 @@ class MicrosoftGraphUserPurpose(msrest.serialization.Model):
 class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstallation):
     """userScopeTeamsAppInstallation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param teams_app: teamsApp.
@@ -22834,7 +20788,6 @@ class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstalla
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'teams_app': {'key': 'teamsApp', 'type': 'MicrosoftGraphTeamsApp'},
         'teams_app_definition': {'key': 'teamsAppDefinition', 'type': 'MicrosoftGraphTeamsAppDefinition'},
@@ -22847,7 +20800,6 @@ class MicrosoftGraphUserScopeTeamsAppInstallation(MicrosoftGraphTeamsAppInstalla
         **kwargs
     ):
         super(MicrosoftGraphUserScopeTeamsAppInstallation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.chat = kwargs.get('chat', None)
 
@@ -23085,9 +21037,6 @@ class MicrosoftGraphVisualProperties(msrest.serialization.Model):
 class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     """webAccount.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -23121,7 +21070,6 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -23143,7 +21091,6 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphWebAccount, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.service = kwargs.get('service', None)
@@ -25140,9 +23087,6 @@ class MicrosoftGraphWorkingHours(msrest.serialization.Model):
 class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     """workPosition.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -25176,7 +23120,6 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphIdentitySet'},
@@ -25198,7 +23141,6 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphWorkPosition, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.colleagues = kwargs.get('colleagues', None)

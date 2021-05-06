@@ -1324,9 +1324,6 @@ class MicrosoftGraphManagedAppPolicy(MicrosoftGraphEntity):
 class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     """Policy used to configure detailed management settings for a specified set of apps.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -1430,7 +1427,6 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
@@ -1470,7 +1466,6 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
@@ -1509,7 +1504,6 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     ):
         super(MicrosoftGraphManagedAppProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.allowed_data_storage_locations = allowed_data_storage_locations
         self.allowed_inbound_data_transfer_sources = allowed_inbound_data_transfer_sources
         self.allowed_outbound_clipboard_sharing_level = allowed_outbound_clipboard_sharing_level
@@ -1544,9 +1538,6 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -1655,7 +1646,6 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1697,7 +1687,6 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
@@ -1737,7 +1726,6 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
     ):
         super(MicrosoftGraphTargetedManagedAppProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.is_assigned = is_assigned
         self.assignments = assignments
 
@@ -1745,9 +1733,6 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
 class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedAppProtection):
     """Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -1760,9 +1745,6 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
     :type last_modified_date_time: ~datetime.datetime
     :param version: Version of the entity.
     :type version: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param allowed_data_storage_locations: Data storage locations where a user may store managed
      data.
     :type allowed_data_storage_locations: list[str or
@@ -1879,37 +1861,25 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
     :type screen_capture_blocked: bool
     :param apps: List of apps to which the policy is deployed.
     :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
-    :param id_deployment_summary_id: Read-only.
-    :type id_deployment_summary_id: str
-    :param configuration_deployed_user_count: Not yet documented.
-    :type configuration_deployed_user_count: int
-    :param configuration_deployment_summary_per_app: Not yet documented.
-    :type configuration_deployment_summary_per_app:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
-    :param display_name_deployment_summary_display_name: Not yet documented.
-    :type display_name_deployment_summary_display_name: str
-    :param last_refresh_time: Not yet documented.
-    :type last_refresh_time: ~datetime.datetime
-    :param version_deployment_summary_version: Version of the entity.
-    :type version_deployment_summary_version: str
+    :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
+     types under app management workflow.
+    :type deployment_summary:
+     ~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummary
     """
 
     _validation = {
         'maximum_pin_retries': {'maximum': 2147483647, 'minimum': -2147483648},
         'minimum_pin_length': {'maximum': 2147483647, 'minimum': -2147483648},
         'deployed_app_count': {'maximum': 2147483647, 'minimum': -2147483648},
-        'configuration_deployed_user_count': {'maximum': 2147483647, 'minimum': -2147483648},
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_data_storage_locations': {'key': 'allowedDataStorageLocations', 'type': '[str]'},
         'allowed_inbound_data_transfer_sources': {'key': 'allowedInboundDataTransferSources', 'type': 'str'},
         'allowed_outbound_clipboard_sharing_level': {'key': 'allowedOutboundClipboardSharingLevel', 'type': 'str'},
@@ -1949,25 +1919,18 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         'minimum_warning_patch_version': {'key': 'minimumWarningPatchVersion', 'type': 'str'},
         'screen_capture_blocked': {'key': 'screenCaptureBlocked', 'type': 'bool'},
         'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
-        'id_deployment_summary_id': {'key': 'deploymentSummary.id', 'type': 'str'},
-        'configuration_deployed_user_count': {'key': 'deploymentSummary.configurationDeployedUserCount', 'type': 'int'},
-        'configuration_deployment_summary_per_app': {'key': 'deploymentSummary.configurationDeploymentSummaryPerApp', 'type': '[MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]'},
-        'display_name_deployment_summary_display_name': {'key': 'deploymentSummary.displayName', 'type': 'str'},
-        'last_refresh_time': {'key': 'deploymentSummary.lastRefreshTime', 'type': 'iso-8601'},
-        'version_deployment_summary_version': {'key': 'deploymentSummary.version', 'type': 'str'},
+        'deployment_summary': {'key': 'deploymentSummary', 'type': 'MicrosoftGraphManagedAppPolicyDeploymentSummary'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         allowed_data_storage_locations: Optional[List[Union[str, "MicrosoftGraphManagedAppDataStorageLocation"]]] = None,
         allowed_inbound_data_transfer_sources: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
         allowed_outbound_clipboard_sharing_level: Optional[Union[str, "MicrosoftGraphManagedAppClipboardSharingLevel"]] = None,
@@ -2007,17 +1970,10 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         minimum_warning_patch_version: Optional[str] = None,
         screen_capture_blocked: Optional[bool] = None,
         apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
-        id_deployment_summary_id: Optional[str] = None,
-        configuration_deployed_user_count: Optional[int] = None,
-        configuration_deployment_summary_per_app: Optional[List["MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]] = None,
-        display_name_deployment_summary_display_name: Optional[str] = None,
-        last_refresh_time: Optional[datetime.datetime] = None,
-        version_deployment_summary_version: Optional[str] = None,
+        deployment_summary: Optional["MicrosoftGraphManagedAppPolicyDeploymentSummary"] = None,
         **kwargs
     ):
         super(MicrosoftGraphAndroidManagedAppProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, **kwargs)
-        self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.custom_browser_display_name = custom_browser_display_name
         self.custom_browser_package_id = custom_browser_package_id
@@ -2028,12 +1984,7 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         self.minimum_warning_patch_version = minimum_warning_patch_version
         self.screen_capture_blocked = screen_capture_blocked
         self.apps = apps
-        self.id_deployment_summary_id = id_deployment_summary_id
-        self.configuration_deployed_user_count = configuration_deployed_user_count
-        self.configuration_deployment_summary_per_app = configuration_deployment_summary_per_app
-        self.display_name_deployment_summary_display_name = display_name_deployment_summary_display_name
-        self.last_refresh_time = last_refresh_time
-        self.version_deployment_summary_version = version_deployment_summary_version
+        self.deployment_summary = deployment_summary
 
 
 class MicrosoftGraphConfigurationManagerClientEnabledFeatures(msrest.serialization.Model):
@@ -2093,9 +2044,6 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -2220,31 +2168,20 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
     :type screen_capture_blocked: bool
     :param apps: List of apps to which the policy is deployed.
     :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
-    :param id_deployment_summary_id: Read-only.
-    :type id_deployment_summary_id: str
-    :param configuration_deployed_user_count: Not yet documented.
-    :type configuration_deployed_user_count: int
-    :param configuration_deployment_summary_per_app: Not yet documented.
-    :type configuration_deployment_summary_per_app:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
-    :param display_name_deployment_summary_display_name: Not yet documented.
-    :type display_name_deployment_summary_display_name: str
-    :param last_refresh_time: Not yet documented.
-    :type last_refresh_time: ~datetime.datetime
-    :param version_deployment_summary_version: Version of the entity.
-    :type version_deployment_summary_version: str
+    :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
+     types under app management workflow.
+    :type deployment_summary:
+     ~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummary
     """
 
     _validation = {
         'maximum_pin_retries': {'maximum': 2147483647, 'minimum': -2147483648},
         'minimum_pin_length': {'maximum': 2147483647, 'minimum': -2147483648},
         'deployed_app_count': {'maximum': 2147483647, 'minimum': -2147483648},
-        'configuration_deployed_user_count': {'maximum': 2147483647, 'minimum': -2147483648},
     }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -2289,19 +2226,13 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         'minimum_warning_patch_version': {'key': 'minimumWarningPatchVersion', 'type': 'str'},
         'screen_capture_blocked': {'key': 'screenCaptureBlocked', 'type': 'bool'},
         'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
-        'id_deployment_summary_id': {'key': 'deploymentSummary.id', 'type': 'str'},
-        'configuration_deployed_user_count': {'key': 'deploymentSummary.configurationDeployedUserCount', 'type': 'int'},
-        'configuration_deployment_summary_per_app': {'key': 'deploymentSummary.configurationDeploymentSummaryPerApp', 'type': '[MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]'},
-        'display_name_deployment_summary_display_name': {'key': 'deploymentSummary.displayName', 'type': 'str'},
-        'last_refresh_time': {'key': 'deploymentSummary.lastRefreshTime', 'type': 'iso-8601'},
-        'version_deployment_summary_version': {'key': 'deploymentSummary.version', 'type': 'str'},
+        'deployment_summary': {'key': 'deploymentSummary', 'type': 'MicrosoftGraphManagedAppPolicyDeploymentSummary'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
@@ -2346,16 +2277,10 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         minimum_warning_patch_version: Optional[str] = None,
         screen_capture_blocked: Optional[bool] = None,
         apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
-        id_deployment_summary_id: Optional[str] = None,
-        configuration_deployed_user_count: Optional[int] = None,
-        configuration_deployment_summary_per_app: Optional[List["MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]] = None,
-        display_name_deployment_summary_display_name: Optional[str] = None,
-        last_refresh_time: Optional[datetime.datetime] = None,
-        version_deployment_summary_version: Optional[str] = None,
+        deployment_summary: Optional["MicrosoftGraphManagedAppPolicyDeploymentSummary"] = None,
         **kwargs
     ):
         super(MicrosoftGraphDefaultManagedAppProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.app_data_encryption_type = app_data_encryption_type
         self.custom_settings = custom_settings
@@ -2368,12 +2293,7 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         self.minimum_warning_patch_version = minimum_warning_patch_version
         self.screen_capture_blocked = screen_capture_blocked
         self.apps = apps
-        self.id_deployment_summary_id = id_deployment_summary_id
-        self.configuration_deployed_user_count = configuration_deployed_user_count
-        self.configuration_deployment_summary_per_app = configuration_deployment_summary_per_app
-        self.display_name_deployment_summary_display_name = display_name_deployment_summary_display_name
-        self.last_refresh_time = last_refresh_time
-        self.version_deployment_summary_version = version_deployment_summary_version
+        self.deployment_summary = deployment_summary
 
 
 class MicrosoftGraphDeviceActionResult(msrest.serialization.Model):
@@ -3261,9 +3181,6 @@ class MicrosoftGraphEBookInstallSummary(MicrosoftGraphEntity):
 class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProtection):
     """Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -3276,9 +3193,6 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     :type last_modified_date_time: ~datetime.datetime
     :param version: Version of the entity.
     :type version: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param allowed_data_storage_locations: Data storage locations where a user may store managed
      data.
     :type allowed_data_storage_locations: list[str or
@@ -3385,37 +3299,25 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     :type minimum_required_sdk_version: str
     :param apps: List of apps to which the policy is deployed.
     :type apps: list[~devices_corporate_management.models.MicrosoftGraphManagedMobileApp]
-    :param id_deployment_summary_id: Read-only.
-    :type id_deployment_summary_id: str
-    :param configuration_deployed_user_count: Not yet documented.
-    :type configuration_deployed_user_count: int
-    :param configuration_deployment_summary_per_app: Not yet documented.
-    :type configuration_deployment_summary_per_app:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
-    :param display_name_deployment_summary_display_name: Not yet documented.
-    :type display_name_deployment_summary_display_name: str
-    :param last_refresh_time: Not yet documented.
-    :type last_refresh_time: ~datetime.datetime
-    :param version_deployment_summary_version: Version of the entity.
-    :type version_deployment_summary_version: str
+    :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
+     types under app management workflow.
+    :type deployment_summary:
+     ~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummary
     """
 
     _validation = {
         'maximum_pin_retries': {'maximum': 2147483647, 'minimum': -2147483648},
         'minimum_pin_length': {'maximum': 2147483647, 'minimum': -2147483648},
         'deployed_app_count': {'maximum': 2147483647, 'minimum': -2147483648},
-        'configuration_deployed_user_count': {'maximum': 2147483647, 'minimum': -2147483648},
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_data_storage_locations': {'key': 'allowedDataStorageLocations', 'type': '[str]'},
         'allowed_inbound_data_transfer_sources': {'key': 'allowedInboundDataTransferSources', 'type': 'str'},
         'allowed_outbound_clipboard_sharing_level': {'key': 'allowedOutboundClipboardSharingLevel', 'type': 'str'},
@@ -3452,25 +3354,18 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
         'face_id_blocked': {'key': 'faceIdBlocked', 'type': 'bool'},
         'minimum_required_sdk_version': {'key': 'minimumRequiredSdkVersion', 'type': 'str'},
         'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
-        'id_deployment_summary_id': {'key': 'deploymentSummary.id', 'type': 'str'},
-        'configuration_deployed_user_count': {'key': 'deploymentSummary.configurationDeployedUserCount', 'type': 'int'},
-        'configuration_deployment_summary_per_app': {'key': 'deploymentSummary.configurationDeploymentSummaryPerApp', 'type': '[MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]'},
-        'display_name_deployment_summary_display_name': {'key': 'deploymentSummary.displayName', 'type': 'str'},
-        'last_refresh_time': {'key': 'deploymentSummary.lastRefreshTime', 'type': 'iso-8601'},
-        'version_deployment_summary_version': {'key': 'deploymentSummary.version', 'type': 'str'},
+        'deployment_summary': {'key': 'deploymentSummary', 'type': 'MicrosoftGraphManagedAppPolicyDeploymentSummary'},
     }
 
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
         version: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         allowed_data_storage_locations: Optional[List[Union[str, "MicrosoftGraphManagedAppDataStorageLocation"]]] = None,
         allowed_inbound_data_transfer_sources: Optional[Union[str, "MicrosoftGraphManagedAppDataTransferLevel"]] = None,
         allowed_outbound_clipboard_sharing_level: Optional[Union[str, "MicrosoftGraphManagedAppClipboardSharingLevel"]] = None,
@@ -3507,17 +3402,10 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
         face_id_blocked: Optional[bool] = None,
         minimum_required_sdk_version: Optional[str] = None,
         apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
-        id_deployment_summary_id: Optional[str] = None,
-        configuration_deployed_user_count: Optional[int] = None,
-        configuration_deployment_summary_per_app: Optional[List["MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]] = None,
-        display_name_deployment_summary_display_name: Optional[str] = None,
-        last_refresh_time: Optional[datetime.datetime] = None,
-        version_deployment_summary_version: Optional[str] = None,
+        deployment_summary: Optional["MicrosoftGraphManagedAppPolicyDeploymentSummary"] = None,
         **kwargs
     ):
         super(MicrosoftGraphIosManagedAppProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, **kwargs)
-        self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.app_data_encryption_type = app_data_encryption_type
         self.custom_browser_protocol = custom_browser_protocol
@@ -3525,12 +3413,7 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
         self.face_id_blocked = face_id_blocked
         self.minimum_required_sdk_version = minimum_required_sdk_version
         self.apps = apps
-        self.id_deployment_summary_id = id_deployment_summary_id
-        self.configuration_deployed_user_count = configuration_deployed_user_count
-        self.configuration_deployment_summary_per_app = configuration_deployment_summary_per_app
-        self.display_name_deployment_summary_display_name = display_name_deployment_summary_display_name
-        self.last_refresh_time = last_refresh_time
-        self.version_deployment_summary_version = version_deployment_summary_version
+        self.deployment_summary = deployment_summary
 
 
 class MicrosoftGraphKeyValuePair(msrest.serialization.Model):
@@ -3568,9 +3451,6 @@ class MicrosoftGraphKeyValuePair(msrest.serialization.Model):
 class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
     """Configuration used to deliver a set of custom settings as-is to apps for users to whom the configuration is scoped.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -3592,7 +3472,6 @@ class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
@@ -3606,7 +3485,6 @@ class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
@@ -3618,7 +3496,6 @@ class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
         **kwargs
     ):
         super(MicrosoftGraphManagedAppConfiguration, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.custom_settings = custom_settings
 
@@ -4768,9 +4645,6 @@ class MicrosoftGraphManagedMobileApp(MicrosoftGraphEntity):
 class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy):
     """Policy for Windows information protection to configure detailed management settings.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -4892,7 +4766,6 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
@@ -4930,7 +4803,6 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
@@ -4967,7 +4839,6 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
     ):
         super(MicrosoftGraphWindowsInformationProtection, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.azure_rights_management_services_allowed = azure_rights_management_services_allowed
         self.data_recovery_certificate = data_recovery_certificate
         self.enforcement_level = enforcement_level
@@ -5000,9 +4871,6 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -5123,7 +4991,6 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -5161,7 +5028,6 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
@@ -5196,7 +5062,6 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
         **kwargs
     ):
         super(MicrosoftGraphMdmWindowsInformationProtectionPolicy, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
 
 
@@ -5481,9 +5346,6 @@ class MicrosoftGraphTargetedManagedAppConfiguration(MicrosoftGraphManagedAppConf
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -5510,29 +5372,18 @@ class MicrosoftGraphTargetedManagedAppConfiguration(MicrosoftGraphManagedAppConf
      policy is deployed.
     :type assignments:
      list[~devices_corporate_management.models.MicrosoftGraphTargetedManagedAppPolicyAssignment]
-    :param id_deployment_summary_id: Read-only.
-    :type id_deployment_summary_id: str
-    :param configuration_deployed_user_count: Not yet documented.
-    :type configuration_deployed_user_count: int
-    :param configuration_deployment_summary_per_app: Not yet documented.
-    :type configuration_deployment_summary_per_app:
-     list[~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]
-    :param display_name_deployment_summary_display_name: Not yet documented.
-    :type display_name_deployment_summary_display_name: str
-    :param last_refresh_time: Not yet documented.
-    :type last_refresh_time: ~datetime.datetime
-    :param version_deployment_summary_version: Version of the entity.
-    :type version_deployment_summary_version: str
+    :param deployment_summary: The ManagedAppEntity is the base entity type for all other entity
+     types under app management workflow.
+    :type deployment_summary:
+     ~devices_corporate_management.models.MicrosoftGraphManagedAppPolicyDeploymentSummary
     """
 
     _validation = {
         'deployed_app_count': {'maximum': 2147483647, 'minimum': -2147483648},
-        'configuration_deployed_user_count': {'maximum': 2147483647, 'minimum': -2147483648},
     }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -5544,19 +5395,13 @@ class MicrosoftGraphTargetedManagedAppConfiguration(MicrosoftGraphManagedAppConf
         'is_assigned': {'key': 'isAssigned', 'type': 'bool'},
         'apps': {'key': 'apps', 'type': '[MicrosoftGraphManagedMobileApp]'},
         'assignments': {'key': 'assignments', 'type': '[MicrosoftGraphTargetedManagedAppPolicyAssignment]'},
-        'id_deployment_summary_id': {'key': 'deploymentSummary.id', 'type': 'str'},
-        'configuration_deployed_user_count': {'key': 'deploymentSummary.configurationDeployedUserCount', 'type': 'int'},
-        'configuration_deployment_summary_per_app': {'key': 'deploymentSummary.configurationDeploymentSummaryPerApp', 'type': '[MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp]'},
-        'display_name_deployment_summary_display_name': {'key': 'deploymentSummary.displayName', 'type': 'str'},
-        'last_refresh_time': {'key': 'deploymentSummary.lastRefreshTime', 'type': 'iso-8601'},
-        'version_deployment_summary_version': {'key': 'deploymentSummary.version', 'type': 'str'},
+        'deployment_summary': {'key': 'deploymentSummary', 'type': 'MicrosoftGraphManagedAppPolicyDeploymentSummary'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
@@ -5568,27 +5413,16 @@ class MicrosoftGraphTargetedManagedAppConfiguration(MicrosoftGraphManagedAppConf
         is_assigned: Optional[bool] = None,
         apps: Optional[List["MicrosoftGraphManagedMobileApp"]] = None,
         assignments: Optional[List["MicrosoftGraphTargetedManagedAppPolicyAssignment"]] = None,
-        id_deployment_summary_id: Optional[str] = None,
-        configuration_deployed_user_count: Optional[int] = None,
-        configuration_deployment_summary_per_app: Optional[List["MicrosoftGraphManagedAppPolicyDeploymentSummaryPerApp"]] = None,
-        display_name_deployment_summary_display_name: Optional[str] = None,
-        last_refresh_time: Optional[datetime.datetime] = None,
-        version_deployment_summary_version: Optional[str] = None,
+        deployment_summary: Optional["MicrosoftGraphManagedAppPolicyDeploymentSummary"] = None,
         **kwargs
     ):
         super(MicrosoftGraphTargetedManagedAppConfiguration, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, custom_settings=custom_settings, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.deployed_app_count = deployed_app_count
         self.is_assigned = is_assigned
         self.apps = apps
         self.assignments = assignments
-        self.id_deployment_summary_id = id_deployment_summary_id
-        self.configuration_deployed_user_count = configuration_deployed_user_count
-        self.configuration_deployment_summary_per_app = configuration_deployment_summary_per_app
-        self.display_name_deployment_summary_display_name = display_name_deployment_summary_display_name
-        self.last_refresh_time = last_refresh_time
-        self.version_deployment_summary_version = version_deployment_summary_version
+        self.deployment_summary = deployment_summary
 
 
 class MicrosoftGraphTargetedManagedAppPolicyAssignment(MicrosoftGraphEntity):
@@ -5942,9 +5776,6 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -6120,7 +5951,6 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -6170,7 +6000,6 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
         self,
         *,
         id: Optional[str] = None,
-        additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
         description: Optional[str] = None,
         display_name: Optional[str] = None,
@@ -6217,7 +6046,6 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
         **kwargs
     ):
         super(MicrosoftGraphWindowsInformationProtectionPolicy, self).__init__(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.days_without_contact_before_unenroll = days_without_contact_before_unenroll
         self.mdm_enrollment_url = mdm_enrollment_url

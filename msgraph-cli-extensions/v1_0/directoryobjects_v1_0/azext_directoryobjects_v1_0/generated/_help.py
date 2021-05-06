@@ -12,77 +12,82 @@
 from knack.help_files import helps
 
 
+helps['directoryobjects_v1_0'] = '''
+    type: group
+    short-summary: Manage Directory Objects
+'''
+
 helps['directoryobjects directory-object-directory-object'] = """
     type: group
-    short-summary: directoryobjects directory-object-directory-object
-"""
-
-helps['directoryobjects directory-object-directory-object delete'] = """
-    type: command
-    short-summary: "Delete entity from directoryObjects"
+    short-summary: Manage directory object directory object with directoryobjects_v1_0
 """
 
 helps['directoryobjects directory-object-directory-object create-directory-object'] = """
     type: command
-    short-summary: "Add new entity to directoryObjects"
+    short-summary: "Add new entity to directoryObjects."
 """
 
-helps['directoryobjects directory-object-directory-object get-directory-object'] = """
+helps['directoryobjects directory-object-directory-object delete-directory-object'] = """
     type: command
-    short-summary: "Get entity from directoryObjects by key"
+    short-summary: "Delete entity from directoryObjects."
 """
 
 helps['directoryobjects directory-object-directory-object list-directory-object'] = """
     type: command
-    short-summary: "Get entities from directoryObjects"
+    short-summary: "Get entities from directoryObjects."
+"""
+
+helps['directoryobjects directory-object-directory-object show-directory-object'] = """
+    type: command
+    short-summary: "Get entity from directoryObjects by key."
 """
 
 helps['directoryobjects directory-object-directory-object update-directory-object'] = """
     type: command
-    short-summary: "Update entity in directoryObjects"
+    short-summary: "Update entity in directoryObjects."
 """
 
 helps['directoryobjects directory-object'] = """
     type: group
-    short-summary: directoryobjects directory-object
+    short-summary: Manage directory object with directoryobjects_v1_0
 """
 
 helps['directoryobjects directory-object check-member-group'] = """
     type: command
-    short-summary: "Invoke action checkMemberGroups"
+    short-summary: "Invoke action checkMemberGroups."
 """
 
 helps['directoryobjects directory-object check-member-object'] = """
     type: command
-    short-summary: "Invoke action checkMemberObjects"
+    short-summary: "Invoke action checkMemberObjects."
 """
 
 helps['directoryobjects directory-object get-available-extension-property'] = """
     type: command
-    short-summary: "Invoke action getAvailableExtensionProperties"
+    short-summary: "Invoke action getAvailableExtensionProperties."
 """
 
 helps['directoryobjects directory-object get-by-id'] = """
     type: command
-    short-summary: "Invoke action getByIds"
+    short-summary: "Invoke action getByIds."
 """
 
 helps['directoryobjects directory-object get-member-group'] = """
     type: command
-    short-summary: "Invoke action getMemberGroups"
+    short-summary: "Invoke action getMemberGroups."
 """
 
 helps['directoryobjects directory-object get-member-object'] = """
     type: command
-    short-summary: "Invoke action getMemberObjects"
+    short-summary: "Invoke action getMemberObjects."
 """
 
 helps['directoryobjects directory-object restore'] = """
     type: command
-    short-summary: "Invoke action restore"
+    short-summary: "Invoke action restore."
 """
 
 helps['directoryobjects directory-object validate-property'] = """
     type: command
-    short-summary: "Invoke action validateProperties"
+    short-summary: "Invoke action validateProperties."
 """

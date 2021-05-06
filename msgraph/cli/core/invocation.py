@@ -143,6 +143,7 @@ class GraphCliCommandInvoker(CommandInvoker):
 
             self.cli_ctx.raise_event(EVENT_INVOKER_PRE_PARSE_ARGS, args=args)
             parsed_args = self.parser.parse_args(args)
+
             self.cli_ctx.raise_event(EVENT_INVOKER_POST_PARSE_ARGS,
                                      command=parsed_args.command,
                                      args=parsed_args)

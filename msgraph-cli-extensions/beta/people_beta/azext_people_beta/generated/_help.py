@@ -12,19 +12,19 @@
 from knack.help_files import helps
 
 
+helps['people_beta'] = '''
+    type: group
+    short-summary: Manage People
+'''
+
 helps['people user'] = """
     type: group
-    short-summary: people user
-"""
-
-helps['people user delete'] = """
-    type: command
-    short-summary: "Delete navigation property profile for users"
+    short-summary: Manage user with people_beta
 """
 
 helps['people user create-person'] = """
     type: command
-    short-summary: "Create new navigation property to people for users"
+    short-summary: "Create new navigation property to people for users."
     parameters:
       - name: --email-addresses
         long-summary: |
@@ -57,29 +57,44 @@ helps['people user create-person'] = """
             Multiple actions can be specified by using more than one --websites argument.
 """
 
-helps['people user get-analytic'] = """
+helps['people user delete-analytic'] = """
     type: command
-    short-summary: "Get analytics from users"
+    short-summary: "Delete navigation property analytics for users."
 """
 
-helps['people user get-person'] = """
+helps['people user delete-person'] = """
     type: command
-    short-summary: "Get people from users"
+    short-summary: "Delete navigation property people for users."
 """
 
-helps['people user get-profile'] = """
+helps['people user delete-profile'] = """
     type: command
-    short-summary: "Get profile from users"
+    short-summary: "Delete navigation property profile for users."
 """
 
 helps['people user list-person'] = """
     type: command
-    short-summary: "Get people from users"
+    short-summary: "Get people from users."
+"""
+
+helps['people user show-analytic'] = """
+    type: command
+    short-summary: "Get analytics from users."
+"""
+
+helps['people user show-person'] = """
+    type: command
+    short-summary: "Get people from users."
+"""
+
+helps['people user show-profile'] = """
+    type: command
+    short-summary: "Get profile from users."
 """
 
 helps['people user update-analytic'] = """
     type: command
-    short-summary: "Update the navigation property analytics in users"
+    short-summary: "Update the navigation property analytics in users."
     parameters:
       - name: --settings
         short-summary: "settings"
@@ -97,7 +112,7 @@ helps['people user update-analytic'] = """
 
 helps['people user update-person'] = """
     type: command
-    short-summary: "Update the navigation property people in users"
+    short-summary: "Update the navigation property people in users."
     parameters:
       - name: --email-addresses
         long-summary: |
@@ -132,7 +147,7 @@ helps['people user update-person'] = """
 
 helps['people user update-profile'] = """
     type: command
-    short-summary: "Update the navigation property profile in users"
+    short-summary: "Update the navigation property profile in users."
     parameters:
       - name: --anniversaries
         long-summary: |
@@ -337,47 +352,42 @@ device-created-by-device=XX user-created-by-user=XX id=XX
 
 helps['people user-analytic'] = """
     type: group
-    short-summary: people user-analytic
-"""
-
-helps['people user-analytic delete'] = """
-    type: command
-    short-summary: "Delete navigation property activityStatistics for users"
+    short-summary: Manage user analytic with people_beta
 """
 
 helps['people user-analytic create-activity-statistics'] = """
     type: command
-    short-summary: "Create new navigation property to activityStatistics for users"
+    short-summary: "Create new navigation property to activityStatistics for users."
 """
 
-helps['people user-analytic get-activity-statistics'] = """
+helps['people user-analytic delete-activity-statistics'] = """
     type: command
-    short-summary: "Get activityStatistics from users"
+    short-summary: "Delete navigation property activityStatistics for users."
 """
 
 helps['people user-analytic list-activity-statistics'] = """
     type: command
-    short-summary: "Get activityStatistics from users"
+    short-summary: "Get activityStatistics from users."
+"""
+
+helps['people user-analytic show-activity-statistics'] = """
+    type: command
+    short-summary: "Get activityStatistics from users."
 """
 
 helps['people user-analytic update-activity-statistics'] = """
     type: command
-    short-summary: "Update the navigation property activityStatistics in users"
+    short-summary: "Update the navigation property activityStatistics in users."
 """
 
 helps['people user-profile'] = """
     type: group
-    short-summary: people user-profile
-"""
-
-helps['people user-profile delete'] = """
-    type: command
-    short-summary: "Delete navigation property websites for users"
+    short-summary: Manage user profile with people_beta
 """
 
 helps['people user-profile create-account'] = """
     type: command
-    short-summary: "Create new navigation property to account for users"
+    short-summary: "Create new navigation property to account for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -389,55 +399,55 @@ helps['people user-profile create-account'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -457,7 +467,7 @@ country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
 
 helps['people user-profile create-address'] = """
     type: command
-    short-summary: "Create new navigation property to addresses for users"
+    short-summary: "Create new navigation property to addresses for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -469,55 +479,55 @@ helps['people user-profile create-address'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -545,7 +555,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-anniversary'] = """
     type: command
-    short-summary: "Create new navigation property to anniversaries for users"
+    short-summary: "Create new navigation property to anniversaries for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -557,55 +567,55 @@ helps['people user-profile create-anniversary'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -615,7 +625,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-award'] = """
     type: command
-    short-summary: "Create new navigation property to awards for users"
+    short-summary: "Create new navigation property to awards for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -627,55 +637,55 @@ helps['people user-profile create-award'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -685,7 +695,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-certification'] = """
     type: command
-    short-summary: "Create new navigation property to certifications for users"
+    short-summary: "Create new navigation property to certifications for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -697,55 +707,55 @@ helps['people user-profile create-certification'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -755,7 +765,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-educational-activity'] = """
     type: command
-    short-summary: "Create new navigation property to educationalActivities for users"
+    short-summary: "Create new navigation property to educationalActivities for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -767,55 +777,55 @@ helps['people user-profile create-educational-activity'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -827,11 +837,11 @@ associated with the user won't show up as having changed when using delta.
             Usage: --program abbreviation=XX activities=XX awards=XX description=XX display-name=XX fields-of-study=XX \
 grade=XX notes=XX web-url=XX
 
-      - name: --institution-location
+      - name: --location
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --institution-location city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --location city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX \
+type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
@@ -842,7 +852,7 @@ street=XX type=XX
 
 helps['people user-profile create-email'] = """
     type: command
-    short-summary: "Create new navigation property to emails for users"
+    short-summary: "Create new navigation property to emails for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -854,55 +864,55 @@ helps['people user-profile create-email'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -912,7 +922,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-interest'] = """
     type: command
-    short-summary: "Create new navigation property to interests for users"
+    short-summary: "Create new navigation property to interests for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -924,55 +934,55 @@ helps['people user-profile create-interest'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -982,7 +992,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-language'] = """
     type: command
-    short-summary: "Create new navigation property to languages for users"
+    short-summary: "Create new navigation property to languages for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -994,55 +1004,55 @@ helps['people user-profile create-language'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1052,7 +1062,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-name'] = """
     type: command
-    short-summary: "Create new navigation property to names for users"
+    short-summary: "Create new navigation property to names for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -1064,55 +1074,55 @@ helps['people user-profile create-name'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1127,7 +1137,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-note'] = """
     type: command
-    short-summary: "Create new navigation property to notes for users"
+    short-summary: "Create new navigation property to notes for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -1139,55 +1149,55 @@ helps['people user-profile create-note'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1203,7 +1213,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-patent'] = """
     type: command
-    short-summary: "Create new navigation property to patents for users"
+    short-summary: "Create new navigation property to patents for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -1215,55 +1225,55 @@ helps['people user-profile create-patent'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1273,7 +1283,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-phone'] = """
     type: command
-    short-summary: "Create new navigation property to phones for users"
+    short-summary: "Create new navigation property to phones for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -1285,55 +1295,55 @@ helps['people user-profile create-phone'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1343,7 +1353,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-position'] = """
     type: command
-    short-summary: "Create new navigation property to positions for users"
+    short-summary: "Create new navigation property to positions for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -1355,55 +1365,55 @@ helps['people user-profile create-position'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1424,7 +1434,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-project'] = """
     type: command
-    short-summary: "Create new navigation property to projects for users"
+    short-summary: "Create new navigation property to projects for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -1436,55 +1446,55 @@ helps['people user-profile create-project'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1502,11 +1512,10 @@ associated with the user won't show up as having changed when using delta.
 
 
             Multiple actions can be specified by using more than one --sponsors argument.
-      - name: --client-address
+      - name: --address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --client-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX \
-type=XX
+            Usage: --address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
@@ -1517,7 +1526,7 @@ type=XX
 
 helps['people user-profile create-publication'] = """
     type: command
-    short-summary: "Create new navigation property to publications for users"
+    short-summary: "Create new navigation property to publications for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -1529,55 +1538,55 @@ helps['people user-profile create-publication'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1587,7 +1596,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-skill'] = """
     type: command
-    short-summary: "Create new navigation property to skills for users"
+    short-summary: "Create new navigation property to skills for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -1599,55 +1608,55 @@ helps['people user-profile create-skill'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1657,7 +1666,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-web-account'] = """
     type: command
-    short-summary: "Create new navigation property to webAccounts for users"
+    short-summary: "Create new navigation property to webAccounts for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -1669,55 +1678,55 @@ helps['people user-profile create-web-account'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1732,7 +1741,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile create-website'] = """
     type: command
-    short-summary: "Create new navigation property to websites for users"
+    short-summary: "Create new navigation property to websites for users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -1744,55 +1753,55 @@ helps['people user-profile create-website'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1800,199 +1809,294 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['people user-profile get-account'] = """
+helps['people user-profile delete-account'] = """
     type: command
-    short-summary: "Get account from users"
+    short-summary: "Delete navigation property account for users."
 """
 
-helps['people user-profile get-address'] = """
+helps['people user-profile delete-address'] = """
     type: command
-    short-summary: "Get addresses from users"
+    short-summary: "Delete navigation property addresses for users."
 """
 
-helps['people user-profile get-anniversary'] = """
+helps['people user-profile delete-anniversary'] = """
     type: command
-    short-summary: "Get anniversaries from users"
+    short-summary: "Delete navigation property anniversaries for users."
 """
 
-helps['people user-profile get-award'] = """
+helps['people user-profile delete-award'] = """
     type: command
-    short-summary: "Get awards from users"
+    short-summary: "Delete navigation property awards for users."
 """
 
-helps['people user-profile get-certification'] = """
+helps['people user-profile delete-certification'] = """
     type: command
-    short-summary: "Get certifications from users"
+    short-summary: "Delete navigation property certifications for users."
 """
 
-helps['people user-profile get-educational-activity'] = """
+helps['people user-profile delete-educational-activity'] = """
     type: command
-    short-summary: "Get educationalActivities from users"
+    short-summary: "Delete navigation property educationalActivities for users."
 """
 
-helps['people user-profile get-email'] = """
+helps['people user-profile delete-email'] = """
     type: command
-    short-summary: "Get emails from users"
+    short-summary: "Delete navigation property emails for users."
 """
 
-helps['people user-profile get-interest'] = """
+helps['people user-profile delete-interest'] = """
     type: command
-    short-summary: "Get interests from users"
+    short-summary: "Delete navigation property interests for users."
 """
 
-helps['people user-profile get-language'] = """
+helps['people user-profile delete-language'] = """
     type: command
-    short-summary: "Get languages from users"
+    short-summary: "Delete navigation property languages for users."
 """
 
-helps['people user-profile get-name'] = """
+helps['people user-profile delete-name'] = """
     type: command
-    short-summary: "Get names from users"
+    short-summary: "Delete navigation property names for users."
 """
 
-helps['people user-profile get-note'] = """
+helps['people user-profile delete-note'] = """
     type: command
-    short-summary: "Get notes from users"
+    short-summary: "Delete navigation property notes for users."
 """
 
-helps['people user-profile get-patent'] = """
+helps['people user-profile delete-patent'] = """
     type: command
-    short-summary: "Get patents from users"
+    short-summary: "Delete navigation property patents for users."
 """
 
-helps['people user-profile get-phone'] = """
+helps['people user-profile delete-phone'] = """
     type: command
-    short-summary: "Get phones from users"
+    short-summary: "Delete navigation property phones for users."
 """
 
-helps['people user-profile get-position'] = """
+helps['people user-profile delete-position'] = """
     type: command
-    short-summary: "Get positions from users"
+    short-summary: "Delete navigation property positions for users."
 """
 
-helps['people user-profile get-project'] = """
+helps['people user-profile delete-project'] = """
     type: command
-    short-summary: "Get projects from users"
+    short-summary: "Delete navigation property projects for users."
 """
 
-helps['people user-profile get-publication'] = """
+helps['people user-profile delete-publication'] = """
     type: command
-    short-summary: "Get publications from users"
+    short-summary: "Delete navigation property publications for users."
 """
 
-helps['people user-profile get-skill'] = """
+helps['people user-profile delete-skill'] = """
     type: command
-    short-summary: "Get skills from users"
+    short-summary: "Delete navigation property skills for users."
 """
 
-helps['people user-profile get-web-account'] = """
+helps['people user-profile delete-web-account'] = """
     type: command
-    short-summary: "Get webAccounts from users"
+    short-summary: "Delete navigation property webAccounts for users."
 """
 
-helps['people user-profile get-website'] = """
+helps['people user-profile delete-website'] = """
     type: command
-    short-summary: "Get websites from users"
+    short-summary: "Delete navigation property websites for users."
 """
 
 helps['people user-profile list-account'] = """
     type: command
-    short-summary: "Get account from users"
+    short-summary: "Get account from users."
 """
 
 helps['people user-profile list-address'] = """
     type: command
-    short-summary: "Get addresses from users"
+    short-summary: "Get addresses from users."
 """
 
 helps['people user-profile list-anniversary'] = """
     type: command
-    short-summary: "Get anniversaries from users"
+    short-summary: "Get anniversaries from users."
 """
 
 helps['people user-profile list-award'] = """
     type: command
-    short-summary: "Get awards from users"
+    short-summary: "Get awards from users."
 """
 
 helps['people user-profile list-certification'] = """
     type: command
-    short-summary: "Get certifications from users"
+    short-summary: "Get certifications from users."
 """
 
 helps['people user-profile list-educational-activity'] = """
     type: command
-    short-summary: "Get educationalActivities from users"
+    short-summary: "Get educationalActivities from users."
 """
 
 helps['people user-profile list-email'] = """
     type: command
-    short-summary: "Get emails from users"
+    short-summary: "Get emails from users."
 """
 
 helps['people user-profile list-interest'] = """
     type: command
-    short-summary: "Get interests from users"
+    short-summary: "Get interests from users."
 """
 
 helps['people user-profile list-language'] = """
     type: command
-    short-summary: "Get languages from users"
+    short-summary: "Get languages from users."
 """
 
 helps['people user-profile list-name'] = """
     type: command
-    short-summary: "Get names from users"
+    short-summary: "Get names from users."
 """
 
 helps['people user-profile list-note'] = """
     type: command
-    short-summary: "Get notes from users"
+    short-summary: "Get notes from users."
 """
 
 helps['people user-profile list-patent'] = """
     type: command
-    short-summary: "Get patents from users"
+    short-summary: "Get patents from users."
 """
 
 helps['people user-profile list-phone'] = """
     type: command
-    short-summary: "Get phones from users"
+    short-summary: "Get phones from users."
 """
 
 helps['people user-profile list-position'] = """
     type: command
-    short-summary: "Get positions from users"
+    short-summary: "Get positions from users."
 """
 
 helps['people user-profile list-project'] = """
     type: command
-    short-summary: "Get projects from users"
+    short-summary: "Get projects from users."
 """
 
 helps['people user-profile list-publication'] = """
     type: command
-    short-summary: "Get publications from users"
+    short-summary: "Get publications from users."
 """
 
 helps['people user-profile list-skill'] = """
     type: command
-    short-summary: "Get skills from users"
+    short-summary: "Get skills from users."
 """
 
 helps['people user-profile list-web-account'] = """
     type: command
-    short-summary: "Get webAccounts from users"
+    short-summary: "Get webAccounts from users."
 """
 
 helps['people user-profile list-website'] = """
     type: command
-    short-summary: "Get websites from users"
+    short-summary: "Get websites from users."
+"""
+
+helps['people user-profile show-account'] = """
+    type: command
+    short-summary: "Get account from users."
+"""
+
+helps['people user-profile show-address'] = """
+    type: command
+    short-summary: "Get addresses from users."
+"""
+
+helps['people user-profile show-anniversary'] = """
+    type: command
+    short-summary: "Get anniversaries from users."
+"""
+
+helps['people user-profile show-award'] = """
+    type: command
+    short-summary: "Get awards from users."
+"""
+
+helps['people user-profile show-certification'] = """
+    type: command
+    short-summary: "Get certifications from users."
+"""
+
+helps['people user-profile show-educational-activity'] = """
+    type: command
+    short-summary: "Get educationalActivities from users."
+"""
+
+helps['people user-profile show-email'] = """
+    type: command
+    short-summary: "Get emails from users."
+"""
+
+helps['people user-profile show-interest'] = """
+    type: command
+    short-summary: "Get interests from users."
+"""
+
+helps['people user-profile show-language'] = """
+    type: command
+    short-summary: "Get languages from users."
+"""
+
+helps['people user-profile show-name'] = """
+    type: command
+    short-summary: "Get names from users."
+"""
+
+helps['people user-profile show-note'] = """
+    type: command
+    short-summary: "Get notes from users."
+"""
+
+helps['people user-profile show-patent'] = """
+    type: command
+    short-summary: "Get patents from users."
+"""
+
+helps['people user-profile show-phone'] = """
+    type: command
+    short-summary: "Get phones from users."
+"""
+
+helps['people user-profile show-position'] = """
+    type: command
+    short-summary: "Get positions from users."
+"""
+
+helps['people user-profile show-project'] = """
+    type: command
+    short-summary: "Get projects from users."
+"""
+
+helps['people user-profile show-publication'] = """
+    type: command
+    short-summary: "Get publications from users."
+"""
+
+helps['people user-profile show-skill'] = """
+    type: command
+    short-summary: "Get skills from users."
+"""
+
+helps['people user-profile show-web-account'] = """
+    type: command
+    short-summary: "Get webAccounts from users."
+"""
+
+helps['people user-profile show-website'] = """
+    type: command
+    short-summary: "Get websites from users."
 """
 
 helps['people user-profile update-account'] = """
     type: command
-    short-summary: "Update the navigation property account in users"
+    short-summary: "Update the navigation property account in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2004,55 +2108,55 @@ helps['people user-profile update-account'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2072,7 +2176,7 @@ country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
 
 helps['people user-profile update-address'] = """
     type: command
-    short-summary: "Update the navigation property addresses in users"
+    short-summary: "Update the navigation property addresses in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2084,55 +2188,55 @@ helps['people user-profile update-address'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2160,7 +2264,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-anniversary'] = """
     type: command
-    short-summary: "Update the navigation property anniversaries in users"
+    short-summary: "Update the navigation property anniversaries in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2172,55 +2276,55 @@ helps['people user-profile update-anniversary'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2230,7 +2334,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-award'] = """
     type: command
-    short-summary: "Update the navigation property awards in users"
+    short-summary: "Update the navigation property awards in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2242,55 +2346,55 @@ helps['people user-profile update-award'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2300,7 +2404,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-certification'] = """
     type: command
-    short-summary: "Update the navigation property certifications in users"
+    short-summary: "Update the navigation property certifications in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2312,55 +2416,55 @@ helps['people user-profile update-certification'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2370,7 +2474,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-educational-activity'] = """
     type: command
-    short-summary: "Update the navigation property educationalActivities in users"
+    short-summary: "Update the navigation property educationalActivities in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2382,55 +2486,55 @@ helps['people user-profile update-educational-activity'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2442,11 +2546,11 @@ associated with the user won't show up as having changed when using delta.
             Usage: --program abbreviation=XX activities=XX awards=XX description=XX display-name=XX fields-of-study=XX \
 grade=XX notes=XX web-url=XX
 
-      - name: --institution-location
+      - name: --location
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --institution-location city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --location city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX \
+type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
@@ -2457,7 +2561,7 @@ street=XX type=XX
 
 helps['people user-profile update-email'] = """
     type: command
-    short-summary: "Update the navigation property emails in users"
+    short-summary: "Update the navigation property emails in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2469,55 +2573,55 @@ helps['people user-profile update-email'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2527,7 +2631,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-interest'] = """
     type: command
-    short-summary: "Update the navigation property interests in users"
+    short-summary: "Update the navigation property interests in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2539,55 +2643,55 @@ helps['people user-profile update-interest'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2597,7 +2701,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-language'] = """
     type: command
-    short-summary: "Update the navigation property languages in users"
+    short-summary: "Update the navigation property languages in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2609,55 +2713,55 @@ helps['people user-profile update-language'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2667,7 +2771,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-name'] = """
     type: command
-    short-summary: "Update the navigation property names in users"
+    short-summary: "Update the navigation property names in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2679,55 +2783,55 @@ helps['people user-profile update-name'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2742,7 +2846,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-note'] = """
     type: command
-    short-summary: "Update the navigation property notes in users"
+    short-summary: "Update the navigation property notes in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2754,55 +2858,55 @@ helps['people user-profile update-note'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2818,7 +2922,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-patent'] = """
     type: command
-    short-summary: "Update the navigation property patents in users"
+    short-summary: "Update the navigation property patents in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2830,55 +2934,55 @@ helps['people user-profile update-patent'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2888,7 +2992,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-phone'] = """
     type: command
-    short-summary: "Update the navigation property phones in users"
+    short-summary: "Update the navigation property phones in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2900,55 +3004,55 @@ helps['people user-profile update-phone'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -2958,7 +3062,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-position'] = """
     type: command
-    short-summary: "Update the navigation property positions in users"
+    short-summary: "Update the navigation property positions in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -2970,55 +3074,55 @@ helps['people user-profile update-position'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3039,7 +3143,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-project'] = """
     type: command
-    short-summary: "Update the navigation property projects in users"
+    short-summary: "Update the navigation property projects in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -3051,55 +3155,55 @@ helps['people user-profile update-project'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3117,11 +3221,10 @@ associated with the user won't show up as having changed when using delta.
 
 
             Multiple actions can be specified by using more than one --sponsors argument.
-      - name: --client-address
+      - name: --address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --client-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX \
-type=XX
+            Usage: --address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
@@ -3132,7 +3235,7 @@ type=XX
 
 helps['people user-profile update-publication'] = """
     type: command
-    short-summary: "Update the navigation property publications in users"
+    short-summary: "Update the navigation property publications in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -3144,55 +3247,55 @@ helps['people user-profile update-publication'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3202,7 +3305,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-skill'] = """
     type: command
-    short-summary: "Update the navigation property skills in users"
+    short-summary: "Update the navigation property skills in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -3214,55 +3317,55 @@ helps['people user-profile update-skill'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3272,7 +3375,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-web-account'] = """
     type: command
-    short-summary: "Update the navigation property webAccounts in users"
+    short-summary: "Update the navigation property webAccounts in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -3284,55 +3387,55 @@ helps['people user-profile update-web-account'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -3347,7 +3450,7 @@ associated with the user won't show up as having changed when using delta.
 
 helps['people user-profile update-website'] = """
     type: command
-    short-summary: "Update the navigation property websites in users"
+    short-summary: "Update the navigation property websites in users."
     parameters:
       - name: --inference
         short-summary: "inferenceData"
@@ -3359,55 +3462,55 @@ helps['people user-profile update-website'] = """
         long-summary: |
             Usage: --source type=XX
 
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-application
+      - name: --microsoft-graph-identity-application
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-application display-name=XX id=XX
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-device
+      - name: --microsoft-graph-identity-device
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-device display-name=XX id=XX
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --created-by-user
+      - name: --microsoft-graph-identity-user
         short-summary: "identity"
         long-summary: |
-            Usage: --created-by-user display-name=XX id=XX
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \

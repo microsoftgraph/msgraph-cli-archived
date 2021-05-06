@@ -315,9 +315,6 @@ class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
 class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -439,7 +436,6 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -489,7 +485,6 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphDevice, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.account_enabled = kwargs.get('account_enabled', None)
         self.alternative_security_ids = kwargs.get('alternative_security_ids', None)
@@ -746,22 +741,11 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
      activity was located at activity creation time; values supplied as Olson IDs in order to
      support cross-platform representation.
     :type user_timezone: str
+    :param visual_elements: visualInfo.
+    :type visual_elements: ~cross_device_experiences.models.MicrosoftGraphVisualInfo
     :param history_items: Optional. NavigationProperty/Containment; navigation property to the
      activity's historyItems.
     :type history_items: list[~cross_device_experiences.models.MicrosoftGraphActivityHistoryItem]
-    :param attribution: imageInfo.
-    :type attribution: ~cross_device_experiences.models.MicrosoftGraphImageInfo
-    :param background_color: Optional. Background color used to render the activity in the UI -
-     brand color for the application source of the activity. Must be a valid hex color.
-    :type background_color: str
-    :param content: Json.
-    :type content: dict[str, object]
-    :param description: Optional. Longer text description of the user's unique activity (example:
-     document name, first sentence, and/or metadata).
-    :type description: str
-    :param display_text: Required. Short text description of the user's unique activity (for
-     example, document name in cases where an activity refers to document creation).
-    :type display_text: str
     """
 
     _attribute_map = {
@@ -779,12 +763,8 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'status': {'key': 'status', 'type': 'str'},
         'user_timezone': {'key': 'userTimezone', 'type': 'str'},
+        'visual_elements': {'key': 'visualElements', 'type': 'MicrosoftGraphVisualInfo'},
         'history_items': {'key': 'historyItems', 'type': '[MicrosoftGraphActivityHistoryItem]'},
-        'attribution': {'key': 'visualElements.attribution', 'type': 'MicrosoftGraphImageInfo'},
-        'background_color': {'key': 'visualElements.backgroundColor', 'type': 'str'},
-        'content': {'key': 'visualElements.content', 'type': '{object}'},
-        'description': {'key': 'visualElements.description', 'type': 'str'},
-        'display_text': {'key': 'visualElements.displayText', 'type': 'str'},
     }
 
     def __init__(
@@ -805,12 +785,8 @@ class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
         self.status = kwargs.get('status', None)
         self.user_timezone = kwargs.get('user_timezone', None)
+        self.visual_elements = kwargs.get('visual_elements', None)
         self.history_items = kwargs.get('history_items', None)
-        self.attribution = kwargs.get('attribution', None)
-        self.background_color = kwargs.get('background_color', None)
-        self.content = kwargs.get('content', None)
-        self.description = kwargs.get('description', None)
-        self.display_text = kwargs.get('display_text', None)
 
 
 class MicrosoftGraphVisualInfo(msrest.serialization.Model):

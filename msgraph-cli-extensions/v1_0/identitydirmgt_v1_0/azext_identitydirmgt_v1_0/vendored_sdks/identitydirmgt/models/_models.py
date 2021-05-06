@@ -1128,9 +1128,6 @@ class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
 class MicrosoftGraphAdministrativeUnit(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -1160,7 +1157,6 @@ class MicrosoftGraphAdministrativeUnit(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -1177,7 +1173,6 @@ class MicrosoftGraphAdministrativeUnit(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphAdministrativeUnit, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
@@ -1341,9 +1336,6 @@ class MicrosoftGraphCertificateBasedAuthConfiguration(MicrosoftGraphEntity):
 class MicrosoftGraphContract(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -1373,7 +1365,6 @@ class MicrosoftGraphContract(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -1389,7 +1380,6 @@ class MicrosoftGraphContract(MicrosoftGraphDirectoryObject):
     ):
         super(MicrosoftGraphContract, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.contract_type = kwargs.get('contract_type', None)
         self.customer_id = kwargs.get('customer_id', None)
         self.default_domain_name = kwargs.get('default_domain_name', None)
@@ -1399,9 +1389,6 @@ class MicrosoftGraphContract(MicrosoftGraphDirectoryObject):
 class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -1495,7 +1482,6 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -1530,7 +1516,6 @@ class MicrosoftGraphDevice(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphDevice, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.account_enabled = kwargs.get('account_enabled', None)
         self.alternative_security_ids = kwargs.get('alternative_security_ids', None)
@@ -1593,9 +1578,6 @@ class MicrosoftGraphDirectory(MicrosoftGraphEntity):
 class MicrosoftGraphDirectoryRole(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -1620,7 +1602,6 @@ class MicrosoftGraphDirectoryRole(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -1637,7 +1618,6 @@ class MicrosoftGraphDirectoryRole(MicrosoftGraphDirectoryObject):
     ):
         super(MicrosoftGraphDirectoryRole, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
         self.role_template_id = kwargs.get('role_template_id', None)
@@ -1648,9 +1628,6 @@ class MicrosoftGraphDirectoryRole(MicrosoftGraphDirectoryObject):
 class MicrosoftGraphDirectoryRoleTemplate(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -1665,7 +1642,6 @@ class MicrosoftGraphDirectoryRoleTemplate(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -1678,7 +1654,6 @@ class MicrosoftGraphDirectoryRoleTemplate(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphDirectoryRoleTemplate, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.display_name = kwargs.get('display_name', None)
@@ -1917,9 +1892,6 @@ class MicrosoftGraphExtension(MicrosoftGraphEntity):
 class MicrosoftGraphExtensionProperty(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -1946,7 +1918,6 @@ class MicrosoftGraphExtensionProperty(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -1962,7 +1933,6 @@ class MicrosoftGraphExtensionProperty(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphExtensionProperty, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.app_display_name = kwargs.get('app_display_name', None)
         self.data_type = kwargs.get('data_type', None)
@@ -2082,9 +2052,6 @@ class MicrosoftGraphOnPremisesProvisioningError(msrest.serialization.Model):
 class MicrosoftGraphOrganization(MicrosoftGraphDirectoryObject):
     """The organization resource represents an instance of global settings and resources which operate and are provisioned at the tenant-level.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -2162,7 +2129,6 @@ class MicrosoftGraphOrganization(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -2198,7 +2164,6 @@ class MicrosoftGraphOrganization(MicrosoftGraphDirectoryObject):
     ):
         super(MicrosoftGraphOrganization, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.assigned_plans = kwargs.get('assigned_plans', None)
         self.business_phones = kwargs.get('business_phones', None)
         self.city = kwargs.get('city', None)
@@ -2228,9 +2193,6 @@ class MicrosoftGraphOrganization(MicrosoftGraphDirectoryObject):
 class MicrosoftGraphOrgContact(MicrosoftGraphDirectoryObject):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param deleted_date_time:
@@ -2281,7 +2243,6 @@ class MicrosoftGraphOrgContact(MicrosoftGraphDirectoryObject):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'deleted_date_time': {'key': 'deletedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -2310,7 +2271,6 @@ class MicrosoftGraphOrgContact(MicrosoftGraphDirectoryObject):
         **kwargs
     ):
         super(MicrosoftGraphOrgContact, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.addresses = kwargs.get('addresses', None)
         self.company_name = kwargs.get('company_name', None)
@@ -2490,13 +2450,8 @@ class MicrosoftGraphScopedRoleMembership(MicrosoftGraphEntity):
     :type administrative_unit_id: str
     :param role_id: Unique identifier for the directory role that the member is in.
     :type role_id: str
-    :param display_name: The identity's display name. Note that this may not always be available or
-     up to date. For example, if a user changes their display name, the API may show the new value
-     in a future response, but the items associated with the user won't show up as having changed
-     when using delta.
-    :type display_name: str
-    :param id_role_member_info_id: Unique identifier for the identity.
-    :type id_role_member_info_id: str
+    :param role_member_info: identity.
+    :type role_member_info: ~identity_directory_management.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -2504,8 +2459,7 @@ class MicrosoftGraphScopedRoleMembership(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'administrative_unit_id': {'key': 'administrativeUnitId', 'type': 'str'},
         'role_id': {'key': 'roleId', 'type': 'str'},
-        'display_name': {'key': 'roleMemberInfo.displayName', 'type': 'str'},
-        'id_role_member_info_id': {'key': 'roleMemberInfo.id', 'type': 'str'},
+        'role_member_info': {'key': 'roleMemberInfo', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -2516,8 +2470,7 @@ class MicrosoftGraphScopedRoleMembership(MicrosoftGraphEntity):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.administrative_unit_id = kwargs.get('administrative_unit_id', None)
         self.role_id = kwargs.get('role_id', None)
-        self.display_name = kwargs.get('display_name', None)
-        self.id_role_member_info_id = kwargs.get('id_role_member_info_id', None)
+        self.role_member_info = kwargs.get('role_member_info', None)
 
 
 class MicrosoftGraphServicePlanInfo(msrest.serialization.Model):

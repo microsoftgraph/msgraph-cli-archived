@@ -11,7 +11,7 @@
 
 def cf_people_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.people import People
+    from azext_people_v1_0.vendored_sdks.people import People
     return get_mgmt_service_client(cli_ctx,
                                    People,
                                    subscription_bound=False,
@@ -19,20 +19,20 @@ def cf_people_v1_0_cl(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_people_v1_0_cl(cli_ctx).user
+    return cf_people_v1_0_cl(cli_ctx).users
 
 
 def cf_user_insight(cli_ctx, *_):
-    return cf_people_v1_0_cl(cli_ctx).user_insight
+    return cf_people_v1_0_cl(cli_ctx).users_insights
 
 
 def cf_user_insight_shared(cli_ctx, *_):
-    return cf_people_v1_0_cl(cli_ctx).user_insight_shared
+    return cf_people_v1_0_cl(cli_ctx).users_insights_shared
 
 
 def cf_user_insight_trending(cli_ctx, *_):
-    return cf_people_v1_0_cl(cli_ctx).user_insight_trending
+    return cf_people_v1_0_cl(cli_ctx).users_insights_trending
 
 
 def cf_user_insight_used(cli_ctx, *_):
-    return cf_people_v1_0_cl(cli_ctx).user_insight_used
+    return cf_people_v1_0_cl(cli_ctx).users_insights_used

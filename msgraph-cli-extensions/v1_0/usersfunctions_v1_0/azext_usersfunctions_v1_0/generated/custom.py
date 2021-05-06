@@ -19,9 +19,9 @@ def usersfunctions_user_calendar_calendar_view_calendar_allowed_calendar_sharing
                                                                                       user_id,
                                                                                       event_id,
                                                                                       user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                event_id=event_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
 def usersfunctions_user_calendar_calendar_view_instance_delta(client,
@@ -40,9 +40,9 @@ def usersfunctions_user_calendar_event_calendar_allowed_calendar_sharing_role(cl
                                                                               user_id,
                                                                               event_id,
                                                                               user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                event_id=event_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
 def usersfunctions_user_calendar_event_instance_delta(client,
@@ -60,8 +60,8 @@ def usersfunctions_user_calendar_event_delta(client,
 def usersfunctions_user_calendar_allowed_calendar_sharing_role(client,
                                                                user_id,
                                                                user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 user=user)
 
 
 def usersfunctions_user_calendar_group_calendar_calendar_view_calendar_allowed_calendar_sharing_role(client,
@@ -70,11 +70,11 @@ def usersfunctions_user_calendar_group_calendar_calendar_view_calendar_allowed_c
                                                                                                      calendar_id,
                                                                                                      event_id,
                                                                                                      user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_group_id=calendar_group_id,
-                                                calendar_id=calendar_id,
-                                                event_id=event_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_group_id=calendar_group_id,
+                                                 calendar_id=calendar_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
 def usersfunctions_user_calendar_group_calendar_calendar_view_instance_delta(client,
@@ -103,11 +103,11 @@ def usersfunctions_user_calendar_group_calendar_event_calendar_allowed_calendar_
                                                                                              calendar_id,
                                                                                              event_id,
                                                                                              user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_group_id=calendar_group_id,
-                                                calendar_id=calendar_id,
-                                                event_id=event_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_group_id=calendar_group_id,
+                                                 calendar_id=calendar_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
 def usersfunctions_user_calendar_group_calendar_event_instance_delta(client,
@@ -135,10 +135,10 @@ def usersfunctions_user_calendar_group_calendar_allowed_calendar_sharing_role(cl
                                                                               calendar_group_id,
                                                                               calendar_id,
                                                                               user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_group_id=calendar_group_id,
-                                                calendar_id=calendar_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_group_id=calendar_group_id,
+                                                 calendar_id=calendar_id,
+                                                 user=user)
 
 
 def usersfunctions_user_calendar_calendar_view_calendar_allowed_calendar_sharing_role(client,
@@ -146,10 +146,10 @@ def usersfunctions_user_calendar_calendar_view_calendar_allowed_calendar_sharing
                                                                                       calendar_id,
                                                                                       event_id,
                                                                                       user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_id=calendar_id,
-                                                event_id=event_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_id=calendar_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
 def usersfunctions_user_calendar_calendar_view_instance_delta(client,
@@ -173,10 +173,10 @@ def usersfunctions_user_calendar_event_calendar_allowed_calendar_sharing_role(cl
                                                                               calendar_id,
                                                                               event_id,
                                                                               user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_id=calendar_id,
-                                                event_id=event_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_id=calendar_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
 def usersfunctions_user_calendar_event_instance_delta(client,
@@ -199,9 +199,9 @@ def usersfunctions_user_calendar_allowed_calendar_sharing_role(client,
                                                                user_id,
                                                                calendar_id,
                                                                user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_id=calendar_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_id=calendar_id,
+                                                 user=user)
 
 
 def usersfunctions_user_calendar_view_calendar_calendar_view_delta(client,
@@ -222,9 +222,9 @@ def usersfunctions_user_calendar_view_calendar_allowed_calendar_sharing_role(cli
                                                                              user_id,
                                                                              event_id,
                                                                              user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                event_id=event_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
 def usersfunctions_user_calendar_view_instance_delta(client,
@@ -281,9 +281,9 @@ def usersfunctions_user_event_calendar_allowed_calendar_sharing_role(client,
                                                                      user_id,
                                                                      event_id,
                                                                      user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                event_id=event_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
 def usersfunctions_user_event_instance_delta(client,
@@ -317,9 +317,9 @@ def usersfunctions_user_mail_folder_delta(client,
     return client.delta(user_id=user_id)
 
 
-def usersfunctions_user_managed_app_registration_get_user_id_with_flagged_app_registration(client,
-                                                                                           user_id):
-    return client.get_user_id_with_flagged_app_registration(user_id=user_id)
+def usersfunctions_user_managed_app_registration_show_user_id_with_flagged_app_registration(client,
+                                                                                            user_id):
+    return client.get_user_ids_with_flagged_app_registration(user_id=user_id)
 
 
 def usersfunctions_user_message_delta(client,
@@ -331,16 +331,6 @@ def usersfunctions_user_delta(client):
     return client.delta()
 
 
-def usersfunctions_user_get_managed_app_diagnostic_statuses(client,
-                                                            user_id):
-    return client.get_managed_app_diagnostic_statuses(user_id=user_id)
-
-
-def usersfunctions_user_get_managed_app_policy(client,
-                                               user_id):
-    return client.get_managed_app_policy(user_id=user_id)
-
-
 def usersfunctions_user_reminder_view(client,
                                       user_id,
                                       start_date_time,
@@ -348,6 +338,16 @@ def usersfunctions_user_reminder_view(client,
     return client.reminder_view(user_id=user_id,
                                 start_date_time=start_date_time,
                                 end_date_time=end_date_time)
+
+
+def usersfunctions_user_show_managed_app_diagnostic_statuses(client,
+                                                             user_id):
+    return client.get_managed_app_diagnostic_statuses(user_id=user_id)
+
+
+def usersfunctions_user_show_managed_app_policy(client,
+                                                user_id):
+    return client.get_managed_app_policies(user_id=user_id)
 
 
 def usersfunctions_user_onenote_notebook_section_group_section_page_preview(client,
@@ -374,13 +374,13 @@ def usersfunctions_user_onenote_notebook_section_page_preview(client,
                           onenote_page_id=onenote_page_id)
 
 
-def usersfunctions_user_onenote_notebook_get_recent_notebook(client,
-                                                             user_id,
-                                                             include_personal_notebooks):
+def usersfunctions_user_onenote_notebook_show_recent_notebook(client,
+                                                              user_id,
+                                                              include_personal_notebooks):
     if include_personal_notebooks is None:
         include_personal_notebooks = False
-    return client.get_recent_notebook(user_id=user_id,
-                                      include_personal_notebooks=include_personal_notebooks)
+    return client.get_recent_notebooks(user_id=user_id,
+                                       include_personal_notebooks=include_personal_notebooks)
 
 
 def usersfunctions_user_onenote_page_preview(client,
@@ -456,12 +456,12 @@ def usersfunctions_user_onenote_section_page_preview(client,
 
 def usersfunctions_user_outlook_supported_language(client,
                                                    user_id):
-    return client.supported_language(user_id=user_id)
+    return client.supported_languages(user_id=user_id)
 
 
 def usersfunctions_user_outlook_supported_time_zone_ee48(client,
                                                          user_id):
-    return client.supported_time_zone_ee48(user_id=user_id)
+    return client.supported_time_zones_ee48(user_id=user_id)
 
 
 def usersfunctions_user_outlook_supported_time_zones51_c6(client,

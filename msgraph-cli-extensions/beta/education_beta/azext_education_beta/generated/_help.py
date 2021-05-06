@@ -12,34 +12,34 @@
 from knack.help_files import helps
 
 
+helps['education_beta'] = '''
+    type: group
+    short-summary: Manage Education
+'''
+
 helps['education education-root'] = """
     type: group
-    short-summary: education education-root
+    short-summary: Manage education education root with education_beta
 """
 
-helps['education education-root get-root'] = """
+helps['education education-root show-education-root'] = """
     type: command
-    short-summary: "Get education"
+    short-summary: "Get education."
 """
 
-helps['education education-root update-root'] = """
+helps['education education-root update-education-root'] = """
     type: command
-    short-summary: "Update education"
+    short-summary: "Update education."
 """
 
 helps['education education'] = """
     type: group
-    short-summary: education education
-"""
-
-helps['education education delete'] = """
-    type: command
-    short-summary: "Delete navigation property me for education"
+    short-summary: Manage education with education_beta
 """
 
 helps['education education create-class'] = """
     type: command
-    short-summary: "Create new navigation property to classes for education"
+    short-summary: "Create new navigation property to classes for education."
     parameters:
       - name: --course
         short-summary: "educationCourse"
@@ -62,11 +62,38 @@ helps['education education create-class'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --assignment-categories argument.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education create-school'] = """
     type: command
-    short-summary: "Create new navigation property to schools for education"
+    short-summary: "Create new navigation property to schools for education."
     parameters:
       - name: --address
         short-summary: "physicalAddress"
@@ -78,27 +105,54 @@ helps['education education create-school'] = """
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --administrative-unit-members
+      - name: --members
         short-summary: "Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list \
 members), POST (add members), DELETE (remove members)."
         long-summary: |
-            Usage: --administrative-unit-members deleted-date-time=XX id=XX
+            Usage: --members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --administrative-unit-members argument.
-      - name: --administrative-unit-extensions
+            Multiple actions can be specified by using more than one --members argument.
+      - name: --extensions
         long-summary: |
-            Usage: --administrative-unit-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --administrative-unit-extensions argument.
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education create-synchronization-profile'] = """
     type: command
-    short-summary: "Create new navigation property to synchronizationProfiles for education"
+    short-summary: "Create new navigation property to synchronizationProfiles for education."
     parameters:
       - name: --licenses-to-assign
         long-summary: |
@@ -124,7 +178,7 @@ reportable-identifier=XX id=XX
 
 helps['education education create-user'] = """
     type: command
-    short-summary: "Create new navigation property to users for education"
+    short-summary: "Create new navigation property to users for education."
     parameters:
       - name: --related-contacts
         short-summary: "Set of contacts related to the user.  This optional property must be specified in a $select \
@@ -227,56 +281,108 @@ street=XX type=XX
 
             external-id: ID of the teacher in the source system.
             teacher-number: Teacher number.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['education education get-class'] = """
+helps['education education delete-class'] = """
     type: command
-    short-summary: "Get classes from education"
+    short-summary: "Delete navigation property classes for education."
 """
 
-helps['education education get-me'] = """
+helps['education education delete-me'] = """
     type: command
-    short-summary: "Get me from education"
+    short-summary: "Delete navigation property me for education."
 """
 
-helps['education education get-school'] = """
+helps['education education delete-school'] = """
     type: command
-    short-summary: "Get schools from education"
+    short-summary: "Delete navigation property schools for education."
 """
 
-helps['education education get-synchronization-profile'] = """
+helps['education education delete-synchronization-profile'] = """
     type: command
-    short-summary: "Get synchronizationProfiles from education"
+    short-summary: "Delete navigation property synchronizationProfiles for education."
 """
 
-helps['education education get-user'] = """
+helps['education education delete-user'] = """
     type: command
-    short-summary: "Get users from education"
+    short-summary: "Delete navigation property users for education."
 """
 
 helps['education education list-class'] = """
     type: command
-    short-summary: "Get classes from education"
+    short-summary: "Get classes from education."
 """
 
 helps['education education list-school'] = """
     type: command
-    short-summary: "Get schools from education"
+    short-summary: "Get schools from education."
 """
 
 helps['education education list-synchronization-profile'] = """
     type: command
-    short-summary: "Get synchronizationProfiles from education"
+    short-summary: "Get synchronizationProfiles from education."
 """
 
 helps['education education list-user'] = """
     type: command
-    short-summary: "Get users from education"
+    short-summary: "Get users from education."
+"""
+
+helps['education education show-class'] = """
+    type: command
+    short-summary: "Get classes from education."
+"""
+
+helps['education education show-me'] = """
+    type: command
+    short-summary: "Get me from education."
+"""
+
+helps['education education show-school'] = """
+    type: command
+    short-summary: "Get schools from education."
+"""
+
+helps['education education show-synchronization-profile'] = """
+    type: command
+    short-summary: "Get synchronizationProfiles from education."
+"""
+
+helps['education education show-user'] = """
+    type: command
+    short-summary: "Get users from education."
 """
 
 helps['education education update-class'] = """
     type: command
-    short-summary: "Update the navigation property classes in education"
+    short-summary: "Update the navigation property classes in education."
     parameters:
       - name: --course
         short-summary: "educationCourse"
@@ -299,11 +405,38 @@ helps['education education update-class'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --assignment-categories argument.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education update-me'] = """
     type: command
-    short-summary: "Update the navigation property me in education"
+    short-summary: "Update the navigation property me in education."
     parameters:
       - name: --related-contacts
         short-summary: "Set of contacts related to the user.  This optional property must be specified in a $select \
@@ -406,11 +539,38 @@ street=XX type=XX
 
             external-id: ID of the teacher in the source system.
             teacher-number: Teacher number.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education update-school'] = """
     type: command
-    short-summary: "Update the navigation property schools in education"
+    short-summary: "Update the navigation property schools in education."
     parameters:
       - name: --address
         short-summary: "physicalAddress"
@@ -422,27 +582,54 @@ helps['education education update-school'] = """
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --administrative-unit-members
+      - name: --members
         short-summary: "Users and groups that are members of this Adminsitrative Unit. HTTP Methods: GET (list \
 members), POST (add members), DELETE (remove members)."
         long-summary: |
-            Usage: --administrative-unit-members deleted-date-time=XX id=XX
+            Usage: --members deleted-date-time=XX id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --administrative-unit-members argument.
-      - name: --administrative-unit-extensions
+            Multiple actions can be specified by using more than one --members argument.
+      - name: --extensions
         long-summary: |
-            Usage: --administrative-unit-extensions id=XX
+            Usage: --extensions id=XX
 
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --administrative-unit-extensions argument.
+            Multiple actions can be specified by using more than one --extensions argument.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education update-synchronization-profile'] = """
     type: command
-    short-summary: "Update the navigation property synchronizationProfiles in education"
+    short-summary: "Update the navigation property synchronizationProfiles in education."
     parameters:
       - name: --licenses-to-assign
         long-summary: |
@@ -468,7 +655,7 @@ reportable-identifier=XX id=XX
 
 helps['education education update-user'] = """
     type: command
-    short-summary: "Update the navigation property users in education"
+    short-summary: "Update the navigation property users in education."
     parameters:
       - name: --related-contacts
         short-summary: "Set of contacts related to the user.  This optional property must be specified in a $select \
@@ -571,21 +758,43 @@ street=XX type=XX
 
             external-id: ID of the teacher in the source system.
             teacher-number: Teacher number.
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-class'] = """
     type: group
-    short-summary: education education-class
-"""
-
-helps['education education-class delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property group for education"
+    short-summary: Manage education class with education_beta
 """
 
 helps['education education-class create-assignment'] = """
     type: command
-    short-summary: "Create new navigation property to assignments for education"
+    short-summary: "Create new navigation property to assignments for education."
     parameters:
       - name: --instructions
         short-summary: "educationItemBody"
@@ -599,106 +808,229 @@ helps['education education-class create-assignment'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --categories argument.
-      - name: --rubric-description
+      - name: --description
         short-summary: "educationItemBody"
         long-summary: |
-            Usage: --rubric-description content=XX content-type=XX
+            Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-class create-assignment-category'] = """
     type: command
-    short-summary: "Create new navigation property to assignmentCategories for education"
+    short-summary: "Create new navigation property to assignmentCategories for education."
 """
 
 helps['education education-class create-ref-member'] = """
     type: command
-    short-summary: "Create new navigation property ref to members for education"
+    short-summary: "Create new navigation property ref to members for education."
 """
 
 helps['education education-class create-ref-school'] = """
     type: command
-    short-summary: "Create new navigation property ref to schools for education"
+    short-summary: "Create new navigation property ref to schools for education."
 """
 
 helps['education education-class create-ref-teacher'] = """
     type: command
-    short-summary: "Create new navigation property ref to teachers for education"
+    short-summary: "Create new navigation property ref to teachers for education."
+"""
+
+helps['education education-class delete-assignment'] = """
+    type: command
+    short-summary: "Delete navigation property assignments for education."
+"""
+
+helps['education education-class delete-assignment-category'] = """
+    type: command
+    short-summary: "Delete navigation property assignmentCategories for education."
+"""
+
+helps['education education-class delete-ref-group'] = """
+    type: command
+    short-summary: "Delete ref of navigation property group for education."
 """
 
 helps['education education-class delta'] = """
     type: command
-    short-summary: "Invoke function delta"
-"""
-
-helps['education education-class get-assignment'] = """
-    type: command
-    short-summary: "Get assignments from education"
-"""
-
-helps['education education-class get-assignment-category'] = """
-    type: command
-    short-summary: "Get assignmentCategories from education"
-"""
-
-helps['education education-class get-group'] = """
-    type: command
-    short-summary: "Get group from education"
-"""
-
-helps['education education-class get-ref-group'] = """
-    type: command
-    short-summary: "Get ref of group from education"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-class list-assignment'] = """
     type: command
-    short-summary: "Get assignments from education"
+    short-summary: "Get assignments from education."
 """
 
 helps['education education-class list-assignment-category'] = """
     type: command
-    short-summary: "Get assignmentCategories from education"
+    short-summary: "Get assignmentCategories from education."
 """
 
 helps['education education-class list-member'] = """
     type: command
-    short-summary: "Get members from education"
+    short-summary: "Get members from education."
 """
 
 helps['education education-class list-ref-member'] = """
     type: command
-    short-summary: "Get ref of members from education"
+    short-summary: "Get ref of members from education."
 """
 
 helps['education education-class list-ref-school'] = """
     type: command
-    short-summary: "Get ref of schools from education"
+    short-summary: "Get ref of schools from education."
 """
 
 helps['education education-class list-ref-teacher'] = """
     type: command
-    short-summary: "Get ref of teachers from education"
+    short-summary: "Get ref of teachers from education."
 """
 
 helps['education education-class list-school'] = """
     type: command
-    short-summary: "Get schools from education"
+    short-summary: "Get schools from education."
 """
 
 helps['education education-class list-teacher'] = """
     type: command
-    short-summary: "Get teachers from education"
+    short-summary: "Get teachers from education."
 """
 
 helps['education education-class set-ref-group'] = """
     type: command
-    short-summary: "Update the ref of navigation property group in education"
+    short-summary: "Update the ref of navigation property group in education."
+"""
+
+helps['education education-class show-assignment'] = """
+    type: command
+    short-summary: "Get assignments from education."
+"""
+
+helps['education education-class show-assignment-category'] = """
+    type: command
+    short-summary: "Get assignmentCategories from education."
+"""
+
+helps['education education-class show-group'] = """
+    type: command
+    short-summary: "Get group from education."
+"""
+
+helps['education education-class show-ref-group'] = """
+    type: command
+    short-summary: "Get ref of group from education."
 """
 
 helps['education education-class update-assignment'] = """
     type: command
-    short-summary: "Update the navigation property assignments in education"
+    short-summary: "Update the navigation property assignments in education."
     parameters:
       - name: --instructions
         short-summary: "educationItemBody"
@@ -712,508 +1044,698 @@ helps['education education-class update-assignment'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --categories argument.
-      - name: --rubric-description
+      - name: --description
         short-summary: "educationItemBody"
         long-summary: |
-            Usage: --rubric-description content=XX content-type=XX
+            Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-class update-assignment-category'] = """
     type: command
-    short-summary: "Update the navigation property assignmentCategories in education"
+    short-summary: "Update the navigation property assignmentCategories in education."
 """
 
 helps['education education-class-assignment'] = """
     type: group
-    short-summary: education education-class-assignment
-"""
-
-helps['education education-class-assignment delete'] = """
-    type: command
-    short-summary: "Delete navigation property rubric for education"
+    short-summary: Manage education class assignment with education_beta
 """
 
 helps['education education-class-assignment create-category'] = """
     type: command
-    short-summary: "Create new navigation property to categories for education"
+    short-summary: "Create new navigation property to categories for education."
 """
 
 helps['education education-class-assignment create-resource'] = """
     type: command
-    short-summary: "Create new navigation property to resources for education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Create new navigation property to resources for education."
 """
 
 helps['education education-class-assignment create-submission'] = """
     type: command
-    short-summary: "Create new navigation property to submissions for education"
+    short-summary: "Create new navigation property to submissions for education."
     parameters:
-      - name: --outcomes
+      - name: --application
+        short-summary: "identity"
         long-summary: |
-            Usage: --outcomes last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --application display-name=XX id=XX
 
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
 
-            Multiple actions can be specified by using more than one --outcomes argument.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['education education-class-assignment get-category'] = """
+helps['education education-class-assignment delete-category'] = """
     type: command
-    short-summary: "Get categories from education"
+    short-summary: "Delete navigation property categories for education."
 """
 
-helps['education education-class-assignment get-resource'] = """
+helps['education education-class-assignment delete-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Delete navigation property resources for education."
 """
 
-helps['education education-class-assignment get-resource-folder-url'] = """
+helps['education education-class-assignment delete-rubric'] = """
     type: command
-    short-summary: "Invoke function getResourcesFolderUrl"
+    short-summary: "Delete navigation property rubric for education."
 """
 
-helps['education education-class-assignment get-rubric'] = """
+helps['education education-class-assignment delete-submission'] = """
     type: command
-    short-summary: "Get rubric from education"
-"""
-
-helps['education education-class-assignment get-submission'] = """
-    type: command
-    short-summary: "Get submissions from education"
+    short-summary: "Delete navigation property submissions for education."
 """
 
 helps['education education-class-assignment list-category'] = """
     type: command
-    short-summary: "Get categories from education"
+    short-summary: "Get categories from education."
 """
 
 helps['education education-class-assignment list-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Get resources from education."
 """
 
 helps['education education-class-assignment list-submission'] = """
     type: command
-    short-summary: "Get submissions from education"
+    short-summary: "Get submissions from education."
 """
 
 helps['education education-class-assignment publish'] = """
     type: command
-    short-summary: "Invoke action publish"
+    short-summary: "Invoke action publish."
+"""
+
+helps['education education-class-assignment show-category'] = """
+    type: command
+    short-summary: "Get categories from education."
+"""
+
+helps['education education-class-assignment show-resource'] = """
+    type: command
+    short-summary: "Get resources from education."
+"""
+
+helps['education education-class-assignment show-resource-folder-url'] = """
+    type: command
+    short-summary: "Invoke function getResourcesFolderUrl."
+"""
+
+helps['education education-class-assignment show-rubric'] = """
+    type: command
+    short-summary: "Get rubric from education."
+"""
+
+helps['education education-class-assignment show-submission'] = """
+    type: command
+    short-summary: "Get submissions from education."
 """
 
 helps['education education-class-assignment update-category'] = """
     type: command
-    short-summary: "Update the navigation property categories in education"
+    short-summary: "Update the navigation property categories in education."
 """
 
 helps['education education-class-assignment update-resource'] = """
     type: command
-    short-summary: "Update the navigation property resources in education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Update the navigation property resources in education."
 """
 
 helps['education education-class-assignment update-rubric'] = """
     type: command
-    short-summary: "Update the navigation property rubric in education"
+    short-summary: "Update the navigation property rubric in education."
     parameters:
       - name: --description
         short-summary: "educationItemBody"
         long-summary: |
             Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-class-assignment update-submission'] = """
     type: command
-    short-summary: "Update the navigation property submissions in education"
+    short-summary: "Update the navigation property submissions in education."
     parameters:
-      - name: --outcomes
+      - name: --application
+        short-summary: "identity"
         long-summary: |
-            Usage: --outcomes last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --application display-name=XX id=XX
 
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
 
-            Multiple actions can be specified by using more than one --outcomes argument.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-class-assignment-submission'] = """
     type: group
-    short-summary: education education-class-assignment-submission
-"""
-
-helps['education education-class-assignment-submission delete'] = """
-    type: command
-    short-summary: "Delete navigation property submittedResources for education"
+    short-summary: Manage education class assignment submission with education_beta
 """
 
 helps['education education-class-assignment-submission create-outcome'] = """
     type: command
-    short-summary: "Create new navigation property to outcomes for education"
+    short-summary: "Create new navigation property to outcomes for education."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-class-assignment-submission create-resource'] = """
     type: command
-    short-summary: "Create new navigation property to resources for education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Create new navigation property to resources for education."
 """
 
 helps['education education-class-assignment-submission create-submitted-resource'] = """
     type: command
-    short-summary: "Create new navigation property to submittedResources for education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Create new navigation property to submittedResources for education."
 """
 
-helps['education education-class-assignment-submission get-outcome'] = """
+helps['education education-class-assignment-submission delete-outcome'] = """
     type: command
-    short-summary: "Get outcomes from education"
+    short-summary: "Delete navigation property outcomes for education."
 """
 
-helps['education education-class-assignment-submission get-resource'] = """
+helps['education education-class-assignment-submission delete-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Delete navigation property resources for education."
 """
 
-helps['education education-class-assignment-submission get-submitted-resource'] = """
+helps['education education-class-assignment-submission delete-submitted-resource'] = """
     type: command
-    short-summary: "Get submittedResources from education"
+    short-summary: "Delete navigation property submittedResources for education."
 """
 
 helps['education education-class-assignment-submission list-outcome'] = """
     type: command
-    short-summary: "Get outcomes from education"
+    short-summary: "Get outcomes from education."
 """
 
 helps['education education-class-assignment-submission list-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Get resources from education."
 """
 
 helps['education education-class-assignment-submission list-submitted-resource'] = """
     type: command
-    short-summary: "Get submittedResources from education"
+    short-summary: "Get submittedResources from education."
 """
 
 helps['education education-class-assignment-submission return'] = """
     type: command
-    short-summary: "Invoke action return"
+    short-summary: "Invoke action return."
+"""
+
+helps['education education-class-assignment-submission show-outcome'] = """
+    type: command
+    short-summary: "Get outcomes from education."
+"""
+
+helps['education education-class-assignment-submission show-resource'] = """
+    type: command
+    short-summary: "Get resources from education."
+"""
+
+helps['education education-class-assignment-submission show-submitted-resource'] = """
+    type: command
+    short-summary: "Get submittedResources from education."
 """
 
 helps['education education-class-assignment-submission submit'] = """
     type: command
-    short-summary: "Invoke action submit"
+    short-summary: "Invoke action submit."
 """
 
 helps['education education-class-assignment-submission unsubmit'] = """
     type: command
-    short-summary: "Invoke action unsubmit"
+    short-summary: "Invoke action unsubmit."
 """
 
 helps['education education-class-assignment-submission update-outcome'] = """
     type: command
-    short-summary: "Update the navigation property outcomes in education"
+    short-summary: "Update the navigation property outcomes in education."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-class-assignment-submission update-resource'] = """
     type: command
-    short-summary: "Update the navigation property resources in education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Update the navigation property resources in education."
 """
 
 helps['education education-class-assignment-submission update-submitted-resource'] = """
     type: command
-    short-summary: "Update the navigation property submittedResources in education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Update the navigation property submittedResources in education."
 """
 
 helps['education education-class-member'] = """
     type: group
-    short-summary: education education-class-member
+    short-summary: Manage education class member with education_beta
 """
 
 helps['education education-class-member delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-class-school'] = """
     type: group
-    short-summary: education education-class-school
+    short-summary: Manage education class school with education_beta
 """
 
 helps['education education-class-school delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-class-teacher'] = """
     type: group
-    short-summary: education education-class-teacher
+    short-summary: Manage education class teacher with education_beta
 """
 
 helps['education education-class-teacher delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-me'] = """
     type: group
-    short-summary: education education-me
-"""
-
-helps['education education-me delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property user for education"
+    short-summary: Manage education me with education_beta
 """
 
 helps['education education-me create-assignment'] = """
     type: command
-    short-summary: "Create new navigation property to assignments for education"
+    short-summary: "Create new navigation property to assignments for education."
     parameters:
       - name: --instructions
         short-summary: "educationItemBody"
@@ -1227,107 +1749,284 @@ helps['education education-me create-assignment'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --categories argument.
-      - name: --rubric-description
+      - name: --description
         short-summary: "educationItemBody"
         long-summary: |
-            Usage: --rubric-description content=XX content-type=XX
+            Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-me create-ref-class'] = """
     type: command
-    short-summary: "Create new navigation property ref to classes for education"
+    short-summary: "Create new navigation property ref to classes for education."
 """
 
 helps['education education-me create-ref-school'] = """
     type: command
-    short-summary: "Create new navigation property ref to schools for education"
+    short-summary: "Create new navigation property ref to schools for education."
 """
 
 helps['education education-me create-ref-taught-class'] = """
     type: command
-    short-summary: "Create new navigation property ref to taughtClasses for education"
+    short-summary: "Create new navigation property ref to taughtClasses for education."
 """
 
 helps['education education-me create-rubric'] = """
     type: command
-    short-summary: "Create new navigation property to rubrics for education"
+    short-summary: "Create new navigation property to rubrics for education."
     parameters:
       - name: --description
         short-summary: "educationItemBody"
         long-summary: |
             Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['education education-me get-assignment'] = """
+helps['education education-me delete-assignment'] = """
     type: command
-    short-summary: "Get assignments from education"
+    short-summary: "Delete navigation property assignments for education."
 """
 
-helps['education education-me get-ref-user'] = """
+helps['education education-me delete-ref-user'] = """
     type: command
-    short-summary: "Get ref of user from education"
+    short-summary: "Delete ref of navigation property user for education."
 """
 
-helps['education education-me get-rubric'] = """
+helps['education education-me delete-rubric'] = """
     type: command
-    short-summary: "Get rubrics from education"
-"""
-
-helps['education education-me get-user'] = """
-    type: command
-    short-summary: "Get user from education"
+    short-summary: "Delete navigation property rubrics for education."
 """
 
 helps['education education-me list-assignment'] = """
     type: command
-    short-summary: "Get assignments from education"
+    short-summary: "Get assignments from education."
 """
 
 helps['education education-me list-class'] = """
     type: command
-    short-summary: "Get classes from education"
+    short-summary: "Get classes from education."
 """
 
 helps['education education-me list-ref-class'] = """
     type: command
-    short-summary: "Get ref of classes from education"
+    short-summary: "Get ref of classes from education."
 """
 
 helps['education education-me list-ref-school'] = """
     type: command
-    short-summary: "Get ref of schools from education"
+    short-summary: "Get ref of schools from education."
 """
 
 helps['education education-me list-ref-taught-class'] = """
     type: command
-    short-summary: "Get ref of taughtClasses from education"
+    short-summary: "Get ref of taughtClasses from education."
 """
 
 helps['education education-me list-rubric'] = """
     type: command
-    short-summary: "Get rubrics from education"
+    short-summary: "Get rubrics from education."
 """
 
 helps['education education-me list-school'] = """
     type: command
-    short-summary: "Get schools from education"
+    short-summary: "Get schools from education."
 """
 
 helps['education education-me list-taught-class'] = """
     type: command
-    short-summary: "Get taughtClasses from education"
+    short-summary: "Get taughtClasses from education."
 """
 
 helps['education education-me set-ref-user'] = """
     type: command
-    short-summary: "Update the ref of navigation property user in education"
+    short-summary: "Update the ref of navigation property user in education."
+"""
+
+helps['education education-me show-assignment'] = """
+    type: command
+    short-summary: "Get assignments from education."
+"""
+
+helps['education education-me show-ref-user'] = """
+    type: command
+    short-summary: "Get ref of user from education."
+"""
+
+helps['education education-me show-rubric'] = """
+    type: command
+    short-summary: "Get rubrics from education."
+"""
+
+helps['education education-me show-user'] = """
+    type: command
+    short-summary: "Get user from education."
 """
 
 helps['education education-me update-assignment'] = """
     type: command
-    short-summary: "Update the navigation property assignments in education"
+    short-summary: "Update the navigation property assignments in education."
     parameters:
       - name: --instructions
         short-summary: "educationItemBody"
@@ -1341,659 +2040,908 @@ helps['education education-me update-assignment'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --categories argument.
-      - name: --rubric-description
+      - name: --description
         short-summary: "educationItemBody"
         long-summary: |
-            Usage: --rubric-description content=XX content-type=XX
+            Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-me update-rubric'] = """
     type: command
-    short-summary: "Update the navigation property rubrics in education"
+    short-summary: "Update the navigation property rubrics in education."
     parameters:
       - name: --description
         short-summary: "educationItemBody"
         long-summary: |
             Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-me-assignment'] = """
     type: group
-    short-summary: education education-me-assignment
-"""
-
-helps['education education-me-assignment delete'] = """
-    type: command
-    short-summary: "Delete navigation property rubric for education"
+    short-summary: Manage education me assignment with education_beta
 """
 
 helps['education education-me-assignment create-category'] = """
     type: command
-    short-summary: "Create new navigation property to categories for education"
+    short-summary: "Create new navigation property to categories for education."
 """
 
 helps['education education-me-assignment create-resource'] = """
     type: command
-    short-summary: "Create new navigation property to resources for education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Create new navigation property to resources for education."
 """
 
 helps['education education-me-assignment create-submission'] = """
     type: command
-    short-summary: "Create new navigation property to submissions for education"
+    short-summary: "Create new navigation property to submissions for education."
     parameters:
-      - name: --outcomes
+      - name: --application
+        short-summary: "identity"
         long-summary: |
-            Usage: --outcomes last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --application display-name=XX id=XX
 
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
 
-            Multiple actions can be specified by using more than one --outcomes argument.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['education education-me-assignment get-category'] = """
+helps['education education-me-assignment delete-category'] = """
     type: command
-    short-summary: "Get categories from education"
+    short-summary: "Delete navigation property categories for education."
 """
 
-helps['education education-me-assignment get-resource'] = """
+helps['education education-me-assignment delete-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Delete navigation property resources for education."
 """
 
-helps['education education-me-assignment get-resource-folder-url'] = """
+helps['education education-me-assignment delete-rubric'] = """
     type: command
-    short-summary: "Invoke function getResourcesFolderUrl"
+    short-summary: "Delete navigation property rubric for education."
 """
 
-helps['education education-me-assignment get-rubric'] = """
+helps['education education-me-assignment delete-submission'] = """
     type: command
-    short-summary: "Get rubric from education"
-"""
-
-helps['education education-me-assignment get-submission'] = """
-    type: command
-    short-summary: "Get submissions from education"
+    short-summary: "Delete navigation property submissions for education."
 """
 
 helps['education education-me-assignment list-category'] = """
     type: command
-    short-summary: "Get categories from education"
+    short-summary: "Get categories from education."
 """
 
 helps['education education-me-assignment list-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Get resources from education."
 """
 
 helps['education education-me-assignment list-submission'] = """
     type: command
-    short-summary: "Get submissions from education"
+    short-summary: "Get submissions from education."
 """
 
 helps['education education-me-assignment publish'] = """
     type: command
-    short-summary: "Invoke action publish"
+    short-summary: "Invoke action publish."
+"""
+
+helps['education education-me-assignment show-category'] = """
+    type: command
+    short-summary: "Get categories from education."
+"""
+
+helps['education education-me-assignment show-resource'] = """
+    type: command
+    short-summary: "Get resources from education."
+"""
+
+helps['education education-me-assignment show-resource-folder-url'] = """
+    type: command
+    short-summary: "Invoke function getResourcesFolderUrl."
+"""
+
+helps['education education-me-assignment show-rubric'] = """
+    type: command
+    short-summary: "Get rubric from education."
+"""
+
+helps['education education-me-assignment show-submission'] = """
+    type: command
+    short-summary: "Get submissions from education."
 """
 
 helps['education education-me-assignment update-category'] = """
     type: command
-    short-summary: "Update the navigation property categories in education"
+    short-summary: "Update the navigation property categories in education."
 """
 
 helps['education education-me-assignment update-resource'] = """
     type: command
-    short-summary: "Update the navigation property resources in education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Update the navigation property resources in education."
 """
 
 helps['education education-me-assignment update-rubric'] = """
     type: command
-    short-summary: "Update the navigation property rubric in education"
+    short-summary: "Update the navigation property rubric in education."
     parameters:
       - name: --description
         short-summary: "educationItemBody"
         long-summary: |
             Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-me-assignment update-submission'] = """
     type: command
-    short-summary: "Update the navigation property submissions in education"
+    short-summary: "Update the navigation property submissions in education."
     parameters:
-      - name: --outcomes
+      - name: --application
+        short-summary: "identity"
         long-summary: |
-            Usage: --outcomes last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --application display-name=XX id=XX
 
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
 
-            Multiple actions can be specified by using more than one --outcomes argument.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-me-assignment-submission'] = """
     type: group
-    short-summary: education education-me-assignment-submission
-"""
-
-helps['education education-me-assignment-submission delete'] = """
-    type: command
-    short-summary: "Delete navigation property submittedResources for education"
+    short-summary: Manage education me assignment submission with education_beta
 """
 
 helps['education education-me-assignment-submission create-outcome'] = """
     type: command
-    short-summary: "Create new navigation property to outcomes for education"
+    short-summary: "Create new navigation property to outcomes for education."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-me-assignment-submission create-resource'] = """
     type: command
-    short-summary: "Create new navigation property to resources for education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Create new navigation property to resources for education."
 """
 
 helps['education education-me-assignment-submission create-submitted-resource'] = """
     type: command
-    short-summary: "Create new navigation property to submittedResources for education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Create new navigation property to submittedResources for education."
 """
 
-helps['education education-me-assignment-submission get-outcome'] = """
+helps['education education-me-assignment-submission delete-outcome'] = """
     type: command
-    short-summary: "Get outcomes from education"
+    short-summary: "Delete navigation property outcomes for education."
 """
 
-helps['education education-me-assignment-submission get-resource'] = """
+helps['education education-me-assignment-submission delete-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Delete navigation property resources for education."
 """
 
-helps['education education-me-assignment-submission get-submitted-resource'] = """
+helps['education education-me-assignment-submission delete-submitted-resource'] = """
     type: command
-    short-summary: "Get submittedResources from education"
+    short-summary: "Delete navigation property submittedResources for education."
 """
 
 helps['education education-me-assignment-submission list-outcome'] = """
     type: command
-    short-summary: "Get outcomes from education"
+    short-summary: "Get outcomes from education."
 """
 
 helps['education education-me-assignment-submission list-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Get resources from education."
 """
 
 helps['education education-me-assignment-submission list-submitted-resource'] = """
     type: command
-    short-summary: "Get submittedResources from education"
+    short-summary: "Get submittedResources from education."
 """
 
 helps['education education-me-assignment-submission return'] = """
     type: command
-    short-summary: "Invoke action return"
+    short-summary: "Invoke action return."
+"""
+
+helps['education education-me-assignment-submission show-outcome'] = """
+    type: command
+    short-summary: "Get outcomes from education."
+"""
+
+helps['education education-me-assignment-submission show-resource'] = """
+    type: command
+    short-summary: "Get resources from education."
+"""
+
+helps['education education-me-assignment-submission show-submitted-resource'] = """
+    type: command
+    short-summary: "Get submittedResources from education."
 """
 
 helps['education education-me-assignment-submission submit'] = """
     type: command
-    short-summary: "Invoke action submit"
+    short-summary: "Invoke action submit."
 """
 
 helps['education education-me-assignment-submission unsubmit'] = """
     type: command
-    short-summary: "Invoke action unsubmit"
+    short-summary: "Invoke action unsubmit."
 """
 
 helps['education education-me-assignment-submission update-outcome'] = """
     type: command
-    short-summary: "Update the navigation property outcomes in education"
+    short-summary: "Update the navigation property outcomes in education."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-me-assignment-submission update-resource'] = """
     type: command
-    short-summary: "Update the navigation property resources in education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Update the navigation property resources in education."
 """
 
 helps['education education-me-assignment-submission update-submitted-resource'] = """
     type: command
-    short-summary: "Update the navigation property submittedResources in education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Update the navigation property submittedResources in education."
 """
 
 helps['education education-me-class'] = """
     type: group
-    short-summary: education education-me-class
+    short-summary: Manage education me class with education_beta
 """
 
 helps['education education-me-class delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-me-school'] = """
     type: group
-    short-summary: education education-me-school
+    short-summary: Manage education me school with education_beta
 """
 
 helps['education education-me-school delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-me-taught-class'] = """
     type: group
-    short-summary: education education-me-taught-class
+    short-summary: Manage education me taught class with education_beta
 """
 
 helps['education education-me-taught-class delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-school'] = """
     type: group
-    short-summary: education education-school
-"""
-
-helps['education education-school delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property administrativeUnit for education"
+    short-summary: Manage education school with education_beta
 """
 
 helps['education education-school create-ref-class'] = """
     type: command
-    short-summary: "Create new navigation property ref to classes for education"
+    short-summary: "Create new navigation property ref to classes for education."
 """
 
 helps['education education-school create-ref-user'] = """
     type: command
-    short-summary: "Create new navigation property ref to users for education"
+    short-summary: "Create new navigation property ref to users for education."
+"""
+
+helps['education education-school delete-ref-administrative-unit'] = """
+    type: command
+    short-summary: "Delete ref of navigation property administrativeUnit for education."
 """
 
 helps['education education-school delta'] = """
     type: command
-    short-summary: "Invoke function delta"
-"""
-
-helps['education education-school get-administrative-unit'] = """
-    type: command
-    short-summary: "Get administrativeUnit from education"
-"""
-
-helps['education education-school get-ref-administrative-unit'] = """
-    type: command
-    short-summary: "Get ref of administrativeUnit from education"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-school list-class'] = """
     type: command
-    short-summary: "Get classes from education"
+    short-summary: "Get classes from education."
 """
 
 helps['education education-school list-ref-class'] = """
     type: command
-    short-summary: "Get ref of classes from education"
+    short-summary: "Get ref of classes from education."
 """
 
 helps['education education-school list-ref-user'] = """
     type: command
-    short-summary: "Get ref of users from education"
+    short-summary: "Get ref of users from education."
 """
 
 helps['education education-school list-user'] = """
     type: command
-    short-summary: "Get users from education"
+    short-summary: "Get users from education."
 """
 
 helps['education education-school set-ref-administrative-unit'] = """
     type: command
-    short-summary: "Update the ref of navigation property administrativeUnit in education"
+    short-summary: "Update the ref of navigation property administrativeUnit in education."
+"""
+
+helps['education education-school show-administrative-unit'] = """
+    type: command
+    short-summary: "Get administrativeUnit from education."
+"""
+
+helps['education education-school show-ref-administrative-unit'] = """
+    type: command
+    short-summary: "Get ref of administrativeUnit from education."
 """
 
 helps['education education-school-class'] = """
     type: group
-    short-summary: education education-school-class
+    short-summary: Manage education school class with education_beta
 """
 
 helps['education education-school-class delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-school-user'] = """
     type: group
-    short-summary: education education-school-user
+    short-summary: Manage education school user with education_beta
 """
 
 helps['education education-school-user delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-synchronization-profile'] = """
     type: group
-    short-summary: education education-synchronization-profile
-"""
-
-helps['education education-synchronization-profile delete'] = """
-    type: command
-    short-summary: "Delete navigation property profileStatus for education"
+    short-summary: Manage education synchronization profile with education_beta
 """
 
 helps['education education-synchronization-profile create-error'] = """
     type: command
-    short-summary: "Create new navigation property to errors for education"
+    short-summary: "Create new navigation property to errors for education."
 """
 
-helps['education education-synchronization-profile get-error'] = """
+helps['education education-synchronization-profile delete-error'] = """
     type: command
-    short-summary: "Get errors from education"
+    short-summary: "Delete navigation property errors for education."
 """
 
-helps['education education-synchronization-profile get-profile-status'] = """
+helps['education education-synchronization-profile delete-profile-status'] = """
     type: command
-    short-summary: "Get profileStatus from education"
+    short-summary: "Delete navigation property profileStatus for education."
 """
 
 helps['education education-synchronization-profile list-error'] = """
     type: command
-    short-summary: "Get errors from education"
+    short-summary: "Get errors from education."
 """
 
 helps['education education-synchronization-profile pause'] = """
     type: command
-    short-summary: "Invoke action pause"
+    short-summary: "Invoke action pause."
 """
 
 helps['education education-synchronization-profile reset'] = """
     type: command
-    short-summary: "Invoke action reset"
+    short-summary: "Invoke action reset."
 """
 
 helps['education education-synchronization-profile resume'] = """
     type: command
-    short-summary: "Invoke action resume"
+    short-summary: "Invoke action resume."
+"""
+
+helps['education education-synchronization-profile show-error'] = """
+    type: command
+    short-summary: "Get errors from education."
+"""
+
+helps['education education-synchronization-profile show-profile-status'] = """
+    type: command
+    short-summary: "Get profileStatus from education."
 """
 
 helps['education education-synchronization-profile start'] = """
     type: command
-    short-summary: "Invoke action start"
+    short-summary: "Invoke action start."
 """
 
 helps['education education-synchronization-profile update-error'] = """
     type: command
-    short-summary: "Update the navigation property errors in education"
+    short-summary: "Update the navigation property errors in education."
 """
 
 helps['education education-synchronization-profile update-profile-status'] = """
     type: command
-    short-summary: "Update the navigation property profileStatus in education"
+    short-summary: "Update the navigation property profileStatus in education."
 """
 
 helps['education education-synchronization-profile upload-url'] = """
     type: command
-    short-summary: "Invoke function uploadUrl"
+    short-summary: "Invoke function uploadUrl."
 """
 
 helps['education education-user'] = """
     type: group
-    short-summary: education education-user
-"""
-
-helps['education education-user delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property user for education"
+    short-summary: Manage education user with education_beta
 """
 
 helps['education education-user create-assignment'] = """
     type: command
-    short-summary: "Create new navigation property to assignments for education"
+    short-summary: "Create new navigation property to assignments for education."
     parameters:
       - name: --instructions
         short-summary: "educationItemBody"
@@ -2007,112 +2955,289 @@ helps['education education-user create-assignment'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --categories argument.
-      - name: --rubric-description
+      - name: --description
         short-summary: "educationItemBody"
         long-summary: |
-            Usage: --rubric-description content=XX content-type=XX
+            Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-user create-ref-class'] = """
     type: command
-    short-summary: "Create new navigation property ref to classes for education"
+    short-summary: "Create new navigation property ref to classes for education."
 """
 
 helps['education education-user create-ref-school'] = """
     type: command
-    short-summary: "Create new navigation property ref to schools for education"
+    short-summary: "Create new navigation property ref to schools for education."
 """
 
 helps['education education-user create-ref-taught-class'] = """
     type: command
-    short-summary: "Create new navigation property ref to taughtClasses for education"
+    short-summary: "Create new navigation property ref to taughtClasses for education."
 """
 
 helps['education education-user create-rubric'] = """
     type: command
-    short-summary: "Create new navigation property to rubrics for education"
+    short-summary: "Create new navigation property to rubrics for education."
     parameters:
       - name: --description
         short-summary: "educationItemBody"
         long-summary: |
             Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+"""
+
+helps['education education-user delete-assignment'] = """
+    type: command
+    short-summary: "Delete navigation property assignments for education."
+"""
+
+helps['education education-user delete-ref-user'] = """
+    type: command
+    short-summary: "Delete ref of navigation property user for education."
+"""
+
+helps['education education-user delete-rubric'] = """
+    type: command
+    short-summary: "Delete navigation property rubrics for education."
 """
 
 helps['education education-user delta'] = """
     type: command
-    short-summary: "Invoke function delta"
-"""
-
-helps['education education-user get-assignment'] = """
-    type: command
-    short-summary: "Get assignments from education"
-"""
-
-helps['education education-user get-ref-user'] = """
-    type: command
-    short-summary: "Get ref of user from education"
-"""
-
-helps['education education-user get-rubric'] = """
-    type: command
-    short-summary: "Get rubrics from education"
-"""
-
-helps['education education-user get-user'] = """
-    type: command
-    short-summary: "Get user from education"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-user list-assignment'] = """
     type: command
-    short-summary: "Get assignments from education"
+    short-summary: "Get assignments from education."
 """
 
 helps['education education-user list-class'] = """
     type: command
-    short-summary: "Get classes from education"
+    short-summary: "Get classes from education."
 """
 
 helps['education education-user list-ref-class'] = """
     type: command
-    short-summary: "Get ref of classes from education"
+    short-summary: "Get ref of classes from education."
 """
 
 helps['education education-user list-ref-school'] = """
     type: command
-    short-summary: "Get ref of schools from education"
+    short-summary: "Get ref of schools from education."
 """
 
 helps['education education-user list-ref-taught-class'] = """
     type: command
-    short-summary: "Get ref of taughtClasses from education"
+    short-summary: "Get ref of taughtClasses from education."
 """
 
 helps['education education-user list-rubric'] = """
     type: command
-    short-summary: "Get rubrics from education"
+    short-summary: "Get rubrics from education."
 """
 
 helps['education education-user list-school'] = """
     type: command
-    short-summary: "Get schools from education"
+    short-summary: "Get schools from education."
 """
 
 helps['education education-user list-taught-class'] = """
     type: command
-    short-summary: "Get taughtClasses from education"
+    short-summary: "Get taughtClasses from education."
 """
 
 helps['education education-user set-ref-user'] = """
     type: command
-    short-summary: "Update the ref of navigation property user in education"
+    short-summary: "Update the ref of navigation property user in education."
+"""
+
+helps['education education-user show-assignment'] = """
+    type: command
+    short-summary: "Get assignments from education."
+"""
+
+helps['education education-user show-ref-user'] = """
+    type: command
+    short-summary: "Get ref of user from education."
+"""
+
+helps['education education-user show-rubric'] = """
+    type: command
+    short-summary: "Get rubrics from education."
+"""
+
+helps['education education-user show-user'] = """
+    type: command
+    short-summary: "Get user from education."
 """
 
 helps['education education-user update-assignment'] = """
     type: command
-    short-summary: "Update the navigation property assignments in education"
+    short-summary: "Update the navigation property assignments in education."
     parameters:
       - name: --instructions
         short-summary: "educationItemBody"
@@ -2126,497 +3251,746 @@ helps['education education-user update-assignment'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --categories argument.
-      - name: --rubric-description
+      - name: --description
         short-summary: "educationItemBody"
         long-summary: |
-            Usage: --rubric-description content=XX content-type=XX
+            Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-user update-rubric'] = """
     type: command
-    short-summary: "Update the navigation property rubrics in education"
+    short-summary: "Update the navigation property rubrics in education."
     parameters:
       - name: --description
         short-summary: "educationItemBody"
         long-summary: |
             Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-user-assignment'] = """
     type: group
-    short-summary: education education-user-assignment
-"""
-
-helps['education education-user-assignment delete'] = """
-    type: command
-    short-summary: "Delete navigation property rubric for education"
+    short-summary: Manage education user assignment with education_beta
 """
 
 helps['education education-user-assignment create-category'] = """
     type: command
-    short-summary: "Create new navigation property to categories for education"
+    short-summary: "Create new navigation property to categories for education."
 """
 
 helps['education education-user-assignment create-resource'] = """
     type: command
-    short-summary: "Create new navigation property to resources for education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Create new navigation property to resources for education."
 """
 
 helps['education education-user-assignment create-submission'] = """
     type: command
-    short-summary: "Create new navigation property to submissions for education"
+    short-summary: "Create new navigation property to submissions for education."
     parameters:
-      - name: --outcomes
+      - name: --application
+        short-summary: "identity"
         long-summary: |
-            Usage: --outcomes last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --application display-name=XX id=XX
 
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
 
-            Multiple actions can be specified by using more than one --outcomes argument.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
-helps['education education-user-assignment get-category'] = """
+helps['education education-user-assignment delete-category'] = """
     type: command
-    short-summary: "Get categories from education"
+    short-summary: "Delete navigation property categories for education."
 """
 
-helps['education education-user-assignment get-resource'] = """
+helps['education education-user-assignment delete-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Delete navigation property resources for education."
 """
 
-helps['education education-user-assignment get-resource-folder-url'] = """
+helps['education education-user-assignment delete-rubric'] = """
     type: command
-    short-summary: "Invoke function getResourcesFolderUrl"
+    short-summary: "Delete navigation property rubric for education."
 """
 
-helps['education education-user-assignment get-rubric'] = """
+helps['education education-user-assignment delete-submission'] = """
     type: command
-    short-summary: "Get rubric from education"
-"""
-
-helps['education education-user-assignment get-submission'] = """
-    type: command
-    short-summary: "Get submissions from education"
+    short-summary: "Delete navigation property submissions for education."
 """
 
 helps['education education-user-assignment list-category'] = """
     type: command
-    short-summary: "Get categories from education"
+    short-summary: "Get categories from education."
 """
 
 helps['education education-user-assignment list-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Get resources from education."
 """
 
 helps['education education-user-assignment list-submission'] = """
     type: command
-    short-summary: "Get submissions from education"
+    short-summary: "Get submissions from education."
 """
 
 helps['education education-user-assignment publish'] = """
     type: command
-    short-summary: "Invoke action publish"
+    short-summary: "Invoke action publish."
+"""
+
+helps['education education-user-assignment show-category'] = """
+    type: command
+    short-summary: "Get categories from education."
+"""
+
+helps['education education-user-assignment show-resource'] = """
+    type: command
+    short-summary: "Get resources from education."
+"""
+
+helps['education education-user-assignment show-resource-folder-url'] = """
+    type: command
+    short-summary: "Invoke function getResourcesFolderUrl."
+"""
+
+helps['education education-user-assignment show-rubric'] = """
+    type: command
+    short-summary: "Get rubric from education."
+"""
+
+helps['education education-user-assignment show-submission'] = """
+    type: command
+    short-summary: "Get submissions from education."
 """
 
 helps['education education-user-assignment update-category'] = """
     type: command
-    short-summary: "Update the navigation property categories in education"
+    short-summary: "Update the navigation property categories in education."
 """
 
 helps['education education-user-assignment update-resource'] = """
     type: command
-    short-summary: "Update the navigation property resources in education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Update the navigation property resources in education."
 """
 
 helps['education education-user-assignment update-rubric'] = """
     type: command
-    short-summary: "Update the navigation property rubric in education"
+    short-summary: "Update the navigation property rubric in education."
     parameters:
       - name: --description
         short-summary: "educationItemBody"
         long-summary: |
             Usage: --description content=XX content-type=XX
 
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-user-assignment update-submission'] = """
     type: command
-    short-summary: "Update the navigation property submissions in education"
+    short-summary: "Update the navigation property submissions in education."
     parameters:
-      - name: --outcomes
+      - name: --application
+        short-summary: "identity"
         long-summary: |
-            Usage: --outcomes last-modified-date-time=XX display-name-last-modified-by-user-display-name=XX \
-id-last-modified-by-user-id=XX display-name-last-modified-by-device-display-name=XX id-last-modified-by-device-id=XX \
-display-name-last-modified-by-application-display-name=XX id-last-modified-by-application-id=XX id=XX
+            Usage: --application display-name=XX id=XX
 
-            display-name-last-modified-by-user-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-user-id: Unique identifier for the identity.
-            display-name-last-modified-by-device-display-name: The identity's display name. Note that this may not \
-always be available or up to date. For example, if a user changes their display name, the API may show the new value \
-in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-device-id: Unique identifier for the identity.
-            display-name-last-modified-by-application-display-name: The identity's display name. Note that this may \
-not always be available or up to date. For example, if a user changes their display name, the API may show the new \
-value in a future response, but the items associated with the user won't show up as having changed when using delta.
-            id-last-modified-by-application-id: Unique identifier for the identity.
-            id: Read-only.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
 
-            Multiple actions can be specified by using more than one --outcomes argument.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --microsoft-graph-identity-user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --microsoft-graph-identity-user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user1
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user1 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --application2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user2
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user2 display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-user-assignment-submission'] = """
     type: group
-    short-summary: education education-user-assignment-submission
-"""
-
-helps['education education-user-assignment-submission delete'] = """
-    type: command
-    short-summary: "Delete navigation property submittedResources for education"
+    short-summary: Manage education user assignment submission with education_beta
 """
 
 helps['education education-user-assignment-submission create-outcome'] = """
     type: command
-    short-summary: "Create new navigation property to outcomes for education"
+    short-summary: "Create new navigation property to outcomes for education."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-user-assignment-submission create-resource'] = """
     type: command
-    short-summary: "Create new navigation property to resources for education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Create new navigation property to resources for education."
 """
 
 helps['education education-user-assignment-submission create-submitted-resource'] = """
     type: command
-    short-summary: "Create new navigation property to submittedResources for education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Create new navigation property to submittedResources for education."
 """
 
-helps['education education-user-assignment-submission get-outcome'] = """
+helps['education education-user-assignment-submission delete-outcome'] = """
     type: command
-    short-summary: "Get outcomes from education"
+    short-summary: "Delete navigation property outcomes for education."
 """
 
-helps['education education-user-assignment-submission get-resource'] = """
+helps['education education-user-assignment-submission delete-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Delete navigation property resources for education."
 """
 
-helps['education education-user-assignment-submission get-submitted-resource'] = """
+helps['education education-user-assignment-submission delete-submitted-resource'] = """
     type: command
-    short-summary: "Get submittedResources from education"
+    short-summary: "Delete navigation property submittedResources for education."
 """
 
 helps['education education-user-assignment-submission list-outcome'] = """
     type: command
-    short-summary: "Get outcomes from education"
+    short-summary: "Get outcomes from education."
 """
 
 helps['education education-user-assignment-submission list-resource'] = """
     type: command
-    short-summary: "Get resources from education"
+    short-summary: "Get resources from education."
 """
 
 helps['education education-user-assignment-submission list-submitted-resource'] = """
     type: command
-    short-summary: "Get submittedResources from education"
+    short-summary: "Get submittedResources from education."
 """
 
 helps['education education-user-assignment-submission return'] = """
     type: command
-    short-summary: "Invoke action return"
+    short-summary: "Invoke action return."
+"""
+
+helps['education education-user-assignment-submission show-outcome'] = """
+    type: command
+    short-summary: "Get outcomes from education."
+"""
+
+helps['education education-user-assignment-submission show-resource'] = """
+    type: command
+    short-summary: "Get resources from education."
+"""
+
+helps['education education-user-assignment-submission show-submitted-resource'] = """
+    type: command
+    short-summary: "Get submittedResources from education."
 """
 
 helps['education education-user-assignment-submission submit'] = """
     type: command
-    short-summary: "Invoke action submit"
+    short-summary: "Invoke action submit."
 """
 
 helps['education education-user-assignment-submission unsubmit'] = """
     type: command
-    short-summary: "Invoke action unsubmit"
+    short-summary: "Invoke action unsubmit."
 """
 
 helps['education education-user-assignment-submission update-outcome'] = """
     type: command
-    short-summary: "Update the navigation property outcomes in education"
+    short-summary: "Update the navigation property outcomes in education."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['education education-user-assignment-submission update-resource'] = """
     type: command
-    short-summary: "Update the navigation property resources in education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Update the navigation property resources in education."
 """
 
 helps['education education-user-assignment-submission update-submitted-resource'] = """
     type: command
-    short-summary: "Update the navigation property submittedResources in education"
-    parameters:
-      - name: --resource-created-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-created-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --resource-last-modified-by
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --resource-last-modified-by display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+    short-summary: "Update the navigation property submittedResources in education."
 """
 
 helps['education education-user-class'] = """
     type: group
-    short-summary: education education-user-class
+    short-summary: Manage education user class with education_beta
 """
 
 helps['education education-user-class delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-user-school'] = """
     type: group
-    short-summary: education education-user-school
+    short-summary: Manage education user school with education_beta
 """
 
 helps['education education-user-school delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """
 
 helps['education education-user-taught-class'] = """
     type: group
-    short-summary: education education-user-taught-class
+    short-summary: Manage education user taught class with education_beta
 """
 
 helps['education education-user-taught-class delta'] = """
     type: command
-    short-summary: "Invoke function delta"
+    short-summary: "Invoke function delta."
 """

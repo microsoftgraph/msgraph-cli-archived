@@ -12,19 +12,19 @@
 from knack.help_files import helps
 
 
+helps['cloudcommunications_v1_0'] = '''
+    type: group
+    short-summary: Manage Cloud Communications
+'''
+
 helps['cloudcommunications user'] = """
     type: group
-    short-summary: cloudcommunications user
-"""
-
-helps['cloudcommunications user delete'] = """
-    type: command
-    short-summary: "Delete navigation property onlineMeetings for users"
+    short-summary: Manage user with cloudcommunications_v1_0
 """
 
 helps['cloudcommunications user create-online-meeting'] = """
     type: command
-    short-summary: "Create new navigation property to onlineMeetings for users"
+    short-summary: "Create new navigation property to onlineMeetings for users."
     parameters:
       - name: --audio-conferencing
         short-summary: "audioConferencing"
@@ -50,19 +50,24 @@ helps['cloudcommunications user create-online-meeting'] = """
             content: The content of the item.
 """
 
-helps['cloudcommunications user get-online-meeting'] = """
+helps['cloudcommunications user delete-online-meeting'] = """
     type: command
-    short-summary: "Get onlineMeetings from users"
+    short-summary: "Delete navigation property onlineMeetings for users."
 """
 
 helps['cloudcommunications user list-online-meeting'] = """
     type: command
-    short-summary: "Get onlineMeetings from users"
+    short-summary: "Get onlineMeetings from users."
+"""
+
+helps['cloudcommunications user show-online-meeting'] = """
+    type: command
+    short-summary: "Get onlineMeetings from users."
 """
 
 helps['cloudcommunications user update-online-meeting'] = """
     type: command
-    short-summary: "Update the navigation property onlineMeetings in users"
+    short-summary: "Update the navigation property onlineMeetings in users."
     parameters:
       - name: --audio-conferencing
         short-summary: "audioConferencing"

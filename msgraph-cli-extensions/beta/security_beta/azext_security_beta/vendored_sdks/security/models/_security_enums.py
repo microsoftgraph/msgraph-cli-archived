@@ -1312,7 +1312,7 @@ class MicrosoftGraphSecurityResourceType(with_metaclass(_CaseInsensitiveEnumMeta
     RELATED = "related"
     UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
 
-class MicrosoftGraphTIAction(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class MicrosoftGraphTiAction(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     ALLOW = "allow"

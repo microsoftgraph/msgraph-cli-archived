@@ -18,24 +18,24 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import ReportsConfiguration
-from .operations import AuditLogAuditLogRootOperations
-from .operations import AuditLogOperations
-from .operations import ReportReportRootOperations
-from .operations import ReportOperations
+from .operations import AuditLogsAuditLogRootOperations
+from .operations import AuditLogsOperations
+from .operations import ReportsReportRootOperations
+from .operations import ReportsOperations
 from . import models
 
 
 class Reports(object):
     """Reports.
 
-    :ivar audit_log_audit_log_root: AuditLogAuditLogRootOperations operations
-    :vartype audit_log_audit_log_root: reports.operations.AuditLogAuditLogRootOperations
-    :ivar audit_log: AuditLogOperations operations
-    :vartype audit_log: reports.operations.AuditLogOperations
-    :ivar report_report_root: ReportReportRootOperations operations
-    :vartype report_report_root: reports.operations.ReportReportRootOperations
-    :ivar report: ReportOperations operations
-    :vartype report: reports.operations.ReportOperations
+    :ivar audit_logs_audit_log_root: AuditLogsAuditLogRootOperations operations
+    :vartype audit_logs_audit_log_root: reports.operations.AuditLogsAuditLogRootOperations
+    :ivar audit_logs: AuditLogsOperations operations
+    :vartype audit_logs: reports.operations.AuditLogsOperations
+    :ivar reports_report_root: ReportsReportRootOperations operations
+    :vartype reports_report_root: reports.operations.ReportsReportRootOperations
+    :ivar reports: ReportsOperations operations
+    :vartype reports: reports.operations.ReportsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -49,7 +49,6 @@ class Reports(object):
     :param count: Include count of items.
     :type count: bool
     :param str base_url: Service URL
-    :keyword int polling_interval: Default waiting time between two polls for LRO operations if no Retry-After header is present.
     """
 
     def __init__(
@@ -71,15 +70,16 @@ class Reports(object):
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
+        self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.audit_log_audit_log_root = AuditLogAuditLogRootOperations(
+        self.audit_logs_audit_log_root = AuditLogsAuditLogRootOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.audit_log = AuditLogOperations(
+        self.audit_logs = AuditLogsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.report_report_root = ReportReportRootOperations(
+        self.reports_report_root = ReportsReportRootOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.report = ReportOperations(
+        self.reports = ReportsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

@@ -35,4 +35,7 @@ class AddProperties(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter properties. All possible keys are: name, '
+                               'type'.format(k))
         return d
