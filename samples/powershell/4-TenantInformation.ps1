@@ -77,6 +77,5 @@ Chambele Linqpad PublicClient  AzureADMyOrg
 
 # TODO: ServicePrincipal entity set is not yet available
 
-
 ## List service principals in the tenant
 # Get-MgServicePrincipal | Select-Object id, AppDisplayName | Where-Object { $_.AppDisplayName -like "*powershell*" }
