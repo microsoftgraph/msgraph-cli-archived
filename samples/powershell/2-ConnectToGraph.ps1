@@ -1,5 +1,7 @@
 # Validate the login experience - TODO: validate from MSI
 
+# Incremental consent works great.
+
 # 1. Login without scopes before installing wheels
 
 .\mg login
