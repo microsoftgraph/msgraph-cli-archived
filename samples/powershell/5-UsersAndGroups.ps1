@@ -10,6 +10,8 @@ mg users user list --top 2 --select "id, displayName, OfficeLocation, BusinessPh
 
 # General: we are missing a lot of query parameters with top and filter mostly missing. Looks like we have support for expand and select.
 
+# output table will not display property without value
+
 # List of users with no Office Location - not supported as we need filter support.
 mg users user list --select "Id, displayName, OfficeLocation, BusinessPhones" --output table
 
