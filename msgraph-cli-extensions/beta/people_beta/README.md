@@ -9,5 +9,5 @@ az extension add --name people_beta
 
 ### Included Features ###
 #### people user ####
-#### people usersanalytic ####
-#### people usersprofile ####
+#### people user-analytic ####
+#### people user-profile ####

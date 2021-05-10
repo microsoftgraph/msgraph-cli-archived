@@ -8,9 +8,9 @@ az extension add --name applications_v1_0
 ```
 
 ### Included Features ###
-#### applications applicationsapplication ####
+#### applications application ####
 #### applications application ####
 #### applications group ####
-#### applications serviceprincipalsserviceprincipal ####
-#### applications serviceprincipal ####
+#### applications service-principal-service-principal ####
+#### applications service-principal ####
 #### applications user ####

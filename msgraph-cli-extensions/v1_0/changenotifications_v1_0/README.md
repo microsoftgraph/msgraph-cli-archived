@@ -8,4 +8,4 @@ az extension add --name changenotifications_v1_0
 ```
 
 ### Included Features ###
-#### changenotifications subscriptionssubscription ####
+#### changenotifications subscription-subscription ####

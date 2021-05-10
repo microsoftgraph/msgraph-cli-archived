@@ -9,7 +9,7 @@ az extension add --name people_v1_0
 
 ### Included Features ###
 #### people user ####
-#### people usersinsight ####
-#### people usersinsightsshared ####
-#### people usersinsightstrending ####
-#### people usersinsightsused ####
+#### people user-insight ####
+#### people user-insight-shared ####
+#### people user-insight-trending ####
+#### people user-insight-used ####

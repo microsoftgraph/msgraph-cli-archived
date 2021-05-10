@@ -8,8 +8,8 @@ az extension add --name bookings_beta
 ```
 
 ### Included Features ###
-#### bookings bookingbusinessesbookingbusiness ####
-#### bookings bookingbusiness ####
-#### bookings bookingbusinessesappointment ####
-#### bookings bookingbusinessescalendarview ####
-#### bookings bookingcurrenciesbookingcurrency ####
+#### bookings booking-business-booking-business ####
+#### bookings booking-business ####
+#### bookings booking-business-appointment ####
+#### bookings booking-business-calendar-view ####
+#### bookings booking-currency-booking-currency ####

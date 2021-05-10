@@ -8,18 +8,18 @@ az extension add --name identitysignins_v1_0
 ```
 
 ### Included Features ###
-#### identitysignins datapolicyoperationsdatapolicyoperation ####
+#### identitysignins data-policy-operation-data-policy-operation ####
 #### identitysignins identity ####
-#### identitysignins identityconditionalaccess ####
-#### identitysignins identityprovidersidentityprovider ####
-#### identitysignins informationprotection ####
-#### identitysignins informationprotection ####
-#### identitysignins informationprotectionthreatassessmentrequest ####
-#### identitysignins invitationsinvitation ####
+#### identitysignins identity-conditional-access ####
+#### identitysignins identity-provider-identity-provider ####
+#### identitysignins information-protection-information-protection ####
+#### identitysignins information-protection ####
+#### identitysignins information-protection-threat-assessment-request ####
+#### identitysignins invitation-invitation ####
 #### identitysignins invitation ####
-#### identitysignins oauth2permissiongrantsoauth2permissiongrant ####
-#### identitysignins oauth2permissiongrant ####
+#### identitysignins oauth2-permission-grant-o-auth2-permission-grant ####
+#### identitysignins oauth2-permission-grant ####
 #### identitysignins organization ####
-#### identitysignins policiespolicyroot ####
+#### identitysignins policy-policy-root ####
 #### identitysignins policy ####
-#### identitysignins policiespermissiongrantpolicy ####
+#### identitysignins policy-permission-grant-policy ####

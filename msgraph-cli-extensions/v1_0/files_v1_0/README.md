@@ -8,20 +8,20 @@ az extension add --name files_v1_0
 ```
 
 ### Included Features ###
-#### files drivesdrive ####
+#### files drive-drive ####
 #### files drive ####
-#### files driveslist ####
-#### files driveslistcontenttype ####
-#### files driveslistitem ####
-#### files driveslistitemsversion ####
+#### files drive-list ####
+#### files drive-list-content-type ####
+#### files drive-list-item ####
+#### files drive-list-item-version ####
 #### files group ####
-#### files sharesshareddriveitem ####
+#### files share-shared-drive-item ####
 #### files share ####
-#### files shareslist ####
-#### files shareslistcontenttype ####
-#### files shareslistitem ####
-#### files shareslistitemsversion ####
-#### files shareslistitem ####
-#### files shareslistitemversion ####
-#### files sharespermission ####
+#### files share-list ####
+#### files share-list-content-type ####
+#### files share-list-item ####
+#### files share-list-item-version ####
+#### files share-list-item ####
+#### files share-list-item-version ####
+#### files share-permission ####
 #### files user ####

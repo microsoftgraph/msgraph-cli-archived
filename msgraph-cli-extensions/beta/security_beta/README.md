@@ -10,6 +10,6 @@ az extension add --name security_beta
 ### Included Features ###
 #### security security ####
 #### security security ####
-#### security securityalert ####
-#### security securityaction ####
-#### security securitytiindicator ####
+#### security security-alert ####
+#### security security-action ####
+#### security security-ti-indicator ####

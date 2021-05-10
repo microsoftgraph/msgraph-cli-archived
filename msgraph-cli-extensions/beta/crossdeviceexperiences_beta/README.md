@@ -9,5 +9,5 @@ az extension add --name crossdeviceexperiences_beta
 
 ### Included Features ###
 #### crossdeviceexperiences user ####
-#### crossdeviceexperiences usersactivity ####
-#### crossdeviceexperiences usersactivitieshistoryitem ####
+#### crossdeviceexperiences user-activity ####
+#### crossdeviceexperiences user-activity-history-item ####

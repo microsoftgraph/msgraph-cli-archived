@@ -96,6 +96,7 @@ class GraphCommandGroup(CommandGroup):
         return self._command(name, method_name=method_name, custom_command=True, **kwargs)
 
     def custom_show_command(self, name, method_name=None, **kwargs):
+        #TODO: Replace this facade with the real implementation
         return self._command(name, method_name=method_name, custom_command=True, **kwargs)
 
     def _command(self, name, method_name, custom_command=False, **kwargs):
