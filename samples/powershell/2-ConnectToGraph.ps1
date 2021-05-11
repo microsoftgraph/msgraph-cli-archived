@@ -32,11 +32,9 @@ Logged in successfully
 
 # Results:
 
-<#
-ERROR: Authentication failed: ['access_denied']
-#>
+# Success
 
-# TODO: Consider handling with a user friendly message to indicate that either: 1) the scope is not applicable to delegate auth, 
+
 # 2) they may need to acquire admin consent to use the scope. This brings up another set of questions around how is the app
 # registered and what is the auth story.
 

@@ -7,6 +7,10 @@
 #Get-MgOrganization | Select-Object -expand AssignedPlans
 
 # 3. List application registrations in the tenant
+# mg login --scopes "Application.ReadWrite.All"
+# https://docs.microsoft.com/en-us/graph/api/application-list?view=graph-rest-1.0&tabs=http
+
+
 
 .\mg applications application list --select "DisplayName, Appid, SignInAudience"
 
