@@ -8,7 +8,7 @@ from os import path
 
 AUTH_RECORD_LOCATION = path.join(Path.home(), '.mg', 'record.txt')
 PROFILE_LOCATION = path.join(Path.home(), '.mg', 'profile.json')
-DEFAULT_CLIENT_ID = '837b13ab-6d14-4dc7-837f-8954cc87fdc0'
+DEFAULT_CLIENT_ID = '888bce95-fde5-40f8-a7d4-2debf0f96f4c'
 DEFAULT_AUTHORITY = 'https://login.microsoftonline.com'
 DEFAULT_BASE_URL = 'https://graph.microsoft.com/v1.0'
 
