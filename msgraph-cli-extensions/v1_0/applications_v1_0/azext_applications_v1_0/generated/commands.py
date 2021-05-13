@@ -70,6 +70,7 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('list', 'applications_application_list')
         g.custom_command('create', 'applications_application_create')
+        g.custom_command('update', 'applications_application_update')
         g.custom_command('delete-application', 'applications_application_delete_application')
         g.custom_command('set-logo', 'applications_application_set_logo')
         g.custom_command('show-application', 'applications_application_show_application')

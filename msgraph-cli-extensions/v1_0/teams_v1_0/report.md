@@ -52,8 +52,8 @@
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
 |[az teams team list](#teams.teamListTeam)|ListTeam|[Parameters](#Parametersteams.teamListTeam)|Not Found|
-|[az teams team create](#teams.teamUpdateTeam)|UpdateTeam|[Parameters](#Parametersteams.teamUpdateTeam)|Not Found|
 |[az teams team create](#teams.teamCreateTeam)|CreateTeam|[Parameters](#Parametersteams.teamCreateTeam)|Not Found|
+|[az teams team update](#teams.teamUpdateTeam)|UpdateTeam|[Parameters](#Parametersteams.teamUpdateTeam)|Not Found|
 |[az teams team delete-team](#teams.teamDeleteTeam)|DeleteTeam|[Parameters](#Parametersteams.teamDeleteTeam)|Not Found|
 |[az teams team show-team](#teams.teamGetTeam)|GetTeam|[Parameters](#Parametersteams.teamGetTeam)|Not Found|
 
@@ -464,7 +464,117 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="teams.teamUpdateTeam">Command `az teams team create`</a>
+#### <a name="teams.teamCreateTeam">Command `az teams team create`</a>
+
+##### <a name="Parametersteams.teamCreateTeam">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--classification**|string|An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.|classification|classification|
+|**--description**|string|An optional description for the team.|description|description|
+|**--display-name**|string|The name of the team.|display_name|displayName|
+|**--fun-settings**|object|teamFunSettings|fun_settings|funSettings|
+|**--guest-settings**|object|teamGuestSettings|guest_settings|guestSettings|
+|**--internal-id**|string|A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.|internal_id|internalId|
+|**--is-archived**|boolean|Whether this team is in read-only mode.|is_archived|isArchived|
+|**--member-settings**|object|teamMemberSettings|member_settings|memberSettings|
+|**--messaging-settings**|object|teamMessagingSettings|messaging_settings|messagingSettings|
+|**--specialization**|choice||specialization|specialization|
+|**--visibility**|choice||visibility|visibility|
+|**--web-url**|string|A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.|web_url|webUrl|
+|**--channels**|array|The collection of channels & messages associated with the team.|channels|channels|
+|**--installed-apps**|array|The apps installed in this team.|installed_apps|installedApps|
+|**--members**|array|Members and owners of the team.|members|members|
+|**--operations**|array|The async operations that ran or are running on this team.|operations|operations|
+|**--primary-channel**|object|channel|primary_channel|primaryChannel|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--id1**|string|Read-only.|id1|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--assigned-labels**|array|The list of sensitivity label pairs (label ID, label name) associated with an Microsoft 365 group. Returned only on $select. Read-only.|assigned_labels|assignedLabels|
+|**--assigned-licenses**|array|The licenses that are assigned to the group. Returned only on $select. Read-only.|assigned_licenses|assignedLicenses|
+|**--microsoft-graph-group-classification**|string|Describes a classification for the group (such as low, medium or high business impact). Valid values for this property are defined by creating a ClassificationList setting value, based on the template definition.Returned by default.|microsoft_graph_group_classification|classification|
+|**--created-date-time**|date-time|Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only.|created_date_time|createdDateTime|
+|**--microsoft-graph-group-description**|string|An optional description for the group. Returned by default.|microsoft_graph_group_description|description|
+|**--microsoft-graph-group-display-name**|string|The display name for the group. This property is required when a group is created and cannot be cleared during updates. Returned by default. Supports $filter and $orderby.|microsoft_graph_group_display_name|displayName|
+|**--expiration-date-time**|date-time|Timestamp of when the group is set to expire. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only.|expiration_date_time|expirationDateTime|
+|**--group-types**|array|Specifies the group type and its membership.  If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it's either a security group or distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static.  Returned by default. Supports $filter.|group_types|groupTypes|
+|**--has-members-with-license-errors**|boolean|Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true). See an example.|has_members_with_license_errors|hasMembersWithLicenseErrors|
+|**--license-processing-state**|object|licenseProcessingState|license_processing_state|licenseProcessingState|
+|**--mail**|string|The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter.|mail|mail|
+|**--mail-enabled**|boolean|Specifies whether the group is mail-enabled. Returned by default.|mail_enabled|mailEnabled|
+|**--mail-nickname**|string|The mail alias for the group, unique in the organization. This property must be specified when a group is created. Returned by default. Supports $filter.|mail_nickname|mailNickname|
+|**--membership-rule**|string|The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default.|membership_rule|membershipRule|
+|**--membership-rule-processing-state**|string|Indicates whether the dynamic membership processing is on or paused. Possible values are 'On' or 'Paused'. Returned by default.|membership_rule_processing_state|membershipRuleProcessingState|
+|**--on-premises-domain-name**|string|Contains the on-premises domain FQDN, also called dnsDomainName synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_domain_name|onPremisesDomainName|
+|**--on-premises-last-sync-date-time**|date-time|Indicates the last time at which the group was synced with the on-premises directory.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only. Supports $filter.|on_premises_last_sync_date_time|onPremisesLastSyncDateTime|
+|**--on-premises-net-bios-name**|string|Contains the on-premises netBios name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_net_bios_name|onPremisesNetBiosName|
+|**--on-premises-provisioning-errors**|array|Errors when using Microsoft synchronization product during provisioning. Returned by default.|on_premises_provisioning_errors|onPremisesProvisioningErrors|
+|**--on-premises-sam-account-name**|string|Contains the on-premises SAM account name synchronized from the on-premises directory. The property is only populated for customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect.Returned by default. Read-only.|on_premises_sam_account_name|onPremisesSamAccountName|
+|**--on-premises-security-identifier**|string|Contains the on-premises security identifier (SID) for the group that was synchronized from on-premises to the cloud. Returned by default. Read-only.|on_premises_security_identifier|onPremisesSecurityIdentifier|
+|**--on-premises-sync-enabled**|boolean|true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter.|on_premises_sync_enabled|onPremisesSyncEnabled|
+|**--preferred-data-location**|string|The preferred data location for the group. For more information, see  OneDrive Online Multi-Geo. Returned by default.|preferred_data_location|preferredDataLocation|
+|**--preferred-language**|string|The preferred language for an Microsoft 365 group. Should follow ISO 639-1 Code; for example 'en-US'. Returned by default.|preferred_language|preferredLanguage|
+|**--proxy-addresses**|array|Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required to filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter.|proxy_addresses|proxyAddresses|
+|**--renewed-date-time**|date-time|Timestamp of when the group was last renewed. This cannot be modified directly and is only updated via the renew service action. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Returned by default. Read-only.|renewed_date_time|renewedDateTime|
+|**--security-enabled**|boolean|Specifies whether the group is a security group. Returned by default. Supports $filter.|security_enabled|securityEnabled|
+|**--security-identifier**|string|Security identifier of the group, used in Windows scenarios. Returned by default.|security_identifier|securityIdentifier|
+|**--theme**|string|Specifies an Microsoft 365 group's color theme. Possible values are Teal, Purple, Green, Blue, Pink, Orange or Red. Returned by default.|theme|theme|
+|**--microsoft-graph-group-visibility**|string|Specifies the visibility of a Microsoft 365 group. Possible values are: Private, Public, or Hiddenmembership; blank values are treated as public.  See group visibility options to learn more.Visibility can be set only when a group is created; it is not editable.Visibility is supported only for unified groups; it is not supported for security groups. Returned by default.|microsoft_graph_group_visibility|visibility|
+|**--allow-external-senders**|boolean|Indicates if people external to the organization can send messages to the group. Default value is false. Returned only on $select.|allow_external_senders|allowExternalSenders|
+|**--auto-subscribe-new-members**|boolean|Indicates if new members added to the group will be auto-subscribed to receive email notifications. You can set this property in a PATCH request for the group; do not set it in the initial POST request that creates the group. Default value is false. Returned only on $select.|auto_subscribe_new_members|autoSubscribeNewMembers|
+|**--hide-from-address-lists**|boolean|True if the group is not displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting message recipients, and the Browse Groups dialog for searching groups; otherwise, false. Default value is false. Returned only on $select.|hide_from_address_lists|hideFromAddressLists|
+|**--hide-from-outlook-clients**|boolean|True if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, false. Default value is false. Returned only on $select.|hide_from_outlook_clients|hideFromOutlookClients|
+|**--is-subscribed-by-mail**|boolean|Indicates whether the signed-in user is subscribed to receive email conversations. Default value is true. Returned only on $select.|is_subscribed_by_mail|isSubscribedByMail|
+|**--unseen-count**|integer|Count of conversations that have received new posts since the signed-in user last visited the group. Returned only on $select.|unseen_count|unseenCount|
+|**--group-is-archived**|boolean||is_archived|isArchived|
+|**--app-role-assignments**|array||app_role_assignments|appRoleAssignments|
+|**--created-on-behalf-of**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|created_on_behalf_of|createdOnBehalfOf|
+|**--member-of**|array|Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable.|member_of|memberOf|
+|**--microsoft-graph-group-members**|array|Users and groups that are members of this group. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security groups) Nullable.|microsoft_graph_group_members|members|
+|**--members-with-license-errors**|array|A list of group members with license errors from this group-based license assignment. Read-only.|members_with_license_errors|membersWithLicenseErrors|
+|**--owners**|array|The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Limited to 100 owners. HTTP Methods: GET (supported for all groups), POST (supported for Microsoft 365 groups, security groups and mail-enabled security groups), DELETE (supported for Microsoft 365 groups and security groups). Nullable.|owners|owners|
+|**--settings**|array|Read-only. Nullable.|settings|settings|
+|**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
+|**--transitive-members**|array||transitive_members|transitiveMembers|
+|**--accepted-senders**|array|The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.|accepted_senders|acceptedSenders|
+|**--calendar**|object|calendar|calendar|calendar|
+|**--calendar-view**|array|The calendar view for the calendar. Read-only.|calendar_view|calendarView|
+|**--conversations**|array|The group's conversations.|conversations|conversations|
+|**--events**|array|The group's calendar events.|events|events|
+|**--photo**|object|profilePhoto|photo|photo|
+|**--photos**|array|The profile photos owned by the group. Read-only. Nullable.|photos|photos|
+|**--rejected-senders**|array|The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable|rejected_senders|rejectedSenders|
+|**--threads**|array|The group's conversation threads. Nullable.|threads|threads|
+|**--drive**|object|drive|drive|drive|
+|**--drives**|array|The group's drives. Read-only.|drives|drives|
+|**--sites**|array|The list of SharePoint sites in this group. Access the default site with /sites/root.|sites|sites|
+|**--extensions**|array|The collection of open extensions defined for the group. Read-only. Nullable.|extensions|extensions|
+|**--group-lifecycle-policies**|array|The collection of lifecycle policies for this group. Read-only. Nullable.|group_lifecycle_policies|groupLifecyclePolicies|
+|**--planner**|object|plannerGroup|planner|planner|
+|**--onenote**|object|onenote|onenote|onenote|
+|**--team**|object|team|team|team|
+|**--id2**|string|Read-only.|id2|id|
+|**--enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
+|**--offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
+|**--open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
+|**--provision-status**|choice||provision_status|provisionStatus|
+|**--provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
+|**--swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
+|**--time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
+|**--time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
+|**--time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
+|**--workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
+|**--offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
+|**--open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
+|**--open-shifts**|array||open_shifts|openShifts|
+|**--scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
+|**--shifts**|array|The shifts in the schedule.|shifts|shifts|
+|**--swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
+|**--time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
+|**--time-off-requests**|array||time_off_requests|timeOffRequests|
+|**--times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
+
+#### <a name="teams.teamUpdateTeam">Command `az teams team update`</a>
 
 ##### <a name="Parametersteams.teamUpdateTeam">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -575,11 +685,6 @@
 |**--time-off-requests**|array||time_off_requests|timeOffRequests|
 |**--times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
 
-#### <a name="teams.teamCreateTeam">Command `az teams team create`</a>
-
-##### <a name="Parametersteams.teamCreateTeam">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="teams.teamDeleteTeam">Command `az teams team delete-team`</a>
 
 ##### <a name="Parametersteams.teamDeleteTeam">Parameters</a> 

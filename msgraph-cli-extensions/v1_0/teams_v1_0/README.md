@@ -8,19 +8,19 @@ az extension add --name teams_v1_0
 ```
 
 ### Included Features ###
-#### teams chatschat ####
+#### teams chat-chat ####
 #### teams chat ####
 #### teams group ####
-#### teams teamsteam ####
 #### teams team ####
-#### teams teamschannel ####
-#### teams teamschannelsmessage ####
-#### teams teamschannelstab ####
-#### teams teamsinstalledapp ####
-#### teams teamsprimarychannel ####
-#### teams teamsprimarychannelmessage ####
-#### teams teamsprimarychanneltab ####
-#### teams teamsschedule ####
-#### teams teamwork ####
+#### teams team ####
+#### teams team-channel ####
+#### teams team-channel-message ####
+#### teams team-channel-tab ####
+#### teams team-installed-app ####
+#### teams team-primary-channel ####
+#### teams team-primary-channel-message ####
+#### teams team-primary-channel-tab ####
+#### teams team-schedule ####
+#### teams teamwork-teamwork ####
 #### teams teamwork ####
 #### teams user ####

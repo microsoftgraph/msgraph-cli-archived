@@ -64,6 +64,120 @@ def load_arguments(self, _):
         c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('applications application create') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('deleted_date_time', help='')
+        c.argument('add_ins', type=validate_file_or_dict, help='Defines custom behavior that a consuming service can '
+                   'use to call an app in specific contexts. For example, applications that can render file streams '
+                   'may set the addIns property for its \'FileHandler\' functionality. This will let services like '
+                   'Microsoft 365 call the application in the context of a document the user is working on. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('app_id', type=str, help='The unique identifier for the application that is assigned to an '
+                   'application by Azure AD. Not nullable. Read-only.')
+        c.argument('application_template_id', type=str, help='')
+        c.argument('app_roles', action=AddApplicationsApplicationAppRoles, nargs='+', help='The collection of roles '
+                   'the application declares. With app role assignments, these roles can be assigned to users, groups, '
+                   'or other applications\' service principals. Not nullable.')
+        c.argument('created_date_time', help='The date and time the application was registered. Read-only.')
+        c.argument('description', type=str, help='')
+        c.argument('display_name', type=str, help='The display name for the application.')
+        c.argument('group_membership_claims', type=str, help='Configures the groups claim issued in a user or OAuth '
+                   '2.0 access token that the application expects. To set this attribute, use one of the following '
+                   'valid string values:NoneSecurityGroup: For security groups and Azure AD rolesAll: This will get '
+                   'all of the security groups, distribution groups, and Azure AD directory roles that the signed-in '
+                   'user is a member of')
+        c.argument('identifier_uris', nargs='+', help='The URIs that identify the application within its Azure AD '
+                   'tenant, or within a verified custom domain if the application is multi-tenant. For more '
+                   'information see Application Objects and Service Principal Objects. The any operator is required '
+                   'for filter expressions on multi-valued properties. Not nullable.')
+        c.argument('info', action=AddInfo, nargs='+', help='informationalUrl')
+        c.argument('is_device_only_auth_supported', arg_type=get_three_state_flag(), help='')
+        c.argument('is_fallback_public_client', arg_type=get_three_state_flag(), help='Specifies the fallback '
+                   'application type as public client, such as an installed application running on a mobile device. '
+                   'The default value is false which means the fallback application type is confidential client such '
+                   'as web app. There are certain scenarios where Azure AD cannot determine the client application '
+                   'type (e.g. ROPC flow where it is configured without specifying a redirect URI). In those cases '
+                   'Azure AD will interpret the application type based on the value of this property.')
+        c.argument('key_credentials', action=AddApplicationsApplicationKeyCredentials, nargs='+', help='The collection '
+                   'of key credentials associated with the application Not nullable.')
+        c.argument('logo', help='The main logo for the application. Not nullable.')
+        c.argument('notes', type=str, help='')
+        c.argument('oauth2_require_post_response', arg_type=get_three_state_flag(), help='')
+        c.argument('parental_control_settings', action=AddParentalControlSettings, nargs='+',
+                   help='parentalControlSettings')
+        c.argument('password_credentials', action=AddApplicationsApplicationPasswordCredentials, nargs='+', help='The '
+                   'collection of password credentials associated with the application. Not nullable.')
+        c.argument('public_client', action=AddPublicClient, nargs='+', help='publicClientApplication')
+        c.argument('publisher_domain', type=str, help='The verified publisher domain for the application. Read-only.')
+        c.argument('required_resource_access', type=validate_file_or_dict, help='Specifies resources that this '
+                   'application requires access to and the set of OAuth permission scopes and application roles that '
+                   'it needs under each of those resources. This pre-configuration of required resource access drives '
+                   'the consent experience. Not nullable. Expected value: json-string/@json-file.')
+        c.argument('sign_in_audience', type=str, help='Specifies the Microsoft accounts that are supported for the '
+                   'current application. Supported values are:AzureADMyOrg: Users with a Microsoft work or school '
+                   'account in my organization’s Azure AD tenant (single tenant)AzureADMultipleOrgs: Users with a '
+                   'Microsoft work or school account in any organization’s Azure AD tenant '
+                   '(multi-tenant)AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a '
+                   'work or school account in any organization’s Azure AD tenant.')
+        c.argument('tags', tags_type)
+        c.argument('token_encryption_key_id', help='Specifies the keyId of a public key from the keyCredentials '
+                   'collection. When configured, Azure AD encrypts all the tokens it emits by using the key this '
+                   'property points to. The application code that receives the encrypted token must use the matching '
+                   'private key to decrypt the token before it can be used for the signed-in user.')
+        c.argument('created_on_behalf_of', action=AddCreatedOnBehalfOf, nargs='+', help='Represents an Azure Active '
+                   'Directory object. The directoryObject type is the base type for many other directory entity types.')
+        c.argument('extension_properties', action=AddExtensionProperties, nargs='+', help='Read-only. Nullable.')
+        c.argument('home_realm_discovery_policies', action=AddApplicationsApplicationHomeRealmDiscoveryPolicies,
+                   nargs='+', help='')
+        c.argument('owners', action=AddApplicationsApplicationOwners, nargs='+', help='Directory objects that are '
+                   'owners of the application. The owners are a set of non-admin users who are allowed to modify this '
+                   'object. Requires version 2013-11-08 or newer. Read-only. Nullable.')
+        c.argument('token_issuance_policies', action=AddApplicationsApplicationTokenIssuancePolicies, nargs='+',
+                   help='')
+        c.argument('token_lifetime_policies', action=AddApplicationsApplicationTokenLifetimePolicies, nargs='+',
+                   help='')
+        c.argument('home_page_url', type=str, help='Home page or landing page of the application.', arg_group='Web')
+        c.argument('implicit_grant_settings', action=AddImplicitGrantSettings, nargs='+', help='implicitGrantSettings',
+                   arg_group='Web')
+        c.argument('logout_url', type=str, help='Specifies the URL that will be used by Microsoft\'s authorization '
+                   'service to logout an user using front-channel, back-channel or SAML logout protocols.',
+                   arg_group='Web')
+        c.argument('redirect_uris', nargs='+', help='Specifies the URLs where user tokens are sent for sign-in, or the '
+                   'redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.', arg_group='Web')
+        c.argument('access_token', action=AddAccessToken, nargs='+', help='The optional claims returned in the JWT '
+                   'access token.', arg_group='Optional Claims')
+        c.argument('id_token', action=AddIdToken, nargs='+', help='The optional claims returned in the JWT ID token.',
+                   arg_group='Optional Claims')
+        c.argument('saml2_token', action=AddSaml2Token, nargs='+', help='The optional claims returned in the SAML '
+                   'token.', arg_group='Optional Claims')
+        c.argument('accept_mapped_claims', arg_type=get_three_state_flag(), help='When true, allows an application to '
+                   'use claims mapping without specifying a custom signing key.', arg_group='Api')
+        c.argument('known_client_applications', nargs='+', help='Used for bundling consent if you have a solution that '
+                   'contains two parts: a client app and a custom web API app. If you set the appID of the client app '
+                   'to this value, the user only consents once to the client app. Azure AD knows that consenting to '
+                   'the client means implicitly consenting to the web API and automatically provisions service '
+                   'principals for both APIs at the same time. Both the client and the web API app must be registered '
+                   'in the same tenant.', arg_group='Api')
+        c.argument('oauth2_permission_scopes', action=AddApplicationsApplicationOauth2PermissionScopes, nargs='+',
+                   help='The definition of the delegated permissions exposed by the web API represented by this '
+                   'application registration. These delegated permissions may be requested by a client application, '
+                   'and may be granted by users or administrators during consent. Delegated permissions are sometimes '
+                   'referred to as OAuth 2.0 scopes.', arg_group='Api')
+        c.argument('pre_authorized_applications', action=AddPreAuthorizedApplications, nargs='+', help='Lists the '
+                   'client applications that are pre-authorized with the specified delegated permissions to access '
+                   'this application\'s APIs. Users are not required to consent to any pre-authorized application (for '
+                   'the permissions specified). However, any additional permissions not listed in '
+                   'preAuthorizedApplications (requested through incremental consent for example) will require user '
+                   'consent.', arg_group='Api')
+        c.argument('requested_access_token_version', type=int, help='Specifies the access token version expected by '
+                   'this resource. This changes the version and format of the JWT produced independent of the endpoint '
+                   'or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the '
+                   'client and only impacts the version of id_tokens. Resources need to explicitly configure '
+                   'requestedAccessTokenVersion to indicate the supported access token format.  Possible values for '
+                   'requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which '
+                   'corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as '
+                   'AzureADandPersonalMicrosoftAccount, the value for this property must be 2', arg_group='Api')
+
+    with self.argument_context('applications application update') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')

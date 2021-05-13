@@ -8,4 +8,4 @@ az extension add --name schemaextensions_v1_0
 ```
 
 ### Included Features ###
-#### schemaextensions schemaextensionsschemaextension ####
+#### schemaextensions schema-extension-schema-extension ####

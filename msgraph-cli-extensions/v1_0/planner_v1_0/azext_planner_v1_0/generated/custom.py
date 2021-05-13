@@ -1020,7 +1020,7 @@ def planner_group_planner_plan_task_update_progress_task_board_format(client,
                                                     body=body)
 
 
-def planner_planner_create(client,
+def planner_planner_update(client,
                            id_=None,
                            buckets=None,
                            plans=None,

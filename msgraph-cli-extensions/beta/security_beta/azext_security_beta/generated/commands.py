@@ -59,10 +59,11 @@ def load_command_table(self, _):
     with self.command_group(
         'security security', security_beta_security_security, client_factory=cf_security_security
     ) as g:
-        g.custom_command('create', 'security_security_create')
+        g.custom_command('update', 'security_security_update')
         g.custom_command('create-action', 'security_security_create_action', client_factory=cf_security)
         g.custom_command('list-action', 'security_security_list_action', client_factory=cf_security)
         g.custom_command('show-security', 'security_security_show_security')
+        g.custom_command('update-action', 'security_security_update_action', client_factory=cf_security)
 
     with self.command_group('security security', security_beta_security, client_factory=cf_security) as g:
         g.custom_command('create-alert', 'security_security_create_alert')

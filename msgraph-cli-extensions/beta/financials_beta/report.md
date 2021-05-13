@@ -61,7 +61,7 @@
 ### <a name="CommandsInfinancials.financials">Commands in `az financials financial` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial create](#financials.financialsUpdateFinancials)|UpdateFinancials|[Parameters](#Parametersfinancials.financialsUpdateFinancials)|Not Found|
+|[az financials financial update](#financials.financialsUpdateFinancials)|UpdateFinancials|[Parameters](#Parametersfinancials.financialsUpdateFinancials)|Not Found|
 |[az financials financial show-financial](#financials.financialsGetFinancials)|GetFinancials|[Parameters](#Parametersfinancials.financialsGetFinancials)|Not Found|
 
 ### <a name="CommandsInfinancials">Commands in `az financials financial` group</a>
@@ -896,7 +896,7 @@
 ## COMMAND DETAILS
 
 ### group `az financials financial`
-#### <a name="financials.financialsUpdateFinancials">Command `az financials financial create`</a>
+#### <a name="financials.financialsUpdateFinancials">Command `az financials financial update`</a>
 
 ##### <a name="Parametersfinancials.financialsUpdateFinancials">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

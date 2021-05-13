@@ -443,7 +443,7 @@ helps['teams team list'] = """
 
 helps['teams team create'] = """
     type: command
-    short-summary: "Update entity in teams And Add new entity to teams."
+    short-summary: "Add new entity to teams."
     parameters:
       - name: --fun-settings
         short-summary: "teamFunSettings"
@@ -798,6 +798,12 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             id: Read-only.
 
             Multiple actions can be specified by using more than one --time-off-requests argument.
+"""
+
+helps['teams team update'] = """
+    type: command
+    short-summary: "Update entity in teams."
+    parameters:
       - name: --fun-settings
         short-summary: "teamFunSettings"
         long-summary: |

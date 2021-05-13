@@ -353,7 +353,7 @@ def load_command_table(self, _):
     with self.command_group(
         'financials financial', financials_beta_financial_financial, client_factory=cf_financial_financial
     ) as g:
-        g.custom_command('create', 'financials_financial_create')
+        g.custom_command('update', 'financials_financial_update')
         g.custom_command('show-financial', 'financials_financial_show_financial')
 
     with self.command_group('financials financial', financials_beta_financial, client_factory=cf_financial) as g:

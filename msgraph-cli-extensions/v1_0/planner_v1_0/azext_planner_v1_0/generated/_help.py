@@ -679,7 +679,7 @@ helps['planner planner'] = """
     short-summary: Manage planner planner with planner_v1_0
 """
 
-helps['planner planner create'] = """
+helps['planner planner update'] = """
     type: command
     short-summary: "Update planner."
 """

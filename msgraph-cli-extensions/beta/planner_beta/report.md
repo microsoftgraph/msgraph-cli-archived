@@ -110,7 +110,7 @@
 ### <a name="CommandsInplanner.planner">Commands in `az planner planner` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner planner create](#planner.plannerUpdatePlanner)|UpdatePlanner|[Parameters](#Parametersplanner.plannerUpdatePlanner)|Not Found|
+|[az planner planner update](#planner.plannerUpdatePlanner)|UpdatePlanner|[Parameters](#Parametersplanner.plannerUpdatePlanner)|Not Found|
 |[az planner planner show-planner](#planner.plannerGetPlanner)|GetPlanner|[Parameters](#Parametersplanner.plannerGetPlanner)|Not Found|
 
 ### <a name="CommandsInplanner">Commands in `az planner planner` group</a>
@@ -1058,7 +1058,7 @@
 |**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
 
 ### group `az planner planner`
-#### <a name="planner.plannerUpdatePlanner">Command `az planner planner create`</a>
+#### <a name="planner.plannerUpdatePlanner">Command `az planner planner update`</a>
 
 ##### <a name="Parametersplanner.plannerUpdatePlanner">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

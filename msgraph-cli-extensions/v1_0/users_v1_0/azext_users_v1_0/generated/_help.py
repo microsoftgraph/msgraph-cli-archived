@@ -29,7 +29,7 @@ helps['users user list'] = """
 
 helps['users user create'] = """
     type: command
-    short-summary: "Update entity in users And Add new entity to users."
+    short-summary: "Add new entity to users."
     parameters:
       - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the user. Not nullable."
@@ -352,6 +352,12 @@ States)'.
             locale: A locale representation for the user, which includes the user's preferred language and \
 country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
 country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+"""
+
+helps['users user update'] = """
+    type: command
+    short-summary: "Update entity in users."
+    parameters:
       - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the user. Not nullable."
         long-summary: |
