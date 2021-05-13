@@ -25,7 +25,7 @@ from azext_compliance_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('compliance compliance create') as c:
+    with self.argument_context('compliance compliance update') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.', arg_group='Ediscovery')
         c.argument('cases', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
                    arg_group='Ediscovery')

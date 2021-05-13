@@ -29,7 +29,7 @@ helps['applications application list'] = """
 
 helps['applications application create'] = """
     type: command
-    short-summary: "Update entity in applications And Add new entity to applications."
+    short-summary: "Add new entity to applications."
     parameters:
       - name: --app-roles
         short-summary: "The collection of roles the application declares. With app role assignments, these roles can \
@@ -304,6 +304,12 @@ incremental consent for example) will require user consent."
             delegated-permission-ids: The unique identifier for the oauth2PermissionScopes the application requires.
 
             Multiple actions can be specified by using more than one --pre-authorized-applications argument.
+"""
+
+helps['applications application update'] = """
+    type: command
+    short-summary: "Update entity in applications."
+    parameters:
       - name: --app-roles
         short-summary: "The collection of roles the application declares. With app role assignments, these roles can \
 be assigned to users, groups, or other applications' service principals. Not nullable."

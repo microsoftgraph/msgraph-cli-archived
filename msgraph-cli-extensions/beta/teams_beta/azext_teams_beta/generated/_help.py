@@ -1193,7 +1193,7 @@ helps['teams team list'] = """
 
 helps['teams team create'] = """
     type: command
-    short-summary: "Update entity in teams And Add new entity to teams."
+    short-summary: "Add new entity to teams."
     parameters:
       - name: --fun-settings
         short-summary: "teamFunSettings"
@@ -1413,6 +1413,12 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
             latitude: Optional. The latitude, in decimal, for the item. Read-only.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
+"""
+
+helps['teams team update'] = """
+    type: command
+    short-summary: "Update entity in teams."
+    parameters:
       - name: --fun-settings
         short-summary: "teamFunSettings"
         long-summary: |

@@ -10,7 +10,7 @@
 # pylint: disable=too-many-lines
 
 
-def security_security_create(client,
+def security_security_update(client,
                              id_=None,
                              alerts=None,
                              secure_score_control_profiles=None,

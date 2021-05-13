@@ -1242,7 +1242,6 @@ def teams_team_list(client,
 
 
 def teams_team_create(client,
-                      team_id=None,
                       id_=None,
                       classification=None,
                       created_date_time=None,
@@ -1342,10 +1341,112 @@ def teams_team_create(client,
     body['schedule']['time_clock_settings']['approved_location'] = approved_location
     body['discovery_settings'] = {}
     body['discovery_settings']['show_in_teams_search_and_suggestions'] = show_in_teams_search_and_suggestions
-    if team_id is not None:
-        return client.update_team(team_id=team_id,
-                                  body=body)
     return client.create_team(body=body)
+
+
+def teams_team_update(client,
+                      team_id,
+                      id_=None,
+                      classification=None,
+                      created_date_time=None,
+                      description=None,
+                      display_name=None,
+                      fun_settings=None,
+                      guest_settings=None,
+                      internal_id=None,
+                      is_archived=None,
+                      is_membership_limited_to_owners=None,
+                      member_settings=None,
+                      messaging_settings=None,
+                      specialization=None,
+                      visibility=None,
+                      web_url=None,
+                      channels=None,
+                      group=None,
+                      installed_apps=None,
+                      members=None,
+                      operations=None,
+                      owners=None,
+                      photo=None,
+                      primary_channel=None,
+                      microsoft_graph_entity_id=None,
+                      id1=None,
+                      enabled=None,
+                      offer_shift_requests_enabled=None,
+                      open_shifts_enabled=None,
+                      provision_status=None,
+                      provision_status_code=None,
+                      swap_shifts_requests_enabled=None,
+                      time_clock_enabled=None,
+                      time_off_requests_enabled=None,
+                      time_zone=None,
+                      workforce_integration_ids=None,
+                      offer_shift_requests=None,
+                      open_shift_change_requests=None,
+                      open_shifts=None,
+                      scheduling_groups=None,
+                      shifts=None,
+                      swap_shifts_change_requests=None,
+                      time_cards=None,
+                      time_off_reasons=None,
+                      time_off_requests=None,
+                      times_off=None,
+                      approved_location=None,
+                      show_in_teams_search_and_suggestions=None):
+    body = {}
+    body['id'] = id_
+    body['classification'] = classification
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['fun_settings'] = fun_settings
+    body['guest_settings'] = guest_settings
+    body['internal_id'] = internal_id
+    body['is_archived'] = is_archived
+    body['is_membership_limited_to_owners'] = is_membership_limited_to_owners
+    body['member_settings'] = member_settings
+    body['messaging_settings'] = messaging_settings
+    body['specialization'] = specialization
+    body['visibility'] = visibility
+    body['web_url'] = web_url
+    body['channels'] = channels
+    body['group'] = group
+    body['installed_apps'] = installed_apps
+    body['members'] = members
+    body['operations'] = operations
+    body['owners'] = owners
+    body['photo'] = photo
+    body['primary_channel'] = primary_channel
+    body['template'] = {}
+    body['template']['id'] = microsoft_graph_entity_id
+    body['schedule'] = {}
+    body['schedule']['id'] = id1
+    body['schedule']['enabled'] = enabled
+    body['schedule']['offer_shift_requests_enabled'] = offer_shift_requests_enabled
+    body['schedule']['open_shifts_enabled'] = open_shifts_enabled
+    body['schedule']['provision_status'] = provision_status
+    body['schedule']['provision_status_code'] = provision_status_code
+    body['schedule']['swap_shifts_requests_enabled'] = swap_shifts_requests_enabled
+    body['schedule']['time_clock_enabled'] = time_clock_enabled
+    body['schedule']['time_off_requests_enabled'] = time_off_requests_enabled
+    body['schedule']['time_zone'] = time_zone
+    body['schedule']['workforce_integration_ids'] = workforce_integration_ids
+    body['schedule']['offer_shift_requests'] = offer_shift_requests
+    body['schedule']['open_shift_change_requests'] = open_shift_change_requests
+    body['schedule']['open_shifts'] = open_shifts
+    body['schedule']['scheduling_groups'] = scheduling_groups
+    body['schedule']['shifts'] = shifts
+    body['schedule']['swap_shifts_change_requests'] = swap_shifts_change_requests
+    body['schedule']['time_cards'] = time_cards
+    body['schedule']['time_off_reasons'] = time_off_reasons
+    body['schedule']['time_off_requests'] = time_off_requests
+    body['schedule']['times_off'] = times_off
+    body['schedule']['time_clock_settings'] = {}
+    body['schedule']['time_clock_settings']['approved_location'] = approved_location
+    body['discovery_settings'] = {}
+    body['discovery_settings']['show_in_teams_search_and_suggestions'] = show_in_teams_search_and_suggestions
+    return client.update_team(team_id=team_id,
+                              body=body)
 
 
 def teams_team_delete_team(client,

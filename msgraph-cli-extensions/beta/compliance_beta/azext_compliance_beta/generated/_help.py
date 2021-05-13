@@ -22,7 +22,7 @@ helps['compliance compliance'] = """
     short-summary: Manage compliance compliance with compliance_beta
 """
 
-helps['compliance compliance create'] = """
+helps['compliance compliance update'] = """
     type: command
     short-summary: "Update compliance."
 """

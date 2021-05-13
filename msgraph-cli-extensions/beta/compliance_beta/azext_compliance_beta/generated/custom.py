@@ -10,7 +10,7 @@
 # pylint: disable=too-many-lines
 
 
-def compliance_compliance_create(client,
+def compliance_compliance_update(client,
                                  id_=None,
                                  cases=None):
     body = {}

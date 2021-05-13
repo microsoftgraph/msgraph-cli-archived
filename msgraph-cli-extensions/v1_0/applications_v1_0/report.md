@@ -21,8 +21,8 @@
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
 |[az applications application list](#applications.applicationListApplication)|ListApplication|[Parameters](#Parametersapplications.applicationListApplication)|Not Found|
-|[az applications application create](#applications.applicationUpdateApplication)|UpdateApplication|[Parameters](#Parametersapplications.applicationUpdateApplication)|Not Found|
 |[az applications application create](#applications.applicationCreateApplication)|CreateApplication|[Parameters](#Parametersapplications.applicationCreateApplication)|Not Found|
+|[az applications application update](#applications.applicationUpdateApplication)|UpdateApplication|[Parameters](#Parametersapplications.applicationUpdateApplication)|Not Found|
 |[az applications application delete-application](#applications.applicationDeleteApplication)|DeleteApplication|[Parameters](#Parametersapplications.applicationDeleteApplication)|Not Found|
 |[az applications application set-logo](#applications.applicationSetLogo)|SetLogo|[Parameters](#Parametersapplications.applicationSetLogo)|Not Found|
 |[az applications application show-application](#applications.applicationGetApplication)|GetApplication|[Parameters](#Parametersapplications.applicationGetApplication)|Not Found|
@@ -168,7 +168,57 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="applications.applicationUpdateApplication">Command `az applications application create`</a>
+#### <a name="applications.applicationCreateApplication">Command `az applications application create`</a>
+
+##### <a name="Parametersapplications.applicationCreateApplication">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+|**--add-ins**|array|Defines custom behavior that a consuming service can use to call an app in specific contexts. For example, applications that can render file streams may set the addIns property for its 'FileHandler' functionality. This will let services like Microsoft 365 call the application in the context of a document the user is working on.|add_ins|addIns|
+|**--app-id**|string|The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only.|app_id|appId|
+|**--application-template-id**|string||application_template_id|applicationTemplateId|
+|**--app-roles**|array|The collection of roles the application declares. With app role assignments, these roles can be assigned to users, groups, or other applications' service principals. Not nullable.|app_roles|appRoles|
+|**--created-date-time**|date-time|The date and time the application was registered. Read-only.|created_date_time|createdDateTime|
+|**--description**|string||description|description|
+|**--display-name**|string|The display name for the application.|display_name|displayName|
+|**--group-membership-claims**|string|Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values:NoneSecurityGroup: For security groups and Azure AD rolesAll: This will get all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of|group_membership_claims|groupMembershipClaims|
+|**--identifier-uris**|array|The URIs that identify the application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant. For more information see Application Objects and Service Principal Objects. The any operator is required for filter expressions on multi-valued properties. Not nullable.|identifier_uris|identifierUris|
+|**--info**|object|informationalUrl|info|info|
+|**--is-device-only-auth-supported**|boolean||is_device_only_auth_supported|isDeviceOnlyAuthSupported|
+|**--is-fallback-public-client**|boolean|Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as web app. There are certain scenarios where Azure AD cannot determine the client application type (e.g. ROPC flow where it is configured without specifying a redirect URI). In those cases Azure AD will interpret the application type based on the value of this property.|is_fallback_public_client|isFallbackPublicClient|
+|**--key-credentials**|array|The collection of key credentials associated with the application Not nullable.|key_credentials|keyCredentials|
+|**--logo**|byte-array|The main logo for the application. Not nullable.|logo|logo|
+|**--notes**|string||notes|notes|
+|**--oauth2-require-post-response**|boolean||oauth2_require_post_response|oauth2RequirePostResponse|
+|**--parental-control-settings**|object|parentalControlSettings|parental_control_settings|parentalControlSettings|
+|**--password-credentials**|array|The collection of password credentials associated with the application. Not nullable.|password_credentials|passwordCredentials|
+|**--public-client**|object|publicClientApplication|public_client|publicClient|
+|**--publisher-domain**|string|The verified publisher domain for the application. Read-only.|publisher_domain|publisherDomain|
+|**--required-resource-access**|array|Specifies resources that this application requires access to and the set of OAuth permission scopes and application roles that it needs under each of those resources. This pre-configuration of required resource access drives the consent experience. Not nullable.|required_resource_access|requiredResourceAccess|
+|**--sign-in-audience**|string|Specifies the Microsoft accounts that are supported for the current application. Supported values are:AzureADMyOrg: Users with a Microsoft work or school account in my organization’s Azure AD tenant (single tenant)AzureADMultipleOrgs: Users with a Microsoft work or school account in any organization’s Azure AD tenant (multi-tenant)AzureADandPersonalMicrosoftAccount: Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant.|sign_in_audience|signInAudience|
+|**--tags**|array|Custom strings that can be used to categorize and identify the application. Not nullable.|tags|tags|
+|**--token-encryption-key-id**|uuid|Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.|token_encryption_key_id|tokenEncryptionKeyId|
+|**--created-on-behalf-of**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|created_on_behalf_of|createdOnBehalfOf|
+|**--extension-properties**|array|Read-only. Nullable.|extension_properties|extensionProperties|
+|**--home-realm-discovery-policies**|array||home_realm_discovery_policies|homeRealmDiscoveryPolicies|
+|**--owners**|array|Directory objects that are owners of the application. The owners are a set of non-admin users who are allowed to modify this object. Requires version 2013-11-08 or newer. Read-only. Nullable.|owners|owners|
+|**--token-issuance-policies**|array||token_issuance_policies|tokenIssuancePolicies|
+|**--token-lifetime-policies**|array||token_lifetime_policies|tokenLifetimePolicies|
+|**--home-page-url**|string|Home page or landing page of the application.|home_page_url|homePageUrl|
+|**--implicit-grant-settings**|object|implicitGrantSettings|implicit_grant_settings|implicitGrantSettings|
+|**--logout-url**|string|Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.|logout_url|logoutUrl|
+|**--redirect-uris**|array|Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.|redirect_uris|redirectUris|
+|**--access-token**|array|The optional claims returned in the JWT access token.|access_token|accessToken|
+|**--id-token**|array|The optional claims returned in the JWT ID token.|id_token|idToken|
+|**--saml2-token**|array|The optional claims returned in the SAML token.|saml2_token|saml2Token|
+|**--accept-mapped-claims**|boolean|When true, allows an application to use claims mapping without specifying a custom signing key.|accept_mapped_claims|acceptMappedClaims|
+|**--known-client-applications**|array|Used for bundling consent if you have a solution that contains two parts: a client app and a custom web API app. If you set the appID of the client app to this value, the user only consents once to the client app. Azure AD knows that consenting to the client means implicitly consenting to the web API and automatically provisions service principals for both APIs at the same time. Both the client and the web API app must be registered in the same tenant.|known_client_applications|knownClientApplications|
+|**--oauth2-permission-scopes**|array|The definition of the delegated permissions exposed by the web API represented by this application registration. These delegated permissions may be requested by a client application, and may be granted by users or administrators during consent. Delegated permissions are sometimes referred to as OAuth 2.0 scopes.|oauth2_permission_scopes|oauth2PermissionScopes|
+|**--pre-authorized-applications**|array|Lists the client applications that are pre-authorized with the specified delegated permissions to access this application's APIs. Users are not required to consent to any pre-authorized application (for the permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through incremental consent for example) will require user consent.|pre_authorized_applications|preAuthorizedApplications|
+|**--requested-access-token-version**|integer|Specifies the access token version expected by this resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure requestedAccessTokenVersion to indicate the supported access token format.  Possible values for requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as AzureADandPersonalMicrosoftAccount, the value for this property must be 2|requested_access_token_version|requestedAccessTokenVersion|
+
+#### <a name="applications.applicationUpdateApplication">Command `az applications application update`</a>
 
 ##### <a name="Parametersapplications.applicationUpdateApplication">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -219,11 +269,6 @@
 |**--pre-authorized-applications**|array|Lists the client applications that are pre-authorized with the specified delegated permissions to access this application's APIs. Users are not required to consent to any pre-authorized application (for the permissions specified). However, any additional permissions not listed in preAuthorizedApplications (requested through incremental consent for example) will require user consent.|pre_authorized_applications|preAuthorizedApplications|
 |**--requested-access-token-version**|integer|Specifies the access token version expected by this resource. This changes the version and format of the JWT produced independent of the endpoint or client used to request the access token.  The endpoint used, v1.0 or v2.0, is chosen by the client and only impacts the version of id_tokens. Resources need to explicitly configure requestedAccessTokenVersion to indicate the supported access token format.  Possible values for requestedAccessTokenVersion are 1, 2, or null. If the value is null, this defaults to 1, which corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as AzureADandPersonalMicrosoftAccount, the value for this property must be 2|requested_access_token_version|requestedAccessTokenVersion|
 
-#### <a name="applications.applicationCreateApplication">Command `az applications application create`</a>
-
-##### <a name="Parametersapplications.applicationCreateApplication">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="applications.applicationDeleteApplication">Command `az applications application delete-application`</a>
 
 ##### <a name="Parametersapplications.applicationDeleteApplication">Parameters</a> 

@@ -33,7 +33,7 @@ def load_command_table(self, _):
     with self.command_group(
         'security security', security_v1_0_security_security, client_factory=cf_security_security
     ) as g:
-        g.custom_command('create', 'security_security_create')
+        g.custom_command('update', 'security_security_update')
         g.custom_command('show-security', 'security_security_show_security')
 
     with self.command_group('security security', security_v1_0_security, client_factory=cf_security) as g:

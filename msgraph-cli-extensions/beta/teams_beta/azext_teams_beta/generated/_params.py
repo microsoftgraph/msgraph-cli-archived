@@ -837,6 +837,89 @@ def load_arguments(self, _):
         c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('teams team create') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('classification', type=str, help='An optional label. Typically describes the data or business '
+                   'sensitivity of the team. Must match one of a pre-configured set in the tenant\'s directory.')
+        c.argument('created_date_time', help='')
+        c.argument('description', type=str, help='An optional description for the team.')
+        c.argument('display_name', type=str, help='The name of the team.')
+        c.argument('fun_settings', action=AddFunSettings, nargs='+', help='teamFunSettings')
+        c.argument('guest_settings', action=AddGuestSettings, nargs='+', help='teamGuestSettings')
+        c.argument('internal_id', type=str, help='A unique ID for the team that has been used in a few places such as '
+                   'the audit log/Office 365 Management Activity API.')
+        c.argument('is_archived', arg_type=get_three_state_flag(), help='Whether this team is in read-only mode.')
+        c.argument('is_membership_limited_to_owners', arg_type=get_three_state_flag(), help='')
+        c.argument('member_settings', action=AddMemberSettings, nargs='+', help='teamMemberSettings')
+        c.argument('messaging_settings', action=AddMessagingSettings, nargs='+', help='teamMessagingSettings')
+        c.argument('specialization', arg_type=get_enum_type(['none', 'educationStandard', 'educationClass',
+                                                             'educationProfessionalLearningCommunity',
+                                                             'educationStaff', 'healthcareStandard',
+                                                             'healthcareCareCoordination', 'unknownFutureValue']),
+                   help='')
+        c.argument('visibility', arg_type=get_enum_type(['private', 'public', 'hiddenMembership',
+                                                        'unknownFutureValue']), help='')
+        c.argument('web_url', type=str, help='A hyperlink that will go to the team in the Microsoft Teams client. This '
+                   'is the URL that you get when you right-click a team in the Microsoft Teams client and select Get '
+                   'link to team. This URL should be treated as an opaque blob, and not parsed.')
+        c.argument('channels', type=validate_file_or_dict, help='The collection of channels & messages associated with '
+                   'the team. Expected value: json-string/@json-file.')
+        c.argument('group', type=validate_file_or_dict, help='Represents an Azure Active Directory object. The '
+                   'directoryObject type is the base type for many other directory entity types. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('installed_apps', type=validate_file_or_dict, help='The apps installed in this team. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('members', action=AddGroupsMembers, nargs='+', help='Members and owners of the team.')
+        c.argument('operations', type=validate_file_or_dict, help='The async operations that ran or are running on '
+                   'this team. Expected value: json-string/@json-file.')
+        c.argument('owners', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('photo', action=AddGroupsPhoto, nargs='+', help='profilePhoto')
+        c.argument('primary_channel', type=validate_file_or_dict, help='channel Expected value: '
+                   'json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Template')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Schedule')
+        c.argument('enabled', arg_type=get_three_state_flag(), help='Indicates whether the schedule is enabled for the '
+                   'team. Required.', arg_group='Schedule')
+        c.argument('offer_shift_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether offer '
+                   'shift requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('open_shifts_enabled', arg_type=get_three_state_flag(), help='Indicates whether open shifts are '
+                   'enabled for the schedule.', arg_group='Schedule')
+        c.argument('provision_status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']),
+                   help='', arg_group='Schedule')
+        c.argument('provision_status_code', type=str, help='Additional information about why schedule provisioning '
+                   'failed.', arg_group='Schedule')
+        c.argument('swap_shifts_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether swap '
+                   'shifts requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_clock_enabled', arg_type=get_three_state_flag(), help='Indicates whether time clock is '
+                   'enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_off_requests_enabled', arg_type=get_three_state_flag(), help='Indicates whether time off '
+                   'requests are enabled for the schedule.', arg_group='Schedule')
+        c.argument('time_zone', type=str, help='Indicates the time zone of the schedule team using tz database format. '
+                   'Required.', arg_group='Schedule')
+        c.argument('workforce_integration_ids', nargs='+', help='', arg_group='Schedule')
+        c.argument('offer_shift_requests', action=AddOfferShiftRequests, nargs='+', help='', arg_group='Schedule')
+        c.argument('open_shift_change_requests', action=AddOpenShiftChangeRequests, nargs='+', help='',
+                   arg_group='Schedule')
+        c.argument('open_shifts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Schedule')
+        c.argument('scheduling_groups', action=AddSchedulingGroups, nargs='+', help='The logical grouping of users in '
+                   'the schedule (usually by role).', arg_group='Schedule')
+        c.argument('shifts', type=validate_file_or_dict, help='The shifts in the schedule. Expected value: '
+                   'json-string/@json-file.', arg_group='Schedule')
+        c.argument('swap_shifts_change_requests', action=AddSwapShiftsChangeRequests, nargs='+', help='',
+                   arg_group='Schedule')
+        c.argument('time_cards', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.',
+                   arg_group='Schedule')
+        c.argument('time_off_reasons', action=AddTimeOffReasons, nargs='+', help='The set of reasons for a time off in '
+                   'the schedule.', arg_group='Schedule')
+        c.argument('time_off_requests', action=AddTimeOffRequests, nargs='+', help='', arg_group='Schedule')
+        c.argument('times_off', type=validate_file_or_dict, help='The instances of times off in the schedule. Expected '
+                   'value: json-string/@json-file.', arg_group='Schedule')
+        c.argument('approved_location', action=AddApprovedLocation, nargs='+', help='geoCoordinates',
+                   arg_group='Schedule Time Clock Settings')
+        c.argument('show_in_teams_search_and_suggestions', arg_type=get_three_state_flag(), help='',
+                   arg_group='Discovery Settings')
+
+    with self.argument_context('teams team update') as c:
         c.argument('team_id', type=str, help='key: id of team')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classification', type=str, help='An optional label. Typically describes the data or business '

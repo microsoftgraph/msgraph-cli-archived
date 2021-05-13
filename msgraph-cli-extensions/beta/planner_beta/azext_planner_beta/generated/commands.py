@@ -305,7 +305,7 @@ def load_command_table(self, _):
         )
 
     with self.command_group('planner planner', planner_beta_planner_planner, client_factory=cf_planner_planner) as g:
-        g.custom_command('create', 'planner_planner_create')
+        g.custom_command('update', 'planner_planner_update')
         g.custom_command('show-planner', 'planner_planner_show_planner')
 
     with self.command_group('planner planner', planner_beta_planner, client_factory=cf_planner) as g:

@@ -10,7 +10,7 @@
 # pylint: disable=too-many-lines
 
 
-def security_security_create(client,
+def security_security_update(client,
                              id_=None,
                              provider_status=None,
                              alerts=None,
@@ -44,7 +44,6 @@ def security_security_create(client,
 
 
 def security_security_create_action(client,
-                                    security_action_id=None,
                                     id_=None,
                                     action_reason=None,
                                     app_id=None,
@@ -76,9 +75,6 @@ def security_security_create_action(client,
     body['status'] = status
     body['user'] = user
     body['vendor_information'] = vendor_information
-    if security_action_id is not None:
-        return client.update_security_actions(security_action_id=security_action_id,
-                                              body=body)
     return client.create_security_actions(body=body)
 
 
@@ -96,6 +92,43 @@ def security_security_show_security(client,
                                     expand=None):
     return client.get_security(select=select,
                                expand=expand)
+
+
+def security_security_update_action(client,
+                                    security_action_id,
+                                    id_=None,
+                                    action_reason=None,
+                                    app_id=None,
+                                    azure_tenant_id=None,
+                                    client_context=None,
+                                    completed_date_time=None,
+                                    created_date_time=None,
+                                    error_info=None,
+                                    last_action_date_time=None,
+                                    name=None,
+                                    parameters=None,
+                                    states=None,
+                                    status=None,
+                                    user=None,
+                                    vendor_information=None):
+    body = {}
+    body['id'] = id_
+    body['action_reason'] = action_reason
+    body['app_id'] = app_id
+    body['azure_tenant_id'] = azure_tenant_id
+    body['client_context'] = client_context
+    body['completed_date_time'] = completed_date_time
+    body['created_date_time'] = created_date_time
+    body['error_info'] = error_info
+    body['last_action_date_time'] = last_action_date_time
+    body['name'] = name
+    body['parameters'] = parameters
+    body['states'] = states
+    body['status'] = status
+    body['user'] = user
+    body['vendor_information'] = vendor_information
+    return client.update_security_actions(security_action_id=security_action_id,
+                                          body=body)
 
 
 def security_security_create_alert(client,
