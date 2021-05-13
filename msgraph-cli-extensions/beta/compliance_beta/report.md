@@ -22,7 +22,7 @@
 ### <a name="CommandsIncompliance.compliance">Commands in `az compliance compliance` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az compliance compliance create](#compliance.complianceUpdateCompliance)|UpdateCompliance|[Parameters](#Parameterscompliance.complianceUpdateCompliance)|Not Found|
+|[az compliance compliance update](#compliance.complianceUpdateCompliance)|UpdateCompliance|[Parameters](#Parameterscompliance.complianceUpdateCompliance)|Not Found|
 |[az compliance compliance show-compliance](#compliance.complianceGetCompliance)|GetCompliance|[Parameters](#Parameterscompliance.complianceGetCompliance)|Not Found|
 
 ### <a name="CommandsIncompliance">Commands in `az compliance compliance` group</a>
@@ -112,7 +112,7 @@
 ## COMMAND DETAILS
 
 ### group `az compliance compliance`
-#### <a name="compliance.complianceUpdateCompliance">Command `az compliance compliance create`</a>
+#### <a name="compliance.complianceUpdateCompliance">Command `az compliance compliance update`</a>
 
 ##### <a name="Parameterscompliance.complianceUpdateCompliance">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

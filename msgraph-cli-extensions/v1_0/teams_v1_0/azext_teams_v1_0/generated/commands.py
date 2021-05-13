@@ -157,6 +157,7 @@ def load_command_table(self, _):
     with self.command_group('teams team', teams_v1_0_team_team, client_factory=cf_team_team) as g:
         g.custom_command('list', 'teams_team_list')
         g.custom_command('create', 'teams_team_create')
+        g.custom_command('update', 'teams_team_update')
         g.custom_command('delete-team', 'teams_team_delete_team')
         g.custom_command('show-team', 'teams_team_show_team')
 

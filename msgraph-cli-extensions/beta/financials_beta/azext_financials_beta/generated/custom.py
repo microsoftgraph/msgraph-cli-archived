@@ -11,7 +11,7 @@
 # pylint: disable=too-many-lines
 
 
-def financials_financial_create(client,
+def financials_financial_update(client,
                                 companies=None):
     body = {}
     body['companies'] = companies

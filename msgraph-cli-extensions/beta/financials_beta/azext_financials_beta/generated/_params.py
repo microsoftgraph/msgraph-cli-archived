@@ -45,7 +45,7 @@ from azext_financials_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('financials financial create') as c:
+    with self.argument_context('financials financial update') as c:
         c.argument('companies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('financials financial show-financial') as c:

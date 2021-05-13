@@ -265,6 +265,93 @@ def load_arguments(self, _):
 
     with self.argument_context('sites site create') as c:
         c.argument('site_id', type=str, help='key: id of site')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('created_date_time', help='Date and time of item creation. Read-only.')
+        c.argument('description', type=str, help='Provides a user-visible description of the item. Optional.')
+        c.argument('e_tag', type=str, help='ETag for the item. Read-only.')
+        c.argument('last_modified_date_time', help='Date and time the item was last modified. Read-only.')
+        c.argument('name', type=str, help='The name of the item. Read-write.')
+        c.argument('web_url', type=str, help='URL that displays the resource in the browser. Read-only.')
+        c.argument('created_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user '
+                   'object. Expected value: json-string/@json-file.')
+        c.argument('last_modified_by_user', type=validate_file_or_dict, help='Represents an Azure Active Directory '
+                   'user object. Expected value: json-string/@json-file.')
+        c.argument('drive_id', type=str, help='Unique identifier of the drive instance that contains the item. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('drive_type', type=str, help='Identifies the type of drive. See [drive][] resource for values.',
+                   arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_id', type=str, help='Unique identifier of the item in the drive. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('microsoft_graph_item_reference_name', type=str, help='The name of the item being referenced. '
+                   'Read-only.', arg_group='Parent Reference')
+        c.argument('path', type=str, help='Path that can be used to navigate to the item. Read-only.',
+                   arg_group='Parent Reference')
+        c.argument('share_id', type=str, help='A unique identifier for a shared resource that can be accessed via the '
+                   '[Shares][] API.', arg_group='Parent Reference')
+        c.argument('sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='Parent '
+                   'Reference')
+        c.argument('microsoft_graph_item_reference_site_id', type=str, help='', arg_group='Parent Reference')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Last Modified By')
+        c.argument('microsoft_graph_identity_application', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_device', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
+                   arg_group='Created By')
+        c.argument('display_name', type=str, help='The full title for the site. Read-only.')
+        c.argument('root', type=validate_file_or_dict, help='root Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds')
+        c.argument('analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
+                   'json-string/@json-file.')
+        c.argument('columns', type=validate_file_or_dict, help='The collection of column definitions reusable across '
+                   'lists under this site. Expected value: json-string/@json-file.')
+        c.argument('content_types', type=validate_file_or_dict, help='The collection of content types defined for this '
+                   'site. Expected value: json-string/@json-file.')
+        c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
+        c.argument('drives', type=validate_file_or_dict, help='The collection of drives (document libraries) under '
+                   'this site. Expected value: json-string/@json-file.')
+        c.argument('items', type=validate_file_or_dict, help='Used to address any item contained in this site. This '
+                   'collection cannot be enumerated. Expected value: json-string/@json-file.')
+        c.argument('lists', type=validate_file_or_dict, help='The collection of lists under this site. Expected value: '
+                   'json-string/@json-file.')
+        c.argument('sites', type=validate_file_or_dict, help='The collection of the sub-sites under this site. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Onenote')
+        c.argument('notebooks', type=validate_file_or_dict, help='The collection of OneNote notebooks that are owned '
+                   'by the user or group. Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('operations', type=validate_file_or_dict, help='The status of OneNote operations. Getting an '
+                   'operations collection is not supported, but you can get the status of long-running operations if '
+                   'the Operation-Location header is returned in the response. Read-only. Nullable. Expected value: '
+                   'json-string/@json-file.', arg_group='Onenote')
+        c.argument('pages', type=validate_file_or_dict, help='The pages in all OneNote notebooks that are owned by the '
+                   'user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('resources', action=AddResources, nargs='+', help='The image and other file resources in OneNote '
+                   'pages. Getting a resources collection is not supported, but you can get the binary content of a '
+                   'specific resource. Read-only. Nullable.', arg_group='Onenote')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in all OneNote notebooks '
+                   'that are owned by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in all OneNote notebooks that are owned '
+                   'by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('data_location_code', type=str, help='The geographic region code for where this site collection '
+                   'resides. Read-only.', arg_group='Site Collection')
+        c.argument('hostname', type=str, help='The hostname for the site collection. Read-only.', arg_group='Site '
+                   'Collection')
+        c.argument('microsoft_graph_root', type=validate_file_or_dict, help='root Expected value: '
+                   'json-string/@json-file.', arg_group='Site Collection')
+        c.argument('code', type=str, help='', arg_group='Error')
+        c.argument('details', action=AddDetails, nargs='+', help='', arg_group='Error')
+        c.argument('inner_error', action=AddInnerError, nargs='+', help='publicInnerError', arg_group='Error')
+        c.argument('message', type=str, help='', arg_group='Error')
+        c.argument('target', type=str, help='', arg_group='Error')
+
+    with self.argument_context('sites site update') as c:
+        c.argument('site_id', type=str, help='key: id of site')
         c.argument('site_id1', type=str, help='key: id of site')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='Date and time of item creation. Read-only.')

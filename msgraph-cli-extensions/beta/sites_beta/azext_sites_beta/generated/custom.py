@@ -271,6 +271,113 @@ def sites_site_list(client,
 
 def sites_site_create(client,
                       site_id=None,
+                      id_=None,
+                      created_date_time=None,
+                      description=None,
+                      e_tag=None,
+                      last_modified_date_time=None,
+                      name=None,
+                      web_url=None,
+                      created_by_user=None,
+                      last_modified_by_user=None,
+                      drive_id=None,
+                      drive_type=None,
+                      microsoft_graph_item_reference_id=None,
+                      microsoft_graph_item_reference_name=None,
+                      path=None,
+                      share_id=None,
+                      sharepoint_ids=None,
+                      microsoft_graph_item_reference_site_id=None,
+                      application=None,
+                      device=None,
+                      user=None,
+                      microsoft_graph_identity_application=None,
+                      microsoft_graph_identity_device=None,
+                      microsoft_graph_identity_user=None,
+                      display_name=None,
+                      root=None,
+                      microsoft_graph_sharepoint_ids=None,
+                      analytics=None,
+                      columns=None,
+                      content_types=None,
+                      drive=None,
+                      drives=None,
+                      items=None,
+                      lists=None,
+                      pages=None,
+                      sites=None,
+                      microsoft_graph_entity_id=None,
+                      notebooks=None,
+                      operations=None,
+                      microsoft_graph_onenote_pages=None,
+                      resources=None,
+                      section_groups=None,
+                      sections=None,
+                      data_location_code=None,
+                      hostname=None,
+                      microsoft_graph_root=None,
+                      state=None):
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['e_tag'] = e_tag
+    body['last_modified_date_time'] = last_modified_date_time
+    body['name'] = name
+    body['web_url'] = web_url
+    body['created_by_user'] = created_by_user
+    body['last_modified_by_user'] = last_modified_by_user
+    body['parent_reference'] = {}
+    body['parent_reference']['drive_id'] = drive_id
+    body['parent_reference']['drive_type'] = drive_type
+    body['parent_reference']['id'] = microsoft_graph_item_reference_id
+    body['parent_reference']['name'] = microsoft_graph_item_reference_name
+    body['parent_reference']['path'] = path
+    body['parent_reference']['share_id'] = share_id
+    body['parent_reference']['sharepoint_ids'] = sharepoint_ids
+    body['parent_reference']['site_id'] = microsoft_graph_item_reference_site_id
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['display_name'] = display_name
+    body['root'] = root
+    body['sharepoint_ids'] = microsoft_graph_sharepoint_ids
+    body['analytics'] = analytics
+    body['columns'] = columns
+    body['content_types'] = content_types
+    body['drive'] = drive
+    body['drives'] = drives
+    body['items'] = items
+    body['lists'] = lists
+    body['pages'] = pages
+    body['sites'] = sites
+    body['onenote'] = {}
+    body['onenote']['id'] = microsoft_graph_entity_id
+    body['onenote']['notebooks'] = notebooks
+    body['onenote']['operations'] = operations
+    body['onenote']['pages'] = microsoft_graph_onenote_pages
+    body['onenote']['resources'] = resources
+    body['onenote']['section_groups'] = section_groups
+    body['onenote']['sections'] = sections
+    body['site_collection'] = {}
+    body['site_collection']['data_location_code'] = data_location_code
+    body['site_collection']['hostname'] = hostname
+    body['site_collection']['root'] = microsoft_graph_root
+    body['deleted'] = {}
+    body['deleted']['state'] = state
+    if site_id is not None:
+        return client.create_sites(site_id=site_id,
+                                   body=body)
+    return client.create_site(body=body)
+
+
+def sites_site_update(client,
+                      site_id,
                       site_id1=None,
                       id_=None,
                       created_date_time=None,
@@ -375,13 +482,8 @@ def sites_site_create(client,
         return client.update_sites(site_id=site_id,
                                    site_id1=site_id1,
                                    body=body)
-    elif site_id is not None:
-        return client.update_site(site_id=site_id,
-                                  body=body)
-    elif site_id is not None:
-        return client.create_sites(site_id=site_id,
-                                   body=body)
-    return client.create_site(body=body)
+    return client.update_site(site_id=site_id,
+                              body=body)
 
 
 def sites_site_delete_site(client,

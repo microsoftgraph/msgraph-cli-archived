@@ -22,7 +22,7 @@ helps['security security'] = """
     short-summary: Manage security security with security_v1_0
 """
 
-helps['security security create'] = """
+helps['security security update'] = """
     type: command
     short-summary: "Update Security."
 """

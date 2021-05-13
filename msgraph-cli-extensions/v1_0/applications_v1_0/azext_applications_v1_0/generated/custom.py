@@ -21,7 +21,6 @@ def applications_application_list(client,
 
 
 def applications_application_create(client,
-                                    application_id=None,
                                     id_=None,
                                     deleted_date_time=None,
                                     add_ins=None,
@@ -114,10 +113,105 @@ def applications_application_create(client,
     body['api']['oauth2_permission_scopes'] = oauth2_permission_scopes
     body['api']['pre_authorized_applications'] = pre_authorized_applications
     body['api']['requested_access_token_version'] = requested_access_token_version
-    if application_id is not None:
-        return client.update_application(application_id=application_id,
-                                         body=body)
     return client.create_application(body=body)
+
+
+def applications_application_update(client,
+                                    application_id,
+                                    id_=None,
+                                    deleted_date_time=None,
+                                    add_ins=None,
+                                    app_id=None,
+                                    application_template_id=None,
+                                    app_roles=None,
+                                    created_date_time=None,
+                                    description=None,
+                                    display_name=None,
+                                    group_membership_claims=None,
+                                    identifier_uris=None,
+                                    info=None,
+                                    is_device_only_auth_supported=None,
+                                    is_fallback_public_client=None,
+                                    key_credentials=None,
+                                    logo=None,
+                                    notes=None,
+                                    oauth2_require_post_response=None,
+                                    parental_control_settings=None,
+                                    password_credentials=None,
+                                    public_client=None,
+                                    publisher_domain=None,
+                                    required_resource_access=None,
+                                    sign_in_audience=None,
+                                    tags=None,
+                                    token_encryption_key_id=None,
+                                    created_on_behalf_of=None,
+                                    extension_properties=None,
+                                    home_realm_discovery_policies=None,
+                                    owners=None,
+                                    token_issuance_policies=None,
+                                    token_lifetime_policies=None,
+                                    home_page_url=None,
+                                    implicit_grant_settings=None,
+                                    logout_url=None,
+                                    redirect_uris=None,
+                                    access_token=None,
+                                    id_token=None,
+                                    saml2_token=None,
+                                    accept_mapped_claims=None,
+                                    known_client_applications=None,
+                                    oauth2_permission_scopes=None,
+                                    pre_authorized_applications=None,
+                                    requested_access_token_version=None):
+    body = {}
+    body['id'] = id_
+    body['deleted_date_time'] = deleted_date_time
+    body['add_ins'] = add_ins
+    body['app_id'] = app_id
+    body['application_template_id'] = application_template_id
+    body['app_roles'] = app_roles
+    body['created_date_time'] = created_date_time
+    body['description'] = description
+    body['display_name'] = display_name
+    body['group_membership_claims'] = group_membership_claims
+    body['identifier_uris'] = identifier_uris
+    body['info'] = info
+    body['is_device_only_auth_supported'] = is_device_only_auth_supported
+    body['is_fallback_public_client'] = is_fallback_public_client
+    body['key_credentials'] = key_credentials
+    body['logo'] = logo
+    body['notes'] = notes
+    body['oauth2_require_post_response'] = oauth2_require_post_response
+    body['parental_control_settings'] = parental_control_settings
+    body['password_credentials'] = password_credentials
+    body['public_client'] = public_client
+    body['publisher_domain'] = publisher_domain
+    body['required_resource_access'] = required_resource_access
+    body['sign_in_audience'] = sign_in_audience
+    body['tags'] = tags
+    body['token_encryption_key_id'] = token_encryption_key_id
+    body['created_on_behalf_of'] = created_on_behalf_of
+    body['extension_properties'] = extension_properties
+    body['home_realm_discovery_policies'] = home_realm_discovery_policies
+    body['owners'] = owners
+    body['token_issuance_policies'] = token_issuance_policies
+    body['token_lifetime_policies'] = token_lifetime_policies
+    body['web'] = {}
+    body['web']['home_page_url'] = home_page_url
+    body['web']['implicit_grant_settings'] = implicit_grant_settings
+    body['web']['logout_url'] = logout_url
+    body['web']['redirect_uris'] = redirect_uris
+    body['optional_claims'] = {}
+    body['optional_claims']['access_token'] = access_token
+    body['optional_claims']['id_token'] = id_token
+    body['optional_claims']['saml2_token'] = saml2_token
+    body['api'] = {}
+    body['api']['accept_mapped_claims'] = accept_mapped_claims
+    body['api']['known_client_applications'] = known_client_applications
+    body['api']['oauth2_permission_scopes'] = oauth2_permission_scopes
+    body['api']['pre_authorized_applications'] = pre_authorized_applications
+    body['api']['requested_access_token_version'] = requested_access_token_version
+    return client.update_application(application_id=application_id,
+                                     body=body)
 
 
 def applications_application_delete_application(client,

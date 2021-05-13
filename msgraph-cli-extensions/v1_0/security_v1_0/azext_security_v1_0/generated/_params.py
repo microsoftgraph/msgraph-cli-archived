@@ -36,7 +36,7 @@ from azext_security_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('security security create') as c:
+    with self.argument_context('security security update') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('alerts', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')

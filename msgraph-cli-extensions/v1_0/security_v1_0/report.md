@@ -16,7 +16,7 @@
 ### <a name="CommandsInSecurity.security">Commands in `az security security` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az security security create](#Security.securityUpdateSecurity)|UpdateSecurity|[Parameters](#ParametersSecurity.securityUpdateSecurity)|Not Found|
+|[az security security update](#Security.securityUpdateSecurity)|UpdateSecurity|[Parameters](#ParametersSecurity.securityUpdateSecurity)|Not Found|
 |[az security security show-security](#Security.securityGetSecurity)|GetSecurity|[Parameters](#ParametersSecurity.securityGetSecurity)|Not Found|
 
 ### <a name="CommandsInSecurity">Commands in `az security security` group</a>
@@ -42,7 +42,7 @@
 ## COMMAND DETAILS
 
 ### group `az security security`
-#### <a name="Security.securityUpdateSecurity">Command `az security security create`</a>
+#### <a name="Security.securityUpdateSecurity">Command `az security security update`</a>
 
 ##### <a name="ParametersSecurity.securityUpdateSecurity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
