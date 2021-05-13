@@ -49,6 +49,7 @@ def load_command_table(self, _):
     with self.command_group('users user', users_v1_0_user_user, client_factory=cf_user_user) as g:
         g.custom_command('list', 'users_user_list')
         g.custom_command('create', 'users_user_create')
+        g.custom_command('update', 'users_user_update')
         g.custom_command('delete-user', 'users_user_delete_user')
         g.custom_command('show-user', 'users_user_show_user')
 

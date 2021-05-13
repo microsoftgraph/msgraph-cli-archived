@@ -717,7 +717,7 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner planner create') as c:
+    with self.argument_context('planner planner update') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('buckets', type=validate_file_or_dict, help='Read-only. Nullable. Returns a collection of the '
                    'specified buckets Expected value: json-string/@json-file.')

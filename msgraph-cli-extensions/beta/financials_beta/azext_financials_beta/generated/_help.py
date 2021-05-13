@@ -22,7 +22,7 @@ helps['financials financial'] = """
     short-summary: Manage financial financial with financials_beta
 """
 
-helps['financials financial create'] = """
+helps['financials financial update'] = """
     type: command
     short-summary: "Update financials."
 """

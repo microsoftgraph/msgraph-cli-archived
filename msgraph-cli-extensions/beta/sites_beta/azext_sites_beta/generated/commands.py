@@ -567,6 +567,7 @@ def load_command_table(self, _):
     with self.command_group('sites site', sites_beta_site_site, client_factory=cf_site_site) as g:
         g.custom_command('list', 'sites_site_list')
         g.custom_command('create', 'sites_site_create')
+        g.custom_command('update', 'sites_site_update')
         g.custom_command('delete-site', 'sites_site_delete_site')
         g.custom_command('show-site', 'sites_site_show_site')
 

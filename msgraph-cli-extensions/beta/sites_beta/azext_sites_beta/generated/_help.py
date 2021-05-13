@@ -249,8 +249,7 @@ helps['sites site list'] = """
 
 helps['sites site create'] = """
     type: command
-    short-summary: "Update the navigation property sites in sites And Update entity in sites And Create new navigation \
-property to sites for sites And Add new entity to sites."
+    short-summary: "Create new navigation property to sites for sites And Add new entity to sites."
     parameters:
       - name: --sharepoint-ids
         short-summary: "sharepointIds"
@@ -440,6 +439,12 @@ supported, but you can get the binary content of a specific resource. Read-only.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --resources argument.
+"""
+
+helps['sites site update'] = """
+    type: command
+    short-summary: "Update the navigation property sites in sites And Update entity in sites."
+    parameters:
       - name: --sharepoint-ids
         short-summary: "sharepointIds"
         long-summary: |
