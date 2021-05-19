@@ -97,7 +97,7 @@ class MgCliLogging(CLILogging):
             # overwrite CLILogging._is_file_log_enabled() from knack
             self.file_log_enabled = cli_ctx.config.getboolean('logging',
                                                               'enable_log_file',
-                                                              fallback=True)
+                                                              fallback=False)
 
             if self.file_log_enabled:
                 self._init_command_logfile_handlers(cmd_logger, args)  # pylint: disable=protected-access
