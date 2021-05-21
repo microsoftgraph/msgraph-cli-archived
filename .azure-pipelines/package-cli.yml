@@ -169,36 +169,36 @@ stages:
 
 
 
+# Disabling this stage until we need to release for mac.
+# - stage: BuildHomebrewFormula
+#   jobs:
+#     - job: BuildHomebrewFormula
+#       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+#       displayName: "Generate HomebrewFormula"
+#       pool:
+#         vmImage: 'ubuntu-18.04'
+#         strategy:
+#           matrix:
+#             Python37:
+#               python.version: '3.7'
+#       steps:
+#         - task: UsePythonVersion@0
+#           displayName: 'Use Python $(python.version)'
 
-- stage: BuildHomebrewFormula
-  jobs:
-    - job: BuildHomebrewFormula
-      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-      displayName: "Generate HomebrewFormula"
-      pool:
-        vmImage: 'ubuntu-18.04'
-        strategy:
-          matrix:
-            Python37:
-              python.version: '3.7'
-      steps:
-        - task: UsePythonVersion@0
-          displayName: 'Use Python $(python.version)'
+#         - bash: |
+#             python -m pip install --upgrade pip
+#             pip install -r build_scripts/homebrew/requirements.txt
+#             pip install .
+#           displayName: 'Upgrade pip and install dependencies'
 
-        - bash: |
-            python -m pip install --upgrade pip
-            pip install -r build_scripts/homebrew/requirements.txt
-            pip install .
-          displayName: 'Upgrade pip and install dependencies'
+#         - bash: |
+#             export GITHUB_RELEASE_TAR='https://github.com/microsoftgraph/msgraph-cli/archive/msgraph_cli_$(Build.BuildId).tar.gz'
+#             python build_scripts/homebrew/generate_formula.py
 
-        - bash: |
-            export GITHUB_RELEASE_TAR='https://github.com/microsoftgraph/msgraph-cli/archive/msgraph_cli_$(Build.BuildId).tar.gz'
-            python build_scripts/homebrew/generate_formula.py
+#           displayName: "Generate homebrew formula"
 
-          displayName: "Generate homebrew formula"
-
-        - task: PublishPipelineArtifact@1
-          displayName: 'Publish msgraph-cli debian artifact'
-          inputs:
-            TargetPath: './msgraph-cli.rb'
-            ArtifactName: homebrew_formula
+#         - task: PublishPipelineArtifact@1
+#           displayName: 'Publish msgraph-cli debian artifact'
+#           inputs:
+#             TargetPath: './msgraph-cli.rb'
+#             ArtifactName: homebrew_formula
