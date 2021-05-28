@@ -13,7 +13,7 @@ jobs:
         uses: aliencube/microsoft-teams-actions@v0.8.0
         with:
           webhook_uri: ${{ secrets.TEAMS_WEBHOOK_URL}}
-          title: New release ${{ github.event.release.name }} from ${{ github.event.repository.name }}
+          title: Another one! 💪  ${{ github.event.release.name }}
           summary: A new release (${{ github.event.release.tag_name }}) has been created
           text: ${{ github.event.release.body }}
           theme_color: 0000FF
