@@ -142,3 +142,5 @@ readme.python.md
 
 .vscode/
 .swp
+.DS_Store
+.nvimlog
