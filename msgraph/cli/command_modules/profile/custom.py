@@ -36,21 +36,16 @@ def list_subscriptions(cmd, all=False, refresh=False):  # pylint: disable=redefi
     """List the imported subscriptions."""
     from azure.cli.core.api import load_subscriptions
 
-    subscriptions = load_subscriptions(cmd.cli_ctx,
-                                       all_clouds=all,
-                                       refresh=refresh)
+    subscriptions = load_subscriptions(cmd.cli_ctx, all_clouds=all, refresh=refresh)
     if not subscriptions:
         logger.warning('Please run "az login" to access your accounts.')
     for sub in subscriptions:
         sub['cloudName'] = sub.pop('environmentName', None)
     if not all:
-        enabled_ones = [
-            s for s in subscriptions if s.get('state') == 'Enabled'
-        ]
+        enabled_ones = [s for s in subscriptions if s.get('state') == 'Enabled']
         if len(enabled_ones) != len(subscriptions):
-            logger.warning(
-                "A few accounts are skipped as they don't have 'Enabled' state. "
-                "Use '--all' to display them.")
+            logger.warning("A few accounts are skipped as they don't have 'Enabled' state. "
+                           "Use '--all' to display them.")
             subscriptions = enabled_ones
     return subscriptions
 
@@ -70,11 +65,7 @@ def show_subscription(cmd, subscription=None, show_auth_for_sdk=None):
     return profile.get_subscription(subscription)
 
 
-def get_access_token(cmd,
-                     subscription=None,
-                     resource=None,
-                     resource_type=None,
-                     tenant=None):
+def get_access_token(cmd, subscription=None, resource=None, resource_type=None, tenant=None):
     """
     get AAD token to access to a specified resource
     :param resource: Azure resource endpoints. Default to Azure Resource Manager
@@ -86,11 +77,11 @@ def get_access_token(cmd,
         print(cloud_resource_type_mappings)
         resource = getattr(cmd.cli_ctx.cloud.endpoints, endpoints_attr_name)
     else:
-        resource = (resource or
-                    cmd.cli_ctx.cloud.endpoints.active_directory_resource_id)
+        resource = (resource or cmd.cli_ctx.cloud.endpoints.active_directory_resource_id)
     profile = Profile(cli_ctx=cmd.cli_ctx)
-    creds, subscription, tenant = profile.get_raw_token(
-        subscription=subscription, resource=resource, tenant=tenant)
+    creds, subscription, tenant = profile.get_raw_token(subscription=subscription,
+                                                        resource=resource,
+                                                        tenant=tenant)
 
     token_entry = creds[2]
     # MSIAuthentication's token entry has `expires_on`, while ADAL's token entry has `expiresOn`
@@ -143,7 +134,6 @@ def login(cmd,
                           is_service_principal=False,
                           tenant=None,
                           scopes=['mail.readwrite'],
-                          client_id='837b13ab-6d14-4dc7-837f-8954cc87fdc0',
                           find_subscriptions=False,
                           allow_no_subscriptions=True)
 
@@ -165,8 +155,7 @@ def list_locations(cmd):
 
 
 def check_cli(cmd):
-    from azure.cli.core.file_util import (
-        create_invoker_and_load_cmds_and_args, get_all_help)
+    from azure.cli.core.file_util import (create_invoker_and_load_cmds_and_args, get_all_help)
 
     exceptions = {}
 
