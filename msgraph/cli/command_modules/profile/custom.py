@@ -129,7 +129,8 @@ def login(cmd,
           use_device_code=False,
           use_cert_sn_issuer=None,
           tenant_access=False,
-          environment=False):
+          environment=False,
+          scopes=None):
     """Log in to access Azure subscriptions"""
     from adal.adal_error import AdalError
     import requests
@@ -179,7 +180,8 @@ def login(cmd,
                                       use_device_code=use_device_code,
                                       allow_no_subscriptions=True,
                                       use_cert_sn_issuer=use_cert_sn_issuer,
-                                      find_subscriptions=False)
+                                      find_subscriptions=False,
+                                      scopes=scopes)
     except AdalError as err:
         # try polish unfriendly server errors
         if username:
