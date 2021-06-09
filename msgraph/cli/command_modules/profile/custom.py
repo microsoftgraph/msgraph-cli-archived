@@ -3,8 +3,6 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
-from __future__ import print_function
-
 from knack.log import get_logger
 from knack.prompting import prompt_pass, NoTTYException
 from knack.util import CLIError
@@ -56,7 +54,7 @@ def show_subscription(cmd, subscription=None, show_auth_for_sdk=None):
     profile = Profile(cli_ctx=cmd.cli_ctx)
 
     if show_auth_for_sdk:
-        from msgraph.cli.command_modules.role.custom import CREDENTIAL_WARNING_MESSAGE
+        from azure.cli.command_modules.role.custom import CREDENTIAL_WARNING_MESSAGE
         logger.warning(CREDENTIAL_WARNING_MESSAGE)
         # sdk-auth file should be in json format all the time, hence the print
         print(json.dumps(profile.get_sp_auth_info(subscription), indent=2))
@@ -65,22 +63,24 @@ def show_subscription(cmd, subscription=None, show_auth_for_sdk=None):
     return profile.get_subscription(subscription)
 
 
-def get_access_token(cmd, subscription=None, resource=None, resource_type=None, tenant=None):
+def get_access_token(cmd,
+                     subscription=None,
+                     resource=None,
+                     scopes=None,
+                     resource_type=None,
+                     tenant=None):
     """
-    get AAD token to access to a specified resource
-    :param resource: Azure resource endpoints. Default to Azure Resource Manager
-    :param resource-type: Name of Azure resource endpoints. Can be used instead of resource.
+    get AAD token to access to a specified resource.
     Use 'az cloud show' command for other Azure resources
     """
-    if resource is None and resource_type is not None:
+    if resource is None and resource_type:
         endpoints_attr_name = cloud_resource_type_mappings[resource_type]
-        print(cloud_resource_type_mappings)
         resource = getattr(cmd.cli_ctx.cloud.endpoints, endpoints_attr_name)
-    else:
-        resource = (resource or cmd.cli_ctx.cloud.endpoints.active_directory_resource_id)
+
     profile = Profile(cli_ctx=cmd.cli_ctx)
     creds, subscription, tenant = profile.get_raw_token(subscription=subscription,
                                                         resource=resource,
+                                                        scopes=scopes,
                                                         tenant=tenant)
 
     token_entry = creds[2]
@@ -110,35 +110,106 @@ def set_active_subscription(cmd, subscription):
     profile.set_active_subscription(subscription)
 
 
-def account_clear(cmd):
+def account_clear(cmd, clear_credential=True):
     """Clear all stored subscriptions. To clear individual, use 'logout'"""
     if in_cloud_console():
         logger.warning(_CLOUD_CONSOLE_LOGOUT_WARNING)
     profile = Profile(cli_ctx=cmd.cli_ctx)
-    profile.logout_all()
+    profile.logout_all(clear_credential)
 
 
-# pylint: disable=inconsistent-return-statements
+# pylint: disable=inconsistent-return-statements, too-many-branches
 def login(cmd,
           username=None,
           password=None,
           service_principal=None,
           tenant=None,
-          allow_no_subscriptions=True,
+          allow_no_subscriptions=False,
           identity=False,
           use_device_code=False,
-          use_cert_sn_issuer=None):
-    res = Profile().login(interactive=True,
-                          username=username,
-                          password=password,
-                          is_service_principal=False,
-                          tenant=None,
-                          scopes=['mail.readwrite'],
-                          find_subscriptions=False,
-                          allow_no_subscriptions=True)
+          use_cert_sn_issuer=None,
+          tenant_access=False,
+          environment=False):
+    """Log in to access Azure subscriptions"""
+    from adal.adal_error import AdalError
+    import requests
+
+    # quick argument usage check
+    if any([password, service_principal, tenant]) and identity:
+        raise CLIError("usage error: '--identity' is not applicable with other arguments")
+    if any([password, service_principal, username, identity]) and use_device_code:
+        raise CLIError("usage error: '--use-device-code' is not applicable with other arguments")
+    if any([password, service_principal, username, identity, use_device_code]) and environment:
+        raise CLIError("usage error: '--environment' is not applicable with other arguments")
+    if use_cert_sn_issuer and not service_principal:
+        raise CLIError("usage error: '--use-sn-issuer' is only applicable with a service principal")
+    if service_principal and not username:
+        raise CLIError(
+            'usage error: --service-principal --username NAME --password SECRET --tenant TENANT')
+
+    interactive = False
+
+    profile = Profile(cli_ctx=cmd.cli_ctx, async_persist=False)
+
+    if identity:
+        if in_cloud_console():
+            return profile.login_in_cloud_shell()
+        return profile.login_with_managed_identity(username, allow_no_subscriptions)
+    if in_cloud_console():  # tell users they might not need login
+        logger.warning(_CLOUD_CONSOLE_LOGIN_WARNING)
+
+    if username:
+        if not password:
+            try:
+                password = prompt_pass('Password: ')
+            except NoTTYException:
+                raise CLIError('Please specify both username and password in non-interactive mode.')
+    else:
+        interactive = True
+
+    if environment:
+        return profile.login_with_environment_credential(find_subscriptions=not tenant_access)
+
+    try:
+        subscriptions = profile.login(interactive,
+                                      username,
+                                      password,
+                                      service_principal,
+                                      tenant,
+                                      use_device_code=use_device_code,
+                                      allow_no_subscriptions=True,
+                                      use_cert_sn_issuer=use_cert_sn_issuer,
+                                      find_subscriptions=False)
+    except AdalError as err:
+        # try polish unfriendly server errors
+        if username:
+            msg = str(err)
+            suggestion = "For cross-check, try 'az login' to authenticate through browser."
+            if ('ID3242:' in msg) or ('Server returned an unknown AccountType' in msg):
+                raise CLIError("The user name might be invalid. " + suggestion)
+            if 'Server returned error in RSTR - ErrorCode' in msg:
+                raise CLIError("Logging in through command line is not supported. " + suggestion)
+            if 'wstrust' in msg:
+                raise CLIError(
+                    "Authentication failed due to error of '" + msg + "' "
+                    "This typically happens when attempting a Microsoft account, which requires "
+                    "interactive login. Please invoke 'az login' to cross check. "
+                    # pylint: disable=line-too-long
+                    "More details are available at https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Username-Password-Authentication"
+                )
+        raise CLIError(err)
+    except requests.exceptions.SSLError as err:
+        from azure.cli.core.util import SSLERROR_TEMPLATE
+        raise CLIError(SSLERROR_TEMPLATE + " Error detail: {}".format(str(err)))
+    except requests.exceptions.ConnectionError as err:
+        raise CLIError('Please ensure you have network connection. Error detail: ' + str(err))
+    all_subscriptions = list(subscriptions)
+    for sub in all_subscriptions:
+        sub['cloudName'] = sub.pop('environmentName', None)
+    return all_subscriptions
 
 
-def logout(cmd, username=None):
+def logout(cmd, username=None, clear_credential=True):
     """Log out to remove access to Azure subscriptions"""
     if in_cloud_console():
         logger.warning(_CLOUD_CONSOLE_LOGOUT_WARNING)
@@ -146,12 +217,18 @@ def logout(cmd, username=None):
     profile = Profile(cli_ctx=cmd.cli_ctx)
     if not username:
         username = profile.get_current_account_user()
-    profile.logout(username, True)
+    profile.logout(username, clear_credential)
 
 
 def list_locations(cmd):
     from azure.cli.core.commands.parameters import get_subscription_locations
     return get_subscription_locations(cmd.cli_ctx)
+
+
+def export_msal_cache(cmd, path=None):  # pylint: disable=unused-argument
+    from azure.cli.core._identity import Identity
+    identity = Identity()
+    identity.serialize_token_cache(path)
 
 
 def check_cli(cmd):
