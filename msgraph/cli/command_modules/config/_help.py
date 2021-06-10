@@ -47,7 +47,7 @@ type: command
 short-summary: Unset a configuration.
 examples:
   - name: Unset the configuration of key `core.no_color`.
-    text: az config unset core.no_color
+    text: mg config unset core.no_color
 """
 
 helps['config param-persist'] = """
@@ -80,11 +80,11 @@ type: command
 short-summary: Delete parameter persistence data.
 examples:
   - name: Delete resource_group_name from parameter persistence
-    text: az config param-persist delete resource_group_name
+    text: mg config param-persist delete resource_group_name
   - name: Clear all parameter persistence data
-    text: az config param-persist delete --all
+    text: mg config param-persist delete --all
   - name: Delete parameter persistence file
-    text: az config param-persist delete --all --purge
+    text: mg config param-persist delete --all --purge
   - name: Delete parameter persistence file recursively
-    text: az config param-persist delete --all --purge --recursive
+    text: mg config param-persist delete --all --purge --recursive
 """
