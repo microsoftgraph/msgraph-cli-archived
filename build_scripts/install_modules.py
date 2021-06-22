@@ -4,7 +4,7 @@ import sys
 
 
 def install():
-    command_modules = path.join(getcwd(), pardir, 'command_modules')
+    command_modules = path.join(getcwd(), pardir, 'msgraph', 'cli', 'command_modules')
 
     for module in listdir(command_modules):
         try:
