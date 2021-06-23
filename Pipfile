@@ -15,4 +15,4 @@ mock-open = "*"
 bump2version = "*"
 
 [packages]
-azure-cli-core = {subdirectory = "src/azure-cli-core", editable = true, git = "https://github.com/microsoftgraph/azure-cli.git@beta"}
+azure-cli-core = {path = "./../azure-cli/src/azure-cli-core"}
