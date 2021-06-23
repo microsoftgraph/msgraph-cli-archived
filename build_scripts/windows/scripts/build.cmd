@@ -91,9 +91,6 @@ pushd %TEMP_SCRATCH_FOLDER%
 git clone --branch beta %AZURE_CLI_URL%
 popd
 
-echo Install azure-cli-core
-%PYTHON_DIR%\python.exe -m pip install %TEMP_SCRATCH_FOLDER%\azure-cli\src\azure-cli-core
-
 robocopy %PYTHON_DIR% %BUILDING_DIR% /s /NFL /NDL
 
 :: Upgrade pip
@@ -124,6 +121,7 @@ echo All modules: %ALL_MODULES%
 
 echo Installing command modules
 pushd %REPO_ROOT%\build_scripts
+%BUILDING_DIR%\python.exe -m pip install windows\artifacts\cli_scratch\azure-cli\src\azure-cli-core
 %BUILDING_DIR%\python.exe install_modules.py
 popd
 
