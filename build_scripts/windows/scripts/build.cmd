@@ -15,6 +15,7 @@ set PYTHON_VERSION=3.6.6
 set WIX_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/msi/wix310-binaries-mirror.zip"
 set PYTHON_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/Python366-32.zip"
 set PROPAGATE_ENV_CHANGE_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/propagate_env_change.zip"
+set AZURE_CLI_URL="https://github.com/microsoftgraph/azure-cli.git"
 
 :: Set up the output directory and temp. directories
 echo Cleaning previous build artifacts...
@@ -84,6 +85,14 @@ if not exist %PYTHON_DIR% (
     popd
 )
 set PYTHON_EXE=%PYTHON_DIR%\python.exe
+
+echo Clone Azure CLI
+pushd %TEMP_SCRATCH_FOLDER%
+git clone --branch beta %AZURE_CLI_URL%
+popd
+
+echo Install azure-cli-core
+%PYTHON_DIR%\python.exe -m pip install %TEMP_SCRATCH_FOLDER%\azure-cli\src\azure-cli-core
 
 robocopy %PYTHON_DIR% %BUILDING_DIR% /s /NFL /NDL
 
