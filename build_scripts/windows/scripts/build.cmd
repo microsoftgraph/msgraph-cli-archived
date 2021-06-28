@@ -15,6 +15,7 @@ set PYTHON_VERSION=3.6.6
 set WIX_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/msi/wix310-binaries-mirror.zip"
 set PYTHON_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/Python366-32.zip"
 set PROPAGATE_ENV_CHANGE_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/propagate_env_change.zip"
+set AZURE_CLI_URL="https://github.com/microsoftgraph/azure-cli.git"
 
 :: Set up the output directory and temp. directories
 echo Cleaning previous build artifacts...
@@ -85,6 +86,11 @@ if not exist %PYTHON_DIR% (
 )
 set PYTHON_EXE=%PYTHON_DIR%\python.exe
 
+echo Clone Azure CLI
+pushd %TEMP_SCRATCH_FOLDER%
+git clone --branch beta %AZURE_CLI_URL%
+popd
+
 robocopy %PYTHON_DIR% %BUILDING_DIR% /s /NFL /NDL
 
 :: Upgrade pip
@@ -94,7 +100,6 @@ robocopy %PYTHON_DIR% %BUILDING_DIR% /s /NFL /NDL
 %BUILDING_DIR%\python.exe -m pip install wheel
 echo Building CLI packages...
 set CLI_SRC=%REPO_ROOT%\
-set EXTENSIONS_SRC=%REPO_ROOT%\msgraph-cli-extensions
 for %%a in (%CLI_SRC%) do (
    pushd %%a
    %BUILDING_DIR%\python.exe setup.py bdist_wheel -d %TEMP_SCRATCH_FOLDER%
@@ -114,9 +119,10 @@ echo All modules: %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --no-cache-dir %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --force-reinstall urllib3==1.24.2
 
-echo Installing generated extensions
+echo Installing command modules
 pushd %REPO_ROOT%\build_scripts
-%BUILDING_DIR%\python.exe install_extensions.py
+%BUILDING_DIR%\python.exe -m pip install windows\artifacts\cli_scratch\azure-cli\src\azure-cli-core
+%BUILDING_DIR%\python.exe install_modules.py
 popd
 
 pushd %BUILDING_DIR%
@@ -161,6 +167,8 @@ for /f %%f in ('dir /b /s *.pyc') do (
 )
 popd
 
+:: Remove __pycache__
+echo remove pycache
 for /d /r %BUILDING_DIR%\Lib\site-packages\pip %%d in (__pycache__) do (
     if exist %%d rmdir /s /q "%%d"
 )
