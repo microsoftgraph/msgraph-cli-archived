@@ -43,7 +43,9 @@ CLASSIFIERS = [
     'License :: OSI Approved :: MIT License',
 ]
 
-DEPENDENCIES = []
+DEPENDENCIES = [
+    'cryptography',
+]
 
 TESTS_REQUIRE = ['mock']
 

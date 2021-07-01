@@ -15,4 +15,5 @@ mock-open = "*"
 bump2version = "*"
 
 [packages]
-azure-cli-core = {path = "./../azure-cli/src/azure-cli-core"}
+cryptography = "*"
+msgraph-cli-core = {version = "*", index = "https://test.pypi.org/simple/"}

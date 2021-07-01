@@ -27,7 +27,7 @@ class MsgraphCli < Formula
 
     venv.pip_install resources
 
-    extensions = Dir.glob('msgraph-cli-extensions/src/*')
+    extensions = Dir.glob('msgraph/cli/command_modules/*')
 
     # install msgraph module
     venv.pip_install buildpath
