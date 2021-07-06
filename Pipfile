@@ -6,13 +6,17 @@ verify_ssl = true
 [dev-packages]
 yapf = "*"
 pylint = "*"
-wheel = "*"
+wheel = "==0.30.0"  # Last wheel version to generate metadata.json file which we use
 homebrew-pypi-poet = "*"
 jinja2 = "*"
 mock = "*"
 pytest = "*"
 mock-open = "*"
 bump2version = "*"
+azure-storage-blob = "==2.1.0"
 
 [packages]
-azure-cli-core = {path = "./../azure-cli/src/azure-cli-core"}
+azure-cli-core = { git = "https://github.com/microsoftgraph/azure-cli.git", ref = "28d820dc748d37df0ff70fed45c69d7168a656d3", subdirectory = "src/azure-cli-core" }
+
+[pipenv]
+allow_prereleases = true

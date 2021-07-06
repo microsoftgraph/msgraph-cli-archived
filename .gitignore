@@ -144,3 +144,4 @@ readme.python.md
 .swp
 .DS_Store
 .nvimlog
+msgraph-cli-extensions/
