@@ -15,4 +15,4 @@ mock-open = "*"
 bump2version = "*"
 
 [packages]
-msgraph-cli-core = {path = "./msgraph-cli-core-2.25.0.2.tar.gz"}
+msgraph-cli-core = {path = "./../azure-cli/src/azure-cli-core"}
