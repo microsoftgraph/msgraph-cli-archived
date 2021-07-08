@@ -38,7 +38,7 @@ You're using the default profile
 CLOUD: {DEFAULT_PROFILE['cloud']}
 VERSION: {DEFAULT_PROFILE['version']}
 
-Run mg profile -h for profile commands
+Run mg cloud -h to manage your cloud profile
         '''
     print(Fore.YELLOW + msg)
 

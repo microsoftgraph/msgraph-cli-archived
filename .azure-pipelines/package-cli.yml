@@ -159,6 +159,7 @@ stages:
 
         - task: GitHubRelease@0
           inputs:
+            title: $(CLI_VERSION)
             gitHubConnection: 'ddyett'
             repositoryName: 'microsoftgraph/msgraph-cli'
             tagSource: 'manual'
