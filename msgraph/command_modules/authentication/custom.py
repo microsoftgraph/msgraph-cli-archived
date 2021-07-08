@@ -9,7 +9,7 @@ from msgraph.cli.core.authentication import Authentication
 authentication = Authentication()
 
 
-def login(scopes='user.read', client_id=None, tenant_id=None):
+def login(scopes='user.read', client_id=None, tenant_id='common'):
     # Stripping whitespaces so that users don't have to worry about how
     # they enter scopes. ie "user.read, mail.read" or "user.read,mail.read"
     scopes = [scope.strip() for scope in scopes.split(',')]
