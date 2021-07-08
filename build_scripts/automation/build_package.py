@@ -25,7 +25,6 @@ def create_package(info, dest_folder=DEFAULT_DEST_FOLDER):
     absdirpath = (info.path)
     dest = os.path.abspath(dest_folder)
     check_call([sys.executable, 'setup.py', 'bdist_wheel', '-d', dest], cwd=absdirpath)
-    # check_call(['python', 'setup.py', "sdist", "--format", "zip", '-d', dest], cwd=absdirpath)
 
 def get_package_info(setup_file) -> PackageInfo:
     dir = os.path.dirname(setup_file)
