@@ -1,6 +1,6 @@
 class MsgraphCli < Formula
   include Language::Python::Virtualenv
-  
+
   desc "Python based command line tools for interacting with Microsoft Graph"
   homepage "https://developer.microsoft.com/en-us/graph"
   version "{{ cli_version }}"
@@ -27,16 +27,29 @@ class MsgraphCli < Formula
 
     venv.pip_install resources
 
-    extensions = Dir.glob('msgraph-cli-extensions/src/*')
+    extensions = Dir.glob('msgraph/cli/command_modules/*')
 
     # install msgraph module
     venv.pip_install buildpath
-    
-    # Install extensions
+
+   # Install extensions
     extensions.each do |extension|
-      cd buildpath/"#{extension}" do
-        venv.pip_install extension
+      if File.directory?(buildpath/"#{extension}")
+        cd buildpath/"#{extension}" do
+            begin
+                puts("Installing #{extension}")
+                venv.instance_variable_get(:@formula).system venv.instance_variable_get(:@venv_root)/"bin/pip", "install", "."
+            rescue => error
+               # pass
+            end
+        end
       end
+    end
+
+
+    cd buildpath do
+        venv.instance_variable_get(:@formula).system venv.instance_variable_get(:@venv_root)/"bin/pip", "download" , "-i", "https://test.pypi.org/simple/", "msgraph-cli-core==2.25.0.3", "--no-deps"
+        venv.instance_variable_get(:@formula).system venv.instance_variable_get(:@venv_root)/"bin/pip", "install" , "./msgraph-cli-core-2.25.0.3.tar.gz"
     end
 
 
