@@ -100,6 +100,10 @@ python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendo
 
 directive:
     - where:
+          group: {file_name}_beta
+      set:
+          group: {file_name}-beta
+    - where:
           group: {file_name}_{version}
       set:
           group: {file_name}
