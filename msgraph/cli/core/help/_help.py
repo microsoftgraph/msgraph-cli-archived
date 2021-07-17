@@ -61,7 +61,7 @@ class ArgumentGroupRegistry(object):  # pylint: disable=too-few-public-methods
 PRIVACY_STATEMENT = """
 Welcome to Microsoft Graph CLI!
 ---------------------
-Use `mg -h` to see available commands or go to https://aka.ms/microsoftgraph.
+Use `msgraph -h` to see available commands or go to https://aka.ms/microsoftgraph.
 
 Telemetry
 ---------
@@ -69,7 +69,6 @@ The Microsoft Graph CLI collects usage data in order to improve your experience.
 The data is anonymous and does not include commandline argument values.
 The data is collected by Microsoft.
 
-You can change your telemetry settings with `mg configure`.
 """
 
 WELCOME_MESSAGE = r'''
@@ -85,7 +84,7 @@ ___  ____                           __ _     _____                 _
 
 Welcome to the Microsoft Graph CLI!
 
-Use mg --version to display the current version
+Use msgraph --version to display the current version
 Here are the base commands
 '''
 
