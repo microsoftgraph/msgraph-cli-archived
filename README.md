@@ -81,15 +81,11 @@ For scripting purposes, we output certain exit codes for differing scenarios.
 
 ## Reporting issues and feedback
 
-If you encounter any bugs with the tool please file an issue in the [Issues](https://github.com/microsoftgraph/graph-cli/issues) section of our GitHub repo.
-
-To provide feedback from the command line, try the `az feedback` command.
-
+If you encounter any bugs with the tool please file an issue in the [Issues](https://github.com/microsoftgraph/msgraph-cli/issues) section of our GitHub repo.
 
 ## Developer setup
 
-If you would like to setup a development environment and contribute to the CLI, see:
-
+If you would like to setup a development environment and contribute to the CLI, read [Setting Up Your Development Environment](https://github.com/microsoftgraph/msgraph-cli/wiki/Setting-Up-Your-Development-Environment).
 
 ## Contribute code
 

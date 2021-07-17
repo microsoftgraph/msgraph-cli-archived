@@ -19,11 +19,11 @@
 ### <a name="CommandsInSecurity.security">Commands in `az security security` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az security security create](#Security.securityUpdateSecurity)|UpdateSecurity|[Parameters](#ParametersSecurity.securityUpdateSecurity)|Not Found|
-|[az security security create-action](#Security.securityUpdateSecurityActions)|UpdateSecurityActions|[Parameters](#ParametersSecurity.securityUpdateSecurityActions)|Not Found|
+|[az security security update](#Security.securityUpdateSecurity)|UpdateSecurity|[Parameters](#ParametersSecurity.securityUpdateSecurity)|Not Found|
 |[az security security create-action](#Security.securityCreateSecurityActions)|CreateSecurityActions|[Parameters](#ParametersSecurity.securityCreateSecurityActions)|Not Found|
 |[az security security list-action](#Security.securityListSecurityActions)|ListSecurityActions|[Parameters](#ParametersSecurity.securityListSecurityActions)|Not Found|
 |[az security security show-security](#Security.securityGetSecurity)|GetSecurity|[Parameters](#ParametersSecurity.securityGetSecurity)|Not Found|
+|[az security security update-action](#Security.securityUpdateSecurityActions)|UpdateSecurityActions|[Parameters](#ParametersSecurity.securityUpdateSecurityActions)|Not Found|
 
 ### <a name="CommandsInSecurity">Commands in `az security security` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
@@ -108,7 +108,7 @@
 ## COMMAND DETAILS
 
 ### group `az security security`
-#### <a name="Security.securityUpdateSecurity">Command `az security security create`</a>
+#### <a name="Security.securityUpdateSecurity">Command `az security security update`</a>
 
 ##### <a name="ParametersSecurity.securityUpdateSecurity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -128,7 +128,45 @@
 |**--ti-indicators**|array||ti_indicators|tiIndicators|
 |**--user-security-profiles**|array||user_security_profiles|userSecurityProfiles|
 
-#### <a name="Security.securityUpdateSecurityActions">Command `az security security create-action`</a>
+#### <a name="Security.securityCreateSecurityActions">Command `az security security create-action`</a>
+
+##### <a name="ParametersSecurity.securityCreateSecurityActions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--action-reason**|string||action_reason|actionReason|
+|**--app-id**|string||app_id|appId|
+|**--azure-tenant-id**|string||azure_tenant_id|azureTenantId|
+|**--client-context**|string||client_context|clientContext|
+|**--completed-date-time**|date-time||completed_date_time|completedDateTime|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--error-info**|object|ResultInfo|error_info|errorInfo|
+|**--last-action-date-time**|date-time||last_action_date_time|lastActionDateTime|
+|**--name**|string||name|name|
+|**--parameters**|array||parameters|parameters|
+|**--states**|array||states|states|
+|**--status**|choice||status|status|
+|**--user**|string||user|user|
+|**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
+
+#### <a name="Security.securityListSecurityActions">Command `az security security list-action`</a>
+
+##### <a name="ParametersSecurity.securityListSecurityActions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="Security.securityGetSecurity">Command `az security security show-security`</a>
+
+##### <a name="ParametersSecurity.securityGetSecurity">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="Security.securityUpdateSecurityActions">Command `az security security update-action`</a>
 
 ##### <a name="ParametersSecurity.securityUpdateSecurityActions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -149,28 +187,6 @@
 |**--status**|choice||status|status|
 |**--user**|string||user|user|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
-
-#### <a name="Security.securityCreateSecurityActions">Command `az security security create-action`</a>
-
-##### <a name="ParametersSecurity.securityCreateSecurityActions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="Security.securityListSecurityActions">Command `az security security list-action`</a>
-
-##### <a name="ParametersSecurity.securityListSecurityActions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-#### <a name="Security.securityGetSecurity">Command `az security security show-security`</a>
-
-##### <a name="ParametersSecurity.securityGetSecurity">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
 
 ### group `az security security`
 #### <a name="SecurityCreateAlerts">Command `az security security create-alert`</a>

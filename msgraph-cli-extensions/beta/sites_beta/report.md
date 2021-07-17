@@ -101,10 +101,10 @@
 |---------|------------|--------|-----------|
 |[az sites site list](#sites.siteListSites)|ListSites|[Parameters](#Parameterssites.siteListSites)|Not Found|
 |[az sites site list](#sites.siteListSite)|ListSite|[Parameters](#Parameterssites.siteListSite)|Not Found|
-|[az sites site create](#sites.siteUpdateSites)|UpdateSites|[Parameters](#Parameterssites.siteUpdateSites)|Not Found|
-|[az sites site create](#sites.siteUpdateSite)|UpdateSite|[Parameters](#Parameterssites.siteUpdateSite)|Not Found|
 |[az sites site create](#sites.siteCreateSites)|CreateSites|[Parameters](#Parameterssites.siteCreateSites)|Not Found|
 |[az sites site create](#sites.siteCreateSite)|CreateSite|[Parameters](#Parameterssites.siteCreateSite)|Not Found|
+|[az sites site update](#sites.siteUpdateSites)|UpdateSites|[Parameters](#Parameterssites.siteUpdateSites)|Not Found|
+|[az sites site update](#sites.siteUpdateSite)|UpdateSite|[Parameters](#Parameterssites.siteUpdateSite)|Not Found|
 |[az sites site delete-site](#sites.siteDeleteSite)|DeleteSite|[Parameters](#Parameterssites.siteDeleteSite)|Not Found|
 |[az sites site show-site](#sites.siteGetSite)|GetSite|[Parameters](#Parameterssites.siteGetSite)|Not Found|
 
@@ -823,7 +823,67 @@
 ##### <a name="Parameterssites.siteListSite">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="sites.siteUpdateSites">Command `az sites site create`</a>
+#### <a name="sites.siteCreateSites">Command `az sites site create`</a>
+
+##### <a name="Parameterssites.siteCreateSites">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--site-id**|string|key: id of site|site_id|site-id|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|Date and time of item creation. Read-only.|created_date_time|createdDateTime|
+|**--description**|string|Provides a user-visible description of the item. Optional.|description|description|
+|**--e-tag**|string|ETag for the item. Read-only.|e_tag|eTag|
+|**--last-modified-date-time**|date-time|Date and time the item was last modified. Read-only.|last_modified_date_time|lastModifiedDateTime|
+|**--name**|string|The name of the item. Read-write.|name|name|
+|**--web-url**|string|URL that displays the resource in the browser. Read-only.|web_url|webUrl|
+|**--created-by-user**|object|Represents an Azure Active Directory user object.|created_by_user|createdByUser|
+|**--last-modified-by-user**|object|Represents an Azure Active Directory user object.|last_modified_by_user|lastModifiedByUser|
+|**--drive-id**|string|Unique identifier of the drive instance that contains the item. Read-only.|drive_id|driveId|
+|**--drive-type**|string|Identifies the type of drive. See [drive][] resource for values.|drive_type|driveType|
+|**--microsoft-graph-item-reference-id**|string|Unique identifier of the item in the drive. Read-only.|microsoft_graph_item_reference_id|id|
+|**--microsoft-graph-item-reference-name**|string|The name of the item being referenced. Read-only.|microsoft_graph_item_reference_name|name|
+|**--path**|string|Path that can be used to navigate to the item. Read-only.|path|path|
+|**--share-id**|string|A unique identifier for a shared resource that can be accessed via the [Shares][] API.|share_id|shareId|
+|**--sharepoint-ids**|object|sharepointIds|sharepoint_ids|sharepointIds|
+|**--microsoft-graph-item-reference-site-id**|string||microsoft_graph_item_reference_site_id|siteId|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
+|**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
+|**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+|**--display-name**|string|The full title for the site. Read-only.|display_name|displayName|
+|**--root**|dictionary|root|root|root|
+|**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
+|**--analytics**|object|itemAnalytics|analytics|analytics|
+|**--columns**|array|The collection of column definitions reusable across lists under this site.|columns|columns|
+|**--content-types**|array|The collection of content types defined for this site.|content_types|contentTypes|
+|**--drive**|object|drive|drive|drive|
+|**--drives**|array|The collection of drives (document libraries) under this site.|drives|drives|
+|**--items**|array|Used to address any item contained in this site. This collection cannot be enumerated.|items|items|
+|**--lists**|array|The collection of lists under this site.|lists|lists|
+|**--pages**|array||pages|pages|
+|**--sites**|array|The collection of the sub-sites under this site.|sites|sites|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--notebooks**|array|The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.|notebooks|notebooks|
+|**--operations**|array|The status of OneNote operations. Getting an operations collection is not supported, but you can get the status of long-running operations if the Operation-Location header is returned in the response. Read-only. Nullable.|operations|operations|
+|**--microsoft-graph-onenote-pages**|array|The pages in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|microsoft_graph_onenote_pages|pages|
+|**--resources**|array|The image and other file resources in OneNote pages. Getting a resources collection is not supported, but you can get the binary content of a specific resource. Read-only. Nullable.|resources|resources|
+|**--section-groups**|array|The section groups in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|section_groups|sectionGroups|
+|**--sections**|array|The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.|sections|sections|
+|**--data-location-code**|string|The geographic region code for where this site collection resides. Read-only.|data_location_code|dataLocationCode|
+|**--hostname**|string|The hostname for the site collection. Read-only.|hostname|hostname|
+|**--microsoft-graph-root**|dictionary|root|microsoft_graph_root|root|
+|**--state**|string|Represents the state of the deleted item.|state|state|
+
+#### <a name="sites.siteCreateSite">Command `az sites site create`</a>
+
+##### <a name="Parameterssites.siteCreateSite">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--site-id**|string||site_id|siteId|
+
+#### <a name="sites.siteUpdateSites">Command `az sites site update`</a>
 
 ##### <a name="Parameterssites.siteUpdateSites">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -877,23 +937,11 @@
 |**--microsoft-graph-root**|dictionary|root|microsoft_graph_root|root|
 |**--state**|string|Represents the state of the deleted item.|state|state|
 
-#### <a name="sites.siteUpdateSite">Command `az sites site create`</a>
+#### <a name="sites.siteUpdateSite">Command `az sites site update`</a>
 
 ##### <a name="Parameterssites.siteUpdateSite">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="sites.siteCreateSites">Command `az sites site create`</a>
-
-##### <a name="Parameterssites.siteCreateSites">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="sites.siteCreateSite">Command `az sites site create`</a>
-
-##### <a name="Parameterssites.siteCreateSite">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--site-id**|string||site_id|siteId|
-
 #### <a name="sites.siteDeleteSite">Command `az sites site delete-site`</a>
 
 ##### <a name="Parameterssites.siteDeleteSite">Parameters</a> 

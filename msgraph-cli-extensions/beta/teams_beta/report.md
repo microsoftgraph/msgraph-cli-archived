@@ -155,8 +155,8 @@
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
 |[az teams team list](#teams.teamListTeam)|ListTeam|[Parameters](#Parametersteams.teamListTeam)|Not Found|
-|[az teams team create](#teams.teamUpdateTeam)|UpdateTeam|[Parameters](#Parametersteams.teamUpdateTeam)|Not Found|
 |[az teams team create](#teams.teamCreateTeam)|CreateTeam|[Parameters](#Parametersteams.teamCreateTeam)|Not Found|
+|[az teams team update](#teams.teamUpdateTeam)|UpdateTeam|[Parameters](#Parametersteams.teamUpdateTeam)|Not Found|
 |[az teams team delete-team](#teams.teamDeleteTeam)|DeleteTeam|[Parameters](#Parametersteams.teamDeleteTeam)|Not Found|
 |[az teams team show-team](#teams.teamGetTeam)|GetTeam|[Parameters](#Parametersteams.teamGetTeam)|Not Found|
 
@@ -1374,7 +1374,60 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="teams.teamUpdateTeam">Command `az teams team create`</a>
+#### <a name="teams.teamCreateTeam">Command `az teams team create`</a>
+
+##### <a name="Parametersteams.teamCreateTeam">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--classification**|string|An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.|classification|classification|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--description**|string|An optional description for the team.|description|description|
+|**--display-name**|string|The name of the team.|display_name|displayName|
+|**--fun-settings**|object|teamFunSettings|fun_settings|funSettings|
+|**--guest-settings**|object|teamGuestSettings|guest_settings|guestSettings|
+|**--internal-id**|string|A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.|internal_id|internalId|
+|**--is-archived**|boolean|Whether this team is in read-only mode.|is_archived|isArchived|
+|**--is-membership-limited-to-owners**|boolean||is_membership_limited_to_owners|isMembershipLimitedToOwners|
+|**--member-settings**|object|teamMemberSettings|member_settings|memberSettings|
+|**--messaging-settings**|object|teamMessagingSettings|messaging_settings|messagingSettings|
+|**--specialization**|choice||specialization|specialization|
+|**--visibility**|choice||visibility|visibility|
+|**--web-url**|string|A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.|web_url|webUrl|
+|**--channels**|array|The collection of channels & messages associated with the team.|channels|channels|
+|**--group**|object|Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.|group|group|
+|**--installed-apps**|array|The apps installed in this team.|installed_apps|installedApps|
+|**--members**|array|Members and owners of the team.|members|members|
+|**--operations**|array|The async operations that ran or are running on this team.|operations|operations|
+|**--owners**|array||owners|owners|
+|**--photo**|object|profilePhoto|photo|photo|
+|**--primary-channel**|object|channel|primary_channel|primaryChannel|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--id1**|string|Read-only.|id1|id|
+|**--enabled**|boolean|Indicates whether the schedule is enabled for the team. Required.|enabled|enabled|
+|**--offer-shift-requests-enabled**|boolean|Indicates whether offer shift requests are enabled for the schedule.|offer_shift_requests_enabled|offerShiftRequestsEnabled|
+|**--open-shifts-enabled**|boolean|Indicates whether open shifts are enabled for the schedule.|open_shifts_enabled|openShiftsEnabled|
+|**--provision-status**|choice||provision_status|provisionStatus|
+|**--provision-status-code**|string|Additional information about why schedule provisioning failed.|provision_status_code|provisionStatusCode|
+|**--swap-shifts-requests-enabled**|boolean|Indicates whether swap shifts requests are enabled for the schedule.|swap_shifts_requests_enabled|swapShiftsRequestsEnabled|
+|**--time-clock-enabled**|boolean|Indicates whether time clock is enabled for the schedule.|time_clock_enabled|timeClockEnabled|
+|**--time-off-requests-enabled**|boolean|Indicates whether time off requests are enabled for the schedule.|time_off_requests_enabled|timeOffRequestsEnabled|
+|**--time-zone**|string|Indicates the time zone of the schedule team using tz database format. Required.|time_zone|timeZone|
+|**--workforce-integration-ids**|array||workforce_integration_ids|workforceIntegrationIds|
+|**--offer-shift-requests**|array||offer_shift_requests|offerShiftRequests|
+|**--open-shift-change-requests**|array||open_shift_change_requests|openShiftChangeRequests|
+|**--open-shifts**|array||open_shifts|openShifts|
+|**--scheduling-groups**|array|The logical grouping of users in the schedule (usually by role).|scheduling_groups|schedulingGroups|
+|**--shifts**|array|The shifts in the schedule.|shifts|shifts|
+|**--swap-shifts-change-requests**|array||swap_shifts_change_requests|swapShiftsChangeRequests|
+|**--time-cards**|array||time_cards|timeCards|
+|**--time-off-reasons**|array|The set of reasons for a time off in the schedule.|time_off_reasons|timeOffReasons|
+|**--time-off-requests**|array||time_off_requests|timeOffRequests|
+|**--times-off**|array|The instances of times off in the schedule.|times_off|timesOff|
+|**--approved-location**|object|geoCoordinates|approved_location|approvedLocation|
+|**--show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
+
+#### <a name="teams.teamUpdateTeam">Command `az teams team update`</a>
 
 ##### <a name="Parametersteams.teamUpdateTeam">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -1428,11 +1481,6 @@
 |**--approved-location**|object|geoCoordinates|approved_location|approvedLocation|
 |**--show-in-teams-search-and-suggestions**|boolean||show_in_teams_search_and_suggestions|showInTeamsSearchAndSuggestions|
 
-#### <a name="teams.teamCreateTeam">Command `az teams team create`</a>
-
-##### <a name="Parametersteams.teamCreateTeam">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="teams.teamDeleteTeam">Command `az teams team delete-team`</a>
 
 ##### <a name="Parametersteams.teamDeleteTeam">Parameters</a> 

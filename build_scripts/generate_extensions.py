@@ -123,7 +123,7 @@ directive:
     - where:
           command: {file_name} {parsed_file_name} update-{parsed_file_name}
       set:
-          command: {file_name} {parsed_file_name} create
+          command: {file_name} {parsed_file_name} update
 
 modelerfour:
     lenient-model-deduplication: true

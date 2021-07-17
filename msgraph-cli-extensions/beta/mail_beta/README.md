@@ -9,7 +9,7 @@ az extension add --name mail_beta
 
 ### Included Features ###
 #### mail user ####
-#### mail usersinferenceclassification ####
-#### mail usersmailfolder ####
-#### mail usersmailfoldersmessage ####
-#### mail usersmessage ####
+#### mail user-inference-classification ####
+#### mail user-mail-folder ####
+#### mail user-mail-folder-message ####
+#### mail user-message ####

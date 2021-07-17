@@ -80,7 +80,7 @@ def load_command_table(self, _):
     with self.command_group(
         'compliance compliance', compliance_beta_compliance_compliance, client_factory=cf_compliance_compliance
     ) as g:
-        g.custom_command('create', 'compliance_compliance_create')
+        g.custom_command('update', 'compliance_compliance_update')
         g.custom_command('show-compliance', 'compliance_compliance_show_compliance')
 
     with self.command_group('compliance compliance', compliance_beta_compliance, client_factory=cf_compliance) as g:

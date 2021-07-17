@@ -11,11 +11,11 @@ from setuptools import setup, find_packages
 
 cmdclass = {}
 
-VERSION = "1.0.1"
+VERSION = "0.1.4"
 # If we have source, validate that our version numbers match
 # This should prevent uploading releases with mismatched versions.
 try:
-    with open('msgraph/core/__init__.py', 'r', encoding='utf-8') as f:
+    with open('msgraph/cli/core/__init__.py', 'r', encoding='utf-8') as f:
         content = f.read()
 except OSError:
     pass
@@ -25,7 +25,7 @@ else:
 
     m = re.search(r'__version__\s*=\s*[\'"](.+?)[\'"]', content)
     if not m:
-        print('Could not find __version__ in msgraph/core/__init__.py')
+        print('Could not find __version__ in msgraph/cli/core/__init__.py')
         sys.exit(1)
     if m.group(1) != VERSION:
         print('Expected __version__ = "{}"; found "{}"'.format(VERSION, m.group(1)))
