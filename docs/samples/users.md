@@ -2,15 +2,15 @@
 
 # Get number of users
 ```shell
-mg users user list --query 'length([])'
+msgraph users user list --query 'length([])'
 ```
 
 #### List users
 ```shell
-mg users user list --query '[:10].{Id:id,Name:displayName,Office:officeLocation,BusinessPhones:businessPhones[0]}' -o table
+msgraph users user list --query '[:10].{Id:id,Name:displayName,Office:officeLocation,BusinessPhones:businessPhones[0]}' -o table
 ```
 
 #### Update user's location
 ```shell
-mg users user update --user-id $userId --office-location $newLocation
+msgraph users user update --user-id $userId --office-location $newLocation
 ```
