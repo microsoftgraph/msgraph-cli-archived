@@ -8,14 +8,14 @@ This project is still in its early phases, but we are building not only on the w
 
 **Windows**
 
-Download with winget, `winget install microsoft.msgraphcli` or download directly from [releases](https://github.com/microsoftgraph/msgraph-cli/releases).
+Download directly from the [releases](https://github.com/microsoftgraph/msgraph-cli/releases).
 
 **Linux**
 
 If you're using **Ubuntu 20.04+**, download and install **[libffi6](http://mirrors.kernel.org/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb)**
 
 ```bash
-sudo apt install path/to/libff6
+sudo apt install path/to/libffi6
 ```
 
 Download the .deb package from the latest [release](https://github.com/microsoftgraph/msgraph-cli/releases) and install the package with the command below.
