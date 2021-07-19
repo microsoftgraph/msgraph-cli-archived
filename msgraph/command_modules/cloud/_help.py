@@ -15,7 +15,7 @@ parameters:
 examples:
   - name: Set Graph Version
     text: >
-      mg cloud set-version --graph-version beta
+      msgraph cloud set-version --graph-version beta
 """
 
 helps['cloud set'] = """
@@ -28,7 +28,7 @@ parameters:
 examples:
   - name: Set cloud
     text: >
-      mg cloud set --name PUBLIC
+      msgraph cloud set --name PUBLIC
 """
 
 helps['cloud show'] = """
@@ -51,7 +51,7 @@ parameters:
 examples:
   - name: Delete cloud
     text: >
-      mg cloud unregister --name CUSTOM_CLOUD
+      msgraph cloud unregister --name CUSTOM_CLOUD
 """
 
 helps['cloud register'] = """
@@ -61,7 +61,7 @@ parameters:
   - name: --name
     type: string
     short-summary:  Cloud's name
-    long-summary: The cloud's name is shown in the list of clouds when a user runs mg cloud select.
+    long-summary: The cloud's name is shown in the list of clouds when a user runs msgraph cloud select.
   - name: --graph-endpoint
     type: string
     short-summary: Cloud's endpoint
@@ -70,7 +70,7 @@ parameters:
 examples:
   - name: Register a new cloud
     text: >
-      mg cloud add --name CUSTOM_CLOUD --endpoint https://graph.microsoft.com --authority https://graph.microsoftonline.com
+      msgraph cloud add --name CUSTOM_CLOUD --endpoint https://graph.microsoft.com --authority https://graph.microsoftonline.com
 """
 
 helps['cloud update'] = """
@@ -91,5 +91,5 @@ parameters:
 examples:
   - name: Update a user defined cloud
     text: >
-      mg cloud update --cloud CUSTOM_CLOUD --name UPDATED_NAME
+      msgraph cloud update --cloud CUSTOM_CLOUD --name UPDATED_NAME
 """

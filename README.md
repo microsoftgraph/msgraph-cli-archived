@@ -39,14 +39,14 @@ docker run -it --name deb microsoft/msgraph-cli:ubuntu-builder
 ## Usage
 
 ```bash
-$ mg [ group ] [ command ] {parameters}
+$ msgraph [ group ] [ command ] {parameters}
 ```
 
 ### Get Started
 
 #### Login
 ```bash
-$ mg login --scopes "user.read.all"
+$ msgraph login --scopes "user.read.all"
 ```
 
 #### Query
@@ -54,7 +54,7 @@ $ mg login --scopes "user.read.all"
 You can use the `--query` parameter and the [JMESPath](http://jmespath.org/) query syntax to customize your output.
 
 ```bash
-$ mg users user list --query "[?userType=='Member'].{name: displayName, email: mail}" --output table
+$ msgraph users list-user --query "[?userType=='Member'].{name: displayName, email: mail}" --output table
 
 Name                      Email
 ------------------------  -------------------------------------

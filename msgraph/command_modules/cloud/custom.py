@@ -46,7 +46,7 @@ def set_cloud(name: str):
 
     if name not in supported_clouds.keys():
         raise CLIError(
-            f'Cloud {name} not found. Run "mg profile show-clouds" to see available clouds')
+            f'Cloud {name} not found. Run "msgraph profile show-clouds" to see available clouds')
 
     cloud_manager.set_current_cloud(name)
     print(f'Using cloud: {name}')

@@ -38,7 +38,7 @@ You're using the default profile
 CLOUD: {DEFAULT_PROFILE['cloud']}
 VERSION: {DEFAULT_PROFILE['version']}
 
-Run mg cloud -h to manage your cloud profile
+Run msgraph profile -h for profile commands
         '''
     print(Fore.YELLOW + msg)
 
