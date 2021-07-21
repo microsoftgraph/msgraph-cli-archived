@@ -88,39 +88,39 @@ stages:
           ArtifactName: msgraph_msi
 
 
-  - job: BuildDebianPackage
-    displayName: "Build Debian Package"
-    pool:
-      vmImage: 'ubuntu-18.04'
-      strategy:
-        matrix:
-          Python37:
-            python.version: '3.7'
-    steps:
-      - task: UsePythonVersion@0
-        displayName: 'Use Python $(python.version)'
+  # - job: BuildDebianPackage
+  #   displayName: "Build Debian Package"
+  #   pool:
+  #     vmImage: 'ubuntu-18.04'
+  #     strategy:
+  #       matrix:
+  #         Python37:
+  #           python.version: '3.7'
+  #   steps:
+  #     - task: UsePythonVersion@0
+  #       displayName: 'Use Python $(python.version)'
 
-      - script: |
-          python -m pip install --upgrade pip
-          sudo pip install wheel
-        displayName: 'Upgrade pip and install dependencies'
+  #     - script: |
+  #         python -m pip install --upgrade pip
+  #         sudo pip install wheel
+  #       displayName: 'Upgrade pip and install dependencies'
 
-      - bash: |
-          docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
-          docker run --name debian microsoft/msgraph-cli:ubuntu-builder
+  #     - bash: |
+  #         docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
+  #         docker run --name debian microsoft/msgraph-cli:ubuntu-builder
 
-          mkdir -p debian/out/
+  #         mkdir -p debian/out/
 
-          docker cp debian:/msgraph-cli_all.deb ./debian/out/
-        displayName: 'Build docker image'
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
+  #         docker cp debian:/msgraph-cli_all.deb ./debian/out/
+  #       displayName: 'Build docker image'
+  #       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
 
-      - task: PublishPipelineArtifact@1
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
-        displayName: 'Publish msgraph-cli debian artifact'
-        inputs:
-          TargetPath: 'debian/out'
-          ArtifactName: msgraph_deb
+  #     - task: PublishPipelineArtifact@1
+  #       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
+  #       displayName: 'Publish msgraph-cli debian artifact'
+  #       inputs:
+  #         TargetPath: 'debian/out'
+  #         ArtifactName: msgraph_deb
 
 
 
