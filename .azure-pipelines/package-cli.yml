@@ -20,12 +20,8 @@ stages:
 
       - script: |
           python -m pip install --upgrade pip
-          pip install wheel pytest
+          pip install wheel
         displayName: 'Upgrade pip and install dependencies'
-
-      - script: |
-          pytest
-        displayName: 'Test'
 
       - task: CmdLine@2
         condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
@@ -106,12 +102,8 @@ stages:
 
       - script: |
           python -m pip install --upgrade pip
-          sudo pip install wheel pytest
+          sudo pip install wheel
         displayName: 'Upgrade pip and install dependencies'
-
-      - script: |
-          pytest
-        displayName: 'Test'
 
       - bash: |
           docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
