@@ -43,7 +43,7 @@ CLASSIFIERS = [
     'License :: OSI Approved :: MIT License',
 ]
 
-DEPENDENCIES = []
+DEPENDENCIES = ['msgraph-cli-core']
 
 TESTS_REQUIRE = ['mock']
 

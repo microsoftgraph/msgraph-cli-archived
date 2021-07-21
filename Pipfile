@@ -16,4 +16,4 @@ bump2version = "*"
 azure-storage-blob = "==2.1.0"
 
 [packages]
-azure-cli-core = { git = "https://github.com/microsoftgraph/azure-cli.git", ref = "28d820dc748d37df0ff70fed45c69d7168a656d3", subdirectory = "src/azure-cli-core" }
+msgraph-cli-core = "*"
