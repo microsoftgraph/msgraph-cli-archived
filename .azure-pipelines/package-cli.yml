@@ -178,7 +178,7 @@ stages:
           displayName: 'Upgrade pip and install dependencies'
 
         - bash: |
-            export GITHUB_RELEASE_TAR='https://github.com/microsoftgraph/msgraph-cli/archive/msgraph_cli_$(CLI_VERSION).tar.gz'
+            export GITHUB_RELEASE_TAR='https://codeload.github.com/microsoftgraph/msgraph-cli/tar.gz/refs/tags/$(CLI_VERSION)'
             python build_scripts/homebrew/generate_formula.py
 
           displayName: "Generate homebrew formula"

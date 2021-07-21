@@ -113,10 +113,6 @@ echo All modules: %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --no-cache-dir %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --force-reinstall urllib3==1.24.2
 
-@REM Download and install azure-cli-core
-%BUILDING_DIR%\python.exe -m pip download -i https://test.pypi.org/simple/ msgraph-cli-core==2.25.0.3 --no-deps
-%BUILDING_DIR%\python.exe -m pip install ./msgraph-cli-core-2.25.0.3.tar.gz
-
 echo Installing command modules
 pushd %REPO_ROOT%\build_scripts
 %BUILDING_DIR%\python.exe install_modules.py
