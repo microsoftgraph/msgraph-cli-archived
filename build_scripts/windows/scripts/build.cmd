@@ -15,7 +15,6 @@ set PYTHON_VERSION=3.6.6
 set WIX_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/msi/wix310-binaries-mirror.zip"
 set PYTHON_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/Python366-32.zip"
 set PROPAGATE_ENV_CHANGE_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/propagate_env_change.zip"
-set AZURE_CLI_URL="https://github.com/microsoftgraph/azure-cli.git"
 
 :: Set up the output directory and temp. directories
 echo Cleaning previous build artifacts...
@@ -86,11 +85,6 @@ if not exist %PYTHON_DIR% (
 )
 set PYTHON_EXE=%PYTHON_DIR%\python.exe
 
-echo Clone Azure CLI
-pushd %TEMP_SCRATCH_FOLDER%
-git clone --branch beta %AZURE_CLI_URL%
-popd
-
 robocopy %PYTHON_DIR% %BUILDING_DIR% /s /NFL /NDL
 
 :: Upgrade pip
@@ -119,9 +113,12 @@ echo All modules: %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --no-cache-dir %ALL_MODULES%
 %BUILDING_DIR%\python.exe -m pip install --no-warn-script-location --force-reinstall urllib3==1.24.2
 
+@REM Download and install azure-cli-core
+%BUILDING_DIR%\python.exe -m pip download -i https://test.pypi.org/simple/ msgraph-cli-core==2.25.0.3 --no-deps
+%BUILDING_DIR%\python.exe -m pip install ./msgraph-cli-core-2.25.0.3.tar.gz
+
 echo Installing command modules
 pushd %REPO_ROOT%\build_scripts
-%BUILDING_DIR%\python.exe -m pip install windows\artifacts\cli_scratch\azure-cli\src\azure-cli-core
 %BUILDING_DIR%\python.exe install_modules.py
 popd
 
