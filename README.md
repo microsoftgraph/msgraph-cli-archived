@@ -35,7 +35,7 @@ Run the docker container interactively using the command below.
 ```bash
 docker run -it --name deb microsoft/msgraph-cli:ubuntu-builder-->
 ```
-
+```
 ## Usage
 
 ```bash
