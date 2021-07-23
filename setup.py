@@ -74,7 +74,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 with open('HISTORY.md', 'r', encoding='utf-8') as f:
     HISTORY = f.read()
 
-setup(name='msgraph-cli',
+setup(name='msgraph',
       version=VERSION,
       description='Microsoft Graph CLI',
       long_description=README + '\n\n' + HISTORY,
