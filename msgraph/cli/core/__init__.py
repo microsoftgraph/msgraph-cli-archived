@@ -40,7 +40,7 @@ class MgCLI(CLI):
 
 # This is the entry point into the Knack CLI framework.
 def get_default_cli():
-    return MgCLI(cli_name='msgraph',
+    return MgCLI(cli_name='mgc',
                  commands_loader_cls=MainCommandsLoader,
                  invocation_cls=GraphCliCommandInvoker,
                  help_cls=GraphCliHelp,

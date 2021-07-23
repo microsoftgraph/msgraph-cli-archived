@@ -12,10 +12,10 @@ long-summary: Logs in a user to Microsoft Graph with the specified scopes. You m
 examples:
     - name: Login in interactively
       text: >
-        msgraph login --scopes "user.read, mail.read" 
+        mgc login --scopes "user.read, mail.read" 
     - name: Sign in to a specific tenant/client
       text: >
-        msgraph login --scopes "user.read" --client-id <enter client id> --tenant-id <enter tenant id>
+        mgc login --scopes "user.read" --client-id <enter client id> --tenant-id <enter tenant id>
 """
 
 helps['logout'] = """

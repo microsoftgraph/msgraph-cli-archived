@@ -61,7 +61,7 @@ class ArgumentGroupRegistry(object):  # pylint: disable=too-few-public-methods
 PRIVACY_STATEMENT = """
 Welcome to Microsoft Graph CLI!
 ---------------------
-Use `msgraph -h` to see available commands or go to https://aka.ms/microsoftgraph.
+Use `mgc -h` to see available commands or go to https://aka.ms/microsoftgraph.
 
 Telemetry
 ---------
@@ -84,7 +84,7 @@ ___  ____                           __ _     _____                 _
 
 Welcome to the Microsoft Graph CLI!
 
-Use msgraph --version to display the current version
+Use mgc --version to display the current version
 Here are the base commands
 '''
 

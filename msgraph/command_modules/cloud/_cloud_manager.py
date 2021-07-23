@@ -75,8 +75,8 @@ class CloudManager:
         if current_cloud and name == current_cloud['name']:
             raise CLIError(f'''The cloud "{name}" could not be deleted because it is a current cloud
 
-To see the current cloud run msgraph cloud show-current
-To change to a different cloud run msgraph cloud select
+To see the current cloud run mgc cloud show-current
+To change to a different cloud run mgc cloud select
 ''')
 
         user_defined_names = []
