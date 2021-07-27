@@ -1,4 +1,4 @@
-name: msgraph_cli_$(Build.BuildId)
+name: msgraph_cli_$(CLI_VERSION)
 
 stages:
 - stage: BuildPackages
@@ -20,28 +20,20 @@ stages:
 
       - script: |
           python -m pip install --upgrade pip
-          pip install wheel pipenv
-          python -m pipenv lock -r > requirements.txt
-          pip install -r requirements.txt
+          pip install wheel
         displayName: 'Upgrade pip and install dependencies'
 
-      - script: |
-          pytest
-        displayName: 'Test'
-
       - task: CmdLine@2
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
         displayName: 'Build msgraph-cli'
         inputs:
           script: |
             python setup.py sdist bdist_wheel
-            for /f "tokens=3 usebackq" %%i in (`find  "__version__"  msgraph\cli\core\__init__.py`)  do set CLI_VERSION=%%~i
-            set
             cd build_scripts/windows/scripts
             build.cmd
 
       - task: SFP.build-tasks.custom-build-task-1.EsrpCodeSigning@1
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
         displayName: 'ESRP DLL CodeSigning (Microsoft.Graph.Core)'
         inputs:
           ConnectedServiceName: 'microsoftgraph ESRP CodeSign DLL and NuGet (AKV)'
@@ -89,53 +81,46 @@ stages:
           SessionTimeout: 20
 
       - task: PublishPipelineArtifact@1
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
         displayName: 'Publish msgraph-cli artifact'
         inputs:
           TargetPath: 'build_scripts/windows/out/'
           ArtifactName: msgraph_msi
 
 
-  - job: BuildDebianPackage
-    displayName: "Build Debian Package"
-    pool:
-      vmImage: 'ubuntu-18.04'
-      strategy:
-        matrix:
-          Python37:
-            python.version: '3.7'
-    steps:
-      - task: UsePythonVersion@0
-        displayName: 'Use Python $(python.version)'
+  # - job: BuildDebianPackage
+  #   displayName: "Build Debian Package"
+  #   pool:
+  #     vmImage: 'ubuntu-18.04'
+  #     strategy:
+  #       matrix:
+  #         Python37:
+  #           python.version: '3.7'
+  #   steps:
+  #     - task: UsePythonVersion@0
+  #       displayName: 'Use Python $(python.version)'
 
-      - script: |
-          python -m pip install --upgrade pip
-          sudo pip install wheel pipenv
-          pipenv lock -r > requirements.txt
-          pip install -r requirements.txt
-        displayName: 'Upgrade pip and install dependencies'
+  #     - script: |
+  #         python -m pip install --upgrade pip
+  #         sudo pip install wheel
+  #       displayName: 'Upgrade pip and install dependencies'
 
-      - script: |
-          pytest
-        displayName: 'Test'
+  #     - bash: |
+  #         docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
+  #         docker run --name debian microsoft/msgraph-cli:ubuntu-builder
 
-      - bash: |
-          export CLI_VERSION=$(cat msgraph/cli/core/__init__.py | grep __version__ | awk -F'=' '{print $2}')
-          docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsoft/msgraph-cli:ubuntu-builder .
-          docker run --name debian microsoft/msgraph-cli:ubuntu-builder
+  #         mkdir -p debian/out/
 
-          mkdir -p debian/out/
+  #         docker cp debian:/msgraph-cli_all.deb ./debian/out/
+  #       displayName: 'Build docker image'
+  #       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
 
-          docker cp debian:/msgraph-cli_all.deb ./debian/out/
-        displayName: 'Build docker image'
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-
-      - task: PublishPipelineArtifact@1
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-        displayName: 'Publish msgraph-cli debian artifact'
-        inputs:
-          TargetPath: 'debian/out'
-          ArtifactName: msgraph_deb
+  #     - task: PublishPipelineArtifact@1
+  #       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
+  #       displayName: 'Publish msgraph-cli debian artifact'
+  #       inputs:
+  #         TargetPath: 'debian/out'
+  #         ArtifactName: msgraph_deb
 
 
 
@@ -143,7 +128,7 @@ stages:
 - stage: ReleaseToGithub
   jobs:
     - job: ReleaseToGithub
-      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
       displayName: "Release to GitHub"
       pool:
         vmImage: 'ubuntu-18.04'
@@ -159,6 +144,7 @@ stages:
 
         - task: GitHubRelease@0
           inputs:
+            isPreRelease: true
             title: $(CLI_VERSION)
             gitHubConnection: 'ddyett'
             repositoryName: 'microsoftgraph/msgraph-cli'
@@ -170,36 +156,35 @@ stages:
 
 
 
-# Disabling this stage until we need to release for mac.
-# - stage: BuildHomebrewFormula
-#   jobs:
-#     - job: BuildHomebrewFormula
-#       condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-#       displayName: "Generate HomebrewFormula"
-#       pool:
-#         vmImage: 'ubuntu-18.04'
-#         strategy:
-#           matrix:
-#             Python37:
-#               python.version: '3.7'
-#       steps:
-#         - task: UsePythonVersion@0
-#           displayName: 'Use Python $(python.version)'
+- stage: BuildHomebrewFormula
+  jobs:
+    - job: BuildHomebrewFormula
+      condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/dev'))
+      displayName: "Generate HomebrewFormula"
+      pool:
+        vmImage: 'ubuntu-18.04'
+        strategy:
+          matrix:
+            Python37:
+              python.version: '3.7'
+      steps:
+        - task: UsePythonVersion@0
+          displayName: 'Use Python $(python.version)'
 
-#         - bash: |
-#             python -m pip install --upgrade pip
-#             pip install -r build_scripts/homebrew/requirements.txt
-#             pip install .
-#           displayName: 'Upgrade pip and install dependencies'
+        - bash: |
+            python -m pip install --upgrade pip
+            pip install -r build_scripts/homebrew/requirements.txt
+            pip install .
+          displayName: 'Upgrade pip and install dependencies'
 
-#         - bash: |
-#             export GITHUB_RELEASE_TAR='https://github.com/microsoftgraph/msgraph-cli/archive/msgraph_cli_$(Build.BuildId).tar.gz'
-#             python build_scripts/homebrew/generate_formula.py
+        - bash: |
+            export GITHUB_RELEASE_TAR='https://codeload.github.com/microsoftgraph/msgraph-cli/tar.gz/refs/tags/$(CLI_VERSION)'
+            python build_scripts/homebrew/generate_formula.py
 
-#           displayName: "Generate homebrew formula"
+          displayName: "Generate homebrew formula"
 
-#         - task: PublishPipelineArtifact@1
-#           displayName: 'Publish msgraph-cli debian artifact'
-#           inputs:
-#             TargetPath: './msgraph-cli.rb'
-#             ArtifactName: homebrew_formula
+        - task: PublishPipelineArtifact@1
+          displayName: 'Publish msgraph-cli debian artifact'
+          inputs:
+            TargetPath: './msgraph-cli.rb'
+            ArtifactName: homebrew_formula

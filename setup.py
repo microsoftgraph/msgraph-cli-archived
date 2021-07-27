@@ -43,7 +43,7 @@ CLASSIFIERS = [
     'License :: OSI Approved :: MIT License',
 ]
 
-DEPENDENCIES = []
+DEPENDENCIES = ['msgraph-cli-core']
 
 TESTS_REQUIRE = ['mock']
 
@@ -52,7 +52,7 @@ with open('README.md', 'r', encoding='utf-8') as f:
 with open('HISTORY.md', 'r', encoding='utf-8') as f:
     HISTORY = f.read()
 
-setup(name='msgraph',
+setup(name='msgraph-cli',
       version=VERSION,
       description='Microsoft Graph CLI',
       long_description=README + '\n\n' + HISTORY,
