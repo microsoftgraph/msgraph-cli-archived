@@ -1,0 +1,58 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Generate Extensions",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/build_scripts/generate_extensions.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}/build_scripts",
+            "env": {
+                "NODE_OPTIONS": "--max-old-space-size=65536"
+            }
+        },
+        {
+            "name": "Build Extensions",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/build_scripts/automation/build_package.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": ["--source", "./msgraph-cli-extensions/beta"]
+        },
+        {
+            "name": "Upload Extensions",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/build_scripts/automation/upload_extensions.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "env": {
+                "AZURE_EXTENSION_TARGET_STORAGE_CONTAINER": "beta",
+                "AZURE_EXTENSION_TARGET_STORAGE_ACCOUNT": "graphcliextensions",
+                "AZURE_EXTENSION_TARGET_CONNECTION_STRING": "[Storage Account Connection String]",
+                "AZURE_SYNC_ALL_EXTENSIONS": "true"
+            }
+        },
+        {
+            "name": "Sync Extensions",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/build_scripts/automation/sync_extensions.py",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "name": "mg -h",
+            "type": "python",
+            "request": "launch",
+            "module": "msgraph.cli",
+            "console": "integratedTerminal",
+            "args": ["-h"]
+        }
+    ]
+}
