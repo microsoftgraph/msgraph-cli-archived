@@ -140,7 +140,8 @@ readme.az.md
 readme.cli.md
 readme.python.md
 
-.vscode/
+.vscode/*
+!.vscode/launch.json.example
 .swp
 .DS_Store
 .nvimlog
