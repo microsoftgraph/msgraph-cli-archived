@@ -17,3 +17,6 @@ azure-storage-blob = "==2.1.0"
 
 [packages]
 msgraph-cli-core = "*"
+
+[pipenv]
+allow_prereleases = true  # azure-cli-core version installed is a pre-release
