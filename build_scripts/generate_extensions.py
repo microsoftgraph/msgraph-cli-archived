@@ -94,7 +94,7 @@ These settings apply only when `--az` is specified on the command line.
 
 ``` yaml $(az)
 az:
-  extensions: {file_name}_{version}
+  extensions: {file_name}-{version}
   package-name: azure-mgmt-{file_name}
   namespace: azure.mgmt.{file_name}
   client-subscription-bound: false
