@@ -13,19 +13,20 @@ def generate_extension_from_open_api_description(version='v1_0'):
 
         # Config files are used to modify generated extensions
         generate_az_config_for(file_name, version)
-        generate_cli_config_for(file_name)
+        generate_cli_config_for(file_name, version)
         generate_python_config_for(file_name)
 
-        subprocess.run([
+        args = [
             'autorest',
-            '--version=3.0.6370',
+            '--version=3.3.2',
             '--clear-output-folder',
             '--az',
             f'''--input-file={file_path}''',
             f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
-            r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210624.2/autorest-az-1.7.3.tgz''',
-        ],
-                       shell=True)
+            r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210721.1/autorest-az-1.7.3.tgz''',
+        ]
+
+        subprocess.run(args, shell=True)
 
 
 def get_open_api_descriptions(version: str):
@@ -45,7 +46,7 @@ def remove_file_extension_and_group(file_name):
     return file_name.replace('.', '')[:-3].lower()
 
 
-def generate_cli_config_for(file_name):
+def generate_cli_config_for(file_name, version):
     config = f"""
 # CLI
 
@@ -75,6 +76,10 @@ cli:
 
 def generate_az_config_for(file_name, version):
     parsed_file_name = file_name
+    
+    extension_mode = 'stable'
+    if version == 'beta':
+        extension_mode = 'experimental'
 
     # For filenames that are plural we get their singular form by removing the s.
     # Command group use the singular form of the filename, ie if filename is applications
@@ -89,16 +94,22 @@ These settings apply only when `--az` is specified on the command line.
 
 ``` yaml $(az)
 az:
-  extensions: {file_name}_{version}
+  extensions: {file_name}-{version}
   package-name: azure-mgmt-{file_name}
   namespace: azure.mgmt.{file_name}
   client-subscription-bound: false
   client-base-url-bound: false
 
+extension-mode: {extension_mode}
+
 az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
 
 directive:
+    - where:
+          group: {file_name}_beta
+      set:
+          group: {file_name}-beta
     - where:
           group: {file_name}_{version}
       set:
