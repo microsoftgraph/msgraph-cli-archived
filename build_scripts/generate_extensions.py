@@ -171,5 +171,5 @@ def write_to(file, config):
         f.write(config)
 
 
-# generate_extension_from_open_api_description(version='v1_0')
-generate_extension_from_open_api_description(version='beta')
+generate_extension_from_open_api_description(version='v1_0')
+# generate_extension_from_open_api_description(version='beta')
