@@ -124,8 +124,8 @@ popd
 
 echo Creating the wbin (Windows binaries) folder that will be added to the path...
 mkdir %BUILDING_DIR%\wbin
-copy %REPO_ROOT%\build_scripts\windows\scripts\mg.cmd %BUILDING_DIR%\wbin\
-copy %REPO_ROOT%\build_scripts\windows\scripts\mg %BUILDING_DIR%\wbin\
+copy %REPO_ROOT%\build_scripts\windows\scripts\mgc.cmd %BUILDING_DIR%\wbin\
+copy %REPO_ROOT%\build_scripts\windows\scripts\mgc %BUILDING_DIR%\wbin\
 if %errorlevel% neq 0 goto ERROR
 copy %REPO_ROOT%\build_scripts\windows\resources\CLI_LICENSE.rtf %BUILDING_DIR%
 copy %REPO_ROOT%\build_scripts\windows\resources\ThirdPartyNotices.txt %BUILDING_DIR%
