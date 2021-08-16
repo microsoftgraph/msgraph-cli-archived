@@ -1,3 +1,8 @@
+#### Get permissions to read all files
+```shell
+mgc login --scopes files.read.all
+```
+
 #### Get drives
 
 ```sh

@@ -1,8 +1,13 @@
- #### Incremental scope consent
+  #### Get permissions to access application operations with incremental scope consent
 
  ```sh
  mgc login --scopes "application.readwrite.all"
  ```
+
+#### Get a list of the applications currently available to the tenant
+```sh
+mgc applications application list --query "[:10].{Name:displayName,Id:appId,SignInAudience:signInAudience}"
+```
 
  #### Create an application for use with DeviceCodeFlow
 
