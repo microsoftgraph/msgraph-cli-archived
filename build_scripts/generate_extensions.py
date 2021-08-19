@@ -89,16 +89,19 @@ These settings apply only when `--az` is specified on the command line.
 
 ``` yaml $(az)
 az:
-  extensions: {file_name}_{version}
+  extensions: {file_name}
   package-name: azure-mgmt-{file_name}
   namespace: azure.mgmt.{file_name}
   client-subscription-bound: false
   client-base-url-bound: false
 
-az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
-python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
+az-output-folder: $(azure-cli-extension-folder)/{file_name}
+python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}/vendored_sdks/{file_name}"
 
 directive:
+    - from: Groups.yml
+      where: $.paths
+      transform: delete $["/groups/microsoft.graph.validateProperties"]
     - where:
           group: {file_name}_{version}
       set:
@@ -123,6 +126,7 @@ directive:
           command: {file_name} {parsed_file_name} update-{parsed_file_name}
       set:
           command: {file_name} {parsed_file_name} update
+
 
 modelerfour:
     lenient-model-deduplication: true
