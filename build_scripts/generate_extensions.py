@@ -121,6 +121,10 @@ directive:
       set:
           group: {file_name}
     - where:
+          group: {file_name}-{parsed_file_name}
+      set:
+          group: {parsed_file_name}      
+    - where:
           group: {parsed_file_name}-{parsed_file_name}
       set:
           group: {parsed_file_name}
@@ -128,6 +132,10 @@ directive:
           command: {file_name} {parsed_file_name} create-{parsed_file_name}
       set:
           command: {file_name} {parsed_file_name} create
+    - where:
+          command: {file_name} {parsed_file_name} update-{parsed_file_name}
+      set:
+          command: {file_name} {parsed_file_name} update
     - where:
           command: {file_name} {parsed_file_name} get-{parsed_file_name}
       set:
@@ -137,9 +145,21 @@ directive:
       set:
           command: {file_name} {parsed_file_name} list
     - where:
+          command: {file_name} {parsed_file_name} show-{parsed_file_name}
+      set:
+          command: {file_name} {parsed_file_name} show
+    - where:
           command: {file_name} {parsed_file_name} update-{parsed_file_name}
       set:
           command: {file_name} {parsed_file_name} update
+    - where:
+          command: {file_name} {parsed_file_name} set-{parsed_file_name}
+      set:
+          command: {file_name} {parsed_file_name} set
+    - where:
+          command: {file_name} {parsed_file_name} delete-{parsed_file_name}
+      set:
+          command: {file_name} {parsed_file_name} delete
 
 modelerfour:
     lenient-model-deduplication: true
