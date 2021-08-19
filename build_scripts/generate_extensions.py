@@ -106,6 +106,12 @@ az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
 
 directive:
+    - from: 
+          Groups.yml
+      where:
+          $.paths
+      transform: 
+          delete $["/groups/microsoft.graph.validateProperties"]
     - where:
           group: {file_name}_beta
       set:
