@@ -119,11 +119,7 @@ directive:
     - where:
           group: {file_name}_{version}
       set:
-          group: {file_name}
-    - where:
-          group: {file_name}-{parsed_file_name}
-      set:
-          group: {parsed_file_name}      
+          group: {file_name}   
     - where:
           group: {parsed_file_name}-{parsed_file_name}
       set:
@@ -132,10 +128,6 @@ directive:
           command: {file_name} {parsed_file_name} create-{parsed_file_name}
       set:
           command: {file_name} {parsed_file_name} create
-    - where:
-          command: {file_name} {parsed_file_name} update-{parsed_file_name}
-      set:
-          command: {file_name} {parsed_file_name} update
     - where:
           command: {file_name} {parsed_file_name} get-{parsed_file_name}
       set:
