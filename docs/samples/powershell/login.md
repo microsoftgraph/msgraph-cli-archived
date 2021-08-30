@@ -22,3 +22,14 @@ mgc logout
  mgc login --scopes "user.read.all" --client-id YOUR_CLIENT_ID --tenant-id YOUR_TENANT_ID
  ```
 
+#### Login with Client Credential and Client secret
+
+```sh
+mgc login --service-principal -u <APPLICATION/CLIENT ID> -t <TENANT ID> -p <CLIENT SECRET>
+```
+
+#### Login with Client Credential and Certficate
+
+```sh
+mgc login --service-principal -u <APPLICATION/CLIENT ID> -t <TENANT ID> -p <CERTIFICATE THUMBPRINT>
+```
