@@ -11,9 +11,6 @@ class MsgraphCli < Formula
   depends_on "openssl@1.1"
   depends_on "python@3.8"
 
-  # Used to build cryptography dependency
-  depends_on "rust" => :build
-
   uses_from_macos "libffi"
 
   on_linux do
@@ -137,8 +134,8 @@ class MsgraphCli < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/cc/98/8a258ab4787e6f835d350639792527d2eb7946ff9fc0caca9c3f4cf5dcfe/cryptography-3.4.8.tar.gz"
-    sha256 "94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"
+    url "https://files.pythonhosted.org/packages/d4/85/38715448253404186029c575d559879912eb8a1c5d16ad9f25d35f7c4f4c/cryptography-3.3.2.tar.gz"
+    sha256 "5a60d3780149e13b7a6ff7ad6526b38846354d11a15e21068e57073e29e19bed"
   end
 
   resource "idna" do
