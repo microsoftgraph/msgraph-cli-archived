@@ -149,7 +149,7 @@ stages:
             gitHubConnection: 'ddyett'
             repositoryName: 'microsoftgraph/msgraph-cli'
             tagSource: 'manual'
-            tag: $(CLI_VERSION)
+            tag: $(CLI_VERSION)_$(Build.BuildId)
             assets: |
               $(Pipeline.Workspace)/msgraph_msi/*.msi
               $(Pipeline.Workspace)/msgraph_deb/*.deb
@@ -178,7 +178,7 @@ stages:
           displayName: 'Upgrade pip and install dependencies'
 
         - bash: |
-            export GITHUB_RELEASE_TAR='https://codeload.github.com/microsoftgraph/msgraph-cli/tar.gz/refs/tags/$(CLI_VERSION)'
+            export GITHUB_RELEASE_TAR='https://codeload.github.com/microsoftgraph/msgraph-cli/tar.gz/refs/tags/$(CLI_VERSION)_$(Build.BuildId)'
             python build_scripts/homebrew/generate_formula.py
 
           displayName: "Generate homebrew formula"
