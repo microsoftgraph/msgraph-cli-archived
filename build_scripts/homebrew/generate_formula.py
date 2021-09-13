@@ -62,11 +62,11 @@ def compute_sha256(url: str) -> str:
     return sha256.hexdigest()
 
 
-def collect_resources():
-    nodes = make_graph('msgraph')
+def collect_resources():   
+    # nodes = make_graph('msgraph')
     nodes_render = []
-    for node_name in sorted(nodes):
-        nodes_render.append(RESOURCE_TEMPLATE.render(resource=nodes[node_name]))
+    # for node_name in sorted(nodes):
+    #     nodes_render.append(RESOURCE_TEMPLATE.render(resource=nodes[node_name]))
     return '\n\n'.join(nodes_render)
 
 
