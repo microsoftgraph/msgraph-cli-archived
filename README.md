@@ -10,7 +10,7 @@ This project is still in its early phases, but we are building not only on the w
 
 Download directly from the [releases](https://github.com/microsoftgraph/msgraph-cli/releases).
 
-**Linux**
+<!--**Linux**
 
 If you're using **Ubuntu 20.04+**, download and install **[libffi6](http://mirrors.kernel.org/ubuntu/pool/main/libf/libffi/libffi6_3.2.1-8_amd64.deb)**
 
@@ -33,9 +33,9 @@ docker build --target build-env -f ./build_scripts/debian/Dockerfile -t microsof
 
 Run the docker container interactively using the command below.
 ```bash
-docker run -it --name deb microsoft/msgraph-cli:ubuntu-builder-->
-```
-```
+docker run -it --name deb microsoft/msgraph-cli:ubuntu-builder
+``` -->
+
 ## Usage
 
 ```bash
