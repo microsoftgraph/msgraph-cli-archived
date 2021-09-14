@@ -29,8 +29,8 @@ class MsgraphCli < Formula
 
     extensions = Dir.glob('msgraph/cli/command_modules/*')
 
-    # install msgraph module
-    venv.pip_install buildpath
+   # install msgraph module
+   venv.instance_variable_get(:@formula).system venv.instance_variable_get(:@venv_root)/"bin/pip", "install", buildpath
 
    # Install extensions
     extensions.each do |extension|
@@ -46,11 +46,11 @@ class MsgraphCli < Formula
       end
     end
 
-    (bin/"graph").write <<~EOS
+    (bin/"mgc").write <<~EOS
       #!/usr/bin/env bash
       MG_INSTALLER=HOMEBREW #{libexec}/bin/python -m msgraph.cli \"$@\"
     EOS
 
-    bash_completion.install "az.completion" => "graph"
+    bash_completion.install "az.completion" => "mgc"
   end
 end
