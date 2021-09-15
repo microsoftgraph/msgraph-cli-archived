@@ -87,7 +87,7 @@ stages:
           SessionTimeout: 20
 
       - task: PublishPipelineArtifact@1
-        condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+        # condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
         displayName: 'Publish msgraph-cli artifact'
         inputs:
           TargetPath: 'build_scripts/windows/out/'
