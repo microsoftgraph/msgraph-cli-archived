@@ -17,12 +17,14 @@ set PYTHON_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/Python3
 set PROPAGATE_ENV_CHANGE_DOWNLOAD_URL="https://azurecliprod.blob.core.windows.net/util/propagate_env_change.zip"
 
 :: Set up the output directory and temp. directories
+for %%A in ("%~dp0.") do set ParentDirectory=%%~dpA
+
 echo Cleaning previous build artifacts...
 set OUTPUT_DIR=%~dp0..%\out
 if exist %OUTPUT_DIR% rmdir /s /q %OUTPUT_DIR%
 mkdir %OUTPUT_DIR%
 
-set ARTIFACTS_DIR=\\?\%~dp0..\artifacts
+set ARTIFACTS_DIR=%~dp0..\artifacts
 mkdir %ARTIFACTS_DIR%
 set TEMP_SCRATCH_FOLDER=%ARTIFACTS_DIR%\cli_scratch
 set BUILDING_DIR=%ARTIFACTS_DIR%\cli
