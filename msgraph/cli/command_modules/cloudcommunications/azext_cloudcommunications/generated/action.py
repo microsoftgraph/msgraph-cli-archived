@@ -19,9 +19,6 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-
-
-
 class AddAudioConferencing(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -39,27 +36,26 @@ class AddAudioConferencing(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'conference-id':
                 d['conference_id'] = v[0]
-            
+
             elif kl == 'dialin-url':
                 d['dialin_url'] = v[0]
-            
+
             elif kl == 'toll-free-number':
                 d['toll_free_number'] = v[0]
-            
+
             elif kl == 'toll-number':
                 d['toll_number'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter audio-conferencing. All possible keys are: conference-id, dialin-url, toll-free-number, toll-number'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter audio-conferencing. All possible keys are:'
+                    ' conference-id, dialin-url, toll-free-number, toll-number'.format(k)
+                )
+
+        return d
 
 
 class AddChatInfo(argparse.Action):
@@ -79,24 +75,23 @@ class AddChatInfo(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'message-id':
                 d['message_id'] = v[0]
-            
+
             elif kl == 'reply-chain-message-id':
                 d['reply_chain_message_id'] = v[0]
-            
+
             elif kl == 'thread-id':
                 d['thread_id'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter chat-info. All possible keys are: message-id, reply-chain-message-id, thread-id'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter chat-info. All possible keys are: message-id,'
+                    ' reply-chain-message-id, thread-id'.format(k)
+                )
+
+        return d
 
 
 class AddJoinInformation(argparse.Action):
@@ -116,19 +111,17 @@ class AddJoinInformation(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'content-type':
                 d['content_type'] = v[0]
-            
+
             else:
-                raise CLIError('Unsupported Key {} is provided for parameter join-information. All possible keys are: content, content-type'.
-                format(k))
-            
-        
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter join-information. All possible keys are: content,'
+                    ' content-type'.format(k)
+                )
+
         return d
-
-

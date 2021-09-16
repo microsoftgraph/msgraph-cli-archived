@@ -8,4 +8,9 @@ az extension add --name changenotifications
 ```
 
 ### Included Features ###
-#### changenotifications subscriptionssubscription ####
+#### changenotifications applicationsapplication ####
+#### changenotifications application ####
+#### changenotifications group ####
+#### changenotifications serviceprincipalsserviceprincipal ####
+#### changenotifications serviceprincipal ####
+#### changenotifications user ####

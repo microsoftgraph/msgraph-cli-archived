@@ -18,36 +18,22 @@ from azext_changenotifications.generated._client_factory import cf_subscriptions
 
 changenotifications_subscriptionssubscription = CliCommandType(
     operations_tmpl='azext_changenotifications.vendored_sdks.changenotifications.operations._subscriptionssubscription_operations#subscriptionssubscriptionOperations.{}',
-    client_factory=cf_subscriptionssubscription)
-
+    client_factory=cf_subscriptionssubscription,
+)
 
 
 def load_command_table(self, _):
 
+    with self.command_group(
+        'changenotifications subscriptionssubscription',
+        changenotifications_subscriptionssubscription,
+        client_factory=cf_subscriptionssubscription,
+    ) as g:
+        g.custom_command('create-subscription', 'changenotifications_subscriptionssubscription_create_subscription')
+        g.custom_command('delete-subscription', 'changenotifications_subscriptionssubscription_delete_subscription')
+        g.custom_command('list-subscription', 'changenotifications_subscriptionssubscription_list_subscription')
+        g.custom_command('show-subscription', 'changenotifications_subscriptionssubscription_show_subscription')
+        g.custom_command('update-subscription', 'changenotifications_subscriptionssubscription_update_subscription')
 
-
-    with self.command_group('changenotifications subscriptionssubscription', changenotifications_subscriptionssubscription, client_factory=cf_subscriptionssubscription
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-subscription', 'changenotifications_subscriptionssubscription_create_subscription'
-                                
-                            )
-        g.custom_command('delete-subscription', 'changenotifications_subscriptionssubscription_delete_subscription'
-                                
-                            )
-        g.custom_command('list-subscription', 'changenotifications_subscriptionssubscription_list_subscription'
-                                
-                            )
-        g.custom_command('show-subscription', 'changenotifications_subscriptionssubscription_show_subscription'
-                                
-                            )
-        g.custom_command('update-subscription', 'changenotifications_subscriptionssubscription_update_subscription'
-                                
-                            )
-        
-
-
+    with self.command_group('changenotifications', is_experimental=True):
+        pass

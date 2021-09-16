@@ -28,574 +28,372 @@ from azext_identitysignins.generated._client_factory import (
     cf_organization,
     cf_policiespolicyroot,
     cf_policy,
-    cf_policiespermissiongrantpolicy
-    )
+    cf_policiespermissiongrantpolicy,
+)
 
 
 identitysignins_datapolicyoperationsdatapolicyoperation = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._datapolicyoperationsdatapolicyoperation_operations#datapolicyoperationsdatapolicyoperationOperations.{}',
-    client_factory=cf_datapolicyoperationsdatapolicyoperation)
-
+    client_factory=cf_datapolicyoperationsdatapolicyoperation,
+)
 
 
 identitysignins_identity = CliCommandType(
-    operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._identity_operations#identityOperations.{}',
-    client_factory=cf_identity)
-
+    operations_tmpl=(
+        'azext_identitysignins.vendored_sdks.identitysignins.operations._identity_operations#identityOperations.{}'
+    ),
+    client_factory=cf_identity,
+)
 
 
 identitysignins_identityconditionalaccess = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._identityconditionalaccess_operations#identityconditionalaccessOperations.{}',
-    client_factory=cf_identityconditionalaccess)
-
+    client_factory=cf_identityconditionalaccess,
+)
 
 
 identitysignins_identityprovidersidentityprovider = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._identityprovidersidentityprovider_operations#identityprovidersidentityproviderOperations.{}',
-    client_factory=cf_identityprovidersidentityprovider)
-
+    client_factory=cf_identityprovidersidentityprovider,
+)
 
 
 identitysignins_informationprotection = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._informationprotectioninformationprotection_operations#informationprotectioninformationprotectionOperations.{}',
-    client_factory=cf_informationprotection)
-
+    client_factory=cf_informationprotection,
+)
 
 
 identitysignins_informationprotection = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._informationprotection_operations#informationprotectionOperations.{}',
-    client_factory=cf_informationprotection)
-
+    client_factory=cf_informationprotection,
+)
 
 
 identitysignins_informationprotectionthreatassessmentrequest = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._informationprotectionthreatassessmentrequests_operations#informationprotectionthreatassessmentrequestsOperations.{}',
-    client_factory=cf_informationprotectionthreatassessmentrequest)
-
+    client_factory=cf_informationprotectionthreatassessmentrequest,
+)
 
 
 identitysignins_invitation = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._invitations_operations#invitationsOperations.{}',
-    client_factory=cf_invitation)
-
+    client_factory=cf_invitation,
+)
 
 
 identitysignins_invitationsinvitation = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._invitationsinvitation_operations#invitationsinvitationOperations.{}',
-    client_factory=cf_invitationsinvitation)
-
+    client_factory=cf_invitationsinvitation,
+)
 
 
 identitysignins_oauth2permissiongrant = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._oauth2permissiongrants_operations#oauth2permissiongrantsOperations.{}',
-    client_factory=cf_oauth2permissiongrant)
-
+    client_factory=cf_oauth2permissiongrant,
+)
 
 
 identitysignins_oauth2permissiongrantsoauth2permissiongrant = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._oauth2permissiongrantsoauth2permissiongrant_operations#oauth2permissiongrantsoauth2permissiongrantOperations.{}',
-    client_factory=cf_oauth2permissiongrantsoauth2permissiongrant)
-
+    client_factory=cf_oauth2permissiongrantsoauth2permissiongrant,
+)
 
 
 identitysignins_organization = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._organization_operations#organizationOperations.{}',
-    client_factory=cf_organization)
-
+    client_factory=cf_organization,
+)
 
 
 identitysignins_policiespermissiongrantpolicy = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._policiespermissiongrantpolicies_operations#policiespermissiongrantpoliciesOperations.{}',
-    client_factory=cf_policiespermissiongrantpolicy)
-
+    client_factory=cf_policiespermissiongrantpolicy,
+)
 
 
 identitysignins_policiespolicyroot = CliCommandType(
     operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._policiespolicyroot_operations#policiespolicyrootOperations.{}',
-    client_factory=cf_policiespolicyroot)
-
+    client_factory=cf_policiespolicyroot,
+)
 
 
 identitysignins_policy = CliCommandType(
-    operations_tmpl='azext_identitysignins.vendored_sdks.identitysignins.operations._policies_operations#policiesOperations.{}',
-    client_factory=cf_policy)
-
+    operations_tmpl=(
+        'azext_identitysignins.vendored_sdks.identitysignins.operations._policies_operations#policiesOperations.{}'
+    ),
+    client_factory=cf_policy,
+)
 
 
 def load_command_table(self, _):
 
+    with self.command_group(
+        'identitysignins datapolicyoperationsdatapolicyoperation',
+        identitysignins_datapolicyoperationsdatapolicyoperation,
+        client_factory=cf_datapolicyoperationsdatapolicyoperation,
+    ) as g:
+        g.custom_command(
+            'create-data-policy-operation',
+            'identitysignins_datapolicyoperationsdatapolicyoperation_create_data_policy_operation',
+        )
+        g.custom_command(
+            'delete-data-policy-operation',
+            'identitysignins_datapolicyoperationsdatapolicyoperation_delete_data_policy_operation',
+        )
+        g.custom_command(
+            'list-data-policy-operation',
+            'identitysignins_datapolicyoperationsdatapolicyoperation_list_data_policy_operation',
+        )
+        g.custom_command(
+            'show-data-policy-operation',
+            'identitysignins_datapolicyoperationsdatapolicyoperation_show_data_policy_operation',
+        )
+        g.custom_command(
+            'update-data-policy-operation',
+            'identitysignins_datapolicyoperationsdatapolicyoperation_update_data_policy_operation',
+        )
 
+    with self.command_group('identitysignins identity', identitysignins_identity, client_factory=cf_identity) as g:
+        g.custom_command('delete-conditional-access', 'identitysignins_identity_delete_conditional_access')
+        g.custom_command('show-conditional-access', 'identitysignins_identity_show_conditional_access')
+        g.custom_command('update-conditional-access', 'identitysignins_identity_update_conditional_access')
 
-    with self.command_group('identitysignins datapolicyoperationsdatapolicyoperation', identitysignins_datapolicyoperationsdatapolicyoperation, client_factory=cf_datapolicyoperationsdatapolicyoperation
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-data-policy-operation', 'identitysignins_datapolicyoperationsdatapolicyoperation_create_data_policy_operation'
-                                
-                            )
-        g.custom_command('delete-data-policy-operation', 'identitysignins_datapolicyoperationsdatapolicyoperation_delete_data_policy_operation'
-                                
-                            )
-        g.custom_command('list-data-policy-operation', 'identitysignins_datapolicyoperationsdatapolicyoperation_list_data_policy_operation'
-                                
-                            )
-        g.custom_command('show-data-policy-operation', 'identitysignins_datapolicyoperationsdatapolicyoperation_show_data_policy_operation'
-                                
-                            )
-        g.custom_command('update-data-policy-operation', 'identitysignins_datapolicyoperationsdatapolicyoperation_update_data_policy_operation'
-                                
-                            )
-        
+    with self.command_group(
+        'identitysignins identityconditionalaccess',
+        identitysignins_identityconditionalaccess,
+        client_factory=cf_identityconditionalaccess,
+    ) as g:
+        g.custom_command('create-named-location', 'identitysignins_identityconditionalaccess_create_named_location')
+        g.custom_command('create-policy', 'identitysignins_identityconditionalaccess_create_policy')
+        g.custom_command('delete-named-location', 'identitysignins_identityconditionalaccess_delete_named_location')
+        g.custom_command('delete-policy', 'identitysignins_identityconditionalaccess_delete_policy')
+        g.custom_command('list-named-location', 'identitysignins_identityconditionalaccess_list_named_location')
+        g.custom_command('list-policy', 'identitysignins_identityconditionalaccess_list_policy')
+        g.custom_command('show-named-location', 'identitysignins_identityconditionalaccess_show_named_location')
+        g.custom_command('show-policy', 'identitysignins_identityconditionalaccess_show_policy')
+        g.custom_command('update-named-location', 'identitysignins_identityconditionalaccess_update_named_location')
+        g.custom_command('update-policy', 'identitysignins_identityconditionalaccess_update_policy')
 
+    with self.command_group(
+        'identitysignins identityprovidersidentityprovider',
+        identitysignins_identityprovidersidentityprovider,
+        client_factory=cf_identityprovidersidentityprovider,
+    ) as g:
+        g.custom_command(
+            'create-identity-provider', 'identitysignins_identityprovidersidentityprovider_create_identity_provider'
+        )
+        g.custom_command(
+            'delete-identity-provider', 'identitysignins_identityprovidersidentityprovider_delete_identity_provider'
+        )
+        g.custom_command(
+            'list-identity-provider', 'identitysignins_identityprovidersidentityprovider_list_identity_provider'
+        )
+        g.custom_command(
+            'show-identity-provider', 'identitysignins_identityprovidersidentityprovider_show_identity_provider'
+        )
+        g.custom_command(
+            'update-identity-provider', 'identitysignins_identityprovidersidentityprovider_update_identity_provider'
+        )
 
+    with self.command_group(
+        'identitysignins informationprotection',
+        identitysignins_informationprotection,
+        client_factory=cf_informationprotection,
+    ) as g:
+        g.custom_command(
+            'show-information-protection', 'identitysignins_informationprotection_show_information_protection'
+        )
+        g.custom_command(
+            'update-information-protection', 'identitysignins_informationprotection_update_information_protection'
+        )
 
-    with self.command_group('identitysignins identity', identitysignins_identity, client_factory=cf_identity
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('delete-conditional-access', 'identitysignins_identity_delete_conditional_access'
-                                
-                            )
-        g.custom_command('show-conditional-access', 'identitysignins_identity_show_conditional_access'
-                                
-                            )
-        g.custom_command('update-conditional-access', 'identitysignins_identity_update_conditional_access'
-                                
-                            )
-        
+    with self.command_group(
+        'identitysignins informationprotection',
+        identitysignins_informationprotection,
+        client_factory=cf_informationprotection,
+    ) as g:
+        g.custom_command(
+            'create-threat-assessment-request', 'identitysignins_informationprotection_create_threat_assessment_request'
+        )
+        g.custom_command(
+            'delete-threat-assessment-request', 'identitysignins_informationprotection_delete_threat_assessment_request'
+        )
+        g.custom_command(
+            'list-threat-assessment-request', 'identitysignins_informationprotection_list_threat_assessment_request'
+        )
+        g.custom_command(
+            'show-threat-assessment-request', 'identitysignins_informationprotection_show_threat_assessment_request'
+        )
+        g.custom_command(
+            'update-threat-assessment-request', 'identitysignins_informationprotection_update_threat_assessment_request'
+        )
 
+    with self.command_group(
+        'identitysignins informationprotectionthreatassessmentrequest',
+        identitysignins_informationprotectionthreatassessmentrequest,
+        client_factory=cf_informationprotectionthreatassessmentrequest,
+    ) as g:
+        g.custom_command('create-result', 'identitysignins_informationprotectionthreatassessmentrequest_create_result')
+        g.custom_command('delete-result', 'identitysignins_informationprotectionthreatassessmentrequest_delete_result')
+        g.custom_command('list-result', 'identitysignins_informationprotectionthreatassessmentrequest_list_result')
+        g.custom_command('show-result', 'identitysignins_informationprotectionthreatassessmentrequest_show_result')
+        g.custom_command('update-result', 'identitysignins_informationprotectionthreatassessmentrequest_update_result')
 
+    with self.command_group(
+        'identitysignins invitation', identitysignins_invitation, client_factory=cf_invitation
+    ) as g:
+        g.custom_command('delete-ref-invited-user', 'identitysignins_invitation_delete_ref_invited_user')
+        g.custom_command('set-ref-invited-user', 'identitysignins_invitation_set_ref_invited_user')
+        g.custom_command('show-invited-user', 'identitysignins_invitation_show_invited_user')
+        g.custom_command('show-ref-invited-user', 'identitysignins_invitation_show_ref_invited_user')
 
-    with self.command_group('identitysignins identityconditionalaccess', identitysignins_identityconditionalaccess, client_factory=cf_identityconditionalaccess
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-named-location', 'identitysignins_identityconditionalaccess_create_named_location'
-                                
-                            )
-        g.custom_command('create-policy', 'identitysignins_identityconditionalaccess_create_policy'
-                                
-                            )
-        g.custom_command('delete-named-location', 'identitysignins_identityconditionalaccess_delete_named_location'
-                                
-                            )
-        g.custom_command('delete-policy', 'identitysignins_identityconditionalaccess_delete_policy'
-                                
-                            )
-        g.custom_command('list-named-location', 'identitysignins_identityconditionalaccess_list_named_location'
-                                
-                            )
-        g.custom_command('list-policy', 'identitysignins_identityconditionalaccess_list_policy'
-                                
-                            )
-        g.custom_command('show-named-location', 'identitysignins_identityconditionalaccess_show_named_location'
-                                
-                            )
-        g.custom_command('show-policy', 'identitysignins_identityconditionalaccess_show_policy'
-                                
-                            )
-        g.custom_command('update-named-location', 'identitysignins_identityconditionalaccess_update_named_location'
-                                
-                            )
-        g.custom_command('update-policy', 'identitysignins_identityconditionalaccess_update_policy'
-                                
-                            )
-        
+    with self.command_group(
+        'identitysignins invitationsinvitation',
+        identitysignins_invitationsinvitation,
+        client_factory=cf_invitationsinvitation,
+    ) as g:
+        g.custom_command('create-invitation', 'identitysignins_invitationsinvitation_create_invitation')
+        g.custom_command('delete-invitation', 'identitysignins_invitationsinvitation_delete_invitation')
+        g.custom_command('list-invitation', 'identitysignins_invitationsinvitation_list_invitation')
+        g.custom_command('show-invitation', 'identitysignins_invitationsinvitation_show_invitation')
+        g.custom_command('update-invitation', 'identitysignins_invitationsinvitation_update_invitation')
 
+    with self.command_group(
+        'identitysignins oauth2permissiongrant',
+        identitysignins_oauth2permissiongrant,
+        client_factory=cf_oauth2permissiongrant,
+    ) as g:
+        g.custom_command('delta', 'identitysignins_oauth2permissiongrant_delta')
 
+    with self.command_group(
+        'identitysignins oauth2permissiongrantsoauth2permissiongrant',
+        identitysignins_oauth2permissiongrantsoauth2permissiongrant,
+        client_factory=cf_oauth2permissiongrantsoauth2permissiongrant,
+    ) as g:
+        g.custom_command(
+            'create-o-auth2-permission-grant',
+            'identitysignins_oauth2permissiongrantsoauth2permissiongrant_create_o_auth2_permission_grant',
+        )
+        g.custom_command(
+            'delete-o-auth2-permission-grant',
+            'identitysignins_oauth2permissiongrantsoauth2permissiongrant_delete_o_auth2_permission_grant',
+        )
+        g.custom_command(
+            'list-o-auth2-permission-grant',
+            'identitysignins_oauth2permissiongrantsoauth2permissiongrant_list_o_auth2_permission_grant',
+        )
+        g.custom_command(
+            'show-o-auth2-permission-grant',
+            'identitysignins_oauth2permissiongrantsoauth2permissiongrant_show_o_auth2_permission_grant',
+        )
+        g.custom_command(
+            'update-o-auth2-permission-grant',
+            'identitysignins_oauth2permissiongrantsoauth2permissiongrant_update_o_auth2_permission_grant',
+        )
 
-    with self.command_group('identitysignins identityprovidersidentityprovider', identitysignins_identityprovidersidentityprovider, client_factory=cf_identityprovidersidentityprovider
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-identity-provider', 'identitysignins_identityprovidersidentityprovider_create_identity_provider'
-                                
-                            )
-        g.custom_command('delete-identity-provider', 'identitysignins_identityprovidersidentityprovider_delete_identity_provider'
-                                
-                            )
-        g.custom_command('list-identity-provider', 'identitysignins_identityprovidersidentityprovider_list_identity_provider'
-                                
-                            )
-        g.custom_command('show-identity-provider', 'identitysignins_identityprovidersidentityprovider_show_identity_provider'
-                                
-                            )
-        g.custom_command('update-identity-provider', 'identitysignins_identityprovidersidentityprovider_update_identity_provider'
-                                
-                            )
-        
+    with self.command_group(
+        'identitysignins organization', identitysignins_organization, client_factory=cf_organization
+    ) as g:
+        g.custom_command(
+            'create-ref-certificate-based-auth-configuration',
+            'identitysignins_organization_create_ref_certificate_based_auth_configuration',
+        )
+        g.custom_command(
+            'list-certificate-based-auth-configuration',
+            'identitysignins_organization_list_certificate_based_auth_configuration',
+        )
+        g.custom_command(
+            'list-ref-certificate-based-auth-configuration',
+            'identitysignins_organization_list_ref_certificate_based_auth_configuration',
+        )
 
+    with self.command_group(
+        'identitysignins policiespermissiongrantpolicy',
+        identitysignins_policiespermissiongrantpolicy,
+        client_factory=cf_policiespermissiongrantpolicy,
+    ) as g:
+        g.custom_command('create-exclude', 'identitysignins_policiespermissiongrantpolicy_create_exclude')
+        g.custom_command('create-include', 'identitysignins_policiespermissiongrantpolicy_create_include')
+        g.custom_command('delete-exclude', 'identitysignins_policiespermissiongrantpolicy_delete_exclude')
+        g.custom_command('delete-include', 'identitysignins_policiespermissiongrantpolicy_delete_include')
+        g.custom_command('list-exclude', 'identitysignins_policiespermissiongrantpolicy_list_exclude')
+        g.custom_command('list-include', 'identitysignins_policiespermissiongrantpolicy_list_include')
+        g.custom_command('show-exclude', 'identitysignins_policiespermissiongrantpolicy_show_exclude')
+        g.custom_command('show-include', 'identitysignins_policiespermissiongrantpolicy_show_include')
+        g.custom_command('update-exclude', 'identitysignins_policiespermissiongrantpolicy_update_exclude')
+        g.custom_command('update-include', 'identitysignins_policiespermissiongrantpolicy_update_include')
 
+    with self.command_group(
+        'identitysignins policiespolicyroot', identitysignins_policiespolicyroot, client_factory=cf_policiespolicyroot
+    ) as g:
+        g.custom_command('show-policy-root', 'identitysignins_policiespolicyroot_show_policy_root')
+        g.custom_command('update-policy-root', 'identitysignins_policiespolicyroot_update_policy_root')
 
-    with self.command_group('identitysignins informationprotection', identitysignins_informationprotection, client_factory=cf_informationprotection
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('show-information-protection', 'identitysignins_informationprotection_show_information_protection'
-                                
-                            )
-        g.custom_command('update-information-protection', 'identitysignins_informationprotection_update_information_protection'
-                                
-                            )
-        
+    with self.command_group('identitysignins policy', identitysignins_policy, client_factory=cf_policy) as g:
+        g.custom_command(
+            'create-activity-based-timeout-policy', 'identitysignins_policy_create_activity_based_timeout_policy'
+        )
+        g.custom_command('create-claim-mapping-policy', 'identitysignins_policy_create_claim_mapping_policy')
+        g.custom_command('create-conditional-access-policy', 'identitysignins_policy_create_conditional_access_policy')
+        g.custom_command(
+            'create-home-realm-discovery-policy', 'identitysignins_policy_create_home_realm_discovery_policy'
+        )
+        g.custom_command('create-permission-grant-policy', 'identitysignins_policy_create_permission_grant_policy')
+        g.custom_command('create-token-issuance-policy', 'identitysignins_policy_create_token_issuance_policy')
+        g.custom_command('create-token-lifetime-policy', 'identitysignins_policy_create_token_lifetime_policy')
+        g.custom_command(
+            'delete-activity-based-timeout-policy', 'identitysignins_policy_delete_activity_based_timeout_policy'
+        )
+        g.custom_command('delete-claim-mapping-policy', 'identitysignins_policy_delete_claim_mapping_policy')
+        g.custom_command('delete-conditional-access-policy', 'identitysignins_policy_delete_conditional_access_policy')
+        g.custom_command(
+            'delete-home-realm-discovery-policy', 'identitysignins_policy_delete_home_realm_discovery_policy'
+        )
+        g.custom_command(
+            'delete-identity-security-default-enforcement-policy',
+            'identitysignins_policy_delete_identity_security_default_enforcement_policy',
+        )
+        g.custom_command('delete-permission-grant-policy', 'identitysignins_policy_delete_permission_grant_policy')
+        g.custom_command('delete-token-issuance-policy', 'identitysignins_policy_delete_token_issuance_policy')
+        g.custom_command('delete-token-lifetime-policy', 'identitysignins_policy_delete_token_lifetime_policy')
+        g.custom_command(
+            'list-activity-based-timeout-policy', 'identitysignins_policy_list_activity_based_timeout_policy'
+        )
+        g.custom_command('list-claim-mapping-policy', 'identitysignins_policy_list_claim_mapping_policy')
+        g.custom_command('list-conditional-access-policy', 'identitysignins_policy_list_conditional_access_policy')
+        g.custom_command('list-home-realm-discovery-policy', 'identitysignins_policy_list_home_realm_discovery_policy')
+        g.custom_command('list-permission-grant-policy', 'identitysignins_policy_list_permission_grant_policy')
+        g.custom_command('list-token-issuance-policy', 'identitysignins_policy_list_token_issuance_policy')
+        g.custom_command('list-token-lifetime-policy', 'identitysignins_policy_list_token_lifetime_policy')
+        g.custom_command(
+            'show-activity-based-timeout-policy', 'identitysignins_policy_show_activity_based_timeout_policy'
+        )
+        g.custom_command('show-claim-mapping-policy', 'identitysignins_policy_show_claim_mapping_policy')
+        g.custom_command('show-conditional-access-policy', 'identitysignins_policy_show_conditional_access_policy')
+        g.custom_command('show-home-realm-discovery-policy', 'identitysignins_policy_show_home_realm_discovery_policy')
+        g.custom_command(
+            'show-identity-security-default-enforcement-policy',
+            'identitysignins_policy_show_identity_security_default_enforcement_policy',
+        )
+        g.custom_command('show-permission-grant-policy', 'identitysignins_policy_show_permission_grant_policy')
+        g.custom_command('show-token-issuance-policy', 'identitysignins_policy_show_token_issuance_policy')
+        g.custom_command('show-token-lifetime-policy', 'identitysignins_policy_show_token_lifetime_policy')
+        g.custom_command(
+            'update-activity-based-timeout-policy', 'identitysignins_policy_update_activity_based_timeout_policy'
+        )
+        g.custom_command('update-claim-mapping-policy', 'identitysignins_policy_update_claim_mapping_policy')
+        g.custom_command('update-conditional-access-policy', 'identitysignins_policy_update_conditional_access_policy')
+        g.custom_command(
+            'update-home-realm-discovery-policy', 'identitysignins_policy_update_home_realm_discovery_policy'
+        )
+        g.custom_command(
+            'update-identity-security-default-enforcement-policy',
+            'identitysignins_policy_update_identity_security_default_enforcement_policy',
+        )
+        g.custom_command('update-permission-grant-policy', 'identitysignins_policy_update_permission_grant_policy')
+        g.custom_command('update-token-issuance-policy', 'identitysignins_policy_update_token_issuance_policy')
+        g.custom_command('update-token-lifetime-policy', 'identitysignins_policy_update_token_lifetime_policy')
 
-
-
-    with self.command_group('identitysignins informationprotection', identitysignins_informationprotection, client_factory=cf_informationprotection
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-threat-assessment-request', 'identitysignins_informationprotection_create_threat_assessment_request'
-                                
-                            )
-        g.custom_command('delete-threat-assessment-request', 'identitysignins_informationprotection_delete_threat_assessment_request'
-                                
-                            )
-        g.custom_command('list-threat-assessment-request', 'identitysignins_informationprotection_list_threat_assessment_request'
-                                
-                            )
-        g.custom_command('show-threat-assessment-request', 'identitysignins_informationprotection_show_threat_assessment_request'
-                                
-                            )
-        g.custom_command('update-threat-assessment-request', 'identitysignins_informationprotection_update_threat_assessment_request'
-                                
-                            )
-        
-
-
-
-    with self.command_group('identitysignins informationprotectionthreatassessmentrequest', identitysignins_informationprotectionthreatassessmentrequest, client_factory=cf_informationprotectionthreatassessmentrequest
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-result', 'identitysignins_informationprotectionthreatassessmentrequest_create_result'
-                                
-                            )
-        g.custom_command('delete-result', 'identitysignins_informationprotectionthreatassessmentrequest_delete_result'
-                                
-                            )
-        g.custom_command('list-result', 'identitysignins_informationprotectionthreatassessmentrequest_list_result'
-                                
-                            )
-        g.custom_command('show-result', 'identitysignins_informationprotectionthreatassessmentrequest_show_result'
-                                
-                            )
-        g.custom_command('update-result', 'identitysignins_informationprotectionthreatassessmentrequest_update_result'
-                                
-                            )
-        
-
-
-
-    with self.command_group('identitysignins invitation', identitysignins_invitation, client_factory=cf_invitation
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('delete-ref-invited-user', 'identitysignins_invitation_delete_ref_invited_user'
-                                
-                            )
-        g.custom_command('set-ref-invited-user', 'identitysignins_invitation_set_ref_invited_user'
-                                
-                            )
-        g.custom_command('show-invited-user', 'identitysignins_invitation_show_invited_user'
-                                
-                            )
-        g.custom_command('show-ref-invited-user', 'identitysignins_invitation_show_ref_invited_user'
-                                
-                            )
-        
-
-
-
-    with self.command_group('identitysignins invitationsinvitation', identitysignins_invitationsinvitation, client_factory=cf_invitationsinvitation
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-invitation', 'identitysignins_invitationsinvitation_create_invitation'
-                                
-                            )
-        g.custom_command('delete-invitation', 'identitysignins_invitationsinvitation_delete_invitation'
-                                
-                            )
-        g.custom_command('list-invitation', 'identitysignins_invitationsinvitation_list_invitation'
-                                
-                            )
-        g.custom_command('show-invitation', 'identitysignins_invitationsinvitation_show_invitation'
-                                
-                            )
-        g.custom_command('update-invitation', 'identitysignins_invitationsinvitation_update_invitation'
-                                
-                            )
-        
-
-
-
-    with self.command_group('identitysignins oauth2permissiongrant', identitysignins_oauth2permissiongrant, client_factory=cf_oauth2permissiongrant
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('delta', 'identitysignins_oauth2permissiongrant_delta'
-                                
-                            )
-        
-
-
-
-    with self.command_group('identitysignins oauth2permissiongrantsoauth2permissiongrant', identitysignins_oauth2permissiongrantsoauth2permissiongrant, client_factory=cf_oauth2permissiongrantsoauth2permissiongrant
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-o-auth2-permission-grant', 'identitysignins_oauth2permissiongrantsoauth2permissiongrant_create_o_auth2_permission_grant'
-                                
-                            )
-        g.custom_command('delete-o-auth2-permission-grant', 'identitysignins_oauth2permissiongrantsoauth2permissiongrant_delete_o_auth2_permission_grant'
-                                
-                            )
-        g.custom_command('list-o-auth2-permission-grant', 'identitysignins_oauth2permissiongrantsoauth2permissiongrant_list_o_auth2_permission_grant'
-                                
-                            )
-        g.custom_command('show-o-auth2-permission-grant', 'identitysignins_oauth2permissiongrantsoauth2permissiongrant_show_o_auth2_permission_grant'
-                                
-                            )
-        g.custom_command('update-o-auth2-permission-grant', 'identitysignins_oauth2permissiongrantsoauth2permissiongrant_update_o_auth2_permission_grant'
-                                
-                            )
-        
-
-
-
-    with self.command_group('identitysignins organization', identitysignins_organization, client_factory=cf_organization
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-ref-certificate-based-auth-configuration', 'identitysignins_organization_create_ref_certificate_based_auth_configuration'
-                                
-                            )
-        g.custom_command('list-certificate-based-auth-configuration', 'identitysignins_organization_list_certificate_based_auth_configuration'
-                                
-                            )
-        g.custom_command('list-ref-certificate-based-auth-configuration', 'identitysignins_organization_list_ref_certificate_based_auth_configuration'
-                                
-                            )
-        
-
-
-
-    with self.command_group('identitysignins policiespermissiongrantpolicy', identitysignins_policiespermissiongrantpolicy, client_factory=cf_policiespermissiongrantpolicy
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-exclude', 'identitysignins_policiespermissiongrantpolicy_create_exclude'
-                                
-                            )
-        g.custom_command('create-include', 'identitysignins_policiespermissiongrantpolicy_create_include'
-                                
-                            )
-        g.custom_command('delete-exclude', 'identitysignins_policiespermissiongrantpolicy_delete_exclude'
-                                
-                            )
-        g.custom_command('delete-include', 'identitysignins_policiespermissiongrantpolicy_delete_include'
-                                
-                            )
-        g.custom_command('list-exclude', 'identitysignins_policiespermissiongrantpolicy_list_exclude'
-                                
-                            )
-        g.custom_command('list-include', 'identitysignins_policiespermissiongrantpolicy_list_include'
-                                
-                            )
-        g.custom_command('show-exclude', 'identitysignins_policiespermissiongrantpolicy_show_exclude'
-                                
-                            )
-        g.custom_command('show-include', 'identitysignins_policiespermissiongrantpolicy_show_include'
-                                
-                            )
-        g.custom_command('update-exclude', 'identitysignins_policiespermissiongrantpolicy_update_exclude'
-                                
-                            )
-        g.custom_command('update-include', 'identitysignins_policiespermissiongrantpolicy_update_include'
-                                
-                            )
-        
-
-
-
-    with self.command_group('identitysignins policiespolicyroot', identitysignins_policiespolicyroot, client_factory=cf_policiespolicyroot
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('show-policy-root', 'identitysignins_policiespolicyroot_show_policy_root'
-                                
-                            )
-        g.custom_command('update-policy-root', 'identitysignins_policiespolicyroot_update_policy_root'
-                                
-                            )
-        
-
-
-
-    with self.command_group('identitysignins policy', identitysignins_policy, client_factory=cf_policy
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-activity-based-timeout-policy', 'identitysignins_policy_create_activity_based_timeout_policy'
-                                
-                            )
-        g.custom_command('create-claim-mapping-policy', 'identitysignins_policy_create_claim_mapping_policy'
-                                
-                            )
-        g.custom_command('create-conditional-access-policy', 'identitysignins_policy_create_conditional_access_policy'
-                                
-                            )
-        g.custom_command('create-home-realm-discovery-policy', 'identitysignins_policy_create_home_realm_discovery_policy'
-                                
-                            )
-        g.custom_command('create-permission-grant-policy', 'identitysignins_policy_create_permission_grant_policy'
-                                
-                            )
-        g.custom_command('create-token-issuance-policy', 'identitysignins_policy_create_token_issuance_policy'
-                                
-                            )
-        g.custom_command('create-token-lifetime-policy', 'identitysignins_policy_create_token_lifetime_policy'
-                                
-                            )
-        g.custom_command('delete-activity-based-timeout-policy', 'identitysignins_policy_delete_activity_based_timeout_policy'
-                                
-                            )
-        g.custom_command('delete-claim-mapping-policy', 'identitysignins_policy_delete_claim_mapping_policy'
-                                
-                            )
-        g.custom_command('delete-conditional-access-policy', 'identitysignins_policy_delete_conditional_access_policy'
-                                
-                            )
-        g.custom_command('delete-home-realm-discovery-policy', 'identitysignins_policy_delete_home_realm_discovery_policy'
-                                
-                            )
-        g.custom_command('delete-identity-security-default-enforcement-policy', 'identitysignins_policy_delete_identity_security_default_enforcement_policy'
-                                
-                            )
-        g.custom_command('delete-permission-grant-policy', 'identitysignins_policy_delete_permission_grant_policy'
-                                
-                            )
-        g.custom_command('delete-token-issuance-policy', 'identitysignins_policy_delete_token_issuance_policy'
-                                
-                            )
-        g.custom_command('delete-token-lifetime-policy', 'identitysignins_policy_delete_token_lifetime_policy'
-                                
-                            )
-        g.custom_command('list-activity-based-timeout-policy', 'identitysignins_policy_list_activity_based_timeout_policy'
-                                
-                            )
-        g.custom_command('list-claim-mapping-policy', 'identitysignins_policy_list_claim_mapping_policy'
-                                
-                            )
-        g.custom_command('list-conditional-access-policy', 'identitysignins_policy_list_conditional_access_policy'
-                                
-                            )
-        g.custom_command('list-home-realm-discovery-policy', 'identitysignins_policy_list_home_realm_discovery_policy'
-                                
-                            )
-        g.custom_command('list-permission-grant-policy', 'identitysignins_policy_list_permission_grant_policy'
-                                
-                            )
-        g.custom_command('list-token-issuance-policy', 'identitysignins_policy_list_token_issuance_policy'
-                                
-                            )
-        g.custom_command('list-token-lifetime-policy', 'identitysignins_policy_list_token_lifetime_policy'
-                                
-                            )
-        g.custom_command('show-activity-based-timeout-policy', 'identitysignins_policy_show_activity_based_timeout_policy'
-                                
-                            )
-        g.custom_command('show-claim-mapping-policy', 'identitysignins_policy_show_claim_mapping_policy'
-                                
-                            )
-        g.custom_command('show-conditional-access-policy', 'identitysignins_policy_show_conditional_access_policy'
-                                
-                            )
-        g.custom_command('show-home-realm-discovery-policy', 'identitysignins_policy_show_home_realm_discovery_policy'
-                                
-                            )
-        g.custom_command('show-identity-security-default-enforcement-policy', 'identitysignins_policy_show_identity_security_default_enforcement_policy'
-                                
-                            )
-        g.custom_command('show-permission-grant-policy', 'identitysignins_policy_show_permission_grant_policy'
-                                
-                            )
-        g.custom_command('show-token-issuance-policy', 'identitysignins_policy_show_token_issuance_policy'
-                                
-                            )
-        g.custom_command('show-token-lifetime-policy', 'identitysignins_policy_show_token_lifetime_policy'
-                                
-                            )
-        g.custom_command('update-activity-based-timeout-policy', 'identitysignins_policy_update_activity_based_timeout_policy'
-                                
-                            )
-        g.custom_command('update-claim-mapping-policy', 'identitysignins_policy_update_claim_mapping_policy'
-                                
-                            )
-        g.custom_command('update-conditional-access-policy', 'identitysignins_policy_update_conditional_access_policy'
-                                
-                            )
-        g.custom_command('update-home-realm-discovery-policy', 'identitysignins_policy_update_home_realm_discovery_policy'
-                                
-                            )
-        g.custom_command('update-identity-security-default-enforcement-policy', 'identitysignins_policy_update_identity_security_default_enforcement_policy'
-                                
-                            )
-        g.custom_command('update-permission-grant-policy', 'identitysignins_policy_update_permission_grant_policy'
-                                
-                            )
-        g.custom_command('update-token-issuance-policy', 'identitysignins_policy_update_token_issuance_policy'
-                                
-                            )
-        g.custom_command('update-token-lifetime-policy', 'identitysignins_policy_update_token_lifetime_policy'
-                                
-                            )
-        
-
-
+    with self.command_group('identitysignins', is_experimental=True):
+        pass

@@ -17,37 +17,21 @@ from azext_cloudcommunications.generated._client_factory import cf_user
 
 
 cloudcommunications_user = CliCommandType(
-    operations_tmpl='azext_cloudcommunications.vendored_sdks.cloudcommunications.operations._users_operations#usersOperations.{}',
-    client_factory=cf_user)
-
+    operations_tmpl=(
+        'azext_cloudcommunications.vendored_sdks.cloudcommunications.operations._users_operations#usersOperations.{}'
+    ),
+    client_factory=cf_user,
+)
 
 
 def load_command_table(self, _):
 
+    with self.command_group('cloudcommunications user', cloudcommunications_user, client_factory=cf_user) as g:
+        g.custom_command('create-online-meeting', 'cloudcommunications_user_create_online_meeting')
+        g.custom_command('delete-online-meeting', 'cloudcommunications_user_delete_online_meeting')
+        g.custom_command('list-online-meeting', 'cloudcommunications_user_list_online_meeting')
+        g.custom_command('show-online-meeting', 'cloudcommunications_user_show_online_meeting')
+        g.custom_command('update-online-meeting', 'cloudcommunications_user_update_online_meeting')
 
-
-    with self.command_group('cloudcommunications user', cloudcommunications_user, client_factory=cf_user
-                                
-                                    
-                                    
-                                    
-                                
-                            ) as g:
-        g.custom_command('create-online-meeting', 'cloudcommunications_user_create_online_meeting'
-                                
-                            )
-        g.custom_command('delete-online-meeting', 'cloudcommunications_user_delete_online_meeting'
-                                
-                            )
-        g.custom_command('list-online-meeting', 'cloudcommunications_user_list_online_meeting'
-                                
-                            )
-        g.custom_command('show-online-meeting', 'cloudcommunications_user_show_online_meeting'
-                                
-                            )
-        g.custom_command('update-online-meeting', 'cloudcommunications_user_update_online_meeting'
-                                
-                            )
-        
-
-
+    with self.command_group('cloudcommunications', is_experimental=True):
+        pass

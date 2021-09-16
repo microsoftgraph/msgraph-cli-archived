@@ -8,4 +8,9 @@ az extension add --name cloudcommunications
 ```
 
 ### Included Features ###
+#### cloudcommunications applicationsapplication ####
+#### cloudcommunications application ####
+#### cloudcommunications group ####
+#### cloudcommunications serviceprincipalsserviceprincipal ####
+#### cloudcommunications serviceprincipal ####
 #### cloudcommunications user ####

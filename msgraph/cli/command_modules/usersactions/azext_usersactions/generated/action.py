@@ -19,9 +19,6 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-
-
-
 class AddAttachmentItem(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -39,30 +36,29 @@ class AddAttachmentItem(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'attachment-type':
                 d['attachment_type'] = v[0]
-            
+
             elif kl == 'content-type':
                 d['content_type'] = v[0]
-            
+
             elif kl == 'is-inline':
                 d['is_inline'] = v[0]
-            
+
             elif kl == 'name':
                 d['name'] = v[0]
-            
+
             elif kl == 'size':
                 d['size'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter attachment-item. All possible keys are: attachment-type, content-type, is-inline, name, size'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter attachment-item. All possible keys are:'
+                    ' attachment-type, content-type, is-inline, name, size'.format(k)
+                )
+
+        return d
 
 
 class AddEndTime(argparse.Action):
@@ -82,21 +78,20 @@ class AddEndTime(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'date-time':
                 d['date_time'] = v[0]
-            
+
             elif kl == 'time-zone':
                 d['time_zone'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter end-time. All possible keys are: date-time, time-zone'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter end-time. All possible keys are: date-time, time-zone'
+                    .format(k)
+                )
+
+        return d
 
 
 class AddBody(argparse.Action):
@@ -116,28 +111,26 @@ class AddBody(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'content-type':
                 d['content_type'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter body. All possible keys are: content, content-type'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter body. All possible keys are: content, content-type'
+                    .format(k)
+                )
+
+        return d
 
 
 class AddInternetMessageHeaders(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         super(AddInternetMessageHeaders, self).__call__(parser, namespace, action, option_string)
-        
 
     def get_action(self, values, option_string):
         try:
@@ -151,28 +144,26 @@ class AddInternetMessageHeaders(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'name':
                 d['name'] = v[0]
-            
+
             elif kl == 'value':
                 d['value'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter internet-message-headers. All possible keys are: name, value'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter internet-message-headers. All possible keys are:'
+                    ' name, value'.format(k)
+                )
+
+        return d
 
 
 class AddAttachments(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         super(AddAttachments, self).__call__(parser, namespace, action, option_string)
-        
 
     def get_action(self, values, option_string):
         try:
@@ -186,40 +177,38 @@ class AddAttachments(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'content-type':
                 d['content_type'] = v[0]
-            
+
             elif kl == 'is-inline':
                 d['is_inline'] = v[0]
-            
+
             elif kl == 'last-modified-date-time':
                 d['last_modified_date_time'] = v[0]
-            
+
             elif kl == 'name':
                 d['name'] = v[0]
-            
+
             elif kl == 'size':
                 d['size'] = v[0]
-            
+
             elif kl == 'id':
                 d['id'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter attachments. All possible keys are: content-type, is-inline, last-modified-date-time, name, size, id'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter attachments. All possible keys are: content-type,'
+                    ' is-inline, last-modified-date-time, name, size, id'.format(k)
+                )
+
+        return d
 
 
 class AddExtensions(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         super(AddExtensions, self).__call__(parser, namespace, action, option_string)
-        
 
     def get_action(self, values, option_string):
         try:
@@ -233,25 +222,22 @@ class AddExtensions(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'id':
                 d['id'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter extensions. All possible keys are: id'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter extensions. All possible keys are: id'.format(k)
+                )
+
+        return d
 
 
 class AddMultiValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         super(AddMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
-        
 
     def get_action(self, values, option_string):
         try:
@@ -265,29 +251,26 @@ class AddMultiValueExtendedProperties(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'value':
                 d['value'] = v
-                
-            
+
             elif kl == 'id':
                 d['id'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter multi-value-extended-properties. All possible keys are: value, id'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter multi-value-extended-properties. All possible keys'
+                    ' are: value, id'.format(k)
+                )
+
+        return d
 
 
 class AddSingleValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         super(AddSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
-        
 
     def get_action(self, values, option_string):
         try:
@@ -301,28 +284,26 @@ class AddSingleValueExtendedProperties(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'value':
                 d['value'] = v[0]
-            
+
             elif kl == 'id':
                 d['id'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter single-value-extended-properties. All possible keys are: value, id'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter single-value-extended-properties. All possible keys'
+                    ' are: value, id'.format(k)
+                )
+
+        return d
 
 
 class AddAddLicenses(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         super(AddAddLicenses, self).__call__(parser, namespace, action, option_string)
-        
 
     def get_action(self, values, option_string):
         try:
@@ -336,29 +317,28 @@ class AddAddLicenses(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'disabled-plans':
                 d['disabled_plans'] = v
-                
-            
+
             elif kl == 'sku-id':
                 d['sku_id'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter add-licenses. All possible keys are: disabled-plans, sku-id'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter add-licenses. All possible keys are: disabled-plans,'
+                    ' sku-id'.format(k)
+                )
+
+        return d
 
 
 class AddUsersOnenoteNotebooksSectiongroupsSectionsPagesCommands(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersOnenoteNotebooksSectiongroupsSectionsPagesCommands, self).__call__(parser, namespace, action, option_string)
-        
+        super(AddUsersOnenoteNotebooksSectiongroupsSectionsPagesCommands, self).__call__(
+            parser, namespace, action, option_string
+        )
 
     def get_action(self, values, option_string):
         try:
@@ -372,34 +352,32 @@ class AddUsersOnenoteNotebooksSectiongroupsSectionsPagesCommands(argparse._Appen
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'action':
                 d['action'] = v[0]
-            
+
             elif kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'position':
                 d['position'] = v[0]
-            
+
             elif kl == 'target':
                 d['target'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, content, position, target'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter commands. All possible keys are: action, content,'
+                    ' position, target'.format(k)
+                )
+
+        return d
 
 
 class AddUsersOnenoteNotebooksSectionsPagesCommands(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         super(AddUsersOnenoteNotebooksSectionsPagesCommands, self).__call__(parser, namespace, action, option_string)
-        
 
     def get_action(self, values, option_string):
         try:
@@ -413,34 +391,32 @@ class AddUsersOnenoteNotebooksSectionsPagesCommands(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'action':
                 d['action'] = v[0]
-            
+
             elif kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'position':
                 d['position'] = v[0]
-            
+
             elif kl == 'target':
                 d['target'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, content, position, target'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter commands. All possible keys are: action, content,'
+                    ' position, target'.format(k)
+                )
+
+        return d
 
 
 class AddUsersOnenotePagesCommands(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         super(AddUsersOnenotePagesCommands, self).__call__(parser, namespace, action, option_string)
-        
 
     def get_action(self, values, option_string):
         try:
@@ -454,34 +430,34 @@ class AddUsersOnenotePagesCommands(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'action':
                 d['action'] = v[0]
-            
+
             elif kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'position':
                 d['position'] = v[0]
-            
+
             elif kl == 'target':
                 d['target'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, content, position, target'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter commands. All possible keys are: action, content,'
+                    ' position, target'.format(k)
+                )
+
+        return d
 
 
 class AddUsersOnenotePagesParentnotebookSectiongroupsSectionsPagesCommands(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersOnenotePagesParentnotebookSectiongroupsSectionsPagesCommands, self).__call__(parser, namespace, action, option_string)
-        
+        super(AddUsersOnenotePagesParentnotebookSectiongroupsSectionsPagesCommands, self).__call__(
+            parser, namespace, action, option_string
+        )
 
     def get_action(self, values, option_string):
         try:
@@ -495,34 +471,34 @@ class AddUsersOnenotePagesParentnotebookSectiongroupsSectionsPagesCommands(argpa
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'action':
                 d['action'] = v[0]
-            
+
             elif kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'position':
                 d['position'] = v[0]
-            
+
             elif kl == 'target':
                 d['target'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, content, position, target'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter commands. All possible keys are: action, content,'
+                    ' position, target'.format(k)
+                )
+
+        return d
 
 
 class AddUsersOnenotePagesParentnotebookSectionsPagesCommands(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersOnenotePagesParentnotebookSectionsPagesCommands, self).__call__(parser, namespace, action, option_string)
-        
+        super(AddUsersOnenotePagesParentnotebookSectionsPagesCommands, self).__call__(
+            parser, namespace, action, option_string
+        )
 
     def get_action(self, values, option_string):
         try:
@@ -536,34 +512,32 @@ class AddUsersOnenotePagesParentnotebookSectionsPagesCommands(argparse._AppendAc
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'action':
                 d['action'] = v[0]
-            
+
             elif kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'position':
                 d['position'] = v[0]
-            
+
             elif kl == 'target':
                 d['target'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, content, position, target'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter commands. All possible keys are: action, content,'
+                    ' position, target'.format(k)
+                )
+
+        return d
 
 
 class AddUsersOnenotePagesParentsectionPagesCommands(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         super(AddUsersOnenotePagesParentsectionPagesCommands, self).__call__(parser, namespace, action, option_string)
-        
 
     def get_action(self, values, option_string):
         try:
@@ -577,34 +551,34 @@ class AddUsersOnenotePagesParentsectionPagesCommands(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'action':
                 d['action'] = v[0]
-            
+
             elif kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'position':
                 d['position'] = v[0]
-            
+
             elif kl == 'target':
                 d['target'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, content, position, target'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter commands. All possible keys are: action, content,'
+                    ' position, target'.format(k)
+                )
+
+        return d
 
 
 class AddUsersOnenoteSectiongroupsParentnotebookSectionsPagesCommands(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersOnenoteSectiongroupsParentnotebookSectionsPagesCommands, self).__call__(parser, namespace, action, option_string)
-        
+        super(AddUsersOnenoteSectiongroupsParentnotebookSectionsPagesCommands, self).__call__(
+            parser, namespace, action, option_string
+        )
 
     def get_action(self, values, option_string):
         try:
@@ -618,34 +592,34 @@ class AddUsersOnenoteSectiongroupsParentnotebookSectionsPagesCommands(argparse._
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'action':
                 d['action'] = v[0]
-            
+
             elif kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'position':
                 d['position'] = v[0]
-            
+
             elif kl == 'target':
                 d['target'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, content, position, target'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter commands. All possible keys are: action, content,'
+                    ' position, target'.format(k)
+                )
+
+        return d
 
 
 class AddUsersOnenoteSectiongroupsSectionsPagesCommands(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddUsersOnenoteSectiongroupsSectionsPagesCommands, self).__call__(parser, namespace, action, option_string)
-        
+        super(AddUsersOnenoteSectiongroupsSectionsPagesCommands, self).__call__(
+            parser, namespace, action, option_string
+        )
 
     def get_action(self, values, option_string):
         try:
@@ -659,34 +633,32 @@ class AddUsersOnenoteSectiongroupsSectionsPagesCommands(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'action':
                 d['action'] = v[0]
-            
+
             elif kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'position':
                 d['position'] = v[0]
-            
+
             elif kl == 'target':
                 d['target'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, content, position, target'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter commands. All possible keys are: action, content,'
+                    ' position, target'.format(k)
+                )
+
+        return d
 
 
 class AddCommands(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         super(AddCommands, self).__call__(parser, namespace, action, option_string)
-        
 
     def get_action(self, values, option_string):
         try:
@@ -700,27 +672,26 @@ class AddCommands(argparse._AppendAction):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'action':
                 d['action'] = v[0]
-            
+
             elif kl == 'content':
                 d['content'] = v[0]
-            
+
             elif kl == 'position':
                 d['position'] = v[0]
-            
+
             elif kl == 'target':
                 d['target'] = v[0]
-            
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter commands. All possible keys are: action, content, position, target'.
-                format(k))
-            
-        
-        return d
 
+            else:
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter commands. All possible keys are: action, content,'
+                    ' position, target'.format(k)
+                )
+
+        return d
 
 
 class AddChatInfo(argparse.Action):
@@ -740,22 +711,20 @@ class AddChatInfo(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'message-id':
                 d['message_id'] = v[0]
-            
+
             elif kl == 'reply-chain-message-id':
                 d['reply_chain_message_id'] = v[0]
-            
+
             elif kl == 'thread-id':
                 d['thread_id'] = v[0]
-            
+
             else:
-                raise CLIError('Unsupported Key {} is provided for parameter chat-info. All possible keys are: message-id, reply-chain-message-id, thread-id'.
-                format(k))
-            
-        
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter chat-info. All possible keys are: message-id,'
+                    ' reply-chain-message-id, thread-id'.format(k)
+                )
+
         return d
-
-

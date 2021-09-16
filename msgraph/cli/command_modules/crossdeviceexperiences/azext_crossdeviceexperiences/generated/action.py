@@ -19,9 +19,6 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-
-
-
 class AddAttribution(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -39,25 +36,23 @@ class AddAttribution(argparse.Action):
         for k in properties:
             kl = k.lower()
             v = properties[k]
-            
-            
+
             if kl == 'add-image-query':
                 d['add_image_query'] = v[0]
-            
+
             elif kl == 'alternate-text':
                 d['alternate_text'] = v[0]
-            
+
             elif kl == 'alternative-text':
                 d['alternative_text'] = v[0]
-            
+
             elif kl == 'icon-url':
                 d['icon_url'] = v[0]
-            
+
             else:
-                raise CLIError('Unsupported Key {} is provided for parameter attribution. All possible keys are: add-image-query, alternate-text, alternative-text, icon-url'.
-                format(k))
-            
-        
+                raise CLIError(
+                    'Unsupported Key {} is provided for parameter attribution. All possible keys are: add-image-query,'
+                    ' alternate-text, alternative-text, icon-url'.format(k)
+                )
+
         return d
-
-

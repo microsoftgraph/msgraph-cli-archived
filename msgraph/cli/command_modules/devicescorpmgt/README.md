@@ -8,20 +8,9 @@ az extension add --name devicescorpmgt
 ```
 
 ### Included Features ###
-#### devicescorpmgt deviceappmanagementdeviceappmanagement ####
-#### devicescorpmgt deviceappmanagement ####
-#### devicescorpmgt deviceappmanagementandroidmanagedappprotection ####
-#### devicescorpmgt deviceappmanagementdefaultmanagedappprotection ####
-#### devicescorpmgt deviceappmanagementiosmanagedappprotection ####
-#### devicescorpmgt deviceappmanagementmanagedapppolicy ####
-#### devicescorpmgt deviceappmanagementmanagedappregistration ####
-#### devicescorpmgt deviceappmanagementmanagedappregistrationsappliedpolicy ####
-#### devicescorpmgt deviceappmanagementmanagedappregistrationsintendedpolicy ####
-#### devicescorpmgt deviceappmanagementmanagedebook ####
-#### devicescorpmgt deviceappmanagementmanagedebooksuserstatesummary ####
-#### devicescorpmgt deviceappmanagementmobileappconfiguration ####
-#### devicescorpmgt deviceappmanagementmobileapp ####
-#### devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration ####
-#### devicescorpmgt deviceappmanagementvpptoken ####
+#### devicescorpmgt applicationsapplication ####
+#### devicescorpmgt application ####
+#### devicescorpmgt group ####
+#### devicescorpmgt serviceprincipalsserviceprincipal ####
+#### devicescorpmgt serviceprincipal ####
 #### devicescorpmgt user ####
-#### devicescorpmgt usersmanageddevice ####
