@@ -58,7 +58,8 @@ $ mgc users user list --query "[?userType=='Member'].{name: displayName, email: 
 ```
 
 #### Extensions
-You can manage extensions using the `extension` command
+You can manage extensions using the `extension` command.
+Currently, beta commands aren't shipped with the CLI and are available as extensions.
 
 To view the list of available extensions, use the `list-available` sub-command
 ```shell
