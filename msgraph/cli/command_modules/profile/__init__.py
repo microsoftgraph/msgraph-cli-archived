@@ -94,6 +94,8 @@ class ProfileCommandsLoader(AzCommandsLoader):
             c.ignore('allow_no_subscriptions')
             c.ignore('environment')
             c.ignore('tenant_access')
+            c.ignore('service_principal')
+            c.ignore('use_cert_sn_issuer')
 
         with self.argument_context('logout') as c:
             c.argument('username',

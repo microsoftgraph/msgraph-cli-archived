@@ -13,12 +13,6 @@ examples:
     - name: Log in interactively.
       text: >
         mgc login
-    - name: Log in with a service principal using client secret. Use -p=secret if the first character of the password is '-'.
-      text: >
-        mgc login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com
-    - name: Log in with a service principal using client certificate.
-      text: >
-        mgc login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p ~/mycertfile.pem --tenant contoso.onmicrosoft.com
     - name: Log in using a VM's system assigned identity
       text: >
         mgc login --identity
