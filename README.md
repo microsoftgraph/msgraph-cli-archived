@@ -57,6 +57,29 @@ You can use the `--query` parameter and the [JMESPath](http://jmespath.org/) que
 $ mgc users user list --query "[?userType=='Member'].{name: displayName, email: mail}" --output table
 ```
 
+#### Extensions
+You can manage extensions using the `extension` command
+
+To view the list of available extensions, use the `list-available` sub-command
+```shell
+$ mgc extension list-available
+```
+
+To add an extension, use the `add` sub-command
+```shell
+$ mgc extension add --name extensionname
+```
+
+To remove an extension, use the `remove` sub-command
+```shell
+$ mgc extension remove --name extensionname
+```
+
+For more help on the extension capabilities, use the command
+```shell
+$ mgc extension --help
+```
+
 ```
 Name                      Email
 ------------------------  -------------------------------------
