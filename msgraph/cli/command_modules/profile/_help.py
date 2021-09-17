@@ -12,22 +12,19 @@ short-summary: Log in to Microsoft Graph.
 examples:
     - name: Log in interactively.
       text: >
-        mg login
-    - name: Log in with user name and password. This doesn't work with Microsoft accounts or accounts that have two-factor authentication enabled. Use -p=secret if the first character of the password is '-'.
-      text: >
-        mg login -u johndoe@contoso.com -p VerySecret
+        mgc login
     - name: Log in with a service principal using client secret. Use -p=secret if the first character of the password is '-'.
       text: >
-        mg login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com
+        mgc login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com
     - name: Log in with a service principal using client certificate.
       text: >
-        mg login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p ~/mycertfile.pem --tenant contoso.onmicrosoft.com
+        mgc login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p ~/mycertfile.pem --tenant contoso.onmicrosoft.com
     - name: Log in using a VM's system assigned identity
       text: >
-        mg login --identity
+        mgc login --identity
     - name: Log in using a VM's user assigned identity. Client or object ids of the service identity also work
       text: >
-        mg login --identity -u /subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID
+        mgc login --identity -u /subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID
 """
 
 helps['account'] = """
