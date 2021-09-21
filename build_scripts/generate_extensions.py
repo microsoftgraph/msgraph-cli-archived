@@ -119,7 +119,7 @@ directive:
     - where:
           group: {file_name}_{version}
       set:
-          group: {file_name}   
+          group: {file_name}
     - where:
           group: {parsed_file_name}-{parsed_file_name}
       set:
