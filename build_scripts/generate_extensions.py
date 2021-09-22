@@ -4,7 +4,7 @@ from os import path
 import subprocess
 
 
-def generate_extension_from_open_api_description(version='v1_0'):
+def generate_extension_from_open_api_description(version):
     open_api_descriptions = get_open_api_descriptions(version)
 
     for item in open_api_descriptions:
@@ -18,12 +18,10 @@ def generate_extension_from_open_api_description(version='v1_0'):
 
         args = [
             'autorest',
-            '--version=3.3.2',
             '--clear-output-folder',
             '--az',
             f'''--input-file={file_path}''',
             f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
-            r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210721.1/autorest-az-1.7.3.tgz''',
         ]
 
         subprocess.run(args, shell=True)
@@ -76,7 +74,7 @@ cli:
 
 def generate_az_config_for(file_name, version):
     parsed_file_name = file_name
-    
+
     extension_mode = 'stable'
     if version == 'beta':
         extension_mode = 'experimental'
@@ -87,6 +85,7 @@ def generate_az_config_for(file_name, version):
     if file_name[-1] == 's':
         parsed_file_name = file_name[:-1]
 
+    name = file_name if version == 'v1_0' else '{}_{}'.format(file_name, version)
     config = f"""
 # CLI
 
@@ -94,7 +93,7 @@ These settings apply only when `--az` is specified on the command line.
 
 ``` yaml $(az)
 az:
-  extensions: {file_name}-{version}
+  extensions: {name}
   package-name: azure-mgmt-{file_name}
   namespace: azure.mgmt.{file_name}
   client-subscription-bound: false
@@ -102,8 +101,8 @@ az:
 
 extension-mode: {extension_mode}
 
-az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
-python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
+az-output-folder: $(azure-cli-extension-folder)/{name}
+python-sdk-output-folder: "$(az-output-folder)/azext_{name}/vendored_sdks/{file_name}"
 
 directive:
     - from: 
@@ -237,5 +236,6 @@ def write_to(file, config):
         f.write(config)
 
 
-# generate_extension_from_open_api_description(version='v1_0')
-generate_extension_from_open_api_description(version='beta')
+if __name__ == '__main__':
+    version = 'v1_0' or sys.argv[1]
+    generate_extension_from_open_api_description(version)
