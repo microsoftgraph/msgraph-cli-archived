@@ -12,7 +12,8 @@ import msgraph.cli.command_modules.profile._help  # pylint: disable=unused-impor
 
 from ._validators import validate_tenant
 
-cloud_resource_types = ["oss-rdbms", "arm", "aad-graph", "ms-graph", "batch", "media", "data-lake"]
+cloud_resource_types = ["oss-rdbms", "arm", "aad-graph",
+                        "ms-graph", "batch", "media", "data-lake"]
 
 
 class ProfileCommandsLoader(AzCommandsLoader):
@@ -27,7 +28,8 @@ class ProfileCommandsLoader(AzCommandsLoader):
         with self.command_group('', profile_custom) as g:
             g.command('login', 'login')
             g.command('logout', 'logout')
-            g.command('self-test', 'check_cli', deprecate_info=g.deprecate(hide=True))
+            g.command('self-test', 'check_cli',
+                      deprecate_info=g.deprecate(hide=True))
 
         # This functionality is meant to support Azure subscription management.
         # with self.command_group('account', profile_custom) as g:
@@ -48,8 +50,7 @@ class ProfileCommandsLoader(AzCommandsLoader):
             c.argument(
                 'password',
                 options_list=['--password', '-p'],
-                help=
-                "Credentials like user password, or for a service principal, provide client secret or a pem file with key and public certificate. Will prompt if not given."
+                help="Credentials like user password, or for a service principal, provide client secret or a pem file with key and public certificate. Will prompt if not given."
             )
             c.argument('service_principal',
                        action='store_true',
@@ -64,8 +65,7 @@ class ProfileCommandsLoader(AzCommandsLoader):
             c.argument(
                 'allow_no_subscriptions',
                 action='store_true',
-                help=
-                "Support access tenants without subscriptions. It's uncommon but useful to run tenant level commands, such as 'az ad'"
+                help="Support access tenants without subscriptions. It's uncommon but useful to run tenant level commands, such as 'az ad'"
             )
             c.ignore('_subscription')  # hide the global subscription parameter
             c.argument('identity',
@@ -80,15 +80,22 @@ class ProfileCommandsLoader(AzCommandsLoader):
             c.argument(
                 'use_device_code',
                 action='store_true',
-                help=
-                "Use CLI's old authentication flow based on device code. CLI will also use this if it can't launch a browser in your behalf, e.g. in remote SSH or Cloud Shell"
+                help="Use CLI's old authentication flow based on device code. CLI will also use this if it can't launch a browser in your behalf, e.g. in remote SSH or Cloud Shell"
             )
             c.argument(
                 'use_cert_sn_issuer',
                 action='store_true',
-                help=
-                'used with a service principal configured with Subject Name and Issuer Authentication in order to support automatic certificate rolls'
+                help='used with a service principal configured with Subject Name and Issuer Authentication in order to support automatic certificate rolls'
             )
+
+            # Hide the following arguments from the user
+            c.ignore('username')
+            c.ignore('password')
+            c.ignore('allow_no_subscriptions')
+            c.ignore('environment')
+            c.ignore('tenant_access')
+            c.ignore('service_principal')
+            c.ignore('use_cert_sn_issuer')
 
         with self.argument_context('logout') as c:
             c.argument('username',
@@ -117,8 +124,7 @@ class ProfileCommandsLoader(AzCommandsLoader):
                 'show_auth_for_sdk',
                 options_list=['--sdk-auth'],
                 action='store_true',
-                help=
-                'Output result to a file compatible with Azure SDK auth. Only applicable when authenticating with a Service Principal.'
+                help='Output result to a file compatible with Azure SDK auth. Only applicable when authenticating with a Service Principal.'
             )
 
         with self.argument_context('account get-access-token') as c:
@@ -130,8 +136,7 @@ class ProfileCommandsLoader(AzCommandsLoader):
             c.argument(
                 'tenant',
                 options_list=['--tenant', '-t'],
-                help=
-                'Tenant ID for which the token is acquired. Only available for user and service principal account, not for MSI or Cloud Shell account'
+                help='Tenant ID for which the token is acquired. Only available for user and service principal account, not for MSI or Cloud Shell account'
             )
 
 
