@@ -159,35 +159,35 @@ directive:
     - where:
           command: (.*)(create-)(.*)
       set:
-          command: $1 $3 create
+          command: $1$3 create
     - where:
           command: (.*)(get-)(.*)
       set:
-          command: $1 $3 get
+          command: $1$3 get
     - where:
           command: (.*)(list-)(.*)
       set:
-          command: $1 $3 list
+          command: $1$3 list
     - where:
           command: (.*)(update-)(.*)
       set:
-          command: $1 $3 update
+          command: $1$3 update
     - where:
           command: (.*)(add-)(.*)
       set:
-          command: $1 $3 add
+          command: $1$3 add
     - where:
           command: (.*)(set-)(.*)
       set:
-          command: $1 $3 set
+          command: $1$3 set
     - where:
           command: (.*)(show-)(.*)
       set:
-          command: $1 $3 show
+          command: $1$3 show
     - where:
           command: (.*)(delete-)(.*)
       set:
-          command: $1 $3 delete
+          command: $1$3 delete
 
 
 modelerfour:
