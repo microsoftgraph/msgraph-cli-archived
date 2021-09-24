@@ -3,11 +3,6 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 # pylint: disable=wrong-import-position
-'''
-Telemetry has been disabled temporarily until when we have the time to make it msgraph-cli specific.
-
-TODO: Enable telemetry
-'''
 import timeit
 # Log the start time
 start_time = timeit.default_timer()
@@ -44,18 +39,18 @@ telemetry.set_application(az_cli, ARGCOMPLETE_ENV_NAME)
 init_finish_time = timeit.default_timer()
 
 try:
-    # telemetry.start()
+    telemetry.start()
 
     exit_code = cli_main(az_cli, sys.argv[1:])
 
     if exit_code == 0:
-        # telemetry.set_success()
+        telemetry.set_success()
         pass
 
     sys.exit(exit_code)
 
 except KeyboardInterrupt:
-    # telemetry.set_user_fault('Keyboard interrupt is captured.')
+    telemetry.set_user_fault('Keyboard interrupt is captured.')
     sys.exit(1)
 except SystemExit as ex:  # some code directly call sys.exit, this is to make sure command metadata is logged
     exit_code = ex.code if ex.code is not None else 1
@@ -104,8 +99,8 @@ finally:
                             err_msg = "Unable to prompt for auto upgrade as no tty available. " \
                                 "Run 'az config set auto-upgrade.prompt=no' to allow auto upgrade with no prompt."
                             logger.warning(err_msg)
-                            # telemetry.set_exception(UnclassifiedUserFault(err_msg),
-                            #                         fault_type='auto-upgrade-failed')
+                            telemetry.set_exception(UnclassifiedUserFault(err_msg),
+                                                    fault_type='auto-upgrade-failed')
                         else:
                             upgrade_exit_code = subprocess.call(
                                 cmd, shell=platform.system() == 'Windows')
@@ -119,14 +114,14 @@ finally:
                     if az_upgrade_run and upgrade_exit_code != 0:
                         err_msg = "Auto upgrade failed with exit code {}".format(exit_code)
                         logger.warning(err_msg)
-                        # telemetry.set_exception(UnclassifiedUserFault(err_msg),
-                        #                         fault_type='auto-upgrade-failed')
+                        telemetry.set_exception(UnclassifiedUserFault(err_msg),
+                                                fault_type='auto-upgrade-failed')
     except IndexError:
         pass
     except Exception as ex:  # pylint: disable=broad-except
         logger.warning("Auto upgrade failed. %s", str(ex))
-        # telemetry.set_exception(ex, fault_type='auto-upgrade-failed')
+        telemetry.set_exception(ex, fault_type='auto-upgrade-failed')
 
-    # telemetry.set_init_time_elapsed("{:.6f}".format(init_finish_time - start_time))
-    # telemetry.set_invoke_time_elapsed("{:.6f}".format(invoke_finish_time - init_finish_time))
-    # telemetry.conclude()
+    telemetry.set_init_time_elapsed("{:.6f}".format(init_finish_time - start_time))
+    telemetry.set_invoke_time_elapsed("{:.6f}".format(invoke_finish_time - init_finish_time))
+    telemetry.conclude()
