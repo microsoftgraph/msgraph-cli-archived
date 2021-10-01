@@ -12,22 +12,22 @@ def generate_extension_from_open_api_description(version):
         file_name, file_path = item
         file_name = remove_file_extension_and_group(file_name)
 
-        if file_name == 'applications':
-            # Config files are used to modify generated extensions
-            generate_az_config_for(file_name, version)
-            generate_cli_config_for(file_name, version)
-            generate_python_config_for(file_name)
+        update_operationId(file_path)
+        # Config files are used to modify generated extensions
+        generate_az_config_for(file_name, version)
+        generate_cli_config_for(file_name, version)
+        generate_python_config_for(file_name)
 
-            args = [
-                'autorest',
-                '--version=3.3.2',
-                '--clear-output-folder',
-                '--az',
-                f'''--input-file={file_path}''',
-                f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
-            ]
+        args = [
+            'autorest',
+            '--version=3.3.2',
+            '--clear-output-folder',
+            '--az',
+            f'''--input-file={file_path}''',
+            f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
+        ]
 
-            subprocess.run(args, shell=True)
+        subprocess.run(args, shell=True)
 
 
 def get_open_api_descriptions(version: str):
@@ -41,6 +41,31 @@ def get_open_api_descriptions(version: str):
         result.append(file_and_path)
 
     return result
+
+
+def update_operationId(file: str):
+    data = None
+
+    with open(file, 'r') as f:
+        data = load(f.read(), Loader=FullLoader)
+        for path in data['paths']:
+            verbs = data['paths'][path].keys()
+
+            for verb in verbs:
+                op_id = data['paths'][path][verb]['operationId']
+                command_group, action = op_id.split('_')
+
+                if '.' in command_group:
+
+                    # singularize
+                    entity_set, entity_type = command_group.split('.')
+                    if entity_set == (entity_type + 's'):
+                        command_group = entity_type
+
+                data['paths'][path][verb]['operationId'] = '{}_{}'.format(command_group, action)
+
+    with open(file, 'w+') as f:
+        f.write(dump(data))
 
 
 def remove_file_extension_and_group(file_name):
