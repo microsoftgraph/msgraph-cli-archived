@@ -57,7 +57,11 @@ def update_operationId(file: str):
                 command_group, action = op_id.split('_')
 
                 if '.' in command_group:
-                    command_group = command_group.split('.')[1]
+
+                    # singularize
+                    x, y = command_group.split('.')
+                    if x == (y + 's'):
+                        command_group = y
 
                 data['paths'][path][verb]['operationId'] = '{}_{}'.format(command_group, action)
 
