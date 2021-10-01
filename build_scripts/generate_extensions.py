@@ -58,7 +58,7 @@ def update_operationId(file: str):
                 if '.' in command_group:
 
                     # singularize
-                    entity_set, entity_type = command_group.split('.')
+                    entity_set, entity_type = command_group.split('.')[:2]
                     if entity_set == (entity_type + 's'):
                         command_group = entity_type
 
