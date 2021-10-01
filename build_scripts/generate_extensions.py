@@ -13,7 +13,6 @@ def generate_extension_from_open_api_description(version):
         file_name = remove_file_extension_and_group(file_name)
 
         if file_name == 'applications':
-            update_operationId(file_path)
             # Config files are used to modify generated extensions
             generate_az_config_for(file_name, version)
             generate_cli_config_for(file_name, version)
@@ -42,31 +41,6 @@ def get_open_api_descriptions(version: str):
         result.append(file_and_path)
 
     return result
-
-
-def update_operationId(file: str):
-    data = None
-
-    with open(file, 'r') as f:
-        data = load(f.read(), Loader=FullLoader)
-        for path in data['paths']:
-            verbs = data['paths'][path].keys()
-
-            for verb in verbs:
-                op_id = data['paths'][path][verb]['operationId']
-                command_group, action = op_id.split('_')
-
-                if '.' in command_group:
-
-                    # singularize
-                    x, y = command_group.split('.')
-                    if x == (y + 's'):
-                        command_group = y
-
-                data['paths'][path][verb]['operationId'] = '{}_{}'.format(command_group, action)
-
-    with open(file, 'w+') as f:
-        f.write(dump(data))
 
 
 def remove_file_extension_and_group(file_name):
