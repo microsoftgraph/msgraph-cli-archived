@@ -149,41 +149,13 @@ directive:
       set:
           group: {file_name}
     - where:
-          command: (.*)(create-)(.*)
+          group: {parsed_file_name}-{parsed_file_name}
       set:
-          command: $1$3 create
+          group: {parsed_file_name}
     - where:
-          command: (.*)(get-)(.*)
+          command: (.*)(?:(create|get|list|update|add|set|show|delete)-)(.*)
       set:
-          command: $1$3 get
-    - where:
-          command: (.*)(list-)(.*)
-      set:
-          command: $1$3 list
-    - where:
-          command: (.*)(update-)(.*)
-      set:
-          command: $1$3 update
-    - where:
-          command: (.*)(show-)(.*)
-      set:
-          command: $1$3 show
-    - where:
-          command: (.*)(delete-)(.*)
-      set:
-          command: $1$3 delete
-    - where:
-          command: (.*)(add-)(.*)
-      set:
-          command: $1$3 add
-    - where:
-          command: (.*)(remove-)(.*)
-      set:
-          command: $1$3 remove
-    - where:
-          command: (.*)(set-)(.*)
-      set:
-          command: $1$3 set
+          command: $1 $3 $2
 
 
 modelerfour:
