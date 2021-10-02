@@ -154,7 +154,7 @@ directive:
     - where:
           command: (.*)(?:(create|get|list|update|add|set|show|delete)-)(.*)
       set:
-          command: $1 $3 $2
+          command: $1$3 $2
 
 
 modelerfour:
