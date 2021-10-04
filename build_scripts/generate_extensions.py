@@ -2,15 +2,17 @@ import os
 import sys
 from os import path
 import subprocess
+from yaml import FullLoader, load, dump
 
 
-def generate_extension_from_open_api_description(version='v1_0'):
+def generate_extension_from_open_api_description(version):
     open_api_descriptions = get_open_api_descriptions(version)
 
     for item in open_api_descriptions:
         file_name, file_path = item
         file_name = remove_file_extension_and_group(file_name)
 
+        update_operationId(file_path)
         # Config files are used to modify generated extensions
         generate_az_config_for(file_name, version)
         generate_cli_config_for(file_name, version)
@@ -23,7 +25,6 @@ def generate_extension_from_open_api_description(version='v1_0'):
             '--az',
             f'''--input-file={file_path}''',
             f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
-            r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210721.1/autorest-az-1.7.3.tgz''',
         ]
 
         subprocess.run(args, shell=True)
@@ -40,6 +41,31 @@ def get_open_api_descriptions(version: str):
         result.append(file_and_path)
 
     return result
+
+
+def update_operationId(file: str):
+    data = None
+
+    with open(file, 'r') as f:
+        data = load(f.read(), Loader=FullLoader)
+        for path in data['paths']:
+            verbs = data['paths'][path].keys()
+
+            for verb in verbs:
+                op_id = data['paths'][path][verb]['operationId']
+                command_group, action = op_id.split('_')
+
+                if '.' in command_group:
+
+                    # singularize
+                    entity_set, entity_type = command_group.split('.')[:2]
+                    if entity_set == (entity_type + 's'):
+                        command_group = entity_type
+
+                data['paths'][path][verb]['operationId'] = '{}_{}'.format(command_group, action)
+
+    with open(file, 'w+') as f:
+        f.write(dump(data))
 
 
 def remove_file_extension_and_group(file_name):
@@ -76,7 +102,7 @@ cli:
 
 def generate_az_config_for(file_name, version):
     parsed_file_name = file_name
-    
+
     extension_mode = 'stable'
     if version == 'beta':
         extension_mode = 'experimental'
@@ -87,6 +113,7 @@ def generate_az_config_for(file_name, version):
     if file_name[-1] == 's':
         parsed_file_name = file_name[:-1]
 
+    name = file_name if version == 'v1_0' else '{}_{}'.format(file_name, version)
     config = f"""
 # CLI
 
@@ -94,7 +121,7 @@ These settings apply only when `--az` is specified on the command line.
 
 ``` yaml $(az)
 az:
-  extensions: {file_name}-{version}
+  extensions: {name}
   package-name: azure-mgmt-{file_name}
   namespace: azure.mgmt.{file_name}
   client-subscription-bound: false
@@ -102,8 +129,8 @@ az:
 
 extension-mode: {extension_mode}
 
-az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
-python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
+az-output-folder: $(azure-cli-extension-folder)/{name}
+python-sdk-output-folder: "$(az-output-folder)/azext_{name}/vendored_sdks/{file_name}"
 
 directive:
     - from: 
@@ -125,21 +152,10 @@ directive:
       set:
           group: {parsed_file_name}
     - where:
-          command: {file_name} {parsed_file_name} create-{parsed_file_name}
+          command: (.*)(?:(create|get|list|update|add|set|show|delete)-)(.*)
       set:
-          command: {file_name} {parsed_file_name} create
-    - where:
-          command: {file_name} {parsed_file_name} get-{parsed_file_name}
-      set:
-          command: {file_name} {parsed_file_name} get
-    - where:
-          command: {file_name} {parsed_file_name} list-{parsed_file_name}
-      set:
-          command: {file_name} {parsed_file_name} list
-    - where:
-          command: {file_name} {parsed_file_name} update-{parsed_file_name}
-      set:
-          command: {file_name} {parsed_file_name} update
+          command: $1$3 $2
+
 
 modelerfour:
     lenient-model-deduplication: true
@@ -188,5 +204,6 @@ def write_to(file, config):
         f.write(config)
 
 
-# generate_extension_from_open_api_description(version='v1_0')
-generate_extension_from_open_api_description(version='beta')
+if __name__ == '__main__':
+    version = 'v1_0' or sys.argv[1]
+    generate_extension_from_open_api_description(version)
