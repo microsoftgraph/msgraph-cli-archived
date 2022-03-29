@@ -1,3 +1,5 @@
+This repository has been archived. The Microsoft Graph CLI is now being developed here: https://github.com/microsoftgraph/msgraph-cli.
+
 # Microsoft Graph CLI
 
 It is said that imitation is the sincerest form of flattery and if you are familiar with the Azure CLI, you can tell we are fans. The Microsoft Graph CLI leverages the same tool chain that is used to build the Azure CLI, but instead brings the entire surface area of Microsoft Graph to your command shell.
